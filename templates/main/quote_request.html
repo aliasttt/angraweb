@@ -1,72 +1,104 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}درخواست قیمت | Angraweb.com{% endblock %}
+{% block title %}{% trans "Get Quote" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">درخواست قیمت</span>
+            <span class="text-gradient">{% trans "Get Quote" %}</span>
         </h1>
+        <p class="hero-subtitle mt-3">
+            {% trans "Tell us about your project and receive a detailed proposal (scope, timeline, price)." %}
+        </p>
     </div>
 </section>
 
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-lg-10 mx-auto">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-5">
+                        <div class="service-card text-start">
+                            <h3 class="mb-3">{% trans "Typical price ranges" %}</h3>
+                            <ul class="mb-3" style="color:#b2bec3; line-height:1.8;">
+                                <li><strong>{% trans "Corporate website" %}:</strong> 8,000–25,000 TL</li>
+                                <li><strong>{% trans "E‑commerce" %}:</strong> 25,000–120,000 TL</li>
+                                <li><strong>{% trans "Mobile app" %}:</strong> 60,000–350,000 TL</li>
+                                <li><strong>{% trans "Custom software / platform" %}:</strong> 80,000 TL+</li>
+                            </ul>
+                            <p class="mb-0" style="color:#b2bec3;">
+                                {% trans "Final pricing depends on scope, integrations, content, multi‑language, admin needs and delivery time." %}
+                            </p>
+                        </div>
+
+                        <div class="service-card text-start mt-4">
+                            <h3 class="mb-3">{% trans "What happens next?" %}</h3>
+                            <ol class="mb-0" style="color:#b2bec3; line-height:1.9;">
+                                <li>{% trans "We review your request within 24 hours." %}</li>
+                                <li>{% trans "We send clarifying questions (if needed)." %}</li>
+                                <li>{% trans "You receive a proposal: scope + timeline + price + milestones." %}</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
                 <div class="contact-form">
                     <form method="POST">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">نام</label>
+                                <label class="form-label">{% trans "Name" %}</label>
                                 {{ form.name }}
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">ایمیل</label>
+                                <label class="form-label">{% trans "Email" %}</label>
                                 {{ form.email }}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">تلفن</label>
+                                <label class="form-label">{% trans "Phone" %}</label>
                                 {{ form.phone }}
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">شرکت (اختیاری)</label>
+                                <label class="form-label">{% trans "Company (optional)" %}</label>
                                 {{ form.company }}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">نوع خدمت</label>
+                                <label class="form-label">{% trans "Service type" %}</label>
                                 {{ form.service_type }}
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">نوع پکیج</label>
+                                <label class="form-label">{% trans "Package (optional)" %}</label>
                                 {{ form.package_type }}
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">توضیحات پروژه</label>
+                            <label class="form-label">{% trans "Project details" %}</label>
                             {{ form.description }}
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">بودجه (اختیاری)</label>
+                                <label class="form-label">{% trans "Budget (optional)" %}</label>
                                 {{ form.budget }}
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">مهلت (اختیاری)</label>
+                                <label class="form-label">{% trans "Deadline (optional)" %}</label>
                                 {{ form.deadline }}
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">ارسال درخواست</button>
+                            <button type="submit" class="btn btn-primary btn-lg">{% trans "Submit request" %}</button>
                         </div>
                     </form>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>

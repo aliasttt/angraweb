@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}سئو و بهینه‌سازی | Angraweb.com{% endblock %}
+{% block title %}{% trans "SEO & Optimization" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">سئو و بهینه‌سازی</span>
+            <span class="text-gradient">{% trans "SEO & Search Engine Optimization" %}</span>
         </h1>
+        <p class="hero-subtitle mt-3">{% trans "Rank higher on Google and drive organic traffic" %}</p>
     </div>
 </section>
 
@@ -17,16 +19,69 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="about-content">
-                    <h2>خدمات سئو و بهینه‌سازی</h2>
-                    <p>ما وبسایت شما را برای موتورهای جستجو بهینه می‌کنیم تا در نتایج جستجو رتبه بهتری داشته باشید.</p>
+                    <h2>{% trans "SEO services" %}</h2>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "We optimize your website for search engines so you rank higher on Google and attract more organic visitors. Our SEO strategy covers technical optimization, content strategy, keyword research, and ongoing monitoring to improve your visibility over time." %}
+                    </p>
+                    
+                    <h3 class="mt-4">{% trans "What you get" %}</h3>
+                    <ul style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "Technical SEO: site speed, mobile-friendliness, structured data (schema), XML sitemap, robots.txt" %}</li>
+                        <li>{% trans "On-page optimization: meta titles/descriptions, header tags (H1-H6), alt text for images, internal linking" %}</li>
+                        <li>{% trans "Keyword research: target keywords, search volume, competition analysis, content gaps" %}</li>
+                        <li>{% trans "Content strategy: blog posts, service pages, landing pages optimized for target keywords" %}</li>
+                        <li>{% trans "Local SEO (if applicable): Google Business Profile, local citations, location pages" %}</li>
+                        <li>{% trans "Link building: outreach, guest posts, directory submissions (ethical practices)" %}</li>
+                        <li>{% trans "Analytics & reporting: Google Search Console, Google Analytics, monthly performance reports" %}</li>
+                    </ul>
+
+                    <h3 class="mt-4">{% trans "Process" %}</h3>
+                    <ol style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "SEO audit: current rankings, technical issues, competitor analysis, keyword opportunities" %}</li>
+                        <li>{% trans "Technical fixes: speed optimization, mobile responsiveness, schema markup, site structure" %}</li>
+                        <li>{% trans "Content optimization: update existing pages, create new content, optimize for keywords" %}</li>
+                        <li>{% trans "Link building: identify opportunities, outreach, build quality backlinks" %}</li>
+                        <li>{% trans "Monitoring: track rankings, traffic, conversions, monthly reports and adjustments" %}</li>
+                    </ol>
+
+                    <h3 class="mt-4">{% trans "What we measure" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "Keyword rankings, organic traffic growth, click-through rate (CTR), bounce rate, conversion rate, page load speed, Core Web Vitals, backlink profile quality." %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "Timeline & expectations" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "SEO is a long-term strategy. Initial technical fixes show results in 2-4 weeks. Ranking improvements typically take 3-6 months. Content and link building require ongoing effort. We provide monthly reports and adjust strategy based on performance." %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "Pricing (guideline)" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "One-time SEO audit: 5,000-10,000 TL · Monthly SEO packages: 8,000-25,000 TL/month (depending on scope: content creation, link building, reporting). Custom packages available for enterprise clients." %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "FAQ" %}</h3>
+                    <div style="color:#b2bec3; line-height:1.9;">
+                        <p><strong>{% trans "Q: How long until I see results?" %}</strong><br>
+                        {% trans "A: Technical improvements show in 2-4 weeks. Ranking improvements typically take 3-6 months. SEO is a long-term investment." %}</p>
+                        
+                        <p><strong>{% trans "Q: Do you guarantee #1 ranking?" %}</strong><br>
+                        {% trans "A: No ethical SEO service guarantees #1 rankings. We focus on improving your visibility, traffic, and conversions through proven strategies." %}</p>
+                        
+                        <p><strong>{% trans "Q: What if my website is new?" %}</strong><br>
+                        {% trans "A: New websites need technical SEO, quality content, and time to build authority. We'll create a foundation and help you grow organically." %}</p>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="service-card">
-                    <h3>درخواست قیمت</h3>
+                    <h3>{% trans "Get Quote" %}</h3>
                     <a href="{% url 'quote_request' %}?service=seo" class="btn btn-primary btn-lg w-100 mt-3">
-                        دریافت قیمت
+                        {% trans "Get Quote" %}
                     </a>
+                    <div class="mt-3" style="color:#b2bec3; line-height:1.8;">
+                        <div><strong>{% trans "Audit" %}:</strong> 5,000-10,000 TL</div>
+                        <div><strong>{% trans "Monthly" %}:</strong> 8,000+ TL</div>
+                    </div>
                 </div>
             </div>
         </div>

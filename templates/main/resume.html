@@ -52,9 +52,52 @@
                             </div>
                         </div>
                         {% empty %}
-                        <div class="certificate-placeholder">
-                            <i class="fas fa-image"></i>
-                            <p>هیچ گواهینامه‌ای یافت نشد.</p>
+                        <div class="row g-3">
+                            <div class="col-6 col-md-4">
+                                <a href="{% static 'certificates/python_harvard.png' %}" target="_blank" class="d-block text-decoration-none">
+                                    <div class="certificate-item">
+                                        <div class="certificate-image-container">
+                                            <img src="{% static 'certificates/python_harvard.png' %}" alt="Python Harvard" class="certificate-image">
+                                        </div>
+                                        <div class="certificate-content p-3">
+                                            <h5 class="mb-0">Python (Harvard)</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <a href="{% static 'certificates/google_ads_search.jpg' %}" target="_blank" class="d-block text-decoration-none">
+                                    <div class="certificate-item">
+                                        <div class="certificate-image-container">
+                                            <img src="{% static 'certificates/google_ads_search.jpg' %}" alt="Google Ads Search" class="certificate-image">
+                                        </div>
+                                        <div class="certificate-content p-3">
+                                            <h5 class="mb-0">Google Ads Search</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <a href="{% static 'certificates/google_analytics.jpg' %}" target="_blank" class="d-block text-decoration-none">
+                                    <div class="certificate-item">
+                                        <div class="certificate-image-container">
+                                            <img src="{% static 'certificates/google_analytics.jpg' %}" alt="Google Analytics" class="certificate-image">
+                                        </div>
+                                        <div class="certificate-content p-3">
+                                            <h5 class="mb-0">Google Analytics</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12">
+                                <div class="resume-section mt-4">
+                                    <h3><i class="fas fa-file-pdf"></i> PDF</h3>
+                                    <p class="mb-3">Marmara Üniversitesi sertifikası PDF olarak:</p>
+                                    <a class="btn btn-primary" href="{% static 'certificates/marmara_sertification.pdf' %}" target="_blank" rel="noopener">
+                                        <i class="fas fa-download"></i> PDF'yi Aç / İndir
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         {% endfor %}
                     </div>

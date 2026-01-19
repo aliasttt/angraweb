@@ -9,7 +9,7 @@ from django.views.decorators.http import require_http_methods
 from django.utils import translation
 from .models import (
     Service, Package, Project, ProjectVideo, Certificate,
-    ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting
+    ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember
 )
 from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm
 
@@ -221,6 +221,16 @@ def resume(request):
     return render(request, 'main/resume.html', context)
 
 
+def team(request):
+    """صفحه تیم"""
+    team_members = TeamMember.objects.filter(active=True).order_by('order', 'created_at')
+    context = {
+        'team_members': team_members,
+    }
+    context.update(get_language_context(request))
+    return render(request, 'main/team.html', context)
+
+
 def contact(request):
     """صفحه تماس"""
     if request.method == 'POST':
@@ -362,13 +372,26 @@ def user_logout(request):
 
 def set_language(request, lang_code):
     """تغییر زبان"""
-    from django.utils import translation
     from django.conf import settings
+    from django.utils import translation
+    from django.urls import translate_url
     
     if lang_code in ['tr', 'en', 'fa', 'ar']:
         translation.activate(lang_code)
-        request.session[translation.LANGUAGE_SESSION_KEY] = lang_code
-        response = redirect(request.META.get('HTTP_REFERER', '/'))
+        # Django 5.x: LANGUAGE_SESSION_KEY constant is not exposed; session key is 'django_language'
+        if hasattr(request, "session"):
+            request.session["django_language"] = lang_code
+        # Also set on the request so templates can pick it up immediately
+        request.LANGUAGE_CODE = lang_code
+
+        # Redirect back to the same page but in the requested language
+        referer = request.META.get('HTTP_REFERER')
+        next_url = request.GET.get('next') or referer or '/'
+        try:
+            next_url = translate_url(next_url, lang_code) or next_url
+        except Exception:
+            pass
+        response = redirect(next_url)
         response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
         return response
     return redirect('index')

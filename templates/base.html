@@ -39,6 +39,10 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
+    <script>
+      // Provide STATIC_URL to JS for dynamic asset URLs (certificates/photos)
+      window.STATIC_URL = "{% get_static_prefix %}";
+    </script>
     <!-- Background Animation -->
     <div class="space-background">
         <div class="stars"></div>
@@ -111,6 +115,9 @@
                         <a class="nav-link {% if request.resolver_match.url_name == 'resume' %}active{% endif %}" href="{% url 'resume' %}">{% trans "Resume" %}</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'team' %}active{% endif %}" href="{% url 'team' %}">{% trans "Team" %}</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">{% trans "Contact" %}</a>
                     </li>
                     {% if user.is_authenticated %}
@@ -123,6 +130,9 @@
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
                     </li>
                     {% endif %}
                     <li class="nav-item dropdown">

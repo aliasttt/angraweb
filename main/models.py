@@ -233,6 +233,50 @@ class Certificate(models.Model):
         return self.title
 
 
+class TeamMember(models.Model):
+    """اعضای تیم (برای صفحه تیم)"""
+    ROLE_CHOICES = [
+        ('pm', 'Project Manager'),
+        ('backend', 'Backend Developer'),
+        ('frontend', 'Frontend Developer'),
+        ('mobile', 'Mobile Developer'),
+        ('uiux', 'UI/UX Designer'),
+        ('qa', 'QA Engineer'),
+        ('seo', 'SEO Specialist'),
+        ('devops', 'DevOps Engineer'),
+        ('other', 'Other'),
+    ]
+
+    full_name = models.CharField(max_length=200, verbose_name='نام و نام خانوادگی')
+    role = models.CharField(max_length=50, choices=ROLE_CHOICES, default='other', verbose_name='نقش')
+
+    headline = models.CharField(max_length=250, blank=True, verbose_name='تیتر کوتاه')
+    bio = models.TextField(blank=True, verbose_name='بیوگرافی')
+
+    photo = models.ImageField(upload_to='team/', blank=True, null=True, verbose_name='عکس')
+
+    # Optional links
+    linkedin_url = models.URLField(blank=True, verbose_name='LinkedIn')
+    github_url = models.URLField(blank=True, verbose_name='GitHub')
+    website_url = models.URLField(blank=True, verbose_name='Website')
+
+    skills = models.CharField(max_length=500, blank=True, verbose_name='مهارت‌ها (با کاما جدا کنید)')
+    years_experience = models.PositiveIntegerField(default=0, verbose_name='سال تجربه')
+
+    order = models.IntegerField(default=0, verbose_name='ترتیب نمایش')
+    active = models.BooleanField(default=True, verbose_name='فعال')
+
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')
+
+    class Meta:
+        verbose_name = 'عضو تیم'
+        verbose_name_plural = 'اعضای تیم'
+        ordering = ['order', 'created_at']
+
+    def __str__(self):
+        return self.full_name
+
+
 class ContactMessage(models.Model):
     """مدل برای پیام‌های تماس"""
     STATUS_CHOICES = [

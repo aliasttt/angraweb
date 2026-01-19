@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}طراحی اپلیکیشن موبایل | Angraweb.com{% endblock %}
+{% block title %}{% trans "Mobile App Design" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">طراحی اپلیکیشن موبایل</span>
+            <span class="text-gradient">{% trans "Mobile App Design" %}</span>
         </h1>
-        <p class="hero-subtitle mt-3">اپلیکیشن‌های iOS و Android</p>
+        <p class="hero-subtitle mt-3">{% trans "iOS & Android apps with great UX and reliable backend" %}</p>
     </div>
 </section>
 
@@ -18,25 +19,46 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="about-content">
-                    <h2>خدمات طراحی اپلیکیشن موبایل</h2>
-                    <p>ما اپلیکیشن‌های موبایل حرفه‌ای برای iOS و Android طراحی و توسعه می‌دهیم.</p>
+                    <h2>{% trans "Mobile application development" %}</h2>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "We build mobile apps that feel premium: smooth UI, fast performance, secure authentication, and a scalable backend. Whether you need an MVP or a full product, we deliver with clear milestones and professional documentation." %}
+                    </p>
                     
-                    <h3 class="mt-4">ویژگی‌های اپلیکیشن‌های ما:</h3>
-                    <ul>
-                        <li>طراحی برای iOS و Android</li>
-                        <li>رابط کاربری مدرن و جذاب</li>
-                        <li>عملکرد سریع و بهینه</li>
-                        <li>امنیت بالا</li>
-                        <li>پشتیبانی و به‌روزرسانی</li>
+                    <h3 class="mt-4">{% trans "What you get" %}</h3>
+                    <ul style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "Modern UI/UX (Figma → app) with consistent components" %}</li>
+                        <li>{% trans "Authentication, profiles, roles, and admin workflows" %}</li>
+                        <li>{% trans "Push notifications, deep links, analytics (optional)" %}</li>
+                        <li>{% trans "Backend API + database (Django) + admin panel" %}</li>
+                        <li>{% trans "Security: input validation, rate limiting basics, safe storage" %}</li>
+                        <li>{% trans "Testing + release checklist + post‑launch support" %}</li>
                     </ul>
+
+                    <h3 class="mt-4">{% trans "Process" %}</h3>
+                    <ol style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "Product scope & MVP definition" %}</li>
+                        <li>{% trans "UI/UX design + clickable prototype" %}</li>
+                        <li>{% trans "Development: app + backend + admin panel" %}</li>
+                        <li>{% trans "QA: devices, performance, security basics" %}</li>
+                        <li>{% trans "Release: store preparation and deployment" %}</li>
+                    </ol>
+
+                    <h3 class="mt-4">{% trans "Pricing (guideline)" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "MVP mobile apps typically start from 60,000 TL. Larger apps with payments, chat, maps, multiple roles or complex integrations are quoted after review." %}
+                    </p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="service-card">
-                    <h3>درخواست قیمت</h3>
+                    <h3>{% trans "Get Quote" %}</h3>
                     <a href="{% url 'quote_request' %}?service=mobile_app" class="btn btn-primary btn-lg w-100 mt-3">
-                        دریافت قیمت
+                        {% trans "Get Quote" %}
                     </a>
+                    <div class="mt-3" style="color:#b2bec3; line-height:1.8;">
+                        <div><strong>{% trans "Starting from" %}:</strong> 60,000 TL</div>
+                        <div><strong>{% trans "Deliverables" %}:</strong> {% trans "app + backend + admin" %}</div>
+                    </div>
                 </div>
             </div>
         </div>

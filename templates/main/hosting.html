@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}هاستینگ و دامنه | Angraweb.com{% endblock %}
+{% block title %}{% trans "Hosting & Domain" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">هاستینگ و دامنه</span>
+            <span class="text-gradient">{% trans "Hosting & Domain Services" %}</span>
         </h1>
+        <p class="hero-subtitle mt-3">{% trans "Reliable hosting, SSL certificates, and domain management" %}</p>
     </div>
 </section>
 
@@ -17,16 +19,75 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="about-content">
-                    <h2>خدمات هاستینگ و دامنه</h2>
-                    <p>ما خدمات هاستینگ و دامنه با کیفیت بالا ارائه می‌دهیم.</p>
+                    <h2>{% trans "Hosting and domain services" %}</h2>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "We provide reliable web hosting, SSL certificates, domain registration, and server management. Whether you need shared hosting for a small site or dedicated servers for high-traffic applications, we offer solutions that keep your website fast, secure, and online 24/7." %}
+                    </p>
+                    
+                    <h3 class="mt-4">{% trans "What you get" %}</h3>
+                    <ul style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "Web hosting: shared, VPS, or dedicated servers based on your needs" %}</li>
+                        <li>{% trans "SSL certificates: free Let's Encrypt or premium SSL for secure HTTPS" %}</li>
+                        <li>{% trans "Domain registration: .com, .net, .org, .tr, and country-specific domains" %}</li>
+                        <li>{% trans "Email hosting: professional email accounts (@yourdomain.com)" %}</li>
+                        <li>{% trans "Backup solutions: automated daily/weekly backups, easy restore" %}</li>
+                        <li>{% trans "Server management: updates, security patches, performance monitoring" %}</li>
+                        <li>{% trans "Support: 24/7 technical support, migration assistance, troubleshooting" %}</li>
+                    </ul>
+
+                    <h3 class="mt-4">{% trans "Hosting types" %}</h3>
+                    <div style="color:#b2bec3; line-height:1.9;">
+                        <p><strong>{% trans "Shared Hosting" %}</strong><br>
+                        {% trans "Ideal for small websites, blogs, and low-traffic sites. Cost-effective, easy to manage, includes cPanel. Starting from 500 TL/year." %}</p>
+                        
+                        <p><strong>{% trans "VPS (Virtual Private Server)" %}</strong><br>
+                        {% trans "More control and resources for growing websites. Root access, scalable resources. Starting from 2,000 TL/year." %}</p>
+                        
+                        <p><strong>{% trans "Dedicated Server" %}</strong><br>
+                        {% trans "Full server control for high-traffic sites and applications. Maximum performance and security. Custom pricing." %}</p>
+                        
+                        <p><strong>{% trans "Cloud Hosting" %}</strong><br>
+                        {% trans "Scalable cloud infrastructure (AWS, DigitalOcean, etc.). Pay-as-you-go, auto-scaling. Ideal for apps with variable traffic." %}</p>
+                    </div>
+
+                    <h3 class="mt-4">{% trans "Domain services" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "Domain registration (.com, .net, .org, .tr, etc.), domain transfer, DNS management, domain privacy protection, subdomain setup." %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "Security & backups" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "SSL certificates (free Let's Encrypt or premium), automated backups (daily/weekly), malware scanning, DDoS protection basics, firewall configuration." %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "Pricing (guideline)" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "Shared hosting: 500-1,500 TL/year · VPS: 2,000-8,000 TL/year · Domain registration: 100-500 TL/year (varies by TLD) · SSL certificate: Free (Let's Encrypt) or 500-2,000 TL/year (premium). Server management and migration services quoted separately." %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "FAQ" %}</h3>
+                    <div style="color:#b2bec3; line-height:1.9;">
+                        <p><strong>{% trans "Q: Can you migrate my existing website?" %}</strong><br>
+                        {% trans "A: Yes, we handle website migrations: files, databases, email accounts, DNS configuration. We ensure zero downtime during migration." %}</p>
+                        
+                        <p><strong>{% trans "Q: Do you provide email hosting?" %}</strong><br>
+                        {% trans "A: Yes, we offer professional email hosting with your domain (@yourdomain.com). Includes webmail, IMAP/POP3, spam filtering." %}</p>
+                        
+                        <p><strong>{% trans "Q: What if my site goes down?" %}</strong><br>
+                        {% trans "A: We monitor uptime and respond to issues quickly. Our hosting includes 99.9% uptime SLA. Support tickets are answered within 24 hours (usually faster)." %}</p>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="service-card">
-                    <h3>درخواست قیمت</h3>
+                    <h3>{% trans "Get Quote" %}</h3>
                     <a href="{% url 'quote_request' %}?service=hosting" class="btn btn-primary btn-lg w-100 mt-3">
-                        دریافت قیمت
+                        {% trans "Get Quote" %}
                     </a>
+                    <div class="mt-3" style="color:#b2bec3; line-height:1.8;">
+                        <div><strong>{% trans "Shared" %}:</strong> 500+ TL/year</div>
+                        <div><strong>{% trans "VPS" %}:</strong> 2,000+ TL/year</div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,20 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Hizmetlerimiz - Profesyonel Web Tasarım Hizmetleri | Angraweb.com{% endblock %}
+{% block title %}{% trans "Our Services" %} - {% trans "Professional Web Design Services" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">My Services</span>
+            <span class="text-gradient">{% trans "Our Services" %}</span>
         </h1>
-        <p class="hero-subtitle mt-3">Profesyonel Web Tasarım ve Dijital Çözümler</p>
+        <p class="hero-subtitle mt-3">{% trans "Professional Web Design and Digital Solutions" %}</p>
     </div>
 </section>
 
 <section id="services" class="section">
     <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <p class="text-center" style="color:#b2bec3; line-height:1.9; max-width:800px; margin:0 auto;">
+                    {% trans "We offer comprehensive web design, development, and digital marketing services to help your business grow online. From custom websites to mobile apps, e-commerce stores, and SEO optimization, we deliver solutions that drive results." %}
+                </p>
+            </div>
+        </div>
         <div class="row d-flex flex-wrap">
             {% for service in services %}
             <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
@@ -23,19 +31,31 @@
                         <i class="{{ service.icon }}"></i>
                     </div>
                     <h3>{{ service.title }}</h3>
-                    <p>{{ service.description|truncatewords:25 }}</p>
+                    <p style="color:#b2bec3; line-height:1.8;">{{ service.description|truncatewords:30 }}</p>
                     <div class="service-cta">
                         <a href="{% url 'service_detail' service.slug %}" class="btn btn-sm btn-outline-primary">
-                            بیشتر بدانید
+                            {% trans "Learn More" %}
                         </a>
                     </div>
                 </div>
             </div>
             {% empty %}
             <div class="col-12">
-                <p class="text-center">هیچ خدمتی یافت نشد.</p>
+                <p class="text-center">{% trans "No services found." %}</p>
             </div>
             {% endfor %}
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="services-cta">
+                    <h3 class="mb-3">{% trans "Ready to Start Your Project?" %}</h3>
+                    <p class="mb-4" style="color:#b2bec3;">{% trans "Get a free consultation and quote. Let's discuss your project and find the best solution for your needs." %}</p>
+                    <a href="{% url 'quote_request' %}" class="btn btn-success btn-lg">
+                        <i class="fas fa-paper-plane"></i> {% trans "Request Quote" %}
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

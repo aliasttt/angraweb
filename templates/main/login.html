@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}ورود | Angraweb.com{% endblock %}
+{% block title %}{% trans "Login" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">ورود</span>
+            <span class="text-gradient">{% trans "Login" %}</span>
         </h1>
     </div>
 </section>
@@ -20,19 +21,19 @@
                     <form method="POST">
                         {% csrf_token %}
                         <div class="mb-3">
-                            <label class="form-label">نام کاربری</label>
+                            <label class="form-label">{% trans "Username" %}</label>
                             <input type="text" name="username" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">رمز عبور</label>
+                            <label class="form-label">{% trans "Password" %}</label>
                             <input type="password" name="password" class="form-control" required>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">ورود</button>
+                            <button type="submit" class="btn btn-primary btn-lg">{% trans "Login" %}</button>
                         </div>
                     </form>
                     <div class="text-center mt-3">
-                        <p>حساب کاربری ندارید؟ <a href="{% url 'register' %}">ثبت‌نام کنید</a></p>
+                        <p>{% trans "Don't have an account?" %} <a href="{% url 'register' %}">{% trans "Register" %}</a></p>
                     </div>
                 </div>
             </div>

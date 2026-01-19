@@ -2002,6 +2002,8 @@ function initCertificateGallery() {
         // Check if it's a PDF file
         const isPDF = imageName.toLowerCase().endsWith('.pdf');
         
+        const assetUrl = (window.STATIC_URL || '/static/') + 'certificates/' + imageName;
+
         if (isPDF) {
             // For PDF files, create a preview container
             certificateItem.innerHTML = `
@@ -2027,8 +2029,8 @@ function initCertificateGallery() {
                     </div>
                     <div class="certificate-overlay">
                         <button class="btn btn-sm btn-light certificate-view-btn" 
-                                onclick="viewCertificate('./certificates/${imageName}')">
-                            <i class="fas fa-eye"></i> <span data-translate="view_certificate">Görüntüle</span>
+                                onclick="viewCertificate('${assetUrl}')">
+                            <i class="fas fa-eye"></i> <span>Görüntüle</span>
                         </button>
                     </div>
                 </div>
@@ -2037,15 +2039,15 @@ function initCertificateGallery() {
             // For image files
             certificateItem.innerHTML = `
                 <div class="certificate-image-container">
-                    <img src="./certificates/${imageName}" 
+                    <img src="${assetUrl}" 
                          alt="Certificate ${index + 1}" 
                          class="certificate-image"
                          loading="lazy"
                          onerror="this.style.display='none'">
                     <div class="certificate-overlay">
                         <button class="btn btn-sm btn-light certificate-view-btn" 
-                                onclick="viewCertificate('./certificates/${imageName}')">
-                            <i class="fas fa-eye"></i> <span data-translate="view_certificate">Görüntüle</span>
+                                onclick="viewCertificate('${assetUrl}')">
+                            <i class="fas fa-eye"></i> <span>Görüntüle</span>
                         </button>
                     </div>
                 </div>
@@ -2083,7 +2085,7 @@ function viewCertificate(imageSrc) {
                 <iframe src="${imageSrc}" width="100%" height="600px" style="border: none; border-radius: 10px;"></iframe>
                 <div class="pdf-download">
                     <a href="${imageSrc}" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-download"></i> <span data-translate="download_pdf">PDF'yi İndir</span>
+                        <i class="fas fa-download"></i> <span>PDF'yi İndir</span>
                     </a>
                 </div>
             </div>
@@ -2146,19 +2148,20 @@ function initPhotosGallery() {
     
     // Create photos grid
     photoImages.forEach((imageName, index) => {
+        const assetUrl = (window.STATIC_URL || '/static/') + 'photos/' + imageName;
         const photoItem = document.createElement('div');
         photoItem.className = 'photo-item';
         photoItem.innerHTML = `
             <div class="photo-image-container">
-                <img src="./photos/${imageName}" 
+                <img src="${assetUrl}" 
                      alt="Personal Photo ${index + 1}" 
                      class="photo-image"
                      loading="lazy"
                      onerror="this.style.display='none'">
                 <div class="photo-overlay">
                     <button class="btn photo-view-btn" 
-                            onclick="viewPhoto('./photos/${imageName}')">
-                        <i class="fas fa-eye"></i> <span data-translate="view_photo">Görüntüle</span>
+                            onclick="viewPhoto('${assetUrl}')">
+                        <i class="fas fa-eye"></i> <span>Görüntüle</span>
                     </button>
                 </div>
             </div>

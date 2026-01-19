@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Web sitesi ve mobil uygulama tasarımı | Özel yazılımcı ve tasarımcı{% endblock %}
 
@@ -11,23 +12,22 @@
             <div class="col-lg-6">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        <span class="text-gradient">Profesyonel Web Tasarım ve E-Ticaret Uzmanı</span>
+                        <span class="text-gradient">{% trans "Professional Web Design & E-commerce" %}</span>
                     </h1>
                     <p class="hero-subtitle">
-                        İşletmenizi Dijital Dünyada Büyütün!
+                        {% trans "Grow your business in the digital world!" %}
                     </p>
                     <p class="hero-description">
-                        İşletmeniz için modern, hızlı ve kullanıcı dostu web siteleri tasarlıyorum. 
-                        E-ticaret sitesi, kurumsal web sitesi ve profesyonel web tasarım çözümleri sunuyorum. 
-                        20'den fazla müşterim %100 memnuniyet ile hizmet aldı. Uygun fiyatlı web sitesi 
-                        çözümleri ile projelerinizi hayata geçiriyorum.
+                        {% blocktrans %}
+                        I design modern, fast and user‑friendly websites for your business. From corporate websites to e‑commerce and custom platforms, I deliver professional design, clean code and measurable results.
+                        {% endblocktrans %}
                     </p>
                     <div class="hero-buttons">
                         <a href="{% url 'resume' %}" class="btn btn-primary btn-lg me-3">
-                            <i class="fas fa-certificate"></i> Sertifikalarımı İncele
+                            <i class="fas fa-certificate"></i> {% trans "View Certificates" %}
                         </a>
                         <a href="https://wa.me/905340382335" class="btn btn-outline-light btn-lg" target="_blank" onclick="return gtag_report_conversion('https://wa.me/905340382335')">
-                            <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                            <i class="fab fa-whatsapp"></i> {% trans "Write on WhatsApp" %}
                         </a>
                     </div>
                     
@@ -47,19 +47,19 @@
                     <div class="hero-benefits mt-4">
                         <div class="benefit-item">
                             <i class="fas fa-rocket text-primary"></i>
-                            <span>Fast Delivery</span>
+                            <span>{% trans "Fast Delivery" %}</span>
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-mobile-alt text-primary"></i>
-                            <span>Mobile Friendly</span>
+                            <span>{% trans "Mobile Friendly" %}</span>
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-shield-alt text-primary"></i>
-                            <span>Secure</span>
+                            <span>{% trans "Secure" %}</span>
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-headset text-primary"></i>
-                            <span>24/7 Support</span>
+                            <span>{% trans "24/7 Support" %}</span>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center">
-                    <span class="text-gradient">My Services</span>
+                    <span class="text-gradient">{% trans "My Services" %}</span>
                 </h2>
             </div>
         </div>
@@ -93,17 +93,17 @@
                         <i class="{{ service.icon }}"></i>
                     </div>
                     <h3>{{ service.title }}</h3>
-                    <p>{{ service.description|truncatewords:20 }}</p>
+                    <p>{{ service.description|truncatewords:35 }}</p>
                     <div class="service-cta">
                         <a href="{% url 'service_detail' service.slug %}" class="btn btn-sm btn-outline-primary">
-                            بیشتر بدانید
+                            {% trans "Learn more" %}
                         </a>
                     </div>
                 </div>
             </div>
             {% empty %}
             <div class="col-12">
-                <p class="text-center">هیچ خدمتی یافت نشد.</p>
+                <p class="text-center">{% trans "No services found." %}</p>
             </div>
             {% endfor %}
         </div>
@@ -111,10 +111,10 @@
         <div class="row mt-5">
             <div class="col-12 text-center">
                 <div class="services-cta">
-                    <h3 class="mb-3">Projenizi Hayata Geçirmek İçin Bugün Başlayalım!</h3>
-                    <p class="mb-4">Ücretsiz danışmanlık ve teklif almak için hemen iletişime geçin.</p>
+                    <h3 class="mb-3">{% trans "Let's start your project today!" %}</h3>
+                    <p class="mb-4">{% trans "Contact us for a free consultation and a detailed quote." %}</p>
                     <a href="{% url 'quote_request' %}" class="btn btn-success btn-lg">
-                        <i class="fab fa-whatsapp"></i> درخواست قیمت
+                        <i class="fab fa-whatsapp"></i> {% trans "Get Quote" %}
                     </a>
                 </div>
             </div>

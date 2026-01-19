@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}طراحی UI/UX | Angraweb.com{% endblock %}
+{% block title %}{% trans "UI/UX Design" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">طراحی UI/UX</span>
+            <span class="text-gradient">{% trans "UI/UX Design" %}</span>
         </h1>
+        <p class="hero-subtitle mt-3">{% trans "User-centered design that converts visitors into customers" %}</p>
     </div>
 </section>
 
@@ -17,16 +19,76 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="about-content">
-                    <h2>خدمات طراحی UI/UX</h2>
-                    <p>ما رابط کاربری و تجربه کاربری حرفه‌ای برای وبسایت و اپلیکیشن شما طراحی می‌کنیم.</p>
+                    <h2>{% trans "UI/UX design services" %}</h2>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "We design intuitive, beautiful interfaces that users love. Our process combines user research, wireframing, prototyping, and visual design to create experiences that are both functional and delightful. From websites to mobile apps, we ensure your product is easy to use and drives conversions." %}
+                    </p>
+                    
+                    <h3 class="mt-4">{% trans "What you get" %}</h3>
+                    <ul style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "User research: personas, user journeys, pain points, competitor analysis" %}</li>
+                        <li>{% trans "Wireframes: low-fidelity layouts, information architecture, user flows" %}</li>
+                        <li>{% trans "Prototypes: interactive clickable prototypes (Figma) for testing and feedback" %}</li>
+                        <li>{% trans "Visual design: color palette, typography, icons, components, style guide" %}</li>
+                        <li>{% trans "Responsive design: mobile, tablet, desktop layouts and breakpoints" %}</li>
+                        <li>{% trans "Design system: reusable components, patterns, guidelines for consistency" %}</li>
+                        <li>{% trans "Handoff: design specs, assets, developer notes for implementation" %}</li>
+                    </ul>
+
+                    <h3 class="mt-4">{% trans "Process" %}</h3>
+                    <ol style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "Discovery: understand goals, users, competitors, brand guidelines" %}</li>
+                        <li>{% trans "Research: user interviews, surveys, analytics review, persona creation" %}</li>
+                        <li>{% trans "Wireframing: structure, layout, navigation, key user flows" %}</li>
+                        <li>{% trans "Design: visual design, components, responsive layouts, interactions" %}</li>
+                        <li>{% trans "Prototyping: interactive prototypes for testing and stakeholder review" %}</li>
+                        <li>{% trans "Refinement: feedback integration, polish, final design system" %}</li>
+                        <li>{% trans "Handoff: design files, specs, assets, collaboration with developers" %}</li>
+                    </ol>
+
+                    <h3 class="mt-4">{% trans "Tools we use" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "Figma (design and prototyping), Adobe XD, Sketch, Miro (collaboration), UserTesting (user testing), Google Analytics (research)." %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "Design deliverables" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "Figma design files, interactive prototypes, style guide, component library, design specs (spacing, colors, fonts), assets (icons, images), developer handoff documentation." %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "Timeline" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "Landing page design: 1-2 weeks · Website design (5-10 pages): 3-6 weeks · Mobile app UI/UX: 4-8 weeks · Complex platforms: 8+ weeks" %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "Pricing (guideline)" %}</h3>
+                    <p style="color:#b2bec3; line-height:1.9;">
+                        {% trans "Landing page design: 5,000-10,000 TL · Website design (5-10 pages): 15,000-35,000 TL · Mobile app UI/UX: 20,000-50,000 TL · Design system: 10,000-25,000 TL. Complex projects quoted after reviewing scope." %}
+                    </p>
+
+                    <h3 class="mt-4">{% trans "FAQ" %}</h3>
+                    <div style="color:#b2bec3; line-height:1.9;">
+                        <p><strong>{% trans "Q: Do you provide HTML/CSS code?" %}</strong><br>
+                        {% trans "A: UI/UX design includes design files and specs. If you need frontend development, we can provide that as a separate service." %}</p>
+                        
+                        <p><strong>{% trans "Q: How many revisions are included?" %}</strong><br>
+                        {% trans "A: Typically 2-3 rounds of revisions are included. Additional revisions can be arranged based on project scope." %}</p>
+                        
+                        <p><strong>{% trans "Q: Can you work with our existing brand?" %}</strong><br>
+                        {% trans "A: Yes, we can work with your existing brand guidelines, colors, and fonts, or help evolve your brand identity." %}</p>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="service-card">
-                    <h3>درخواست قیمت</h3>
+                    <h3>{% trans "Get Quote" %}</h3>
                     <a href="{% url 'quote_request' %}?service=ui_ux" class="btn btn-primary btn-lg w-100 mt-3">
-                        دریافت قیمت
+                        {% trans "Get Quote" %}
                     </a>
+                    <div class="mt-3" style="color:#b2bec3; line-height:1.8;">
+                        <div><strong>{% trans "Landing page" %}:</strong> 5,000+ TL</div>
+                        <div><strong>{% trans "Full website" %}:</strong> 15,000+ TL</div>
+                    </div>
                 </div>
             </div>
         </div>

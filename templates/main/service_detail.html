@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}{{ service.title }} | Angraweb.com{% endblock %}
 
@@ -9,6 +10,9 @@
         <h1 class="hero-title">
             <span class="text-gradient">{{ service.title }}</span>
         </h1>
+        {% if service.description %}
+        <p class="hero-subtitle mt-3">{{ service.description|truncatewords:20 }}</p>
+        {% endif %}
     </div>
 </section>
 
@@ -17,10 +21,42 @@
         <div class="row">
             <div class="col-lg-8">
                 {% if service.image %}
-                <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-fluid mb-4">
+                <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-fluid mb-4 rounded">
                 {% endif %}
                 <div class="about-content">
-                    <p>{{ service.description|linebreaks }}</p>
+                    <p style="color:#b2bec3; line-height:1.9;">{{ service.description|linebreaks }}</p>
+                    
+                    {% if service.service_type == 'web_design' %}
+                    <h3 class="mt-4">{% trans "What you get" %}</h3>
+                    <ul style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "Responsive design (mobile, tablet, desktop)" %}</li>
+                        <li>{% trans "SEO optimization" %}</li>
+                        <li>{% trans "Fast loading and performance" %}</li>
+                        <li>{% trans "Admin panel for content management" %}</li>
+                        <li>{% trans "Contact forms and lead capture" %}</li>
+                        <li>{% trans "SSL certificate and security" %}</li>
+                    </ul>
+                    {% elif service.service_type == 'mobile_app' %}
+                    <h3 class="mt-4">{% trans "What you get" %}</h3>
+                    <ul style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "iOS and Android apps" %}</li>
+                        <li>{% trans "Modern UI/UX design" %}</li>
+                        <li>{% trans "Backend API and database" %}</li>
+                        <li>{% trans "Push notifications" %}</li>
+                        <li>{% trans "App store submission" %}</li>
+                        <li>{% trans "Post-launch support" %}</li>
+                    </ul>
+                    {% elif service.service_type == 'ecommerce' %}
+                    <h3 class="mt-4">{% trans "What you get" %}</h3>
+                    <ul style="color:#b2bec3; line-height:1.9;">
+                        <li>{% trans "Product catalog and inventory" %}</li>
+                        <li>{% trans "Shopping cart and checkout" %}</li>
+                        <li>{% trans "Payment gateway integration" %}</li>
+                        <li>{% trans "Order management system" %}</li>
+                        <li>{% trans "Customer accounts" %}</li>
+                        <li>{% trans "Admin panel for products and orders" %}</li>
+                    </ul>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-lg-4">
@@ -30,8 +66,12 @@
                     </div>
                     <h3>{{ service.title }}</h3>
                     <a href="{% url 'quote_request' %}?service={{ service.service_type }}" class="btn btn-primary btn-lg w-100 mt-3">
-                        درخواست قیمت
+                        {% trans "Get Quote" %}
                     </a>
+                    <div class="mt-3" style="color:#b2bec3; line-height:1.8;">
+                        <div><strong>{% trans "Contact us" %}</strong></div>
+                        <div>{% trans "for pricing details" %}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,14 +79,18 @@
         {% if related_services %}
         <div class="row mt-5">
             <div class="col-12">
-                <h3 class="mb-4">خدمات مرتبط</h3>
+                <h3 class="mb-4">{% trans "Related Services" %}</h3>
                 <div class="row">
                     {% for related in related_services %}
                     <div class="col-md-4 mb-3">
                         <div class="service-card">
+                            <div class="service-icon">
+                                <i class="{{ related.icon }}"></i>
+                            </div>
                             <h4>{{ related.title }}</h4>
+                            <p style="color:#b2bec3; line-height:1.8;">{{ related.description|truncatewords:15 }}</p>
                             <a href="{% url 'service_detail' related.slug %}" class="btn btn-sm btn-outline-primary">
-                                بیشتر بدانید
+                                {% trans "Learn More" %}
                             </a>
                         </div>
                     </div>
