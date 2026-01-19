@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Projelerim - Video Demoları ve Portföy | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">Projelerim</span>
+        </h1>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <div class="container">
+        {% if videos %}
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="text-center mb-4">
+                    <span class="text-gradient">Video Demoları</span>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for video in videos %}
+            <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="metadata" class="project-video" playsinline>
+                            <source src="{{ video.video_file.url }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-content">
+                        <h4>{{ video.title }}</h4>
+                        {% if video.description %}
+                        <p>{{ video.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="text-center mb-4">
+                    <span class="text-gradient">پروژه‌های من</span>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                <div class="project-card">
+                    {% if project.image %}
+                    <div class="project-image">
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    </div>
+                    {% endif %}
+                    <div class="project-content">
+                        <h3>{{ project.title }}</h3>
+                        {% if project.domain %}
+                        <p class="portfolio-domain">{{ project.domain }}</p>
+                        {% endif %}
+                        <p>{{ project.description|truncatewords:15 }}</p>
+                        {% if project.url %}
+                        <a href="{{ project.url }}" class="btn btn-primary portfolio-visit-btn" target="_blank">
+                            Visit Website
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="text-center">هیچ پروژه‌ای یافت نشد.</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if projects.has_other_pages %}
+        <div class="row mt-4">
+            <div class="col-12">
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        {% if projects.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ projects.previous_page_number }}">قبلی</a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ projects.number }} از {{ projects.paginator.num_pages }}</span>
+                        </li>
+                        {% if projects.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ projects.next_page_number }}">بعدی</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

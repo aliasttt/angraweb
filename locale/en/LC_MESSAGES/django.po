@@ -1,0 +1,692 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-19 14:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "About"
+msgstr "About"
+
+msgid "I am a professional web developer specialized in web programming areas. I develop SEO-friendly, mobile-friendly, and high-performance websites using modern technologies for my clients' digital success. I prioritize quality, speed, and user experience in every project, delivering solutions that will grow your business."
+msgstr "I am a professional web developer specialized in web programming areas. I develop SEO-friendly, mobile-friendly, and high-performance websites using modern technologies for my clients' digital success. I prioritize quality, speed, and user experience in every project, delivering solutions that will grow your business."
+
+msgid "As a Marmara University Computer Programming graduate, I have been designing modern and user-friendly websites for over 5 years. I offer custom solutions to make your business stand out in the digital world."
+msgstr "As a Marmara University Computer Programming graduate, I have been designing modern and user-friendly websites for over 5 years. I offer custom solutions to make your business stand out in the digital world."
+
+msgid "Professional Web Design and Development Expert"
+msgstr "Professional Web Design and Development Expert"
+
+msgid "About Me"
+msgstr "About Me"
+
+msgid "All rights reserved."
+msgstr "All rights reserved."
+
+msgid "Fast Delivery"
+msgstr "Fast Delivery"
+
+msgid "Mobile Friendly"
+msgstr "Mobile Friendly"
+
+msgid "Secure"
+msgstr "Secure"
+
+msgid "24/7 Support"
+msgstr "24/7 Support"
+
+msgid "Call Now"
+msgstr "Call Now"
+
+msgid "Certificates"
+msgstr "Certificates"
+
+msgid "Add your certificate images to the certificates folder"
+msgstr "Add your certificate images to the certificates folder"
+
+msgid "Commercial Package"
+msgstr "Commercial Package"
+
+msgid "Computer Programming"
+msgstr "Computer Programming"
+
+msgid "For Consultation"
+msgstr "For Consultation"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Contact Information"
+msgstr "Contact Information"
+
+msgid "Let's start bringing your project to life today! You can reach me via WhatsApp, email or contact form. Contact me now for free consultation and quotes."
+msgstr "Let's start bringing your project to life today! You can reach me via WhatsApp, email or contact form. Contact me now for free consultation and quotes."
+
+msgid "Contact Me Now for Free Quotes and Consultation"
+msgstr "Contact Me Now for Free Quotes and Consultation"
+
+msgid "Contact Me"
+msgstr "Contact Me"
+
+msgid "Contact us now for free consultation and quote. Grow your business with affordable website solutions."
+msgstr "Contact us now for free consultation and quote. Grow your business with affordable website solutions."
+
+msgid "Get Design Quote"
+msgstr "Get Design Quote"
+
+msgid "Get Free Quote"
+msgstr "Get Free Quote"
+
+msgid "Get Hosting Package"
+msgstr "Get Hosting Package"
+
+msgid "Do SEO Analysis"
+msgstr "Do SEO Analysis"
+
+msgid "Start Now"
+msgstr "Start Now"
+
+msgid "Start Your Project"
+msgstr "Start Your Project"
+
+msgid "Let's Start Bringing Your Project to Life Today!"
+msgstr "Let's Start Bringing Your Project to Life Today!"
+
+msgid "Contact via WhatsApp for tailored pricing"
+msgstr "Contact via WhatsApp for tailored pricing"
+
+msgid "Customer Satisfaction"
+msgstr "Customer Satisfaction"
+
+msgid "Or contact directly via email:"
+msgstr "Or contact directly via email:"
+
+msgid "20% Discount for First Design - Click"
+msgstr "20% Discount for First Design - Click"
+
+msgid "Django Framework"
+msgstr "Django Framework"
+
+msgid "Download PDF"
+msgstr "Download PDF"
+
+msgid "Full-featured e-commerce website with Django and Bootstrap"
+msgstr "Full-featured e-commerce website with Django and Bootstrap"
+
+msgid "E-commerce Solutions"
+msgstr "E-commerce Solutions"
+
+msgid "Professional e-commerce site that will increase your sales. Secure payment systems and user-friendly interface."
+msgstr "Professional e-commerce site that will increase your sales. Secure payment systems and user-friendly interface."
+
+msgid "E-commerce Website"
+msgstr "E-commerce Website"
+
+msgid "Education"
+msgstr "Education"
+
+msgid "I graduated from Marmara University Computer Programming department. I received comprehensive training in web development, software engineering and database management."
+msgstr "I graduated from Marmara University Computer Programming department. I received comprehensive training in web development, software engineering and database management."
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Send an email for detailed information"
+msgstr "Send an email for detailed information"
+
+msgid "Experience"
+msgstr "Experience"
+
+msgid "I have been working as a freelance web developer for 5+ years. I have completed 20+ successful projects. I specialize in e-commerce sites, corporate websites and custom platform development."
+msgstr "I have been working as a freelance web developer for 5+ years. I have completed 20+ successful projects. I specialize in e-commerce sites, corporate websites and custom platform development."
+
+msgid "2019 - Present"
+msgstr "2019 - Present"
+
+msgid "Experienced Web Developer"
+msgstr "Experienced Web Developer"
+
+msgid "Abandoned Cart Reminder"
+msgstr "Abandoned Cart Reminder"
+
+msgid "Custom Admin Panel"
+msgstr "Custom Admin Panel"
+
+msgid "Advanced Database"
+msgstr "Advanced Database"
+
+msgid "Advanced SEO"
+msgstr "Advanced SEO"
+
+msgid "Smart Product Recommendations (AI)"
+msgstr "Smart Product Recommendations (AI)"
+
+msgid "Analytics & Reporting"
+msgstr "Analytics & Reporting"
+
+msgid "Badges and Special Offers"
+msgstr "Badges and Special Offers"
+
+msgid "Badges and Special Offers (New, Bestseller, Discount)"
+msgstr "Badges and Special Offers (New, Bestseller, Discount)"
+
+msgid "Basic Admin Panel"
+msgstr "Basic Admin Panel"
+
+msgid "Basic Database"
+msgstr "Basic Database"
+
+msgid "Basic SEO"
+msgstr "Basic SEO"
+
+msgid "Advanced Shopping Cart (Auto Tax & Shipping)"
+msgstr "Advanced Shopping Cart (Auto Tax & Shipping)"
+
+msgid "Live Chat and Chatbot"
+msgstr "Live Chat and Chatbot"
+
+msgid "Cloud-native and microservices architecture"
+msgstr "Cloud-native and microservices architecture"
+
+msgid "Contact Form"
+msgstr "Contact Form"
+
+msgid "Coupon Codes and Loyalty Points"
+msgstr "Coupon Codes and Loyalty Points"
+
+msgid "Product Customization"
+msgstr "Product Customization"
+
+msgid "Dedicated development and support team"
+msgstr "Dedicated development and support team"
+
+msgid "First Purchase and Loyalty Discounts"
+msgstr "First Purchase and Loyalty Discounts"
+
+msgid "Full Online Sales"
+msgstr "Full Online Sales"
+
+msgid "Email Marketing"
+msgstr "Email Marketing"
+
+msgid "Advanced Product Filtering"
+msgstr "Advanced Product Filtering"
+
+msgid "Simple Product Filtering"
+msgstr "Simple Product Filtering"
+
+msgid "Time-Limited Campaigns (Flash Sale)"
+msgstr "Time-Limited Campaigns (Flash Sale)"
+
+msgid "Image Gallery with Zoom and 360°"
+msgstr "Image Gallery with Zoom and 360°"
+
+msgid "Simple Image Gallery"
+msgstr "Simple Image Gallery"
+
+msgid "Image Gallery with Zoom"
+msgstr "Image Gallery with Zoom"
+
+msgid "Warehouse and Inventory Management"
+msgstr "Warehouse and Inventory Management"
+
+msgid "Online and Downloadable Invoices"
+msgstr "Online and Downloadable Invoices"
+
+msgid "Simple Live Chat"
+msgstr "Simple Live Chat"
+
+msgid "Live Search (Real-time)"
+msgstr "Live Search (Real-time)"
+
+msgid "iOS and Android mobile applications"
+msgstr "iOS and Android mobile applications"
+
+msgid "Multiple coordinated websites and portals"
+msgstr "Multiple coordinated websites and portals"
+
+msgid "Multi-language Support"
+msgstr "Multi-language Support"
+
+msgid "Multi-language and Multi-currency"
+msgstr "Multi-language and Multi-currency"
+
+msgid "Multi-vendor Marketplace"
+msgstr "Multi-vendor Marketplace"
+
+msgid "No Admin Panel"
+msgstr "No Admin Panel"
+
+msgid "No Online Sales"
+msgstr "No Online Sales"
+
+msgid "Order Notifications"
+msgstr "Order Notifications"
+
+msgid "Up to 5 Pages"
+msgstr "Up to 5 Pages"
+
+msgid "Up to 10 Pages"
+msgstr "Up to 10 Pages"
+
+msgid "Payment Gateway"
+msgstr "Payment Gateway"
+
+msgid "Multiple Payment Gateways"
+msgstr "Multiple Payment Gateways"
+
+msgid "Bespoke platform and network design"
+msgstr "Bespoke platform and network design"
+
+msgid "Premium SEO"
+msgstr "Premium SEO"
+
+msgid "Product Videos"
+msgstr "Product Videos"
+
+msgid "PWA Version"
+msgstr "PWA Version"
+
+msgid "Professional Reporting"
+msgstr "Professional Reporting"
+
+msgid "Responsive Design"
+msgstr "Responsive Design"
+
+msgid "Product Returns and Online Return Requests"
+msgstr "Product Returns and Online Return Requests"
+
+msgid "Reviews and Ratings"
+msgstr "Reviews and Ratings"
+
+msgid "User Reviews and Ratings"
+msgstr "User Reviews and Ratings"
+
+msgid "High-performance scalable infrastructure"
+msgstr "High-performance scalable infrastructure"
+
+msgid "Simple Search"
+msgstr "Simple Search"
+
+msgid "Fraud Prevention and Secure Payment"
+msgstr "Fraud Prevention and Secure Payment"
+
+msgid "Advanced Shipping System"
+msgstr "Advanced Shipping System"
+
+msgid "SMS Notifications"
+msgstr "SMS Notifications"
+
+msgid "Social Media Links"
+msgstr "Social Media Links"
+
+msgid "Social Media Sales Integration"
+msgstr "Social Media Sales Integration"
+
+msgid "SSL and HTTPS"
+msgstr "SSL and HTTPS"
+
+msgid "Purchase Terms and Conditions"
+msgstr "Purchase Terms and Conditions"
+
+msgid "Certificates and Trust Badge"
+msgstr "Certificates and Trust Badge"
+
+msgid "Unlimited Pages"
+msgstr "Unlimited Pages"
+
+msgid "Follow Us"
+msgstr "Follow Us"
+
+msgid "Professional web design and development services. Grow your business in the digital world with modern, fast and user-friendly websites."
+msgstr "Professional web design and development services. Grow your business in the digital world with modern, fast and user-friendly websites."
+
+msgid "Freelance Web Developer"
+msgstr "Freelance Web Developer"
+
+msgid "Get Quote"
+msgstr "Get Quote"
+
+msgid "Make your business stand out in the digital world with modern, fast, and user-friendly websites. I provide comprehensive web development services for e-commerce sites, corporate websites, portfolio sites, and custom projects. I bring your projects to life with expertise in Django, Python, JavaScript, CSS, HTML, Bootstrap, and hosting services."
+msgstr "Make your business stand out in the digital world with modern, fast, and user-friendly websites. I provide comprehensive web development services for e-commerce sites, corporate websites, portfolio sites, and custom projects. I bring your projects to life with expertise in Django, Python, JavaScript, CSS, HTML, Bootstrap, and hosting services."
+
+msgid "Starting from 5,000 TL"
+msgstr "Starting from 5,000 TL"
+
+msgid "Programmer and Custom Website & Mobile App Designer"
+msgstr "Programmer and Custom Website & Mobile App Designer"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Hosting and Publishing"
+msgstr "Hosting and Publishing"
+
+msgid "I publish your website on secure servers. 24/7 technical support and maintenance service."
+msgstr "I publish your website on secure servers. 24/7 technical support and maintenance service."
+
+msgid "JavaScript Advanced"
+msgstr "JavaScript Advanced"
+
+msgid "Management Application"
+msgstr "Management Application"
+
+msgid "Content management system with advanced admin panel"
+msgstr "Content management system with advanced admin panel"
+
+msgid "Send Message"
+msgstr "Send Message"
+
+msgid "My Projects"
+msgstr "My Projects"
+
+msgid "My Services"
+msgstr "My Services"
+
+msgid "Speed and SEO Optimization"
+msgstr "Speed and SEO Optimization"
+
+msgid "I bring your website to the top ranks on Google. Fast loading and search engine optimization."
+msgstr "I bring your website to the top ranks on Google. Fast loading and search engine optimization."
+
+msgid "Or Contact Directly"
+msgstr "Or Contact Directly"
+
+msgid "Basic Package"
+msgstr "Basic Package"
+
+msgid "Custom Package"
+msgstr "Custom Package"
+
+msgid "Professional Package"
+msgstr "Professional Package"
+
+msgid "Packages"
+msgstr "Packages"
+
+msgid "Grow your business in the digital world with our professional website packages. Offer your customers the best experience with modern design, fast loading and user-friendly interface."
+msgstr "Grow your business in the digital world with our professional website packages. Offer your customers the best experience with modern design, fast loading and user-friendly interface."
+
+msgid "Choose the package that suits your needs and take your business to the digital world"
+msgstr "Choose the package that suits your needs and take your business to the digital world"
+
+msgid "Our Packages"
+msgstr "Our Packages"
+
+msgid "Get to know me and trust me - Professional web developer at work"
+msgstr "Get to know me and trust me - Professional web developer at work"
+
+msgid "Personal Photos"
+msgstr "Personal Photos"
+
+msgid "Personal Portfolio"
+msgstr "Personal Portfolio"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Call me for direct conversation"
+msgstr "Call me for direct conversation"
+
+msgid "Phone Number:"
+msgstr "Phone Number:"
+
+msgid "Add your personal photos to the photos folder"
+msgstr "Add your personal photos to the photos folder"
+
+msgid "Popular"
+msgstr "Popular"
+
+msgid "Angraweb.com"
+msgstr "Angraweb.com"
+
+msgid "Bonus and rewards platform - Berlin based service"
+msgstr "Bonus and rewards platform - Berlin based service"
+
+msgid "Personal portfolio website with advanced animations"
+msgstr "Personal portfolio website with advanced animations"
+
+msgid "Event ticket booking platform - concerts, festivals and live shows"
+msgstr "Event ticket booking platform - concerts, festivals and live shows"
+
+msgid "Online clothing sales website - modern e-commerce platform"
+msgstr "Online clothing sales website - modern e-commerce platform"
+
+msgid "Professional services platform - connecting customers with craftsmen"
+msgstr "Professional services platform - connecting customers with craftsmen"
+
+msgid "Professional driving school website - registration and training system"
+msgstr "Professional driving school website - registration and training system"
+
+msgid "Legal services and consulting website - specialized platform"
+msgstr "Legal services and consulting website - specialized platform"
+
+msgid "Designed and active websites"
+msgstr "Designed and active websites"
+
+msgid "Our Portfolio"
+msgstr "Our Portfolio"
+
+msgid "Professional Portfolio"
+msgstr "Professional Portfolio"
+
+msgid "Professional driving school website - education and registration system"
+msgstr "Professional driving school website - education and registration system"
+
+msgid "Hedef Driver Course"
+msgstr "Hedef Driver Course"
+
+msgid "Personal portfolio website - professional presentation and communication"
+msgstr "Personal portfolio website - professional presentation and communication"
+
+msgid "Ali Asadi Portfolio"
+msgstr "Ali Asadi Portfolio"
+
+msgid "E-commerce website operating in Germany - clothing sales"
+msgstr "E-commerce website operating in Germany - clothing sales"
+
+msgid "Firment Shirt DE"
+msgstr "Firment Shirt DE"
+
+msgid "International e-commerce platform - modern clothing store"
+msgstr "International e-commerce platform - modern clothing store"
+
+msgid "Firment Shirt Shop"
+msgstr "Firment Shirt Shop"
+
+msgid "Projects"
+msgstr "Projects"
+
+msgid "Contact me now for free consultation and quotes. I offer affordable solutions for similar projects."
+msgstr "Contact me now for free consultation and quotes. I offer affordable solutions for similar projects."
+
+msgid "All my projects are developed using modern technologies and best practices. Contact me via WhatsApp for detailed information and custom project quotes."
+msgstr "All my projects are developed using modern technologies and best practices. Contact me via WhatsApp for detailed information and custom project quotes."
+
+msgid "About Projects"
+msgstr "About Projects"
+
+msgid "Discover my professional web design projects and live demo videos. Learn more about my e-commerce sites, corporate websites and custom platform solutions."
+msgstr "Discover my professional web design projects and live demo videos. Learn more about my e-commerce sites, corporate websites and custom platform solutions."
+
+msgid "Successful Web Design Projects and Video Demos"
+msgstr "Successful Web Design Projects and Video Demos"
+
+msgid "Python Developer"
+msgstr "Python Developer"
+
+msgid "Quick Links"
+msgstr "Quick Links"
+
+msgid "Mobile Responsive Design"
+msgstr "Mobile Responsive Design"
+
+msgid "Websites that look perfect on all devices. Optimized experience on phone, tablet and computer."
+msgstr "Websites that look perfect on all devices. Optimized experience on phone, tablet and computer."
+
+msgid "Resume"
+msgstr "Resume"
+
+msgid "Resume & Certificates"
+msgstr "Resume & Certificates"
+
+msgid "Contact me via WhatsApp for free consultation and project quotes. My experience and certificates are ready to use for your project."
+msgstr "Contact me via WhatsApp for free consultation and project quotes. My experience and certificates are ready to use for your project."
+
+msgid "Contact Me for Professional Services!"
+msgstr "Contact Me for Professional Services!"
+
+msgid "As a Marmara University Computer Programming graduate, I have specialized in web design and development with my professional certificates and 5+ years of experience."
+msgstr "As a Marmara University Computer Programming graduate, I have specialized in web design and development with my professional certificates and 5+ years of experience."
+
+msgid "Education, Experience and Professional Certificates"
+msgstr "Education, Experience and Professional Certificates"
+
+msgid "Send Email"
+msgstr "Send Email"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "As Angraweb, we offer comprehensive web design and development services to strengthen your business's digital presence. Reach your goals with modern, fast and user-friendly solutions."
+msgstr "As Angraweb, we offer comprehensive web design and development services to strengthen your business's digital presence. Reach your goals with modern, fast and user-friendly solutions."
+
+msgid "Solutions That Grow Your Business in the Digital World"
+msgstr "Solutions That Grow Your Business in the Digital World"
+
+msgid "Subject"
+msgstr "Subject"
+
+msgid "Successful Projects"
+msgstr "Successful Projects"
+
+msgid "Technical Skills"
+msgstr "Technical Skills"
+
+msgid "Secure and Fast Solutions"
+msgstr "Secure and Fast Solutions"
+
+msgid "24/7 Technical Support"
+msgstr "24/7 Technical Support"
+
+msgid "Marmara University Graduate"
+msgstr "Marmara University Graduate"
+
+msgid "User Experience Design"
+msgstr "User Experience Design"
+
+msgid "Beautiful and functional interface designs that will impress your customers. Increase your conversion rates."
+msgstr "Beautiful and functional interface designs that will impress your customers. Increase your conversion rates."
+
+msgid "Marmara University - 2025"
+msgstr "Marmara University - 2025"
+
+msgid "Affordable Price"
+msgstr "Affordable Price"
+
+msgid "I offer quality service at reasonable prices, solutions that fit your budget"
+msgstr "I offer quality service at reasonable prices, solutions that fit your budget"
+
+msgid "Grow Your Business"
+msgstr "Grow Your Business"
+
+msgid "Increase your sales and customer satisfaction with modern websites"
+msgstr "Increase your sales and customer satisfaction with modern websites"
+
+msgid "Continuous Support"
+msgstr "Continuous Support"
+
+msgid "I'm with you after the project too, 24/7 technical support service"
+msgstr "I'm with you after the project too, 24/7 technical support service"
+
+msgid "Save Time"
+msgstr "Save Time"
+
+msgid "Use your time efficiently with fast delivery and professional service"
+msgstr "Use your time efficiently with fast delivery and professional service"
+
+msgid "First project demo video"
+msgstr "First project demo video"
+
+msgid "Project Demo 1"
+msgstr "Project Demo 1"
+
+msgid "Second project demo video"
+msgstr "Second project demo video"
+
+msgid "Project Demo 2"
+msgstr "Project Demo 2"
+
+msgid "Third project demo video"
+msgstr "Third project demo video"
+
+msgid "Project Demo 3"
+msgstr "Project Demo 3"
+
+msgid "Fourth project demo video"
+msgstr "Fourth project demo video"
+
+msgid "Project Demo 4"
+msgstr "Project Demo 4"
+
+msgid "Video Demos"
+msgstr "Video Demos"
+
+msgid "Discover functionality and design details by watching live demo videos of my projects."
+msgstr "Discover functionality and design details by watching live demo videos of my projects."
+
+msgid "View"
+msgstr "View"
+
+msgid "View Certificates"
+msgstr "View Certificates"
+
+msgid "View Projects"
+msgstr "View Projects"
+
+msgid "Visit Website"
+msgstr "Visit Website"
+
+msgid "Watch Demo"
+msgstr "Watch Demo"
+
+msgid "Professional Web Design"
+msgstr "Professional Web Design"
+
+msgid "I design modern and fast websites that will grow your business. Strengthen your brand with corporate website solutions."
+msgstr "I design modern and fast websites that will grow your business. Strengthen your brand with corporate website solutions."
+
+msgid "Write on WhatsApp"
+msgstr "Write on WhatsApp"
+
+msgid "Send a message via WhatsApp for quick response"
+msgstr "Send a message via WhatsApp for quick response"
+
+msgid "Why Choose Me?"
+msgstr "Why Choose Me?"
+
+msgid "Years Experience"
+msgstr "Years Experience"
+
+msgid "Your Email"
+msgstr "Your Email"
+
+msgid "Your Message"
+msgstr "Your Message"
+
+msgid "Your Name"
+msgstr "Your Name"
+

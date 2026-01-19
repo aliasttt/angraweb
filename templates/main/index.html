@@ -1,0 +1,316 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Web sitesi ve mobil uygulama tasarımı | Özel yazılımcı ve tasarımcı{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="text-gradient">Profesyonel Web Tasarım ve E-Ticaret Uzmanı</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        İşletmenizi Dijital Dünyada Büyütün!
+                    </p>
+                    <p class="hero-description">
+                        İşletmeniz için modern, hızlı ve kullanıcı dostu web siteleri tasarlıyorum. 
+                        E-ticaret sitesi, kurumsal web sitesi ve profesyonel web tasarım çözümleri sunuyorum. 
+                        20'den fazla müşterim %100 memnuniyet ile hizmet aldı. Uygun fiyatlı web sitesi 
+                        çözümleri ile projelerinizi hayata geçiriyorum.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="{% url 'resume' %}" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-certificate"></i> Sertifikalarımı İncele
+                        </a>
+                        <a href="https://wa.me/905340382335" class="btn btn-outline-light btn-lg" target="_blank" onclick="return gtag_report_conversion('https://wa.me/905340382335')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                        </a>
+                    </div>
+                    
+                    <div class="hero-contact-info mt-4">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span>aliasadi3853@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <a href="tel:+905340382335" class="contact-phone-link">
+                                <i class="fas fa-phone text-primary"></i>
+                                <span>+90 534 038 23 35</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-benefits mt-4">
+                        <div class="benefit-item">
+                            <i class="fas fa-rocket text-primary"></i>
+                            <span>Fast Delivery</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-mobile-alt text-primary"></i>
+                            <span>Mobile Friendly</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt text-primary"></i>
+                            <span>Secure</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-headset text-primary"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <div class="floating-astronaut">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center">
+                    <span class="text-gradient">My Services</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row d-flex flex-wrap">
+            {% for service in services %}
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="{{ service.icon }}"></i>
+                    </div>
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description|truncatewords:20 }}</p>
+                    <div class="service-cta">
+                        <a href="{% url 'service_detail' service.slug %}" class="btn btn-sm btn-outline-primary">
+                            بیشتر بدانید
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="text-center">هیچ خدمتی یافت نشد.</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="services-cta">
+                    <h3 class="mb-3">Projenizi Hayata Geçirmek İçin Bugün Başlayalım!</h3>
+                    <p class="mb-4">Ücretsiz danışmanlık ve teklif almak için hemen iletişime geçin.</p>
+                    <a href="{% url 'quote_request' %}" class="btn btn-success btn-lg">
+                        <i class="fab fa-whatsapp"></i> درخواست قیمت
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Value Proposition Section -->
+<section id="value-proposition" class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center">
+                    <span class="text-gradient">Neden Beni Seçmelisiniz?</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row d-flex flex-wrap">
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>İşinizi Büyütün</h3>
+                    <p>Modern web siteleri ile satışlarınızı artırın</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Zaman Tasarrufu</h3>
+                    <p>Hızlı teslimat ve profesyonel hizmet</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Uygun Fiyat</h3>
+                    <p>Kaliteli hizmeti uygun fiyatlarla</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Sürekli Destek</h3>
+                    <p>7/24 teknik destek hizmeti</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center">
+                    <span class="text-gradient">About Me</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <h3>Profesyonel Web Tasarım Uzmanı</h3>
+                    <p>
+                        Marmara Üniversitesi Bilgisayar Programlama mezunu olarak profesyonel web tasarım çözümleri sunuyorum. 
+                        20'den fazla müşterim %100 memnuniyet ile hizmet aldı.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
+                        <div class="skill-item"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                        <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                        <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                        <div class="skill-item"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+                        <div class="skill-item"><i class="fab fa-github"></i><span>Git</span></div>
+                        <div class="skill-item"><i class="fab fa-python"></i><span>Django</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Başarılı Proje</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Yıl Deneyim</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Müşteri Memnuniyeti</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Packages Section -->
+<section id="packages" class="section" style="padding-top: 120px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center">
+                    <span class="text-gradient">Paketlerimiz</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for package in packages %}
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <a href="{% url 'quote_request' %}?package={{ package.package_type }}" class="package-card-link">
+                <div class="package-card {% if package.popular %}package-featured{% endif %}">
+                    {% if package.popular %}
+                    <div class="package-badge">محبوب</div>
+                    {% endif %}
+                    <div class="package-header">
+                        <h3>{{ package.title }}</h3>
+                        <div class="package-price">
+                            {% if package.custom_price_text %}
+                            <p class="custom-price">{{ package.custom_price_text }}</p>
+                            {% else %}
+                            <span class="price-amount">{{ package.price|floatformat:0 }}</span>
+                            <span class="price-currency">{{ package.currency }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="package-features">
+                        <ul>
+                            {% for feature in package.features.all %}
+                            <li>
+                                <i class="fas fa-{% if feature.included %}check{% else %}times{% endif %}"></i>
+                                <span {% if not feature.included %}class="feature-disabled"{% endif %}>{{ feature.title }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center">
+                    <span class="text-gradient">Projelerim</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                <div class="project-card">
+                    {% if project.image %}
+                    <div class="project-image">
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    </div>
+                    {% endif %}
+                    <div class="project-content">
+                        <h3>{{ project.title }}</h3>
+                        {% if project.domain %}
+                        <p class="portfolio-domain">{{ project.domain }}</p>
+                        {% endif %}
+                        <p>{{ project.description|truncatewords:15 }}</p>
+                        {% if project.url %}
+                        <a href="{{ project.url }}" class="btn btn-primary portfolio-visit-btn" target="_blank">
+                            Visit Website
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <a href="{% url 'projects_list' %}" class="btn btn-primary btn-lg">
+                    مشاهده همه پروژه‌ها
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

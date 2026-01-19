@@ -1,0 +1,692 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-19 14:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "About"
+msgstr "درباره من"
+
+msgid "I am a professional web developer specialized in web programming areas. I develop SEO-friendly, mobile-friendly, and high-performance websites using modern technologies for my clients' digital success. I prioritize quality, speed, and user experience in every project, delivering solutions that will grow your business."
+msgstr "من یک توسعه‌دهنده وب حرفه‌ای هستم که در زمینه‌های مختلف برنامه‌نویسی وب تخصص دارم. برای موفقیت دیجیتال مشتریانم، وب‌سایت‌های سازگار با SEO، دوستدار موبایل و با عملکرد بالا با استفاده از تکنولوژی‌های مدرن توسعه می‌دهم. در هر پروژه‌ای کیفیت، سرعت و تجربه کاربری را در اولویت قرار می‌دهم و راه‌حل‌هایی ارائه می‌دهم که کسب‌وکار شما را رشد خواهد داد."
+
+msgid "As a Marmara University Computer Programming graduate, I have been designing modern and user-friendly websites for over 5 years. I offer custom solutions to make your business stand out in the digital world."
+msgstr "به عنوان فارغ‌التحصیل برنامه‌نویسی کامپیوتر دانشگاه مارمارا، بیش از 5 سال است که وب‌سایت‌های مدرن و کاربرپسند طراحی می‌کنم. راه‌حل‌های سفارشی برای برجسته کردن کسب‌وکار شما در دنیای دیجیتال ارائه می‌دهم."
+
+msgid "Professional Web Design and Development Expert"
+msgstr "متخصص طراحی و توسعه وب حرفه‌ای"
+
+msgid "About Me"
+msgstr "درباره من"
+
+msgid "All rights reserved."
+msgstr "تمامی حقوق محفوظ است."
+
+msgid "Fast Delivery"
+msgstr "تحویل سریع"
+
+msgid "Mobile Friendly"
+msgstr "سازگار با موبایل"
+
+msgid "Secure"
+msgstr "امن"
+
+msgid "24/7 Support"
+msgstr "پشتیبانی 24/7"
+
+msgid "Call Now"
+msgstr "همین الان تماس بگیرید"
+
+msgid "Certificates"
+msgstr "گواهینامه‌ها"
+
+msgid "Add your certificate images to the certificates folder"
+msgstr "تصاویر گواهینامه‌های خود را در پوشه certificates قرار دهید"
+
+msgid "Commercial Package"
+msgstr "پکیج تجاری"
+
+msgid "Computer Programming"
+msgstr "برنامه‌نویسی کامپیوتر"
+
+msgid "For Consultation"
+msgstr "برای مشاوره"
+
+msgid "Contact"
+msgstr "تماس"
+
+msgid "Contact Information"
+msgstr "اطلاعات تماس"
+
+msgid "Let's start bringing your project to life today! You can reach me via WhatsApp, email or contact form. Contact me now for free consultation and quotes."
+msgstr "بیایید امروز پروژه شما را به زندگی تبدیل کنیم! می‌توانید از طریق واتساپ، ایمیل یا فرم تماس با من ارتباط برقرار کنید. همین الان برای مشاوره رایگان و دریافت پیشنهاد با من تماس بگیرید."
+
+msgid "Contact Me Now for Free Quotes and Consultation"
+msgstr "همین الان برای دریافت پیشنهاد رایگان و مشاوره با من تماس بگیرید"
+
+msgid "Contact Me"
+msgstr "تماس با من"
+
+msgid "Contact us now for free consultation and quote. Grow your business with affordable website solutions."
+msgstr "برای مشاوره رایگان و دریافت پیشنهاد فوری با ما تماس بگیرید. کسب و کار خود را با راه‌حل‌های مقرون‌به‌صرفه وب‌سایت رشد دهید."
+
+msgid "Get Design Quote"
+msgstr "دریافت پیشنهاد طراحی"
+
+msgid "Get Free Quote"
+msgstr "درخواست پیشنهاد رایگان"
+
+msgid "Get Hosting Package"
+msgstr "دریافت پکیج هاستینگ"
+
+msgid "Do SEO Analysis"
+msgstr "انجام تحلیل SEO"
+
+msgid "Start Now"
+msgstr "همین الان شروع کنید"
+
+msgid "Start Your Project"
+msgstr "شروع پروژه شما"
+
+msgid "Let's Start Bringing Your Project to Life Today!"
+msgstr "بیایید امروز پروژه شما را به زندگی تبدیل کنیم!"
+
+msgid "Contact via WhatsApp for tailored pricing"
+msgstr "برای قیمت‌گذاری اختصاصی در واتساپ پیام دهید"
+
+msgid "Customer Satisfaction"
+msgstr "رضایت مشتری"
+
+msgid "Or contact directly via email:"
+msgstr "یا مستقیماً با ایمیل تماس بگیرید:"
+
+msgid "20% Discount for First Design - Click"
+msgstr "20 درصد تخفیف برای اولین طراحی - کلیک کن"
+
+msgid "Django Framework"
+msgstr "Django Framework"
+
+msgid "Download PDF"
+msgstr "دانلود PDF"
+
+msgid "Full-featured e-commerce website with Django and Bootstrap"
+msgstr "Full-featured e-commerce website with Django and Bootstrap"
+
+msgid "E-commerce Solutions"
+msgstr "راه‌حل‌های تجارت الکترونیک"
+
+msgid "Professional e-commerce site that will increase your sales. Secure payment systems and user-friendly interface."
+msgstr "وب‌سایت تجارت الکترونیک حرفه‌ای که فروش شما را افزایش خواهد داد. سیستم‌های پرداخت امن و رابط کاربری دوستانه."
+
+msgid "E-commerce Website"
+msgstr "E-commerce Website"
+
+msgid "Education"
+msgstr "تحصیلات"
+
+msgid "I graduated from Marmara University Computer Programming department. I received comprehensive training in web development, software engineering and database management."
+msgstr "از رشته برنامه‌نویسی کامپیوتر دانشگاه مارمارا فارغ‌التحصیل شدم. آموزش جامع در زمینه توسعه وب، مهندسی نرم‌افزار و مدیریت پایگاه داده دریافت کردم."
+
+msgid "Email"
+msgstr "ایمیل"
+
+msgid "Send an email for detailed information"
+msgstr "برای اطلاعات دقیق ایمیل بفرستید"
+
+msgid "Experience"
+msgstr "تجربه"
+
+msgid "I have been working as a freelance web developer for 5+ years. I have completed 20+ successful projects. I specialize in e-commerce sites, corporate websites and custom platform development."
+msgstr "بیش از 5 سال است که به عنوان توسعه‌دهنده وب آزادکار کار می‌کنم. بیش از 20 پروژه موفق را تکمیل کرده‌ام. در توسعه سایت‌های فروشگاهی، وب‌سایت‌های شرکتی و پلتفرم‌های سفارشی تخصص دارم."
+
+msgid "2019 - Present"
+msgstr "2019 - اکنون"
+
+msgid "Experienced Web Developer"
+msgstr "توسعه‌دهنده وب با تجربه"
+
+msgid "Abandoned Cart Reminder"
+msgstr "پیام یادآوری سبد خرید رها شده (Abandoned Cart)"
+
+msgid "Custom Admin Panel"
+msgstr "پنل ادمین اختصاصی"
+
+msgid "Advanced Database"
+msgstr "دیتابیس پیشرفته"
+
+msgid "Advanced SEO"
+msgstr "سئو پیشرفته"
+
+msgid "Smart Product Recommendations (AI)"
+msgstr "پیشنهادات هوشمند محصولات (AI Recommendations)"
+
+msgid "Analytics & Reporting"
+msgstr "آنالیتیکس و گزارش"
+
+msgid "Badges and Special Offers"
+msgstr "برچسب‌ها و پیشنهاد ویژه"
+
+msgid "Badges and Special Offers (New, Bestseller, Discount)"
+msgstr "برچسب‌ها و پیشنهاد ویژه (جدیدترین، پر فروش، تخفیف)"
+
+msgid "Basic Admin Panel"
+msgstr "پنل ادمین ساده"
+
+msgid "Basic Database"
+msgstr "دیتابیس پایه"
+
+msgid "Basic SEO"
+msgstr "سئو پایه"
+
+msgid "Advanced Shopping Cart (Auto Tax & Shipping)"
+msgstr "سبد خرید پیشرفته با محاسبه خودکار مالیات و هزینه حمل"
+
+msgid "Live Chat and Chatbot"
+msgstr "Live Chat و Chatbot برای پشتیبانی سریع"
+
+msgid "Cloud-native and microservices architecture"
+msgstr "معماری ابری و میکروسرویس"
+
+msgid "Contact Form"
+msgstr "فرم تماس"
+
+msgid "Coupon Codes and Loyalty Points"
+msgstr "تخفیف کد (Coupon Code) و امتیاز وفاداری مشتری"
+
+msgid "Product Customization"
+msgstr "سفارشی‌سازی محصول (رنگ، سایز، متن روی محصول)"
+
+msgid "Dedicated development and support team"
+msgstr "تیم اختصاصی توسعه و پشتیبانی"
+
+msgid "First Purchase and Loyalty Discounts"
+msgstr "تخفیف ویژه برای اولین خرید و مشتری وفادار"
+
+msgid "Full Online Sales"
+msgstr "فروش آنلاین کامل"
+
+msgid "Email Marketing"
+msgstr "ایمیل مارکتینگ"
+
+msgid "Advanced Product Filtering"
+msgstr "فیلتر پیشرفته محصولات: قیمت، رنگ، سایز، برند"
+
+msgid "Simple Product Filtering"
+msgstr "فیلتر محصولات ساده"
+
+msgid "Time-Limited Campaigns (Flash Sale)"
+msgstr "کمپین‌های زمان محدود (Flash Sale)"
+
+msgid "Image Gallery with Zoom and 360°"
+msgstr "گالری تصاویر با زوم و 360 درجه محصول"
+
+msgid "Simple Image Gallery"
+msgstr "گالری تصاویر ساده"
+
+msgid "Image Gallery with Zoom"
+msgstr "گالری تصاویر با زوم"
+
+msgid "Warehouse and Inventory Management"
+msgstr "مدیریت انبار و موجودی خودکار"
+
+msgid "Online and Downloadable Invoices"
+msgstr "صدور فاکتور آنلاین و قابل دانلود"
+
+msgid "Simple Live Chat"
+msgstr "Live Chat ساده"
+
+msgid "Live Search (Real-time)"
+msgstr "جستجوی زنده (Live Search) با پیشنهاد محصول"
+
+msgid "iOS and Android mobile applications"
+msgstr "اپلیکیشن‌های موبایل iOS و Android"
+
+msgid "Multiple coordinated websites and portals"
+msgstr "چندین وب‌سایت و پورتال هماهنگ"
+
+msgid "Multi-language Support"
+msgstr "چند زبانه بودن"
+
+msgid "Multi-language and Multi-currency"
+msgstr "چند زبانه بودن سایت و پشتیبانی ارزهای مختلف"
+
+msgid "Multi-vendor Marketplace"
+msgstr "پشتیبانی از چند فروشنده (Multi-vendor Marketplace)"
+
+msgid "No Admin Panel"
+msgstr "پنل ادمین ندارد"
+
+msgid "No Online Sales"
+msgstr "فروش آنلاین ندارد"
+
+msgid "Order Notifications"
+msgstr "نوتیفیکیشن برای سفارشات جدید و وضعیت سفارش"
+
+msgid "Up to 5 Pages"
+msgstr "تا 5 صفحه"
+
+msgid "Up to 10 Pages"
+msgstr "تا 10 صفحه"
+
+msgid "Payment Gateway"
+msgstr "درگاه پرداخت"
+
+msgid "Multiple Payment Gateways"
+msgstr "درگاه‌های پرداخت متنوع: کارت بانکی، PayPal، Papara"
+
+msgid "Bespoke platform and network design"
+msgstr "طراحی پلتفرم و شبکه اختصاصی"
+
+msgid "Premium SEO"
+msgstr "سئو حرفه‌ای"
+
+msgid "Product Videos"
+msgstr "ویدیوهای محصول"
+
+msgid "PWA Version"
+msgstr "نسخه PWA یا اپلیکیشن موبایل"
+
+msgid "Professional Reporting"
+msgstr "گزارش‌گیری حرفه‌ای: فروش، پرفروش‌ترین محصولات، درآمد"
+
+msgid "Responsive Design"
+msgstr "طراحی ریسپانسیو"
+
+msgid "Product Returns and Online Return Requests"
+msgstr "بازگشت کالا و درخواست مرجوعی آنلاین"
+
+msgid "Reviews and Ratings"
+msgstr "نظرات و امتیازدهی"
+
+msgid "User Reviews and Ratings"
+msgstr "نظرات و امتیازدهی کاربران"
+
+msgid "High-performance scalable infrastructure"
+msgstr "زیرساخت مقیاس‌پذیر و پرسرعت"
+
+msgid "Simple Search"
+msgstr "جستجوی ساده"
+
+msgid "Fraud Prevention and Secure Payment"
+msgstr "سیستم ضد تقلب و پرداخت امن"
+
+msgid "Advanced Shipping System"
+msgstr "سیستم حمل و نقل پیشرفته: محاسبه هزینه براساس وزن و آدرس"
+
+msgid "SMS Notifications"
+msgstr "پیامک اطلاع‌رسانی سفارش"
+
+msgid "Social Media Links"
+msgstr "لینک شبکه‌های اجتماعی"
+
+msgid "Social Media Sales Integration"
+msgstr "اتصال به شبکه‌های اجتماعی و فروش از طریق Instagram/Facebook"
+
+msgid "SSL and HTTPS"
+msgstr "SSL و HTTPS"
+
+msgid "Purchase Terms and Conditions"
+msgstr "قوانین و شرایط خرید"
+
+msgid "Certificates and Trust Badge"
+msgstr "گواهینامه‌ها و لوگوی اعتماد مشتری (Trusted Badge)"
+
+msgid "Unlimited Pages"
+msgstr "صفحات نامحدود"
+
+msgid "Follow Us"
+msgstr "ما را دنبال کنید"
+
+msgid "Professional web design and development services. Grow your business in the digital world with modern, fast and user-friendly websites."
+msgstr "خدمات طراحی و توسعه وب حرفه‌ای. کسب‌وکار خود را در دنیای دیجیتال با وب‌سایت‌های مدرن، سریع و کاربرپسند رشد دهید."
+
+msgid "Freelance Web Developer"
+msgstr "توسعه‌دهنده وب آزادکار"
+
+msgid "Get Quote"
+msgstr "دریافت قیمت"
+
+msgid "Make your business stand out in the digital world with modern, fast, and user-friendly websites. I provide comprehensive web development services for e-commerce sites, corporate websites, portfolio sites, and custom projects. I bring your projects to life with expertise in Django, Python, JavaScript, CSS, HTML, Bootstrap, and hosting services."
+msgstr "با وب‌سایت‌های مدرن، سریع و کاربرپسند، کسب‌وکار خود را در دنیای دیجیتال برجسته کنید. خدمات جامع توسعه وب برای سایت‌های فروشگاهی، وب‌سایت‌های شرکتی، سایت‌های پورتفولیو و پروژه‌های سفارشی ارائه می‌دهم. پروژه‌های شما را با تخصص در Django، Python، JavaScript، CSS، HTML، Bootstrap و خدمات هاستینگ به زندگی تبدیل می‌کنم."
+
+msgid "Starting from 5,000 TL"
+msgstr "از 5,000 تومان شروع می‌شود"
+
+msgid "Programmer and Custom Website & Mobile App Designer"
+msgstr "برنامه‌نویس و طراح اختصاصی وب‌سایت و اپلیکیشن موبایل"
+
+msgid "Home"
+msgstr "خانه"
+
+msgid "Hosting and Publishing"
+msgstr "هاستینگ و انتشار"
+
+msgid "I publish your website on secure servers. 24/7 technical support and maintenance service."
+msgstr "وب‌سایت شما را در سرورهای امن منتشر می‌کنم. پشتیبانی فنی و خدمات نگهداری 24/7."
+
+msgid "JavaScript Advanced"
+msgstr "JavaScript Advanced"
+
+msgid "Management Application"
+msgstr "Management Application"
+
+msgid "Content management system with advanced admin panel"
+msgstr "Content management system with advanced admin panel"
+
+msgid "Send Message"
+msgstr "ارسال پیام"
+
+msgid "My Projects"
+msgstr "پروژه‌های من"
+
+msgid "My Services"
+msgstr "خدمات من"
+
+msgid "Speed and SEO Optimization"
+msgstr "بهینه‌سازی سرعت و SEO"
+
+msgid "I bring your website to the top ranks on Google. Fast loading and search engine optimization."
+msgstr "وب‌سایت شما را در رتبه‌های بالای گوگل قرار می‌دهم. بارگذاری سریع و بهینه‌سازی موتور جستجو."
+
+msgid "Or Contact Directly"
+msgstr "یا مستقیماً تماس بگیرید"
+
+msgid "Basic Package"
+msgstr "پکیج پایه"
+
+msgid "Custom Package"
+msgstr "پکیج اختصاصی"
+
+msgid "Professional Package"
+msgstr "پکیج حرفه‌ای"
+
+msgid "Packages"
+msgstr "پکیج‌ها"
+
+msgid "Grow your business in the digital world with our professional website packages. Offer your customers the best experience with modern design, fast loading and user-friendly interface."
+msgstr "با پکیج‌های حرفه‌ای وب‌سایت ما، کسب‌وکار خود را در دنیای دیجیتال رشد دهید. با طراحی مدرن، بارگذاری سریع و رابط کاربری دوستانه، بهترین تجربه را به مشتریان خود ارائه دهید."
+
+msgid "Choose the package that suits your needs and take your business to the digital world"
+msgstr "پکیج مناسب نیاز خود را انتخاب کنید و کسب‌وکار خود را به دنیای دیجیتال ببرید"
+
+msgid "Our Packages"
+msgstr "پکیج‌های ما"
+
+msgid "Get to know me and trust me - Professional web developer at work"
+msgstr "مرا بشناسید و به من اعتماد کنید - توسعه‌دهنده حرفه‌ای وب در حال کار"
+
+msgid "Personal Photos"
+msgstr "عکس‌های شخصی من"
+
+msgid "Personal Portfolio"
+msgstr "Personal Portfolio"
+
+msgid "Phone"
+msgstr "تلفن"
+
+msgid "Call me for direct conversation"
+msgstr "برای صحبت مستقیم با من تماس بگیرید"
+
+msgid "Phone Number:"
+msgstr "شماره تلفن:"
+
+msgid "Add your personal photos to the photos folder"
+msgstr "عکس‌های شخصی خود را در پوشه photos قرار دهید"
+
+msgid "Popular"
+msgstr "محبوب"
+
+msgid "Angraweb.com"
+msgstr "Angraweb.com"
+
+msgid "Bonus and rewards platform - Berlin based service"
+msgstr "پلتفرم پاداش و جایزه - سرویس مستقر در برلین"
+
+msgid "Personal portfolio website with advanced animations"
+msgstr "Personal portfolio website with advanced animations"
+
+msgid "Event ticket booking platform - concerts, festivals and live shows"
+msgstr "پلتفرم رزرو بلیط رویداد - کنسرت‌ها، فستیوال‌ها و نمایش‌های زنده"
+
+msgid "Online clothing sales website - modern e-commerce platform"
+msgstr "وبسایت فروش آنلاین پوشاک - پلتفرم تجارت الکترونیک مدرن"
+
+msgid "Professional services platform - connecting customers with craftsmen"
+msgstr "پلتفرم خدمات حرفه‌ای - اتصال مشتریان با استادکاران"
+
+msgid "Professional driving school website - registration and training system"
+msgstr "وبسایت آموزشگاه رانندگی حرفه‌ای - سیستم ثبت‌نام و آموزش"
+
+msgid "Legal services and consulting website - specialized platform"
+msgstr "وبسایت خدمات حقوقی و مشاوره - پلتفرم تخصصی"
+
+msgid "Designed and active websites"
+msgstr "وبسایت‌های طراحی شده و فعال"
+
+msgid "Our Portfolio"
+msgstr "نمونه کارهای ما"
+
+msgid "Professional Portfolio"
+msgstr "پورتفولیو حرفه‌ای"
+
+msgid "Professional driving school website - education and registration system"
+msgstr "وب‌سایت مدرسه رانندگی حرفه‌ای - سیستم آموزش و ثبت‌نام"
+
+msgid "Hedef Driver Course"
+msgstr "مدرسه رانندگی هدف"
+
+msgid "Personal portfolio website - professional presentation and communication"
+msgstr "وب‌سایت پورتفولیو شخصی - معرفی حرفه‌ای و ارتباط"
+
+msgid "Ali Asadi Portfolio"
+msgstr "پورتفولیو علی اسدی"
+
+msgid "E-commerce website operating in Germany - clothing sales"
+msgstr "وب‌سایت تجارت الکترونیک در آلمان - فروش پوشاک"
+
+msgid "Firment Shirt DE"
+msgstr "فیرمنت شرت آلمان"
+
+msgid "International e-commerce platform - modern clothing store"
+msgstr "پلتفرم تجارت الکترونیک بین‌المللی - فروشگاه پوشاک مدرن"
+
+msgid "Firment Shirt Shop"
+msgstr "فروشگاه فیرمنت شرت"
+
+msgid "Projects"
+msgstr "پروژه‌ها"
+
+msgid "Contact me now for free consultation and quotes. I offer affordable solutions for similar projects."
+msgstr "همین الان برای مشاوره رایگان و دریافت پیشنهاد با من تماس بگیرید. راه‌حل‌های مقرون‌به‌صرفه برای پروژه‌های مشابه ارائه می‌دهم."
+
+msgid "All my projects are developed using modern technologies and best practices. Contact me via WhatsApp for detailed information and custom project quotes."
+msgstr "همه پروژه‌های من با استفاده از تکنولوژی‌های مدرن و بهترین روش‌ها توسعه یافته‌اند. برای اطلاعات دقیق و پیشنهادات پروژه سفارشی از طریق واتساپ با من تماس بگیرید."
+
+msgid "About Projects"
+msgstr "درباره پروژه‌ها"
+
+msgid "Discover my professional web design projects and live demo videos. Learn more about my e-commerce sites, corporate websites and custom platform solutions."
+msgstr "پروژه‌های حرفه‌ای طراحی وب و دموهای ویدیویی زنده من را کشف کنید. بیشتر در مورد سایت‌های فروشگاهی، وب‌سایت‌های شرکتی و راه‌حل‌های پلتفرم سفارشی من بیاموزید."
+
+msgid "Successful Web Design Projects and Video Demos"
+msgstr "پروژه‌های موفق طراحی وب و دموهای ویدیویی"
+
+msgid "Python Developer"
+msgstr "Python Developer"
+
+msgid "Quick Links"
+msgstr "لینک‌های سریع"
+
+msgid "Mobile Responsive Design"
+msgstr "طراحی واکنش‌گرا موبایل"
+
+msgid "Websites that look perfect on all devices. Optimized experience on phone, tablet and computer."
+msgstr "وب‌سایت‌هایی که در تمام دستگاه‌ها عالی به نظر می‌رسند. تجربه بهینه در تلفن، تبلت و کامپیوتر."
+
+msgid "Resume"
+msgstr "رزومه"
+
+msgid "Resume & Certificates"
+msgstr "رزومه و گواهینامه‌ها"
+
+msgid "Contact me via WhatsApp for free consultation and project quotes. My experience and certificates are ready to use for your project."
+msgstr "برای مشاوره رایگان و دریافت پیشنهادات پروژه از طریق واتساپ با من تماس بگیرید. تجربه و گواهینامه‌های من آماده استفاده برای پروژه شما هستند."
+
+msgid "Contact Me for Professional Services!"
+msgstr "برای دریافت خدمات حرفه‌ای با من تماس بگیرید!"
+
+msgid "As a Marmara University Computer Programming graduate, I have specialized in web design and development with my professional certificates and 5+ years of experience."
+msgstr "به عنوان فارغ‌التحصیل برنامه‌نویسی کامپیوتر دانشگاه مارمارا، با گواهینامه‌های حرفه‌ای و بیش از 5 سال تجربه در طراحی و توسعه وب تخصص پیدا کرده‌ام."
+
+msgid "Education, Experience and Professional Certificates"
+msgstr "تحصیلات، تجربه و گواهینامه‌های حرفه‌ای"
+
+msgid "Send Email"
+msgstr "ارسال ایمیل"
+
+msgid "Services"
+msgstr "خدمات"
+
+msgid "As Angraweb, we offer comprehensive web design and development services to strengthen your business's digital presence. Reach your goals with modern, fast and user-friendly solutions."
+msgstr "به عنوان Angraweb، خدمات جامع طراحی و توسعه وب را برای تقویت حضور دیجیتال کسب‌وکار شما ارائه می‌دهیم. با راه‌حل‌های مدرن، سریع و کاربرپسند به اهداف خود برسید."
+
+msgid "Solutions That Grow Your Business in the Digital World"
+msgstr "راه‌حل‌هایی که کسب‌وکار شما را در دنیای دیجیتال رشد می‌دهد"
+
+msgid "Subject"
+msgstr "موضوع"
+
+msgid "Successful Projects"
+msgstr "پروژه موفق"
+
+msgid "Technical Skills"
+msgstr "مهارت‌های فنی"
+
+msgid "Secure and Fast Solutions"
+msgstr "راه‌حل‌های امن و سریع"
+
+msgid "24/7 Technical Support"
+msgstr "پشتیبانی فنی 24/7"
+
+msgid "Marmara University Graduate"
+msgstr "فارغ‌التحصیل دانشگاه مارمارا"
+
+msgid "User Experience Design"
+msgstr "طراحی تجربه کاربری"
+
+msgid "Beautiful and functional interface designs that will impress your customers. Increase your conversion rates."
+msgstr "طراحی‌های رابط کاربری زیبا و کاربردی که مشتریان شما را تحت تأثیر قرار خواهد داد. نرخ تبدیل خود را افزایش دهید."
+
+msgid "Marmara University - 2025"
+msgstr "دانشگاه مارمارا - 2025"
+
+msgid "Affordable Price"
+msgstr "قیمت مناسب"
+
+msgid "I offer quality service at reasonable prices, solutions that fit your budget"
+msgstr "خدمات با کیفیت را با قیمت‌های معقول ارائه می‌دهم، راه‌حل‌هایی که با بودجه شما سازگار است"
+
+msgid "Grow Your Business"
+msgstr "کسب‌وکار خود را رشد دهید"
+
+msgid "Increase your sales and customer satisfaction with modern websites"
+msgstr "با وب‌سایت‌های مدرن، فروش و رضایت مشتریان خود را افزایش دهید"
+
+msgid "Continuous Support"
+msgstr "پشتیبانی مداوم"
+
+msgid "I'm with you after the project too, 24/7 technical support service"
+msgstr "بعد از پروژه هم کنار شما هستم، خدمات پشتیبانی فنی 24/7"
+
+msgid "Save Time"
+msgstr "صرفه‌جویی در زمان"
+
+msgid "Use your time efficiently with fast delivery and professional service"
+msgstr "با تحویل سریع و خدمات حرفه‌ای، زمان خود را بهینه استفاده کنید"
+
+msgid "First project demo video"
+msgstr "اولین ویدیوی دمو پروژه"
+
+msgid "Project Demo 1"
+msgstr "دمو پروژه ۱"
+
+msgid "Second project demo video"
+msgstr "دومین ویدیوی دمو پروژه"
+
+msgid "Project Demo 2"
+msgstr "دمو پروژه ۲"
+
+msgid "Third project demo video"
+msgstr "سومین ویدیوی دمو پروژه"
+
+msgid "Project Demo 3"
+msgstr "دمو پروژه ۳"
+
+msgid "Fourth project demo video"
+msgstr "چهارمین ویدیوی دمو پروژه"
+
+msgid "Project Demo 4"
+msgstr "دمو پروژه ۴"
+
+msgid "Video Demos"
+msgstr "دموهای ویدیویی"
+
+msgid "Discover functionality and design details by watching live demo videos of my projects."
+msgstr "عملکرد و جزئیات طراحی را با تماشای دموهای ویدیویی زنده پروژه‌های من کشف کنید."
+
+msgid "View"
+msgstr "مشاهده"
+
+msgid "View Certificates"
+msgstr "مشاهده گواهینامه‌ها"
+
+msgid "View Projects"
+msgstr "مشاهده پروژه‌ها"
+
+msgid "Visit Website"
+msgstr "بازدید از وب‌سایت"
+
+msgid "Watch Demo"
+msgstr "مشاهده دمو"
+
+msgid "Professional Web Design"
+msgstr "طراحی وب حرفه‌ای"
+
+msgid "I design modern and fast websites that will grow your business. Strengthen your brand with corporate website solutions."
+msgstr "وب‌سایت‌های مدرن و سریعی طراحی می‌کنم که کسب‌وکار شما را رشد خواهد داد. برند خود را با راه‌حل‌های وب‌سایت شرکتی تقویت کنید."
+
+msgid "Write on WhatsApp"
+msgstr "پیام در واتساپ"
+
+msgid "Send a message via WhatsApp for quick response"
+msgstr "برای پاسخ سریع از طریق واتساپ پیام بفرستید"
+
+msgid "Why Choose Me?"
+msgstr "چرا من را انتخاب کنید؟"
+
+msgid "Years Experience"
+msgstr "سال تجربه"
+
+msgid "Your Email"
+msgstr "ایمیل شما"
+
+msgid "Your Message"
+msgstr "پیام شما"
+
+msgid "Your Name"
+msgstr "نام شما"
+

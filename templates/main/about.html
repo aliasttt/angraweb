@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hakkımda - Profesyonel Web Tasarım Uzmanı | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">About Me</span>
+        </h1>
+    </div>
+</section>
+
+<section id="about" class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <h3>Profesyonel Web Tasarım Uzmanı</h3>
+                    <p>
+                        Marmara Üniversitesi Bilgisayar Programlama mezunu olarak profesyonel web tasarım çözümleri sunuyorum. 
+                        20'den fazla müşterim %100 memnuniyet ile hizmet aldı.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
+                        <div class="skill-item"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                        <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                        <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                        <div class="skill-item"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+                        <div class="skill-item"><i class="fab fa-github"></i><span>Git</span></div>
+                        <div class="skill-item"><i class="fab fa-python"></i><span>Django</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Başarılı Proje</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Yıl Deneyim</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Müşteri Memnuniyeti</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

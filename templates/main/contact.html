@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}İletişim - Ücretsiz Teklif ve Danışmanlık | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">Benimle İletişime Geç</span>
+        </h1>
+        <p class="hero-subtitle mt-3">
+            Ücretsiz Teklif ve Danışmanlık İçin Hemen İletişime Geçin
+        </p>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form class="contact-form" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Adınız</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">E-posta Adresiniz</label>
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telefon (اختیاری)</label>
+                        {{ form.phone }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Konu</label>
+                        {{ form.subject }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mesajınız</label>
+                        {{ form.message }}
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane"></i> ارسال پیام
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="row mt-5">
+                    <div class="col-md-4 mb-3">
+                        <div class="contact-info-card text-center">
+                            <div class="contact-info-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/905340382335" class="btn btn-sm btn-success" target="_blank">
+                                Mesaj Gönder
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="contact-info-card text-center">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>E-posta</h4>
+                            <a href="mailto:aliasadi3853@gmail.com" class="btn btn-sm btn-outline-light">
+                                E-posta Gönder
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="contact-info-card text-center">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>Telefon</h4>
+                            <a href="tel:+905340382335" class="btn btn-sm btn-outline-primary">
+                                Şimdi Ara
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

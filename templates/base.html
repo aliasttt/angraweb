@@ -1,0 +1,265 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ current_lang|default:'tr' }}" dir="{% if is_rtl %}rtl{% else %}ltr{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}</title>
+    
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      if (typeof window.gtag !== 'function') {
+        callback();
+        return false;
+      }
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17220061979/ooaBCLKXr5AbEJuWlZNA',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+    
+    {% block meta %}{% endblock %}
+    
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="planets">
+            <div class="planet planet-1"></div>
+            <div class="planet planet-2"></div>
+            <div class="planet planet-3"></div>
+        </div>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button onclick="window.location.href='{% url 'set_language' 'tr' %}'" class="lang-btn {% if current_lang == 'tr' %}active{% endif %}">
+            <img src="https://flagcdn.com/24x18/tr.png" alt="Türkçe" width="24" height="18">
+            TR
+        </button>
+        <button onclick="window.location.href='{% url 'set_language' 'en' %}'" class="lang-btn {% if current_lang == 'en' %}active{% endif %}">
+            <img src="https://flagcdn.com/24x18/gb.png" alt="English" width="24" height="18">
+            EN
+        </button>
+        <button onclick="window.location.href='{% url 'set_language' 'fa' %}'" class="lang-btn {% if current_lang == 'fa' %}active{% endif %}">
+            <img src="https://flagcdn.com/24x18/ir.png" alt="فارسی" width="24" height="18">
+            FA
+        </button>
+        <button onclick="window.location.href='{% url 'set_language' 'ar' %}'" class="lang-btn {% if current_lang == 'ar' %}active{% endif %}">
+            <img src="https://flagcdn.com/24x18/sa.png" alt="العربية" width="24" height="18">
+            AR
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <i class="fas fa-rocket"></i> Angraweb.com
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">{% trans "Home" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'packages_list' %}active{% endif %}" href="{% url 'packages_list' %}">{% trans "Packages" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">{% trans "About" %}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if 'service' in request.resolver_match.url_name or 'web_design' in request.resolver_match.url_name or 'mobile_app' in request.resolver_match.url_name or 'ecommerce' in request.resolver_match.url_name %}active{% endif %}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
+                            {% trans "Services" %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{% url 'services_list' %}">{% trans "All Services" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'web_design' %}">{% trans "Web Design" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'mobile_app' %}">{% trans "Mobile App Design" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'ecommerce' %}">{% trans "E-commerce" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'seo_services' %}">{% trans "SEO Services" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'hosting_services' %}">{% trans "Hosting Services" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'ui_ux_design' %}">{% trans "UI/UX Design" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'projects_list' %}active{% endif %}" href="{% url 'projects_list' %}">{% trans "Projects" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'resume' %}active{% endif %}" href="{% url 'resume' %}">{% trans "Resume" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">{% trans "Contact" %}</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/">{% trans "Admin" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="socialDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-share-alt"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="https://www.instagram.com/ali_asadiz_ttt" target="_blank"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+                            <li><a class="dropdown-item" href="https://t.me/Ali_asadiz_ttt" target="_blank"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/aliasttt" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Messages -->
+    {% if messages %}
+    <div class="container mt-5 pt-5">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <h4 class="footer-title">
+                            <i class="fas fa-rocket"></i> Angraweb.com
+                        </h4>
+                        <p class="footer-description">
+                            {% trans "Professional web design and development services. Grow your business in the digital world with modern, fast and user-friendly websites." %}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">{% trans "Quick Links" %}</h5>
+                    <ul class="footer-links">
+                        <li><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
+                        <li><a href="{% url 'packages_list' %}">{% trans "Packages" %}</a></li>
+                        <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>
+                        <li><a href="{% url 'services_list' %}">{% trans "Services" %}</a></li>
+                        <li><a href="{% url 'projects_list' %}">{% trans "Projects" %}</a></li>
+                        <li><a href="{% url 'resume' %}">{% trans "Resume" %}</a></li>
+                        <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="footer-title">{% trans "Contact Information" %}</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:aliasadi3853@gmail.com">aliasadi3853@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+905340382335">+90 534 038 23 35</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/905340382335" target="_blank">WhatsApp</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="footer-title">{% trans "Follow Us" %}</h5>
+                    <div class="footer-social-links">
+                        <a href="https://www.instagram.com/ali_asadiz_ttt" class="footer-social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://t.me/Ali_asadiz_ttt" class="footer-social-link" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                            <span>Telegram</span>
+                        </a>
+                        <a href="https://github.com/aliasttt" class="footer-social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-bottom">
+                        <p>&copy; 2024 Angraweb.com. {% trans "All rights reserved." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Fixed Button -->
+    <a href="https://wa.me/905340382335?text=Merhaba! Teklif almak istiyorum." class="whatsapp-fixed-container" target="_blank" onclick="return gtag_report_conversion('https://wa.me/905340382335')">
+        <span class="whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
+        <span class="whatsapp-quote-text">{% trans "Get Quote" %}</span>
+    </a>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="{% static 'js/main.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+    
+    <script>
+      (function(){
+        var loaded = false;
+        function loadGtag(){
+          if (loaded) return; loaded = true;
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          window.gtag = gtag;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-HNM9ZF7K7Z';
+          s.onload = function(){
+            try {
+              gtag('js', new Date());
+              gtag('config', 'G-HNM9ZF7K7Z');
+              gtag('config', 'AW-17220061979');
+            } catch (e) {}
+          };
+          document.head.appendChild(s);
+        }
+        var ric = window.requestIdleCallback || function(cb){ setTimeout(cb, 1500); };
+        window.addEventListener('load', function(){ ric(loadGtag); });
+      })();
+    </script>
+</body>
+</html>

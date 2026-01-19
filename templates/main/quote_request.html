@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}درخواست قیمت | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">درخواست قیمت</span>
+        </h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="contact-form">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">نام</label>
+                                {{ form.name }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">ایمیل</label>
+                                {{ form.email }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">تلفن</label>
+                                {{ form.phone }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">شرکت (اختیاری)</label>
+                                {{ form.company }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">نوع خدمت</label>
+                                {{ form.service_type }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">نوع پکیج</label>
+                                {{ form.package_type }}
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">توضیحات پروژه</label>
+                            {{ form.description }}
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">بودجه (اختیاری)</label>
+                                {{ form.budget }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">مهلت (اختیاری)</label>
+                                {{ form.deadline }}
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">ارسال درخواست</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

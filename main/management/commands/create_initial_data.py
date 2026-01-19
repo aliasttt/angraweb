@@ -1,0 +1,155 @@
+from django.core.management.base import BaseCommand
+from main.models import Service, Package, PackageFeature
+import sys
+
+
+class Command(BaseCommand):
+    help = 'Create initial data for services and packages'
+
+    def handle(self, *args, **options):
+        # Fix encoding for Windows console
+        if sys.platform == 'win32':
+            import codecs
+            sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
+            sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'strict')
+        # ایجاد خدمات
+        services_data = [
+            {
+                'title': 'Uzman Web Tasarımı',
+                'service_type': 'web_design',
+                'description': 'İşinizi büyütecek modern ve hızlı web siteleri tasarlıyorum.',
+                'icon': 'fas fa-code',
+                'order': 1,
+                'featured': True,
+            },
+            {
+                'title': 'E-Ticaret Çözümleri',
+                'service_type': 'ecommerce',
+                'description': 'Satışlarınızı artıracak profesyonel e-ticaret sitesi.',
+                'icon': 'fas fa-shopping-cart',
+                'order': 2,
+                'featured': True,
+            },
+            {
+                'title': 'Mobil Uyumlu Tasarım',
+                'service_type': 'web_design',
+                'description': 'Tüm cihazlarda mükemmel görünen web siteleri.',
+                'icon': 'fas fa-mobile-alt',
+                'order': 3,
+            },
+            {
+                'title': 'Hosting ve Yayınlama',
+                'service_type': 'hosting',
+                'description': 'Web sitenizi güvenli sunucularda yayınlıyorum.',
+                'icon': 'fas fa-server',
+                'order': 4,
+            },
+            {
+                'title': 'Kullanıcı Deneyimi Tasarımı',
+                'service_type': 'ui_ux',
+                'description': 'Müşterilerinizi etkileyecek güzel ve kullanışlı arayüz tasarımları.',
+                'icon': 'fas fa-paint-brush',
+                'order': 5,
+            },
+            {
+                'title': 'Hız ve SEO',
+                'service_type': 'seo',
+                'description': 'Web sitenizi Google\'da üst sıralara çıkarıyorum.',
+                'icon': 'fas fa-cogs',
+                'order': 6,
+            },
+        ]
+        
+        for service_data in services_data:
+            service, created = Service.objects.get_or_create(
+                title=service_data['title'],
+                defaults=service_data
+            )
+            if created:
+                try:
+                    self.stdout.write(self.style.SUCCESS(f'Service created: {service.title}'))
+                except:
+                    pass
+        
+        # ایجاد پکیج‌ها
+        packages_data = [
+            {
+                'title': 'پکیج پایه',
+                'package_type': 'basic',
+                'price': 5000,
+                'currency': 'TL',
+                'order': 1,
+            },
+            {
+                'title': 'پکیج تجاری',
+                'package_type': 'commercial',
+                'price': 10000,
+                'currency': 'TL',
+                'order': 2,
+                'popular': True,
+            },
+            {
+                'title': 'پکیج حرفه‌ای',
+                'package_type': 'professional',
+                'price': 15000,
+                'currency': 'TL',
+                'order': 3,
+            },
+            {
+                'title': 'پکیج کاستوم',
+                'package_type': 'custom',
+                'price': 0,
+                'custom_price_text': 'برای قیمت‌گذاری اختصاصی واتساپ پیام دهید',
+                'order': 4,
+            },
+        ]
+        
+        for package_data in packages_data:
+            package, created = Package.objects.get_or_create(
+                title=package_data['title'],
+                defaults=package_data
+            )
+            if created:
+                try:
+                    self.stdout.write(self.style.SUCCESS(f'Package created: {package.title}'))
+                except:
+                    pass
+                
+                # اضافه کردن ویژگی‌های پیش‌فرض
+                if package.package_type == 'basic':
+                    features = [
+                        'طراحی ریسپانسیو',
+                        'تا 5 صفحه',
+                        'فرم تماس',
+                        'سئو پایه',
+                    ]
+                elif package.package_type == 'commercial':
+                    features = [
+                        'طراحی ریسپانسیو',
+                        'تا 10 صفحه',
+                        'پنل ادمین ساده',
+                        'دیتابیس پایه',
+                    ]
+                elif package.package_type == 'professional':
+                    features = [
+                        'طراحی ریسپانسیو',
+                        'صفحات نامحدود',
+                        'پنل ادمین اختصاصی',
+                        'دیتابیس پیشرفته',
+                    ]
+                else:
+                    features = [
+                        'طراحی پلتفرم و شبکه اختصاصی',
+                        'چندین وبسایت و پورتال هماهنگ',
+                        'اپلیکیشن موبایل iOS و Android',
+                    ]
+                
+                for idx, feature_title in enumerate(features):
+                    PackageFeature.objects.create(
+                        package=package,
+                        title=feature_title,
+                        included=True,
+                        order=idx
+                    )
+        
+        self.stdout.write(self.style.SUCCESS('Initial data created successfully!'))

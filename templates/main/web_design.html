@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}طراحی وبسایت حرفه‌ای | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">طراحی وبسایت حرفه‌ای</span>
+        </h1>
+        <p class="hero-subtitle mt-3">وبسایت‌های مدرن، سریع و کاربرپسند</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="about-content">
+                    <h2>خدمات طراحی وبسایت</h2>
+                    <p>ما با استفاده از جدیدترین تکنولوژی‌ها و استانداردهای طراحی، وبسایت‌های حرفه‌ای و مدرن برای شما طراحی می‌کنیم.</p>
+                    
+                    <h3 class="mt-4">ویژگی‌های وبسایت‌های ما:</h3>
+                    <ul>
+                        <li>طراحی ریسپانسیو و سازگار با تمام دستگاه‌ها</li>
+                        <li>سرعت بالا و بهینه‌سازی شده</li>
+                        <li>سئو و بهینه‌سازی برای موتورهای جستجو</li>
+                        <li>رابط کاربری مدرن و جذاب</li>
+                        <li>پنل مدیریت آسان</li>
+                        <li>پشتیبانی 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <h3>درخواست قیمت</h3>
+                    <a href="{% url 'quote_request' %}?service=web_design" class="btn btn-primary btn-lg w-100 mt-3">
+                        دریافت قیمت
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        {% if projects %}
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4">نمونه پروژه‌های طراحی وبسایت</h3>
+                <div class="row">
+                    {% for project in projects %}
+                    <div class="col-md-4 mb-4">
+                        <div class="project-card">
+                            {% if project.image %}
+                            <div class="project-image">
+                                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                            </div>
+                            {% endif %}
+                            <div class="project-content">
+                                <h4>{{ project.title }}</h4>
+                                {% if project.url %}
+                                <a href="{{ project.url }}" class="btn btn-sm btn-primary" target="_blank">مشاهده</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

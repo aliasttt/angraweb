@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Özgeçmiş ve Sertifikalar | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">Özgeçmiş ve Sertifikalar</span>
+        </h1>
+    </div>
+</section>
+
+<section id="resume" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5">
+                <div class="resume-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Eğitim</h3>
+                    <div class="resume-item">
+                        <h4>Bilgisayar Programlama</h4>
+                        <p>Marmara Üniversitesi - 2025</p>
+                    </div>
+                </div>
+                
+                <div class="resume-section mt-5">
+                    <h3><i class="fas fa-briefcase"></i> Deneyim</h3>
+                    <div class="resume-item">
+                        <h4>Freelance Web Geliştirici</h4>
+                        <p>2019 - Günümüz</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="resume-section">
+                    <h3><i class="fas fa-certificate"></i> Sertifikalar</h3>
+                    <div class="certificate-gallery">
+                        {% for certificate in certificates %}
+                        <div class="certificate-item">
+                            {% if certificate.image %}
+                            <div class="certificate-image-container">
+                                <img src="{{ certificate.image.url }}" alt="{{ certificate.title }}" class="certificate-image">
+                            </div>
+                            {% endif %}
+                            <div class="certificate-content p-3">
+                                <h5>{{ certificate.title }}</h5>
+                                {% if certificate.issuer %}
+                                <p class="mb-0">{{ certificate.issuer }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="certificate-placeholder">
+                            <i class="fas fa-image"></i>
+                            <p>هیچ گواهینامه‌ای یافت نشد.</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,692 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-19 14:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "About"
+msgstr "حول"
+
+msgid "I am a professional web developer specialized in web programming areas. I develop SEO-friendly, mobile-friendly, and high-performance websites using modern technologies for my clients' digital success. I prioritize quality, speed, and user experience in every project, delivering solutions that will grow your business."
+msgstr "أنا مطور ويب محترف متخصص في مجالات برمجة الويب. أطور مواقع ويب متوافقة مع محركات البحث ومتجاوبة مع الجوال وعالية الأداء باستخدام التقنيات الحديثة لنجاح عملائي الرقمي. أعطي الأولوية للجودة والسرعة وتجربة المستخدم في كل مشروع، وأقدم حلولاً ستنمي عملك."
+
+msgid "As a Marmara University Computer Programming graduate, I have been designing modern and user-friendly websites for over 5 years. I offer custom solutions to make your business stand out in the digital world."
+msgstr "باعتباري خريج برمجة الحاسوب من جامعة مرمرة، أقوم بتصميم مواقع ويب حديثة وسهلة الاستخدام لأكثر من 5 سنوات. أقدم حلولًا مخصصة لتميز عملك في العالم الرقمي."
+
+msgid "Professional Web Design and Development Expert"
+msgstr "خبير تصميم وتطوير الويب المهني"
+
+msgid "About Me"
+msgstr "حول"
+
+msgid "All rights reserved."
+msgstr "جميع الحقوق محفوظة."
+
+msgid "Fast Delivery"
+msgstr "تسليم سريع"
+
+msgid "Mobile Friendly"
+msgstr "متوافق مع الجوال"
+
+msgid "Secure"
+msgstr "آمن"
+
+msgid "24/7 Support"
+msgstr "دعم 24/7"
+
+msgid "Call Now"
+msgstr "اتصل الآن"
+
+msgid "Certificates"
+msgstr "الشهادات"
+
+msgid "Add your certificate images to the certificates folder"
+msgstr "أضف صور شهاداتك إلى مجلد certificates"
+
+msgid "Commercial Package"
+msgstr "الباقة التجارية"
+
+msgid "Computer Programming"
+msgstr "برمجة الحاسوب"
+
+msgid "For Consultation"
+msgstr "للاستشارة"
+
+msgid "Contact"
+msgstr "اتصل"
+
+msgid "Contact Information"
+msgstr "معلومات الاتصال"
+
+msgid "Let's start bringing your project to life today! You can reach me via WhatsApp, email or contact form. Contact me now for free consultation and quotes."
+msgstr "لنبدأ اليوم في إحياء مشروعك! يمكنك التواصل معي عبر واتساب أو البريد الإلكتروني أو نموذج الاتصال. اتصل بي الآن للحصول على استشارة مجانية وعروض أسعار."
+
+msgid "Contact Me Now for Free Quotes and Consultation"
+msgstr "اتصل بي الآن للحصول على عروض أسعار مجانية واستشارة"
+
+msgid "Contact Me"
+msgstr "تواصل معي"
+
+msgid "Contact us now for free consultation and quote. Grow your business with affordable website solutions."
+msgstr "اتصل بنا الآن للحصول على استشارة مجانية وعرض سعر. نمّي عملك بحلول مواقع ويب بأسعار معقولة."
+
+msgid "Get Design Quote"
+msgstr "احصل على عرض تصميم"
+
+msgid "Get Free Quote"
+msgstr "طلب عرض مجاني"
+
+msgid "Get Hosting Package"
+msgstr "احصل على باقة الاستضافة"
+
+msgid "Do SEO Analysis"
+msgstr "إجراء تحليل SEO"
+
+msgid "Start Now"
+msgstr "ابدأ الآن"
+
+msgid "Start Your Project"
+msgstr "ابدأ مشروعك"
+
+msgid "Let's Start Bringing Your Project to Life Today!"
+msgstr "لنبدأ اليوم في إحياء مشروعك!"
+
+msgid "Contact via WhatsApp for tailored pricing"
+msgstr "تواصل عبر واتساب لتسعير مخصص"
+
+msgid "Customer Satisfaction"
+msgstr "رضا العملاء"
+
+msgid "Or contact directly via email:"
+msgstr "أو اتصل مباشرة عبر البريد الإلكتروني:"
+
+msgid "20% Discount for First Design - Click"
+msgstr "20% خصم للتصميم الأول - انقر"
+
+msgid "Django Framework"
+msgstr "Django Framework"
+
+msgid "Download PDF"
+msgstr "تحميل PDF"
+
+msgid "Full-featured e-commerce website with Django and Bootstrap"
+msgstr "Full-featured e-commerce website with Django and Bootstrap"
+
+msgid "E-commerce Solutions"
+msgstr "حلول التجارة الإلكترونية"
+
+msgid "Professional e-commerce site that will increase your sales. Secure payment systems and user-friendly interface."
+msgstr "موقع تجارة إلكترونية احترافي سيزيد مبيعاتك. أنظمة دفع آمنة وواجهة سهلة الاستخدام."
+
+msgid "E-commerce Website"
+msgstr "E-commerce Website"
+
+msgid "Education"
+msgstr "التعليم"
+
+msgid "I graduated from Marmara University Computer Programming department. I received comprehensive training in web development, software engineering and database management."
+msgstr "تخرجت من قسم برمجة الحاسوب بجامعة مرمرة. تلقيت تدريبًا شاملاً في تطوير الويب وهندسة البرمجيات وإدارة قواعد البيانات."
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Send an email for detailed information"
+msgstr "أرسل بريدًا إلكترونيًا للحصول على معلومات مفصلة"
+
+msgid "Experience"
+msgstr "الخبرة"
+
+msgid "I have been working as a freelance web developer for 5+ years. I have completed 20+ successful projects. I specialize in e-commerce sites, corporate websites and custom platform development."
+msgstr "أعمل كمطور ويب مستقل لأكثر من 5 سنوات. أكملت أكثر من 20 مشروعًا ناجحًا. أتخصص في مواقع التجارة الإلكترونية والمواقع الإلكترونية للشركات وتطوير المنصات المخصصة."
+
+msgid "2019 - Present"
+msgstr "2019 - الآن"
+
+msgid "Experienced Web Developer"
+msgstr "مطور ويب ذو خبرة"
+
+msgid "Abandoned Cart Reminder"
+msgstr "تذكير بسلة التسوق المهجورة (Abandoned Cart)"
+
+msgid "Custom Admin Panel"
+msgstr "لوحة تحكم مخصصة"
+
+msgid "Advanced Database"
+msgstr "قاعدة بيانات متقدمة"
+
+msgid "Advanced SEO"
+msgstr "SEO متقدم"
+
+msgid "Smart Product Recommendations (AI)"
+msgstr "اقتراحات منتجات ذكية (AI Recommendations)"
+
+msgid "Analytics & Reporting"
+msgstr "التحليلات والتقارير"
+
+msgid "Badges and Special Offers"
+msgstr "الشارات والعروض الخاصة"
+
+msgid "Badges and Special Offers (New, Bestseller, Discount)"
+msgstr "الشارات والعروض الخاصة (الأحدث، الأكثر مبيعاً، الخصومات)"
+
+msgid "Basic Admin Panel"
+msgstr "لوحة تحكم بسيطة"
+
+msgid "Basic Database"
+msgstr "قاعدة بيانات أساسية"
+
+msgid "Basic SEO"
+msgstr "SEO أساسي"
+
+msgid "Advanced Shopping Cart (Auto Tax & Shipping)"
+msgstr "سلة تسوق متقدمة مع حساب تلقائي للضرائب والشحن"
+
+msgid "Live Chat and Chatbot"
+msgstr "دردشة مباشرة و Chatbot للدعم السريع"
+
+msgid "Cloud-native and microservices architecture"
+msgstr "بنية سحابية وميكروخدمات"
+
+msgid "Contact Form"
+msgstr "نموذج الاتصال"
+
+msgid "Coupon Codes and Loyalty Points"
+msgstr "رموز الخصم (Coupon Code) ونقاط ولاء العملاء"
+
+msgid "Product Customization"
+msgstr "تخصيص المنتج (اللون، الحجم، النص على المنتج)"
+
+msgid "Dedicated development and support team"
+msgstr "فريق تطوير ودعم مخصص"
+
+msgid "First Purchase and Loyalty Discounts"
+msgstr "خصومات خاصة للشراء الأول والعملاء المخلصين"
+
+msgid "Full Online Sales"
+msgstr "مبيعات عبر الإنترنت كاملة"
+
+msgid "Email Marketing"
+msgstr "التسويق عبر البريد الإلكتروني"
+
+msgid "Advanced Product Filtering"
+msgstr "تصفية منتجات متقدمة: السعر، اللون، الحجم، العلامة التجارية"
+
+msgid "Simple Product Filtering"
+msgstr "تصفية المنتجات البسيطة"
+
+msgid "Time-Limited Campaigns (Flash Sale)"
+msgstr "حملات محدودة الوقت (Flash Sale)"
+
+msgid "Image Gallery with Zoom and 360°"
+msgstr "معرض صور مع تكبير و 360 درجة"
+
+msgid "Simple Image Gallery"
+msgstr "معرض صور بسيط"
+
+msgid "Image Gallery with Zoom"
+msgstr "معرض صور مع تكبير"
+
+msgid "Warehouse and Inventory Management"
+msgstr "إدارة المستودعات والمخزون التلقائية"
+
+msgid "Online and Downloadable Invoices"
+msgstr "إصدار فواتير عبر الإنترنت وقابلة للتحميل"
+
+msgid "Simple Live Chat"
+msgstr "دردشة مباشرة بسيطة"
+
+msgid "Live Search (Real-time)"
+msgstr "بحث مباشر (Live Search) مع اقتراحات المنتجات"
+
+msgid "iOS and Android mobile applications"
+msgstr "تطبيقات جوال لنظامي iOS و Android"
+
+msgid "Multiple coordinated websites and portals"
+msgstr "عدة مواقع إلكترونية وبوابات متكاملة"
+
+msgid "Multi-language Support"
+msgstr "دعم متعدد اللغات"
+
+msgid "Multi-language and Multi-currency"
+msgstr "دعم متعدد اللغات والعملات المختلفة"
+
+msgid "Multi-vendor Marketplace"
+msgstr "دعم متعدد البائعين (Multi-vendor Marketplace)"
+
+msgid "No Admin Panel"
+msgstr "لا يوجد لوحة تحكم"
+
+msgid "No Online Sales"
+msgstr "لا يوجد مبيعات عبر الإنترنت"
+
+msgid "Order Notifications"
+msgstr "إشعارات الطلبات الجديدة وحالة الطلب"
+
+msgid "Up to 5 Pages"
+msgstr "حتى 5 صفحات"
+
+msgid "Up to 10 Pages"
+msgstr "حتى 10 صفحات"
+
+msgid "Payment Gateway"
+msgstr "بوابة الدفع"
+
+msgid "Multiple Payment Gateways"
+msgstr "بوابات دفع متنوعة: بطاقة مصرفية، PayPal، Papara"
+
+msgid "Bespoke platform and network design"
+msgstr "تصميم منصة وشبكة مخصصة"
+
+msgid "Premium SEO"
+msgstr "SEO احترافي"
+
+msgid "Product Videos"
+msgstr "فيديوهات المنتجات"
+
+msgid "PWA Version"
+msgstr "نسخة PWA أو تطبيق الهاتف المحمول"
+
+msgid "Professional Reporting"
+msgstr "تقارير احترافية: المبيعات، المنتجات الأكثر مبيعاً، الإيرادات"
+
+msgid "Responsive Design"
+msgstr "تصميم متجاوب"
+
+msgid "Product Returns and Online Return Requests"
+msgstr "إرجاع المنتجات وطلبات الإرجاع عبر الإنترنت"
+
+msgid "Reviews and Ratings"
+msgstr "التعليقات والتقييمات"
+
+msgid "User Reviews and Ratings"
+msgstr "تعليقات وتقييمات المستخدمين"
+
+msgid "High-performance scalable infrastructure"
+msgstr "بنية تحتية قابلة للتوسع وعالية الأداء"
+
+msgid "Simple Search"
+msgstr "بحث بسيط"
+
+msgid "Fraud Prevention and Secure Payment"
+msgstr "نظام مكافحة الاحتيال والدفع الآمن"
+
+msgid "Advanced Shipping System"
+msgstr "نظام شحن متقدم: حساب التكلفة حسب الوزن والعنوان"
+
+msgid "SMS Notifications"
+msgstr "إشعارات SMS للطلبات"
+
+msgid "Social Media Links"
+msgstr "روابط وسائل التواصل الاجتماعي"
+
+msgid "Social Media Sales Integration"
+msgstr "التكامل مع وسائل التواصل الاجتماعي والبيع عبر Instagram/Facebook"
+
+msgid "SSL and HTTPS"
+msgstr "SSL و HTTPS"
+
+msgid "Purchase Terms and Conditions"
+msgstr "قوانين وشروط الشراء"
+
+msgid "Certificates and Trust Badge"
+msgstr "الشهادات وشعار الثقة (Trusted Badge)"
+
+msgid "Unlimited Pages"
+msgstr "صفحات غير محدودة"
+
+msgid "Follow Us"
+msgstr "تابعنا"
+
+msgid "Professional web design and development services. Grow your business in the digital world with modern, fast and user-friendly websites."
+msgstr "خدمات تصميم وتطوير الويب الاحترافية. نمّي عملك في العالم الرقمي مع مواقع ويب حديثة وسريعة وسهلة الاستخدام."
+
+msgid "Freelance Web Developer"
+msgstr "مطور ويب مستقل"
+
+msgid "Get Quote"
+msgstr "احصل على عرض سعر"
+
+msgid "Make your business stand out in the digital world with modern, fast, and user-friendly websites. I provide comprehensive web development services for e-commerce sites, corporate websites, portfolio sites, and custom projects. I bring your projects to life with expertise in Django, Python, JavaScript, CSS, HTML, Bootstrap, and hosting services."
+msgstr "اجعل عملك يبرز في العالم الرقمي مع مواقع ويب حديثة وسريعة وسهلة الاستخدام. أقدم خدمات تطوير ويب شاملة لمواقع التجارة الإلكترونية والمواقع المؤسسية ومواقع المحفظة والمشاريع المخصصة. أحول مشاريعك إلى حياة مع الخبرة في Django و Python و JavaScript و CSS و HTML و Bootstrap وخدمات الاستضافة."
+
+msgid "Starting from 5,000 TL"
+msgstr "بدءًا من 5,000 ليرة"
+
+msgid "Programmer and Custom Website & Mobile App Designer"
+msgstr "مبرمج ومصمم مواقع ويب وتطبيقات الجوال المخصصة"
+
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "Hosting and Publishing"
+msgstr "الاستضافة والنشر"
+
+msgid "I publish your website on secure servers. 24/7 technical support and maintenance service."
+msgstr "أنشر موقعك على خوادم آمنة. دعم فني وخدمة صيانة 24/7."
+
+msgid "JavaScript Advanced"
+msgstr "JavaScript Advanced"
+
+msgid "Management Application"
+msgstr "Management Application"
+
+msgid "Content management system with advanced admin panel"
+msgstr "Content management system with advanced admin panel"
+
+msgid "Send Message"
+msgstr "إرسال رسالة"
+
+msgid "My Projects"
+msgstr "مشاريعي"
+
+msgid "My Services"
+msgstr "خدماتي"
+
+msgid "Speed and SEO Optimization"
+msgstr "تحسين السرعة و SEO"
+
+msgid "I bring your website to the top ranks on Google. Fast loading and search engine optimization."
+msgstr "أجعل موقعك في المراتب العليا في جوجل. تحميل سريع وتحسين محركات البحث."
+
+msgid "Or Contact Directly"
+msgstr "أو اتصل مباشرة"
+
+msgid "Basic Package"
+msgstr "الباقة الأساسية"
+
+msgid "Custom Package"
+msgstr "الباقة المخصصة"
+
+msgid "Professional Package"
+msgstr "الباقة الاحترافية"
+
+msgid "Packages"
+msgstr "الباقات"
+
+msgid "Grow your business in the digital world with our professional website packages. Offer your customers the best experience with modern design, fast loading and user-friendly interface."
+msgstr "نمو عملك في العالم الرقمي مع حزم موقع الويب المهنية لدينا. قدم أفضل تجربة لعملائك مع التصميم الحديث والتحميل السريع والواجهة سهلة الاستخدام."
+
+msgid "Choose the package that suits your needs and take your business to the digital world"
+msgstr "اختر الباقة المناسبة لاحتياجاتك وخذ عملك إلى العالم الرقمي"
+
+msgid "Our Packages"
+msgstr "باقاتنا"
+
+msgid "Get to know me and trust me - Professional web developer at work"
+msgstr "تعرف عليّ وثق بي - مطور ويب محترف في العمل"
+
+msgid "Personal Photos"
+msgstr "صوري الشخصية"
+
+msgid "Personal Portfolio"
+msgstr "Personal Portfolio"
+
+msgid "Phone"
+msgstr "الهاتف"
+
+msgid "Call me for direct conversation"
+msgstr "اتصل بي للحديث المباشر"
+
+msgid "Phone Number:"
+msgstr "رقم الهاتف:"
+
+msgid "Add your personal photos to the photos folder"
+msgstr "أضف صورك الشخصية إلى مجلد photos"
+
+msgid "Popular"
+msgstr "شائع"
+
+msgid "Angraweb.com"
+msgstr "Angraweb.com"
+
+msgid "Bonus and rewards platform - Berlin based service"
+msgstr "منصة المكافآت والجوائز - خدمة مقرها برلين"
+
+msgid "Personal portfolio website with advanced animations"
+msgstr "Personal portfolio website with advanced animations"
+
+msgid "Event ticket booking platform - concerts, festivals and live shows"
+msgstr "منصة حجز تذاكر الفعاليات - الحفلات الموسيقية والمهرجانات والعروض الحية"
+
+msgid "Online clothing sales website - modern e-commerce platform"
+msgstr "موقع بيع الملابس عبر الإنترنت - منصة تجارة إلكترونية حديثة"
+
+msgid "Professional services platform - connecting customers with craftsmen"
+msgstr "منصة الخدمات المهنية - ربط العملاء بالحرفيين"
+
+msgid "Professional driving school website - registration and training system"
+msgstr "موقع مدرسة سواقة احترافية - نظام التسجيل والتدريب"
+
+msgid "Legal services and consulting website - specialized platform"
+msgstr "موقع الخدمات القانونية والاستشارات - منصة متخصصة"
+
+msgid "Designed and active websites"
+msgstr "مواقع ويب مصممة ونشطة"
+
+msgid "Our Portfolio"
+msgstr "معرض أعمالنا"
+
+msgid "Professional Portfolio"
+msgstr "محفظة احترافية"
+
+msgid "Professional driving school website - education and registration system"
+msgstr "موقع مدرسة سواقة احترافية - نظام تعليم وتسجيل"
+
+msgid "Hedef Driver Course"
+msgstr "مدرسة هديف للسواقة"
+
+msgid "Personal portfolio website - professional presentation and communication"
+msgstr "موقع محفظة شخصي - عرض احترافي وتواصل"
+
+msgid "Ali Asadi Portfolio"
+msgstr "محفظة علي أسدي"
+
+msgid "E-commerce website operating in Germany - clothing sales"
+msgstr "موقع تجارة إلكترونية في ألمانيا - بيع الملابس"
+
+msgid "Firment Shirt DE"
+msgstr "فيرمنت شيرت ألمانيا"
+
+msgid "International e-commerce platform - modern clothing store"
+msgstr "منصة تجارة إلكترونية دولية - متجر ملابس حديث"
+
+msgid "Firment Shirt Shop"
+msgstr "متجر فيرمنت شيرت"
+
+msgid "Projects"
+msgstr "المشاريع"
+
+msgid "Contact me now for free consultation and quotes. I offer affordable solutions for similar projects."
+msgstr "اتصل بي الآن للحصول على استشارة مجانية وعروض أسعار. أقدم حلولًا بأسعار معقولة للمشاريع المماثلة."
+
+msgid "All my projects are developed using modern technologies and best practices. Contact me via WhatsApp for detailed information and custom project quotes."
+msgstr "تم تطوير جميع مشاريعي باستخدام التقنيات الحديثة وأفضل الممارسات. اتصل بي عبر واتساب للحصول على معلومات مفصلة وعروض أسعار مشاريع مخصصة."
+
+msgid "About Projects"
+msgstr "حول المشاريع"
+
+msgid "Discover my professional web design projects and live demo videos. Learn more about my e-commerce sites, corporate websites and custom platform solutions."
+msgstr "اكتشف مشاريع تصميم الويب المهنية وعروض الفيديو الحية لدينا. تعلم المزيد عن مواقع التجارة الإلكترونية والمواقع الإلكترونية للشركات وحلول المنصات المخصصة لدينا."
+
+msgid "Successful Web Design Projects and Video Demos"
+msgstr "مشاريع تصميم الويب الناجحة وعروض الفيديو"
+
+msgid "Python Developer"
+msgstr "Python Developer"
+
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+msgid "Mobile Responsive Design"
+msgstr "تصميم متجاوب للهاتف المحمول"
+
+msgid "Websites that look perfect on all devices. Optimized experience on phone, tablet and computer."
+msgstr "مواقع ويب تبدو مثالية على جميع الأجهزة. تجربة محسنة على الهاتف والتابلت والكمبيوتر."
+
+msgid "Resume"
+msgstr "السيرة الذاتية"
+
+msgid "Resume & Certificates"
+msgstr "السيرة الذاتية والشهادات"
+
+msgid "Contact me via WhatsApp for free consultation and project quotes. My experience and certificates are ready to use for your project."
+msgstr "اتصل بي عبر واتساب للحصول على استشارة مجانية وعروض أسعار المشاريع. خبرتي وشهاداتي جاهزة للاستخدام في مشروعك."
+
+msgid "Contact Me for Professional Services!"
+msgstr "اتصل بي للحصول على الخدمات المهنية!"
+
+msgid "As a Marmara University Computer Programming graduate, I have specialized in web design and development with my professional certificates and 5+ years of experience."
+msgstr "باعتباري خريج برمجة الحاسوب من جامعة مرمرة، تخصصت في تصميم وتطوير الويب بشهاداتي المهنية وأكثر من 5 سنوات من الخبرة."
+
+msgid "Education, Experience and Professional Certificates"
+msgstr "التعليم والخبرة والشهادات المهنية"
+
+msgid "Send Email"
+msgstr "إرسال بريد إلكتروني"
+
+msgid "Services"
+msgstr "الخدمات"
+
+msgid "As Angraweb, we offer comprehensive web design and development services to strengthen your business's digital presence. Reach your goals with modern, fast and user-friendly solutions."
+msgstr "كـ Angraweb، نقدم خدمات شاملة لتصميم وتطوير الويب لتقوية وجودك الرقمي. احقق أهدافك مع الحلول الحديثة والسريعة وسهلة الاستخدام."
+
+msgid "Solutions That Grow Your Business in the Digital World"
+msgstr "الحلول التي تنمي عملك في العالم الرقمي"
+
+msgid "Subject"
+msgstr "الموضوع"
+
+msgid "Successful Projects"
+msgstr "مشاريع ناجحة"
+
+msgid "Technical Skills"
+msgstr "المهارات التقنية"
+
+msgid "Secure and Fast Solutions"
+msgstr "حلول آمنة وسريعة"
+
+msgid "24/7 Technical Support"
+msgstr "دعم فني 24/7"
+
+msgid "Marmara University Graduate"
+msgstr "خريج جامعة مرمرة"
+
+msgid "User Experience Design"
+msgstr "تصميم تجربة المستخدم"
+
+msgid "Beautiful and functional interface designs that will impress your customers. Increase your conversion rates."
+msgstr "تصميمات واجهات جميلة وعملية ستبهر عملاءك. زِد معدلات التحويل."
+
+msgid "Marmara University - 2025"
+msgstr "جامعة مرمرة - 2025"
+
+msgid "Affordable Price"
+msgstr "سعر معقول"
+
+msgid "I offer quality service at reasonable prices, solutions that fit your budget"
+msgstr "أقدم خدمة عالية الجودة بأسعار معقولة، حلول تناسب ميزانيتك"
+
+msgid "Grow Your Business"
+msgstr "نمّي عملك"
+
+msgid "Increase your sales and customer satisfaction with modern websites"
+msgstr "زِد مبيعاتك ورضا عملائك مع المواقع الحديثة"
+
+msgid "Continuous Support"
+msgstr "دعم مستمر"
+
+msgid "I'm with you after the project too, 24/7 technical support service"
+msgstr "أنا معك بعد المشروع أيضاً، خدمة دعم فني 24/7"
+
+msgid "Save Time"
+msgstr "وفر الوقت"
+
+msgid "Use your time efficiently with fast delivery and professional service"
+msgstr "استخدم وقتك بكفاءة مع التسليم السريع والخدمة الاحترافية"
+
+msgid "First project demo video"
+msgstr "أول فيديو عرض للمشروع"
+
+msgid "Project Demo 1"
+msgstr "عرض المشروع ١"
+
+msgid "Second project demo video"
+msgstr "ثاني فيديو عرض للمشروع"
+
+msgid "Project Demo 2"
+msgstr "عرض المشروع ٢"
+
+msgid "Third project demo video"
+msgstr "ثالث فيديو عرض للمشروع"
+
+msgid "Project Demo 3"
+msgstr "عرض المشروع ٣"
+
+msgid "Fourth project demo video"
+msgstr "رابع فيديو عرض للمشروع"
+
+msgid "Project Demo 4"
+msgstr "عرض المشروع ٤"
+
+msgid "Video Demos"
+msgstr "عروض فيديو"
+
+msgid "Discover functionality and design details by watching live demo videos of my projects."
+msgstr "اكتشف الوظائف وتفاصيل التصميم من خلال مشاهدة عروض الفيديو الحية لمشاريعي."
+
+msgid "View"
+msgstr "عرض"
+
+msgid "View Certificates"
+msgstr "عرض الشهادات"
+
+msgid "View Projects"
+msgstr "عرض المشاريع"
+
+msgid "Visit Website"
+msgstr "زيارة الموقع"
+
+msgid "Watch Demo"
+msgstr "شاهد العرض"
+
+msgid "Professional Web Design"
+msgstr "تصميم ويب احترافي"
+
+msgid "I design modern and fast websites that will grow your business. Strengthen your brand with corporate website solutions."
+msgstr "أصمم مواقع ويب حديثة وسريعة ستنمي عملك. قوّي علامتك التجارية بحلول مواقع ويب مؤسسية."
+
+msgid "Write on WhatsApp"
+msgstr "اكتب على واتساب"
+
+msgid "Send a message via WhatsApp for quick response"
+msgstr "أرسل رسالة عبر واتساب للحصول على رد سريع"
+
+msgid "Why Choose Me?"
+msgstr "لماذا تختارني؟"
+
+msgid "Years Experience"
+msgstr "سنوات خبرة"
+
+msgid "Your Email"
+msgstr "بريدك الإلكتروني"
+
+msgid "Your Message"
+msgstr "رسالتك"
+
+msgid "Your Name"
+msgstr "اسمك"
+

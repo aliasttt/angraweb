@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hizmetlerimiz - Profesyonel Web Tasarım Hizmetleri | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">My Services</span>
+        </h1>
+        <p class="hero-subtitle mt-3">Profesyonel Web Tasarım ve Dijital Çözümler</p>
+    </div>
+</section>
+
+<section id="services" class="section">
+    <div class="container">
+        <div class="row d-flex flex-wrap">
+            {% for service in services %}
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="{{ service.icon }}"></i>
+                    </div>
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description|truncatewords:25 }}</p>
+                    <div class="service-cta">
+                        <a href="{% url 'service_detail' service.slug %}" class="btn btn-sm btn-outline-primary">
+                            بیشتر بدانید
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="text-center">هیچ خدمتی یافت نشد.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

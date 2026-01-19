@@ -1,6 +1,4 @@
-// Language translations removed - Now using Django i18n
-// Translations are handled server-side via Django {% trans %} tags
-/*
+// Language translations
 const translations = {
     tr: {
         // Navigation
@@ -1096,13 +1094,29 @@ const translations = {
         phone_desc: "اتصل بي للحديث المباشر"
     }
 };
-*/
 
-// Current language - Now managed by Django
+// Current language
 let currentLang = 'tr';
 
-    // Language is set by Django server-side
-    // HTML lang and dir attributes are set by Django templates
+// Set language immediately before DOM loads to prevent flash
+(function() {
+    const savedLang = localStorage.getItem('preferred-language');
+    const defaultLang = savedLang && translations[savedLang] ? savedLang : 'tr';
+    
+    // Set HTML attributes immediately
+    document.documentElement.lang = defaultLang;
+    document.documentElement.dir = (defaultLang === 'fa' || defaultLang === 'ar') ? 'rtl' : 'ltr';
+    
+    // Clean URL - Remove .html extension (only for HTTP/HTTPS)
+    if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+        cleanURL();
+    }
+    
+    // Set page title immediately based on current page
+    const pageName = getPageName();
+    const pageTitles = getPageTitles(pageName);
+    document.title = pageTitles[defaultLang] || pageTitles['tr'];
+})();
 
 // Clean URL - Remove .html extension and update browser URL
 function cleanURL() {
@@ -1154,14 +1168,65 @@ function getPageName() {
     return 'index';
 }
 
-// Page titles are now set by Django templates
-// No JavaScript function needed
+// Get page titles for all languages
+function getPageTitles(pageName) {
+    const titles = {
+        index: {
+            tr: "Web sitesi ve mobil uygulama tasarımı | Özel yazılımcı ve tasarımcı",
+            en: "Website & Mobile App Design | Custom Programmer & Designer",
+            fa: "طراحی وب‌سایت و اپلیکیشن موبایل | برنامه‌نویس و طراح اختصاصی",
+            ar: "تصميم مواقع الويب وتطبيقات الجوال | مبرمج ومصمم مخصص"
+        },
+        packages: {
+            tr: "Paketler | Web Sitesi ve Mobil Uygulama Paketleri",
+            en: "Packages | Website & Mobile App Packages",
+            fa: "پکیج‌ها | پکیج‌های وب‌سایت و اپلیکیشن موبایل",
+            ar: "الباقات | باقات مواقع الويب وتطبيقات الجوال"
+        },
+        about: {
+            tr: "Hakkımda | Profesyonel Web Geliştirici ve Tasarımcı",
+            en: "About Me | Professional Web Developer & Designer",
+            fa: "درباره من | توسعه‌دهنده و طراح وب حرفه‌ای",
+            ar: "نبذة عني | مطور ومصمم ويب محترف"
+        },
+        services: {
+            tr: "Hizmetler | Web Tasarım ve Geliştirme Hizmetleri",
+            en: "Services | Web Design & Development Services",
+            fa: "خدمات | خدمات طراحی و توسعه وب",
+            ar: "الخدمات | خدمات تصميم وتطوير الويب"
+        },
+        projects: {
+            tr: "Projeler | Tamamlanan Web Sitesi ve Uygulama Projeleri",
+            en: "Projects | Completed Website & App Projects",
+            fa: "پروژه‌ها | پروژه‌های تکمیل شده وب‌سایت و اپلیکیشن",
+            ar: "المشاريع | مشاريع مواقع الويب والتطبيقات المكتملة"
+        },
+        resume: {
+            tr: "Özgeçmiş | Eğitim, Deneyim ve Sertifikalar",
+            en: "Resume | Education, Experience & Certificates",
+            fa: "رزومه | تحصیلات، تجربه و گواهینامه‌ها",
+            ar: "السيرة الذاتية | التعليم والخبرة والشهادات"
+        },
+        contact: {
+            tr: "İletişim | Ücretsiz Danışmanlık ve Teklif Alın",
+            en: "Contact | Free Consultation & Get Quote",
+            fa: "تماس | مشاوره رایگان و دریافت پیشنهاد",
+            ar: "اتصل بنا | استشارة مجانية واحصل على عرض أسعار"
+        }
+    };
+    
+    return titles[pageName] || titles.index;
+}
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Language is set by Django server-side
-    // No JavaScript language switching needed
+    // Load saved language or use default
+    const savedLang = localStorage.getItem('preferred-language');
+    const defaultLang = savedLang && translations[savedLang] ? savedLang : 'tr';
+    
+    // Set language immediately before any rendering
+    changeLanguage(defaultLang);
     
     // Show body content after language is set
     document.body.style.visibility = 'visible';
@@ -1608,17 +1673,64 @@ function initParticleEffect() {
     }
 }
 
-// Language switcher functionality - Now handled by Django URLs
+// Language switcher functionality
 function initLanguageSwitcher() {
-    // Language switcher buttons use Django URLs directly
-    // No JavaScript action needed - buttons redirect to Django language URLs
+    const langButtons = document.querySelectorAll('.lang-btn');
+    
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            changeLanguage(lang);
+            
+            // Update active button
+            langButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
 }
 
-// Change language function - Now handled by Django
-// Language switching is done via Django URL patterns
+// Change language function
 function changeLanguage(lang) {
-    // Redirect to Django language URL
-    window.location.href = `/lang/${lang}/`;
+    currentLang = lang;
+    
+    // Update HTML lang and dir attributes immediately
+    if (document.documentElement) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = (lang === 'fa' || lang === 'ar') ? 'rtl' : 'ltr';
+    }
+    
+    // Update all translatable elements
+    const translatableElements = document.querySelectorAll('[data-translate]');
+    translatableElements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+    
+    // Update placeholders
+    const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+    placeholderElements.forEach(element => {
+        const key = element.getAttribute('data-translate-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+        }
+    });
+    
+    // Update active language button
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Save language preference
+    localStorage.setItem('preferred-language', lang);
+    
+    // Update page title and meta description
+    updatePageMeta(lang);
 }
 
 // Update page meta information
@@ -1678,10 +1790,21 @@ function updatePageMeta(lang) {
     }
 }
 
-// Load saved language preference - Now handled by Django
+// Load saved language preference
 function loadSavedLanguage() {
-    // Language preference is managed by Django session/cookies
-    // No JavaScript action needed
+    const savedLang = localStorage.getItem('preferred-language');
+    if (savedLang && translations[savedLang]) {
+        changeLanguage(savedLang);
+        
+        // Update active button
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-lang') === savedLang) {
+                btn.classList.add('active');
+            }
+        });
+    }
 }
 
 // Initialize video functionality
@@ -1905,7 +2028,7 @@ function initCertificateGallery() {
                     <div class="certificate-overlay">
                         <button class="btn btn-sm btn-light certificate-view-btn" 
                                 onclick="viewCertificate('./certificates/${imageName}')">
-                            <i class="fas fa-eye"></i> <span>Görüntüle</span>
+                            <i class="fas fa-eye"></i> <span data-translate="view_certificate">Görüntüle</span>
                         </button>
                     </div>
                 </div>
@@ -1922,7 +2045,7 @@ function initCertificateGallery() {
                     <div class="certificate-overlay">
                         <button class="btn btn-sm btn-light certificate-view-btn" 
                                 onclick="viewCertificate('./certificates/${imageName}')">
-                            <i class="fas fa-eye"></i> <span>Görüntüle</span>
+                            <i class="fas fa-eye"></i> <span data-translate="view_certificate">Görüntüle</span>
                         </button>
                     </div>
                 </div>
@@ -1960,7 +2083,7 @@ function viewCertificate(imageSrc) {
                 <iframe src="${imageSrc}" width="100%" height="600px" style="border: none; border-radius: 10px;"></iframe>
                 <div class="pdf-download">
                     <a href="${imageSrc}" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-download"></i> <span>PDF'yi İndir</span>
+                        <i class="fas fa-download"></i> <span data-translate="download_pdf">PDF'yi İndir</span>
                     </a>
                 </div>
             </div>
@@ -2035,7 +2158,7 @@ function initPhotosGallery() {
                 <div class="photo-overlay">
                     <button class="btn photo-view-btn" 
                             onclick="viewPhoto('./photos/${imageName}')">
-                        <i class="fas fa-eye"></i> <span>Görüntüle</span>
+                        <i class="fas fa-eye"></i> <span data-translate="view_photo">Görüntüle</span>
                     </button>
                 </div>
             </div>

@@ -1,0 +1,692 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-19 14:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "About"
+msgstr "Hakkımda"
+
+msgid "I am a professional web developer specialized in web programming areas. I develop SEO-friendly, mobile-friendly, and high-performance websites using modern technologies for my clients' digital success. I prioritize quality, speed, and user experience in every project, delivering solutions that will grow your business."
+msgstr "Marmara Üniversitesi Bilgisayar Programlama mezunu olarak profesyonel web tasarım çözümleri sunuyorum. 20'den fazla müşterim %100 memnuniyet ile hizmet aldı. İşletmeniz için modern, hızlı ve kullanıcı dostu web siteleri tasarlıyorum. E-ticaret sitesi, kurumsal web sitesi ve profesyonel web tasarım projelerinizi uygun fiyatlı çözümlerle hayata geçiriyorum."
+
+msgid "As a Marmara University Computer Programming graduate, I have been designing modern and user-friendly websites for over 5 years. I offer custom solutions to make your business stand out in the digital world."
+msgstr "Marmara Üniversitesi Bilgisayar Programlama mezunu olarak, 5 yılı aşkın süredir modern ve kullanıcı dostu web siteleri tasarlıyorum. İşletmenizin dijital dünyada öne çıkması için özel çözümler sunuyorum."
+
+msgid "Professional Web Design and Development Expert"
+msgstr "Profesyonel Web Tasarım ve Geliştirme Uzmanı"
+
+msgid "About Me"
+msgstr "Hakkımda"
+
+msgid "All rights reserved."
+msgstr "Tüm hakları saklıdır."
+
+msgid "Fast Delivery"
+msgstr "Hızlı Teslimat"
+
+msgid "Mobile Friendly"
+msgstr "Mobil Uyumlu"
+
+msgid "Secure"
+msgstr "Güvenli"
+
+msgid "24/7 Support"
+msgstr "7/24 Destek"
+
+msgid "Call Now"
+msgstr "Şimdi Ara"
+
+msgid "Certificates"
+msgstr "Sertifikalar"
+
+msgid "Add your certificate images to the certificates folder"
+msgstr "Sertifika resimlerinizi certificates klasörüne ekleyin"
+
+msgid "Commercial Package"
+msgstr "Ticari Paket"
+
+msgid "Computer Programming"
+msgstr "Bilgisayar Programlama"
+
+msgid "For Consultation"
+msgstr "Danışmanlık İçin"
+
+msgid "Contact"
+msgstr "İletişim"
+
+msgid "Contact Information"
+msgstr "İletişim Bilgileri"
+
+msgid "Let's start bringing your project to life today! You can reach me via WhatsApp, email or contact form. Contact me now for free consultation and quotes."
+msgstr "Projenizi hayata geçirmek için bugün başlayalım! WhatsApp, e-posta veya iletişim formu üzerinden bana ulaşabilirsiniz. Ücretsiz danışmanlık ve teklif için hemen iletişime geçin."
+
+msgid "Contact Me Now for Free Quotes and Consultation"
+msgstr "Ücretsiz Teklif ve Danışmanlık İçin Hemen İletişime Geçin"
+
+msgid "Contact Me"
+msgstr "İletişime Geç"
+
+msgid "Contact us now for free consultation and quote. Grow your business with affordable website solutions."
+msgstr "Ücretsiz danışmanlık ve teklif almak için hemen iletişime geçin. Uygun fiyatlı web sitesi çözümleri ile işinizi büyütün."
+
+msgid "Get Design Quote"
+msgstr "Tasarım Teklifi Al"
+
+msgid "Get Free Quote"
+msgstr "Ücretsiz Teklif Al"
+
+msgid "Get Hosting Package"
+msgstr "Hosting Paketi Al"
+
+msgid "Do SEO Analysis"
+msgstr "SEO Analizi Yap"
+
+msgid "Start Now"
+msgstr "Hemen Başlayalım"
+
+msgid "Start Your Project"
+msgstr "Projenizi Başlatın"
+
+msgid "Let's Start Bringing Your Project to Life Today!"
+msgstr "Projenizi Hayata Geçirmek İçin Bugün Başlayalım!"
+
+msgid "Contact via WhatsApp for tailored pricing"
+msgstr "Fiyat için WhatsApp'tan iletişime geçin"
+
+msgid "Customer Satisfaction"
+msgstr "Müşteri Memnuniyeti"
+
+msgid "Or contact directly via email:"
+msgstr "Veya doğrudan e-posta ile iletişime geçin:"
+
+msgid "20% Discount for First Design - Click"
+msgstr "%20 İndirim İlk Tasarım İçin - Tıkla"
+
+msgid "Django Framework"
+msgstr "Django Framework"
+
+msgid "Download PDF"
+msgstr "PDF'yi İndir"
+
+msgid "Full-featured e-commerce website with Django and Bootstrap"
+msgstr "Full-featured e-commerce website with Django and Bootstrap"
+
+msgid "E-commerce Solutions"
+msgstr "E-Ticaret Çözümleri"
+
+msgid "Professional e-commerce site that will increase your sales. Secure payment systems and user-friendly interface."
+msgstr "Satışlarınızı artıracak profesyonel e-ticaret sitesi. Güvenli ödeme sistemleri ve kullanıcı dostu arayüz."
+
+msgid "E-commerce Website"
+msgstr "E-commerce Website"
+
+msgid "Education"
+msgstr "Eğitim"
+
+msgid "I graduated from Marmara University Computer Programming department. I received comprehensive training in web development, software engineering and database management."
+msgstr "Marmara Üniversitesi Bilgisayar Programlama bölümünden mezun oldum. Web geliştirme, yazılım mühendisliği ve veritabanı yönetimi konularında kapsamlı eğitim aldım."
+
+msgid "Email"
+msgstr "E-posta"
+
+msgid "Send an email for detailed information"
+msgstr "Detaylı bilgi için e-posta gönderin"
+
+msgid "Experience"
+msgstr "Deneyim"
+
+msgid "I have been working as a freelance web developer for 5+ years. I have completed 20+ successful projects. I specialize in e-commerce sites, corporate websites and custom platform development."
+msgstr "5+ yıldır freelance web geliştirici olarak çalışıyorum. 20+ başarılı proje tamamladım. E-ticaret siteleri, kurumsal web siteleri ve özel platform geliştirme konularında uzmanlaştım."
+
+msgid "2019 - Present"
+msgstr "2019 - Günümüz"
+
+msgid "Experienced Web Developer"
+msgstr "Profesyonel Web Tasarım Uzmanı"
+
+msgid "Abandoned Cart Reminder"
+msgstr "Terk Edilen Sepet Hatırlatması"
+
+msgid "Custom Admin Panel"
+msgstr "Özel Admin Paneli"
+
+msgid "Advanced Database"
+msgstr "Gelişmiş Veritabanı"
+
+msgid "Advanced SEO"
+msgstr "Gelişmiş SEO"
+
+msgid "Smart Product Recommendations (AI)"
+msgstr "Akıllı Ürün Önerileri (AI)"
+
+msgid "Analytics & Reporting"
+msgstr "Analitik ve Raporlama"
+
+msgid "Badges and Special Offers"
+msgstr "Etiketler ve Özel Öneriler"
+
+msgid "Badges and Special Offers (New, Bestseller, Discount)"
+msgstr "Etiketler ve Özel Öneriler (Yeni, Çok Satan, İndirim)"
+
+msgid "Basic Admin Panel"
+msgstr "Basit Admin Paneli"
+
+msgid "Basic Database"
+msgstr "Temel Veritabanı"
+
+msgid "Basic SEO"
+msgstr "Temel SEO"
+
+msgid "Advanced Shopping Cart (Auto Tax & Shipping)"
+msgstr "Gelişmiş Sepet (Vergi ve Kargo Hesaplama)"
+
+msgid "Live Chat and Chatbot"
+msgstr "Canlı Sohbet ve Chatbot"
+
+msgid "Cloud-native and microservices architecture"
+msgstr "Bulut ve mikro servis mimarisi"
+
+msgid "Contact Form"
+msgstr "İletişim Formu"
+
+msgid "Coupon Codes and Loyalty Points"
+msgstr "Kupon Kodu ve Müşteri Sadakat Puanı"
+
+msgid "Product Customization"
+msgstr "Ürün Özelleştirme"
+
+msgid "Dedicated development and support team"
+msgstr "Özel geliştirme ve destek ekibi"
+
+msgid "First Purchase and Loyalty Discounts"
+msgstr "İlk Alışveriş ve Sadık Müşteri İndirimleri"
+
+msgid "Full Online Sales"
+msgstr "Tam Online Satış"
+
+msgid "Email Marketing"
+msgstr "E-posta Pazarlama"
+
+msgid "Advanced Product Filtering"
+msgstr "Gelişmiş Ürün Filtreleme"
+
+msgid "Simple Product Filtering"
+msgstr "Basit Ürün Filtreleme"
+
+msgid "Time-Limited Campaigns (Flash Sale)"
+msgstr "Zaman Sınırlı Kampanyalar (Flash Sale)"
+
+msgid "Image Gallery with Zoom and 360°"
+msgstr "Zoom ve 360 Derece Görsel Galerisi"
+
+msgid "Simple Image Gallery"
+msgstr "Basit Görsel Galerisi"
+
+msgid "Image Gallery with Zoom"
+msgstr "Zoom Özellikli Görsel Galerisi"
+
+msgid "Warehouse and Inventory Management"
+msgstr "Depo ve Stok Yönetimi"
+
+msgid "Online and Downloadable Invoices"
+msgstr "Online ve İndirilebilir Fatura"
+
+msgid "Simple Live Chat"
+msgstr "Basit Canlı Sohbet"
+
+msgid "Live Search (Real-time)"
+msgstr "Canlı Arama (Live Search)"
+
+msgid "iOS and Android mobile applications"
+msgstr "iOS ve Android mobil uygulamalar"
+
+msgid "Multiple coordinated websites and portals"
+msgstr "Koordine edilen birden fazla web sitesi ve portal"
+
+msgid "Multi-language Support"
+msgstr "Çok Dilli Destek"
+
+msgid "Multi-language and Multi-currency"
+msgstr "Çok Dilli ve Çok Para Birimi"
+
+msgid "Multi-vendor Marketplace"
+msgstr "Çoklu Satıcı Marketplace"
+
+msgid "No Admin Panel"
+msgstr "Admin Paneli Yok"
+
+msgid "No Online Sales"
+msgstr "Online Satış Yok"
+
+msgid "Order Notifications"
+msgstr "Sipariş Bildirimleri"
+
+msgid "Up to 5 Pages"
+msgstr "5 Sayfaya Kadar"
+
+msgid "Up to 10 Pages"
+msgstr "10 Sayfaya Kadar"
+
+msgid "Payment Gateway"
+msgstr "Ödeme Gateway"
+
+msgid "Multiple Payment Gateways"
+msgstr "Çeşitli Ödeme Yöntemleri"
+
+msgid "Bespoke platform and network design"
+msgstr "Özel platform ve ağ tasarımı"
+
+msgid "Premium SEO"
+msgstr "Premium SEO"
+
+msgid "Product Videos"
+msgstr "Ürün Videoları"
+
+msgid "PWA Version"
+msgstr "PWA Versiyonu"
+
+msgid "Professional Reporting"
+msgstr "Profesyonel Raporlama"
+
+msgid "Responsive Design"
+msgstr "Responsive Tasarım"
+
+msgid "Product Returns and Online Return Requests"
+msgstr "Ürün İade ve Online İade Talebi"
+
+msgid "Reviews and Ratings"
+msgstr "Yorumlar ve Değerlendirme"
+
+msgid "User Reviews and Ratings"
+msgstr "Kullanıcı Yorumları ve Değerlendirme"
+
+msgid "High-performance scalable infrastructure"
+msgstr "Ölçeklenebilir yüksek performans altyapısı"
+
+msgid "Simple Search"
+msgstr "Basit Arama"
+
+msgid "Fraud Prevention and Secure Payment"
+msgstr "Dolandırıcılık Önleme ve Güvenli Ödeme"
+
+msgid "Advanced Shipping System"
+msgstr "Gelişmiş Kargo Sistemi"
+
+msgid "SMS Notifications"
+msgstr "SMS Bildirim"
+
+msgid "Social Media Links"
+msgstr "Sosyal Medya Bağlantıları"
+
+msgid "Social Media Sales Integration"
+msgstr "Sosyal Medya Üzerinden Satış"
+
+msgid "SSL and HTTPS"
+msgstr "SSL ve HTTPS"
+
+msgid "Purchase Terms and Conditions"
+msgstr "Satın Alma Kuralları ve Koşulları"
+
+msgid "Certificates and Trust Badge"
+msgstr "Sertifikalar ve Güven Rozeti"
+
+msgid "Unlimited Pages"
+msgstr "Sınırsız Sayfa"
+
+msgid "Follow Us"
+msgstr "Bizi Takip Edin"
+
+msgid "Professional web design and development services. Grow your business in the digital world with modern, fast and user-friendly websites."
+msgstr "Profesyonel web tasarım ve geliştirme hizmetleri. Modern, hızlı ve kullanıcı dostu web siteleri ile işinizi dijital dünyada büyütün."
+
+msgid "Freelance Web Developer"
+msgstr "Freelance Web Geliştirici"
+
+msgid "Get Quote"
+msgstr "Teklif Al"
+
+msgid "Make your business stand out in the digital world with modern, fast, and user-friendly websites. I provide comprehensive web development services for e-commerce sites, corporate websites, portfolio sites, and custom projects. I bring your projects to life with expertise in Django, Python, JavaScript, CSS, HTML, Bootstrap, and hosting services."
+msgstr "İşletmeniz için modern, hızlı ve kullanıcı dostu web siteleri tasarlıyorum. E-ticaret sitesi, kurumsal web sitesi ve profesyonel web tasarım çözümleri sunuyorum. 20'den fazla müşterim %100 memnuniyet ile hizmet aldı. Uygun fiyatlı web sitesi çözümleri ile projelerinizi hayata geçiriyorum."
+
+msgid "Starting from 5,000 TL"
+msgstr "5.000 TL'den Başlayan Fiyatlarla"
+
+msgid "Programmer and Custom Website & Mobile App Designer"
+msgstr "Programcı ve Özel Web Sitesi ve Mobil Uygulama Tasarımcısı"
+
+msgid "Home"
+msgstr "Ana Sayfa"
+
+msgid "Hosting and Publishing"
+msgstr "Hosting ve Yayınlama"
+
+msgid "I publish your website on secure servers. 24/7 technical support and maintenance service."
+msgstr "Web sitenizi güvenli sunucularda yayınlıyorum. 7/24 teknik destek ve bakım hizmeti."
+
+msgid "JavaScript Advanced"
+msgstr "JavaScript Advanced"
+
+msgid "Management Application"
+msgstr "Management Application"
+
+msgid "Content management system with advanced admin panel"
+msgstr "Content management system with advanced admin panel"
+
+msgid "Send Message"
+msgstr "Mesaj Gönder"
+
+msgid "My Projects"
+msgstr "Projelerim"
+
+msgid "My Services"
+msgstr "Hizmetlerim"
+
+msgid "Speed and SEO Optimization"
+msgstr "Hız ve SEO"
+
+msgid "I bring your website to the top ranks on Google. Fast loading and search engine optimization."
+msgstr "Web sitenizi Google'da üst sıralara çıkarıyorum. Hızlı yükleme ve arama motoru optimizasyonu."
+
+msgid "Or Contact Directly"
+msgstr "Veya Doğrudan İletişime Geçin"
+
+msgid "Basic Package"
+msgstr "Temel Paket"
+
+msgid "Custom Package"
+msgstr "Özel Paket"
+
+msgid "Professional Package"
+msgstr "Profesyonel Paket"
+
+msgid "Packages"
+msgstr "Paketler"
+
+msgid "Grow your business in the digital world with our professional website packages. Offer your customers the best experience with modern design, fast loading and user-friendly interface."
+msgstr "Profesyonel web sitesi paketlerimiz ile işletmenizi dijital dünyada büyütün. Modern tasarım, hızlı yükleme ve kullanıcı dostu arayüz ile müşterilerinize en iyi deneyimi sunun."
+
+msgid "Choose the package that suits your needs and take your business to the digital world"
+msgstr "İhtiyacınıza uygun paketi seçin ve işinizi dijital dünyaya taşıyın"
+
+msgid "Our Packages"
+msgstr "Paketlerimiz"
+
+msgid "Get to know me and trust me - Professional web developer at work"
+msgstr "Beni tanıyın ve güvenin - Profesyonel web geliştirici olarak çalışmalarım"
+
+msgid "Personal Photos"
+msgstr "Kişisel Fotoğraflarım"
+
+msgid "Personal Portfolio"
+msgstr "Personal Portfolio"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Call me for direct conversation"
+msgstr "Direkt görüşme için beni arayın"
+
+msgid "Phone Number:"
+msgstr "Telefon Numarası:"
+
+msgid "Add your personal photos to the photos folder"
+msgstr "Kişisel fotoğraflarınızı photos klasörüne ekleyin"
+
+msgid "Popular"
+msgstr "Popüler"
+
+msgid "Angraweb.com"
+msgstr "Angraweb.com"
+
+msgid "Bonus and rewards platform - Berlin based service"
+msgstr "Bonus ve ödül platformu - Berlin merkezli hizmet"
+
+msgid "Personal portfolio website with advanced animations"
+msgstr "Personal portfolio website with advanced animations"
+
+msgid "Event ticket booking platform - concerts, festivals and live shows"
+msgstr "Etkinlik bilet rezervasyon platformu - konserler, festivaller ve canlı gösteriler"
+
+msgid "Online clothing sales website - modern e-commerce platform"
+msgstr "Online giyim satış web sitesi - modern e-ticaret platformu"
+
+msgid "Professional services platform - connecting customers with craftsmen"
+msgstr "Profesyonel hizmet platformu - müşterileri ustalarla buluşturma"
+
+msgid "Professional driving school website - registration and training system"
+msgstr "Profesyonel sürücü kursu web sitesi - kayıt ve eğitim sistemi"
+
+msgid "Legal services and consulting website - specialized platform"
+msgstr "Hukuki hizmetler ve danışmanlık web sitesi - uzman platform"
+
+msgid "Designed and active websites"
+msgstr "Tasarımlanmış ve aktif web siteleri"
+
+msgid "Our Portfolio"
+msgstr "Örnek Çalışmalarımız"
+
+msgid "Professional Portfolio"
+msgstr "Profesyonel Portföy"
+
+msgid "Professional driving school website - education and registration system"
+msgstr "Profesyonel sürücü kursu web sitesi - eğitim ve kayıt sistemi"
+
+msgid "Hedef Driver Course"
+msgstr "Hedef Sürücü Kursu"
+
+msgid "Personal portfolio website - professional presentation and communication"
+msgstr "Kişisel portföy web sitesi - profesyonel tanıtım ve iletişim"
+
+msgid "Ali Asadi Portfolio"
+msgstr "Ali Asadi Portfolio"
+
+msgid "E-commerce website operating in Germany - clothing sales"
+msgstr "Almanya'da faaliyet gösteren e-ticaret web sitesi - giyim satışı"
+
+msgid "Firment Shirt DE"
+msgstr "Firment Shirt DE"
+
+msgid "International e-commerce platform - modern clothing store"
+msgstr "Uluslararası e-ticaret platformu - modern giyim mağazası"
+
+msgid "Firment Shirt Shop"
+msgstr "Firment Shirt Shop"
+
+msgid "Projects"
+msgstr "Projeler"
+
+msgid "Contact me now for free consultation and quotes. I offer affordable solutions for similar projects."
+msgstr "Ücretsiz danışmanlık ve teklif almak için hemen iletişime geçin. Benzer projeler için uygun fiyatlı çözümler sunuyorum."
+
+msgid "All my projects are developed using modern technologies and best practices. Contact me via WhatsApp for detailed information and custom project quotes."
+msgstr "Tüm projelerim modern teknolojiler ve en iyi uygulamalar kullanılarak geliştirilmiştir. Detaylı bilgi ve özel proje teklifi için WhatsApp üzerinden iletişime geçin."
+
+msgid "About Projects"
+msgstr "Proje Hakkında"
+
+msgid "Discover my professional web design projects and live demo videos. Learn more about my e-commerce sites, corporate websites and custom platform solutions."
+msgstr "Profesyonel web tasarım projelerim ve canlı demo videolarını keşfedin. E-ticaret siteleri, kurumsal web siteleri ve özel platform çözümlerim hakkında daha fazla bilgi edinin."
+
+msgid "Successful Web Design Projects and Video Demos"
+msgstr "Başarılı Web Tasarım Projeleri ve Video Demoları"
+
+msgid "Python Developer"
+msgstr "Python Developer"
+
+msgid "Quick Links"
+msgstr "Hızlı Bağlantılar"
+
+msgid "Mobile Responsive Design"
+msgstr "Mobil Uyumlu Tasarım"
+
+msgid "Websites that look perfect on all devices. Optimized experience on phone, tablet and computer."
+msgstr "Tüm cihazlarda mükemmel görünen web siteleri. Telefon, tablet ve bilgisayarda optimize deneyim."
+
+msgid "Resume"
+msgstr "Özgeçmiş"
+
+msgid "Resume & Certificates"
+msgstr "Özgeçmiş ve Sertifikalar"
+
+msgid "Contact me via WhatsApp for free consultation and project quotes. My experience and certificates are ready to use for your project."
+msgstr "Ücretsiz danışmanlık ve proje teklifi için WhatsApp üzerinden iletişime geçin. Deneyimim ve sertifikalarımı projeniz için kullanıma hazır."
+
+msgid "Contact Me for Professional Services!"
+msgstr "Profesyonel Hizmet Almak İçin İletişime Geçin!"
+
+msgid "As a Marmara University Computer Programming graduate, I have specialized in web design and development with my professional certificates and 5+ years of experience."
+msgstr "Marmara Üniversitesi Bilgisayar Programlama mezunu olarak, profesyonel sertifikalarım ve 5+ yıllık deneyimimle web tasarım ve geliştirme alanında uzmanlaştım."
+
+msgid "Education, Experience and Professional Certificates"
+msgstr "Eğitim, Deneyim ve Profesyonel Sertifikalarım"
+
+msgid "Send Email"
+msgstr "E-posta Gönder"
+
+msgid "Services"
+msgstr "Hizmetler"
+
+msgid "As Angraweb, we offer comprehensive web design and development services to strengthen your business's digital presence. Reach your goals with modern, fast and user-friendly solutions."
+msgstr "Angraweb olarak, işletmenizin dijital varlığını güçlendirmek için kapsamlı web tasarım ve geliştirme hizmetleri sunuyoruz. Modern, hızlı ve kullanıcı dostu çözümlerle hedeflerinize ulaşın."
+
+msgid "Solutions That Grow Your Business in the Digital World"
+msgstr "İşletmenizi Dijital Dünyada Büyüten Çözümler"
+
+msgid "Subject"
+msgstr "Konu"
+
+msgid "Successful Projects"
+msgstr "Başarılı Proje"
+
+msgid "Technical Skills"
+msgstr "Teknik Yetenekler"
+
+msgid "Secure and Fast Solutions"
+msgstr "Güvenli ve Hızlı Çözümler"
+
+msgid "24/7 Technical Support"
+msgstr "7/24 Teknik Destek"
+
+msgid "Marmara University Graduate"
+msgstr "Marmara Üniversitesi Mezunu"
+
+msgid "User Experience Design"
+msgstr "Kullanıcı Deneyimi Tasarımı"
+
+msgid "Beautiful and functional interface designs that will impress your customers. Increase your conversion rates."
+msgstr "Müşterilerinizi etkileyecek güzel ve kullanışlı arayüz tasarımları. Dönüşüm oranlarınızı artırın."
+
+msgid "Marmara University - 2025"
+msgstr "Marmara Üniversitesi - 2025"
+
+msgid "Affordable Price"
+msgstr "Uygun Fiyat"
+
+msgid "I offer quality service at reasonable prices, solutions that fit your budget"
+msgstr "Kaliteli hizmeti uygun fiyatlarla sunuyorum, bütçenize uygun çözümler"
+
+msgid "Grow Your Business"
+msgstr "İşinizi Büyütün"
+
+msgid "Increase your sales and customer satisfaction with modern websites"
+msgstr "Modern web siteleri ile satışlarınızı artırın ve müşteri memnuniyetini yükseltin"
+
+msgid "Continuous Support"
+msgstr "Sürekli Destek"
+
+msgid "I'm with you after the project too, 24/7 technical support service"
+msgstr "Proje sonrası da yanınızdayım, 7/24 teknik destek hizmeti"
+
+msgid "Save Time"
+msgstr "Zaman Tasarrufu"
+
+msgid "Use your time efficiently with fast delivery and professional service"
+msgstr "Hızlı teslimat ve profesyonel hizmet ile zamanınızı verimli kullanın"
+
+msgid "First project demo video"
+msgstr "İlk proje demo videosu"
+
+msgid "Project Demo 1"
+msgstr "Proje Demo 1"
+
+msgid "Second project demo video"
+msgstr "İkinci proje demo videosu"
+
+msgid "Project Demo 2"
+msgstr "Proje Demo 2"
+
+msgid "Third project demo video"
+msgstr "Üçüncü proje demo videosu"
+
+msgid "Project Demo 3"
+msgstr "Proje Demo 3"
+
+msgid "Fourth project demo video"
+msgstr "Dördüncü proje demo videosu"
+
+msgid "Project Demo 4"
+msgstr "Proje Demo 4"
+
+msgid "Video Demos"
+msgstr "Video Demoları"
+
+msgid "Discover functionality and design details by watching live demo videos of my projects."
+msgstr "Projelerimin canlı demo videolarını izleyerek işlevsellik ve tasarım detaylarını keşfedin."
+
+msgid "View"
+msgstr "Görüntüle"
+
+msgid "View Certificates"
+msgstr "Sertifikalarımı İncele"
+
+msgid "View Projects"
+msgstr "Projelerimi İncele"
+
+msgid "Visit Website"
+msgstr "Siteyi Ziyaret Et"
+
+msgid "Watch Demo"
+msgstr "Demo İzle"
+
+msgid "Professional Web Design"
+msgstr "Uzman Web Tasarımı"
+
+msgid "I design modern and fast websites that will grow your business. Strengthen your brand with corporate website solutions."
+msgstr "İşinizi büyütecek modern ve hızlı web siteleri tasarlıyorum. Kurumsal web sitesi çözümleri ile markanızı güçlendirin."
+
+msgid "Write on WhatsApp"
+msgstr "WhatsApp'tan Yaz"
+
+msgid "Send a message via WhatsApp for quick response"
+msgstr "Hızlı yanıt için WhatsApp üzerinden mesaj gönderin"
+
+msgid "Why Choose Me?"
+msgstr "Neden Beni Seçmelisiniz?"
+
+msgid "Years Experience"
+msgstr "Yıl Deneyim"
+
+msgid "Your Email"
+msgstr "E-posta Adresiniz"
+
+msgid "Your Message"
+msgstr "Mesajınız"
+
+msgid "Your Name"
+msgstr "Adınız"
+

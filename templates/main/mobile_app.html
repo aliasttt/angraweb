@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}طراحی اپلیکیشن موبایل | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">طراحی اپلیکیشن موبایل</span>
+        </h1>
+        <p class="hero-subtitle mt-3">اپلیکیشن‌های iOS و Android</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="about-content">
+                    <h2>خدمات طراحی اپلیکیشن موبایل</h2>
+                    <p>ما اپلیکیشن‌های موبایل حرفه‌ای برای iOS و Android طراحی و توسعه می‌دهیم.</p>
+                    
+                    <h3 class="mt-4">ویژگی‌های اپلیکیشن‌های ما:</h3>
+                    <ul>
+                        <li>طراحی برای iOS و Android</li>
+                        <li>رابط کاربری مدرن و جذاب</li>
+                        <li>عملکرد سریع و بهینه</li>
+                        <li>امنیت بالا</li>
+                        <li>پشتیبانی و به‌روزرسانی</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <h3>درخواست قیمت</h3>
+                    <a href="{% url 'quote_request' %}?service=mobile_app" class="btn btn-primary btn-lg w-100 mt-3">
+                        دریافت قیمت
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

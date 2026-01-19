@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}سئو و بهینه‌سازی | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">سئو و بهینه‌سازی</span>
+        </h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="about-content">
+                    <h2>خدمات سئو و بهینه‌سازی</h2>
+                    <p>ما وبسایت شما را برای موتورهای جستجو بهینه می‌کنیم تا در نتایج جستجو رتبه بهتری داشته باشید.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <h3>درخواست قیمت</h3>
+                    <a href="{% url 'quote_request' %}?service=seo" class="btn btn-primary btn-lg w-100 mt-3">
+                        دریافت قیمت
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

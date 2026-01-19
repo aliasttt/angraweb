@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ service.title }} | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">{{ service.title }}</span>
+        </h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% if service.image %}
+                <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-fluid mb-4">
+                {% endif %}
+                <div class="about-content">
+                    <p>{{ service.description|linebreaks }}</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="{{ service.icon }}"></i>
+                    </div>
+                    <h3>{{ service.title }}</h3>
+                    <a href="{% url 'quote_request' %}?service={{ service.service_type }}" class="btn btn-primary btn-lg w-100 mt-3">
+                        درخواست قیمت
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        {% if related_services %}
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4">خدمات مرتبط</h3>
+                <div class="row">
+                    {% for related in related_services %}
+                    <div class="col-md-4 mb-3">
+                        <div class="service-card">
+                            <h4>{{ related.title }}</h4>
+                            <a href="{% url 'service_detail' related.slug %}" class="btn btn-sm btn-outline-primary">
+                                بیشتر بدانید
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
