@@ -276,6 +276,25 @@ class TeamMember(models.Model):
     def __str__(self):
         return self.full_name
 
+    def get_skills_list(self):
+        """Return skills as a list of trimmed strings."""
+        if self.skills:
+            return [s.strip() for s in self.skills.split(',') if s.strip()]
+        return []
+
+
+class UserProfile(models.Model):
+    """پروفایل کاربر — برای ذخیره شماره تلفن و فیلدهای اضافه"""
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile', verbose_name='کاربر')
+    phone = models.CharField(max_length=20, blank=True, verbose_name='شماره تلفن')
+
+    class Meta:
+        verbose_name = 'پروفایل کاربر'
+        verbose_name_plural = 'پروفایل‌های کاربران'
+
+    def __str__(self):
+        return f"{self.user.username}"
+
 
 class ContactMessage(models.Model):
     """مدل برای پیام‌های تماس"""

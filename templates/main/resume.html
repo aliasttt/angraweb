@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Özgeçmiş ve Sertifikalar | Angraweb.com{% endblock %}
+{% block title %}{% trans "Resume and Certificates" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">Özgeçmiş ve Sertifikalar</span>
+            <span class="text-gradient">{% trans "Resume and Certificates" %}</span>
         </h1>
     </div>
 </section>
@@ -17,25 +18,25 @@
         <div class="row">
             <div class="col-lg-6 mb-5">
                 <div class="resume-section">
-                    <h3><i class="fas fa-graduation-cap"></i> Eğitim</h3>
+                    <h3><i class="fas fa-graduation-cap"></i> {% trans "Education" %}</h3>
                     <div class="resume-item">
-                        <h4>Bilgisayar Programlama</h4>
+                        <h4>{% trans "Computer Programming" %}</h4>
                         <p>Marmara Üniversitesi - 2025</p>
                     </div>
                 </div>
                 
                 <div class="resume-section mt-5">
-                    <h3><i class="fas fa-briefcase"></i> Deneyim</h3>
+                    <h3><i class="fas fa-briefcase"></i> {% trans "Experience" %}</h3>
                     <div class="resume-item">
-                        <h4>Freelance Web Geliştirici</h4>
-                        <p>2019 - Günümüz</p>
+                        <h4>{% trans "Freelance Web Developer" %}</h4>
+                        <p>2019 - {% trans "Present" %}</p>
                     </div>
                 </div>
             </div>
             
             <div class="col-lg-6">
                 <div class="resume-section">
-                    <h3><i class="fas fa-certificate"></i> Sertifikalar</h3>
+                    <h3><i class="fas fa-certificate"></i> {% trans "Certificates" %}</h3>
                     <div class="certificate-gallery">
                         {% for certificate in certificates %}
                         <div class="certificate-item">
@@ -92,9 +93,9 @@
                             <div class="col-12">
                                 <div class="resume-section mt-4">
                                     <h3><i class="fas fa-file-pdf"></i> PDF</h3>
-                                    <p class="mb-3">Marmara Üniversitesi sertifikası PDF olarak:</p>
+                                    <p class="mb-3">{% trans "Marmara University certificate as PDF:" %}</p>
                                     <a class="btn btn-primary" href="{% static 'certificates/marmara_sertification.pdf' %}" target="_blank" rel="noopener">
-                                        <i class="fas fa-download"></i> PDF'yi Aç / İndir
+                                        <i class="fas fa-download"></i> {% trans "Open / Download PDF" %}
                                     </a>
                                 </div>
                             </div>

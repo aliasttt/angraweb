@@ -352,7 +352,10 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            next_url = request.GET.get('next', 'index')
+            next_url = request.POST.get('next') or request.GET.get('next') or request.META.get('HTTP_REFERER') or 'index'
+            # Avoid redirect loop back to login
+            if not next_url or 'login' in str(next_url):
+                next_url = 'index'
             return redirect(next_url)
         else:
             messages.error(request, 'نام کاربری یا رمز عبور اشتباه است.')
@@ -371,20 +374,19 @@ def user_logout(request):
 
 
 def set_language(request, lang_code):
-    """تغییر زبان"""
+    """تغییر زبان — Switch site language and persist in session/cookie."""
     from django.conf import settings
     from django.utils import translation
     from django.urls import translate_url
-    
+
     if lang_code in ['tr', 'en', 'fa', 'ar']:
         translation.activate(lang_code)
-        # Django 5.x: LANGUAGE_SESSION_KEY constant is not exposed; session key is 'django_language'
-        if hasattr(request, "session"):
-            request.session["django_language"] = lang_code
-        # Also set on the request so templates can pick it up immediately
+        # Use Django's LANGUAGE_SESSION_KEY (default: '_language') so LocaleMiddleware picks it up
+        session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
+        if hasattr(request, 'session'):
+            request.session[session_key] = lang_code
         request.LANGUAGE_CODE = lang_code
 
-        # Redirect back to the same page but in the requested language
         referer = request.META.get('HTTP_REFERER')
         next_url = request.GET.get('next') or referer or '/'
         try:
@@ -392,6 +394,6 @@ def set_language(request, lang_code):
         except Exception:
             pass
         response = redirect(next_url)
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code, max_age=365 * 24 * 60 * 60)
         return response
     return redirect('index')

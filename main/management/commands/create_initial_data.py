@@ -1,10 +1,13 @@
 from django.core.management.base import BaseCommand
-from main.models import Service, Package, PackageFeature
+from django.conf import settings
+from main.models import Service, Package, PackageFeature, Project, ProjectVideo
 import sys
+import shutil
+from pathlib import Path
 
 
 class Command(BaseCommand):
-    help = 'Create initial data for services and packages'
+    help = 'Create initial data for services, packages, projects and video demos'
 
     def handle(self, *args, **options):
         # Fix encoding for Windows console
@@ -151,5 +154,61 @@ class Command(BaseCommand):
                         included=True,
                         order=idx
                     )
-        
+
+        # پروژه‌ها و ویدیوها — Projects and video demos
+        projects_data = [
+            {
+                'title': 'Angraweb Portfolio',
+                'title_en': 'Angraweb Portfolio',
+                'slug': 'angraweb-portfolio',
+                'project_type': 'web',
+                'description': 'Professional portfolio and company website.',
+                'domain': 'angraweb.com',
+                'url': 'https://angraweb.com',
+                'technologies': 'Django, HTML, CSS, JavaScript',
+                'featured': True,
+                'order': 1,
+            },
+            {
+                'title': 'Proje Örnekleri',
+                'title_en': 'Project Samples',
+                'slug': 'project-samples',
+                'project_type': 'web',
+                'description': 'Web and mobile project demos and samples.',
+                'domain': '',
+                'url': '',
+                'technologies': 'Python, Django, React',
+                'featured': True,
+                'order': 2,
+            },
+        ]
+        for p in projects_data:
+            proj, created = Project.objects.get_or_create(slug=p['slug'], defaults=p)
+            if created:
+                try:
+                    self.stdout.write(self.style.SUCCESS(f'Project created: {proj.title}'))
+                except Exception:
+                    pass
+
+        # کپی ویدیوها به media و ایجاد ProjectVideo
+        src_videos = Path(settings.BASE_DIR) / 'videos'
+        media_root = Path(settings.MEDIA_ROOT)
+        dest_videos = media_root / 'videos'
+        if src_videos.exists():
+            dest_videos.mkdir(parents=True, exist_ok=True)
+            for mp4 in src_videos.glob('*.mp4'):
+                dst = dest_videos / mp4.name
+                if not dst.exists() or mp4.stat().st_mtime > dst.stat().st_mtime:
+                    shutil.copy2(mp4, dst)
+                rel = f'videos/{mp4.name}'
+                pv, created = ProjectVideo.objects.get_or_create(
+                    video_file=rel,
+                    defaults={'title': mp4.stem, 'description': f'Demo: {mp4.stem}', 'order': 0, 'active': True}
+                )
+                if created:
+                    try:
+                        self.stdout.write(self.style.SUCCESS(f'ProjectVideo created: {pv.title}'))
+                    except Exception:
+                        pass
+
         self.stdout.write(self.style.SUCCESS('Initial data created successfully!'))

@@ -3,7 +3,7 @@ from django.utils.html import format_html
 from .models import (
     Service, Package, PackageFeature, Project, ProjectVideo,
     Certificate, ContactMessage, QuoteRequest, BlogPost,
-    Testimonial, SiteSetting, TeamMember
+    Testimonial, SiteSetting, TeamMember, UserProfile
 )
 
 
@@ -188,3 +188,9 @@ class TeamMemberAdmin(admin.ModelAdmin):
     list_filter = ['role', 'active']
     search_fields = ['full_name', 'headline', 'bio', 'skills']
     list_editable = ['order', 'active']
+
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'phone']
+    search_fields = ['user__username', 'phone']

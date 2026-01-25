@@ -1005,6 +1005,11 @@ label {
     color: #ffffff !important;
 }
 
+/* Certificate and card text — avoid black on dark background */
+.certificate-content h5,
+.certificate-item h5 { color: #ffffff; }
+.certificate-content p { color: #b2bec3; }
+
 .contact-form a,
 .contact-form a:visited {
     color: #74b9ff;

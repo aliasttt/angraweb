@@ -49,8 +49,8 @@
 
           {% if member.skills %}
             <div class="project-tech mb-3">
-              {% for skill in member.skills.split(',') %}
-                <span class="tech-tag">{{ skill|trim }}</span>
+              {% for skill in member.get_skills_list %}
+                <span class="tech-tag">{{ skill }}</span>
               {% endfor %}
             </div>
           {% endif %}

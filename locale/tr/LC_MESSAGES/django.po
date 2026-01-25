@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-19 15:30+0330\n"
+"POT-Creation-Date: 2026-01-25 13:25+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,86 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\main\forms.py:16 .\main\forms.py:86
+#, fuzzy
+#| msgid "Your Message"
+msgid "Your name"
+msgstr "Mesajınız"
+
+#: .\main\forms.py:21 .\main\forms.py:91
+#, fuzzy
+#| msgid "Your Email"
+msgid "Your email"
+msgstr "E-posta Adresiniz"
+
+#: .\main\forms.py:26
+#, fuzzy
+#| msgid "Package (optional)"
+msgid "Phone (optional)"
+msgstr "Paket (isteğe bağlı)"
+
+#: .\main\forms.py:30
+msgid "Subject"
+msgstr "Konu"
+
+#: .\main\forms.py:35
+#, fuzzy
+#| msgid "Your Message"
+msgid "Your message"
+msgstr "Mesajınız"
+
+#: .\main\forms.py:96 .\main\forms.py:150 .\main\forms.py:152
+#: .\templates\main\register.html:45
+#, fuzzy
+#| msgid "Phone Number:"
+msgid "Phone number"
+msgstr "Telefon Numarası:"
+
+#: .\main\forms.py:101 .\templates\main\quote_request.html:68
+msgid "Company (optional)"
+msgstr "Şirket (isteğe bağlı)"
+
+#: .\main\forms.py:105
+#, fuzzy
+#| msgid "Project details"
+msgid "Project description"
+msgstr "Proje detayları"
+
+#: .\main\forms.py:111 .\templates\main\quote_request.html:88
+msgid "Budget (optional)"
+msgstr "Bütçe (isteğe bağlı)"
+
+#: .\main\forms.py:115 .\templates\main\quote_request.html:92
+msgid "Deadline (optional)"
+msgstr "Teslim tarihi (isteğe bağlı)"
+
+#: .\main\forms.py:126 .\templates\main\quote_request.html:58
+#: .\templates\main\register.html:29
+msgid "Email"
+msgstr "E-posta"
+
+#: .\main\forms.py:134 .\templates\main\register.html:35
+msgid "First name"
+msgstr "Ad"
+
+#: .\main\forms.py:142 .\templates\main\register.html:39
+msgid "Last name"
+msgstr "Soyad"
+
+#: .\main\forms.py:161 .\templates\main\login.html:25
+#: .\templates\main\register.html:25
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+#: .\main\forms.py:169 .\templates\main\login.html:29
+#: .\templates\main\register.html:51
+msgid "Password"
+msgstr "Şifre"
+
+#: .\main\forms.py:173 .\templates\main\register.html:55
+msgid "Confirm password"
+msgstr "Şifreyi onayla"
 
 #: .\templates\base.html:8
 #, fuzzy
@@ -83,6 +163,7 @@ msgid "UI/UX Design"
 msgstr ""
 
 #: .\templates\base.html:112 .\templates\base.html:189
+#: .\templates\main\projects.html:5 .\templates\main\projects.html:11
 msgid "Projects"
 msgstr "Projeler"
 
@@ -107,14 +188,14 @@ msgid "Logout"
 msgstr ""
 
 #: .\templates\base.html:132 .\templates\main\login.html:5
-#: .\templates\main\login.html:11 .\templates\main\login.html:32
-#: .\templates\main\register.html:58
+#: .\templates\main\login.html:11 .\templates\main\login.html:33
+#: .\templates\main\register.html:64
 msgid "Login"
 msgstr ""
 
-#: .\templates\base.html:135 .\templates\main\login.html:36
+#: .\templates\base.html:135 .\templates\main\login.html:37
 #: .\templates\main\register.html:5 .\templates\main\register.html:11
-#: .\templates\main\register.html:54
+#: .\templates\main\register.html:60
 msgid "Register"
 msgstr ""
 
@@ -221,7 +302,8 @@ msgstr ""
 
 #: .\templates\main\ecommerce.html:32
 msgid "Customer accounts: profiles, order history, wishlists, reviews"
-msgstr "Müşteri hesapları: profiller, sipariş geçmişi, istek listeleri, yorumlar"
+msgstr ""
+"Müşteri hesapları: profiller, sipariş geçmişi, istek listeleri, yorumlar"
 
 #: .\templates\main\ecommerce.html:33
 msgid ""
@@ -232,7 +314,8 @@ msgstr ""
 
 #: .\templates\main\ecommerce.html:34
 msgid "SEO: product pages, sitemaps, schema markup, meta optimization"
-msgstr "SEO: ürün sayfaları, site haritaları, şema işaretleme, meta optimizasyonu"
+msgstr ""
+"SEO: ürün sayfaları, site haritaları, şema işaretleme, meta optimizasyonu"
 
 #: .\templates\main\ecommerce.html:35
 msgid "Security: PCI compliance basics, secure payments, data encryption"
@@ -246,11 +329,14 @@ msgstr "Süreç"
 
 #: .\templates\main\ecommerce.html:40
 msgid "Requirements: product types, payment methods, shipping zones, tax rules"
-msgstr "Gereksinimler: ürün türleri, ödeme yöntemleri, kargo bölgeleri, vergi kuralları"
+msgstr ""
+"Gereksinimler: ürün türleri, ödeme yöntemleri, kargo bölgeleri, vergi "
+"kuralları"
 
 #: .\templates\main\ecommerce.html:41
 msgid "Design: product pages, cart, checkout, admin UI mockups"
-msgstr "Tasarım: ürün sayfaları, sepet, ödeme, yönetim paneli arayüz taslakları"
+msgstr ""
+"Tasarım: ürün sayfaları, sepet, ödeme, yönetim paneli arayüz taslakları"
 
 #: .\templates\main\ecommerce.html:42
 msgid "Development: Django e-commerce backend + frontend + payment integration"
@@ -262,7 +348,8 @@ msgstr "Test: ödeme akışı, ödeme test ortamı, envanter, sipariş iş akı�
 
 #: .\templates\main\ecommerce.html:44
 msgid "Launch: SSL, payment gateway setup, initial product import, go-live"
-msgstr "Yayınlama: SSL, ödeme ağ geçidi kurulumu, ilk ürün içe aktarma, canlıya alma"
+msgstr ""
+"Yayınlama: SSL, ödeme ağ geçidi kurulumu, ilk ürün içe aktarma, canlıya alma"
 
 #: .\templates\main\ecommerce.html:47
 msgid "Technologies we use"
@@ -275,8 +362,8 @@ msgid ""
 "JavaScript, responsive design."
 msgstr ""
 "Django + PostgreSQL, Stripe/PayPal API'leri, önbellekleme için Redis, arka "
-"plan görevleri için Celery, dağıtım için Docker. Frontend: Bootstrap/Tailwind, "
-"JavaScript, duyarlı tasarım."
+"plan görevleri için Celery, dağıtım için Docker. Frontend: Bootstrap/"
+"Tailwind, JavaScript, duyarlı tasarım."
 
 #: .\templates\main\ecommerce.html:52 .\templates\main\web_design.html:46
 msgid "Typical timeline"
@@ -287,8 +374,8 @@ msgid ""
 "Small store (50-200 products): 4-8 weeks · Medium store (200-1000 products): "
 "8-16 weeks · Large marketplace: 16+ weeks"
 msgstr ""
-"Küçük mağaza (50-200 ürün): 4-8 hafta · Orta mağaza (200-1000 ürün): "
-"8-16 hafta · Büyük pazaryeri: 16+ hafta"
+"Küçük mağaza (50-200 ürün): 4-8 hafta · Orta mağaza (200-1000 ürün): 8-16 "
+"hafta · Büyük pazaryeri: 16+ hafta"
 
 #: .\templates\main\ecommerce.html:57 .\templates\main\hosting.html:63
 #: .\templates\main\mobile_app.html:46 .\templates\main\seo.html:57
@@ -403,7 +490,8 @@ msgstr "Web hosting: ihtiyaçlarınıza göre paylaşımlı, VPS veya özel sunu
 
 #: .\templates\main\hosting.html:30
 msgid "SSL certificates: free Let's Encrypt or premium SSL for secure HTTPS"
-msgstr "SSL sertifikaları: güvenli HTTPS için ücretsiz Let's Encrypt veya premium SSL"
+msgstr ""
+"SSL sertifikaları: güvenli HTTPS için ücretsiz Let's Encrypt veya premium SSL"
 
 #: .\templates\main\hosting.html:31
 msgid ""
@@ -416,7 +504,8 @@ msgstr "E-posta hosting: profesyonel e-posta hesapları (@yourdomain.com)"
 
 #: .\templates\main\hosting.html:33
 msgid "Backup solutions: automated daily/weekly backups, easy restore"
-msgstr "Yedekleme çözümleri: otomatik günlük/haftalık yedekler, kolay geri yükleme"
+msgstr ""
+"Yedekleme çözümleri: otomatik günlük/haftalık yedekler, kolay geri yükleme"
 
 #: .\templates\main\hosting.html:34
 msgid "Server management: updates, security patches, performance monitoring"
@@ -499,9 +588,9 @@ msgid ""
 "SSL certificates (free Let's Encrypt or premium), automated backups (daily/"
 "weekly), malware scanning, DDoS protection basics, firewall configuration."
 msgstr ""
-"SSL sertifikaları (ücretsiz Let's Encrypt veya premium), otomatik yedeklemeler "
-"(günlük/haftalık), kötü amaçlı yazılım taraması, DDoS koruması temelleri, "
-"güvenlik duvarı yapılandırması."
+"SSL sertifikaları (ücretsiz Let's Encrypt veya premium), otomatik "
+"yedeklemeler (günlük/haftalık), kötü amaçlı yazılım taraması, DDoS koruması "
+"temelleri, güvenlik duvarı yapılandırması."
 
 #: .\templates\main\hosting.html:65
 msgid ""
@@ -511,9 +600,9 @@ msgid ""
 "services quoted separately."
 msgstr ""
 "Paylaşımlı hosting: yıllık 500-1.500 TL · VPS: yıllık 2.000-8.000 TL · Alan "
-"adı kaydı: yıllık 100-500 TL (TLD'ye göre değişir) · SSL sertifikası: Ücretsiz "
-"(Let's Encrypt) veya yıllık 500-2.000 TL (premium). Sunucu yönetimi ve taşıma "
-"hizmetleri ayrıca fiyatlandırılır."
+"adı kaydı: yıllık 100-500 TL (TLD'ye göre değişir) · SSL sertifikası: "
+"Ücretsiz (Let's Encrypt) veya yıllık 500-2.000 TL (premium). Sunucu yönetimi "
+"ve taşıma hizmetleri ayrıca fiyatlandırılır."
 
 #: .\templates\main\hosting.html:70
 msgid "Q: Can you migrate my existing website?"
@@ -524,8 +613,8 @@ msgid ""
 "A: Yes, we handle website migrations: files, databases, email accounts, DNS "
 "configuration. We ensure zero downtime during migration."
 msgstr ""
-"C: Evet, web sitesi taşımalarını yönetiyoruz: dosyalar, veritabanları, "
-"e-posta hesapları, DNS yapılandırması. Taşıma sırasında sıfır kesinti "
+"C: Evet, web sitesi taşımalarını yönetiyoruz: dosyalar, veritabanları, e-"
+"posta hesapları, DNS yapılandırması. Taşıma sırasında sıfır kesinti "
 "sağlıyoruz."
 
 #: .\templates\main\hosting.html:73
@@ -551,9 +640,9 @@ msgid ""
 "99.9%% uptime SLA. Support tickets are answered within 24 hours (usually "
 "faster)."
 msgstr ""
-"C: Çalışma süresini izliyoruz ve sorunlara hızlı yanıt veriyoruz. Hosting'imiz "
-"%%99,9 çalışma süresi SLA'sı içerir. Destek talepleri 24 saat içinde yanıtlanır "
-"(genellikle daha hızlı)."
+"C: Çalışma süresini izliyoruz ve sorunlara hızlı yanıt veriyoruz. "
+"Hosting'imiz %%99,9 çalışma süresi SLA'sı içerir. Destek talepleri 24 saat "
+"içinde yanıtlanır (genellikle daha hızlı)."
 
 #: .\templates\main\hosting.html:88
 msgid "Shared"
@@ -630,15 +719,7 @@ msgstr "Projenizi Hayata Geçirmek İçin Bugün Başlayalım!"
 msgid "Contact us for a free consultation and a detailed quote."
 msgstr "Ücretsiz danışmanlık ve detaylı teklif için bizimle iletişime geçin."
 
-#: .\templates\main\login.html:24 .\templates\main\register.html:25
-msgid "Username"
-msgstr "Kullanıcı adı"
-
-#: .\templates\main\login.html:28 .\templates\main\register.html:45
-msgid "Password"
-msgstr "Şifre"
-
-#: .\templates\main\login.html:36
+#: .\templates\main\login.html:37
 msgid "Don't have an account?"
 msgstr "Hesabınız yok mu?"
 
@@ -710,9 +791,9 @@ msgid ""
 "MVP mobile apps typically start from 60,000 TL. Larger apps with payments, "
 "chat, maps, multiple roles or complex integrations are quoted after review."
 msgstr ""
-"MVP mobil uygulamalar genellikle 60.000 TL'den başlar. Ödeme, sohbet, harita, "
-"çoklu roller veya karmaşık entegrasyonlar içeren daha büyük uygulamalar "
-"inceleme sonrası fiyatlandırılır."
+"MVP mobil uygulamalar genellikle 60.000 TL'den başlar. Ödeme, sohbet, "
+"harita, çoklu roller veya karmaşık entegrasyonlar içeren daha büyük "
+"uygulamalar inceleme sonrası fiyatlandırılır."
 
 #: .\templates\main\mobile_app.html:60
 msgid "Deliverables"
@@ -721,6 +802,40 @@ msgstr "Teslim edilecekler"
 #: .\templates\main\mobile_app.html:60
 msgid "app + backend + admin"
 msgstr "uygulama + backend + yönetim"
+
+#: .\templates\main\projects.html:5 .\templates\main\projects.html:22
+msgid "Video Demos"
+msgstr "Video Demoları"
+
+#: .\templates\main\projects.html:5
+#, fuzzy
+#| msgid "Our Portfolio"
+msgid "Portfolio"
+msgstr "Örnek Çalışmalarımız"
+
+#: .\templates\main\projects.html:50
+msgid "My Projects"
+msgstr "Projelerim"
+
+#: .\templates\main\projects.html:71
+#, fuzzy
+#| msgid "Website"
+msgid "Visit Website"
+msgstr "Web Sitesi"
+
+#: .\templates\main\projects.html:79
+#, fuzzy
+#| msgid "No services found."
+msgid "No projects found."
+msgstr "Hizmet bulunamadı."
+
+#: .\templates\main\projects.html:91
+msgid "Previous"
+msgstr ""
+
+#: .\templates\main\projects.html:99
+msgid "Next"
+msgstr ""
 
 #: .\templates\main\quote_request.html:14
 msgid ""
@@ -772,7 +887,8 @@ msgstr "Açıklayıcı sorular gönderiyoruz (gerekirse)."
 
 #: .\templates\main\quote_request.html:43
 msgid "You receive a proposal: scope + timeline + price + milestones."
-msgstr "Bir teklif alırsınız: kapsam + zaman çizelgesi + fiyat + kilometre taşları."
+msgstr ""
+"Bir teklif alırsınız: kapsam + zaman çizelgesi + fiyat + kilometre taşları."
 
 #: .\templates\main\quote_request.html:54
 #, fuzzy
@@ -780,17 +896,9 @@ msgstr "Bir teklif alırsınız: kapsam + zaman çizelgesi + fiyat + kilometre t
 msgid "Name"
 msgstr "Adınız"
 
-#: .\templates\main\quote_request.html:58 .\templates\main\register.html:29
-msgid "Email"
-msgstr "E-posta"
-
 #: .\templates\main\quote_request.html:64
 msgid "Phone"
 msgstr "Telefon"
-
-#: .\templates\main\quote_request.html:68
-msgid "Company (optional)"
-msgstr "Şirket (isteğe bağlı)"
 
 #: .\templates\main\quote_request.html:74
 msgid "Service type"
@@ -804,33 +912,57 @@ msgstr "Paket (isteğe bağlı)"
 msgid "Project details"
 msgstr "Proje detayları"
 
-#: .\templates\main\quote_request.html:88
-msgid "Budget (optional)"
-msgstr "Bütçe (isteğe bağlı)"
-
-#: .\templates\main\quote_request.html:92
-msgid "Deadline (optional)"
-msgstr "Teslim tarihi (isteğe bağlı)"
-
 #: .\templates\main\quote_request.html:97
 msgid "Submit request"
 msgstr "Talebi gönder"
 
-#: .\templates\main\register.html:35
-msgid "First name"
-msgstr "Ad"
-
-#: .\templates\main\register.html:39
-msgid "Last name"
-msgstr "Soyad"
-
-#: .\templates\main\register.html:49
-msgid "Confirm password"
-msgstr "Şifreyi onayla"
-
-#: .\templates\main\register.html:58
+#: .\templates\main\register.html:64
 msgid "Already have an account?"
 msgstr "Zaten hesabınız var mı?"
+
+#: .\templates\main\resume.html:5 .\templates\main\resume.html:11
+#, fuzzy
+#| msgid "Resume & Certificates"
+msgid "Resume and Certificates"
+msgstr "Özgeçmiş ve Sertifikalar"
+
+#: .\templates\main\resume.html:21
+msgid "Education"
+msgstr "Eğitim"
+
+#: .\templates\main\resume.html:23
+msgid "Computer Programming"
+msgstr "Bilgisayar Programlama"
+
+#: .\templates\main\resume.html:29
+msgid "Experience"
+msgstr "Deneyim"
+
+#: .\templates\main\resume.html:31
+msgid "Freelance Web Developer"
+msgstr "Freelance Web Geliştirici"
+
+#: .\templates\main\resume.html:32
+#, fuzzy
+#| msgid "2019 - Present"
+msgid "Present"
+msgstr "2019 - Günümüz"
+
+#: .\templates\main\resume.html:39
+msgid "Certificates"
+msgstr "Sertifikalar"
+
+#: .\templates\main\resume.html:96
+#, fuzzy
+#| msgid "Marmara University Graduate"
+msgid "Marmara University certificate as PDF:"
+msgstr "Marmara Üniversitesi Mezunu"
+
+#: .\templates\main\resume.html:98
+#, fuzzy
+#| msgid "Download PDF"
+msgid "Open / Download PDF"
+msgstr "PDF'yi İndir"
 
 #: .\templates\main\seo.html:5
 msgid "SEO & Optimization"
@@ -857,8 +989,8 @@ msgid ""
 msgstr ""
 "Web sitenizi arama motorları için optimize ediyoruz, böylece Google'da daha "
 "yüksek sıralama alır ve daha fazla organik ziyaretçi çekersiniz. SEO "
-"stratejimiz teknik optimizasyon, içerik stratejisi, anahtar kelime araştırması "
-"ve görünürlüğünüzü zamanla artırmak için sürekli izlemeyi kapsar."
+"stratejimiz teknik optimizasyon, içerik stratejisi, anahtar kelime "
+"araştırması ve görünürlüğünüzü zamanla artırmak için sürekli izlemeyi kapsar."
 
 #: .\templates\main\seo.html:29
 msgid ""
@@ -873,8 +1005,8 @@ msgid ""
 "On-page optimization: meta titles/descriptions, header tags (H1-H6), alt "
 "text for images, internal linking"
 msgstr ""
-"Sayfa içi optimizasyon: meta başlıklar/açıklamalar, başlık etiketleri "
-"(H1-H6), görseller için alt metin, dahili bağlantılar"
+"Sayfa içi optimizasyon: meta başlıklar/açıklamalar, başlık etiketleri (H1-"
+"H6), görseller için alt metin, dahili bağlantılar"
 
 #: .\templates\main\seo.html:31
 msgid ""
@@ -929,8 +1061,8 @@ msgid ""
 "Technical fixes: speed optimization, mobile responsiveness, schema markup, "
 "site structure"
 msgstr ""
-"Teknik düzeltmeler: hız optimizasyonu, mobil uyumluluk, şema işaretleme, site "
-"yapısı"
+"Teknik düzeltmeler: hız optimizasyonu, mobil uyumluluk, şema işaretleme, "
+"site yapısı"
 
 #: .\templates\main\seo.html:42
 msgid ""
@@ -1212,10 +1344,10 @@ msgid ""
 "mobile apps, we ensure your product is easy to use and drives conversions."
 msgstr ""
 "Kullanıcıların sevdiği sezgisel, güzel arayüzler tasarlıyoruz. Sürecimiz "
-"kullanıcı araştırması, wireframing, prototipleme ve görsel tasarımı birleştirerek "
-"hem işlevsel hem de keyifli deneyimler yaratır. Web sitelerinden mobil "
-"uygulamalara kadar, ürününüzün kullanımı kolay ve dönüşümleri artırdığından "
-"emin oluyoruz."
+"kullanıcı araştırması, wireframing, prototipleme ve görsel tasarımı "
+"birleştirerek hem işlevsel hem de keyifli deneyimler yaratır. Web "
+"sitelerinden mobil uygulamalara kadar, ürününüzün kullanımı kolay ve "
+"dönüşümleri artırdığından emin oluyoruz."
 
 #: .\templates\main\ui_ux.html:29
 msgid ""
@@ -1226,7 +1358,8 @@ msgstr ""
 
 #: .\templates\main\ui_ux.html:30
 msgid "Wireframes: low-fidelity layouts, information architecture, user flows"
-msgstr "Wireframes: düşük doğruluklu düzenler, bilgi mimarisi, kullanıcı akışları"
+msgstr ""
+"Wireframes: düşük doğruluklu düzenler, bilgi mimarisi, kullanıcı akışları"
 
 #: .\templates\main\ui_ux.html:31
 msgid ""
@@ -1254,7 +1387,8 @@ msgstr ""
 
 #: .\templates\main\ui_ux.html:35
 msgid "Handoff: design specs, assets, developer notes for implementation"
-msgstr "Teslim: tasarım özellikleri, varlıklar, uygulama için geliştirici notları"
+msgstr ""
+"Teslim: tasarım özellikleri, varlıklar, uygulama için geliştirici notları"
 
 #: .\templates\main\ui_ux.html:40
 msgid "Discovery: understand goals, users, competitors, brand guidelines"
@@ -1262,7 +1396,8 @@ msgstr "Keşif: hedefleri, kullanıcıları, rakipleri, marka yönergelerini anl
 
 #: .\templates\main\ui_ux.html:41
 msgid "Research: user interviews, surveys, analytics review, persona creation"
-msgstr "Araştırma: kullanıcı görüşmeleri, anketler, analitik inceleme, kişi oluşturma"
+msgstr ""
+"Araştırma: kullanıcı görüşmeleri, anketler, analitik inceleme, kişi oluşturma"
 
 #: .\templates\main\ui_ux.html:42
 msgid "Wireframing: structure, layout, navigation, key user flows"
@@ -1278,11 +1413,13 @@ msgstr "Prototipleme: test ve paydaş incelemesi için etkileşimli prototipler"
 
 #: .\templates\main\ui_ux.html:45
 msgid "Refinement: feedback integration, polish, final design system"
-msgstr "İyileştirme: geri bildirim entegrasyonu, cilalama, nihai tasarım sistemi"
+msgstr ""
+"İyileştirme: geri bildirim entegrasyonu, cilalama, nihai tasarım sistemi"
 
 #: .\templates\main\ui_ux.html:46
 msgid "Handoff: design files, specs, assets, collaboration with developers"
-msgstr "Teslim: tasarım dosyaları, özellikler, varlıklar, geliştiricilerle işbirliği"
+msgstr ""
+"Teslim: tasarım dosyaları, özellikler, varlıklar, geliştiricilerle işbirliği"
 
 #: .\templates\main\ui_ux.html:49
 msgid "Tools we use"
@@ -1319,8 +1456,8 @@ msgid ""
 "Landing page design: 1-2 weeks · Website design (5-10 pages): 3-6 weeks · "
 "Mobile app UI/UX: 4-8 weeks · Complex platforms: 8+ weeks"
 msgstr ""
-"Landing sayfası tasarımı: 1-2 hafta · Web sitesi tasarımı (5-10 sayfa): "
-"3-6 hafta · Mobil uygulama UI/UX: 4-8 hafta · Karmaşık platformlar: 8+ hafta"
+"Landing sayfası tasarımı: 1-2 hafta · Web sitesi tasarımı (5-10 sayfa): 3-6 "
+"hafta · Mobil uygulama UI/UX: 4-8 hafta · Karmaşık platformlar: 8+ hafta"
 
 #: .\templates\main\ui_ux.html:66
 msgid ""
@@ -1328,9 +1465,10 @@ msgid ""
 "15,000-35,000 TL · Mobile app UI/UX: 20,000-50,000 TL · Design system: "
 "10,000-25,000 TL. Complex projects quoted after reviewing scope."
 msgstr ""
-"Landing sayfası tasarımı: 5.000-10.000 TL · Web sitesi tasarımı (5-10 sayfa): "
-"15.000-35.000 TL · Mobil uygulama UI/UX: 20.000-50.000 TL · Tasarım sistemi: "
-"10.000-25.000 TL. Karmaşık projeler kapsam incelendikten sonra fiyatlandırılır."
+"Landing sayfası tasarımı: 5.000-10.000 TL · Web sitesi tasarımı (5-10 "
+"sayfa): 15.000-35.000 TL · Mobil uygulama UI/UX: 20.000-50.000 TL · Tasarım "
+"sistemi: 10.000-25.000 TL. Karmaşık projeler kapsam incelendikten sonra "
+"fiyatlandırılır."
 
 #: .\templates\main\ui_ux.html:71
 msgid "Q: Do you provide HTML/CSS code?"
@@ -1403,12 +1541,12 @@ msgstr ""
 #: .\templates\main\web_design.html:29
 msgid ""
 "Responsive UI (mobile, tablet, desktop) with modern layout and typography"
-msgstr ""
-"Modern düzen ve tipografi ile duyarlı arayüz (mobil, tablet, masaüstü)"
+msgstr "Modern düzen ve tipografi ile duyarlı arayüz (mobil, tablet, masaüstü)"
 
 #: .\templates\main\web_design.html:30
 msgid "SEO foundations: semantic HTML, meta tags, sitemap, schema basics"
-msgstr "SEO temelleri: anlamsal HTML, meta etiketler, site haritası, şema temelleri"
+msgstr ""
+"SEO temelleri: anlamsal HTML, meta etiketler, site haritası, şema temelleri"
 
 #: .\templates\main\web_design.html:31
 msgid "Performance optimization (Core Web Vitals) and fast loading"
@@ -1420,7 +1558,8 @@ msgstr "Temiz kod tabanı + gelecekteki özellikler için ölçeklenebilir yapı
 
 #: .\templates\main\web_design.html:33
 msgid "Contact/lead forms connected to database and admin panel"
-msgstr "Veritabanı ve yönetim paneline bağlı iletişim/potansiyel müşteri formları"
+msgstr ""
+"Veritabanı ve yönetim paneline bağlı iletişim/potansiyel müşteri formları"
 
 #: .\templates\main\web_design.html:34
 msgid "Deployment, SSL, domain + basic security hardening"
@@ -1428,7 +1567,8 @@ msgstr "Dağıtım, SSL, alan adı + temel güvenlik sertleştirme"
 
 #: .\templates\main\web_design.html:39
 msgid "Discovery & requirements: goals, pages, competitors, content checklist"
-msgstr "Keşif ve gereksinimler: hedefler, sayfalar, rakipler, içerik kontrol listesi"
+msgstr ""
+"Keşif ve gereksinimler: hedefler, sayfalar, rakipler, içerik kontrol listesi"
 
 #: .\templates\main\web_design.html:40
 msgid "Wireframe & UI: layout, sections, conversion paths, copy structure"
@@ -1436,7 +1576,8 @@ msgstr "Wireframe ve UI: düzen, bölümler, dönüşüm yolları, metin yapıs�
 
 #: .\templates\main\web_design.html:41
 msgid "Development: Django templates + reusable components + SEO"
-msgstr "Geliştirme: Django şablonları + yeniden kullanılabilir bileşenler + SEO"
+msgstr ""
+"Geliştirme: Django şablonları + yeniden kullanılabilir bileşenler + SEO"
 
 #: .\templates\main\web_design.html:42
 msgid "QA: mobile/responsive checks, speed, accessibility basics"
@@ -1451,8 +1592,8 @@ msgid ""
 "Landing page: 3–7 days · Corporate site: 1–3 weeks · Custom web app: 3–8+ "
 "weeks"
 msgstr ""
-"Landing sayfası: 3–7 gün · Kurumsal site: 1–3 hafta · Özel web uygulaması: "
-"3–8+ hafta"
+"Landing sayfası: 3–7 gün · Kurumsal site: 1–3 hafta · Özel web uygulaması: 3–"
+"8+ hafta"
 
 #: .\templates\main\web_design.html:53
 msgid ""
@@ -1503,14 +1644,8 @@ msgstr "bakım ve güncellemeler"
 #~ msgid "Call Now"
 #~ msgstr "Şimdi Ara"
 
-#~ msgid "Certificates"
-#~ msgstr "Sertifikalar"
-
 #~ msgid "Add your certificate images to the certificates folder"
 #~ msgstr "Sertifika resimlerinizi certificates klasörüne ekleyin"
-
-#~ msgid "Computer Programming"
-#~ msgstr "Bilgisayar Programlama"
 
 #~ msgid "For Consultation"
 #~ msgstr "Danışmanlık İçin"
@@ -1561,9 +1696,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgid "Django Framework"
 #~ msgstr "Django Framework"
 
-#~ msgid "Download PDF"
-#~ msgstr "PDF'yi İndir"
-
 #~ msgid "Full-featured e-commerce website with Django and Bootstrap"
 #~ msgstr "Full-featured e-commerce website with Django and Bootstrap"
 
@@ -1573,9 +1705,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgstr ""
 #~ "Satışlarınızı artıracak profesyonel e-ticaret sitesi. Güvenli ödeme "
 #~ "sistemleri ve kullanıcı dostu arayüz."
-
-#~ msgid "Education"
-#~ msgstr "Eğitim"
 
 #~ msgid ""
 #~ "I graduated from Marmara University Computer Programming department. I "
@@ -1589,9 +1718,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgid "Send an email for detailed information"
 #~ msgstr "Detaylı bilgi için e-posta gönderin"
 
-#~ msgid "Experience"
-#~ msgstr "Deneyim"
-
 #~ msgid ""
 #~ "I have been working as a freelance web developer for 5+ years. I have "
 #~ "completed 20+ successful projects. I specialize in e-commerce sites, "
@@ -1600,9 +1726,6 @@ msgstr "bakım ve güncellemeler"
 #~ "5+ yıldır freelance web geliştirici olarak çalışıyorum. 20+ başarılı "
 #~ "proje tamamladım. E-ticaret siteleri, kurumsal web siteleri ve özel "
 #~ "platform geliştirme konularında uzmanlaştım."
-
-#~ msgid "2019 - Present"
-#~ msgstr "2019 - Günümüz"
 
 #~ msgid "Experienced Web Developer"
 #~ msgstr "Profesyonel Web Tasarım Uzmanı"
@@ -1784,9 +1907,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgid "Unlimited Pages"
 #~ msgstr "Sınırsız Sayfa"
 
-#~ msgid "Freelance Web Developer"
-#~ msgstr "Freelance Web Geliştirici"
-
 #~ msgid ""
 #~ "Make your business stand out in the digital world with modern, fast, and "
 #~ "user-friendly websites. I provide comprehensive web development services "
@@ -1824,9 +1944,6 @@ msgstr "bakım ve güncellemeler"
 
 #~ msgid "Send Message"
 #~ msgstr "Mesaj Gönder"
-
-#~ msgid "My Projects"
-#~ msgstr "Projelerim"
 
 #~ msgid ""
 #~ "I bring your website to the top ranks on Google. Fast loading and search "
@@ -1874,9 +1991,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgid "Call me for direct conversation"
 #~ msgstr "Direkt görüşme için beni arayın"
 
-#~ msgid "Phone Number:"
-#~ msgstr "Telefon Numarası:"
-
 #~ msgid "Add your personal photos to the photos folder"
 #~ msgstr "Kişisel fotoğraflarınızı photos klasörüne ekleyin"
 
@@ -1912,9 +2026,6 @@ msgstr "bakım ve güncellemeler"
 
 #~ msgid "Designed and active websites"
 #~ msgstr "Tasarımlanmış ve aktif web siteleri"
-
-#~ msgid "Our Portfolio"
-#~ msgstr "Örnek Çalışmalarımız"
 
 #~ msgid "Professional Portfolio"
 #~ msgstr "Profesyonel Portföy"
@@ -1986,9 +2097,6 @@ msgstr "bakım ve güncellemeler"
 #~ "Tüm cihazlarda mükemmel görünen web siteleri. Telefon, tablet ve "
 #~ "bilgisayarda optimize deneyim."
 
-#~ msgid "Resume & Certificates"
-#~ msgstr "Özgeçmiş ve Sertifikalar"
-
 #~ msgid ""
 #~ "Contact me via WhatsApp for free consultation and project quotes. My "
 #~ "experience and certificates are ready to use for your project."
@@ -2023,9 +2131,6 @@ msgstr "bakım ve güncellemeler"
 #~ "kapsamlı web tasarım ve geliştirme hizmetleri sunuyoruz. Modern, hızlı ve "
 #~ "kullanıcı dostu çözümlerle hedeflerinize ulaşın."
 
-#~ msgid "Subject"
-#~ msgstr "Konu"
-
 #~ msgid "Successful Projects"
 #~ msgstr "Başarılı Proje"
 
@@ -2037,9 +2142,6 @@ msgstr "bakım ve güncellemeler"
 
 #~ msgid "24/7 Technical Support"
 #~ msgstr "7/24 Teknik Destek"
-
-#~ msgid "Marmara University Graduate"
-#~ msgstr "Marmara Üniversitesi Mezunu"
 
 #~ msgid "User Experience Design"
 #~ msgstr "Kullanıcı Deneyimi Tasarımı"
@@ -2109,9 +2211,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgid "Project Demo 4"
 #~ msgstr "Proje Demo 4"
 
-#~ msgid "Video Demos"
-#~ msgstr "Video Demoları"
-
 #~ msgid ""
 #~ "Discover functionality and design details by watching live demo videos of "
 #~ "my projects."
@@ -2143,9 +2242,3 @@ msgstr "bakım ve güncellemeler"
 
 #~ msgid "Years Experience"
 #~ msgstr "Yıl Deneyim"
-
-#~ msgid "Your Email"
-#~ msgstr "E-posta Adresiniz"
-
-#~ msgid "Your Message"
-#~ msgstr "Mesajınız"

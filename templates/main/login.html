@@ -20,6 +20,7 @@
                 <div class="contact-form">
                     <form method="POST">
                         {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.GET.next }}">
                         <div class="mb-3">
                             <label class="form-label">{% trans "Username" %}</label>
                             <input type="text" name="username" class="form-control" required>

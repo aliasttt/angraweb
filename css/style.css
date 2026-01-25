@@ -980,6 +980,13 @@ body[dir="rtl"] .benefit-item {
     color: #b2bec3;
 }
 
+/* Fix contrast on forms and cards (avoid black on dark) */
+.form-label,
+.form-check-label,
+label { color: #ffffff !important; }
+.certificate-content h5, .certificate-item h5 { color: #ffffff; }
+.certificate-content p { color: #b2bec3; }
+
 /* Contact Info Cards */
 .contact-info-card {
     background: rgba(116, 185, 255, 0.1);

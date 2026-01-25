@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-19 15:30+0330\n"
+"POT-Creation-Date: 2026-01-25 13:25+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,84 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\main\forms.py:16 .\main\forms.py:86
+#, fuzzy
+#| msgid "Your Message"
+msgid "Your name"
+msgstr "رسالتك"
+
+#: .\main\forms.py:21 .\main\forms.py:91
+#, fuzzy
+#| msgid "Your Email"
+msgid "Your email"
+msgstr "بريدك الإلكتروني"
+
+#: .\main\forms.py:26
+msgid "Phone (optional)"
+msgstr ""
+
+#: .\main\forms.py:30
+msgid "Subject"
+msgstr "الموضوع"
+
+#: .\main\forms.py:35
+#, fuzzy
+#| msgid "Your Message"
+msgid "Your message"
+msgstr "رسالتك"
+
+#: .\main\forms.py:96 .\main\forms.py:150 .\main\forms.py:152
+#: .\templates\main\register.html:45
+#, fuzzy
+#| msgid "Phone Number:"
+msgid "Phone number"
+msgstr "رقم الهاتف:"
+
+#: .\main\forms.py:101 .\templates\main\quote_request.html:68
+msgid "Company (optional)"
+msgstr ""
+
+#: .\main\forms.py:105
+#, fuzzy
+#| msgid "Projects"
+msgid "Project description"
+msgstr "المشاريع"
+
+#: .\main\forms.py:111 .\templates\main\quote_request.html:88
+msgid "Budget (optional)"
+msgstr ""
+
+#: .\main\forms.py:115 .\templates\main\quote_request.html:92
+msgid "Deadline (optional)"
+msgstr ""
+
+#: .\main\forms.py:126 .\templates\main\quote_request.html:58
+#: .\templates\main\register.html:29
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: .\main\forms.py:134 .\templates\main\register.html:35
+msgid "First name"
+msgstr ""
+
+#: .\main\forms.py:142 .\templates\main\register.html:39
+msgid "Last name"
+msgstr ""
+
+#: .\main\forms.py:161 .\templates\main\login.html:25
+#: .\templates\main\register.html:25
+msgid "Username"
+msgstr ""
+
+#: .\main\forms.py:169 .\templates\main\login.html:29
+#: .\templates\main\register.html:51
+msgid "Password"
+msgstr ""
+
+#: .\main\forms.py:173 .\templates\main\register.html:55
+msgid "Confirm password"
+msgstr ""
 
 #: .\templates\base.html:8
 #, fuzzy
@@ -83,6 +161,7 @@ msgid "UI/UX Design"
 msgstr ""
 
 #: .\templates\base.html:112 .\templates\base.html:189
+#: .\templates\main\projects.html:5 .\templates\main\projects.html:11
 msgid "Projects"
 msgstr "المشاريع"
 
@@ -107,14 +186,14 @@ msgid "Logout"
 msgstr ""
 
 #: .\templates\base.html:132 .\templates\main\login.html:5
-#: .\templates\main\login.html:11 .\templates\main\login.html:32
-#: .\templates\main\register.html:58
+#: .\templates\main\login.html:11 .\templates\main\login.html:33
+#: .\templates\main\register.html:64
 msgid "Login"
 msgstr ""
 
-#: .\templates\base.html:135 .\templates\main\login.html:36
+#: .\templates\base.html:135 .\templates\main\login.html:37
 #: .\templates\main\register.html:5 .\templates\main\register.html:11
-#: .\templates\main\register.html:54
+#: .\templates\main\register.html:60
 msgid "Register"
 msgstr ""
 
@@ -590,15 +669,7 @@ msgstr "لنبدأ اليوم في إحياء مشروعك!"
 msgid "Contact us for a free consultation and a detailed quote."
 msgstr ""
 
-#: .\templates\main\login.html:24 .\templates\main\register.html:25
-msgid "Username"
-msgstr ""
-
-#: .\templates\main\login.html:28 .\templates\main\register.html:45
-msgid "Password"
-msgstr ""
-
-#: .\templates\main\login.html:36
+#: .\templates\main\login.html:37
 msgid "Don't have an account?"
 msgstr ""
 
@@ -675,6 +746,38 @@ msgstr ""
 msgid "app + backend + admin"
 msgstr ""
 
+#: .\templates\main\projects.html:5 .\templates\main\projects.html:22
+msgid "Video Demos"
+msgstr "عروض فيديو"
+
+#: .\templates\main\projects.html:5
+#, fuzzy
+#| msgid "Our Portfolio"
+msgid "Portfolio"
+msgstr "معرض أعمالنا"
+
+#: .\templates\main\projects.html:50
+msgid "My Projects"
+msgstr "مشاريعي"
+
+#: .\templates\main\projects.html:71
+#, fuzzy
+#| msgid "Visit Website"
+msgid "Visit Website"
+msgstr "زيارة الموقع"
+
+#: .\templates\main\projects.html:79
+msgid "No projects found."
+msgstr ""
+
+#: .\templates\main\projects.html:91
+msgid "Previous"
+msgstr ""
+
+#: .\templates\main\projects.html:99
+msgid "Next"
+msgstr ""
+
 #: .\templates\main\quote_request.html:14
 msgid ""
 "Tell us about your project and receive a detailed proposal (scope, timeline, "
@@ -733,17 +836,9 @@ msgstr ""
 msgid "Name"
 msgstr "اسمك"
 
-#: .\templates\main\quote_request.html:58 .\templates\main\register.html:29
-msgid "Email"
-msgstr "البريد الإلكتروني"
-
 #: .\templates\main\quote_request.html:64
 msgid "Phone"
 msgstr "الهاتف"
-
-#: .\templates\main\quote_request.html:68
-msgid "Company (optional)"
-msgstr ""
 
 #: .\templates\main\quote_request.html:74
 #, fuzzy
@@ -761,33 +856,57 @@ msgstr ""
 msgid "Project details"
 msgstr "المشاريع"
 
-#: .\templates\main\quote_request.html:88
-msgid "Budget (optional)"
-msgstr ""
-
-#: .\templates\main\quote_request.html:92
-msgid "Deadline (optional)"
-msgstr ""
-
 #: .\templates\main\quote_request.html:97
 msgid "Submit request"
 msgstr ""
 
-#: .\templates\main\register.html:35
-msgid "First name"
-msgstr ""
-
-#: .\templates\main\register.html:39
-msgid "Last name"
-msgstr ""
-
-#: .\templates\main\register.html:49
-msgid "Confirm password"
-msgstr ""
-
-#: .\templates\main\register.html:58
+#: .\templates\main\register.html:64
 msgid "Already have an account?"
 msgstr ""
+
+#: .\templates\main\resume.html:5 .\templates\main\resume.html:11
+#, fuzzy
+#| msgid "Resume & Certificates"
+msgid "Resume and Certificates"
+msgstr "السيرة الذاتية والشهادات"
+
+#: .\templates\main\resume.html:21
+msgid "Education"
+msgstr "التعليم"
+
+#: .\templates\main\resume.html:23
+msgid "Computer Programming"
+msgstr "برمجة الحاسوب"
+
+#: .\templates\main\resume.html:29
+msgid "Experience"
+msgstr "الخبرة"
+
+#: .\templates\main\resume.html:31
+msgid "Freelance Web Developer"
+msgstr "مطور ويب مستقل"
+
+#: .\templates\main\resume.html:32
+#, fuzzy
+#| msgid "2019 - Present"
+msgid "Present"
+msgstr "2019 - الآن"
+
+#: .\templates\main\resume.html:39
+msgid "Certificates"
+msgstr "الشهادات"
+
+#: .\templates\main\resume.html:96
+#, fuzzy
+#| msgid "Marmara University Graduate"
+msgid "Marmara University certificate as PDF:"
+msgstr "خريج جامعة مرمرة"
+
+#: .\templates\main\resume.html:98
+#, fuzzy
+#| msgid "Download PDF"
+msgid "Open / Download PDF"
+msgstr "تحميل PDF"
 
 #: .\templates\main\seo.html:5
 #, fuzzy
@@ -1407,14 +1526,8 @@ msgstr ""
 #~ msgid "Call Now"
 #~ msgstr "اتصل الآن"
 
-#~ msgid "Certificates"
-#~ msgstr "الشهادات"
-
 #~ msgid "Add your certificate images to the certificates folder"
 #~ msgstr "أضف صور شهاداتك إلى مجلد certificates"
-
-#~ msgid "Computer Programming"
-#~ msgstr "برمجة الحاسوب"
 
 #~ msgid "For Consultation"
 #~ msgstr "للاستشارة"
@@ -1465,9 +1578,6 @@ msgstr ""
 #~ msgid "Django Framework"
 #~ msgstr "Django Framework"
 
-#~ msgid "Download PDF"
-#~ msgstr "تحميل PDF"
-
 #~ msgid "Full-featured e-commerce website with Django and Bootstrap"
 #~ msgstr "Full-featured e-commerce website with Django and Bootstrap"
 
@@ -1477,9 +1587,6 @@ msgstr ""
 #~ msgstr ""
 #~ "موقع تجارة إلكترونية احترافي سيزيد مبيعاتك. أنظمة دفع آمنة وواجهة سهلة "
 #~ "الاستخدام."
-
-#~ msgid "Education"
-#~ msgstr "التعليم"
 
 #~ msgid ""
 #~ "I graduated from Marmara University Computer Programming department. I "
@@ -1492,9 +1599,6 @@ msgstr ""
 #~ msgid "Send an email for detailed information"
 #~ msgstr "أرسل بريدًا إلكترونيًا للحصول على معلومات مفصلة"
 
-#~ msgid "Experience"
-#~ msgstr "الخبرة"
-
 #~ msgid ""
 #~ "I have been working as a freelance web developer for 5+ years. I have "
 #~ "completed 20+ successful projects. I specialize in e-commerce sites, "
@@ -1503,9 +1607,6 @@ msgstr ""
 #~ "أعمل كمطور ويب مستقل لأكثر من 5 سنوات. أكملت أكثر من 20 مشروعًا ناجحًا. "
 #~ "أتخصص في مواقع التجارة الإلكترونية والمواقع الإلكترونية للشركات وتطوير "
 #~ "المنصات المخصصة."
-
-#~ msgid "2019 - Present"
-#~ msgstr "2019 - الآن"
 
 #~ msgid "Experienced Web Developer"
 #~ msgstr "مطور ويب ذو خبرة"
@@ -1687,9 +1788,6 @@ msgstr ""
 #~ msgid "Unlimited Pages"
 #~ msgstr "صفحات غير محدودة"
 
-#~ msgid "Freelance Web Developer"
-#~ msgstr "مطور ويب مستقل"
-
 #~ msgid ""
 #~ "Make your business stand out in the digital world with modern, fast, and "
 #~ "user-friendly websites. I provide comprehensive web development services "
@@ -1725,9 +1823,6 @@ msgstr ""
 
 #~ msgid "Send Message"
 #~ msgstr "إرسال رسالة"
-
-#~ msgid "My Projects"
-#~ msgstr "مشاريعي"
 
 #~ msgid ""
 #~ "I bring your website to the top ranks on Google. Fast loading and search "
@@ -1772,9 +1867,6 @@ msgstr ""
 #~ msgid "Call me for direct conversation"
 #~ msgstr "اتصل بي للحديث المباشر"
 
-#~ msgid "Phone Number:"
-#~ msgstr "رقم الهاتف:"
-
 #~ msgid "Add your personal photos to the photos folder"
 #~ msgstr "أضف صورك الشخصية إلى مجلد photos"
 
@@ -1809,9 +1901,6 @@ msgstr ""
 
 #~ msgid "Designed and active websites"
 #~ msgstr "مواقع ويب مصممة ونشطة"
-
-#~ msgid "Our Portfolio"
-#~ msgstr "معرض أعمالنا"
 
 #~ msgid "Professional Portfolio"
 #~ msgstr "محفظة احترافية"
@@ -1882,9 +1971,6 @@ msgstr ""
 #~ "مواقع ويب تبدو مثالية على جميع الأجهزة. تجربة محسنة على الهاتف والتابلت "
 #~ "والكمبيوتر."
 
-#~ msgid "Resume & Certificates"
-#~ msgstr "السيرة الذاتية والشهادات"
-
 #~ msgid ""
 #~ "Contact me via WhatsApp for free consultation and project quotes. My "
 #~ "experience and certificates are ready to use for your project."
@@ -1917,9 +2003,6 @@ msgstr ""
 #~ "كـ Angraweb، نقدم خدمات شاملة لتصميم وتطوير الويب لتقوية وجودك الرقمي. "
 #~ "احقق أهدافك مع الحلول الحديثة والسريعة وسهلة الاستخدام."
 
-#~ msgid "Subject"
-#~ msgstr "الموضوع"
-
 #~ msgid "Successful Projects"
 #~ msgstr "مشاريع ناجحة"
 
@@ -1931,9 +2014,6 @@ msgstr ""
 
 #~ msgid "24/7 Technical Support"
 #~ msgstr "دعم فني 24/7"
-
-#~ msgid "Marmara University Graduate"
-#~ msgstr "خريج جامعة مرمرة"
 
 #~ msgid "User Experience Design"
 #~ msgstr "تصميم تجربة المستخدم"
@@ -1997,9 +2077,6 @@ msgstr ""
 #~ msgid "Project Demo 4"
 #~ msgstr "عرض المشروع ٤"
 
-#~ msgid "Video Demos"
-#~ msgstr "عروض فيديو"
-
 #~ msgid ""
 #~ "Discover functionality and design details by watching live demo videos of "
 #~ "my projects."
@@ -2030,9 +2107,3 @@ msgstr ""
 
 #~ msgid "Years Experience"
 #~ msgstr "سنوات خبرة"
-
-#~ msgid "Your Email"
-#~ msgstr "بريدك الإلكتروني"
-
-#~ msgid "Your Message"
-#~ msgstr "رسالتك"
