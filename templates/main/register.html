@@ -5,6 +5,16 @@
 {% block title %}{% trans "Register" %} | Angraweb.com{% endblock %}
 
 {% block content %}
+{% if form.errors %}
+<script>
+(function(){
+var m = "Registration error:\n";
+{% for field in form %}{% for err in field.errors %}m += "{{ err|escapejs }}\n";{% endfor %}{% endfor %}
+{% for err in form.non_field_errors %}m += "{{ err|escapejs }}\n";{% endfor %}
+if(m !== "Registration error:\n") alert(m);
+})();
+</script>
+{% endif %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">

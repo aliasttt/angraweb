@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Dashboard" %} | Angraweb.com{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">{% trans "Dashboard" %}</span>
+        </h1>
+        <p class="hero-subtitle mt-3">{% trans "Hello" %}, {{ user.first_name|default:user.username }}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="contact-form">
+                    <h3 class="mb-4" style="color:#ffffff;">{% trans "Your information" %}</h3>
+                    <ul class="list-unstyled" style="color:#ffffff;">
+                        <li class="mb-2"><strong>{% trans "Username" %}:</strong> {{ user.username }}</li>
+                        <li class="mb-2"><strong>{% trans "First name" %}:</strong> {{ user.first_name|default:"—" }}</li>
+                        <li class="mb-2"><strong>{% trans "Last name" %}:</strong> {{ user.last_name|default:"—" }}</li>
+                        <li class="mb-2"><strong>{% trans "Email" %}:</strong> {{ user.email|default:"—" }}</li>
+                        <li class="mb-2"><strong>{% trans "Phone number" %}:</strong> {{ profile.phone|default:"—" }}</li>
+                    </ul>
+                    <hr style="border-color: rgba(116,185,255,0.3);">
+                    <h4 class="mt-4 mb-3" style="color:#ffffff;">{% trans "Activity" %}</h4>
+                    <p style="color:#b2bec3;">{% trans "Your recent activity and requests will appear here." %}</p>
+                    <div class="mt-4">
+                        <a href="{% url 'quote_request' %}" class="btn btn-primary me-2">{% trans "Request a quote" %}</a>
+                        <a href="{% url 'contact' %}" class="btn btn-outline-light">{% trans "Contact" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

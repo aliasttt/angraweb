@@ -9,7 +9,7 @@ from django.views.decorators.http import require_http_methods
 from django.utils import translation
 from .models import (
     Service, Package, Project, ProjectVideo, Certificate,
-    ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember
+    ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember, UserProfile
 )
 from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm
 
@@ -363,6 +363,18 @@ def user_login(request):
     context = {}
     context.update(get_language_context(request))
     return render(request, 'main/login.html', context)
+
+
+@login_required
+def dashboard(request):
+    """داشبورد کاربر — اطلاعات و فعالیت‌ها"""
+    try:
+        profile = request.user.profile
+    except UserProfile.DoesNotExist:
+        profile = None
+    context = {'profile': profile}
+    context.update(get_language_context(request))
+    return render(request, 'main/dashboard.html', context)
 
 
 @login_required

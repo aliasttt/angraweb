@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
+{% load main_extras %}
 
-{% block title %}Paketlerimiz - Profesyonel Web Sitesi Paketleri | Angraweb.com{% endblock %}
+{% block title %}{% trans "Our Packages" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">Paketlerimiz</span>
+            <span class="text-gradient">{% trans "Our Packages" %}</span>
         </h1>
-        <p class="hero-subtitle mt-3">İhtiyacınıza uygun paketi seçin</p>
+        <p class="hero-subtitle mt-3">{% trans "Choose the package that fits your needs" %}</p>
     </div>
 </section>
 
@@ -21,10 +23,10 @@
                 <a href="{% url 'quote_request' %}?package={{ package.package_type }}" class="package-card-link">
                 <div class="package-card {% if package.popular %}package-featured{% endif %}">
                     {% if package.popular %}
-                    <div class="package-badge">محبوب</div>
+                    <div class="package-badge">{% trans "Popular" %}</div>
                     {% endif %}
                     <div class="package-header">
-                        <h3>{{ package.title }}</h3>
+                        <h3>{% localized package 'title' current_lang %}</h3>
                         <div class="package-price">
                             {% if package.custom_price_text %}
                             <p class="custom-price">{{ package.custom_price_text }}</p>
@@ -39,7 +41,7 @@
                             {% for feature in package.features.all %}
                             <li>
                                 <i class="fas fa-{% if feature.included %}check{% else %}times{% endif %}"></i>
-                                <span {% if not feature.included %}class="feature-disabled"{% endif %}>{{ feature.title }}</span>
+                                <span {% if not feature.included %}class="feature-disabled"{% endif %}>{% localized feature 'title' current_lang %}</span>
                             </li>
                             {% endfor %}
                         </ul>

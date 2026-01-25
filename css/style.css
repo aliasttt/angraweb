@@ -422,11 +422,12 @@ body[dir="rtl"] .language-switcher {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
+    color: #ffffff;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: #74b9ff;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
@@ -438,12 +439,10 @@ body[dir="rtl"] .language-switcher {
 }
 
 .text-gradient {
-    background: linear-gradient(45deg, #74b9ff, #a29bfe, #fd79a8);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientText 3s ease infinite;
+    color: #ffffff;
+    background: none;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
 }
 
 @keyframes gradientText {

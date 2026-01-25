@@ -74,86 +74,64 @@ class Command(BaseCommand):
                 except:
                     pass
         
-        # ایجاد پکیج‌ها
+        # ایجاد پکیج‌ها با عنوان چندزبانه (TR, EN, FA, AR)
+        PACKAGE_I18N = {
+            'basic': {'title': 'Temel Paket', 'title_en': 'Basic Package', 'title_fa': 'پکیج پایه', 'title_ar': 'الباقة الأساسية'},
+            'commercial': {'title': 'Ticari Paket', 'title_en': 'Commercial Package', 'title_fa': 'پکیج تجاری', 'title_ar': 'الباقة التجارية'},
+            'professional': {'title': 'Profesyonel Paket', 'title_en': 'Professional Package', 'title_fa': 'پکیج حرفه‌ای', 'title_ar': 'الباقة المهنية'},
+            'custom': {'title': 'Özel Paket', 'title_en': 'Custom Package', 'title_fa': 'پکیج کاستوم', 'title_ar': 'الباقة المخصصة'},
+        }
+        FEATURE_I18N = {
+            'طراحی ریسپانسیو': ('Responsive design', 'طراحی ریسپانسیو', 'التصميم المتجاوب'),
+            'تا 5 صفحه': ('Up to 5 pages', 'تا ۵ صفحه', 'حتى 5 صفحات'),
+            'فرم تماس': ('Contact form', 'فرم تماس', 'نموذج الاتصال'),
+            'سئو پایه': ('Basic SEO', 'سئو پایه', 'تحسين أساسي'),
+            'تا 10 صفحه': ('Up to 10 pages', 'تا ۱۰ صفحه', 'حتى 10 صفحات'),
+            'پنل ادمین ساده': ('Simple admin panel', 'پنل ادمین ساده', 'لوحة إدارة بسيطة'),
+            'دیتابیس پایه': ('Basic database', 'دیتابیس پایه', 'قاعدة بيانات أساسية'),
+            'صفحات نامحدود': ('Unlimited pages', 'صفحات نامحدود', 'صفحات غير محدودة'),
+            'پنل ادمین اختصاصی': ('Custom admin panel', 'پنل ادمین اختصاصی', 'لوحة إدارة مخصصة'),
+            'دیتابیس پیشرفته': ('Advanced database', 'دیتابیس پیشرفته', 'قاعدة بيانات متقدمة'),
+            'طراحی پلتفرم و شبکه اختصاصی': ('Custom platform design', 'طراحی پلتفرم و شبکه اختصاصی', 'تصميم منصة مخصصة'),
+            'چندین وبسایت و پورتال هماهنگ': ('Multiple sites & portals', 'چندین وبسایت و پورتال', 'مواقع وب وبوابات'),
+            'اپلیکیشن موبایل iOS و Android': ('iOS & Android app', 'اپلیکیشن موبایل', 'تطبيق iOS و Android'),
+        }
         packages_data = [
-            {
-                'title': 'پکیج پایه',
-                'package_type': 'basic',
-                'price': 5000,
-                'currency': 'TL',
-                'order': 1,
-            },
-            {
-                'title': 'پکیج تجاری',
-                'package_type': 'commercial',
-                'price': 10000,
-                'currency': 'TL',
-                'order': 2,
-                'popular': True,
-            },
-            {
-                'title': 'پکیج حرفه‌ای',
-                'package_type': 'professional',
-                'price': 15000,
-                'currency': 'TL',
-                'order': 3,
-            },
-            {
-                'title': 'پکیج کاستوم',
-                'package_type': 'custom',
-                'price': 0,
-                'custom_price_text': 'برای قیمت‌گذاری اختصاصی واتساپ پیام دهید',
-                'order': 4,
-            },
+            {'package_type': 'basic', 'price': 5000, 'currency': 'TL', 'order': 1, **PACKAGE_I18N['basic']},
+            {'package_type': 'commercial', 'price': 10000, 'currency': 'TL', 'order': 2, 'popular': True, **PACKAGE_I18N['commercial']},
+            {'package_type': 'professional', 'price': 15000, 'currency': 'TL', 'order': 3, **PACKAGE_I18N['professional']},
+            {'package_type': 'custom', 'price': 0, 'custom_price_text': 'برای قیمت‌گذاری اختصاصی واتساپ پیام دهید', 'order': 4, **PACKAGE_I18N['custom']},
         ]
-        
-        for package_data in packages_data:
-            package, created = Package.objects.get_or_create(
-                title=package_data['title'],
-                defaults=package_data
-            )
+        for p in packages_data:
+            pt = p['package_type']
+            package, created = Package.objects.get_or_create(package_type=pt, defaults=p)
+            package.title = p['title']
+            package.title_en = p.get('title_en', '')
+            package.title_fa = p.get('title_fa', '')
+            package.title_ar = p.get('title_ar', '')
+            package.save()
             if created:
                 try:
                     self.stdout.write(self.style.SUCCESS(f'Package created: {package.title}'))
-                except:
+                except Exception:
                     pass
-                
-                # اضافه کردن ویژگی‌های پیش‌فرض
-                if package.package_type == 'basic':
-                    features = [
-                        'طراحی ریسپانسیو',
-                        'تا 5 صفحه',
-                        'فرم تماس',
-                        'سئو پایه',
-                    ]
-                elif package.package_type == 'commercial':
-                    features = [
-                        'طراحی ریسپانسیو',
-                        'تا 10 صفحه',
-                        'پنل ادمین ساده',
-                        'دیتابیس پایه',
-                    ]
-                elif package.package_type == 'professional':
-                    features = [
-                        'طراحی ریسپانسیو',
-                        'صفحات نامحدود',
-                        'پنل ادمین اختصاصی',
-                        'دیتابیس پیشرفته',
-                    ]
+                if pt == 'basic':
+                    feature_titles = ['طراحی ریسپانسیو', 'تا 5 صفحه', 'فرم تماس', 'سئو پایه']
+                elif pt == 'commercial':
+                    feature_titles = ['طراحی ریسپانسیو', 'تا 10 صفحه', 'پنل ادمین ساده', 'دیتابیس پایه']
+                elif pt == 'professional':
+                    feature_titles = ['طراحی ریسپانسیو', 'صفحات نامحدود', 'پنل ادمین اختصاصی', 'دیتابیس پیشرفته']
                 else:
-                    features = [
-                        'طراحی پلتفرم و شبکه اختصاصی',
-                        'چندین وبسایت و پورتال هماهنگ',
-                        'اپلیکیشن موبایل iOS و Android',
-                    ]
-                
-                for idx, feature_title in enumerate(features):
-                    PackageFeature.objects.create(
-                        package=package,
-                        title=feature_title,
-                        included=True,
-                        order=idx
-                    )
+                    feature_titles = ['طراحی پلتفرم و شبکه اختصاصی', 'چندین وبسایت و پورتال هماهنگ', 'اپلیکیشن موبایل iOS و Android']
+                for idx, ft in enumerate(feature_titles):
+                    t = FEATURE_I18N.get(ft, (ft, ft, ft))
+                    PackageFeature.objects.create(package=package, title=ft, title_en=t[0], title_fa=t[1], title_ar=t[2], included=True, order=idx)
+            # به‌روزرسانی ویژگی‌های موجود
+            for f in package.features.all():
+                if not f.title_en and f.title in FEATURE_I18N:
+                    t = FEATURE_I18N[f.title]
+                    f.title_en, f.title_fa, f.title_ar = t[0], t[1], t[2]
+                    f.save()
 
         # پروژه‌ها و ویدیوها — Projects and video demos
         projects_data = [

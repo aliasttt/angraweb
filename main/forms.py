@@ -118,60 +118,53 @@ class QuoteRequestForm(forms.ModelForm):
 
 
 class UserRegistrationForm(UserCreationForm):
-    """فرم ثبت‌نام کاربر"""
+    """فرم ثبت‌نام کاربر — خطاها به انگلیسی برای الرت"""
     email = forms.EmailField(
         required=True,
-        widget=forms.EmailInput(attrs={
-            'class': 'form-control',
-            'placeholder': _('Email')
-        })
+        error_messages={'invalid': 'Enter a valid email address.', 'required': 'Email is required.'},
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': _('Email')})
     )
     first_name = forms.CharField(
-        max_length=100,
-        required=True,
-        widget=forms.TextInput(attrs={
-            'class': 'form-control',
-            'placeholder': _('First name')
-        })
+        max_length=100, required=True,
+        error_messages={'required': 'First name is required.'},
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('First name')})
     )
     last_name = forms.CharField(
-        max_length=100,
-        required=True,
-        widget=forms.TextInput(attrs={
-            'class': 'form-control',
-            'placeholder': _('Last name')
-        })
+        max_length=100, required=True,
+        error_messages={'required': 'Last name is required.'},
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Last name')})
     )
     phone = forms.CharField(
-        max_length=20,
-        required=False,
-        widget=forms.TextInput(attrs={
-            'class': 'form-control',
-            'placeholder': _('Phone number')
-        }),
+        max_length=20, required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Phone number')}),
         label=_('Phone number')
     )
 
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
-        widgets = {
-            'username': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': _('Username')
-            }),
+        widgets = {'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Username')})}
+        error_messages = {
+            'username': {'required': 'Username is required.'},
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['password1'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': _('Password')
-        })
-        self.fields['password2'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': _('Confirm password')
-        })
+        self.fields['username'].error_messages = {
+            'required': 'Username is required.',
+            'unique': 'A user with that username already exists.',
+        }
+        self.fields['password1'].widget.attrs.update({'class': 'form-control', 'placeholder': _('Password')})
+        self.fields['password1'].error_messages = {
+            'required': 'Password is required.',
+            'password_too_short': 'Password is too short.',
+            'password_too_common': 'This password is too common.',
+        }
+        self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder': _('Confirm password')})
+        self.fields['password2'].error_messages = {
+            'required': 'You must confirm your password.',
+            'password_mismatch': 'The two password fields did not match.',
+        }
 
     def save(self, commit=True):
         user = super().save(commit=False)

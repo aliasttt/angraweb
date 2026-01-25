@@ -1220,20 +1220,11 @@ function getPageTitles(pageName) {
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Load saved language or use default
-    const savedLang = localStorage.getItem('preferred-language');
-    const defaultLang = savedLang && translations[savedLang] ? savedLang : 'tr';
-    
-    // Set language immediately before any rendering
-    changeLanguage(defaultLang);
-    
-    // Show body content after language is set
+    // Language: server-side i18n via /lang/xx/ — do NOT override with JS (was causing "stuck on English")
     document.body.style.visibility = 'visible';
     document.body.style.opacity = '1';
     
-    // Initialize all functions
-    initLanguageSwitcher();
+    // Initialize all functions (initLanguageSwitcher removed; nav uses /lang/xx/)
     initNavbar();
     initSmoothScrolling();
     initScrollAnimations();
@@ -1340,7 +1331,6 @@ function setupIdleTasks() {
     window.addEventListener('load', function() {
         idle(() => {
             try { initParallax(); } catch (e) {}
-            try { initTypingEffect(); } catch (e) {}
             try { initParticleEffect(); } catch (e) {}
         });
     }, { once: true });

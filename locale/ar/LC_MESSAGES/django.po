@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 13:25+0330\n"
+"POT-Creation-Date: 2026-01-25 13:48+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,8 +44,8 @@ msgstr "الموضوع"
 msgid "Your message"
 msgstr "رسالتك"
 
-#: .\main\forms.py:96 .\main\forms.py:150 .\main\forms.py:152
-#: .\templates\main\register.html:45
+#: .\main\forms.py:96 .\main\forms.py:139 .\main\forms.py:140
+#: .\templates\main\dashboard.html:28 .\templates\main\register.html:55
 #, fuzzy
 #| msgid "Phone Number:"
 msgid "Phone number"
@@ -69,30 +69,32 @@ msgstr ""
 msgid "Deadline (optional)"
 msgstr ""
 
-#: .\main\forms.py:126 .\templates\main\quote_request.html:58
-#: .\templates\main\register.html:29
+#: .\main\forms.py:125 .\templates\main\dashboard.html:27
+#: .\templates\main\quote_request.html:58 .\templates\main\register.html:39
 msgid "Email"
 msgstr "البريد الإلكتروني"
 
-#: .\main\forms.py:134 .\templates\main\register.html:35
+#: .\main\forms.py:130 .\templates\main\dashboard.html:25
+#: .\templates\main\register.html:45
 msgid "First name"
 msgstr ""
 
-#: .\main\forms.py:142 .\templates\main\register.html:39
+#: .\main\forms.py:135 .\templates\main\dashboard.html:26
+#: .\templates\main\register.html:49
 msgid "Last name"
 msgstr ""
 
-#: .\main\forms.py:161 .\templates\main\login.html:25
-#: .\templates\main\register.html:25
+#: .\main\forms.py:146 .\templates\main\dashboard.html:24
+#: .\templates\main\login.html:25 .\templates\main\register.html:35
 msgid "Username"
 msgstr ""
 
-#: .\main\forms.py:169 .\templates\main\login.html:29
-#: .\templates\main\register.html:51
+#: .\main\forms.py:157 .\templates\main\login.html:29
+#: .\templates\main\register.html:61
 msgid "Password"
 msgstr ""
 
-#: .\main\forms.py:173 .\templates\main\register.html:55
+#: .\main\forms.py:163 .\templates\main\register.html:65
 msgid "Confirm password"
 msgstr ""
 
@@ -102,19 +104,19 @@ msgstr ""
 msgid "Angraweb.com - Professional Web Design and E-commerce"
 msgstr "خبير تصميم وتطوير الويب المهني"
 
-#: .\templates\base.html:89 .\templates\base.html:185
+#: .\templates\base.html:89 .\templates\base.html:188
 msgid "Home"
 msgstr "الرئيسية"
 
-#: .\templates\base.html:92 .\templates\base.html:186
+#: .\templates\base.html:92 .\templates\base.html:189
 msgid "Packages"
 msgstr "الباقات"
 
-#: .\templates\base.html:95 .\templates\base.html:187
+#: .\templates\base.html:95 .\templates\base.html:190
 msgid "About"
 msgstr "حول"
 
-#: .\templates\base.html:99 .\templates\base.html:188
+#: .\templates\base.html:99 .\templates\base.html:191
 msgid "Services"
 msgstr "الخدمات"
 
@@ -160,12 +162,12 @@ msgstr "خدماتي"
 msgid "UI/UX Design"
 msgstr ""
 
-#: .\templates\base.html:112 .\templates\base.html:189
+#: .\templates\base.html:112 .\templates\base.html:192
 #: .\templates\main\projects.html:5 .\templates\main\projects.html:11
 msgid "Projects"
 msgstr "المشاريع"
 
-#: .\templates\base.html:115 .\templates\base.html:190
+#: .\templates\base.html:115 .\templates\base.html:193
 msgid "Resume"
 msgstr "السيرة الذاتية"
 
@@ -173,31 +175,36 @@ msgstr "السيرة الذاتية"
 msgid "Team"
 msgstr ""
 
-#: .\templates\base.html:121 .\templates\base.html:191
+#: .\templates\base.html:121 .\templates\base.html:194
+#: .\templates\main\dashboard.html:35
 msgid "Contact"
 msgstr "اتصل"
 
-#: .\templates\base.html:125
-msgid "Admin"
+#: .\templates\base.html:125 .\templates\main\dashboard.html:13
+msgid "Hello"
 msgstr ""
 
 #: .\templates\base.html:128
+msgid "Admin"
+msgstr ""
+
+#: .\templates\base.html:131
 msgid "Logout"
 msgstr ""
 
-#: .\templates\base.html:132 .\templates\main\login.html:5
+#: .\templates\base.html:135 .\templates\main\login.html:5
 #: .\templates\main\login.html:11 .\templates\main\login.html:33
-#: .\templates\main\register.html:64
+#: .\templates\main\register.html:74
 msgid "Login"
 msgstr ""
 
-#: .\templates\base.html:135 .\templates\main\login.html:37
-#: .\templates\main\register.html:5 .\templates\main\register.html:11
-#: .\templates\main\register.html:60
+#: .\templates\base.html:138 .\templates\main\login.html:37
+#: .\templates\main\register.html:5 .\templates\main\register.html:21
+#: .\templates\main\register.html:70
 msgid "Register"
 msgstr ""
 
-#: .\templates\base.html:178
+#: .\templates\base.html:181
 msgid ""
 "Professional web design and development services. Grow your business in the "
 "digital world with modern, fast and user-friendly websites."
@@ -205,23 +212,23 @@ msgstr ""
 "خدمات تصميم وتطوير الويب الاحترافية. نمّي عملك في العالم الرقمي مع مواقع ويب "
 "حديثة وسريعة وسهلة الاستخدام."
 
-#: .\templates\base.html:183
+#: .\templates\base.html:186
 msgid "Quick Links"
 msgstr "روابط سريعة"
 
-#: .\templates\base.html:195
+#: .\templates\base.html:198
 msgid "Contact Information"
 msgstr "معلومات الاتصال"
 
-#: .\templates\base.html:212
+#: .\templates\base.html:215
 msgid "Follow Us"
 msgstr "تابعنا"
 
-#: .\templates\base.html:232
+#: .\templates\base.html:235
 msgid "All rights reserved."
 msgstr "جميع الحقوق محفوظة."
 
-#: .\templates\base.html:242 .\templates\main\ecommerce.html:77
+#: .\templates\base.html:245 .\templates\main\ecommerce.html:77
 #: .\templates\main\ecommerce.html:79 .\templates\main\hosting.html:83
 #: .\templates\main\hosting.html:85 .\templates\main\index.html:117
 #: .\templates\main\mobile_app.html:54 .\templates\main\mobile_app.html:56
@@ -231,6 +238,30 @@ msgstr "جميع الحقوق محفوظة."
 #: .\templates\main\ui_ux.html:86 .\templates\main\web_design.html:59
 #: .\templates\main\web_design.html:61
 msgid "Get Quote"
+msgstr "احصل على عرض سعر"
+
+#: .\templates\main\dashboard.html:5 .\templates\main\dashboard.html:11
+msgid "Dashboard"
+msgstr ""
+
+#: .\templates\main\dashboard.html:22
+#, fuzzy
+#| msgid "Contact Information"
+msgid "Your information"
+msgstr "معلومات الاتصال"
+
+#: .\templates\main\dashboard.html:31
+msgid "Activity"
+msgstr ""
+
+#: .\templates\main\dashboard.html:32
+msgid "Your recent activity and requests will appear here."
+msgstr ""
+
+#: .\templates\main\dashboard.html:34
+#, fuzzy
+#| msgid "Get Quote"
+msgid "Request a quote"
 msgstr "احصل على عرض سعر"
 
 #: .\templates\main\ecommerce.html:5
@@ -746,6 +777,22 @@ msgstr ""
 msgid "app + backend + admin"
 msgstr ""
 
+#: .\templates\main\packages.html:6 .\templates\main\packages.html:12
+msgid "Our Packages"
+msgstr "باقاتنا"
+
+#: .\templates\main\packages.html:14
+#, fuzzy
+#| msgid ""
+#| "Choose the package that suits your needs and take your business to the "
+#| "digital world"
+msgid "Choose the package that fits your needs"
+msgstr "اختر الباقة المناسبة لاحتياجاتك وخذ عملك إلى العالم الرقمي"
+
+#: .\templates\main\packages.html:26
+msgid "Popular"
+msgstr "شائع"
+
 #: .\templates\main\projects.html:5 .\templates\main\projects.html:22
 msgid "Video Demos"
 msgstr "عروض فيديو"
@@ -860,7 +907,7 @@ msgstr "المشاريع"
 msgid "Submit request"
 msgstr ""
 
-#: .\templates\main\register.html:64
+#: .\templates\main\register.html:74
 msgid "Already have an account?"
 msgstr ""
 
@@ -1847,14 +1894,6 @@ msgstr ""
 #~ "نمو عملك في العالم الرقمي مع حزم موقع الويب المهنية لدينا. قدم أفضل تجربة "
 #~ "لعملائك مع التصميم الحديث والتحميل السريع والواجهة سهلة الاستخدام."
 
-#~ msgid ""
-#~ "Choose the package that suits your needs and take your business to the "
-#~ "digital world"
-#~ msgstr "اختر الباقة المناسبة لاحتياجاتك وخذ عملك إلى العالم الرقمي"
-
-#~ msgid "Our Packages"
-#~ msgstr "باقاتنا"
-
 #~ msgid "Get to know me and trust me - Professional web developer at work"
 #~ msgstr "تعرف عليّ وثق بي - مطور ويب محترف في العمل"
 
@@ -1869,9 +1908,6 @@ msgstr ""
 
 #~ msgid "Add your personal photos to the photos folder"
 #~ msgstr "أضف صورك الشخصية إلى مجلد photos"
-
-#~ msgid "Popular"
-#~ msgstr "شائع"
 
 #~ msgid "Angraweb.com"
 #~ msgstr "Angraweb.com"

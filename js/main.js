@@ -1167,8 +1167,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.visibility = 'visible';
     document.body.style.opacity = '1';
     
-    // Initialize all functions
-    initLanguageSwitcher();
+    // Initialize all functions (initLanguageSwitcher removed; lang uses /lang/xx/)
     initNavbar();
     initSmoothScrolling();
     initScrollAnimations();
@@ -1275,7 +1274,6 @@ function setupIdleTasks() {
     window.addEventListener('load', function() {
         idle(() => {
             try { initParallax(); } catch (e) {}
-            try { initTypingEffect(); } catch (e) {}
             try { initParticleEffect(); } catch (e) {}
         });
     }, { once: true });
