@@ -5,6 +5,8 @@
 {% block title %}{% trans "Login" %} | Angraweb.com{% endblock %}
 
 {% block content %}
+{% for msg in messages %}{% if msg.tags == 'error' %}
+<script>alert("{{ msg|escapejs }}");</script>{% endif %}{% endfor %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
@@ -22,8 +24,8 @@
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ request.GET.next }}">
                         <div class="mb-3">
-                            <label class="form-label">{% trans "Username" %}</label>
-                            <input type="text" name="username" class="form-control" required>
+                            <label class="form-label">{% trans "Phone number" %}</label>
+                            <input type="tel" name="phone" class="form-control" required autocomplete="tel">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{% trans "Password" %}</label>

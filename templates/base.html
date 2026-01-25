@@ -125,9 +125,6 @@
                         <a class="nav-link" href="{% url 'dashboard' %}">{% trans "Hello" %}, {{ user.first_name|default:user.username }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/">{% trans "Admin" %}</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
                     </li>
                     {% else %}
@@ -153,8 +150,8 @@
         </div>
     </nav>
 
-    <!-- Messages -->
-    {% if messages %}
+    <!-- Messages (on login page errors are shown as alert only) -->
+    {% if messages and request.resolver_match.url_name != 'login' %}
     <div class="container mt-5 pt-5">
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">

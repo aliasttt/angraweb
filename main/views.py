@@ -7,6 +7,8 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.utils import translation
+from django.utils.translation import gettext as _
+from django.contrib.auth.models import User
 from .models import (
     Service, Package, Project, ProjectVideo, Certificate,
     ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember, UserProfile
@@ -343,23 +345,33 @@ def register(request):
     return render(request, 'main/register.html', context)
 
 
+def _normalize_phone(s):
+    return ''.join(c for c in (s or '') if c.isdigit())
+
+
 def user_login(request):
-    """ورود کاربر"""
+    """ورود با شماره تلفن و رمز عبور — خطا به زبان فعلی"""
     if request.method == 'POST':
-        from django.contrib.auth import authenticate
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
+        phone_raw = (request.POST.get('phone') or '').strip()
+        password = request.POST.get('password', '')
+        key = _normalize_phone(phone_raw)
+        user = None
+        if key:
+            for p in UserProfile.objects.exclude(phone=''):
+                if _normalize_phone(p.phone) == key and p.user.check_password(password):
+                    user = p.user
+                    break
+        if not user and phone_raw:
+            u = User.objects.filter(username=phone_raw.strip()).first()
+            if u and u.check_password(password):
+                user = u
+        if user:
             login(request, user)
             next_url = request.POST.get('next') or request.GET.get('next') or request.META.get('HTTP_REFERER') or 'index'
-            # Avoid redirect loop back to login
             if not next_url or 'login' in str(next_url):
                 next_url = 'index'
             return redirect(next_url)
-        else:
-            messages.error(request, 'نام کاربری یا رمز عبور اشتباه است.')
-    
+        messages.error(request, _('Invalid phone number or password.'))
     context = {}
     context.update(get_language_context(request))
     return render(request, 'main/login.html', context)
