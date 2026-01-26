@@ -44,6 +44,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'main.middleware.LanguageActivationMiddleware',  # اطمینان از activate شدن زبان از session/cookie
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -116,6 +117,12 @@ LANGUAGES = [
     ('fa', 'Persian'),
     ('ar', 'Arabic'),
 ]
+
+# تا LocaleMiddleware همان کلیدی را بخواند که set_language می‌نویسد
+LANGUAGE_SESSION_KEY = '_language'
+
+# اطمینان از ذخیره شدن session در هر درخواست
+SESSION_SAVE_EVERY_REQUEST = True
 
 LOCALE_PATHS = [
     BASE_DIR / 'locale',

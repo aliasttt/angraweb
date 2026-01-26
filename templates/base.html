@@ -54,25 +54,27 @@
         </div>
     </div>
 
-    <!-- Language Switcher -->
+    <!-- Language Switcher: لینک مستقیم به /lang/xx/ — next= برای بازگشت به همین صفحه -->
+    {% with next_param=request.path|default:"/" %}
     <div class="language-switcher">
-        <button onclick="window.location.href='{% url 'set_language' 'tr' %}'" class="lang-btn {% if current_lang == 'tr' %}active{% endif %}">
+        <a href="{% url 'switch_lang' 'tr' %}?next={{ next_param|urlencode }}" class="lang-btn {% if current_lang == 'tr' %}active{% endif %}" data-lang="tr">
             <img src="https://flagcdn.com/24x18/tr.png" alt="Türkçe" width="24" height="18">
             TR
-        </button>
-        <button onclick="window.location.href='{% url 'set_language' 'en' %}'" class="lang-btn {% if current_lang == 'en' %}active{% endif %}">
+        </a>
+        <a href="{% url 'switch_lang' 'en' %}?next={{ next_param|urlencode }}" class="lang-btn {% if current_lang == 'en' %}active{% endif %}" data-lang="en">
             <img src="https://flagcdn.com/24x18/gb.png" alt="English" width="24" height="18">
             EN
-        </button>
-        <button onclick="window.location.href='{% url 'set_language' 'fa' %}'" class="lang-btn {% if current_lang == 'fa' %}active{% endif %}">
+        </a>
+        <a href="{% url 'switch_lang' 'fa' %}?next={{ next_param|urlencode }}" class="lang-btn {% if current_lang == 'fa' %}active{% endif %}" data-lang="fa">
             <img src="https://flagcdn.com/24x18/ir.png" alt="فارسی" width="24" height="18">
             FA
-        </button>
-        <button onclick="window.location.href='{% url 'set_language' 'ar' %}'" class="lang-btn {% if current_lang == 'ar' %}active{% endif %}">
+        </a>
+        <a href="{% url 'switch_lang' 'ar' %}?next={{ next_param|urlencode }}" class="lang-btn {% if current_lang == 'ar' %}active{% endif %}" data-lang="ar">
             <img src="https://flagcdn.com/24x18/sa.png" alt="العربية" width="24" height="18">
             AR
-        </button>
+        </a>
     </div>
+    {% endwith %}
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">

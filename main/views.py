@@ -17,9 +17,39 @@ from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm
 
 
 def get_language_context(request):
-    """دریافت زبان فعلی و تنظیمات مربوطه"""
+    """دریافت زبان فعلی و تنظیمات مربوطه — از session/cookie می‌خواند و activate می‌کند"""
+    from django.conf import settings
     from django.utils import translation
-    lang = translation.get_language() or 'tr'
+    
+    # اول از session بخوان (که set_language می‌نویسد)
+    session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
+    lang = None
+    if hasattr(request, 'session'):
+        lang = request.session.get(session_key)
+    
+    # اگر session نبود، از cookie بخوان
+    if not lang:
+        cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
+        lang = request.COOKIES.get(cookie_name)
+    
+    # اگر هیچکدام نبود، از translation.get_language() (که middleware set کرده)
+    if not lang:
+        lang = translation.get_language()
+    
+    # اگر هنوز نبود، default
+    if not lang or lang not in ['tr', 'en', 'fa', 'ar']:
+        lang = 'tr'
+    
+    # اطمینان از activate شدن زبان برای این درخواست (برای {% trans %} در template)
+    if lang and lang in ['tr', 'en', 'fa', 'ar']:
+        translation.activate(lang)
+    
+    # دیباگ: چک کن که زبان درست خوانده شده
+    if settings.DEBUG:
+        session_lang = request.session.get(session_key) if hasattr(request, 'session') else None
+        cookie_lang = request.COOKIES.get(getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language'))
+        print(f"[get_language_context] Session: {session_lang}, Cookie: {cookie_lang}, Final: {lang}")
+    
     return {
         'current_lang': lang,
         'is_rtl': lang in ['fa', 'ar']
@@ -398,26 +428,44 @@ def user_logout(request):
 
 
 def set_language(request, lang_code):
-    """تغییر زبان — Switch site language and persist in session/cookie."""
+    """سوئیچ زبان — ذخیره در session و cookie. بدون translate_url چون با prefix_default_language=False مسیر /en/... وجود ندارد."""
     from django.conf import settings
     from django.utils import translation
-    from django.urls import translate_url
 
-    if lang_code in ['tr', 'en', 'fa', 'ar']:
-        translation.activate(lang_code)
-        # Use Django's LANGUAGE_SESSION_KEY (default: '_language') so LocaleMiddleware picks it up
-        session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
-        if hasattr(request, 'session'):
-            request.session[session_key] = lang_code
-        request.LANGUAGE_CODE = lang_code
+    if lang_code not in ['tr', 'en', 'fa', 'ar']:
+        return redirect('index')
 
-        referer = request.META.get('HTTP_REFERER')
-        next_url = request.GET.get('next') or referer or '/'
+    # ذخیره در session
+    session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
+    if hasattr(request, 'session'):
+        request.session[session_key] = lang_code
+        request.session.modified = True
+        # اطمینان از save شدن session
         try:
-            next_url = translate_url(next_url, lang_code) or next_url
-        except Exception:
-            pass
-        response = redirect(next_url)
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code, max_age=365 * 24 * 60 * 60)
-        return response
-    return redirect('index')
+            request.session.save()
+        except Exception as e:
+            # در صورت خطا، لاگ کن (فقط در DEBUG)
+            if settings.DEBUG:
+                print(f"[set_language] Session save error: {e}")
+
+    # activate برای درخواست فعلی (اختیاری — middleware بعد از redirect می‌خواند)
+    translation.activate(lang_code)
+
+    next_url = (request.GET.get('next') or request.META.get('HTTP_REFERER') or '').strip()
+    if not next_url or '/lang/' in next_url:
+        next_url = '/'
+    # فقط مسیرهای همون سایت (شروع با /) یا آدرس همین دامنه
+    if next_url.startswith('//') or (next_url.startswith('http') and request.get_host() not in next_url):
+        next_url = '/'
+
+    response = redirect(next_url)
+    # ذخیره در cookie
+    cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
+    response.set_cookie(cookie_name, lang_code, max_age=365 * 24 * 60 * 60, path='/', samesite='Lax')
+    
+    # دیباگ: چک کن که session set شده
+    if settings.DEBUG and hasattr(request, 'session'):
+        saved_lang = request.session.get(session_key)
+        print(f"[set_language] Set language to: {lang_code}, Session now has: {saved_lang}")
+    
+    return response

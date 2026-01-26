@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}Web sitesi ve mobil uygulama tasarımı | Özel yazılımcı ve tasarımcı{% endblock %}
+{% block title %}{% trans "Web and mobile app design | Custom developer and designer" %}{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -128,7 +128,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center">
-                    <span class="text-gradient">Neden Beni Seçmelisiniz?</span>
+                    <span class="text-gradient">{% trans "Why Choose Me?" %}</span>
                 </h2>
             </div>
         </div>
@@ -138,8 +138,8 @@
                     <div class="value-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>İşinizi Büyütün</h3>
-                    <p>Modern web siteleri ile satışlarınızı artırın</p>
+                    <h3>{% trans "Grow Your Business" %}</h3>
+                    <p>{% trans "Increase your sales with modern websites" %}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
@@ -147,8 +147,8 @@
                     <div class="value-icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <h3>Zaman Tasarrufu</h3>
-                    <p>Hızlı teslimat ve profesyonel hizmet</p>
+                    <h3>{% trans "Time Saving" %}</h3>
+                    <p>{% trans "Fast delivery and professional service" %}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
@@ -156,8 +156,8 @@
                     <div class="value-icon">
                         <i class="fas fa-dollar-sign"></i>
                     </div>
-                    <h3>Uygun Fiyat</h3>
-                    <p>Kaliteli hizmeti uygun fiyatlarla</p>
+                    <h3>{% trans "Affordable Price" %}</h3>
+                    <p>{% trans "Quality service at affordable prices" %}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
@@ -165,8 +165,8 @@
                     <div class="value-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Sürekli Destek</h3>
-                    <p>7/24 teknik destek hizmeti</p>
+                    <h3>{% trans "Continuous Support" %}</h3>
+                    <p>{% trans "24/7 technical support service" %}</p>
                 </div>
             </div>
         </div>
@@ -179,17 +179,19 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center">
-                    <span class="text-gradient">About Me</span>
+                    <span class="text-gradient">{% trans "About Me" %}</span>
                 </h2>
             </div>
         </div>
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="about-content">
-                    <h3>Profesyonel Web Tasarım Uzmanı</h3>
+                    <h3>{% trans "Professional Web Design Expert" %}</h3>
                     <p>
-                        Marmara Üniversitesi Bilgisayar Programlama mezunu olarak profesyonel web tasarım çözümleri sunuyorum. 
-                        20'den fazla müşterim %100 memnuniyet ile hizmet aldı.
+                        {% blocktrans %}
+                        As a graduate of Marmara University Computer Programming, I offer professional web design solutions. 
+                        More than 20 of my clients have received service with 100% satisfaction.
+                        {% endblocktrans %}
                     </p>
                     <div class="skills-grid">
                         <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
@@ -206,15 +208,15 @@
                 <div class="about-stats">
                     <div class="stat-item">
                         <div class="stat-number">20+</div>
-                        <div class="stat-label">Başarılı Proje</div>
+                        <div class="stat-label">{% trans "Successful Projects" %}</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">5+</div>
-                        <div class="stat-label">Yıl Deneyim</div>
+                        <div class="stat-label">{% trans "Years of Experience" %}</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">Müşteri Memnuniyeti</div>
+                        <div class="stat-label">{% trans "Customer Satisfaction" %}</div>
                     </div>
                 </div>
             </div>
@@ -228,7 +230,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center">
-                    <span class="text-gradient">Paketlerimiz</span>
+                    <span class="text-gradient">{% trans "Our Packages" %}</span>
                 </h2>
             </div>
         </div>
@@ -238,7 +240,7 @@
                 <a href="{% url 'quote_request' %}?package={{ package.package_type }}" class="package-card-link">
                 <div class="package-card {% if package.popular %}package-featured{% endif %}">
                     {% if package.popular %}
-                    <div class="package-badge">محبوب</div>
+                    <div class="package-badge">{% trans "Popular" %}</div>
                     {% endif %}
                     <div class="package-header">
                         <h3>{{ package.title }}</h3>
@@ -275,7 +277,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center">
-                    <span class="text-gradient">Projelerim</span>
+                    <span class="text-gradient">{% trans "My Projects" %}</span>
                 </h2>
             </div>
         </div>
@@ -296,7 +298,7 @@
                         <p>{{ project.description|truncatewords:15 }}</p>
                         {% if project.url %}
                         <a href="{{ project.url }}" class="btn btn-primary portfolio-visit-btn" target="_blank">
-                            Visit Website
+                            {% trans "Visit Website" %}
                         </a>
                         {% endif %}
                     </div>
@@ -307,7 +309,7 @@
         <div class="row mt-4">
             <div class="col-12 text-center">
                 <a href="{% url 'projects_list' %}" class="btn btn-primary btn-lg">
-                    مشاهده همه پروژه‌ها
+                    {% trans "View All Projects" %}
                 </a>
             </div>
         </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 13:59+0330\n"
+"POT-Creation-Date: 2026-01-26 19:21+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\main\forms.py:16 .\main\forms.py:86
+#: .\main\forms.py:16 .\main\forms.py:86 .\templates\main\contact.html:27
 #, fuzzy
 #| msgid "Your Message"
 msgid "Your name"
 msgstr "پیام شما"
 
-#: .\main\forms.py:21 .\main\forms.py:91
+#: .\main\forms.py:21 .\main\forms.py:91 .\templates\main\contact.html:31
 #, fuzzy
 #| msgid "Your Email"
 msgid "Your email"
 msgstr "ایمیل شما"
 
-#: .\main\forms.py:26
+#: .\main\forms.py:26 .\templates\main\contact.html:36
 msgid "Phone (optional)"
 msgstr ""
 
-#: .\main\forms.py:30
+#: .\main\forms.py:30 .\templates\main\contact.html:40
 msgid "Subject"
 msgstr "موضوع"
 
-#: .\main\forms.py:35
+#: .\main\forms.py:35 .\templates\main\contact.html:44
 #, fuzzy
 #| msgid "Your Message"
 msgid "Your message"
@@ -70,8 +70,9 @@ msgstr ""
 msgid "Deadline (optional)"
 msgstr ""
 
-#: .\main\forms.py:125 .\templates\main\dashboard.html:27
-#: .\templates\main\quote_request.html:58 .\templates\main\register.html:39
+#: .\main\forms.py:125 .\templates\main\contact.html:71
+#: .\templates\main\dashboard.html:27 .\templates\main\quote_request.html:58
+#: .\templates\main\register.html:39
 msgid "Email"
 msgstr "ایمیل"
 
@@ -99,7 +100,7 @@ msgstr ""
 msgid "Confirm password"
 msgstr ""
 
-#: .\main\views.py:369
+#: .\main\views.py:404
 msgid "Invalid phone number or password."
 msgstr "شماره تلفن یا رمز عبور اشتباه است."
 
@@ -109,103 +110,103 @@ msgstr "شماره تلفن یا رمز عبور اشتباه است."
 msgid "Angraweb.com - Professional Web Design and E-commerce"
 msgstr "متخصص طراحی و توسعه وب حرفه‌ای"
 
-#: .\templates\base.html:89 .\templates\base.html:185
+#: .\templates\base.html:91 .\templates\base.html:187
 msgid "Home"
 msgstr "خانه"
 
-#: .\templates\base.html:92 .\templates\base.html:186
+#: .\templates\base.html:94 .\templates\base.html:188
 msgid "Packages"
 msgstr "پکیج‌ها"
 
-#: .\templates\base.html:95 .\templates\base.html:187
+#: .\templates\base.html:97 .\templates\base.html:189
 msgid "About"
 msgstr "درباره من"
 
-#: .\templates\base.html:99 .\templates\base.html:188
+#: .\templates\base.html:101 .\templates\base.html:190
 msgid "Services"
 msgstr "خدمات"
 
-#: .\templates\base.html:102
+#: .\templates\base.html:104
 #, fuzzy
 #| msgid "Services"
 msgid "All Services"
 msgstr "خدمات"
 
-#: .\templates\base.html:103 .\templates\main\web_design.html:5
+#: .\templates\base.html:105 .\templates\main\web_design.html:5
 #, fuzzy
 #| msgid "Get Design Quote"
 msgid "Web Design"
 msgstr "دریافت پیشنهاد طراحی"
 
-#: .\templates\base.html:104 .\templates\main\mobile_app.html:5
+#: .\templates\base.html:106 .\templates\main\mobile_app.html:5
 #: .\templates\main\mobile_app.html:11
 #, fuzzy
 #| msgid "Mobile Responsive Design"
 msgid "Mobile App Design"
 msgstr "طراحی واکنش‌گرا موبایل"
 
-#: .\templates\base.html:105
+#: .\templates\base.html:107
 #, fuzzy
 #| msgid "E-commerce Website"
 msgid "E-commerce"
 msgstr "E-commerce Website"
 
-#: .\templates\base.html:106
+#: .\templates\base.html:108
 #, fuzzy
 #| msgid "Services"
 msgid "SEO Services"
 msgstr "خدمات"
 
-#: .\templates\base.html:107
+#: .\templates\base.html:109
 #, fuzzy
 #| msgid "My Services"
 msgid "Hosting Services"
 msgstr "خدمات من"
 
-#: .\templates\base.html:108 .\templates\main\ui_ux.html:5
+#: .\templates\base.html:110 .\templates\main\ui_ux.html:5
 #: .\templates\main\ui_ux.html:11
 msgid "UI/UX Design"
 msgstr ""
 
-#: .\templates\base.html:112 .\templates\base.html:189
+#: .\templates\base.html:114 .\templates\base.html:191
 #: .\templates\main\projects.html:5 .\templates\main\projects.html:11
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: .\templates\base.html:115 .\templates\base.html:190
+#: .\templates\base.html:117 .\templates\base.html:192
 msgid "Resume"
 msgstr "رزومه"
 
-#: .\templates\base.html:118 .\templates\main\team.html:5
+#: .\templates\base.html:120 .\templates\main\team.html:5
 msgid "Team"
-msgstr ""
+msgstr "تیم"
 
-#: .\templates\base.html:121 .\templates\base.html:191
-#: .\templates\main\dashboard.html:35
+#: .\templates\base.html:123 .\templates\base.html:193
+#: .\templates\main\contact.html:5 .\templates\main\dashboard.html:35
 msgid "Contact"
 msgstr "تماس"
 
-#: .\templates\base.html:125 .\templates\main\dashboard.html:13
+#: .\templates\base.html:127 .\templates\main\dashboard.html:13
 msgid "Hello"
-msgstr ""
+msgstr "سلام"
 
-#: .\templates\base.html:128
+#: .\templates\base.html:130
 msgid "Logout"
-msgstr ""
+msgstr "خروج"
 
-#: .\templates\base.html:132 .\templates\main\login.html:5
+#: .\templates\base.html:134 .\templates\main\login.html:5
 #: .\templates\main\login.html:13 .\templates\main\login.html:35
 #: .\templates\main\register.html:74
 msgid "Login"
-msgstr ""
+msgstr "ورود"
 
-#: .\templates\base.html:135 .\templates\main\login.html:39
+#: .\templates\base.html:137 .\templates\main\login.html:39
 #: .\templates\main\register.html:5 .\templates\main\register.html:21
 #: .\templates\main\register.html:70
 msgid "Register"
-msgstr ""
+msgstr "ثبت‌نام"
 
-#: .\templates\base.html:178
+#: .\templates\base.html:180
 msgid ""
 "Professional web design and development services. Grow your business in the "
 "digital world with modern, fast and user-friendly websites."
@@ -213,23 +214,23 @@ msgstr ""
 "خدمات طراحی و توسعه وب حرفه‌ای. کسب‌وکار خود را در دنیای دیجیتال با وب‌سایت‌های "
 "مدرن، سریع و کاربرپسند رشد دهید."
 
-#: .\templates\base.html:183
+#: .\templates\base.html:185
 msgid "Quick Links"
 msgstr "لینک‌های سریع"
 
-#: .\templates\base.html:195
+#: .\templates\base.html:197
 msgid "Contact Information"
 msgstr "اطلاعات تماس"
 
-#: .\templates\base.html:212
+#: .\templates\base.html:214
 msgid "Follow Us"
 msgstr "ما را دنبال کنید"
 
-#: .\templates\base.html:232
+#: .\templates\base.html:234
 msgid "All rights reserved."
 msgstr "تمامی حقوق محفوظ است."
 
-#: .\templates\base.html:242 .\templates\main\ecommerce.html:77
+#: .\templates\base.html:244 .\templates\main\ecommerce.html:77
 #: .\templates\main\ecommerce.html:79 .\templates\main\hosting.html:83
 #: .\templates\main\hosting.html:85 .\templates\main\index.html:117
 #: .\templates\main\mobile_app.html:54 .\templates\main\mobile_app.html:56
@@ -241,23 +242,96 @@ msgstr "تمامی حقوق محفوظ است."
 msgid "Get Quote"
 msgstr "دریافت قیمت"
 
-#: .\templates\main\dashboard.html:5 .\templates\main\dashboard.html:11
-msgid "Dashboard"
+#: .\templates\main\about.html:5
+#, fuzzy
+#| msgid "Professional Web Design"
+msgid "About Me - Professional Web Design Expert"
+msgstr "طراحی وب حرفه‌ای"
+
+#: .\templates\main\about.html:11 .\templates\main\index.html:182
+msgid "About Me"
+msgstr "درباره من"
+
+#: .\templates\main\about.html:21 .\templates\main\index.html:189
+#, fuzzy
+#| msgid "Professional Web Design"
+msgid "Professional Web Design Expert"
+msgstr "طراحی وب حرفه‌ای"
+
+#: .\templates\main\about.html:23 .\templates\main\index.html:191
+#, python-format
+msgid ""
+"\n"
+"                        As a graduate of Marmara University Computer "
+"Programming, I offer professional web design solutions. \n"
+"                        More than 20 of my clients have received service "
+"with 100%% satisfaction.\n"
+"                        "
 msgstr ""
 
-#: .\templates\main\dashboard.html:22
+#: .\templates\main\about.html:43 .\templates\main\index.html:211
+msgid "Successful Projects"
+msgstr "پروژه موفق"
+
+#: .\templates\main\about.html:47 .\templates\main\index.html:215
 #, fuzzy
-#| msgid "Contact Information"
+#| msgid "Years Experience"
+msgid "Years of Experience"
+msgstr "سال تجربه"
+
+#: .\templates\main\about.html:51 .\templates\main\index.html:219
+#, fuzzy
+#| msgid "Customer Satisfaction"
+msgid "Customer Satisfaction"
+msgstr "رضایت مشتری"
+
+#: .\templates\main\contact.html:5
+#, fuzzy
+#| msgid "Contact Me Now for Free Quotes and Consultation"
+msgid "Free Quote and Consultation"
+msgstr "همین الان برای دریافت پیشنهاد رایگان و مشاوره با من تماس بگیرید"
+
+#: .\templates\main\contact.html:11
+msgid "Contact Me"
+msgstr "تماس با من"
+
+#: .\templates\main\contact.html:14
+#, fuzzy
+#| msgid "Contact Me Now for Free Quotes and Consultation"
+msgid "Contact us now for free quote and consultation"
+msgstr "همین الان برای دریافت پیشنهاد رایگان و مشاوره با من تماس بگیرید"
+
+#: .\templates\main\contact.html:49 .\templates\main\contact.html:62
+msgid "Send Message"
+msgstr "ارسال پیام"
+
+#: .\templates\main\contact.html:73
+msgid "Send Email"
+msgstr "ارسال ایمیل"
+
+#: .\templates\main\contact.html:82 .\templates\main\quote_request.html:64
+msgid "Phone"
+msgstr "تلفن"
+
+#: .\templates\main\contact.html:84
+msgid "Call Now"
+msgstr "همین الان تماس بگیرید"
+
+#: .\templates\main\dashboard.html:5 .\templates\main\dashboard.html:11
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: .\templates\main\dashboard.html:22
 msgid "Your information"
-msgstr "اطلاعات تماس"
+msgstr "اطلاعات شما"
 
 #: .\templates\main\dashboard.html:31
 msgid "Activity"
-msgstr ""
+msgstr "فعالیت"
 
 #: .\templates\main\dashboard.html:32
 msgid "Your recent activity and requests will appear here."
-msgstr ""
+msgstr "فعالیت‌ها و درخواست‌های اخیر شما اینجا نمایش داده می‌شود."
 
 #: .\templates\main\dashboard.html:34
 #, fuzzy
@@ -632,6 +706,10 @@ msgstr ""
 msgid "VPS"
 msgstr ""
 
+#: .\templates\main\index.html:5
+msgid "Web and mobile app design | Custom developer and designer"
+msgstr ""
+
 #: .\templates\main\index.html:15
 #, fuzzy
 #| msgid "Professional Web Design and Development Expert"
@@ -700,6 +778,74 @@ msgstr "بیایید امروز پروژه شما را به زندگی تبدی�
 #: .\templates\main\index.html:115
 msgid "Contact us for a free consultation and a detailed quote."
 msgstr ""
+
+#: .\templates\main\index.html:131
+msgid "Why Choose Me?"
+msgstr "چرا من را انتخاب کنید؟"
+
+#: .\templates\main\index.html:141
+msgid "Grow Your Business"
+msgstr "کسب‌وکار خود را رشد دهید"
+
+#: .\templates\main\index.html:142
+#, fuzzy
+#| msgid "Increase your sales and customer satisfaction with modern websites"
+msgid "Increase your sales with modern websites"
+msgstr "با وب‌سایت‌های مدرن، فروش و رضایت مشتریان خود را افزایش دهید"
+
+#: .\templates\main\index.html:150
+msgid "Time Saving"
+msgstr ""
+
+#: .\templates\main\index.html:151
+#, fuzzy
+#| msgid ""
+#| "Use your time efficiently with fast delivery and professional service"
+msgid "Fast delivery and professional service"
+msgstr "با تحویل سریع و خدمات حرفه‌ای، زمان خود را بهینه استفاده کنید"
+
+#: .\templates\main\index.html:159
+msgid "Affordable Price"
+msgstr "قیمت مناسب"
+
+#: .\templates\main\index.html:160
+msgid "Quality service at affordable prices"
+msgstr ""
+
+#: .\templates\main\index.html:168
+msgid "Continuous Support"
+msgstr "پشتیبانی مداوم"
+
+#: .\templates\main\index.html:169
+#, fuzzy
+#| msgid "24/7 Technical Support"
+msgid "24/7 technical support service"
+msgstr "پشتیبانی فنی 24/7"
+
+#: .\templates\main\index.html:233 .\templates\main\packages.html:6
+#: .\templates\main\packages.html:12
+msgid "Our Packages"
+msgstr "پکیج‌های ما"
+
+#: .\templates\main\index.html:243 .\templates\main\packages.html:26
+msgid "Popular"
+msgstr "محبوب"
+
+#: .\templates\main\index.html:280 .\templates\main\projects.html:50
+msgid "My Projects"
+msgstr "پروژه‌های من"
+
+#: .\templates\main\index.html:301 .\templates\main\projects.html:71
+#, fuzzy
+#| msgid "Visit Website"
+msgid "Visit Website"
+msgstr "بازدید از وب‌سایت"
+
+#: .\templates\main\index.html:312
+#, fuzzy
+#| msgid "View Projects"
+msgid "View All Projects"
+msgstr "مشاهده پروژه‌ها"
 
 #: .\templates\main\login.html:39
 msgid "Don't have an account?"
@@ -778,10 +924,6 @@ msgstr ""
 msgid "app + backend + admin"
 msgstr ""
 
-#: .\templates\main\packages.html:6 .\templates\main\packages.html:12
-msgid "Our Packages"
-msgstr "پکیج‌های ما"
-
 #: .\templates\main\packages.html:14
 #, fuzzy
 #| msgid ""
@@ -790,10 +932,6 @@ msgstr "پکیج‌های ما"
 msgid "Choose the package that fits your needs"
 msgstr ""
 "پکیج مناسب نیاز خود را انتخاب کنید و کسب‌وکار خود را به دنیای دیجیتال ببرید"
-
-#: .\templates\main\packages.html:26
-msgid "Popular"
-msgstr "محبوب"
 
 #: .\templates\main\projects.html:5 .\templates\main\projects.html:22
 msgid "Video Demos"
@@ -804,16 +942,6 @@ msgstr "دموهای ویدیویی"
 #| msgid "Our Portfolio"
 msgid "Portfolio"
 msgstr "نمونه کارهای ما"
-
-#: .\templates\main\projects.html:50
-msgid "My Projects"
-msgstr "پروژه‌های من"
-
-#: .\templates\main\projects.html:71
-#, fuzzy
-#| msgid "Visit Website"
-msgid "Visit Website"
-msgstr "بازدید از وب‌سایت"
 
 #: .\templates\main\projects.html:79
 msgid "No projects found."
@@ -885,10 +1013,6 @@ msgstr ""
 msgid "Name"
 msgstr "نام شما"
 
-#: .\templates\main\quote_request.html:64
-msgid "Phone"
-msgstr "تلفن"
-
 #: .\templates\main\quote_request.html:74
 #, fuzzy
 #| msgid "Services"
@@ -926,6 +1050,12 @@ msgstr "تحصیلات"
 #: .\templates\main\resume.html:23
 msgid "Computer Programming"
 msgstr "برنامه‌نویسی کامپیوتر"
+
+#: .\templates\main\resume.html:24
+#, fuzzy
+#| msgid "Marmara University - 2025"
+msgid "Marmara University"
+msgstr "دانشگاه مارمارا - 2025"
 
 #: .\templates\main\resume.html:29
 msgid "Experience"
@@ -1570,12 +1700,6 @@ msgstr ""
 #~ "است که وب‌سایت‌های مدرن و کاربرپسند طراحی می‌کنم. راه‌حل‌های سفارشی برای "
 #~ "برجسته کردن کسب‌وکار شما در دنیای دیجیتال ارائه می‌دهم."
 
-#~ msgid "About Me"
-#~ msgstr "درباره من"
-
-#~ msgid "Call Now"
-#~ msgstr "همین الان تماس بگیرید"
-
 #~ msgid "Add your certificate images to the certificates folder"
 #~ msgstr "تصاویر گواهینامه‌های خود را در پوشه certificates قرار دهید"
 
@@ -1590,12 +1714,6 @@ msgstr ""
 #~ "بیایید امروز پروژه شما را به زندگی تبدیل کنیم! می‌توانید از طریق واتساپ، "
 #~ "ایمیل یا فرم تماس با من ارتباط برقرار کنید. همین الان برای مشاوره رایگان "
 #~ "و دریافت پیشنهاد با من تماس بگیرید."
-
-#~ msgid "Contact Me Now for Free Quotes and Consultation"
-#~ msgstr "همین الان برای دریافت پیشنهاد رایگان و مشاوره با من تماس بگیرید"
-
-#~ msgid "Contact Me"
-#~ msgstr "تماس با من"
 
 #~ msgid ""
 #~ "Contact us now for free consultation and quote. Grow your business with "
@@ -1873,9 +1991,6 @@ msgstr ""
 #~ msgid "Content management system with advanced admin panel"
 #~ msgstr "Content management system with advanced admin panel"
 
-#~ msgid "Send Message"
-#~ msgstr "ارسال پیام"
-
 #~ msgid ""
 #~ "I bring your website to the top ranks on Google. Fast loading and search "
 #~ "engine optimization."
@@ -2036,9 +2151,6 @@ msgstr ""
 #~ msgid "Education, Experience and Professional Certificates"
 #~ msgstr "تحصیلات، تجربه و گواهینامه‌های حرفه‌ای"
 
-#~ msgid "Send Email"
-#~ msgstr "ارسال ایمیل"
-
 #~ msgid ""
 #~ "As Angraweb, we offer comprehensive web design and development services "
 #~ "to strengthen your business's digital presence. Reach your goals with "
@@ -2048,17 +2160,11 @@ msgstr ""
 #~ "کسب‌وکار شما ارائه می‌دهیم. با راه‌حل‌های مدرن، سریع و کاربرپسند به اهداف خود "
 #~ "برسید."
 
-#~ msgid "Successful Projects"
-#~ msgstr "پروژه موفق"
-
 #~ msgid "Technical Skills"
 #~ msgstr "مهارت‌های فنی"
 
 #~ msgid "Secure and Fast Solutions"
 #~ msgstr "راه‌حل‌های امن و سریع"
-
-#~ msgid "24/7 Technical Support"
-#~ msgstr "پشتیبانی فنی 24/7"
 
 #~ msgid "User Experience Design"
 #~ msgstr "طراحی تجربه کاربری"
@@ -2070,12 +2176,6 @@ msgstr ""
 #~ "طراحی‌های رابط کاربری زیبا و کاربردی که مشتریان شما را تحت تأثیر قرار "
 #~ "خواهد داد. نرخ تبدیل خود را افزایش دهید."
 
-#~ msgid "Marmara University - 2025"
-#~ msgstr "دانشگاه مارمارا - 2025"
-
-#~ msgid "Affordable Price"
-#~ msgstr "قیمت مناسب"
-
 #~ msgid ""
 #~ "I offer quality service at reasonable prices, solutions that fit your "
 #~ "budget"
@@ -2083,24 +2183,11 @@ msgstr ""
 #~ "خدمات با کیفیت را با قیمت‌های معقول ارائه می‌دهم، راه‌حل‌هایی که با بودجه شما "
 #~ "سازگار است"
 
-#~ msgid "Grow Your Business"
-#~ msgstr "کسب‌وکار خود را رشد دهید"
-
-#~ msgid "Increase your sales and customer satisfaction with modern websites"
-#~ msgstr "با وب‌سایت‌های مدرن، فروش و رضایت مشتریان خود را افزایش دهید"
-
-#~ msgid "Continuous Support"
-#~ msgstr "پشتیبانی مداوم"
-
 #~ msgid "I'm with you after the project too, 24/7 technical support service"
 #~ msgstr "بعد از پروژه هم کنار شما هستم، خدمات پشتیبانی فنی 24/7"
 
 #~ msgid "Save Time"
 #~ msgstr "صرفه‌جویی در زمان"
-
-#~ msgid ""
-#~ "Use your time efficiently with fast delivery and professional service"
-#~ msgstr "با تحویل سریع و خدمات حرفه‌ای، زمان خود را بهینه استفاده کنید"
 
 #~ msgid "First project demo video"
 #~ msgstr "اولین ویدیوی دمو پروژه"
@@ -2136,9 +2223,6 @@ msgstr ""
 #~ msgid "View"
 #~ msgstr "مشاهده"
 
-#~ msgid "View Projects"
-#~ msgstr "مشاهده پروژه‌ها"
-
 #~ msgid "Watch Demo"
 #~ msgstr "مشاهده دمو"
 
@@ -2151,9 +2235,3 @@ msgstr ""
 
 #~ msgid "Send a message via WhatsApp for quick response"
 #~ msgstr "برای پاسخ سریع از طریق واتساپ پیام بفرستید"
-
-#~ msgid "Why Choose Me?"
-#~ msgstr "چرا من را انتخاب کنید؟"
-
-#~ msgid "Years Experience"
-#~ msgstr "سال تجربه"

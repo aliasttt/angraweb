@@ -1663,18 +1663,17 @@ function initParticleEffect() {
     }
 }
 
-// Language switcher functionality
+// Language switcher: فقط برای <button> بدون href. لینک‌های <a href="/lang/xx/"> از سرور استفاده می‌کنند — به آن‌ها دست نزن.
 function initLanguageSwitcher() {
     const langButtons = document.querySelectorAll('.lang-btn');
-    
     langButtons.forEach(btn => {
+        if (btn.hasAttribute('href')) return; // لینک سرور — جلوگیری از override
+        const lang = btn.getAttribute('data-lang');
+        if (!lang) return;
         btn.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
             changeLanguage(lang);
-            
-            // Update active button
             langButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
+            btn.classList.add('active');
         });
     });
 }

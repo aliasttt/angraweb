@@ -209,7 +209,7 @@ body[dir="rtl"] {
     position: fixed;
     bottom: 30px;
     left: 20px;
-    z-index: 1000;
+    z-index: 10001;
     display: flex !important;
     flex-direction: column !important; /* Always vertical - never horizontal */
     flex-wrap: nowrap !important; /* Prevent wrapping to horizontal */
@@ -244,6 +244,7 @@ body[dir="rtl"] .language-switcher {
     gap: 0.5rem;
     font-size: 0.9rem;
     font-weight: 500;
+    text-decoration: none;
 }
 
 .lang-btn:hover {
@@ -263,7 +264,7 @@ body[dir="rtl"] .language-switcher {
     border-radius: 2px;
 }
 
-/* Space Background Animation */
+/* Space Background Animation — pointer-events: none تا کلیک را نگرفته و سوئیچ زبان کار کند */
 .space-background {
     position: fixed;
     top: 0;
@@ -271,6 +272,7 @@ body[dir="rtl"] .language-switcher {
     width: 100%;
     height: 100%;
     z-index: -1;
+    pointer-events: none;
     background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;

@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Hakkımda - Profesyonel Web Tasarım Uzmanı | Angraweb.com{% endblock %}
+{% block title %}{% trans "About Me - Professional Web Design Expert" %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">About Me</span>
+            <span class="text-gradient">{% trans "About Me" %}</span>
         </h1>
     </div>
 </section>
@@ -17,10 +18,12 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="about-content">
-                    <h3>Profesyonel Web Tasarım Uzmanı</h3>
+                    <h3>{% trans "Professional Web Design Expert" %}</h3>
                     <p>
-                        Marmara Üniversitesi Bilgisayar Programlama mezunu olarak profesyonel web tasarım çözümleri sunuyorum. 
-                        20'den fazla müşterim %100 memnuniyet ile hizmet aldı.
+                        {% blocktrans %}
+                        As a graduate of Marmara University Computer Programming, I offer professional web design solutions. 
+                        More than 20 of my clients have received service with 100% satisfaction.
+                        {% endblocktrans %}
                     </p>
                     <div class="skills-grid">
                         <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
@@ -37,15 +40,15 @@
                 <div class="about-stats">
                     <div class="stat-item">
                         <div class="stat-number">20+</div>
-                        <div class="stat-label">Başarılı Proje</div>
+                        <div class="stat-label">{% trans "Successful Projects" %}</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">5+</div>
-                        <div class="stat-label">Yıl Deneyim</div>
+                        <div class="stat-label">{% trans "Years of Experience" %}</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">Müşteri Memnuniyeti</div>
+                        <div class="stat-label">{% trans "Customer Satisfaction" %}</div>
                     </div>
                 </div>
             </div>

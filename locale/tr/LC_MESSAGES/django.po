@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 13:59+0330\n"
+"POT-Creation-Date: 2026-01-26 19:21+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,29 +18,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\main\forms.py:16 .\main\forms.py:86
+#: .\main\forms.py:16 .\main\forms.py:86 .\templates\main\contact.html:27
 #, fuzzy
 #| msgid "Your Message"
 msgid "Your name"
-msgstr "Mesajınız"
+msgstr "Adınız"
 
-#: .\main\forms.py:21 .\main\forms.py:91
+#: .\main\forms.py:21 .\main\forms.py:91 .\templates\main\contact.html:31
 #, fuzzy
 #| msgid "Your Email"
 msgid "Your email"
 msgstr "E-posta Adresiniz"
 
-#: .\main\forms.py:26
+#: .\main\forms.py:26 .\templates\main\contact.html:36
 #, fuzzy
 #| msgid "Package (optional)"
 msgid "Phone (optional)"
-msgstr "Paket (isteğe bağlı)"
+msgstr "Telefon (isteğe bağlı)"
 
-#: .\main\forms.py:30
+#: .\main\forms.py:30 .\templates\main\contact.html:40
 msgid "Subject"
 msgstr "Konu"
 
-#: .\main\forms.py:35
+#: .\main\forms.py:35 .\templates\main\contact.html:44
 #, fuzzy
 #| msgid "Your Message"
 msgid "Your message"
@@ -72,8 +72,9 @@ msgstr "Bütçe (isteğe bağlı)"
 msgid "Deadline (optional)"
 msgstr "Teslim tarihi (isteğe bağlı)"
 
-#: .\main\forms.py:125 .\templates\main\dashboard.html:27
-#: .\templates\main\quote_request.html:58 .\templates\main\register.html:39
+#: .\main\forms.py:125 .\templates\main\contact.html:71
+#: .\templates\main\dashboard.html:27 .\templates\main\quote_request.html:58
+#: .\templates\main\register.html:39
 msgid "Email"
 msgstr "E-posta"
 
@@ -101,7 +102,7 @@ msgstr "Şifre"
 msgid "Confirm password"
 msgstr "Şifreyi onayla"
 
-#: .\main\views.py:369
+#: .\main\views.py:404
 msgid "Invalid phone number or password."
 msgstr "Geçersiz telefon numarası veya şifre."
 
@@ -111,103 +112,103 @@ msgstr "Geçersiz telefon numarası veya şifre."
 msgid "Angraweb.com - Professional Web Design and E-commerce"
 msgstr "Profesyonel Web Tasarım ve Geliştirme Uzmanı"
 
-#: .\templates\base.html:89 .\templates\base.html:185
+#: .\templates\base.html:91 .\templates\base.html:187
 msgid "Home"
 msgstr "Ana Sayfa"
 
-#: .\templates\base.html:92 .\templates\base.html:186
+#: .\templates\base.html:94 .\templates\base.html:188
 msgid "Packages"
 msgstr "Paketler"
 
-#: .\templates\base.html:95 .\templates\base.html:187
+#: .\templates\base.html:97 .\templates\base.html:189
 msgid "About"
 msgstr "Hakkımda"
 
-#: .\templates\base.html:99 .\templates\base.html:188
+#: .\templates\base.html:101 .\templates\base.html:190
 msgid "Services"
 msgstr "Hizmetler"
 
-#: .\templates\base.html:102
+#: .\templates\base.html:104
 #, fuzzy
 #| msgid "Services"
 msgid "All Services"
 msgstr "Hizmetler"
 
-#: .\templates\base.html:103 .\templates\main\web_design.html:5
+#: .\templates\base.html:105 .\templates\main\web_design.html:5
 #, fuzzy
 #| msgid "Get Design Quote"
 msgid "Web Design"
 msgstr "Tasarım Teklifi Al"
 
-#: .\templates\base.html:104 .\templates\main\mobile_app.html:5
+#: .\templates\base.html:106 .\templates\main\mobile_app.html:5
 #: .\templates\main\mobile_app.html:11
 #, fuzzy
 #| msgid "Mobile Responsive Design"
 msgid "Mobile App Design"
 msgstr "Mobil Uyumlu Tasarım"
 
-#: .\templates\base.html:105
+#: .\templates\base.html:107
 #, fuzzy
 #| msgid "E-commerce Website"
 msgid "E-commerce"
 msgstr "E-commerce Website"
 
-#: .\templates\base.html:106
+#: .\templates\base.html:108
 #, fuzzy
 #| msgid "Services"
 msgid "SEO Services"
 msgstr "Hizmetler"
 
-#: .\templates\base.html:107
+#: .\templates\base.html:109
 #, fuzzy
 #| msgid "My Services"
 msgid "Hosting Services"
 msgstr "Hizmetlerim"
 
-#: .\templates\base.html:108 .\templates\main\ui_ux.html:5
+#: .\templates\base.html:110 .\templates\main\ui_ux.html:5
 #: .\templates\main\ui_ux.html:11
 msgid "UI/UX Design"
-msgstr ""
+msgstr "UI/UX Tasarımı"
 
-#: .\templates\base.html:112 .\templates\base.html:189
+#: .\templates\base.html:114 .\templates\base.html:191
 #: .\templates\main\projects.html:5 .\templates\main\projects.html:11
 msgid "Projects"
 msgstr "Projeler"
 
-#: .\templates\base.html:115 .\templates\base.html:190
+#: .\templates\base.html:117 .\templates\base.html:192
 msgid "Resume"
 msgstr "Özgeçmiş"
 
-#: .\templates\base.html:118 .\templates\main\team.html:5
+#: .\templates\base.html:120 .\templates\main\team.html:5
 msgid "Team"
-msgstr ""
+msgstr "Takım"
 
-#: .\templates\base.html:121 .\templates\base.html:191
-#: .\templates\main\dashboard.html:35
+#: .\templates\base.html:123 .\templates\base.html:193
+#: .\templates\main\contact.html:5 .\templates\main\dashboard.html:35
 msgid "Contact"
 msgstr "İletişim"
 
-#: .\templates\base.html:125 .\templates\main\dashboard.html:13
+#: .\templates\base.html:127 .\templates\main\dashboard.html:13
 msgid "Hello"
-msgstr ""
+msgstr "Merhaba"
 
-#: .\templates\base.html:128
+#: .\templates\base.html:130
 msgid "Logout"
-msgstr ""
+msgstr "Çıkış"
 
-#: .\templates\base.html:132 .\templates\main\login.html:5
+#: .\templates\base.html:134 .\templates\main\login.html:5
 #: .\templates\main\login.html:13 .\templates\main\login.html:35
 #: .\templates\main\register.html:74
 msgid "Login"
-msgstr ""
+msgstr "Giriş"
 
-#: .\templates\base.html:135 .\templates\main\login.html:39
+#: .\templates\base.html:137 .\templates\main\login.html:39
 #: .\templates\main\register.html:5 .\templates\main\register.html:21
 #: .\templates\main\register.html:70
 msgid "Register"
-msgstr ""
+msgstr "Kayıt"
 
-#: .\templates\base.html:178
+#: .\templates\base.html:180
 msgid ""
 "Professional web design and development services. Grow your business in the "
 "digital world with modern, fast and user-friendly websites."
@@ -215,23 +216,23 @@ msgstr ""
 "Profesyonel web tasarım ve geliştirme hizmetleri. Modern, hızlı ve kullanıcı "
 "dostu web siteleri ile işinizi dijital dünyada büyütün."
 
-#: .\templates\base.html:183
+#: .\templates\base.html:185
 msgid "Quick Links"
 msgstr "Hızlı Bağlantılar"
 
-#: .\templates\base.html:195
+#: .\templates\base.html:197
 msgid "Contact Information"
 msgstr "İletişim Bilgileri"
 
-#: .\templates\base.html:212
+#: .\templates\base.html:214
 msgid "Follow Us"
 msgstr "Bizi Takip Edin"
 
-#: .\templates\base.html:232
+#: .\templates\base.html:234
 msgid "All rights reserved."
 msgstr "Tüm hakları saklıdır."
 
-#: .\templates\base.html:242 .\templates\main\ecommerce.html:77
+#: .\templates\base.html:244 .\templates\main\ecommerce.html:77
 #: .\templates\main\ecommerce.html:79 .\templates\main\hosting.html:83
 #: .\templates\main\hosting.html:85 .\templates\main\index.html:117
 #: .\templates\main\mobile_app.html:54 .\templates\main\mobile_app.html:56
@@ -243,23 +244,100 @@ msgstr "Tüm hakları saklıdır."
 msgid "Get Quote"
 msgstr "Teklif Al"
 
+#: .\templates\main\about.html:5
+#, fuzzy
+#| msgid "Professional Web Design"
+msgid "About Me - Professional Web Design Expert"
+msgstr "Uzman Web Tasarımı"
+
+#: .\templates\main\about.html:11 .\templates\main\index.html:182
+msgid "About Me"
+msgstr "Hakkımda"
+
+#: .\templates\main\about.html:21 .\templates\main\index.html:189
+#, fuzzy
+#| msgid "Professional Web Design"
+msgid "Professional Web Design Expert"
+msgstr "Uzman Web Tasarımı"
+
+#: .\templates\main\about.html:23 .\templates\main\index.html:191
+#, python-format
+msgid ""
+"\n"
+"                        As a graduate of Marmara University Computer "
+"Programming, I offer professional web design solutions. \n"
+"                        More than 20 of my clients have received service "
+"with 100%% satisfaction.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Marmara Üniversitesi Bilgisayar Programlama mezunu "
+"olarak profesyonel web tasarım çözümleri sunuyorum. \n"
+"                        20'den fazla müşterim %%100 memnuniyet ile hizmet "
+"aldı.\n"
+"                        "
+
+#: .\templates\main\about.html:43 .\templates\main\index.html:211
+msgid "Successful Projects"
+msgstr "Başarılı Proje"
+
+#: .\templates\main\about.html:47 .\templates\main\index.html:215
+#, fuzzy
+#| msgid "Years Experience"
+msgid "Years of Experience"
+msgstr "Yıl Deneyim"
+
+#: .\templates\main\about.html:51 .\templates\main\index.html:219
+msgid "Customer Satisfaction"
+msgstr "Müşteri Memnuniyeti"
+
+#: .\templates\main\contact.html:5
+#, fuzzy
+#| msgid "Contact Me Now for Free Quotes and Consultation"
+msgid "Free Quote and Consultation"
+msgstr "Ücretsiz Teklif ve Danışmanlık İçin Hemen İletişime Geçin"
+
+#: .\templates\main\contact.html:11
+msgid "Contact Me"
+msgstr "İletişime Geç"
+
+#: .\templates\main\contact.html:14
+#, fuzzy
+#| msgid "Contact Me Now for Free Quotes and Consultation"
+msgid "Contact us now for free quote and consultation"
+msgstr "Ücretsiz Teklif ve Danışmanlık İçin Hemen İletişime Geçin"
+
+#: .\templates\main\contact.html:49 .\templates\main\contact.html:62
+msgid "Send Message"
+msgstr "Mesaj Gönder"
+
+#: .\templates\main\contact.html:73
+msgid "Send Email"
+msgstr "E-posta Gönder"
+
+#: .\templates\main\contact.html:82 .\templates\main\quote_request.html:64
+msgid "Phone"
+msgstr "Telefon"
+
+#: .\templates\main\contact.html:84
+msgid "Call Now"
+msgstr "Şimdi Ara"
+
 #: .\templates\main\dashboard.html:5 .\templates\main\dashboard.html:11
 msgid "Dashboard"
-msgstr ""
+msgstr "Kontrol Paneli"
 
 #: .\templates\main\dashboard.html:22
-#, fuzzy
-#| msgid "Contact Information"
 msgid "Your information"
-msgstr "İletişim Bilgileri"
+msgstr "Bilgileriniz"
 
 #: .\templates\main\dashboard.html:31
 msgid "Activity"
-msgstr ""
+msgstr "Aktivite"
 
 #: .\templates\main\dashboard.html:32
 msgid "Your recent activity and requests will appear here."
-msgstr ""
+msgstr "Son aktiviteleriniz ve istekleriniz burada görünecek."
 
 #: .\templates\main\dashboard.html:34
 #, fuzzy
@@ -684,6 +762,10 @@ msgstr "Paylaşımlı"
 msgid "VPS"
 msgstr "VPS"
 
+#: .\templates\main\index.html:5
+msgid "Web and mobile app design | Custom developer and designer"
+msgstr "Web sitesi ve mobil uygulama tasarımı | Özel yazılımcı ve tasarımcı"
+
 #: .\templates\main\index.html:15
 #, fuzzy
 #| msgid "Professional Web Design and Development Expert"
@@ -750,6 +832,78 @@ msgstr "Projenizi Hayata Geçirmek İçin Bugün Başlayalım!"
 #: .\templates\main\index.html:115
 msgid "Contact us for a free consultation and a detailed quote."
 msgstr "Ücretsiz danışmanlık ve detaylı teklif için bizimle iletişime geçin."
+
+#: .\templates\main\index.html:131
+msgid "Why Choose Me?"
+msgstr "Neden Beni Seçmelisiniz?"
+
+#: .\templates\main\index.html:141
+msgid "Grow Your Business"
+msgstr "İşinizi Büyütün"
+
+#: .\templates\main\index.html:142
+#, fuzzy
+#| msgid "Increase your sales and customer satisfaction with modern websites"
+msgid "Increase your sales with modern websites"
+msgstr ""
+"Modern web siteleri ile satışlarınızı artırınModern web siteleri ile "
+"satışlarınızı artırın ve müşteri memnuniyetini yükseltin"
+
+#: .\templates\main\index.html:150
+#, fuzzy
+#| msgid "Timeline"
+msgid "Time Saving"
+msgstr "Zaman çizelgesi"
+
+#: .\templates\main\index.html:151
+#, fuzzy
+#| msgid ""
+#| "Use your time efficiently with fast delivery and professional service"
+msgid "Fast delivery and professional service"
+msgstr "Hızlı teslimat ve profesyonel hizmet ile zamanınızı verimli kullanın"
+
+#: .\templates\main\index.html:159
+msgid "Affordable Price"
+msgstr "Uygun Fiyat"
+
+#: .\templates\main\index.html:160
+msgid "Quality service at affordable prices"
+msgstr "Kaliteli hizmeti uygun fiyatlarla"
+
+#: .\templates\main\index.html:168
+msgid "Continuous Support"
+msgstr "Sürekli Destek"
+
+#: .\templates\main\index.html:169
+#, fuzzy
+#| msgid "24/7 Technical Support"
+msgid "24/7 technical support service"
+msgstr "7/24 Teknik Destek"
+
+#: .\templates\main\index.html:233 .\templates\main\packages.html:6
+#: .\templates\main\packages.html:12
+msgid "Our Packages"
+msgstr "Paketlerimiz"
+
+#: .\templates\main\index.html:243 .\templates\main\packages.html:26
+msgid "Popular"
+msgstr "Popüler"
+
+#: .\templates\main\index.html:280 .\templates\main\projects.html:50
+msgid "My Projects"
+msgstr "Projelerim"
+
+#: .\templates\main\index.html:301 .\templates\main\projects.html:71
+#, fuzzy
+#| msgid "Website"
+msgid "Visit Website"
+msgstr "Web Sitesi"
+
+#: .\templates\main\index.html:312
+#, fuzzy
+#| msgid "View Projects"
+msgid "View All Projects"
+msgstr "Projelerimi İncele"
 
 #: .\templates\main\login.html:39
 msgid "Don't have an account?"
@@ -835,10 +989,6 @@ msgstr "Teslim edilecekler"
 msgid "app + backend + admin"
 msgstr "uygulama + backend + yönetim"
 
-#: .\templates\main\packages.html:6 .\templates\main\packages.html:12
-msgid "Our Packages"
-msgstr "Paketlerimiz"
-
 #: .\templates\main\packages.html:14
 #, fuzzy
 #| msgid ""
@@ -846,10 +996,6 @@ msgstr "Paketlerimiz"
 #| "digital world"
 msgid "Choose the package that fits your needs"
 msgstr "İhtiyacınıza uygun paketi seçin ve işinizi dijital dünyaya taşıyın"
-
-#: .\templates\main\packages.html:26
-msgid "Popular"
-msgstr "Popüler"
 
 #: .\templates\main\projects.html:5 .\templates\main\projects.html:22
 msgid "Video Demos"
@@ -860,16 +1006,6 @@ msgstr "Video Demoları"
 #| msgid "Our Portfolio"
 msgid "Portfolio"
 msgstr "Örnek Çalışmalarımız"
-
-#: .\templates\main\projects.html:50
-msgid "My Projects"
-msgstr "Projelerim"
-
-#: .\templates\main\projects.html:71
-#, fuzzy
-#| msgid "Website"
-msgid "Visit Website"
-msgstr "Web Sitesi"
 
 #: .\templates\main\projects.html:79
 #, fuzzy
@@ -944,10 +1080,6 @@ msgstr ""
 msgid "Name"
 msgstr "Adınız"
 
-#: .\templates\main\quote_request.html:64
-msgid "Phone"
-msgstr "Telefon"
-
 #: .\templates\main\quote_request.html:74
 msgid "Service type"
 msgstr "Hizmet türü"
@@ -981,6 +1113,12 @@ msgstr "Eğitim"
 #: .\templates\main\resume.html:23
 msgid "Computer Programming"
 msgstr "Bilgisayar Programlama"
+
+#: .\templates\main\resume.html:24
+#, fuzzy
+#| msgid "Marmara University - 2025"
+msgid "Marmara University"
+msgstr "Marmara Üniversitesi - 2025"
 
 #: .\templates\main\resume.html:29
 msgid "Experience"
@@ -1686,12 +1824,6 @@ msgstr "bakım ve güncellemeler"
 #~ "süredir modern ve kullanıcı dostu web siteleri tasarlıyorum. İşletmenizin "
 #~ "dijital dünyada öne çıkması için özel çözümler sunuyorum."
 
-#~ msgid "About Me"
-#~ msgstr "Hakkımda"
-
-#~ msgid "Call Now"
-#~ msgstr "Şimdi Ara"
-
 #~ msgid "Add your certificate images to the certificates folder"
 #~ msgstr "Sertifika resimlerinizi certificates klasörüne ekleyin"
 
@@ -1706,12 +1838,6 @@ msgstr "bakım ve güncellemeler"
 #~ "Projenizi hayata geçirmek için bugün başlayalım! WhatsApp, e-posta veya "
 #~ "iletişim formu üzerinden bana ulaşabilirsiniz. Ücretsiz danışmanlık ve "
 #~ "teklif için hemen iletişime geçin."
-
-#~ msgid "Contact Me Now for Free Quotes and Consultation"
-#~ msgstr "Ücretsiz Teklif ve Danışmanlık İçin Hemen İletişime Geçin"
-
-#~ msgid "Contact Me"
-#~ msgstr "İletişime Geç"
 
 #~ msgid ""
 #~ "Contact us now for free consultation and quote. Grow your business with "
@@ -1990,9 +2116,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgid "Content management system with advanced admin panel"
 #~ msgstr "Content management system with advanced admin panel"
 
-#~ msgid "Send Message"
-#~ msgstr "Mesaj Gönder"
-
 #~ msgid ""
 #~ "I bring your website to the top ranks on Google. Fast loading and search "
 #~ "engine optimization."
@@ -2156,9 +2279,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgid "Education, Experience and Professional Certificates"
 #~ msgstr "Eğitim, Deneyim ve Profesyonel Sertifikalarım"
 
-#~ msgid "Send Email"
-#~ msgstr "E-posta Gönder"
-
 #~ msgid ""
 #~ "As Angraweb, we offer comprehensive web design and development services "
 #~ "to strengthen your business's digital presence. Reach your goals with "
@@ -2168,17 +2288,11 @@ msgstr "bakım ve güncellemeler"
 #~ "kapsamlı web tasarım ve geliştirme hizmetleri sunuyoruz. Modern, hızlı ve "
 #~ "kullanıcı dostu çözümlerle hedeflerinize ulaşın."
 
-#~ msgid "Successful Projects"
-#~ msgstr "Başarılı Proje"
-
 #~ msgid "Technical Skills"
 #~ msgstr "Teknik Yetenekler"
 
 #~ msgid "Secure and Fast Solutions"
 #~ msgstr "Güvenli ve Hızlı Çözümler"
-
-#~ msgid "24/7 Technical Support"
-#~ msgstr "7/24 Teknik Destek"
 
 #~ msgid "User Experience Design"
 #~ msgstr "Kullanıcı Deneyimi Tasarımı"
@@ -2190,39 +2304,17 @@ msgstr "bakım ve güncellemeler"
 #~ "Müşterilerinizi etkileyecek güzel ve kullanışlı arayüz tasarımları. "
 #~ "Dönüşüm oranlarınızı artırın."
 
-#~ msgid "Marmara University - 2025"
-#~ msgstr "Marmara Üniversitesi - 2025"
-
-#~ msgid "Affordable Price"
-#~ msgstr "Uygun Fiyat"
-
 #~ msgid ""
 #~ "I offer quality service at reasonable prices, solutions that fit your "
 #~ "budget"
 #~ msgstr ""
 #~ "Kaliteli hizmeti uygun fiyatlarla sunuyorum, bütçenize uygun çözümler"
 
-#~ msgid "Grow Your Business"
-#~ msgstr "İşinizi Büyütün"
-
-#~ msgid "Increase your sales and customer satisfaction with modern websites"
-#~ msgstr ""
-#~ "Modern web siteleri ile satışlarınızı artırın ve müşteri memnuniyetini "
-#~ "yükseltin"
-
-#~ msgid "Continuous Support"
-#~ msgstr "Sürekli Destek"
-
 #~ msgid "I'm with you after the project too, 24/7 technical support service"
 #~ msgstr "Proje sonrası da yanınızdayım, 7/24 teknik destek hizmeti"
 
 #~ msgid "Save Time"
 #~ msgstr "Zaman Tasarrufu"
-
-#~ msgid ""
-#~ "Use your time efficiently with fast delivery and professional service"
-#~ msgstr ""
-#~ "Hızlı teslimat ve profesyonel hizmet ile zamanınızı verimli kullanın"
 
 #~ msgid "First project demo video"
 #~ msgstr "İlk proje demo videosu"
@@ -2258,9 +2350,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgid "View"
 #~ msgstr "Görüntüle"
 
-#~ msgid "View Projects"
-#~ msgstr "Projelerimi İncele"
-
 #~ msgid "Watch Demo"
 #~ msgstr "Demo İzle"
 
@@ -2273,9 +2362,3 @@ msgstr "bakım ve güncellemeler"
 
 #~ msgid "Send a message via WhatsApp for quick response"
 #~ msgstr "Hızlı yanıt için WhatsApp üzerinden mesaj gönderin"
-
-#~ msgid "Why Choose Me?"
-#~ msgstr "Neden Beni Seçmelisiniz?"
-
-#~ msgid "Years Experience"
-#~ msgstr "Yıl Deneyim"
