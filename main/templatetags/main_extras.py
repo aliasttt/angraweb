@@ -20,3 +20,13 @@ def localized_truncate(obj, attr, lang, num_words):
     """Return localized field truncated to num_words."""
     text = localized(obj, attr, lang)
     return truncatewords(text, num_words)
+
+
+@register.filter
+def get_item(dictionary, key):
+    """Get item from dictionary by key."""
+    if dictionary is None:
+        return None
+    return dictionary.get(key)
+    text = localized(obj, attr, lang)
+    return truncatewords(text, num_words)

@@ -217,9 +217,21 @@ def packages_compare(request):
         for feature in package.features.all():
             all_features.add(feature.title)
     
+    # Create a dictionary for quick lookup: package_id -> {feature_title: included}
+    # Use 'yes', 'no', or None for better template handling
+    package_features_dict = {}
+    for package in packages:
+        package_features_dict[package.id] = {}
+        for feature in package.features.all():
+            if feature.included:
+                package_features_dict[package.id][feature.title] = 'yes'
+            else:
+                package_features_dict[package.id][feature.title] = 'no'
+    
     context = {
         'packages': packages,
         'all_features': sorted(all_features),
+        'package_features_dict': package_features_dict,
     }
     context.update(get_language_context(request))
     return render(request, 'main/packages_compare.html', context)

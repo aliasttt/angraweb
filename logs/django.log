@@ -82,3 +82,4 @@ Traceback (most recent call last):
     raise TemplateSyntaxError(
 django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
 ERROR 2026-01-27 02:02:56,502 basehttp "GET /projects/ HTTP/1.1" 500 285627
+ERROR 2026-01-27 02:20:58,763 basehttp "GET /packages/compare/ HTTP/1.1" 500 340367

@@ -58,19 +58,16 @@
                                 <td class="feature-name">{{ feature_title }}</td>
                                 {% for package in packages %}
                                 <td class="feature-check {% if package.popular %}popular-column{% endif %}">
-                                    {% with feature=package.features.all|first %}
-                                    {% for pkg_feature in package.features.all %}
-                                        {% if pkg_feature.title == feature_title %}
-                                            {% if pkg_feature.included %}
+                                    {% with package_features=package_features_dict|get_item:package.id %}
+                                        {% with feature_value=package_features|get_item:feature_title %}
+                                            {% if feature_value == 'yes' %}
                                             <i class="fas fa-check text-success"></i>
-                                            {% else %}
+                                            {% elif feature_value == 'no' %}
                                             <i class="fas fa-times text-danger"></i>
+                                            {% else %}
+                                            <i class="fas fa-minus text-secondary"></i>
                                             {% endif %}
-                                            {% break %}
-                                        {% endif %}
-                                    {% empty %}
-                                    <i class="fas fa-minus text-secondary"></i>
-                                    {% endfor %}
+                                        {% endwith %}
                                     {% endwith %}
                                 </td>
                                 {% endfor %}
