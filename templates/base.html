@@ -18,7 +18,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:title" content="{% block og_title %}{% block title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{% trans 'Professional web design and development services. Grow your business in the digital world!' %}{% endblock %}">
     <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endblock %}">
     <meta property="og:locale" content="{% if current_lang == 'tr' %}tr_TR{% elif current_lang == 'fa' %}fa_IR{% elif current_lang == 'ar' %}ar_SA{% else %}en_US{% endif %}">
@@ -27,7 +27,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
-    <meta name="twitter:title" content="{% block twitter_title %}{% block title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}{% trans 'Professional web design and development services. Grow your business in the digital world!' %}{% endblock %}">
     <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endblock %}">
     {% endblock %}
