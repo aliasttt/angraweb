@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
-from .models import ContactMessage, QuoteRequest, UserProfile
+from .models import ContactMessage, QuoteRequest, UserProfile, NewsletterSubscriber
 
 
 class ContactForm(forms.ModelForm):
@@ -176,3 +176,25 @@ class UserRegistrationForm(UserCreationForm):
             phone = self.cleaned_data.get('phone', '') or ''
             UserProfile.objects.update_or_create(user=user, defaults={'phone': phone})
         return user
+
+
+class NewsletterForm(forms.ModelForm):
+    """فرم ثبت‌نام در خبرنامه"""
+    class Meta:
+        model = NewsletterSubscriber
+        fields = ['email', 'name']
+        widgets = {
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': _('Your email address'),
+                'required': True
+            }),
+            'name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': _('Your name (optional)')
+            }),
+        }
+        labels = {
+            'email': _('Email'),
+            'name': _('Name'),
+        }

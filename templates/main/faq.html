@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load main_extras %}
+
+{% block title %}{% trans "Frequently Asked Questions (FAQ)" %}{% endblock %}
+
+{% block meta_description %}{% trans "Find answers to common questions about our web design, e-commerce, and development services." %}{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="hero-title">
+                    <span class="text-gradient">{% trans "Frequently Asked Questions" %}</span>
+                </h1>
+                <p class="hero-subtitle">{% trans "Find answers to common questions" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section">
+    <div class="container">
+        <!-- Search and Filter -->
+        <div class="row mb-4">
+            <div class="col-lg-8 mx-auto">
+                <form method="get" action="{% url 'faq_list' %}" class="mb-4">
+                    <div class="row">
+                        <div class="col-md-8 mb-3 mb-md-0">
+                            <input class="form-control" type="search" name="search" 
+                                   placeholder="{% trans 'Search questions...' %}" 
+                                   value="{{ search_query }}" aria-label="Search">
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" name="category" onchange="this.form.submit()">
+                                <option value="">{% trans "All Categories" %}</option>
+                                {% for cat_key, cat_label in categories %}
+                                <option value="{{ cat_key }}" {% if selected_category == cat_key %}selected{% endif %}>
+                                    {% trans cat_label %}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                {% if faqs %}
+                <div class="accordion" id="faqAccordion">
+                    {% for faq in faqs %}
+                    <div class="accordion-item faq-item">
+                        <h2 class="accordion-header" id="heading{{ faq.id }}">
+                            <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" 
+                                    type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#collapse{{ faq.id }}" 
+                                    aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" 
+                                    aria-controls="collapse{{ faq.id }}">
+                                <span class="faq-category-badge">{{ faq.get_category_display }}</span>
+                                {% localized faq 'question' current_lang %}
+                            </button>
+                        </h2>
+                        <div id="collapse{{ faq.id }}" 
+                             class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" 
+                             aria-labelledby="heading{{ faq.id }}" 
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {% localized faq 'answer' current_lang|linebreaks %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="fas fa-question-circle" style="font-size: 4rem; color: #74b9ff; margin-bottom: 1rem;"></i>
+                    <h3>{% trans "No questions found" %}</h3>
+                    <p class="text-muted">{% trans "Try a different search term or category." %}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="faq-cta">
+                    <h3 class="mb-3">{% trans "Still have questions?" %}</h3>
+                    <p class="mb-4">{% trans "Contact us and we'll be happy to help!" %}</p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-envelope"></i> {% trans "Contact Us" %}
+                    </a>
+                    <a href="https://wa.me/905340382335" class="btn btn-success btn-lg" target="_blank">
+                        <i class="fab fa-whatsapp"></i> {% trans "WhatsApp" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

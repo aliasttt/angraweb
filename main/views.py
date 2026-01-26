@@ -9,11 +9,13 @@ from django.views.decorators.http import require_http_methods
 from django.utils import translation
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import User
+from django_ratelimit.decorators import ratelimit
+from django_ratelimit.exceptions import Ratelimited
 from .models import (
     Service, Package, Project, ProjectVideo, Certificate,
-    ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember, UserProfile
+    ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember, UserProfile, FAQ, NewsletterSubscriber
 )
-from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm
+from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, NewsletterForm
 
 
 def get_language_context(request):
@@ -263,6 +265,7 @@ def team(request):
     return render(request, 'main/team.html', context)
 
 
+@ratelimit(key='ip', rate='5/m', method='POST', block=True)
 def contact(request):
     """صفحه تماس"""
     if request.method == 'POST':
@@ -289,6 +292,7 @@ def contact(request):
     return render(request, 'main/contact.html', context)
 
 
+@ratelimit(key='ip', rate='3/m', method='POST', block=True)
 def quote_request(request):
     """درخواست قیمت"""
     if request.method == 'POST':
@@ -424,6 +428,93 @@ def user_logout(request):
     """خروج کاربر"""
     logout(request)
     messages.success(request, 'با موفقیت خارج شدید.')
+    return redirect('index')
+
+
+def testimonials_list(request):
+    """لیست نظرات مشتریان"""
+    testimonials = Testimonial.objects.filter(active=True).order_by('order', '-created_at')
+    
+    context = {
+        'testimonials': testimonials,
+    }
+    context.update(get_language_context(request))
+    return render(request, 'main/testimonials.html', context)
+
+
+def faq_list(request):
+    """صفحه سوالات متداول"""
+    category = request.GET.get('category', '')
+    search_query = request.GET.get('search', '')
+    
+    faqs = FAQ.objects.filter(active=True)
+    
+    if category:
+        faqs = faqs.filter(category=category)
+    
+    if search_query:
+        faqs = faqs.filter(
+            Q(question__icontains=search_query) |
+            Q(answer__icontains=search_query)
+        )
+    
+    faqs = faqs.order_by('order', 'created_at')
+    
+    # Group by category
+    faqs_by_category = {}
+    for faq in faqs:
+        if faq.category not in faqs_by_category:
+            faqs_by_category[faq.category] = []
+        faqs_by_category[faq.category].append(faq)
+    
+    context = {
+        'faqs': faqs,
+        'faqs_by_category': faqs_by_category,
+        'selected_category': category,
+        'search_query': search_query,
+        'categories': FAQ.CATEGORY_CHOICES,
+    }
+    context.update(get_language_context(request))
+    return render(request, 'main/faq.html', context)
+
+
+@ratelimit(key='ip', rate='3/m', method='POST', block=True)
+def newsletter_subscribe(request):
+    """ثبت‌نام در خبرنامه"""
+    if request.method == 'POST':
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            subscriber = form.save(commit=False)
+            # Get IP address
+            x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+            if x_forwarded_for:
+                subscriber.ip_address = x_forwarded_for.split(',')[0]
+            else:
+                subscriber.ip_address = request.META.get('REMOTE_ADDR')
+            
+            # Check if already exists
+            existing = NewsletterSubscriber.objects.filter(email=subscriber.email).first()
+            if existing:
+                if existing.subscribed:
+                    messages.info(request, _('You are already subscribed to our newsletter.'))
+                else:
+                    existing.subscribed = True
+                    existing.unsubscribed_at = None
+                    existing.name = subscriber.name
+                    existing.save()
+                    messages.success(request, _('Welcome back! You have been resubscribed to our newsletter.'))
+            else:
+                subscriber.save()
+                messages.success(request, _('Thank you for subscribing to our newsletter!'))
+            
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({'success': True, 'message': str(messages.get_messages(request))})
+            return redirect(request.META.get('HTTP_REFERER', 'index'))
+        else:
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({'success': False, 'errors': form.errors})
+            messages.error(request, _('Please check your email address and try again.'))
+    
     return redirect('index')
 
 

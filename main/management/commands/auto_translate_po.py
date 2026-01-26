@@ -1,18 +1,19 @@
 """
 Management command to automatically translate all empty msgstr in .po files.
-Uses deep-translator to translate from Turkish to target languages.
+Uses googletrans (free, no API key needed) to translate from Turkish to target languages.
 """
 import sys
 import time
+import re
 from pathlib import Path
 from django.core.management.base import BaseCommand
 from django.conf import settings
-from deep_translator import GoogleTranslator
+from googletrans import Translator
 import polib
 
 
 class Command(BaseCommand):
-    help = 'Automatically translate all empty msgstr in .po files'
+    help = 'Automatically translate all empty msgstr in .po files using Google Translate (free)'
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -70,48 +71,36 @@ class Command(BaseCommand):
         self.stdout.write('\nRun: python manage.py compilemessages')
 
     def translate_po_file(self, po_file, source_lang, target_lang, force=False):
-        """Translate all empty msgstr in a .po file using polib"""
+        """Translate all empty msgstr in a .po file using polib and googletrans"""
         try:
-            # Try to read with error handling
             po = polib.pofile(str(po_file), check_for_duplicates=False)
         except Exception as e:
-            self.stdout.write(self.style.WARNING(f'Error reading file (trying to fix): {e}'))
-            # Try to fix common issues and read again
-            try:
-                # Read file as text and fix common issues
-                with open(po_file, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                # Fix unescaped quotes (basic fix)
-                content = content.replace('msgstr ""\nmsgstr "', 'msgstr "')
-                # Write back
-                with open(po_file, 'w', encoding='utf-8') as f:
-                    f.write(content)
-                # Try reading again
-                po = polib.pofile(str(po_file), check_for_duplicates=False)
-            except Exception as e2:
-                self.stdout.write(self.style.ERROR(f'Could not fix file: {e2}'))
-                self.stdout.write(self.style.WARNING('  Run: python manage.py makemessages to regenerate .po files'))
-                return
+            self.stdout.write(self.style.ERROR(f'Error reading file: {e}'))
+            self.stdout.write(self.style.WARNING('  Run: python manage.py makemessages to regenerate .po files'))
+            return
         
         translated_count = 0
         skipped_count = 0
         error_count = 0
         
-        # Initialize translator
-        if source_lang != target_lang:
-            try:
-                translator = GoogleTranslator(source=source_lang, target=target_lang)
-            except Exception as e:
-                self.stdout.write(self.style.ERROR(f'Error initializing translator: {e}'))
-                return
+        # Initialize translator (googletrans is free, no API key needed)
+        translator = Translator()
         
         for entry in po:
             # Skip metadata entries
             if entry.msgid == '':
                 continue
             
-            # Skip if already translated and force is False
-            if entry.msgstr and not force:
+            # Check if msgstr is empty or just whitespace
+            # polib returns empty string for msgstr "" in .po file
+            msgstr_empty = not entry.msgstr or not entry.msgstr.strip()
+            
+            # Debug: show first empty entry
+            if msgstr_empty and translated_count == 0:
+                self.stdout.write(f'  Found empty msgstr: {entry.msgid[:60]}...')
+            
+            # Skip if already translated (has content) and force is False
+            if not msgstr_empty and not force:
                 skipped_count += 1
                 continue
             
@@ -119,30 +108,41 @@ class Command(BaseCommand):
             if len(entry.msgid.strip()) < 2:
                 continue
             
-            # Skip if msgid starts/ends with newline (multiline) - these need special handling
-            if entry.msgid.startswith('\n') or entry.msgid.endswith('\n'):
-                continue
+            # Handle multiline strings (blocktrans entries)
+            is_multiline = entry.msgid.startswith('\n') or entry.msgid.endswith('\n')
+            text_to_translate = entry.msgid.strip() if is_multiline else entry.msgid
             
-            # Skip if msgid contains Python format strings (%s, %d, etc.) - preserve format
+            # Check for format strings
             has_format = '%' in entry.msgid and ('%s' in entry.msgid or '%d' in entry.msgid or '%(' in entry.msgid)
             
             try:
                 if source_lang == target_lang:
                     translated_text = entry.msgid
                 else:
-                    # Translate using GoogleTranslator
-                    translated_text = translator.translate(entry.msgid)
-                    # Add small delay to avoid rate limiting (reduced)
-                    time.sleep(0.05)
+                    # Translate using googletrans (free, no API key)
+                    result = translator.translate(text_to_translate, src=source_lang, dest=target_lang)
+                    translated_text = result.text
+                    
+                    # Small delay to avoid rate limiting (reduced for speed)
+                    time.sleep(0.02)
+                    
+                    # If it was multiline, preserve the format
+                    if is_multiline:
+                        # Keep the original newline structure
+                        translated_text = '\n' + translated_text + '\n'
                 
                 # If original had format strings, make sure they're preserved
                 if has_format:
-                    # Basic check: if format strings are missing, skip
-                    original_formats = set(re.findall(r'%[sd]|%\([^)]+\)[sd]', entry.msgid))
-                    translated_formats = set(re.findall(r'%[sd]|%\([^)]+\)[sd]', translated_text))
-                    if original_formats != translated_formats:
-                        # Format strings don't match, skip this translation
-                        continue
+                    # Extract format strings from original
+                    original_formats = re.findall(r'%[sd]|%\([^)]+\)[sd]', entry.msgid)
+                    translated_formats = re.findall(r'%[sd]|%\([^)]+\)[sd]', translated_text)
+                    
+                    # If format strings don't match, try to preserve them
+                    if len(original_formats) != len(translated_formats):
+                        # Try to fix: replace format strings in translation with original ones
+                        for i, fmt in enumerate(original_formats):
+                            if i < len(translated_formats):
+                                translated_text = translated_text.replace(translated_formats[i], fmt, 1)
                 
                 entry.msgstr = translated_text
                 translated_count += 1
@@ -152,8 +152,12 @@ class Command(BaseCommand):
             
             except Exception as e:
                 error_count += 1
-                if error_count <= 5:  # Only show first 5 errors
-                    self.stdout.write(self.style.WARNING(f'  Translation error: {str(e)[:100]}'))
+                if error_count <= 10:  # Show first 10 errors
+                    error_msg = str(e)
+                    if len(error_msg) > 100:
+                        error_msg = error_msg[:100] + '...'
+                    self.stdout.write(self.style.WARNING(f'  Translation error: {error_msg}'))
+                # Continue with next entry
                 continue
         
         # Save the file

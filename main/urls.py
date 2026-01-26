@@ -38,4 +38,13 @@ urlpatterns = [
     path('login/', views.user_login, name='login'),
     path('logout/', views.user_logout, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    
+    # Testimonials
+    path('testimonials/', views.testimonials_list, name='testimonials_list'),
+    
+    # FAQ
+    path('faq/', views.faq_list, name='faq_list'),
+    
+    # Newsletter
+    path('newsletter/subscribe/', views.newsletter_subscribe, name='newsletter_subscribe'),
 ]

@@ -2265,4 +2265,38 @@ document.addEventListener('keydown', function(e) {
             });
         });
     }
+})();
+
+// Back to Top Button
+(function() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (backToTopBtn) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        }, { passive: true });
+        
+        // Smooth scroll to top on click
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Track in GA4 if available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    'event_category': 'UX',
+                    'event_label': 'Back to Top',
+                    'value': 1
+                });
+            }
+        });
+    }
 })(); 

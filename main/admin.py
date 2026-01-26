@@ -3,7 +3,7 @@ from django.utils.html import format_html
 from .models import (
     Service, Package, PackageFeature, Project, ProjectVideo,
     Certificate, ContactMessage, QuoteRequest, BlogPost,
-    Testimonial, SiteSetting, TeamMember, UserProfile
+    Testimonial, SiteSetting, TeamMember, UserProfile, FAQ, NewsletterSubscriber
 )
 
 
@@ -194,3 +194,48 @@ class TeamMemberAdmin(admin.ModelAdmin):
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ['user', 'phone']
     search_fields = ['user__username', 'phone']
+
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ['question', 'category', 'order', 'active', 'created_at']
+    list_filter = ['category', 'active', 'created_at']
+    search_fields = ['question', 'answer', 'question_en', 'question_fa', 'question_ar']
+    list_editable = ['order', 'active']
+    fieldsets = (
+        ('سوال', {
+            'fields': ('question', 'question_en', 'question_fa', 'question_ar')
+        }),
+        ('پاسخ', {
+            'fields': ('answer', 'answer_en', 'answer_fa', 'answer_ar')
+        }),
+        ('تنظیمات', {
+            'fields': ('category', 'order', 'active')
+        }),
+        ('تاریخ‌ها', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+    readonly_fields = ['created_at', 'updated_at']
+
+
+@admin.register(NewsletterSubscriber)
+class NewsletterSubscriberAdmin(admin.ModelAdmin):
+    list_display = ['email', 'name', 'subscribed', 'subscribed_at']
+    list_filter = ['subscribed', 'subscribed_at']
+    search_fields = ['email', 'name']
+    readonly_fields = ['subscribed_at', 'unsubscribed_at', 'ip_address']
+    list_editable = ['subscribed']
+    fieldsets = (
+        ('اطلاعات', {
+            'fields': ('email', 'name')
+        }),
+        ('وضعیت', {
+            'fields': ('subscribed',)
+        }),
+        ('اطلاعات سیستم', {
+            'fields': ('ip_address', 'subscribed_at', 'unsubscribed_at'),
+            'classes': ('collapse',)
+        }),
+    )

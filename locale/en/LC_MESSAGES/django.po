@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 19:21+0330\n"
+"POT-Creation-Date: 2026-01-26 23:30+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,7 +132,7 @@ msgstr "Services"
 msgid "All Services"
 msgstr "Services"
 
-#: .\templates\base.html:105 .\templates\main\web_design.html:5
+#: .\templates\base.html:105 .\templates\main\web_design.html:6
 #, fuzzy
 #| msgid "Get Design Quote"
 msgid "Web Design"
@@ -169,7 +169,7 @@ msgid "UI/UX Design"
 msgstr "UI/UX Design"
 
 #: .\templates\base.html:114 .\templates\base.html:191
-#: .\templates\main\projects.html:5 .\templates\main\projects.html:11
+#: .\templates\main\projects.html:6 .\templates\main\projects.html:12
 msgid "Projects"
 msgstr "Projects"
 
@@ -230,15 +230,15 @@ msgstr "Follow Us"
 msgid "All rights reserved."
 msgstr "All rights reserved."
 
-#: .\templates\base.html:244 .\templates\main\ecommerce.html:77
-#: .\templates\main\ecommerce.html:79 .\templates\main\hosting.html:83
-#: .\templates\main\hosting.html:85 .\templates\main\index.html:117
+#: .\templates\base.html:244 .\templates\main\ecommerce.html:78
+#: .\templates\main\ecommerce.html:80 .\templates\main\hosting.html:83
+#: .\templates\main\hosting.html:85 .\templates\main\index.html:118
 #: .\templates\main\mobile_app.html:54 .\templates\main\mobile_app.html:56
 #: .\templates\main\quote_request.html:5
 #: .\templates\main\quote_request.html:11 .\templates\main\seo.html:77
-#: .\templates\main\seo.html:79 .\templates\main\service_detail.html:69
+#: .\templates\main\seo.html:79 .\templates\main\service_detail.html:70
 #: .\templates\main\ui_ux.html:84 .\templates\main\ui_ux.html:86
-#: .\templates\main\web_design.html:59 .\templates\main\web_design.html:61
+#: .\templates\main\web_design.html:60 .\templates\main\web_design.html:62
 msgid "Get Quote"
 msgstr "Get Quote"
 
@@ -248,17 +248,17 @@ msgstr "Get Quote"
 msgid "About Me - Professional Web Design Expert"
 msgstr "Professional Web Design"
 
-#: .\templates\main\about.html:11 .\templates\main\index.html:182
+#: .\templates\main\about.html:11 .\templates\main\index.html:183
 msgid "About Me"
 msgstr "About Me"
 
-#: .\templates\main\about.html:21 .\templates\main\index.html:189
+#: .\templates\main\about.html:21 .\templates\main\index.html:190
 #, fuzzy
 #| msgid "Professional Web Design"
 msgid "Professional Web Design Expert"
 msgstr "Professional Web Design"
 
-#: .\templates\main\about.html:23 .\templates\main\index.html:191
+#: .\templates\main\about.html:23 .\templates\main\index.html:192
 #, python-format
 msgid ""
 "\n"
@@ -266,20 +266,22 @@ msgid ""
 "                        More than 20 of my clients have received service with 100%% satisfaction.\n"
 "                        "
 msgstr ""
-"As a graduate of Marmara University Computer Programming, I offer professional web design solutions. \n"
-"                        More than 20 of my clients have received service with 100%% satisfaction."
+"\n"
+"                        As a graduate of Marmara University Computer Programming, I offer professional web design solutions. \n"
+"                        More than 20 of my clients have received service with 100%% satisfaction.\n"
+"                        "
 
-#: .\templates\main\about.html:43 .\templates\main\index.html:211
+#: .\templates\main\about.html:43 .\templates\main\index.html:212
 msgid "Successful Projects"
 msgstr "Successful Projects"
 
-#: .\templates\main\about.html:47 .\templates\main\index.html:215
+#: .\templates\main\about.html:47 .\templates\main\index.html:216
 #, fuzzy
 #| msgid "Years Experience"
 msgid "Years of Experience"
 msgstr "Years Experience"
 
-#: .\templates\main\about.html:51 .\templates\main\index.html:219
+#: .\templates\main\about.html:51 .\templates\main\index.html:220
 #, fuzzy
 #| msgid "Customer Satisfaction"
 msgid "Customer Satisfaction"
@@ -341,27 +343,27 @@ msgstr "Your recent activity and requests will appear here."
 msgid "Request a quote"
 msgstr "Get Quote"
 
-#: .\templates\main\ecommerce.html:5
+#: .\templates\main\ecommerce.html:6
 #, fuzzy
 #| msgid "E-commerce Solutions"
 msgid "E-Commerce Store"
 msgstr "E-commerce Solutions"
 
-#: .\templates\main\ecommerce.html:11
+#: .\templates\main\ecommerce.html:12
 #, fuzzy
 #| msgid "E-commerce Solutions"
 msgid "E-Commerce Store Development"
 msgstr "E-commerce Solutions"
 
-#: .\templates\main\ecommerce.html:13
+#: .\templates\main\ecommerce.html:14
 msgid "Complete online stores with payment, inventory, and admin panel"
 msgstr "Complete online stores with payment, inventory, and admin panel"
 
-#: .\templates\main\ecommerce.html:22
+#: .\templates\main\ecommerce.html:23
 msgid "E-commerce development services"
 msgstr "E-commerce development services"
 
-#: .\templates\main\ecommerce.html:24
+#: .\templates\main\ecommerce.html:25
 msgid ""
 "We build full-featured online stores that handle products, orders, payments,"
 " shipping, and customer accounts. From small shops to multi-vendor "
@@ -373,92 +375,92 @@ msgstr ""
 "marketplaces, we deliver secure, scalable e-commerce platforms with modern "
 "UI and powerful admin tools."
 
-#: .\templates\main\ecommerce.html:27 .\templates\main\hosting.html:27
+#: .\templates\main\ecommerce.html:28 .\templates\main\hosting.html:27
 #: .\templates\main\mobile_app.html:27 .\templates\main\seo.html:27
-#: .\templates\main\service_detail.html:30
-#: .\templates\main\service_detail.html:40
-#: .\templates\main\service_detail.html:50 .\templates\main\ui_ux.html:27
-#: .\templates\main\web_design.html:27
+#: .\templates\main\service_detail.html:31
+#: .\templates\main\service_detail.html:41
+#: .\templates\main\service_detail.html:51 .\templates\main\ui_ux.html:27
+#: .\templates\main\web_design.html:28
 msgid "What you get"
 msgstr "What you get"
 
-#: .\templates\main\ecommerce.html:29
-msgid ""
-"Product catalog: categories, filters, search, variants (size/color), stock "
-"management"
-msgstr ""
-"Product catalog: categories, filters, search, variants (size/color), stock "
-"management"
-
 #: .\templates\main\ecommerce.html:30
 msgid ""
-"Shopping cart, checkout flow, and multiple payment gateways (Stripe, PayPal,"
-" local)"
+"Product catalog: categories, filters, search, variants (size/color), stock "
+"management"
 msgstr ""
-"Shopping cart, checkout flow, and multiple payment gateways (Stripe, PayPal,"
-" local)"
+"Product catalog: categories, filters, search, variants (size/color), stock "
+"management"
 
 #: .\templates\main\ecommerce.html:31
 msgid ""
+"Shopping cart, checkout flow, and multiple payment gateways (Stripe, PayPal,"
+" local)"
+msgstr ""
+"Shopping cart, checkout flow, and multiple payment gateways (Stripe, PayPal,"
+" local)"
+
+#: .\templates\main\ecommerce.html:32
+msgid ""
 "Order management: status tracking, invoices, shipping labels, email "
 "notifications"
 msgstr ""
 "Order management: status tracking, invoices, shipping labels, email "
 "notifications"
 
-#: .\templates\main\ecommerce.html:32
+#: .\templates\main\ecommerce.html:33
 msgid "Customer accounts: profiles, order history, wishlists, reviews"
 msgstr "Customer accounts: profiles, order history, wishlists, reviews"
 
-#: .\templates\main\ecommerce.html:33
+#: .\templates\main\ecommerce.html:34
 msgid ""
 "Admin panel: products, orders, customers, analytics, discount codes, reports"
 msgstr ""
 "Admin panel: products, orders, customers, analytics, discount codes, reports"
 
-#: .\templates\main\ecommerce.html:34
+#: .\templates\main\ecommerce.html:35
 msgid "SEO: product pages, sitemaps, schema markup, meta optimization"
 msgstr "SEO: product pages, sitemaps, schema markup, meta optimization"
 
-#: .\templates\main\ecommerce.html:35
+#: .\templates\main\ecommerce.html:36
 msgid "Security: PCI compliance basics, secure payments, data encryption"
 msgstr "Security: PCI compliance basics, secure payments, data encryption"
 
-#: .\templates\main\ecommerce.html:38 .\templates\main\mobile_app.html:37
+#: .\templates\main\ecommerce.html:39 .\templates\main\mobile_app.html:37
 #: .\templates\main\seo.html:38 .\templates\main\ui_ux.html:38
-#: .\templates\main\web_design.html:37
+#: .\templates\main\web_design.html:38
 msgid "Process"
 msgstr "Process"
 
-#: .\templates\main\ecommerce.html:40
+#: .\templates\main\ecommerce.html:41
 msgid ""
 "Requirements: product types, payment methods, shipping zones, tax rules"
 msgstr ""
 "Requirements: product types, payment methods, shipping zones, tax rules"
 
-#: .\templates\main\ecommerce.html:41
+#: .\templates\main\ecommerce.html:42
 msgid "Design: product pages, cart, checkout, admin UI mockups"
 msgstr "Design: product pages, cart, checkout, admin UI mockups"
 
-#: .\templates\main\ecommerce.html:42
+#: .\templates\main\ecommerce.html:43
 msgid ""
 "Development: Django e-commerce backend + frontend + payment integration"
 msgstr ""
 "Development: Django e-commerce backend + frontend + payment integration"
 
-#: .\templates\main\ecommerce.html:43
+#: .\templates\main\ecommerce.html:44
 msgid "Testing: checkout flow, payment sandbox, inventory, order workflows"
 msgstr "Testing: checkout flow, payment sandbox, inventory, order workflows"
 
-#: .\templates\main\ecommerce.html:44
+#: .\templates\main\ecommerce.html:45
 msgid "Launch: SSL, payment gateway setup, initial product import, go-live"
 msgstr "Launch: SSL, payment gateway setup, initial product import, go-live"
 
-#: .\templates\main\ecommerce.html:47
+#: .\templates\main\ecommerce.html:48
 msgid "Technologies we use"
 msgstr "Technologies we use"
 
-#: .\templates\main\ecommerce.html:49
+#: .\templates\main\ecommerce.html:50
 msgid ""
 "Django + PostgreSQL, Stripe/PayPal APIs, Redis for caching, Celery for "
 "background tasks, Docker for deployment. Frontend: Bootstrap/Tailwind, "
@@ -468,11 +470,11 @@ msgstr ""
 "background tasks, Docker for deployment. Frontend: Bootstrap/Tailwind, "
 "JavaScript, responsive design."
 
-#: .\templates\main\ecommerce.html:52 .\templates\main\web_design.html:46
+#: .\templates\main\ecommerce.html:53 .\templates\main\web_design.html:47
 msgid "Typical timeline"
 msgstr "Typical timeline"
 
-#: .\templates\main\ecommerce.html:54
+#: .\templates\main\ecommerce.html:55
 msgid ""
 "Small store (50-200 products): 4-8 weeks · Medium store (200-1000 products):"
 " 8-16 weeks · Large marketplace: 16+ weeks"
@@ -480,13 +482,13 @@ msgstr ""
 "Small store (50-200 products): 4-8 weeks Medium store (200-1000 products): "
 "8-16 weeks Large marketplace: 16+ weeks"
 
-#: .\templates\main\ecommerce.html:57 .\templates\main\hosting.html:63
+#: .\templates\main\ecommerce.html:58 .\templates\main\hosting.html:63
 #: .\templates\main\mobile_app.html:46 .\templates\main\seo.html:57
-#: .\templates\main\ui_ux.html:64 .\templates\main\web_design.html:51
+#: .\templates\main\ui_ux.html:64 .\templates\main\web_design.html:52
 msgid "Pricing (guideline)"
 msgstr "Pricing (guideline)"
 
-#: .\templates\main\ecommerce.html:59
+#: .\templates\main\ecommerce.html:60
 msgid ""
 "Basic e-commerce stores start from 25,000 TL. Stores with custom features, "
 "multiple payment methods, inventory sync, or marketplace functionality are "
@@ -496,16 +498,16 @@ msgstr ""
 "multiple payment methods, inventory sync, or marketplace functionality are "
 "quoted after review requirements."
 
-#: .\templates\main\ecommerce.html:62 .\templates\main\hosting.html:68
+#: .\templates\main\ecommerce.html:63 .\templates\main\hosting.html:68
 #: .\templates\main\seo.html:62 .\templates\main\ui_ux.html:69
 msgid "FAQ"
 msgstr "FAQ"
 
-#: .\templates\main\ecommerce.html:64
+#: .\templates\main\ecommerce.html:65
 msgid "Q: Do you handle payment gateway setup?"
 msgstr "Q: Do you handle payment gateway setup?"
 
-#: .\templates\main\ecommerce.html:65
+#: .\templates\main\ecommerce.html:66
 msgid ""
 "A: Yes, we integrate Stripe, PayPal, or local payment providers. You'll need"
 " to provide API credentials from your payment account."
@@ -513,11 +515,11 @@ msgstr ""
 "A: Yes, we integrate Stripe, PayPal, or local payment providers. You'll need"
 " to provide API credentials from your payment account."
 
-#: .\templates\main\ecommerce.html:67
+#: .\templates\main\ecommerce.html:68
 msgid "Q: Can I manage products myself?"
 msgstr "Q: Can I manage products myself?"
 
-#: .\templates\main\ecommerce.html:68
+#: .\templates\main\ecommerce.html:69
 msgid ""
 "A: Yes, the admin panel includes full product management: add/edit products,"
 " set prices, manage inventory, upload images."
@@ -525,11 +527,11 @@ msgstr ""
 "A: Yes, the admin panel includes full product management: add/edit products,"
 " set prices, manage inventory, upload images."
 
-#: .\templates\main\ecommerce.html:70
+#: .\templates\main\ecommerce.html:71
 msgid "Q: Do you provide hosting?"
 msgstr "Q: Do you provide hosting?"
 
-#: .\templates\main\ecommerce.html:71
+#: .\templates\main\ecommerce.html:72
 msgid ""
 "A: We can set up hosting or you can use your own. We recommend cloud hosting"
 " (AWS, DigitalOcean) for better performance and scalability."
@@ -537,28 +539,28 @@ msgstr ""
 "A: We can set up hosting or you can use your own. We recommend cloud hosting"
 " (AWS, DigitalOcean) for better performance and scalability."
 
-#: .\templates\main\ecommerce.html:82 .\templates\main\mobile_app.html:59
-#: .\templates\main\web_design.html:64
+#: .\templates\main\ecommerce.html:83 .\templates\main\mobile_app.html:59
+#: .\templates\main\web_design.html:65
 #, fuzzy
 #| msgid "Starting from 5,000 TL"
 msgid "Starting from"
 msgstr "Starting from 5,000 TL"
 
-#: .\templates\main\ecommerce.html:83
+#: .\templates\main\ecommerce.html:84
 msgid "Includes"
 msgstr "Includes"
 
-#: .\templates\main\ecommerce.html:83
+#: .\templates\main\ecommerce.html:84
 msgid "full store + admin + payment"
 msgstr "full store + admin + payment"
 
-#: .\templates\main\ecommerce.html:92
+#: .\templates\main\ecommerce.html:93
 #, fuzzy
 #| msgid "Commercial Package"
 msgid "E-commerce packages"
 msgstr "Commercial Package"
 
-#: .\templates\main\ecommerce.html:111
+#: .\templates\main\ecommerce.html:112
 #, fuzzy
 #| msgid "Basic Package"
 msgid "Select Package"
@@ -757,7 +759,7 @@ msgid ""
 "faster)."
 msgstr ""
 "A: We monitor uptime and respond to issues quickly. Our hosting includes "
-"99.9% uptime SLA. Support tickets are answered within 24 hours (usually "
+"99.9%% uptime SLA. Support tickets are answered within 24 hours (usually "
 "faster)."
 
 #: .\templates\main\hosting.html:88
@@ -768,144 +770,144 @@ msgstr "Shared"
 msgid "VPS"
 msgstr "VPS"
 
-#: .\templates\main\index.html:5
+#: .\templates\main\index.html:6
 msgid "Web and mobile app design | Custom developer and designer"
 msgstr "Web and mobile app design | Custom developer and designer"
 
-#: .\templates\main\index.html:15
+#: .\templates\main\index.html:16
 #, fuzzy
 #| msgid "Professional Web Design and Development Expert"
 msgid "Professional Web Design & E-commerce"
 msgstr "Professional Web Design and Development Expert"
 
-#: .\templates\main\index.html:18
+#: .\templates\main\index.html:19
 #, fuzzy
 #| msgid "Solutions That Grow Your Business in the Digital World"
 msgid "Grow your business in the digital world!"
 msgstr "Solutions That Grow Your Business in the Digital World"
 
-#: .\templates\main\index.html:21
+#: .\templates\main\index.html:22
 msgid ""
 "\n"
 "                        I design modern, fast and user‑friendly websites for your business. From corporate websites to e‑commerce and custom platforms, I deliver professional design, clean code and measurable results.\n"
 "                        "
 msgstr ""
-"I design modern, fast and user-friendly websites for your business. From "
-"corporate websites to e‑commerce and custom platforms, I deliver "
-"professional design, clean code and measurable results."
+"\n"
+"                        I design modern, fast and user‑friendly websites for your business. From corporate websites to e‑commerce and custom platforms, I deliver professional design, clean code and measurable results.\n"
+"                        "
 
-#: .\templates\main\index.html:27
+#: .\templates\main\index.html:28
 msgid "View Certificates"
 msgstr "View Certificates"
 
-#: .\templates\main\index.html:30
+#: .\templates\main\index.html:31
 msgid "Write on WhatsApp"
 msgstr "Write on WhatsApp"
 
-#: .\templates\main\index.html:50
+#: .\templates\main\index.html:51
 msgid "Fast Delivery"
 msgstr "Fast Delivery"
 
-#: .\templates\main\index.html:54
+#: .\templates\main\index.html:55
 msgid "Mobile Friendly"
 msgstr "Mobile Friendly"
 
-#: .\templates\main\index.html:58
+#: .\templates\main\index.html:59
 msgid "Secure"
 msgstr "Secure"
 
-#: .\templates\main\index.html:62
+#: .\templates\main\index.html:63
 msgid "24/7 Support"
 msgstr "24/7 Support"
 
-#: .\templates\main\index.html:84
+#: .\templates\main\index.html:85
 #, fuzzy
 #| msgid "Services"
 msgid "My Services"
 msgstr "Services"
 
-#: .\templates\main\index.html:99
+#: .\templates\main\index.html:100
 msgid "Learn more"
 msgstr "Learn more"
 
-#: .\templates\main\index.html:106 .\templates\main\services.html:44
+#: .\templates\main\index.html:107 .\templates\main\services.html:45
 msgid "No services found."
 msgstr "No services found."
 
-#: .\templates\main\index.html:114
+#: .\templates\main\index.html:115
 #, fuzzy
 #| msgid "Let's Start Bringing Your Project to Life Today!"
 msgid "Let's start your project today!"
 msgstr "Let's Start Bringing Your Project to Life Today!"
 
-#: .\templates\main\index.html:115
+#: .\templates\main\index.html:116
 msgid "Contact us for a free consultation and a detailed quote."
 msgstr "Contact us for a free consultation and a detailed quote."
 
-#: .\templates\main\index.html:131
+#: .\templates\main\index.html:132
 msgid "Why Choose Me?"
 msgstr "Why Choose Me?"
 
-#: .\templates\main\index.html:141
+#: .\templates\main\index.html:142
 msgid "Grow Your Business"
 msgstr "Grow Your Business"
 
-#: .\templates\main\index.html:142
+#: .\templates\main\index.html:143
 #, fuzzy
 #| msgid ""
 #| "Increase your sales and customer satisfaction with modern websites"
 msgid "Increase your sales with modern websites"
 msgstr "Increase your sales and customer satisfaction with modern websites"
 
-#: .\templates\main\index.html:150
+#: .\templates\main\index.html:151
 msgid "Time Saving"
 msgstr "Time Saving"
 
-#: .\templates\main\index.html:151
+#: .\templates\main\index.html:152
 #, fuzzy
 #| msgid ""
 #| "Use your time efficiently with fast delivery and professional service"
 msgid "Fast delivery and professional service"
 msgstr "Use your time efficiently with fast delivery and professional service"
 
-#: .\templates\main\index.html:159
+#: .\templates\main\index.html:160
 msgid "Affordable Price"
 msgstr "Affordable Price"
 
-#: .\templates\main\index.html:160
+#: .\templates\main\index.html:161
 msgid "Quality service at affordable prices"
 msgstr "Quality service at affordable prices"
 
-#: .\templates\main\index.html:168
+#: .\templates\main\index.html:169
 msgid "Continuous Support"
 msgstr "Continuous Support"
 
-#: .\templates\main\index.html:169
+#: .\templates\main\index.html:170
 #, fuzzy
 #| msgid "24/7 Technical Support"
 msgid "24/7 technical support service"
 msgstr "24/7 Technical Support"
 
-#: .\templates\main\index.html:233 .\templates\main\packages.html:6
+#: .\templates\main\index.html:234 .\templates\main\packages.html:6
 #: .\templates\main\packages.html:12
 msgid "Our Packages"
 msgstr "Our Packages"
 
-#: .\templates\main\index.html:243 .\templates\main\packages.html:26
+#: .\templates\main\index.html:244 .\templates\main\packages.html:26
 msgid "Popular"
 msgstr "Popular"
 
-#: .\templates\main\index.html:280 .\templates\main\projects.html:50
+#: .\templates\main\index.html:281 .\templates\main\projects.html:51
 msgid "My Projects"
 msgstr "My Projects"
 
-#: .\templates\main\index.html:301 .\templates\main\projects.html:71
+#: .\templates\main\index.html:302 .\templates\main\projects.html:72
 #, fuzzy
 #| msgid "Visit Website"
 msgid "Visit Website"
 msgstr "Visit Website"
 
-#: .\templates\main\index.html:312
+#: .\templates\main\index.html:313
 #, fuzzy
 #| msgid "View Projects"
 msgid "View All Projects"
@@ -1003,25 +1005,25 @@ msgstr ""
 "Choose the package that suits your needs and take your business to the "
 "digital world"
 
-#: .\templates\main\projects.html:5 .\templates\main\projects.html:22
+#: .\templates\main\projects.html:6 .\templates\main\projects.html:23
 msgid "Video Demos"
 msgstr "Video Demos"
 
-#: .\templates\main\projects.html:5
+#: .\templates\main\projects.html:6
 #, fuzzy
 #| msgid "Our Portfolio"
 msgid "Portfolio"
 msgstr "Our Portfolio"
 
-#: .\templates\main\projects.html:79
+#: .\templates\main\projects.html:80
 msgid "No projects found."
 msgstr "No projects found."
 
-#: .\templates\main\projects.html:91
+#: .\templates\main\projects.html:92
 msgid "Previous"
 msgstr "Previous"
 
-#: .\templates\main\projects.html:99
+#: .\templates\main\projects.html:100
 msgid "Next"
 msgstr "Next"
 
@@ -1373,129 +1375,129 @@ msgstr "Audit"
 msgid "Monthly"
 msgstr "monthly"
 
-#: .\templates\main\service_detail.html:32
+#: .\templates\main\service_detail.html:33
 msgid "Responsive design (mobile, tablet, desktop)"
 msgstr "Responsive design (mobile, tablet, desktop)"
 
-#: .\templates\main\service_detail.html:33
+#: .\templates\main\service_detail.html:34
 #, fuzzy
 #| msgid "Speed and SEO Optimization"
 msgid "SEO optimization"
 msgstr "Speed and SEO Optimization"
 
-#: .\templates\main\service_detail.html:34
+#: .\templates\main\service_detail.html:35
 msgid "Fast loading and performance"
 msgstr "Fast loading and performance"
 
-#: .\templates\main\service_detail.html:35
+#: .\templates\main\service_detail.html:36
 msgid "Admin panel for content management"
 msgstr "Admin panel for content management"
 
-#: .\templates\main\service_detail.html:36
+#: .\templates\main\service_detail.html:37
 msgid "Contact forms and lead capture"
 msgstr "Contact forms and lead capture"
 
-#: .\templates\main\service_detail.html:37
+#: .\templates\main\service_detail.html:38
 #, fuzzy
 #| msgid "Certificates and Trust Badge"
 msgid "SSL certificate and security"
 msgstr "Certificates and Trust Badge"
 
-#: .\templates\main\service_detail.html:42
+#: .\templates\main\service_detail.html:43
 #, fuzzy
 #| msgid "iOS and Android mobile applications"
 msgid "iOS and Android apps"
 msgstr "iOS and Android mobile applications"
 
-#: .\templates\main\service_detail.html:43
+#: .\templates\main\service_detail.html:44
 msgid "Modern UI/UX design"
 msgstr "Modern UI/UX design"
 
-#: .\templates\main\service_detail.html:44
+#: .\templates\main\service_detail.html:45
 msgid "Backend API and database"
 msgstr "Backend API and database"
 
-#: .\templates\main\service_detail.html:45
+#: .\templates\main\service_detail.html:46
 #, fuzzy
 #| msgid "SMS Notifications"
 msgid "Push notifications"
 msgstr "SMS Notifications"
 
-#: .\templates\main\service_detail.html:46
+#: .\templates\main\service_detail.html:47
 msgid "App store submission"
 msgstr "App store submission"
 
-#: .\templates\main\service_detail.html:47
+#: .\templates\main\service_detail.html:48
 msgid "Post-launch support"
 msgstr "Post-launch support"
 
-#: .\templates\main\service_detail.html:52
+#: .\templates\main\service_detail.html:53
 msgid "Product catalog and inventory"
 msgstr "Product catalog and inventory"
 
-#: .\templates\main\service_detail.html:53
+#: .\templates\main\service_detail.html:54
 msgid "Shopping cart and checkout"
 msgstr "Shopping cart and checkout"
 
-#: .\templates\main\service_detail.html:54
+#: .\templates\main\service_detail.html:55
 #, fuzzy
 #| msgid "Payment Gateway"
 msgid "Payment gateway integration"
 msgstr "Payment Gateway"
 
-#: .\templates\main\service_detail.html:55
+#: .\templates\main\service_detail.html:56
 msgid "Order management system"
 msgstr "Order management system"
 
-#: .\templates\main\service_detail.html:56
+#: .\templates\main\service_detail.html:57
 #, fuzzy
 #| msgid "Customer Satisfaction"
 msgid "Customer accounts"
 msgstr "Customer Satisfaction"
 
-#: .\templates\main\service_detail.html:57
+#: .\templates\main\service_detail.html:58
 msgid "Admin panel for products and orders"
 msgstr "Admin panel for products and orders"
 
-#: .\templates\main\service_detail.html:72
+#: .\templates\main\service_detail.html:73
 #, fuzzy
 #| msgid "Contact"
 msgid "Contact us"
 msgstr "Contact"
 
-#: .\templates\main\service_detail.html:73
+#: .\templates\main\service_detail.html:74
 msgid "for pricing details"
 msgstr "for pricing details"
 
-#: .\templates\main\service_detail.html:82
+#: .\templates\main\service_detail.html:83
 #, fuzzy
 #| msgid "Services"
 msgid "Related Services"
 msgstr "Services"
 
-#: .\templates\main\service_detail.html:93 .\templates\main\services.html:37
+#: .\templates\main\service_detail.html:94 .\templates\main\services.html:38
 msgid "Learn More"
 msgstr "Learn More"
 
-#: .\templates\main\services.html:5 .\templates\main\services.html:11
+#: .\templates\main\services.html:6 .\templates\main\services.html:12
 #, fuzzy
 #| msgid "Services"
 msgid "Our Services"
 msgstr "Services"
 
-#: .\templates\main\services.html:5
+#: .\templates\main\services.html:6
 #, fuzzy
 #| msgid "Professional Web Design"
 msgid "Professional Web Design Services"
 msgstr "Professional Web Design"
 
-#: .\templates\main\services.html:13
+#: .\templates\main\services.html:14
 #, fuzzy
 #| msgid "Professional Web Design"
 msgid "Professional Web Design and Digital Solutions"
 msgstr "Professional Web Design"
 
-#: .\templates\main\services.html:22
+#: .\templates\main\services.html:23
 msgid ""
 "We offer comprehensive web design, development, and digital marketing "
 "services to help your business grow online. From custom websites to mobile "
@@ -1507,13 +1509,13 @@ msgstr ""
 "apps, e-commerce stores, and SEO optimization, we deliver solutions that "
 "drive results."
 
-#: .\templates\main\services.html:52
+#: .\templates\main\services.html:53
 #, fuzzy
 #| msgid "Start Your Project"
 msgid "Ready to Start Your Project?"
 msgstr "Start Your Project"
 
-#: .\templates\main\services.html:53
+#: .\templates\main\services.html:54
 msgid ""
 "Get a free consultation and quote. Let's discuss your project and find the "
 "best solution for your needs."
@@ -1521,7 +1523,7 @@ msgstr ""
 "Get a free consultation and quote. Let's discuss your project and find the "
 "best solution for your needs."
 
-#: .\templates\main\services.html:55
+#: .\templates\main\services.html:56
 #, fuzzy
 #| msgid "Get Quote"
 msgid "Request Quote"
@@ -1742,21 +1744,21 @@ msgstr "Landing page"
 msgid "Full website"
 msgstr "Visit Website"
 
-#: .\templates\main\web_design.html:11
+#: .\templates\main\web_design.html:12
 msgid "Professional Web Design"
 msgstr "Professional Web Design"
 
-#: .\templates\main\web_design.html:13
+#: .\templates\main\web_design.html:14
 msgid "Modern, fast and conversion‑focused websites"
 msgstr "Modern, fast and conversion‑focused websites"
 
-#: .\templates\main\web_design.html:22
+#: .\templates\main\web_design.html:23
 #, fuzzy
 #| msgid "My Services"
 msgid "Web design services"
 msgstr "My Services"
 
-#: .\templates\main\web_design.html:24
+#: .\templates\main\web_design.html:25
 msgid ""
 "We design and build high‑performance websites that load fast, rank on "
 "Google, and convert visitors into customers. From corporate websites to "
@@ -1768,54 +1770,54 @@ msgstr ""
 "landing pages and web applications, we deliver a clean UI, solid engineering"
 " and measurable results."
 
-#: .\templates\main\web_design.html:29
+#: .\templates\main\web_design.html:30
 msgid ""
 "Responsive UI (mobile, tablet, desktop) with modern layout and typography"
 msgstr ""
 "Responsive UI (mobile, tablet, desktop) with modern layout and typography"
 
-#: .\templates\main\web_design.html:30
+#: .\templates\main\web_design.html:31
 msgid "SEO foundations: semantic HTML, meta tags, sitemap, schema basics"
 msgstr "SEO foundations: semantic HTML, meta tags, sitemap, schema basics"
 
-#: .\templates\main\web_design.html:31
+#: .\templates\main\web_design.html:32
 msgid "Performance optimization (Core Web Vitals) and fast loading"
 msgstr "Performance optimization (Core Web Vitals) and fast loading"
 
-#: .\templates\main\web_design.html:32
+#: .\templates\main\web_design.html:33
 msgid "Clean codebase + scalable structure for future features"
 msgstr "Clean codebase + scalable structure for future features"
 
-#: .\templates\main\web_design.html:33
+#: .\templates\main\web_design.html:34
 msgid "Contact/lead forms connected to database and admin panel"
 msgstr "Contact/lead forms connected to database and admin panel"
 
-#: .\templates\main\web_design.html:34
+#: .\templates\main\web_design.html:35
 msgid "Deployment, SSL, domain + basic security hardening"
 msgstr "Deployment, SSL, domain + basic security hardening"
 
-#: .\templates\main\web_design.html:39
+#: .\templates\main\web_design.html:40
 msgid "Discovery & requirements: goals, pages, competitors, content checklist"
 msgstr ""
 "Discovery & requirements: goals, pages, competitors, content checklist"
 
-#: .\templates\main\web_design.html:40
+#: .\templates\main\web_design.html:41
 msgid "Wireframe & UI: layout, sections, conversion paths, copy structure"
 msgstr "Wireframe & UI: layout, sections, conversion paths, copy structure"
 
-#: .\templates\main\web_design.html:41
+#: .\templates\main\web_design.html:42
 msgid "Development: Django templates + reusable components + SEO"
 msgstr "Development: Django templates + reusable components + SEO"
 
-#: .\templates\main\web_design.html:42
+#: .\templates\main\web_design.html:43
 msgid "QA: mobile/responsive checks, speed, accessibility basics"
 msgstr "QA: mobile/responsive checks, speed, accessibility basics"
 
-#: .\templates\main\web_design.html:43
+#: .\templates\main\web_design.html:44
 msgid "Launch: hosting setup, SSL, analytics, monitoring"
 msgstr "Launch: hosting setup, SSL, analytics, monitoring"
 
-#: .\templates\main\web_design.html:48
+#: .\templates\main\web_design.html:49
 msgid ""
 "Landing page: 3–7 days · Corporate site: 1–3 weeks · Custom web app: 3–8+ "
 "weeks"
@@ -1823,7 +1825,7 @@ msgstr ""
 "Landing page: 3–7 days · Corporate site: 1–3 weeks · Custom web app: 3–8+ "
 "weeks"
 
-#: .\templates\main\web_design.html:53
+#: .\templates\main\web_design.html:54
 msgid ""
 "Corporate websites start from 8,000 TL. Complex websites with "
 "multi‑language, custom admin and integrations are quoted after reviewing "
@@ -1832,15 +1834,25 @@ msgstr ""
 "Corporate websites start from 8,000 TL. Complex websites with multi-"
 "language, custom admin and integrations are quoted after review scope."
 
-#: .\templates\main\web_design.html:65
+#: .\templates\main\web_design.html:66
 #, fuzzy
 #| msgid "24/7 Support"
 msgid "Support"
 msgstr "24/7 Support"
 
-#: .\templates\main\web_design.html:65
+#: .\templates\main\web_design.html:66
 msgid "maintenance & upgrades"
 msgstr "maintenance & upgrades"
+
+#: .\templates\main\web_design.html:75
+#, fuzzy
+#| msgid "My Services"
+msgid "Web Design Project Samples"
+msgstr "My Services"
+
+#: .\templates\main\web_design.html:88
+msgid "View"
+msgstr "View"
 
 #~ msgid ""
 #~ "I am a professional web developer specialized in web programming areas. I "
@@ -2382,9 +2394,6 @@ msgstr "maintenance & upgrades"
 #~ msgstr ""
 #~ "Discover functionality and design details by watching live demo videos of my"
 #~ " projects."
-
-#~ msgid "View"
-#~ msgstr "View"
 
 #~ msgid "Watch Demo"
 #~ msgstr "Watch Demo"

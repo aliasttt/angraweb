@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load main_extras %}
+
+{% block title %}{% localized post 'title' current_lang %} - {% trans "Blog" %}{% endblock %}
+
+{% block meta_description %}{% localized post 'excerpt' current_lang %}{% endblock %}
+
+{% block og_title %}{% localized post 'title' current_lang %}{% endblock %}
+{% block og_description %}{% localized post 'excerpt' current_lang %}{% endblock %}
+{% block og_image %}{% if post.image %}{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endif %}{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'blog_list' %}">{% trans "Blog" %}</a></li>
+                        <li class="breadcrumb-item active">{% localized post 'title' current_lang %}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Post Detail -->
+<article class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- Post Header -->
+                <header class="blog-post-header mb-4">
+                    <h1 class="blog-post-title">{% localized post 'title' current_lang %}</h1>
+                    <div class="blog-post-meta">
+                        <span class="meta-item">
+                            <i class="far fa-calendar"></i> 
+                            {{ post.published_at|date:"d F Y" }}
+                        </span>
+                        <span class="meta-item">
+                            <i class="far fa-eye"></i> 
+                            {{ post.views }} {% trans "views" %}
+                        </span>
+                        {% if post.author %}
+                        <span class="meta-item">
+                            <i class="far fa-user"></i> 
+                            {{ post.author.get_full_name|default:post.author.username }}
+                        </span>
+                        {% endif %}
+                    </div>
+                </header>
+
+                <!-- Post Image -->
+                {% if post.image %}
+                <div class="blog-post-image mb-4">
+                    <img src="{{ post.image.url }}" alt="{% localized post 'title' current_lang %}" class="img-fluid rounded">
+                </div>
+                {% endif %}
+
+                <!-- Post Content -->
+                <div class="blog-post-content">
+                    {% localized post 'content' current_lang|linebreaks %}
+                </div>
+
+                <!-- Share Buttons -->
+                <div class="blog-share mt-5 mb-5">
+                    <h5 class="mb-3">{% trans "Share this article" %}</h5>
+                    <div class="share-buttons">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 
+                           target="_blank" class="btn btn-sm btn-outline-primary me-2">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={% localized post 'title' current_lang %}" 
+                           target="_blank" class="btn btn-sm btn-outline-info me-2">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}" 
+                           target="_blank" class="btn btn-sm btn-outline-primary me-2">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://wa.me/?text={% localized post 'title' current_lang %} {{ request.build_absolute_uri }}" 
+                           target="_blank" class="btn btn-sm btn-outline-success">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Posts -->
+        {% if related_posts %}
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="section-title text-center mb-4">
+                    <span class="text-gradient">{% trans "Related Articles" %}</span>
+                </h3>
+            </div>
+            {% for related_post in related_posts %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="blog-card">
+                    {% if related_post.image %}
+                    <div class="blog-image">
+                        <a href="{% url 'blog_detail' related_post.slug %}">
+                            <img src="{{ related_post.image.url }}" alt="{% localized related_post 'title' current_lang %}">
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="blog-content">
+                        <h4 class="blog-title">
+                            <a href="{% url 'blog_detail' related_post.slug %}">
+                                {% localized related_post 'title' current_lang %}
+                            </a>
+                        </h4>
+                        <p class="blog-excerpt">
+                            {% localized_truncate related_post 'excerpt' current_lang 15 %}
+                        </p>
+                        <a href="{% url 'blog_detail' related_post.slug %}" class="btn btn-sm btn-outline-primary">
+                            {% trans "Read More" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}

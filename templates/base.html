@@ -7,6 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}</title>
     
+    <!-- Meta Tags for SEO -->
+    {% block meta %}
+    <meta name="description" content="{% block meta_description %}{% trans 'Professional web design, e-commerce development, mobile app design, and SEO services. Grow your business in the digital world!' %}{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}web design, ecommerce, mobile app, SEO, hosting, UI/UX design, {% trans 'web development' %}{% endblock %}">
+    <meta name="author" content="Angraweb.com">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% block og_title %}{% block title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% trans 'Professional web design and development services. Grow your business in the digital world!' %}{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endblock %}">
+    <meta property="og:locale" content="{% if current_lang == 'tr' %}tr_TR{% elif current_lang == 'fa' %}fa_IR{% elif current_lang == 'ar' %}ar_SA{% else %}en_US{% endif %}">
+    <meta property="og:site_name" content="Angraweb.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+    <meta name="twitter:title" content="{% block twitter_title %}{% block title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{% trans 'Professional web design and development services. Grow your business in the digital world!' %}{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endblock %}">
+    {% endblock %}
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Angraweb.com",
+      "url": "{{ request.scheme }}://{{ request.get_host }}",
+      "logo": "{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}",
+      "description": "{% trans 'Professional web design and development services. Grow your business in the digital world!' %}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+90-534-038-23-35",
+        "contactType": "customer service",
+        "email": "aliasadi3853@gmail.com",
+        "availableLanguage": ["tr", "en", "fa", "ar"],
+        "areaServed": "TR"
+      },
+      "sameAs": [
+        "https://www.instagram.com/ali_asadiz_ttt",
+        "https://t.me/Ali_asadiz_ttt",
+        "https://github.com/aliasttt"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "category": "Web Design Services"
+      }
+    }
+    </script>
+    
     <script>
     function gtag_report_conversion(url) {
       var callback = function () {
@@ -25,8 +83,6 @@
       return false;
     }
     </script>
-    
-    {% block meta %}{% endblock %}
     
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}?v=2">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -211,8 +267,21 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="footer-title">{% trans "Follow Us" %}</h5>
-                    <div class="footer-social-links">
+                    <h5 class="footer-title">{% trans "Newsletter" %}</h5>
+                    <p class="footer-description mb-3">{% trans "Subscribe to our newsletter for updates and special offers." %}</p>
+                    <form method="post" action="{% url 'newsletter_subscribe' %}" class="newsletter-form" id="newsletterForm">
+                        {% csrf_token %}
+                        <div class="input-group mb-2">
+                            <input type="email" name="email" class="form-control" 
+                                   placeholder="{% trans 'Your email' %}" required>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <input type="text" name="name" class="form-control" 
+                               placeholder="{% trans 'Your name (optional)' %}">
+                    </form>
+                    <div class="footer-social-links mt-3">
                         <a href="https://www.instagram.com/ali_asadiz_ttt" class="footer-social-link" target="_blank">
                             <i class="fab fa-instagram"></i>
                             <span>Instagram</span>
@@ -237,6 +306,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" style="display: none;" aria-label="{% trans 'Back to top' %}">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- WhatsApp Fixed Button -->
     <a href="https://wa.me/905340382335?text=Merhaba! Teklif almak istiyorum." class="whatsapp-fixed-container" target="_blank" onclick="return gtag_report_conversion('https://wa.me/905340382335')">

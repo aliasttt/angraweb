@@ -316,4 +316,64 @@
         </div>
     </div>
 </section>
+
+<!-- Testimonials Section -->
+{% if testimonials %}
+<section id="testimonials" class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center">
+                    <span class="text-gradient">{% trans "What Our Clients Say" %}</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for testimonial in testimonials %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= testimonial.rating %}
+                            <i class="fas fa-star text-warning"></i>
+                            {% else %}
+                            <i class="far fa-star text-secondary"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="testimonial-content">
+                        <p>{% localized testimonial 'content' current_lang|truncatewords:30 %}</p>
+                    </div>
+                    <div class="testimonial-author">
+                        {% if testimonial.image %}
+                        <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" class="testimonial-avatar">
+                        {% else %}
+                        <div class="testimonial-avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        {% endif %}
+                        <div class="testimonial-info">
+                            <h5>{{ testimonial.name }}</h5>
+                            {% if testimonial.company %}
+                            <p class="testimonial-company">{{ testimonial.company }}</p>
+                            {% endif %}
+                            {% if testimonial.position %}
+                            <p class="testimonial-position">{{ testimonial.position }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <a href="{% url 'testimonials_list' %}" class="btn btn-outline-light btn-lg">
+                    {% trans "View All Testimonials" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
 {% endblock %}

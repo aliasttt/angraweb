@@ -464,3 +464,58 @@ class SiteSetting(models.Model):
     
     def __str__(self):
         return self.key
+
+
+class FAQ(models.Model):
+    """سوالات متداول"""
+    CATEGORY_CHOICES = [
+        ('general', 'عمومی'),
+        ('services', 'خدمات'),
+        ('pricing', 'قیمت‌گذاری'),
+        ('technical', 'فنی'),
+        ('support', 'پشتیبانی'),
+        ('other', 'سایر'),
+    ]
+    
+    question = models.CharField(max_length=500, verbose_name='سوال')
+    question_en = models.CharField(max_length=500, blank=True, verbose_name='سوال انگلیسی')
+    question_fa = models.CharField(max_length=500, blank=True, verbose_name='سوال فارسی')
+    question_ar = models.CharField(max_length=500, blank=True, verbose_name='سوال عربی')
+    
+    answer = models.TextField(verbose_name='پاسخ')
+    answer_en = models.TextField(blank=True, verbose_name='پاسخ انگلیسی')
+    answer_fa = models.TextField(blank=True, verbose_name='پاسخ فارسی')
+    answer_ar = models.TextField(blank=True, verbose_name='پاسخ عربی')
+    
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default='general', verbose_name='دسته‌بندی')
+    order = models.IntegerField(default=0, verbose_name='ترتیب نمایش')
+    active = models.BooleanField(default=True, verbose_name='فعال')
+    
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='تاریخ به‌روزرسانی')
+    
+    class Meta:
+        verbose_name = 'سوال متداول'
+        verbose_name_plural = 'سوالات متداول'
+        ordering = ['order', 'created_at']
+    
+    def __str__(self):
+        return self.question
+
+
+class NewsletterSubscriber(models.Model):
+    """مشترکین خبرنامه"""
+    email = models.EmailField(unique=True, verbose_name='ایمیل')
+    name = models.CharField(max_length=200, blank=True, verbose_name='نام')
+    subscribed = models.BooleanField(default=True, verbose_name='فعال')
+    subscribed_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ اشتراک')
+    unsubscribed_at = models.DateTimeField(blank=True, null=True, verbose_name='تاریخ لغو اشتراک')
+    ip_address = models.GenericIPAddressField(blank=True, null=True, verbose_name='آدرس IP')
+    
+    class Meta:
+        verbose_name = 'مشترک خبرنامه'
+        verbose_name_plural = 'مشترکین خبرنامه'
+        ordering = ['-subscribed_at']
+    
+    def __str__(self):
+        return self.email
