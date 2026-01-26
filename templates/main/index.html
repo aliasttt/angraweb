@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load main_extras %}
 
 {% block title %}{% trans "Web and mobile app design | Custom developer and designer" %}{% endblock %}
 
@@ -92,8 +93,8 @@
                     <div class="service-icon">
                         <i class="{{ service.icon }}"></i>
                     </div>
-                    <h3>{{ service.title }}</h3>
-                    <p>{{ service.description|truncatewords:35 }}</p>
+                    <h3>{% localized service 'title' current_lang %}</h3>
+                    <p>{% localized_truncate service 'description' current_lang 35 %}</p>
                     <div class="service-cta">
                         <a href="{% url 'service_detail' service.slug %}" class="btn btn-sm btn-outline-primary">
                             {% trans "Learn more" %}
@@ -243,7 +244,7 @@
                     <div class="package-badge">{% trans "Popular" %}</div>
                     {% endif %}
                     <div class="package-header">
-                        <h3>{{ package.title }}</h3>
+                        <h3>{% localized package 'title' current_lang %}</h3>
                         <div class="package-price">
                             {% if package.custom_price_text %}
                             <p class="custom-price">{{ package.custom_price_text }}</p>
@@ -258,7 +259,7 @@
                             {% for feature in package.features.all %}
                             <li>
                                 <i class="fas fa-{% if feature.included %}check{% else %}times{% endif %}"></i>
-                                <span {% if not feature.included %}class="feature-disabled"{% endif %}>{{ feature.title }}</span>
+                                <span {% if not feature.included %}class="feature-disabled"{% endif %}>{% localized feature 'title' current_lang %}</span>
                             </li>
                             {% endfor %}
                         </ul>
@@ -291,11 +292,11 @@
                     </div>
                     {% endif %}
                     <div class="project-content">
-                        <h3>{{ project.title }}</h3>
+                        <h3>{% localized project 'title' current_lang %}</h3>
                         {% if project.domain %}
                         <p class="portfolio-domain">{{ project.domain }}</p>
                         {% endif %}
-                        <p>{{ project.description|truncatewords:15 }}</p>
+                        <p>{% localized_truncate project 'description' current_lang 15 %}</p>
                         {% if project.url %}
                         <a href="{{ project.url }}" class="btn btn-primary portfolio-visit-btn" target="_blank">
                             {% trans "Visit Website" %}

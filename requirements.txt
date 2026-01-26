@@ -1,2 +1,4 @@
 Django>=5.1.2
 Pillow>=10.0.0
+deep-translator>=1.11.4
+polib>=1.2.0

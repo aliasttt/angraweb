@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load main_extras %}
 
 {% block title %}{% trans "E-Commerce Store" %} | Angraweb.com{% endblock %}
 
@@ -95,7 +96,7 @@
                     {% if package.package_type == 'basic' or package.package_type == 'commercial' or package.package_type == 'professional' %}
                     <div class="col-md-4 mb-4">
                         <div class="package-card">
-                            <h4>{{ package.title }}</h4>
+                            <h4>{% localized package 'title' current_lang %}</h4>
                             <div class="package-price">
                                 <span class="price-amount">{{ package.price|floatformat:0 }}</span>
                                 <span class="price-currency">{{ package.currency }}</span>
@@ -103,7 +104,7 @@
                             {% if package.features.all %}
                             <ul class="package-features">
                                 {% for feature in package.features.all|slice:":5" %}
-                                <li>{{ feature.title }}</li>
+                                <li>{% localized feature 'title' current_lang %}</li>
                                 {% endfor %}
                             </ul>
                             {% endif %}

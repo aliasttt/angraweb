@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load main_extras %}
 
 {% block title %}{% trans "Web Design" %} | Angraweb.com{% endblock %}
 
@@ -71,20 +72,20 @@
         {% if projects %}
         <div class="row mt-5">
             <div class="col-12">
-                <h3 class="mb-4">نمونه پروژه‌های طراحی وبسایت</h3>
+                <h3 class="mb-4">{% trans "Web Design Project Samples" %}</h3>
                 <div class="row">
                     {% for project in projects %}
                     <div class="col-md-4 mb-4">
                         <div class="project-card">
                             {% if project.image %}
                             <div class="project-image">
-                                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                                <img src="{{ project.image.url }}" alt="{% localized project 'title' current_lang %}">
                             </div>
                             {% endif %}
                             <div class="project-content">
-                                <h4>{{ project.title }}</h4>
+                                <h4>{% localized project 'title' current_lang %}</h4>
                                 {% if project.url %}
-                                <a href="{{ project.url }}" class="btn btn-sm btn-primary" target="_blank">مشاهده</a>
+                                <a href="{{ project.url }}" class="btn btn-sm btn-primary" target="_blank">{% trans "View" %}</a>
                                 {% endif %}
                             </div>
                         </div>

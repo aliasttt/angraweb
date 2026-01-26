@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 19:21+0330\n"
+"POT-Creation-Date: 2026-01-26 19:29+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,7 +134,7 @@ msgstr "Hizmetler"
 msgid "All Services"
 msgstr "Hizmetler"
 
-#: .\templates\base.html:105 .\templates\main\web_design.html:5
+#: .\templates\base.html:105 .\templates\main\web_design.html:6
 #, fuzzy
 #| msgid "Get Design Quote"
 msgid "Web Design"
@@ -171,7 +171,7 @@ msgid "UI/UX Design"
 msgstr "UI/UX Tasarımı"
 
 #: .\templates\base.html:114 .\templates\base.html:191
-#: .\templates\main\projects.html:5 .\templates\main\projects.html:11
+#: .\templates\main\projects.html:6 .\templates\main\projects.html:12
 msgid "Projects"
 msgstr "Projeler"
 
@@ -232,15 +232,15 @@ msgstr "Bizi Takip Edin"
 msgid "All rights reserved."
 msgstr "Tüm hakları saklıdır."
 
-#: .\templates\base.html:244 .\templates\main\ecommerce.html:77
-#: .\templates\main\ecommerce.html:79 .\templates\main\hosting.html:83
-#: .\templates\main\hosting.html:85 .\templates\main\index.html:117
+#: .\templates\base.html:244 .\templates\main\ecommerce.html:78
+#: .\templates\main\ecommerce.html:80 .\templates\main\hosting.html:83
+#: .\templates\main\hosting.html:85 .\templates\main\index.html:118
 #: .\templates\main\mobile_app.html:54 .\templates\main\mobile_app.html:56
 #: .\templates\main\quote_request.html:5 .\templates\main\quote_request.html:11
 #: .\templates\main\seo.html:77 .\templates\main\seo.html:79
-#: .\templates\main\service_detail.html:69 .\templates\main\ui_ux.html:84
-#: .\templates\main\ui_ux.html:86 .\templates\main\web_design.html:59
-#: .\templates\main\web_design.html:61
+#: .\templates\main\service_detail.html:70 .\templates\main\ui_ux.html:84
+#: .\templates\main\ui_ux.html:86 .\templates\main\web_design.html:60
+#: .\templates\main\web_design.html:62
 msgid "Get Quote"
 msgstr "Teklif Al"
 
@@ -250,17 +250,17 @@ msgstr "Teklif Al"
 msgid "About Me - Professional Web Design Expert"
 msgstr "Uzman Web Tasarımı"
 
-#: .\templates\main\about.html:11 .\templates\main\index.html:182
+#: .\templates\main\about.html:11 .\templates\main\index.html:183
 msgid "About Me"
 msgstr "Hakkımda"
 
-#: .\templates\main\about.html:21 .\templates\main\index.html:189
+#: .\templates\main\about.html:21 .\templates\main\index.html:190
 #, fuzzy
 #| msgid "Professional Web Design"
 msgid "Professional Web Design Expert"
 msgstr "Uzman Web Tasarımı"
 
-#: .\templates\main\about.html:23 .\templates\main\index.html:191
+#: .\templates\main\about.html:23 .\templates\main\index.html:192
 #, python-format
 msgid ""
 "\n"
@@ -277,17 +277,17 @@ msgstr ""
 "aldı.\n"
 "                        "
 
-#: .\templates\main\about.html:43 .\templates\main\index.html:211
+#: .\templates\main\about.html:43 .\templates\main\index.html:212
 msgid "Successful Projects"
 msgstr "Başarılı Proje"
 
-#: .\templates\main\about.html:47 .\templates\main\index.html:215
+#: .\templates\main\about.html:47 .\templates\main\index.html:216
 #, fuzzy
 #| msgid "Years Experience"
 msgid "Years of Experience"
 msgstr "Yıl Deneyim"
 
-#: .\templates\main\about.html:51 .\templates\main\index.html:219
+#: .\templates\main\about.html:51 .\templates\main\index.html:220
 msgid "Customer Satisfaction"
 msgstr "Müşteri Memnuniyeti"
 
@@ -345,27 +345,27 @@ msgstr "Son aktiviteleriniz ve istekleriniz burada görünecek."
 msgid "Request a quote"
 msgstr "Teklif İste"
 
-#: .\templates\main\ecommerce.html:5
+#: .\templates\main\ecommerce.html:6
 #, fuzzy
 #| msgid "E-commerce Solutions"
 msgid "E-Commerce Store"
 msgstr "E-Ticaret Çözümleri"
 
-#: .\templates\main\ecommerce.html:11
+#: .\templates\main\ecommerce.html:12
 #, fuzzy
 #| msgid "E-commerce Solutions"
 msgid "E-Commerce Store Development"
 msgstr "E-Ticaret Çözümleri"
 
-#: .\templates\main\ecommerce.html:13
+#: .\templates\main\ecommerce.html:14
 msgid "Complete online stores with payment, inventory, and admin panel"
 msgstr "Ödeme, envanter ve yönetim paneli ile eksiksiz çevrimiçi mağazalar"
 
-#: .\templates\main\ecommerce.html:22
+#: .\templates\main\ecommerce.html:23
 msgid "E-commerce development services"
 msgstr "E-ticaret geliştirme hizmetleri"
 
-#: .\templates\main\ecommerce.html:24
+#: .\templates\main\ecommerce.html:25
 msgid ""
 "We build full-featured online stores that handle products, orders, payments, "
 "shipping, and customer accounts. From small shops to multi-vendor "
@@ -377,16 +377,16 @@ msgstr ""
 "satıcılı pazaryerlerine kadar, modern arayüz ve güçlü yönetim araçlarıyla "
 "güvenli, ölçeklenebilir e-ticaret platformları sunuyoruz."
 
-#: .\templates\main\ecommerce.html:27 .\templates\main\hosting.html:27
+#: .\templates\main\ecommerce.html:28 .\templates\main\hosting.html:27
 #: .\templates\main\mobile_app.html:27 .\templates\main\seo.html:27
-#: .\templates\main\service_detail.html:30
-#: .\templates\main\service_detail.html:40
-#: .\templates\main\service_detail.html:50 .\templates\main\ui_ux.html:27
-#: .\templates\main\web_design.html:27
+#: .\templates\main\service_detail.html:31
+#: .\templates\main\service_detail.html:41
+#: .\templates\main\service_detail.html:51 .\templates\main\ui_ux.html:27
+#: .\templates\main\web_design.html:28
 msgid "What you get"
 msgstr "Neler alırsınız"
 
-#: .\templates\main\ecommerce.html:29
+#: .\templates\main\ecommerce.html:30
 msgid ""
 "Product catalog: categories, filters, search, variants (size/color), stock "
 "management"
@@ -394,7 +394,7 @@ msgstr ""
 "Ürün kataloğu: kategoriler, filtreler, arama, varyantlar (beden/renk), stok "
 "yönetimi"
 
-#: .\templates\main\ecommerce.html:30
+#: .\templates\main\ecommerce.html:31
 msgid ""
 "Shopping cart, checkout flow, and multiple payment gateways (Stripe, PayPal, "
 "local)"
@@ -402,7 +402,7 @@ msgstr ""
 "Alışveriş sepeti, ödeme akışı ve çoklu ödeme ağ geçitleri (Stripe, PayPal, "
 "yerel)"
 
-#: .\templates\main\ecommerce.html:31
+#: .\templates\main\ecommerce.html:32
 msgid ""
 "Order management: status tracking, invoices, shipping labels, email "
 "notifications"
@@ -410,62 +410,62 @@ msgstr ""
 "Sipariş yönetimi: durum takibi, faturalar, kargo etiketleri, e-posta "
 "bildirimleri"
 
-#: .\templates\main\ecommerce.html:32
+#: .\templates\main\ecommerce.html:33
 msgid "Customer accounts: profiles, order history, wishlists, reviews"
 msgstr ""
 "Müşteri hesapları: profiller, sipariş geçmişi, istek listeleri, yorumlar"
 
-#: .\templates\main\ecommerce.html:33
+#: .\templates\main\ecommerce.html:34
 msgid ""
 "Admin panel: products, orders, customers, analytics, discount codes, reports"
 msgstr ""
 "Yönetim paneli: ürünler, siparişler, müşteriler, analitik, indirim kodları, "
 "raporlar"
 
-#: .\templates\main\ecommerce.html:34
+#: .\templates\main\ecommerce.html:35
 msgid "SEO: product pages, sitemaps, schema markup, meta optimization"
 msgstr ""
 "SEO: ürün sayfaları, site haritaları, şema işaretleme, meta optimizasyonu"
 
-#: .\templates\main\ecommerce.html:35
+#: .\templates\main\ecommerce.html:36
 msgid "Security: PCI compliance basics, secure payments, data encryption"
 msgstr "Güvenlik: PCI uyumluluğu temelleri, güvenli ödemeler, veri şifreleme"
 
-#: .\templates\main\ecommerce.html:38 .\templates\main\mobile_app.html:37
+#: .\templates\main\ecommerce.html:39 .\templates\main\mobile_app.html:37
 #: .\templates\main\seo.html:38 .\templates\main\ui_ux.html:38
-#: .\templates\main\web_design.html:37
+#: .\templates\main\web_design.html:38
 msgid "Process"
 msgstr "Süreç"
 
-#: .\templates\main\ecommerce.html:40
+#: .\templates\main\ecommerce.html:41
 msgid "Requirements: product types, payment methods, shipping zones, tax rules"
 msgstr ""
 "Gereksinimler: ürün türleri, ödeme yöntemleri, kargo bölgeleri, vergi "
 "kuralları"
 
-#: .\templates\main\ecommerce.html:41
+#: .\templates\main\ecommerce.html:42
 msgid "Design: product pages, cart, checkout, admin UI mockups"
 msgstr ""
 "Tasarım: ürün sayfaları, sepet, ödeme, yönetim paneli arayüz taslakları"
 
-#: .\templates\main\ecommerce.html:42
+#: .\templates\main\ecommerce.html:43
 msgid "Development: Django e-commerce backend + frontend + payment integration"
 msgstr "Geliştirme: Django e-ticaret backend + frontend + ödeme entegrasyonu"
 
-#: .\templates\main\ecommerce.html:43
+#: .\templates\main\ecommerce.html:44
 msgid "Testing: checkout flow, payment sandbox, inventory, order workflows"
 msgstr "Test: ödeme akışı, ödeme test ortamı, envanter, sipariş iş akışları"
 
-#: .\templates\main\ecommerce.html:44
+#: .\templates\main\ecommerce.html:45
 msgid "Launch: SSL, payment gateway setup, initial product import, go-live"
 msgstr ""
 "Yayınlama: SSL, ödeme ağ geçidi kurulumu, ilk ürün içe aktarma, canlıya alma"
 
-#: .\templates\main\ecommerce.html:47
+#: .\templates\main\ecommerce.html:48
 msgid "Technologies we use"
 msgstr "Kullandığımız teknolojiler"
 
-#: .\templates\main\ecommerce.html:49
+#: .\templates\main\ecommerce.html:50
 msgid ""
 "Django + PostgreSQL, Stripe/PayPal APIs, Redis for caching, Celery for "
 "background tasks, Docker for deployment. Frontend: Bootstrap/Tailwind, "
@@ -475,11 +475,11 @@ msgstr ""
 "plan görevleri için Celery, dağıtım için Docker. Frontend: Bootstrap/"
 "Tailwind, JavaScript, duyarlı tasarım."
 
-#: .\templates\main\ecommerce.html:52 .\templates\main\web_design.html:46
+#: .\templates\main\ecommerce.html:53 .\templates\main\web_design.html:47
 msgid "Typical timeline"
 msgstr "Tipik zaman çizelgesi"
 
-#: .\templates\main\ecommerce.html:54
+#: .\templates\main\ecommerce.html:55
 msgid ""
 "Small store (50-200 products): 4-8 weeks · Medium store (200-1000 products): "
 "8-16 weeks · Large marketplace: 16+ weeks"
@@ -487,13 +487,13 @@ msgstr ""
 "Küçük mağaza (50-200 ürün): 4-8 hafta · Orta mağaza (200-1000 ürün): 8-16 "
 "hafta · Büyük pazaryeri: 16+ hafta"
 
-#: .\templates\main\ecommerce.html:57 .\templates\main\hosting.html:63
+#: .\templates\main\ecommerce.html:58 .\templates\main\hosting.html:63
 #: .\templates\main\mobile_app.html:46 .\templates\main\seo.html:57
-#: .\templates\main\ui_ux.html:64 .\templates\main\web_design.html:51
+#: .\templates\main\ui_ux.html:64 .\templates\main\web_design.html:52
 msgid "Pricing (guideline)"
 msgstr "Fiyatlandırma (kılavuz)"
 
-#: .\templates\main\ecommerce.html:59
+#: .\templates\main\ecommerce.html:60
 msgid ""
 "Basic e-commerce stores start from 25,000 TL. Stores with custom features, "
 "multiple payment methods, inventory sync, or marketplace functionality are "
@@ -503,16 +503,16 @@ msgstr ""
 "ödeme yöntemleri, envanter senkronizasyonu veya pazaryeri işlevselliği olan "
 "mağazalar gereksinimler incelendikten sonra fiyatlandırılır."
 
-#: .\templates\main\ecommerce.html:62 .\templates\main\hosting.html:68
+#: .\templates\main\ecommerce.html:63 .\templates\main\hosting.html:68
 #: .\templates\main\seo.html:62 .\templates\main\ui_ux.html:69
 msgid "FAQ"
 msgstr "SSS"
 
-#: .\templates\main\ecommerce.html:64
+#: .\templates\main\ecommerce.html:65
 msgid "Q: Do you handle payment gateway setup?"
 msgstr "S: Ödeme ağ geçidi kurulumunu siz mi yapıyorsunuz?"
 
-#: .\templates\main\ecommerce.html:65
+#: .\templates\main\ecommerce.html:66
 msgid ""
 "A: Yes, we integrate Stripe, PayPal, or local payment providers. You'll need "
 "to provide API credentials from your payment account."
@@ -520,11 +520,11 @@ msgstr ""
 "C: Evet, Stripe, PayPal veya yerel ödeme sağlayıcılarını entegre ediyoruz. "
 "Ödeme hesabınızdan API kimlik bilgilerini sağlamanız gerekecek."
 
-#: .\templates\main\ecommerce.html:67
+#: .\templates\main\ecommerce.html:68
 msgid "Q: Can I manage products myself?"
 msgstr "S: Ürünleri kendim yönetebilir miyim?"
 
-#: .\templates\main\ecommerce.html:68
+#: .\templates\main\ecommerce.html:69
 msgid ""
 "A: Yes, the admin panel includes full product management: add/edit products, "
 "set prices, manage inventory, upload images."
@@ -532,11 +532,11 @@ msgstr ""
 "C: Evet, yönetim paneli tam ürün yönetimini içerir: ürün ekleme/düzenleme, "
 "fiyat belirleme, envanter yönetimi, görsel yükleme."
 
-#: .\templates\main\ecommerce.html:70
+#: .\templates\main\ecommerce.html:71
 msgid "Q: Do you provide hosting?"
 msgstr "S: Hosting sağlıyor musunuz?"
 
-#: .\templates\main\ecommerce.html:71
+#: .\templates\main\ecommerce.html:72
 msgid ""
 "A: We can set up hosting or you can use your own. We recommend cloud hosting "
 "(AWS, DigitalOcean) for better performance and scalability."
@@ -545,24 +545,24 @@ msgstr ""
 "performans ve ölçeklenebilirlik için bulut hosting'i (AWS, DigitalOcean) "
 "öneriyoruz."
 
-#: .\templates\main\ecommerce.html:82 .\templates\main\mobile_app.html:59
-#: .\templates\main\web_design.html:64
+#: .\templates\main\ecommerce.html:83 .\templates\main\mobile_app.html:59
+#: .\templates\main\web_design.html:65
 msgid "Starting from"
 msgstr "Başlangıç fiyatı"
 
-#: .\templates\main\ecommerce.html:83
+#: .\templates\main\ecommerce.html:84
 msgid "Includes"
 msgstr "İçerir"
 
-#: .\templates\main\ecommerce.html:83
+#: .\templates\main\ecommerce.html:84
 msgid "full store + admin + payment"
 msgstr "tam mağaza + yönetim + ödeme"
 
-#: .\templates\main\ecommerce.html:92
+#: .\templates\main\ecommerce.html:93
 msgid "E-commerce packages"
 msgstr "E-ticaret paketleri"
 
-#: .\templates\main\ecommerce.html:111
+#: .\templates\main\ecommerce.html:112
 msgid "Select Package"
 msgstr "Paket Seç"
 
@@ -762,23 +762,23 @@ msgstr "Paylaşımlı"
 msgid "VPS"
 msgstr "VPS"
 
-#: .\templates\main\index.html:5
+#: .\templates\main\index.html:6
 msgid "Web and mobile app design | Custom developer and designer"
 msgstr "Web sitesi ve mobil uygulama tasarımı | Özel yazılımcı ve tasarımcı"
 
-#: .\templates\main\index.html:15
+#: .\templates\main\index.html:16
 #, fuzzy
 #| msgid "Professional Web Design and Development Expert"
 msgid "Professional Web Design & E-commerce"
-msgstr "Profesyonel Web Tasarım ve Geliştirme Uzmanı"
+msgstr "Profesyonel Web Tasarım ve E-Ticaret"
 
-#: .\templates\main\index.html:18
+#: .\templates\main\index.html:19
 #, fuzzy
 #| msgid "Solutions That Grow Your Business in the Digital World"
 msgid "Grow your business in the digital world!"
-msgstr "İşletmenizi Dijital Dünyada Büyüten Çözümler"
+msgstr "Dijital dünyada işinizi büyütün!"
 
-#: .\templates\main\index.html:21
+#: .\templates\main\index.html:22
 msgid ""
 "\n"
 "                        I design modern, fast and user‑friendly websites for "
@@ -786,120 +786,124 @@ msgid ""
 "deliver professional design, clean code and measurable results.\n"
 "                        "
 msgstr ""
+"\n"
+"                        İşletmeniz için modern, hızlı ve kullanıcı dostu web "
+"siteleri tasarlıyorum. Kurumsal web sitelerinden e-ticaret ve özel "
+"platformlara kadar, profesyonel tasarım, temiz kod ve ölçülebilir sonuçlar "
+"sunuyorum.\n"
+"                        "
 
-#: .\templates\main\index.html:27
+#: .\templates\main\index.html:28
 msgid "View Certificates"
 msgstr "Sertifikalarımı İncele"
 
-#: .\templates\main\index.html:30
+#: .\templates\main\index.html:31
 msgid "Write on WhatsApp"
 msgstr "WhatsApp'tan Yaz"
 
-#: .\templates\main\index.html:50
+#: .\templates\main\index.html:51
 msgid "Fast Delivery"
 msgstr "Hızlı Teslimat"
 
-#: .\templates\main\index.html:54
+#: .\templates\main\index.html:55
 msgid "Mobile Friendly"
 msgstr "Mobil Uyumlu"
 
-#: .\templates\main\index.html:58
+#: .\templates\main\index.html:59
 msgid "Secure"
 msgstr "Güvenli"
 
-#: .\templates\main\index.html:62
+#: .\templates\main\index.html:63
 msgid "24/7 Support"
 msgstr "7/24 Destek"
 
-#: .\templates\main\index.html:84
+#: .\templates\main\index.html:85
 msgid "My Services"
 msgstr "Hizmetlerim"
 
-#: .\templates\main\index.html:99
+#: .\templates\main\index.html:100
 msgid "Learn more"
 msgstr "Daha fazla bilgi"
 
-#: .\templates\main\index.html:106 .\templates\main\services.html:44
+#: .\templates\main\index.html:107 .\templates\main\services.html:45
 msgid "No services found."
 msgstr "Hizmet bulunamadı."
 
-#: .\templates\main\index.html:114
+#: .\templates\main\index.html:115
 #, fuzzy
 #| msgid "Let's Start Bringing Your Project to Life Today!"
 msgid "Let's start your project today!"
 msgstr "Projenizi Hayata Geçirmek İçin Bugün Başlayalım!"
 
-#: .\templates\main\index.html:115
+#: .\templates\main\index.html:116
 msgid "Contact us for a free consultation and a detailed quote."
 msgstr "Ücretsiz danışmanlık ve detaylı teklif için bizimle iletişime geçin."
 
-#: .\templates\main\index.html:131
+#: .\templates\main\index.html:132
 msgid "Why Choose Me?"
 msgstr "Neden Beni Seçmelisiniz?"
 
-#: .\templates\main\index.html:141
+#: .\templates\main\index.html:142
 msgid "Grow Your Business"
 msgstr "İşinizi Büyütün"
 
-#: .\templates\main\index.html:142
+#: .\templates\main\index.html:143
 #, fuzzy
 #| msgid "Increase your sales and customer satisfaction with modern websites"
 msgid "Increase your sales with modern websites"
-msgstr ""
-"Modern web siteleri ile satışlarınızı artırınModern web siteleri ile "
-"satışlarınızı artırın ve müşteri memnuniyetini yükseltin"
+msgstr "Modern web siteleri ile satışlarınızı artırın"
 
-#: .\templates\main\index.html:150
+#: .\templates\main\index.html:151
 #, fuzzy
 #| msgid "Timeline"
 msgid "Time Saving"
-msgstr "Zaman çizelgesi"
+msgstr "Zaman Tasarrufu"
 
-#: .\templates\main\index.html:151
+#: .\templates\main\index.html:152
 #, fuzzy
 #| msgid ""
 #| "Use your time efficiently with fast delivery and professional service"
 msgid "Fast delivery and professional service"
 msgstr "Hızlı teslimat ve profesyonel hizmet ile zamanınızı verimli kullanın"
 
-#: .\templates\main\index.html:159
+#: .\templates\main\index.html:160
 msgid "Affordable Price"
 msgstr "Uygun Fiyat"
 
-#: .\templates\main\index.html:160
+#: .\templates\main\index.html:161
 msgid "Quality service at affordable prices"
 msgstr "Kaliteli hizmeti uygun fiyatlarla"
 
-#: .\templates\main\index.html:168
+#: .\templates\main\index.html:169
 msgid "Continuous Support"
 msgstr "Sürekli Destek"
 
-#: .\templates\main\index.html:169
+#: .\templates\main\index.html:170
 #, fuzzy
 #| msgid "24/7 Technical Support"
 msgid "24/7 technical support service"
 msgstr "7/24 Teknik Destek"
 
-#: .\templates\main\index.html:233 .\templates\main\packages.html:6
+#: .\templates\main\index.html:234 .\templates\main\packages.html:6
 #: .\templates\main\packages.html:12
 msgid "Our Packages"
 msgstr "Paketlerimiz"
 
-#: .\templates\main\index.html:243 .\templates\main\packages.html:26
+#: .\templates\main\index.html:244 .\templates\main\packages.html:26
 msgid "Popular"
 msgstr "Popüler"
 
-#: .\templates\main\index.html:280 .\templates\main\projects.html:50
+#: .\templates\main\index.html:281 .\templates\main\projects.html:51
 msgid "My Projects"
 msgstr "Projelerim"
 
-#: .\templates\main\index.html:301 .\templates\main\projects.html:71
+#: .\templates\main\index.html:302 .\templates\main\projects.html:72
 #, fuzzy
 #| msgid "Website"
 msgid "Visit Website"
 msgstr "Web Sitesi"
 
-#: .\templates\main\index.html:312
+#: .\templates\main\index.html:313
 #, fuzzy
 #| msgid "View Projects"
 msgid "View All Projects"
@@ -997,27 +1001,27 @@ msgstr "uygulama + backend + yönetim"
 msgid "Choose the package that fits your needs"
 msgstr "İhtiyacınıza uygun paketi seçin ve işinizi dijital dünyaya taşıyın"
 
-#: .\templates\main\projects.html:5 .\templates\main\projects.html:22
+#: .\templates\main\projects.html:6 .\templates\main\projects.html:23
 msgid "Video Demos"
 msgstr "Video Demoları"
 
-#: .\templates\main\projects.html:5
+#: .\templates\main\projects.html:6
 #, fuzzy
 #| msgid "Our Portfolio"
 msgid "Portfolio"
 msgstr "Örnek Çalışmalarımız"
 
-#: .\templates\main\projects.html:79
+#: .\templates\main\projects.html:80
 #, fuzzy
 #| msgid "No services found."
 msgid "No projects found."
 msgstr "Hizmet bulunamadı."
 
-#: .\templates\main\projects.html:91
+#: .\templates\main\projects.html:92
 msgid "Previous"
 msgstr ""
 
-#: .\templates\main\projects.html:99
+#: .\templates\main\projects.html:100
 msgid "Next"
 msgstr ""
 
@@ -1359,107 +1363,107 @@ msgstr "Denetim"
 msgid "Monthly"
 msgstr "Aylık"
 
-#: .\templates\main\service_detail.html:32
+#: .\templates\main\service_detail.html:33
 msgid "Responsive design (mobile, tablet, desktop)"
 msgstr "Duyarlı tasarım (mobil, tablet, masaüstü)"
 
-#: .\templates\main\service_detail.html:33
+#: .\templates\main\service_detail.html:34
 msgid "SEO optimization"
 msgstr "SEO optimizasyonu"
 
-#: .\templates\main\service_detail.html:34
+#: .\templates\main\service_detail.html:35
 msgid "Fast loading and performance"
 msgstr "Hızlı yükleme ve performans"
 
-#: .\templates\main\service_detail.html:35
+#: .\templates\main\service_detail.html:36
 msgid "Admin panel for content management"
 msgstr "İçerik yönetimi için yönetim paneli"
 
-#: .\templates\main\service_detail.html:36
+#: .\templates\main\service_detail.html:37
 msgid "Contact forms and lead capture"
 msgstr "İletişim formları ve potansiyel müşteri yakalama"
 
-#: .\templates\main\service_detail.html:37
+#: .\templates\main\service_detail.html:38
 msgid "SSL certificate and security"
 msgstr "SSL sertifikası ve güvenlik"
 
-#: .\templates\main\service_detail.html:42
+#: .\templates\main\service_detail.html:43
 msgid "iOS and Android apps"
 msgstr "iOS ve Android uygulamaları"
 
-#: .\templates\main\service_detail.html:43
+#: .\templates\main\service_detail.html:44
 msgid "Modern UI/UX design"
 msgstr "Modern UI/UX tasarımı"
 
-#: .\templates\main\service_detail.html:44
+#: .\templates\main\service_detail.html:45
 msgid "Backend API and database"
 msgstr "Backend API ve veritabanı"
 
-#: .\templates\main\service_detail.html:45
+#: .\templates\main\service_detail.html:46
 msgid "Push notifications"
 msgstr "Push bildirimleri"
 
-#: .\templates\main\service_detail.html:46
+#: .\templates\main\service_detail.html:47
 msgid "App store submission"
 msgstr "Uygulama mağazasına gönderim"
 
-#: .\templates\main\service_detail.html:47
+#: .\templates\main\service_detail.html:48
 msgid "Post-launch support"
 msgstr "Yayın sonrası destek"
 
-#: .\templates\main\service_detail.html:52
+#: .\templates\main\service_detail.html:53
 msgid "Product catalog and inventory"
 msgstr "Ürün kataloğu ve envanter"
 
-#: .\templates\main\service_detail.html:53
+#: .\templates\main\service_detail.html:54
 msgid "Shopping cart and checkout"
 msgstr "Alışveriş sepeti ve ödeme"
 
-#: .\templates\main\service_detail.html:54
+#: .\templates\main\service_detail.html:55
 msgid "Payment gateway integration"
 msgstr "Ödeme ağ geçidi entegrasyonu"
 
-#: .\templates\main\service_detail.html:55
+#: .\templates\main\service_detail.html:56
 msgid "Order management system"
 msgstr "Sipariş yönetim sistemi"
 
-#: .\templates\main\service_detail.html:56
+#: .\templates\main\service_detail.html:57
 msgid "Customer accounts"
 msgstr "Müşteri hesapları"
 
-#: .\templates\main\service_detail.html:57
+#: .\templates\main\service_detail.html:58
 msgid "Admin panel for products and orders"
 msgstr "Ürünler ve siparişler için yönetim paneli"
 
-#: .\templates\main\service_detail.html:72
+#: .\templates\main\service_detail.html:73
 msgid "Contact us"
 msgstr "Bize ulaşın"
 
-#: .\templates\main\service_detail.html:73
+#: .\templates\main\service_detail.html:74
 msgid "for pricing details"
 msgstr "fiyat detayları için"
 
-#: .\templates\main\service_detail.html:82
+#: .\templates\main\service_detail.html:83
 msgid "Related Services"
 msgstr "İlgili Hizmetler"
 
-#: .\templates\main\service_detail.html:93 .\templates\main\services.html:37
+#: .\templates\main\service_detail.html:94 .\templates\main\services.html:38
 msgid "Learn More"
 msgstr "Daha Fazla Bilgi"
 
-#: .\templates\main\services.html:5 .\templates\main\services.html:11
+#: .\templates\main\services.html:6 .\templates\main\services.html:12
 msgid "Our Services"
 msgstr "Hizmetlerimiz"
 
-#: .\templates\main\services.html:5
+#: .\templates\main\services.html:6
 msgid "Professional Web Design Services"
 msgstr "Profesyonel Web Tasarım Hizmetleri"
 
-#: .\templates\main\services.html:13
+#: .\templates\main\services.html:14
 msgid "Professional Web Design and Digital Solutions"
 msgstr "Profesyonel Web Tasarım ve Dijital Çözümler"
 
-#: .\templates\main\services.html:22
+#: .\templates\main\services.html:23
 msgid ""
 "We offer comprehensive web design, development, and digital marketing "
 "services to help your business grow online. From custom websites to mobile "
@@ -1471,11 +1475,11 @@ msgstr ""
 "mobil uygulamalara, e-ticaret mağazalarına ve SEO optimizasyonuna kadar, "
 "sonuç getiren çözümler sunuyoruz."
 
-#: .\templates\main\services.html:52
+#: .\templates\main\services.html:53
 msgid "Ready to Start Your Project?"
 msgstr "Projenize Başlamaya Hazır mısınız?"
 
-#: .\templates\main\services.html:53
+#: .\templates\main\services.html:54
 msgid ""
 "Get a free consultation and quote. Let's discuss your project and find the "
 "best solution for your needs."
@@ -1483,7 +1487,7 @@ msgstr ""
 "Ücretsiz danışmanlık ve teklif alın. Projenizi tartışalım ve ihtiyaçlarınız "
 "için en iyi çözümü bulalım."
 
-#: .\templates\main\services.html:55
+#: .\templates\main\services.html:56
 msgid "Request Quote"
 msgstr "Teklif İste"
 
@@ -1700,19 +1704,19 @@ msgstr "Landing sayfası"
 msgid "Full website"
 msgstr "Tam web sitesi"
 
-#: .\templates\main\web_design.html:11
+#: .\templates\main\web_design.html:12
 msgid "Professional Web Design"
 msgstr "Uzman Web Tasarımı"
 
-#: .\templates\main\web_design.html:13
+#: .\templates\main\web_design.html:14
 msgid "Modern, fast and conversion‑focused websites"
 msgstr "Modern, hızlı ve dönüşüm odaklı web siteleri"
 
-#: .\templates\main\web_design.html:22
+#: .\templates\main\web_design.html:23
 msgid "Web design services"
 msgstr "Web tasarım hizmetleri"
 
-#: .\templates\main\web_design.html:24
+#: .\templates\main\web_design.html:25
 msgid ""
 "We design and build high‑performance websites that load fast, rank on "
 "Google, and convert visitors into customers. From corporate websites to "
@@ -1724,56 +1728,56 @@ msgstr ""
 "sitelerinden landing sayfalarına ve web uygulamalarına kadar, temiz bir "
 "arayüz, sağlam mühendislik ve ölçülebilir sonuçlar sunuyoruz."
 
-#: .\templates\main\web_design.html:29
+#: .\templates\main\web_design.html:30
 msgid ""
 "Responsive UI (mobile, tablet, desktop) with modern layout and typography"
 msgstr "Modern düzen ve tipografi ile duyarlı arayüz (mobil, tablet, masaüstü)"
 
-#: .\templates\main\web_design.html:30
+#: .\templates\main\web_design.html:31
 msgid "SEO foundations: semantic HTML, meta tags, sitemap, schema basics"
 msgstr ""
 "SEO temelleri: anlamsal HTML, meta etiketler, site haritası, şema temelleri"
 
-#: .\templates\main\web_design.html:31
+#: .\templates\main\web_design.html:32
 msgid "Performance optimization (Core Web Vitals) and fast loading"
 msgstr "Performans optimizasyonu (Core Web Vitals) ve hızlı yükleme"
 
-#: .\templates\main\web_design.html:32
+#: .\templates\main\web_design.html:33
 msgid "Clean codebase + scalable structure for future features"
 msgstr "Temiz kod tabanı + gelecekteki özellikler için ölçeklenebilir yapı"
 
-#: .\templates\main\web_design.html:33
+#: .\templates\main\web_design.html:34
 msgid "Contact/lead forms connected to database and admin panel"
 msgstr ""
 "Veritabanı ve yönetim paneline bağlı iletişim/potansiyel müşteri formları"
 
-#: .\templates\main\web_design.html:34
+#: .\templates\main\web_design.html:35
 msgid "Deployment, SSL, domain + basic security hardening"
 msgstr "Dağıtım, SSL, alan adı + temel güvenlik sertleştirme"
 
-#: .\templates\main\web_design.html:39
+#: .\templates\main\web_design.html:40
 msgid "Discovery & requirements: goals, pages, competitors, content checklist"
 msgstr ""
 "Keşif ve gereksinimler: hedefler, sayfalar, rakipler, içerik kontrol listesi"
 
-#: .\templates\main\web_design.html:40
+#: .\templates\main\web_design.html:41
 msgid "Wireframe & UI: layout, sections, conversion paths, copy structure"
 msgstr "Wireframe ve UI: düzen, bölümler, dönüşüm yolları, metin yapısı"
 
-#: .\templates\main\web_design.html:41
+#: .\templates\main\web_design.html:42
 msgid "Development: Django templates + reusable components + SEO"
 msgstr ""
 "Geliştirme: Django şablonları + yeniden kullanılabilir bileşenler + SEO"
 
-#: .\templates\main\web_design.html:42
+#: .\templates\main\web_design.html:43
 msgid "QA: mobile/responsive checks, speed, accessibility basics"
 msgstr "QA: mobil/duyarlı kontroller, hız, erişilebilirlik temelleri"
 
-#: .\templates\main\web_design.html:43
+#: .\templates\main\web_design.html:44
 msgid "Launch: hosting setup, SSL, analytics, monitoring"
 msgstr "Yayınlama: hosting kurulumu, SSL, analitik, izleme"
 
-#: .\templates\main\web_design.html:48
+#: .\templates\main\web_design.html:49
 msgid ""
 "Landing page: 3–7 days · Corporate site: 1–3 weeks · Custom web app: 3–8+ "
 "weeks"
@@ -1781,7 +1785,7 @@ msgstr ""
 "Landing sayfası: 3–7 gün · Kurumsal site: 1–3 hafta · Özel web uygulaması: 3–"
 "8+ hafta"
 
-#: .\templates\main\web_design.html:53
+#: .\templates\main\web_design.html:54
 msgid ""
 "Corporate websites start from 8,000 TL. Complex websites with "
 "multi‑language, custom admin and integrations are quoted after reviewing "
@@ -1791,15 +1795,25 @@ msgstr ""
 "entegrasyonlar içeren karmaşık web siteleri kapsam incelendikten sonra "
 "fiyatlandırılır."
 
-#: .\templates\main\web_design.html:65
+#: .\templates\main\web_design.html:66
 #, fuzzy
 #| msgid "24/7 Support"
 msgid "Support"
 msgstr "7/24 Destek"
 
-#: .\templates\main\web_design.html:65
+#: .\templates\main\web_design.html:66
 msgid "maintenance & upgrades"
 msgstr "bakım ve güncellemeler"
+
+#: .\templates\main\web_design.html:75
+#, fuzzy
+#| msgid "Web design services"
+msgid "Web Design Project Samples"
+msgstr "Web tasarım hizmetleri"
+
+#: .\templates\main\web_design.html:88
+msgid "View"
+msgstr "Görüntüle"
 
 #~ msgid ""
 #~ "I am a professional web developer specialized in web programming areas. I "
@@ -2346,9 +2360,6 @@ msgstr "bakım ve güncellemeler"
 #~ msgstr ""
 #~ "Projelerimin canlı demo videolarını izleyerek işlevsellik ve tasarım "
 #~ "detaylarını keşfedin."
-
-#~ msgid "View"
-#~ msgstr "Görüntüle"
 
 #~ msgid "Watch Demo"
 #~ msgstr "Demo İzle"

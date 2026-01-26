@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load main_extras %}
 
 {% block title %}{% trans "Projects" %} - {% trans "Video Demos" %} & {% trans "Portfolio" %} | Angraweb.com{% endblock %}
 
@@ -61,11 +62,11 @@
                     </div>
                     {% endif %}
                     <div class="project-content">
-                        <h3>{{ project.title }}</h3>
+                        <h3>{% localized project 'title' current_lang %}</h3>
                         {% if project.domain %}
                         <p class="portfolio-domain">{{ project.domain }}</p>
                         {% endif %}
-                        <p>{{ project.description|truncatewords:15 }}</p>
+                        <p>{% localized_truncate project 'description' current_lang 15 %}</p>
                         {% if project.url %}
                         <a href="{{ project.url }}" class="btn btn-primary portfolio-visit-btn" target="_blank">
                             {% trans "Visit Website" %}

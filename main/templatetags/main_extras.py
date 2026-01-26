@@ -1,4 +1,5 @@
 from django import template
+from django.template.defaultfilters import truncatewords
 
 register = template.Library()
 
@@ -12,3 +13,10 @@ def localized(obj, attr, lang):
         return getattr(obj, attr, '') or ''
     val = getattr(obj, f'{attr}_{lang}', None)
     return (val or '').strip() or (getattr(obj, attr, '') or '')
+
+
+@register.simple_tag
+def localized_truncate(obj, attr, lang, num_words):
+    """Return localized field truncated to num_words."""
+    text = localized(obj, attr, lang)
+    return truncatewords(text, num_words)

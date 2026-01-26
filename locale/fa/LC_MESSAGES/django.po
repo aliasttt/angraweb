@@ -32,7 +32,7 @@ msgstr "ایمیل شما"
 
 #: .\main\forms.py:26 .\templates\main\contact.html:36
 msgid "Phone (optional)"
-msgstr ""
+msgstr "تلفن (اختیاری)"
 
 #: .\main\forms.py:30 .\templates\main\contact.html:40
 msgid "Subject"
@@ -54,7 +54,7 @@ msgstr "شماره تلفن:"
 
 #: .\main\forms.py:101 .\templates\main\quote_request.html:68
 msgid "Company (optional)"
-msgstr ""
+msgstr "شرکت (اختیاری)"
 
 #: .\main\forms.py:105
 #, fuzzy
@@ -64,11 +64,11 @@ msgstr "پروژه‌ها"
 
 #: .\main\forms.py:111 .\templates\main\quote_request.html:88
 msgid "Budget (optional)"
-msgstr ""
+msgstr "بودجه (اختیاری)"
 
 #: .\main\forms.py:115 .\templates\main\quote_request.html:92
 msgid "Deadline (optional)"
-msgstr ""
+msgstr "مهلت (اختیاری)"
 
 #: .\main\forms.py:125 .\templates\main\contact.html:71
 #: .\templates\main\dashboard.html:27 .\templates\main\quote_request.html:58
@@ -79,26 +79,26 @@ msgstr "ایمیل"
 #: .\main\forms.py:130 .\templates\main\dashboard.html:25
 #: .\templates\main\register.html:45
 msgid "First name"
-msgstr ""
+msgstr "نام کوچک"
 
 #: .\main\forms.py:135 .\templates\main\dashboard.html:26
 #: .\templates\main\register.html:49
 msgid "Last name"
-msgstr ""
+msgstr "نام خانوادگی"
 
 #: .\main\forms.py:146 .\templates\main\dashboard.html:24
 #: .\templates\main\register.html:35
 msgid "Username"
-msgstr ""
+msgstr "نام کاربری"
 
 #: .\main\forms.py:157 .\templates\main\login.html:31
 #: .\templates\main\register.html:61
 msgid "Password"
-msgstr ""
+msgstr "رمز عبور"
 
 #: .\main\forms.py:163 .\templates\main\register.html:65
 msgid "Confirm password"
-msgstr ""
+msgstr "رمز عبور را تایید کنید"
 
 #: .\main\views.py:404
 msgid "Invalid phone number or password."
@@ -166,7 +166,7 @@ msgstr "خدمات من"
 #: .\templates\base.html:110 .\templates\main\ui_ux.html:5
 #: .\templates\main\ui_ux.html:11
 msgid "UI/UX Design"
-msgstr ""
+msgstr "طراحی UI/UX"
 
 #: .\templates\base.html:114 .\templates\base.html:191
 #: .\templates\main\projects.html:5 .\templates\main\projects.html:11
@@ -211,8 +211,8 @@ msgid ""
 "Professional web design and development services. Grow your business in the "
 "digital world with modern, fast and user-friendly websites."
 msgstr ""
-"خدمات طراحی و توسعه وب حرفه‌ای. کسب‌وکار خود را در دنیای دیجیتال با وب‌سایت‌های "
-"مدرن، سریع و کاربرپسند رشد دهید."
+"خدمات طراحی و توسعه وب حرفه‌ای. کسب‌وکار خود را در دنیای دیجیتال با "
+"وب‌سایت‌های مدرن، سریع و کاربرپسند رشد دهید."
 
 #: .\templates\base.html:185
 msgid "Quick Links"
@@ -234,11 +234,11 @@ msgstr "تمامی حقوق محفوظ است."
 #: .\templates\main\ecommerce.html:79 .\templates\main\hosting.html:83
 #: .\templates\main\hosting.html:85 .\templates\main\index.html:117
 #: .\templates\main\mobile_app.html:54 .\templates\main\mobile_app.html:56
-#: .\templates\main\quote_request.html:5 .\templates\main\quote_request.html:11
-#: .\templates\main\seo.html:77 .\templates\main\seo.html:79
-#: .\templates\main\service_detail.html:69 .\templates\main\ui_ux.html:84
-#: .\templates\main\ui_ux.html:86 .\templates\main\web_design.html:59
-#: .\templates\main\web_design.html:61
+#: .\templates\main\quote_request.html:5
+#: .\templates\main\quote_request.html:11 .\templates\main\seo.html:77
+#: .\templates\main\seo.html:79 .\templates\main\service_detail.html:69
+#: .\templates\main\ui_ux.html:84 .\templates\main\ui_ux.html:86
+#: .\templates\main\web_design.html:59 .\templates\main\web_design.html:61
 msgid "Get Quote"
 msgstr "دریافت قیمت"
 
@@ -262,10 +262,8 @@ msgstr "طراحی وب حرفه‌ای"
 #, python-format
 msgid ""
 "\n"
-"                        As a graduate of Marmara University Computer "
-"Programming, I offer professional web design solutions. \n"
-"                        More than 20 of my clients have received service "
-"with 100%% satisfaction.\n"
+"                        As a graduate of Marmara University Computer Programming, I offer professional web design solutions. \n"
+"                        More than 20 of my clients have received service with 100%% satisfaction.\n"
 "                        "
 msgstr ""
 
@@ -353,19 +351,23 @@ msgstr "راه‌حل‌های تجارت الکترونیک"
 
 #: .\templates\main\ecommerce.html:13
 msgid "Complete online stores with payment, inventory, and admin panel"
-msgstr ""
+msgstr "فروشگاه های آنلاین را با پرداخت، موجودی و پنل مدیریت کامل کنید"
 
 #: .\templates\main\ecommerce.html:22
 msgid "E-commerce development services"
-msgstr ""
+msgstr "خدمات توسعه تجارت الکترونیک"
 
 #: .\templates\main\ecommerce.html:24
 msgid ""
-"We build full-featured online stores that handle products, orders, payments, "
-"shipping, and customer accounts. From small shops to multi-vendor "
+"We build full-featured online stores that handle products, orders, payments,"
+" shipping, and customer accounts. From small shops to multi-vendor "
 "marketplaces, we deliver secure, scalable e-commerce platforms with modern "
 "UI and powerful admin tools."
 msgstr ""
+"ما فروشگاه‌های آنلاین با امکانات کامل می‌سازیم که محصولات، سفارش‌ها، "
+"پرداخت‌ها، حمل‌ونقل و حساب‌های مشتری را مدیریت می‌کنند. از فروشگاه‌های کوچک "
+"گرفته تا بازارهای چند فروشنده، ما پلتفرم‌های تجارت الکترونیکی امن و "
+"مقیاس‌پذیر را با رابط کاربری مدرن و ابزارهای مدیریت قدرتمند ارائه می‌کنیم."
 
 #: .\templates\main\ecommerce.html:27 .\templates\main\hosting.html:27
 #: .\templates\main\mobile_app.html:27 .\templates\main\seo.html:27
@@ -374,72 +376,80 @@ msgstr ""
 #: .\templates\main\service_detail.html:50 .\templates\main\ui_ux.html:27
 #: .\templates\main\web_design.html:27
 msgid "What you get"
-msgstr ""
+msgstr "آنچه به دست می آورید"
 
 #: .\templates\main\ecommerce.html:29
 msgid ""
 "Product catalog: categories, filters, search, variants (size/color), stock "
 "management"
 msgstr ""
+"کاتالوگ محصولات: دسته ها، فیلترها، جستجو، انواع (اندازه/رنگ)، مدیریت سهام"
 
 #: .\templates\main\ecommerce.html:30
 msgid ""
-"Shopping cart, checkout flow, and multiple payment gateways (Stripe, PayPal, "
-"local)"
+"Shopping cart, checkout flow, and multiple payment gateways (Stripe, PayPal,"
+" local)"
 msgstr ""
+"سبد خرید، جریان پرداخت و درگاه‌های پرداخت متعدد (Stripe، PayPal، محلی)"
 
 #: .\templates\main\ecommerce.html:31
 msgid ""
 "Order management: status tracking, invoices, shipping labels, email "
 "notifications"
 msgstr ""
+"مدیریت سفارش: ردیابی وضعیت، فاکتورها، برچسب های حمل و نقل، اعلان های ایمیل"
 
 #: .\templates\main\ecommerce.html:32
 msgid "Customer accounts: profiles, order history, wishlists, reviews"
 msgstr ""
+"حساب‌های مشتری: پروفایل‌ها، تاریخچه سفارش‌ها، فهرست‌های خواسته‌ها، نظرات"
 
 #: .\templates\main\ecommerce.html:33
 msgid ""
 "Admin panel: products, orders, customers, analytics, discount codes, reports"
 msgstr ""
+"پنل مدیریت: محصولات، سفارشات، مشتریان، تجزیه و تحلیل، کدهای تخفیف، گزارش ها"
 
 #: .\templates\main\ecommerce.html:34
 msgid "SEO: product pages, sitemaps, schema markup, meta optimization"
-msgstr ""
+msgstr "SEO: صفحات محصول، نقشه سایت، نشانه گذاری طرحواره، بهینه سازی متا"
 
 #: .\templates\main\ecommerce.html:35
 msgid "Security: PCI compliance basics, secure payments, data encryption"
-msgstr ""
+msgstr "امنیت: اصول انطباق با PCI، پرداخت های ایمن، رمزگذاری داده ها"
 
 #: .\templates\main\ecommerce.html:38 .\templates\main\mobile_app.html:37
 #: .\templates\main\seo.html:38 .\templates\main\ui_ux.html:38
 #: .\templates\main\web_design.html:37
 msgid "Process"
-msgstr ""
+msgstr "فرآیند"
 
 #: .\templates\main\ecommerce.html:40
-msgid "Requirements: product types, payment methods, shipping zones, tax rules"
-msgstr ""
+msgid ""
+"Requirements: product types, payment methods, shipping zones, tax rules"
+msgstr "الزامات: انواع محصول، روش های پرداخت، مناطق حمل و نقل، قوانین مالیاتی"
 
 #: .\templates\main\ecommerce.html:41
 msgid "Design: product pages, cart, checkout, admin UI mockups"
-msgstr ""
+msgstr "طراحی: صفحات محصول، سبد خرید، پرداخت، مدل‌های رابط کاربری مدیریت"
 
 #: .\templates\main\ecommerce.html:42
-msgid "Development: Django e-commerce backend + frontend + payment integration"
-msgstr ""
+msgid ""
+"Development: Django e-commerce backend + frontend + payment integration"
+msgstr "توسعه: باطن تجارت الکترونیک جنگو + بخش مقدماتی + ادغام پرداخت"
 
 #: .\templates\main\ecommerce.html:43
 msgid "Testing: checkout flow, payment sandbox, inventory, order workflows"
-msgstr ""
+msgstr "آزمایش: جریان پرداخت، جعبه ماسه پرداخت، موجودی، گردش کار سفارش"
 
 #: .\templates\main\ecommerce.html:44
 msgid "Launch: SSL, payment gateway setup, initial product import, go-live"
 msgstr ""
+"راه‌اندازی: SSL، راه‌اندازی درگاه پرداخت، واردات اولیه محصول، شروع به کار"
 
 #: .\templates\main\ecommerce.html:47
 msgid "Technologies we use"
-msgstr ""
+msgstr "فناوری هایی که ما استفاده می کنیم"
 
 #: .\templates\main\ecommerce.html:49
 msgid ""
@@ -447,22 +457,27 @@ msgid ""
 "background tasks, Docker for deployment. Frontend: Bootstrap/Tailwind, "
 "JavaScript, responsive design."
 msgstr ""
+"جنگو + PostgreSQL، APIهای Stripe/PayPal، Redis برای ذخیره‌سازی، Celery برای "
+"کارهای پس‌زمینه، Docker برای استقرار. Frontend: Bootstrap/Tailwind، جاوا "
+"اسکریپت، طراحی پاسخگو."
 
 #: .\templates\main\ecommerce.html:52 .\templates\main\web_design.html:46
 msgid "Typical timeline"
-msgstr ""
+msgstr "جدول زمانی معمولی"
 
 #: .\templates\main\ecommerce.html:54
 msgid ""
-"Small store (50-200 products): 4-8 weeks · Medium store (200-1000 products): "
-"8-16 weeks · Large marketplace: 16+ weeks"
+"Small store (50-200 products): 4-8 weeks · Medium store (200-1000 products):"
+" 8-16 weeks · Large marketplace: 16+ weeks"
 msgstr ""
+"فروشگاه کوچک (50-200 محصول): 4-8 هفته فروشگاه متوسط ​​(200-1000 محصول): 8-16"
+" هفته بازار بزرگ: 16 هفته به بالا"
 
 #: .\templates\main\ecommerce.html:57 .\templates\main\hosting.html:63
 #: .\templates\main\mobile_app.html:46 .\templates\main\seo.html:57
 #: .\templates\main\ui_ux.html:64 .\templates\main\web_design.html:51
 msgid "Pricing (guideline)"
-msgstr ""
+msgstr "قیمت گذاری (راهنما)"
 
 #: .\templates\main\ecommerce.html:59
 msgid ""
@@ -470,41 +485,51 @@ msgid ""
 "multiple payment methods, inventory sync, or marketplace functionality are "
 "quoted after reviewing requirements."
 msgstr ""
+"فروشگاه های تجارت الکترونیک پایه از 25000 لیر شروع می شوند. فروشگاه‌هایی با "
+"ویژگی‌های سفارشی، روش‌های پرداخت چندگانه، همگام‌سازی موجودی، یا عملکرد بازار"
+" پس از بررسی الزامات نقل‌قول می‌شوند."
 
 #: .\templates\main\ecommerce.html:62 .\templates\main\hosting.html:68
 #: .\templates\main\seo.html:62 .\templates\main\ui_ux.html:69
 msgid "FAQ"
-msgstr ""
+msgstr "سوالات متداول"
 
 #: .\templates\main\ecommerce.html:64
 msgid "Q: Do you handle payment gateway setup?"
-msgstr ""
+msgstr "س: آیا راه اندازی درگاه پرداخت را انجام می دهید؟"
 
 #: .\templates\main\ecommerce.html:65
 msgid ""
-"A: Yes, we integrate Stripe, PayPal, or local payment providers. You'll need "
-"to provide API credentials from your payment account."
+"A: Yes, we integrate Stripe, PayPal, or local payment providers. You'll need"
+" to provide API credentials from your payment account."
 msgstr ""
+"پاسخ: بله، ما Stripe، PayPal یا ارائه دهندگان پرداخت محلی را ادغام می کنیم. "
+"باید اعتبار API را از حساب پرداخت خود ارائه دهید."
 
 #: .\templates\main\ecommerce.html:67
 msgid "Q: Can I manage products myself?"
-msgstr ""
+msgstr "س: آیا می توانم محصولات را خودم مدیریت کنم؟"
 
 #: .\templates\main\ecommerce.html:68
 msgid ""
-"A: Yes, the admin panel includes full product management: add/edit products, "
-"set prices, manage inventory, upload images."
+"A: Yes, the admin panel includes full product management: add/edit products,"
+" set prices, manage inventory, upload images."
 msgstr ""
+"پاسخ: بله، پنل مدیریت شامل مدیریت کامل محصول است: افزودن/ویرایش محصولات، "
+"تنظیم قیمت، مدیریت موجودی، آپلود تصاویر."
 
 #: .\templates\main\ecommerce.html:70
 msgid "Q: Do you provide hosting?"
-msgstr ""
+msgstr "س: آیا میزبانی ارائه می دهید؟"
 
 #: .\templates\main\ecommerce.html:71
 msgid ""
-"A: We can set up hosting or you can use your own. We recommend cloud hosting "
-"(AWS, DigitalOcean) for better performance and scalability."
+"A: We can set up hosting or you can use your own. We recommend cloud hosting"
+" (AWS, DigitalOcean) for better performance and scalability."
 msgstr ""
+"پاسخ: ما می توانیم میزبانی را راه اندازی کنیم یا شما می توانید از هاست خود "
+"استفاده کنید. ما میزبانی ابری (AWS، DigitalOcean) را برای عملکرد و مقیاس "
+"پذیری بهتر توصیه می کنیم."
 
 #: .\templates\main\ecommerce.html:82 .\templates\main\mobile_app.html:59
 #: .\templates\main\web_design.html:64
@@ -515,11 +540,11 @@ msgstr "از 5,000 تومان شروع می‌شود"
 
 #: .\templates\main\ecommerce.html:83
 msgid "Includes"
-msgstr ""
+msgstr "شامل می شود"
 
 #: .\templates\main\ecommerce.html:83
 msgid "full store + admin + payment"
-msgstr ""
+msgstr "فروشگاه کامل + ادمین + پرداخت"
 
 #: .\templates\main\ecommerce.html:92
 #, fuzzy
@@ -535,7 +560,7 @@ msgstr "پکیج پایه"
 
 #: .\templates\main\hosting.html:5
 msgid "Hosting & Domain"
-msgstr ""
+msgstr "هاست و دامنه"
 
 #: .\templates\main\hosting.html:11
 #, fuzzy
@@ -545,7 +570,7 @@ msgstr "خدمات من"
 
 #: .\templates\main\hosting.html:13
 msgid "Reliable hosting, SSL certificates, and domain management"
-msgstr ""
+msgstr "هاست قابل اعتماد، گواهینامه های SSL و مدیریت دامنه"
 
 #: .\templates\main\hosting.html:22
 #, fuzzy
@@ -560,35 +585,42 @@ msgid ""
 "dedicated servers for high-traffic applications, we offer solutions that "
 "keep your website fast, secure, and online 24/7."
 msgstr ""
+"ما میزبانی وب قابل اعتماد، گواهینامه های SSL، ثبت دامنه و مدیریت سرور را "
+"ارائه می دهیم. چه به هاست اشتراکی برای یک سایت کوچک یا سرورهای اختصاصی برای "
+"برنامه های پربازدید نیاز داشته باشید، ما راه حل هایی ارائه می دهیم که وب "
+"سایت شما را سریع، ایمن و آنلاین 24/7 نگه می دارد."
 
 #: .\templates\main\hosting.html:29
 msgid "Web hosting: shared, VPS, or dedicated servers based on your needs"
-msgstr ""
+msgstr "میزبانی وب: سرورهای اشتراکی، VPS یا اختصاصی بر اساس نیازهای شما"
 
 #: .\templates\main\hosting.html:30
 msgid "SSL certificates: free Let's Encrypt or premium SSL for secure HTTPS"
 msgstr ""
+"گواهی‌های SSL: رایگان اجازه دهید رمزگذاری یا SSL ممتاز را برای HTTPS ایمن "
+"کنیم"
 
 #: .\templates\main\hosting.html:31
 msgid ""
 "Domain registration: .com, .net, .org, .tr, and country-specific domains"
-msgstr ""
+msgstr "ثبت دامنه: .com، .net، .org، .tr و دامنه های خاص کشور"
 
 #: .\templates\main\hosting.html:32
 msgid "Email hosting: professional email accounts (@yourdomain.com)"
-msgstr ""
+msgstr "میزبانی ایمیل: حساب های ایمیل حرفه ای (@yourdomain.com)"
 
 #: .\templates\main\hosting.html:33
 msgid "Backup solutions: automated daily/weekly backups, easy restore"
 msgstr ""
+"راه حل های پشتیبان گیری: پشتیبان گیری روزانه/هفتگی خودکار، بازیابی آسان"
 
 #: .\templates\main\hosting.html:34
 msgid "Server management: updates, security patches, performance monitoring"
-msgstr ""
+msgstr "مدیریت سرور: به روز رسانی، وصله های امنیتی، نظارت بر عملکرد"
 
 #: .\templates\main\hosting.html:35
 msgid "Support: 24/7 technical support, migration assistance, troubleshooting"
-msgstr ""
+msgstr "پشتیبانی: پشتیبانی فنی 24/7، کمک مهاجرت، عیب یابی"
 
 #: .\templates\main\hosting.html:38
 #, fuzzy
@@ -598,43 +630,51 @@ msgstr "خدمات من"
 
 #: .\templates\main\hosting.html:40
 msgid "Shared Hosting"
-msgstr ""
+msgstr "هاست اشتراکی"
 
 #: .\templates\main\hosting.html:41
 msgid ""
-"Ideal for small websites, blogs, and low-traffic sites. Cost-effective, easy "
-"to manage, includes cPanel. Starting from 500 TL/year."
+"Ideal for small websites, blogs, and low-traffic sites. Cost-effective, easy"
+" to manage, includes cPanel. Starting from 500 TL/year."
 msgstr ""
+"ایده آل برای وب سایت های کوچک، وبلاگ ها و سایت های کم بازدید. مقرون به صرفه،"
+" آسان برای مدیریت، شامل cPanel. شروع از 500 لیر در سال."
 
 #: .\templates\main\hosting.html:43
 msgid "VPS (Virtual Private Server)"
-msgstr ""
+msgstr "VPS (سرور خصوصی مجازی)"
 
 #: .\templates\main\hosting.html:44
 msgid ""
 "More control and resources for growing websites. Root access, scalable "
 "resources. Starting from 2,000 TL/year."
 msgstr ""
+"کنترل و منابع بیشتر برای وب سایت های در حال رشد. دسترسی ریشه، منابع مقیاس "
+"پذیر. شروع از 2000 لیر در سال."
 
 #: .\templates\main\hosting.html:46
 msgid "Dedicated Server"
-msgstr ""
+msgstr "سرور اختصاصی"
 
 #: .\templates\main\hosting.html:47
 msgid ""
 "Full server control for high-traffic sites and applications. Maximum "
 "performance and security. Custom pricing."
 msgstr ""
+"کنترل کامل سرور برای سایت ها و برنامه های پربازدید. حداکثر عملکرد و امنیت. "
+"قیمت گذاری سفارشی"
 
 #: .\templates\main\hosting.html:49
 msgid "Cloud Hosting"
-msgstr ""
+msgstr "هاست ابری"
 
 #: .\templates\main\hosting.html:50
 msgid ""
-"Scalable cloud infrastructure (AWS, DigitalOcean, etc.). Pay-as-you-go, auto-"
-"scaling. Ideal for apps with variable traffic."
+"Scalable cloud infrastructure (AWS, DigitalOcean, etc.). Pay-as-you-go, "
+"auto-scaling. Ideal for apps with variable traffic."
 msgstr ""
+"زیرساخت ابری مقیاس پذیر (AWS، DigitalOcean، و غیره). پرداخت در صورت تمایل، "
+"مقیاس‌بندی خودکار. ایده آل برای برنامه هایی با ترافیک متغیر."
 
 #: .\templates\main\hosting.html:53
 #, fuzzy
@@ -647,48 +687,61 @@ msgid ""
 "Domain registration (.com, .net, .org, .tr, etc.), domain transfer, DNS "
 "management, domain privacy protection, subdomain setup."
 msgstr ""
+"ثبت دامنه (.com، .net، .org، .tr، و غیره)، انتقال دامنه، مدیریت DNS، حفاظت "
+"از حریم خصوصی دامنه، راه اندازی زیر دامنه."
 
 #: .\templates\main\hosting.html:58
 msgid "Security & backups"
-msgstr ""
+msgstr "امنیت و پشتیبان گیری"
 
 #: .\templates\main\hosting.html:60
 msgid ""
-"SSL certificates (free Let's Encrypt or premium), automated backups (daily/"
-"weekly), malware scanning, DDoS protection basics, firewall configuration."
+"SSL certificates (free Let's Encrypt or premium), automated backups "
+"(daily/weekly), malware scanning, DDoS protection basics, firewall "
+"configuration."
 msgstr ""
+"گواهی‌های SSL (رایگان Let's Encrypt یا Premium)، پشتیبان‌گیری خودکار "
+"(روزانه/هفتگی)، اسکن بدافزار، اصول حفاظت از DDoS، پیکربندی فایروال."
 
 #: .\templates\main\hosting.html:65
 msgid ""
 "Shared hosting: 500-1,500 TL/year · VPS: 2,000-8,000 TL/year · Domain "
-"registration: 100-500 TL/year (varies by TLD) · SSL certificate: Free (Let's "
-"Encrypt) or 500-2,000 TL/year (premium). Server management and migration "
+"registration: 100-500 TL/year (varies by TLD) · SSL certificate: Free (Let's"
+" Encrypt) or 500-2,000 TL/year (premium). Server management and migration "
 "services quoted separately."
 msgstr ""
+"میزبانی مشترک: 500-1500 TL در سال · VPS: 2000-8000 TL در سال · ثبت دامنه: "
+"100-500 TL در سال (بر اساس TLD متفاوت است) · گواهی SSL: رایگان (Let's "
+"Encrypt) یا 500-2000 TL / سال (حق بیمه). مدیریت سرور و خدمات مهاجرت نقل قول "
+"جداگانه."
 
 #: .\templates\main\hosting.html:70
 msgid "Q: Can you migrate my existing website?"
-msgstr ""
+msgstr "س: آیا می توانید به وب سایت فعلی من مهاجرت کنید؟"
 
 #: .\templates\main\hosting.html:71
 msgid ""
 "A: Yes, we handle website migrations: files, databases, email accounts, DNS "
 "configuration. We ensure zero downtime during migration."
 msgstr ""
+"پاسخ: بله، ما انتقال وب سایت را انجام می دهیم: فایل ها، پایگاه های داده، "
+"حساب های ایمیل، پیکربندی DNS. ما در طول مهاجرت از توقف صفر اطمینان می دهیم."
 
 #: .\templates\main\hosting.html:73
 msgid "Q: Do you provide email hosting?"
-msgstr ""
+msgstr "س: آیا میزبانی ایمیل را ارائه می دهید؟"
 
 #: .\templates\main\hosting.html:74
 msgid ""
 "A: Yes, we offer professional email hosting with your domain "
 "(@yourdomain.com). Includes webmail, IMAP/POP3, spam filtering."
 msgstr ""
+"پاسخ: بله، ما میزبانی ایمیل حرفه ای را با دامنه شما (@yourdomain.com) ارائه "
+"می دهیم. شامل ایمیل، IMAP/POP3، فیلتر هرزنامه است."
 
 #: .\templates\main\hosting.html:76
 msgid "Q: What if my site goes down?"
-msgstr ""
+msgstr "س: اگر سایت من خراب شود چه می شود؟"
 
 #: .\templates\main\hosting.html:77
 #, python-format
@@ -697,18 +750,21 @@ msgid ""
 "99.9%% uptime SLA. Support tickets are answered within 24 hours (usually "
 "faster)."
 msgstr ""
+"A: ما زمان کار را کنترل می کنیم و به سرعت به مسائل پاسخ می دهیم. میزبانی ما "
+"شامل 99.9٪ SLA آپتایم است. بلیط های پشتیبانی ظرف 24 ساعت (معمولا سریعتر) "
+"پاسخ داده می شوند."
 
 #: .\templates\main\hosting.html:88
 msgid "Shared"
-msgstr ""
+msgstr "به اشتراک گذاشته شده است"
 
 #: .\templates\main\hosting.html:89
 msgid "VPS"
-msgstr ""
+msgstr "VPS"
 
 #: .\templates\main\index.html:5
 msgid "Web and mobile app design | Custom developer and designer"
-msgstr ""
+msgstr "طراحی اپلیکیشن وب و موبایل | توسعه دهنده و طراح سفارشی"
 
 #: .\templates\main\index.html:15
 #, fuzzy
@@ -725,9 +781,7 @@ msgstr "راه‌حل‌هایی که کسب‌وکار شما را در دنی�
 #: .\templates\main\index.html:21
 msgid ""
 "\n"
-"                        I design modern, fast and user‑friendly websites for "
-"your business. From corporate websites to e‑commerce and custom platforms, I "
-"deliver professional design, clean code and measurable results.\n"
+"                        I design modern, fast and user‑friendly websites for your business. From corporate websites to e‑commerce and custom platforms, I deliver professional design, clean code and measurable results.\n"
 "                        "
 msgstr ""
 
@@ -763,11 +817,11 @@ msgstr "خدمات"
 
 #: .\templates\main\index.html:99
 msgid "Learn more"
-msgstr ""
+msgstr "بیشتر بدانید"
 
 #: .\templates\main\index.html:106 .\templates\main\services.html:44
 msgid "No services found."
-msgstr ""
+msgstr "هیچ سرویسی یافت نشد"
 
 #: .\templates\main\index.html:114
 #, fuzzy
@@ -777,7 +831,7 @@ msgstr "بیایید امروز پروژه شما را به زندگی تبدی�
 
 #: .\templates\main\index.html:115
 msgid "Contact us for a free consultation and a detailed quote."
-msgstr ""
+msgstr "برای مشاوره رایگان و قیمت دقیق با ما تماس بگیرید."
 
 #: .\templates\main\index.html:131
 msgid "Why Choose Me?"
@@ -789,13 +843,14 @@ msgstr "کسب‌وکار خود را رشد دهید"
 
 #: .\templates\main\index.html:142
 #, fuzzy
-#| msgid "Increase your sales and customer satisfaction with modern websites"
+#| msgid ""
+#| "Increase your sales and customer satisfaction with modern websites"
 msgid "Increase your sales with modern websites"
 msgstr "با وب‌سایت‌های مدرن، فروش و رضایت مشتریان خود را افزایش دهید"
 
 #: .\templates\main\index.html:150
 msgid "Time Saving"
-msgstr ""
+msgstr "صرفه جویی در زمان"
 
 #: .\templates\main\index.html:151
 #, fuzzy
@@ -810,7 +865,7 @@ msgstr "قیمت مناسب"
 
 #: .\templates\main\index.html:160
 msgid "Quality service at affordable prices"
-msgstr ""
+msgstr "خدمات با کیفیت با قیمت های مقرون به صرفه"
 
 #: .\templates\main\index.html:168
 msgid "Continuous Support"
@@ -849,15 +904,15 @@ msgstr "مشاهده پروژه‌ها"
 
 #: .\templates\main\login.html:39
 msgid "Don't have an account?"
-msgstr ""
+msgstr "حساب کاربری ندارید؟"
 
 #: .\templates\main\mobile_app.html:13
 msgid "iOS & Android apps with great UX and reliable backend"
-msgstr ""
+msgstr "برنامه های iOS و Android با UX عالی و باطن قابل اعتماد"
 
 #: .\templates\main\mobile_app.html:22
 msgid "Mobile application development"
-msgstr ""
+msgstr "توسعه اپلیکیشن موبایل"
 
 #: .\templates\main\mobile_app.html:24
 msgid ""
@@ -865,64 +920,70 @@ msgid ""
 "authentication, and a scalable backend. Whether you need an MVP or a full "
 "product, we deliver with clear milestones and professional documentation."
 msgstr ""
+"ما برنامه‌های تلفن همراه را می‌سازیم که احساس برتری دارند: رابط کاربری صاف، "
+"عملکرد سریع، احراز هویت امن، و پشتیبانی مقیاس‌پذیر. چه به یک MVP یا یک محصول"
+" کامل نیاز داشته باشید، ما با نقاط عطف واضح و مستندات حرفه ای ارائه می دهیم."
 
 #: .\templates\main\mobile_app.html:29
 msgid "Modern UI/UX (Figma → app) with consistent components"
-msgstr ""
+msgstr "UI/UX مدرن (Figma → App) با اجزای سازگار"
 
 #: .\templates\main\mobile_app.html:30
 msgid "Authentication, profiles, roles, and admin workflows"
-msgstr ""
+msgstr "احراز هویت، نمایه‌ها، نقش‌ها و گردش‌های کاری مدیریت"
 
 #: .\templates\main\mobile_app.html:31
 msgid "Push notifications, deep links, analytics (optional)"
-msgstr ""
+msgstr "اعلان‌های فشاری، پیوندهای عمیق، تجزیه و تحلیل (اختیاری)"
 
 #: .\templates\main\mobile_app.html:32
 msgid "Backend API + database (Django) + admin panel"
-msgstr ""
+msgstr "Backend API + پایگاه داده (Django) + پنل مدیریت"
 
 #: .\templates\main\mobile_app.html:33
 msgid "Security: input validation, rate limiting basics, safe storage"
-msgstr ""
+msgstr "امنیت: اعتبار سنجی ورودی، اصول محدود کننده نرخ، ذخیره سازی ایمن"
 
 #: .\templates\main\mobile_app.html:34
 msgid "Testing + release checklist + post‑launch support"
-msgstr ""
+msgstr "تست + چک لیست انتشار + پشتیبانی پس از راه اندازی"
 
 #: .\templates\main\mobile_app.html:39
 msgid "Product scope & MVP definition"
-msgstr ""
+msgstr "محدوده محصول و تعریف MVP"
 
 #: .\templates\main\mobile_app.html:40
 msgid "UI/UX design + clickable prototype"
-msgstr ""
+msgstr "طراحی UI/UX + نمونه اولیه قابل کلیک"
 
 #: .\templates\main\mobile_app.html:41
 msgid "Development: app + backend + admin panel"
-msgstr ""
+msgstr "توسعه: برنامه + باطن + پنل مدیریت"
 
 #: .\templates\main\mobile_app.html:42
 msgid "QA: devices, performance, security basics"
-msgstr ""
+msgstr "QA: دستگاه ها، عملکرد، اصول اولیه امنیتی"
 
 #: .\templates\main\mobile_app.html:43
 msgid "Release: store preparation and deployment"
-msgstr ""
+msgstr "انتشار: آماده سازی و استقرار فروشگاه"
 
 #: .\templates\main\mobile_app.html:48
 msgid ""
 "MVP mobile apps typically start from 60,000 TL. Larger apps with payments, "
 "chat, maps, multiple roles or complex integrations are quoted after review."
 msgstr ""
+"برنامه های موبایل MVP معمولاً از 60000 لیر لیر شروع می شوند. برنامه های "
+"بزرگتر با پرداخت، چت، نقشه، نقش های متعدد یا ادغام های پیچیده پس از بررسی "
+"نقل قول می شوند."
 
 #: .\templates\main\mobile_app.html:60
 msgid "Deliverables"
-msgstr ""
+msgstr "قابل تحویل"
 
 #: .\templates\main\mobile_app.html:60
 msgid "app + backend + admin"
-msgstr ""
+msgstr "برنامه + باطن + مدیر"
 
 #: .\templates\main\packages.html:14
 #, fuzzy
@@ -945,29 +1006,31 @@ msgstr "نمونه کارهای ما"
 
 #: .\templates\main\projects.html:79
 msgid "No projects found."
-msgstr ""
+msgstr "هیچ پروژه ای یافت نشد"
 
 #: .\templates\main\projects.html:91
 msgid "Previous"
-msgstr ""
+msgstr "قبلی"
 
 #: .\templates\main\projects.html:99
 msgid "Next"
-msgstr ""
+msgstr "بعدی"
 
 #: .\templates\main\quote_request.html:14
 msgid ""
-"Tell us about your project and receive a detailed proposal (scope, timeline, "
-"price)."
+"Tell us about your project and receive a detailed proposal (scope, timeline,"
+" price)."
 msgstr ""
+"در مورد پروژه خود به ما بگویید و یک پیشنهاد دقیق (محدوده، جدول زمانی، قیمت) "
+"دریافت کنید."
 
 #: .\templates\main\quote_request.html:26
 msgid "Typical price ranges"
-msgstr ""
+msgstr "محدوده قیمت معمولی"
 
 #: .\templates\main\quote_request.html:28
 msgid "Corporate website"
-msgstr ""
+msgstr "وب سایت شرکتی"
 
 #: .\templates\main\quote_request.html:29
 #, fuzzy
@@ -983,29 +1046,31 @@ msgstr "طراحی واکنش‌گرا موبایل"
 
 #: .\templates\main\quote_request.html:31
 msgid "Custom software / platform"
-msgstr ""
+msgstr "نرم افزار / پلت فرم سفارشی"
 
 #: .\templates\main\quote_request.html:34
 msgid ""
-"Final pricing depends on scope, integrations, content, multi‑language, admin "
-"needs and delivery time."
+"Final pricing depends on scope, integrations, content, multi‑language, admin"
+" needs and delivery time."
 msgstr ""
+"قیمت نهایی به دامنه، ادغام، محتوا، چند زبان، نیازهای سرپرست و زمان تحویل "
+"بستگی دارد."
 
 #: .\templates\main\quote_request.html:39
 msgid "What happens next?"
-msgstr ""
+msgstr "بعد چه اتفاقی می افتد؟"
 
 #: .\templates\main\quote_request.html:41
 msgid "We review your request within 24 hours."
-msgstr ""
+msgstr "ما درخواست شما را ظرف 24 ساعت بررسی می کنیم."
 
 #: .\templates\main\quote_request.html:42
 msgid "We send clarifying questions (if needed)."
-msgstr ""
+msgstr "ما سؤالات روشنگری را ارسال می کنیم (در صورت نیاز)."
 
 #: .\templates\main\quote_request.html:43
 msgid "You receive a proposal: scope + timeline + price + milestones."
-msgstr ""
+msgstr "شما یک پیشنهاد دریافت می کنید: محدوده + جدول زمانی + قیمت + نقاط عطف."
 
 #: .\templates\main\quote_request.html:54
 #, fuzzy
@@ -1021,7 +1086,7 @@ msgstr "خدمات"
 
 #: .\templates\main\quote_request.html:78
 msgid "Package (optional)"
-msgstr ""
+msgstr "بسته (اختیاری)"
 
 #: .\templates\main\quote_request.html:83
 #, fuzzy
@@ -1031,11 +1096,11 @@ msgstr "پروژه‌ها"
 
 #: .\templates\main\quote_request.html:97
 msgid "Submit request"
-msgstr ""
+msgstr "درخواست ارسال کنید"
 
 #: .\templates\main\register.html:74
 msgid "Already have an account?"
-msgstr ""
+msgstr "از قبل حساب کاربری دارید؟"
 
 #: .\templates\main\resume.html:5 .\templates\main\resume.html:11
 #, fuzzy
@@ -1101,7 +1166,7 @@ msgstr "بهینه‌سازی سرعت و SEO"
 
 #: .\templates\main\seo.html:13
 msgid "Rank higher on Google and drive organic traffic"
-msgstr ""
+msgstr "در گوگل رتبه بالاتری داشته باشید و ترافیک ارگانیک را هدایت کنید"
 
 #: .\templates\main\seo.html:22
 #, fuzzy
@@ -1111,86 +1176,111 @@ msgstr "خدمات"
 
 #: .\templates\main\seo.html:24
 msgid ""
-"We optimize your website for search engines so you rank higher on Google and "
-"attract more organic visitors. Our SEO strategy covers technical "
+"We optimize your website for search engines so you rank higher on Google and"
+" attract more organic visitors. Our SEO strategy covers technical "
 "optimization, content strategy, keyword research, and ongoing monitoring to "
 "improve your visibility over time."
 msgstr ""
+"ما وب سایت شما را برای موتورهای جستجو بهینه می کنیم تا در گوگل رتبه بالاتری "
+"داشته باشید و بازدیدکنندگان ارگانیک بیشتری را جذب کنید. استراتژی سئو ما "
+"بهینه سازی فنی، استراتژی محتوا، تحقیق کلمات کلیدی و نظارت مداوم را پوشش می "
+"دهد تا دید شما را در طول زمان بهبود بخشد."
 
 #: .\templates\main\seo.html:29
 msgid ""
 "Technical SEO: site speed, mobile-friendliness, structured data (schema), "
 "XML sitemap, robots.txt"
 msgstr ""
+"سئوی فنی: سرعت سایت، سازگاری با موبایل، داده های ساختاریافته (شما)، نقشه "
+"سایت XML، robots.txt"
 
 #: .\templates\main\seo.html:30
 msgid ""
 "On-page optimization: meta titles/descriptions, header tags (H1-H6), alt "
 "text for images, internal linking"
 msgstr ""
+"بهینه‌سازی روی صفحه: عنوان/توضیحات متا، تگ‌های سرصفحه (H1-H6)، متن جایگزین "
+"برای تصاویر، پیوند داخلی"
 
 #: .\templates\main\seo.html:31
 msgid ""
 "Keyword research: target keywords, search volume, competition analysis, "
 "content gaps"
 msgstr ""
+"تحقیق کلمات کلیدی: کلمات کلیدی هدف، حجم جستجو، تجزیه و تحلیل رقابت، شکاف "
+"محتوا"
 
 #: .\templates\main\seo.html:32
 msgid ""
 "Content strategy: blog posts, service pages, landing pages optimized for "
 "target keywords"
 msgstr ""
+"استراتژی محتوا: پست های وبلاگ، صفحات خدمات، صفحات فرود بهینه شده برای کلمات "
+"کلیدی هدف"
 
 #: .\templates\main\seo.html:33
 msgid ""
 "Local SEO (if applicable): Google Business Profile, local citations, "
 "location pages"
 msgstr ""
+"SEO محلی (در صورت وجود): نمایه کسب و کار Google، نقل قول های محلی، صفحات "
+"مکان"
 
 #: .\templates\main\seo.html:34
 msgid ""
 "Link building: outreach, guest posts, directory submissions (ethical "
 "practices)"
 msgstr ""
+"ایجاد پیوند: اطلاع رسانی، پست های مهمان، ارسال دایرکتوری (روش های اخلاقی)"
 
 #: .\templates\main\seo.html:35
 msgid ""
 "Analytics & reporting: Google Search Console, Google Analytics, monthly "
 "performance reports"
 msgstr ""
+"تجزیه و تحلیل و گزارش: کنسول جستجوی گوگل، گوگل آنالیتیکس، گزارش عملکرد "
+"ماهانه"
 
 #: .\templates\main\seo.html:40
 msgid ""
 "SEO audit: current rankings, technical issues, competitor analysis, keyword "
 "opportunities"
 msgstr ""
+"ممیزی SEO: رتبه بندی فعلی، مسائل فنی، تجزیه و تحلیل رقبا، فرصت های کلمات "
+"کلیدی"
 
 #: .\templates\main\seo.html:41
 msgid ""
 "Technical fixes: speed optimization, mobile responsiveness, schema markup, "
 "site structure"
 msgstr ""
+"اصلاحات فنی: بهینه سازی سرعت، پاسخگویی تلفن همراه، نشانه گذاری طرحواره، "
+"ساختار سایت"
 
 #: .\templates\main\seo.html:42
 msgid ""
 "Content optimization: update existing pages, create new content, optimize "
 "for keywords"
 msgstr ""
+"بهینه سازی محتوا: به روز رسانی صفحات موجود، ایجاد محتوای جدید، بهینه سازی "
+"برای کلمات کلیدی"
 
 #: .\templates\main\seo.html:43
 msgid ""
 "Link building: identify opportunities, outreach, build quality backlinks"
 msgstr ""
+"لینک بیلدینگ: شناسایی فرصت ها، گسترش دسترسی، ساخت بک لینک های با کیفیت"
 
 #: .\templates\main\seo.html:44
 msgid ""
 "Monitoring: track rankings, traffic, conversions, monthly reports and "
 "adjustments"
 msgstr ""
+"نظارت: رتبه‌بندی، ترافیک، تبدیل‌ها، گزارش‌های ماهانه و تنظیمات را دنبال کنید"
 
 #: .\templates\main\seo.html:47
 msgid "What we measure"
-msgstr ""
+msgstr "آنچه را که اندازه می گیریم"
 
 #: .\templates\main\seo.html:49
 msgid ""
@@ -1198,10 +1288,12 @@ msgid ""
 "rate, conversion rate, page load speed, Core Web Vitals, backlink profile "
 "quality."
 msgstr ""
+"رتبه بندی کلمات کلیدی، رشد ترافیک ارگانیک، نرخ کلیک (CTR)، نرخ پرش، نرخ "
+"تبدیل، سرعت بارگذاری صفحه، Core Web Vitals، کیفیت پروفایل بک لینک."
 
 #: .\templates\main\seo.html:52
 msgid "Timeline & expectations"
-msgstr ""
+msgstr "جدول زمانی و انتظارات"
 
 #: .\templates\main\seo.html:54
 msgid ""
@@ -1210,55 +1302,69 @@ msgid ""
 "building require ongoing effort. We provide monthly reports and adjust "
 "strategy based on performance."
 msgstr ""
+"سئو یک استراتژی بلند مدت است. تعمیرات فنی اولیه نتایج را در 2-4 هفته نشان می"
+" دهد. بهبود رتبه بندی معمولاً 3-6 ماه طول می کشد. ایجاد محتوا و لینک سازی "
+"نیاز به تلاش مداوم دارد. ما گزارش های ماهانه ارائه می دهیم و استراتژی را بر "
+"اساس عملکرد تنظیم می کنیم."
 
 #: .\templates\main\seo.html:59
 msgid ""
-"One-time SEO audit: 5,000-10,000 TL · Monthly SEO packages: 8,000-25,000 TL/"
-"month (depending on scope: content creation, link building, reporting). "
+"One-time SEO audit: 5,000-10,000 TL · Monthly SEO packages: 8,000-25,000 "
+"TL/month (depending on scope: content creation, link building, reporting). "
 "Custom packages available for enterprise clients."
 msgstr ""
+"ممیزی سئو یکباره: 5000-10000 لیر · بسته های سئو ماهانه: 8000-25000 لیر در "
+"ماه (بسته به محدوده: ایجاد محتوا، ساخت لینک، گزارش). بسته های سفارشی در "
+"دسترس برای مشتریان سازمانی."
 
 #: .\templates\main\seo.html:64
 msgid "Q: How long until I see results?"
-msgstr ""
+msgstr "س: چقدر طول می کشد تا نتایج را ببینم؟"
 
 #: .\templates\main\seo.html:65
 msgid ""
 "A: Technical improvements show in 2-4 weeks. Ranking improvements typically "
 "take 3-6 months. SEO is a long-term investment."
 msgstr ""
+"A: پیشرفت های فنی در 2-4 هفته نشان می دهد. بهبود رتبه بندی معمولاً 3-6 ماه "
+"طول می کشد. سئو یک سرمایه گذاری بلند مدت است."
 
 #: .\templates\main\seo.html:67
 msgid "Q: Do you guarantee #1 ranking?"
-msgstr ""
+msgstr "س: آیا رتبه 1 را تضمین می کنید؟"
 
 #: .\templates\main\seo.html:68
 msgid ""
-"A: No ethical SEO service guarantees #1 rankings. We focus on improving your "
-"visibility, traffic, and conversions through proven strategies."
+"A: No ethical SEO service guarantees #1 rankings. We focus on improving your"
+" visibility, traffic, and conversions through proven strategies."
 msgstr ""
+"A: هیچ خدمات اخلاقی SEO رتبه بندی شماره 1 را تضمین نمی کند. ما روی بهبود "
+"دید، ترافیک و تبدیل‌های شما از طریق استراتژی‌های اثبات شده تمرکز می‌کنیم."
 
 #: .\templates\main\seo.html:70
 msgid "Q: What if my website is new?"
-msgstr ""
+msgstr "س: اگر وب سایت من جدید باشد چه؟"
 
 #: .\templates\main\seo.html:71
 msgid ""
 "A: New websites need technical SEO, quality content, and time to build "
 "authority. We'll create a foundation and help you grow organically."
 msgstr ""
+"پاسخ: وب سایت های جدید نیاز به سئو فنی، محتوای با کیفیت و زمان برای ایجاد "
+"اعتبار دارند. ما یک پایه ایجاد می کنیم و به شما کمک می کنیم که به طور "
+"ارگانیک رشد کنید."
 
 #: .\templates\main\seo.html:82
 msgid "Audit"
-msgstr ""
+msgstr "حسابرسی"
 
 #: .\templates\main\seo.html:83
 msgid "Monthly"
-msgstr ""
+msgstr "ماهانه"
 
 #: .\templates\main\service_detail.html:32
 msgid "Responsive design (mobile, tablet, desktop)"
-msgstr ""
+msgstr "طراحی ریسپانسیو (موبایل، تبلت، دسکتاپ)"
 
 #: .\templates\main\service_detail.html:33
 #, fuzzy
@@ -1268,15 +1374,15 @@ msgstr "بهینه‌سازی سرعت و SEO"
 
 #: .\templates\main\service_detail.html:34
 msgid "Fast loading and performance"
-msgstr ""
+msgstr "بارگذاری سریع و عملکرد"
 
 #: .\templates\main\service_detail.html:35
 msgid "Admin panel for content management"
-msgstr ""
+msgstr "پنل مدیریت برای مدیریت محتوا"
 
 #: .\templates\main\service_detail.html:36
 msgid "Contact forms and lead capture"
-msgstr ""
+msgstr "فرم های تماس و جذب سرنخ"
 
 #: .\templates\main\service_detail.html:37
 #, fuzzy
@@ -1292,11 +1398,11 @@ msgstr "اپلیکیشن‌های موبایل iOS و Android"
 
 #: .\templates\main\service_detail.html:43
 msgid "Modern UI/UX design"
-msgstr ""
+msgstr "طراحی مدرن UI/UX"
 
 #: .\templates\main\service_detail.html:44
 msgid "Backend API and database"
-msgstr ""
+msgstr "Backend API و پایگاه داده"
 
 #: .\templates\main\service_detail.html:45
 #, fuzzy
@@ -1306,19 +1412,19 @@ msgstr "پیامک اطلاع‌رسانی سفارش"
 
 #: .\templates\main\service_detail.html:46
 msgid "App store submission"
-msgstr ""
+msgstr "ارسال اپ استور"
 
 #: .\templates\main\service_detail.html:47
 msgid "Post-launch support"
-msgstr ""
+msgstr "پشتیبانی پس از راه اندازی"
 
 #: .\templates\main\service_detail.html:52
 msgid "Product catalog and inventory"
-msgstr ""
+msgstr "کاتالوگ و موجودی محصولات"
 
 #: .\templates\main\service_detail.html:53
 msgid "Shopping cart and checkout"
-msgstr ""
+msgstr "سبد خرید و تسویه حساب"
 
 #: .\templates\main\service_detail.html:54
 #, fuzzy
@@ -1328,7 +1434,7 @@ msgstr "درگاه پرداخت"
 
 #: .\templates\main\service_detail.html:55
 msgid "Order management system"
-msgstr ""
+msgstr "سیستم مدیریت سفارش"
 
 #: .\templates\main\service_detail.html:56
 #, fuzzy
@@ -1338,7 +1444,7 @@ msgstr "رضایت مشتری"
 
 #: .\templates\main\service_detail.html:57
 msgid "Admin panel for products and orders"
-msgstr ""
+msgstr "پنل مدیریت محصولات و سفارشات"
 
 #: .\templates\main\service_detail.html:72
 #, fuzzy
@@ -1348,7 +1454,7 @@ msgstr "تماس"
 
 #: .\templates\main\service_detail.html:73
 msgid "for pricing details"
-msgstr ""
+msgstr "برای جزئیات قیمت"
 
 #: .\templates\main\service_detail.html:82
 #, fuzzy
@@ -1358,7 +1464,7 @@ msgstr "خدمات"
 
 #: .\templates\main\service_detail.html:93 .\templates\main\services.html:37
 msgid "Learn More"
-msgstr ""
+msgstr "بیشتر بدانید"
 
 #: .\templates\main\services.html:5 .\templates\main\services.html:11
 #, fuzzy
@@ -1385,6 +1491,10 @@ msgid ""
 "apps, e-commerce stores, and SEO optimization, we deliver solutions that "
 "drive results."
 msgstr ""
+"ما خدمات جامع طراحی، توسعه و بازاریابی دیجیتالی وب را برای کمک به رشد آنلاین"
+" کسب و کار شما ارائه می دهیم. از وب‌سایت‌های سفارشی گرفته تا برنامه‌های تلفن"
+" همراه، فروشگاه‌های تجارت الکترونیک و بهینه‌سازی SEO، ما راه‌حل‌هایی ارائه "
+"می‌دهیم که منجر به نتایج می‌شوند."
 
 #: .\templates\main\services.html:52
 #, fuzzy
@@ -1397,6 +1507,8 @@ msgid ""
 "Get a free consultation and quote. Let's discuss your project and find the "
 "best solution for your needs."
 msgstr ""
+"مشاوره رایگان و پیشنهاد قیمت بگیرید. بیایید در مورد پروژه شما بحث کنیم و "
+"بهترین راه حل را برای نیازهای شما پیدا کنیم."
 
 #: .\templates\main\services.html:55
 #, fuzzy
@@ -1406,17 +1518,19 @@ msgstr "دریافت قیمت"
 
 #: .\templates\main\team.html:11
 msgid "Our Team"
-msgstr ""
+msgstr "تیم ما"
 
 #: .\templates\main\team.html:14
 msgid ""
 "A multidisciplinary team delivering end‑to‑end web, mobile and product "
 "engineering."
 msgstr ""
+"یک تیم چند رشته‌ای که مهندسی وب، موبایل و محصول را به صورت سرتاسری ارائه "
+"می‌کند."
 
 #: .\templates\main\team.html:37
 msgid "years"
-msgstr ""
+msgstr "سال"
 
 #: .\templates\main\team.html:71
 #, fuzzy
@@ -1426,15 +1540,15 @@ msgstr "بازدید از وب‌سایت"
 
 #: .\templates\main\team.html:80
 msgid "No team members yet"
-msgstr ""
+msgstr "هنوز هیچ عضوی از تیم وجود ندارد"
 
 #: .\templates\main\team.html:82
 msgid "Add your team members from the admin panel and they will appear here."
-msgstr ""
+msgstr "اعضای تیم خود را از پنل مدیریت اضافه کنید و در اینجا ظاهر می شوند."
 
 #: .\templates\main\ui_ux.html:13
 msgid "User-centered design that converts visitors into customers"
-msgstr ""
+msgstr "طراحی کاربر محور که بازدیدکنندگان را به مشتری تبدیل می کند"
 
 #: .\templates\main\ui_ux.html:22
 #, fuzzy
@@ -1446,83 +1560,95 @@ msgstr "خدمات من"
 msgid ""
 "We design intuitive, beautiful interfaces that users love. Our process "
 "combines user research, wireframing, prototyping, and visual design to "
-"create experiences that are both functional and delightful. From websites to "
-"mobile apps, we ensure your product is easy to use and drives conversions."
+"create experiences that are both functional and delightful. From websites to"
+" mobile apps, we ensure your product is easy to use and drives conversions."
 msgstr ""
+"ما رابط های بصری و زیبا را طراحی می کنیم که کاربران آن را دوست دارند. فرآیند"
+" ما تحقیقات کاربر، قاب سیمی، نمونه سازی اولیه و طراحی بصری را برای ایجاد "
+"تجربیاتی که هم کاربردی و هم لذت بخش هستند، ترکیب می کند. از وب‌سایت‌ها گرفته"
+" تا برنامه‌های تلفن همراه، ما اطمینان می‌دهیم که استفاده از محصول شما آسان "
+"است و باعث ایجاد تبدیل می‌شود."
 
 #: .\templates\main\ui_ux.html:29
 msgid ""
 "User research: personas, user journeys, pain points, competitor analysis"
-msgstr ""
+msgstr "تحقیقات کاربر: شخصیت ها، سفرهای کاربر، نقاط درد، تجزیه و تحلیل رقبا"
 
 #: .\templates\main\ui_ux.html:30
 msgid "Wireframes: low-fidelity layouts, information architecture, user flows"
 msgstr ""
+"Wireframes: طرح‌بندی‌های با وفاداری پایین، معماری اطلاعات، جریان‌های کاربر"
 
 #: .\templates\main\ui_ux.html:31
 msgid ""
-"Prototypes: interactive clickable prototypes (Figma) for testing and feedback"
+"Prototypes: interactive clickable prototypes (Figma) for testing and "
+"feedback"
 msgstr ""
+"نمونه های اولیه: نمونه های اولیه قابل کلیک تعاملی (Figma) برای آزمایش و "
+"بازخورد"
 
 #: .\templates\main\ui_ux.html:32
 msgid ""
 "Visual design: color palette, typography, icons, components, style guide"
-msgstr ""
+msgstr "طراحی بصری: پالت رنگ، تایپوگرافی، نمادها، اجزا، راهنمای سبک"
 
 #: .\templates\main\ui_ux.html:33
 msgid "Responsive design: mobile, tablet, desktop layouts and breakpoints"
-msgstr ""
+msgstr "طراحی واکنشگرا: چیدمان های موبایل، تبلت، دسکتاپ و نقاط شکست"
 
 #: .\templates\main\ui_ux.html:34
 msgid ""
 "Design system: reusable components, patterns, guidelines for consistency"
-msgstr ""
+msgstr "سیستم طراحی: اجزای قابل استفاده مجدد، الگوها، دستورالعمل های سازگاری"
 
 #: .\templates\main\ui_ux.html:35
 msgid "Handoff: design specs, assets, developer notes for implementation"
 msgstr ""
+"Handoff: مشخصات طراحی، دارایی ها، یادداشت های توسعه دهنده برای پیاده سازی"
 
 #: .\templates\main\ui_ux.html:40
 msgid "Discovery: understand goals, users, competitors, brand guidelines"
-msgstr ""
+msgstr "کشف: درک اهداف، کاربران، رقبا، دستورالعمل های برند"
 
 #: .\templates\main\ui_ux.html:41
 msgid "Research: user interviews, surveys, analytics review, persona creation"
-msgstr ""
+msgstr "تحقیق: مصاحبه با کاربر، نظرسنجی، بررسی تحلیلی، ایجاد شخصیت"
 
 #: .\templates\main\ui_ux.html:42
 msgid "Wireframing: structure, layout, navigation, key user flows"
-msgstr ""
+msgstr "Wireframing: ساختار، طرح‌بندی، ناوبری، جریان‌های کاربر کلیدی"
 
 #: .\templates\main\ui_ux.html:43
 msgid "Design: visual design, components, responsive layouts, interactions"
-msgstr ""
+msgstr "طراحی: طراحی بصری، اجزاء، چیدمان های پاسخگو، تعاملات"
 
 #: .\templates\main\ui_ux.html:44
 msgid "Prototyping: interactive prototypes for testing and stakeholder review"
-msgstr ""
+msgstr "نمونه سازی: نمونه های اولیه تعاملی برای آزمایش و بررسی ذینفعان"
 
 #: .\templates\main\ui_ux.html:45
 msgid "Refinement: feedback integration, polish, final design system"
-msgstr ""
+msgstr "پالایش: ادغام بازخورد، پولیش، سیستم طراحی نهایی"
 
 #: .\templates\main\ui_ux.html:46
 msgid "Handoff: design files, specs, assets, collaboration with developers"
-msgstr ""
+msgstr "Handoff: فایل های طراحی، مشخصات، دارایی ها، همکاری با توسعه دهندگان"
 
 #: .\templates\main\ui_ux.html:49
 msgid "Tools we use"
-msgstr ""
+msgstr "ابزارهایی که استفاده می کنیم"
 
 #: .\templates\main\ui_ux.html:51
 msgid ""
 "Figma (design and prototyping), Adobe XD, Sketch, Miro (collaboration), "
 "UserTesting (user testing), Google Analytics (research)."
 msgstr ""
+"Figma (طراحی و نمونه سازی)، Adobe XD، Sketch، Miro (همکاری)، UserTesting "
+"(تست کاربر)، Google Analytics (تحقیق)."
 
 #: .\templates\main\ui_ux.html:54
 msgid "Design deliverables"
-msgstr ""
+msgstr "محصولات قابل تحویل طراحی"
 
 #: .\templates\main\ui_ux.html:56
 msgid ""
@@ -1530,16 +1656,21 @@ msgid ""
 "design specs (spacing, colors, fonts), assets (icons, images), developer "
 "handoff documentation."
 msgstr ""
+"فایل‌های طراحی Figma، نمونه‌های اولیه تعاملی، راهنمای سبک، کتابخانه "
+"مؤلفه‌ها، مشخصات طراحی (فاصله، رنگ‌ها، فونت‌ها)، دارایی‌ها (آیکون‌ها، "
+"تصاویر)، مستندات انتقال برنامه‌نویس."
 
 #: .\templates\main\ui_ux.html:59
 msgid "Timeline"
-msgstr ""
+msgstr "جدول زمانی"
 
 #: .\templates\main\ui_ux.html:61
 msgid ""
 "Landing page design: 1-2 weeks · Website design (5-10 pages): 3-6 weeks · "
 "Mobile app UI/UX: 4-8 weeks · Complex platforms: 8+ weeks"
 msgstr ""
+"طراحی صفحه فرود: 1-2 هفته · طراحی وب سایت (5-10 صفحه): 3-6 هفته · UI/UX "
+"برنامه موبایل: 4-8 هفته · سیستم عامل های پیچیده: 8+ هفته"
 
 #: .\templates\main\ui_ux.html:66
 msgid ""
@@ -1547,40 +1678,49 @@ msgid ""
 "15,000-35,000 TL · Mobile app UI/UX: 20,000-50,000 TL · Design system: "
 "10,000-25,000 TL. Complex projects quoted after reviewing scope."
 msgstr ""
+"طراحی صفحه فرود: 5000-10000 لیر · طراحی وب سایت (5-10 صفحه): 15000-35000 لیر"
+" · رابط کاربری/UX اپلیکیشن موبایل: 20000-50000 لیره · سیستم طراحی: "
+"10000-25000 لیر. پروژه های پیچیده پس از محدوده بررسی نقل قول."
 
 #: .\templates\main\ui_ux.html:71
 msgid "Q: Do you provide HTML/CSS code?"
-msgstr ""
+msgstr "س: آیا کد HTML/CSS را ارائه می دهید؟"
 
 #: .\templates\main\ui_ux.html:72
 msgid ""
 "A: UI/UX design includes design files and specs. If you need frontend "
 "development, we can provide that as a separate service."
 msgstr ""
+"A: طراحی UI/UX شامل فایل های طراحی و مشخصات می باشد. اگر نیاز به توسعه "
+"frontend دارید، ما می توانیم آن را به عنوان یک سرویس جداگانه ارائه دهیم."
 
 #: .\templates\main\ui_ux.html:74
 msgid "Q: How many revisions are included?"
-msgstr ""
+msgstr "س: چند ویرایش گنجانده شده است؟"
 
 #: .\templates\main\ui_ux.html:75
 msgid ""
 "A: Typically 2-3 rounds of revisions are included. Additional revisions can "
 "be arranged based on project scope."
 msgstr ""
+"A: به طور معمول 2-3 دور از تجدید نظر گنجانده شده است. بازنگری های اضافی را "
+"می توان بر اساس محدوده پروژه ترتیب داد."
 
 #: .\templates\main\ui_ux.html:77
 msgid "Q: Can you work with our existing brand?"
-msgstr ""
+msgstr "س: آیا می توانید با نام تجاری موجود ما کار کنید؟"
 
 #: .\templates\main\ui_ux.html:78
 msgid ""
 "A: Yes, we can work with your existing brand guidelines, colors, and fonts, "
 "or help evolve your brand identity."
 msgstr ""
+"پاسخ: بله، ما می‌توانیم با دستورالعمل‌ها، رنگ‌ها و فونت‌های برند موجود شما "
+"کار کنیم یا به تکامل هویت برند شما کمک کنیم."
 
 #: .\templates\main\ui_ux.html:89
 msgid "Landing page"
-msgstr ""
+msgstr "صفحه فرود"
 
 #: .\templates\main\ui_ux.html:90
 #, fuzzy
@@ -1594,7 +1734,7 @@ msgstr "طراحی وب حرفه‌ای"
 
 #: .\templates\main\web_design.html:13
 msgid "Modern, fast and conversion‑focused websites"
-msgstr ""
+msgstr "وب سایت های مدرن، سریع و متمرکز بر تبدیل"
 
 #: .\templates\main\web_design.html:22
 #, fuzzy
@@ -1606,60 +1746,66 @@ msgstr "خدمات من"
 msgid ""
 "We design and build high‑performance websites that load fast, rank on "
 "Google, and convert visitors into customers. From corporate websites to "
-"landing pages and web applications, we deliver a clean UI, solid engineering "
-"and measurable results."
+"landing pages and web applications, we deliver a clean UI, solid engineering"
+" and measurable results."
 msgstr ""
+"ما وب‌سایت‌هایی با عملکرد بالا طراحی و می‌سازیم که سریع بارگیری می‌شوند، در "
+"Google رتبه‌بندی می‌شوند و بازدیدکنندگان را به مشتری تبدیل می‌کنند. از "
+"وب‌سایت‌های شرکتی گرفته تا صفحات فرود و برنامه‌های وب، ما یک رابط کاربری "
+"تمیز، مهندسی قوی و نتایج قابل اندازه‌گیری ارائه می‌کنیم."
 
 #: .\templates\main\web_design.html:29
 msgid ""
 "Responsive UI (mobile, tablet, desktop) with modern layout and typography"
-msgstr ""
+msgstr "رابط کاربری پاسخگو (موبایل، تبلت، دسکتاپ) با چیدمان و تایپوگرافی مدرن"
 
 #: .\templates\main\web_design.html:30
 msgid "SEO foundations: semantic HTML, meta tags, sitemap, schema basics"
-msgstr ""
+msgstr "مبانی سئو: HTML معنایی، متا تگ ها، نقشه سایت، مبانی طرحواره"
 
 #: .\templates\main\web_design.html:31
 msgid "Performance optimization (Core Web Vitals) and fast loading"
-msgstr ""
+msgstr "بهینه سازی عملکرد (Core Web Vitals) و بارگذاری سریع"
 
 #: .\templates\main\web_design.html:32
 msgid "Clean codebase + scalable structure for future features"
-msgstr ""
+msgstr "پایگاه کد تمیز + ساختار مقیاس پذیر برای ویژگی های آینده"
 
 #: .\templates\main\web_design.html:33
 msgid "Contact/lead forms connected to database and admin panel"
-msgstr ""
+msgstr "فرم های تماس/سرب متصل به پایگاه داده و پنل مدیریت"
 
 #: .\templates\main\web_design.html:34
 msgid "Deployment, SSL, domain + basic security hardening"
-msgstr ""
+msgstr "استقرار، SSL، دامنه + سخت‌سازی اولیه امنیتی"
 
 #: .\templates\main\web_design.html:39
 msgid "Discovery & requirements: goals, pages, competitors, content checklist"
-msgstr ""
+msgstr "کشف و الزامات: اهداف، صفحات، رقبا، چک لیست محتوا"
 
 #: .\templates\main\web_design.html:40
 msgid "Wireframe & UI: layout, sections, conversion paths, copy structure"
-msgstr ""
+msgstr "Wireframe و UI: طرح‌بندی، بخش‌ها، مسیرهای تبدیل، ساختار کپی"
 
 #: .\templates\main\web_design.html:41
 msgid "Development: Django templates + reusable components + SEO"
-msgstr ""
+msgstr "توسعه: قالب های جنگو + اجزای قابل استفاده مجدد + سئو"
 
 #: .\templates\main\web_design.html:42
 msgid "QA: mobile/responsive checks, speed, accessibility basics"
-msgstr ""
+msgstr "QA: بررسی های تلفن همراه / پاسخگو، سرعت، اصول دسترسی"
 
 #: .\templates\main\web_design.html:43
 msgid "Launch: hosting setup, SSL, analytics, monitoring"
-msgstr ""
+msgstr "راه اندازی: راه اندازی میزبانی، SSL، تجزیه و تحلیل، نظارت"
 
 #: .\templates\main\web_design.html:48
 msgid ""
 "Landing page: 3–7 days · Corporate site: 1–3 weeks · Custom web app: 3–8+ "
 "weeks"
 msgstr ""
+"صفحه فرود: 3 تا 7 روز · سایت شرکتی: 1 تا 3 هفته · برنامه وب سفارشی: 3 تا 8 "
+"هفته به بالا"
 
 #: .\templates\main\web_design.html:53
 msgid ""
@@ -1667,6 +1813,8 @@ msgid ""
 "multi‑language, custom admin and integrations are quoted after reviewing "
 "scope."
 msgstr ""
+"وب سایت های شرکتی از 8000 لیر شروع می شوند. وب‌سایت‌های پیچیده با چند زبان، "
+"مدیر سفارشی و ادغام پس از بررسی، نقل‌قول می‌شوند."
 
 #: .\templates\main\web_design.html:65
 #, fuzzy
@@ -1676,25 +1824,25 @@ msgstr "پشتیبانی 24/7"
 
 #: .\templates\main\web_design.html:65
 msgid "maintenance & upgrades"
-msgstr ""
+msgstr "تعمیر و نگهداری و ارتقاء"
 
 #~ msgid ""
 #~ "I am a professional web developer specialized in web programming areas. I "
-#~ "develop SEO-friendly, mobile-friendly, and high-performance websites "
-#~ "using modern technologies for my clients' digital success. I prioritize "
-#~ "quality, speed, and user experience in every project, delivering "
-#~ "solutions that will grow your business."
+#~ "develop SEO-friendly, mobile-friendly, and high-performance websites using "
+#~ "modern technologies for my clients' digital success. I prioritize quality, "
+#~ "speed, and user experience in every project, delivering solutions that will "
+#~ "grow your business."
 #~ msgstr ""
-#~ "من یک توسعه‌دهنده وب حرفه‌ای هستم که در زمینه‌های مختلف برنامه‌نویسی وب تخصص "
-#~ "دارم. برای موفقیت دیجیتال مشتریانم، وب‌سایت‌های سازگار با SEO، دوستدار "
+#~ "من یک توسعه‌دهنده وب حرفه‌ای هستم که در زمینه‌های مختلف برنامه‌نویسی وب تخصص"
+#~ " دارم. برای موفقیت دیجیتال مشتریانم، وب‌سایت‌های سازگار با SEO، دوستدار "
 #~ "موبایل و با عملکرد بالا با استفاده از تکنولوژی‌های مدرن توسعه می‌دهم. در هر "
 #~ "پروژه‌ای کیفیت، سرعت و تجربه کاربری را در اولویت قرار می‌دهم و راه‌حل‌هایی "
 #~ "ارائه می‌دهم که کسب‌وکار شما را رشد خواهد داد."
 
 #~ msgid ""
-#~ "As a Marmara University Computer Programming graduate, I have been "
-#~ "designing modern and user-friendly websites for over 5 years. I offer "
-#~ "custom solutions to make your business stand out in the digital world."
+#~ "As a Marmara University Computer Programming graduate, I have been designing"
+#~ " modern and user-friendly websites for over 5 years. I offer custom "
+#~ "solutions to make your business stand out in the digital world."
 #~ msgstr ""
 #~ "به عنوان فارغ‌التحصیل برنامه‌نویسی کامپیوتر دانشگاه مارمارا، بیش از 5 سال "
 #~ "است که وب‌سایت‌های مدرن و کاربرپسند طراحی می‌کنم. راه‌حل‌های سفارشی برای "
@@ -1712,15 +1860,15 @@ msgstr ""
 #~ "quotes."
 #~ msgstr ""
 #~ "بیایید امروز پروژه شما را به زندگی تبدیل کنیم! می‌توانید از طریق واتساپ، "
-#~ "ایمیل یا فرم تماس با من ارتباط برقرار کنید. همین الان برای مشاوره رایگان "
-#~ "و دریافت پیشنهاد با من تماس بگیرید."
+#~ "ایمیل یا فرم تماس با من ارتباط برقرار کنید. همین الان برای مشاوره رایگان و "
+#~ "دریافت پیشنهاد با من تماس بگیرید."
 
 #~ msgid ""
 #~ "Contact us now for free consultation and quote. Grow your business with "
 #~ "affordable website solutions."
 #~ msgstr ""
-#~ "برای مشاوره رایگان و دریافت پیشنهاد فوری با ما تماس بگیرید. کسب و کار خود "
-#~ "را با راه‌حل‌های مقرون‌به‌صرفه وب‌سایت رشد دهید."
+#~ "برای مشاوره رایگان و دریافت پیشنهاد فوری با ما تماس بگیرید. کسب و کار خود را"
+#~ " با راه‌حل‌های مقرون‌به‌صرفه وب‌سایت رشد دهید."
 
 #~ msgid "Get Free Quote"
 #~ msgstr "درخواست پیشنهاد رایگان"
@@ -1750,16 +1898,16 @@ msgstr ""
 #~ msgstr "Full-featured e-commerce website with Django and Bootstrap"
 
 #~ msgid ""
-#~ "Professional e-commerce site that will increase your sales. Secure "
-#~ "payment systems and user-friendly interface."
+#~ "Professional e-commerce site that will increase your sales. Secure payment "
+#~ "systems and user-friendly interface."
 #~ msgstr ""
 #~ "وب‌سایت تجارت الکترونیک حرفه‌ای که فروش شما را افزایش خواهد داد. سیستم‌های "
 #~ "پرداخت امن و رابط کاربری دوستانه."
 
 #~ msgid ""
 #~ "I graduated from Marmara University Computer Programming department. I "
-#~ "received comprehensive training in web development, software engineering "
-#~ "and database management."
+#~ "received comprehensive training in web development, software engineering and"
+#~ " database management."
 #~ msgstr ""
 #~ "از رشته برنامه‌نویسی کامپیوتر دانشگاه مارمارا فارغ‌التحصیل شدم. آموزش جامع "
 #~ "در زمینه توسعه وب، مهندسی نرم‌افزار و مدیریت پایگاه داده دریافت کردم."
@@ -1773,8 +1921,8 @@ msgstr ""
 #~ "corporate websites and custom platform development."
 #~ msgstr ""
 #~ "بیش از 5 سال است که به عنوان توسعه‌دهنده وب آزادکار کار می‌کنم. بیش از 20 "
-#~ "پروژه موفق را تکمیل کرده‌ام. در توسعه سایت‌های فروشگاهی، وب‌سایت‌های شرکتی و "
-#~ "پلتفرم‌های سفارشی تخصص دارم."
+#~ "پروژه موفق را تکمیل کرده‌ام. در توسعه سایت‌های فروشگاهی، وب‌سایت‌های شرکتی و"
+#~ " پلتفرم‌های سفارشی تخصص دارم."
 
 #~ msgid "Experienced Web Developer"
 #~ msgstr "توسعه‌دهنده وب با تجربه"
@@ -1958,15 +2106,15 @@ msgstr ""
 
 #~ msgid ""
 #~ "Make your business stand out in the digital world with modern, fast, and "
-#~ "user-friendly websites. I provide comprehensive web development services "
-#~ "for e-commerce sites, corporate websites, portfolio sites, and custom "
-#~ "projects. I bring your projects to life with expertise in Django, Python, "
-#~ "JavaScript, CSS, HTML, Bootstrap, and hosting services."
+#~ "user-friendly websites. I provide comprehensive web development services for"
+#~ " e-commerce sites, corporate websites, portfolio sites, and custom projects."
+#~ " I bring your projects to life with expertise in Django, Python, JavaScript,"
+#~ " CSS, HTML, Bootstrap, and hosting services."
 #~ msgstr ""
 #~ "با وب‌سایت‌های مدرن، سریع و کاربرپسند، کسب‌وکار خود را در دنیای دیجیتال "
 #~ "برجسته کنید. خدمات جامع توسعه وب برای سایت‌های فروشگاهی، وب‌سایت‌های شرکتی، "
-#~ "سایت‌های پورتفولیو و پروژه‌های سفارشی ارائه می‌دهم. پروژه‌های شما را با تخصص "
-#~ "در Django، Python، JavaScript، CSS، HTML، Bootstrap و خدمات هاستینگ به "
+#~ "سایت‌های پورتفولیو و پروژه‌های سفارشی ارائه می‌دهم. پروژه‌های شما را با تخصص"
+#~ " در Django، Python، JavaScript، CSS، HTML، Bootstrap و خدمات هاستینگ به "
 #~ "زندگی تبدیل می‌کنم."
 
 #~ msgid "Programmer and Custom Website & Mobile App Designer"
@@ -1995,8 +2143,8 @@ msgstr ""
 #~ "I bring your website to the top ranks on Google. Fast loading and search "
 #~ "engine optimization."
 #~ msgstr ""
-#~ "وب‌سایت شما را در رتبه‌های بالای گوگل قرار می‌دهم. بارگذاری سریع و بهینه‌سازی "
-#~ "موتور جستجو."
+#~ "وب‌سایت شما را در رتبه‌های بالای گوگل قرار می‌دهم. بارگذاری سریع و "
+#~ "بهینه‌سازی موتور جستجو."
 
 #~ msgid "Or Contact Directly"
 #~ msgstr "یا مستقیماً تماس بگیرید"
@@ -2009,11 +2157,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "Grow your business in the digital world with our professional website "
-#~ "packages. Offer your customers the best experience with modern design, "
-#~ "fast loading and user-friendly interface."
+#~ "packages. Offer your customers the best experience with modern design, fast "
+#~ "loading and user-friendly interface."
 #~ msgstr ""
-#~ "با پکیج‌های حرفه‌ای وب‌سایت ما، کسب‌وکار خود را در دنیای دیجیتال رشد دهید. با "
-#~ "طراحی مدرن، بارگذاری سریع و رابط کاربری دوستانه، بهترین تجربه را به "
+#~ "با پکیج‌های حرفه‌ای وب‌سایت ما، کسب‌وکار خود را در دنیای دیجیتال رشد دهید. "
+#~ "با طراحی مدرن، بارگذاری سریع و رابط کاربری دوستانه، بهترین تجربه را به "
 #~ "مشتریان خود ارائه دهید."
 
 #~ msgid "Get to know me and trust me - Professional web developer at work"
@@ -2049,8 +2197,7 @@ msgstr ""
 #~ msgid "Professional services platform - connecting customers with craftsmen"
 #~ msgstr "پلتفرم خدمات حرفه‌ای - اتصال مشتریان با استادکاران"
 
-#~ msgid ""
-#~ "Professional driving school website - registration and training system"
+#~ msgid "Professional driving school website - registration and training system"
 #~ msgstr "وبسایت آموزشگاه رانندگی حرفه‌ای - سیستم ثبت‌نام و آموزش"
 
 #~ msgid "Legal services and consulting website - specialized platform"
@@ -2096,9 +2243,8 @@ msgstr ""
 #~ "مقرون‌به‌صرفه برای پروژه‌های مشابه ارائه می‌دهم."
 
 #~ msgid ""
-#~ "All my projects are developed using modern technologies and best "
-#~ "practices. Contact me via WhatsApp for detailed information and custom "
-#~ "project quotes."
+#~ "All my projects are developed using modern technologies and best practices. "
+#~ "Contact me via WhatsApp for detailed information and custom project quotes."
 #~ msgstr ""
 #~ "همه پروژه‌های من با استفاده از تکنولوژی‌های مدرن و بهترین روش‌ها توسعه "
 #~ "یافته‌اند. برای اطلاعات دقیق و پیشنهادات پروژه سفارشی از طریق واتساپ با من "
@@ -2140,9 +2286,9 @@ msgstr ""
 #~ msgstr "برای دریافت خدمات حرفه‌ای با من تماس بگیرید!"
 
 #~ msgid ""
-#~ "As a Marmara University Computer Programming graduate, I have specialized "
-#~ "in web design and development with my professional certificates and 5+ "
-#~ "years of experience."
+#~ "As a Marmara University Computer Programming graduate, I have specialized in"
+#~ " web design and development with my professional certificates and 5+ years "
+#~ "of experience."
 #~ msgstr ""
 #~ "به عنوان فارغ‌التحصیل برنامه‌نویسی کامپیوتر دانشگاه مارمارا، با "
 #~ "گواهینامه‌های حرفه‌ای و بیش از 5 سال تجربه در طراحی و توسعه وب تخصص پیدا "
@@ -2152,13 +2298,13 @@ msgstr ""
 #~ msgstr "تحصیلات، تجربه و گواهینامه‌های حرفه‌ای"
 
 #~ msgid ""
-#~ "As Angraweb, we offer comprehensive web design and development services "
-#~ "to strengthen your business's digital presence. Reach your goals with "
-#~ "modern, fast and user-friendly solutions."
+#~ "As Angraweb, we offer comprehensive web design and development services to "
+#~ "strengthen your business's digital presence. Reach your goals with modern, "
+#~ "fast and user-friendly solutions."
 #~ msgstr ""
 #~ "به عنوان Angraweb، خدمات جامع طراحی و توسعه وب را برای تقویت حضور دیجیتال "
-#~ "کسب‌وکار شما ارائه می‌دهیم. با راه‌حل‌های مدرن، سریع و کاربرپسند به اهداف خود "
-#~ "برسید."
+#~ "کسب‌وکار شما ارائه می‌دهیم. با راه‌حل‌های مدرن، سریع و کاربرپسند به اهداف "
+#~ "خود برسید."
 
 #~ msgid "Technical Skills"
 #~ msgstr "مهارت‌های فنی"
@@ -2170,18 +2316,17 @@ msgstr ""
 #~ msgstr "طراحی تجربه کاربری"
 
 #~ msgid ""
-#~ "Beautiful and functional interface designs that will impress your "
-#~ "customers. Increase your conversion rates."
+#~ "Beautiful and functional interface designs that will impress your customers."
+#~ " Increase your conversion rates."
 #~ msgstr ""
-#~ "طراحی‌های رابط کاربری زیبا و کاربردی که مشتریان شما را تحت تأثیر قرار "
-#~ "خواهد داد. نرخ تبدیل خود را افزایش دهید."
+#~ "طراحی‌های رابط کاربری زیبا و کاربردی که مشتریان شما را تحت تأثیر قرار خواهد "
+#~ "داد. نرخ تبدیل خود را افزایش دهید."
 
 #~ msgid ""
-#~ "I offer quality service at reasonable prices, solutions that fit your "
-#~ "budget"
+#~ "I offer quality service at reasonable prices, solutions that fit your budget"
 #~ msgstr ""
-#~ "خدمات با کیفیت را با قیمت‌های معقول ارائه می‌دهم، راه‌حل‌هایی که با بودجه شما "
-#~ "سازگار است"
+#~ "خدمات با کیفیت را با قیمت‌های معقول ارائه می‌دهم، راه‌حل‌هایی که با بودجه "
+#~ "شما سازگار است"
 
 #~ msgid "I'm with you after the project too, 24/7 technical support service"
 #~ msgstr "بعد از پروژه هم کنار شما هستم، خدمات پشتیبانی فنی 24/7"
@@ -2214,8 +2359,8 @@ msgstr ""
 #~ msgstr "دمو پروژه ۴"
 
 #~ msgid ""
-#~ "Discover functionality and design details by watching live demo videos of "
-#~ "my projects."
+#~ "Discover functionality and design details by watching live demo videos of my"
+#~ " projects."
 #~ msgstr ""
 #~ "عملکرد و جزئیات طراحی را با تماشای دموهای ویدیویی زنده پروژه‌های من کشف "
 #~ "کنید."
@@ -2227,11 +2372,11 @@ msgstr ""
 #~ msgstr "مشاهده دمو"
 
 #~ msgid ""
-#~ "I design modern and fast websites that will grow your business. "
-#~ "Strengthen your brand with corporate website solutions."
+#~ "I design modern and fast websites that will grow your business. Strengthen "
+#~ "your brand with corporate website solutions."
 #~ msgstr ""
-#~ "وب‌سایت‌های مدرن و سریعی طراحی می‌کنم که کسب‌وکار شما را رشد خواهد داد. برند "
-#~ "خود را با راه‌حل‌های وب‌سایت شرکتی تقویت کنید."
+#~ "وب‌سایت‌های مدرن و سریعی طراحی می‌کنم که کسب‌وکار شما را رشد خواهد داد. برند"
+#~ " خود را با راه‌حل‌های وب‌سایت شرکتی تقویت کنید."
 
 #~ msgid "Send a message via WhatsApp for quick response"
 #~ msgstr "برای پاسخ سریع از طریق واتساپ پیام بفرستید"

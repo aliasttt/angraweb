@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load main_extras %}
 
-{% block title %}{{ service.title }} | Angraweb.com{% endblock %}
+{% block title %}{% localized service 'title' current_lang %} | Angraweb.com{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">{{ service.title }}</span>
+            <span class="text-gradient">{% localized service 'title' current_lang %}</span>
         </h1>
         {% if service.description %}
-        <p class="hero-subtitle mt-3">{{ service.description|truncatewords:20 }}</p>
+        <p class="hero-subtitle mt-3">{% localized_truncate service 'description' current_lang 20 %}</p>
         {% endif %}
     </div>
 </section>
@@ -21,10 +22,10 @@
         <div class="row">
             <div class="col-lg-8">
                 {% if service.image %}
-                <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-fluid mb-4 rounded">
+                <img src="{{ service.image.url }}" alt="{% localized service 'title' current_lang %}" class="img-fluid mb-4 rounded">
                 {% endif %}
                 <div class="about-content">
-                    <p style="color:#b2bec3; line-height:1.9;">{{ service.description|linebreaks }}</p>
+                    <p style="color:#b2bec3; line-height:1.9;">{% localized service 'description' current_lang|linebreaks %}</p>
                     
                     {% if service.service_type == 'web_design' %}
                     <h3 class="mt-4">{% trans "What you get" %}</h3>
@@ -64,7 +65,7 @@
                     <div class="service-icon">
                         <i class="{{ service.icon }}"></i>
                     </div>
-                    <h3>{{ service.title }}</h3>
+                    <h3>{% localized service 'title' current_lang %}</h3>
                     <a href="{% url 'quote_request' %}?service={{ service.service_type }}" class="btn btn-primary btn-lg w-100 mt-3">
                         {% trans "Get Quote" %}
                     </a>
@@ -87,8 +88,8 @@
                             <div class="service-icon">
                                 <i class="{{ related.icon }}"></i>
                             </div>
-                            <h4>{{ related.title }}</h4>
-                            <p style="color:#b2bec3; line-height:1.8;">{{ related.description|truncatewords:15 }}</p>
+                            <h4>{% localized related 'title' current_lang %}</h4>
+                            <p style="color:#b2bec3; line-height:1.8;">{% localized_truncate related 'description' current_lang 15 %}</p>
                             <a href="{% url 'service_detail' related.slug %}" class="btn btn-sm btn-outline-primary">
                                 {% trans "Learn More" %}
                             </a>
