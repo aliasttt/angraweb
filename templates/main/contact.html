@@ -58,6 +58,7 @@
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <h4>WhatsApp</h4>
+                            <p class="contact-info-text">{% trans "Available 24/7" %}</p>
                             <a href="https://wa.me/905340382335" class="btn btn-sm btn-success" target="_blank">
                                 {% trans "Send Message" %}
                             </a>
@@ -69,6 +70,7 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <h4>{% trans "Email" %}</h4>
+                            <p class="contact-info-text">{% trans "Response within 24 hours" %}</p>
                             <a href="mailto:aliasadi3853@gmail.com" class="btn btn-sm btn-outline-light">
                                 {% trans "Send Email" %}
                             </a>
@@ -80,12 +82,127 @@
                                 <i class="fas fa-phone"></i>
                             </div>
                             <h4>{% trans "Phone" %}</h4>
+                            <p class="contact-info-text">{% trans "Mon-Fri: 9AM-6PM" %}</p>
                             <a href="tel:+905340382335" class="btn btn-sm btn-outline-primary">
                                 {% trans "Call Now" %}
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Office Hours Section -->
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="office-hours-card">
+                    <h2 class="text-center mb-4">
+                        <i class="fas fa-clock"></i> {% trans "Office Hours" %}
+                    </h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="hours-item">
+                                <strong>{% trans "Monday - Friday" %}</strong>
+                                <span>9:00 AM - 6:00 PM (GMT+3)</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="hours-item">
+                                <strong>{% trans "Saturday" %}</strong>
+                                <span>10:00 AM - 4:00 PM (GMT+3)</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="hours-item">
+                                <strong>{% trans "Sunday" %}</strong>
+                                <span>{% trans "Closed" %}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="hours-item">
+                                <strong>{% trans "Emergency Support" %}</strong>
+                                <span>{% trans "24/7 via WhatsApp" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Response Time Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="section-title text-center mb-4">
+                    <span class="text-gradient">{% trans "Response Time" %}</span>
+                </h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="response-time-card">
+                            <div class="response-icon">
+                                <i class="fas fa-envelope text-primary"></i>
+                            </div>
+                            <h4>{% trans "Email" %}</h4>
+                            <p class="response-time">{% trans "Within 24 hours" %}</p>
+                            <p class="response-note">{% trans "Usually faster during business hours" %}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="response-time-card">
+                            <div class="response-icon">
+                                <i class="fab fa-whatsapp text-success"></i>
+                            </div>
+                            <h4>WhatsApp</h4>
+                            <p class="response-time">{% trans "Within 2 hours" %}</p>
+                            <p class="response-note">{% trans "Fastest way to reach us" %}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="response-time-card">
+                            <div class="response-icon">
+                                <i class="fas fa-phone text-primary"></i>
+                            </div>
+                            <h4>{% trans "Phone" %}</h4>
+                            <p class="response-time">{% trans "Immediate" %}</p>
+                            <p class="response-note">{% trans "During office hours" %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-4">
+                    <span class="text-gradient">{% trans "Our Location" %}</span>
+                </h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.478274132!2d29.0!3d41.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAwJzAwLjAiTiAyOcKwMDAnMDAuMCJF!5e0!3m2!1sen!2str!4v1234567890123!5m2!1sen!2str" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0; border-radius: 15px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <p class="text-center mt-3" style="color: #b2bec3;">
+                    <i class="fas fa-map-marker-alt"></i> 
+                    {% trans "Istanbul, Turkey" %}
+                </p>
             </div>
         </div>
     </div>

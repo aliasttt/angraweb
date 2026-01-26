@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Sitemap" %} | Angraweb.com{% endblock %}
+
+{% block meta_description %}{% trans "Browse our complete sitemap to find all pages and sections of our website." %}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">{% trans "Sitemap" %}</span>
+        </h1>
+        <p class="hero-subtitle">{% trans "Find all pages and sections of our website" %}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="sitemap-content">
+                    <!-- Main Pages -->
+                    <div class="sitemap-section">
+                        <h2 class="sitemap-section-title">
+                            <i class="fas fa-home"></i> {% trans "Main Pages" %}
+                        </h2>
+                        <ul class="sitemap-list">
+                            <li><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
+                            <li><a href="{% url 'about' %}">{% trans "About Us" %}</a></li>
+                            <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
+                            <li><a href="{% url 'resume' %}">{% trans "Resume" %}</a></li>
+                            <li><a href="{% url 'team' %}">{% trans "Team" %}</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services -->
+                    <div class="sitemap-section">
+                        <h2 class="sitemap-section-title">
+                            <i class="fas fa-briefcase"></i> {% trans "Services" %}
+                        </h2>
+                        <ul class="sitemap-list">
+                            <li><a href="{% url 'services_list' %}">{% trans "All Services" %}</a></li>
+                            <li><a href="{% url 'web_design' %}">{% trans "Web Design" %}</a></li>
+                            <li><a href="{% url 'mobile_app' %}">{% trans "Mobile App Development" %}</a></li>
+                            <li><a href="{% url 'ecommerce' %}">{% trans "E-commerce" %}</a></li>
+                            <li><a href="{% url 'seo_services' %}">{% trans "SEO Services" %}</a></li>
+                            <li><a href="{% url 'hosting_services' %}">{% trans "Hosting & Domain" %}</a></li>
+                            <li><a href="{% url 'ui_ux_design' %}">{% trans "UI/UX Design" %}</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Packages -->
+                    <div class="sitemap-section">
+                        <h2 class="sitemap-section-title">
+                            <i class="fas fa-box"></i> {% trans "Packages" %}
+                        </h2>
+                        <ul class="sitemap-list">
+                            <li><a href="{% url 'packages_list' %}">{% trans "All Packages" %}</a></li>
+                            <li><a href="{% url 'packages_compare' %}">{% trans "Compare Packages" %}</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Projects -->
+                    <div class="sitemap-section">
+                        <h2 class="sitemap-section-title">
+                            <i class="fas fa-project-diagram"></i> {% trans "Projects" %}
+                        </h2>
+                        <ul class="sitemap-list">
+                            <li><a href="{% url 'projects_list' %}">{% trans "All Projects" %}</a></li>
+                            <li><a href="{% url 'case_studies_list' %}">{% trans "Case Studies" %}</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Blog -->
+                    <div class="sitemap-section">
+                        <h2 class="sitemap-section-title">
+                            <i class="fas fa-blog"></i> {% trans "Blog" %}
+                        </h2>
+                        <ul class="sitemap-list">
+                            <li><a href="{% url 'blog_list' %}">{% trans "All Blog Posts" %}</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tools & Resources -->
+                    <div class="sitemap-section">
+                        <h2 class="sitemap-section-title">
+                            <i class="fas fa-tools"></i> {% trans "Tools & Resources" %}
+                        </h2>
+                        <ul class="sitemap-list">
+                            <li><a href="{% url 'how_it_works' %}">{% trans "How It Works" %}</a></li>
+                            <li><a href="{% url 'price_calculator' %}">{% trans "Price Calculator" %}</a></li>
+                            <li><a href="{% url 'technology_stack' %}">{% trans "Technology Stack" %}</a></li>
+                            <li><a href="{% url 'faq_list' %}">{% trans "FAQ" %}</a></li>
+                            <li><a href="{% url 'testimonials_list' %}">{% trans "Testimonials" %}</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Legal -->
+                    <div class="sitemap-section">
+                        <h2 class="sitemap-section-title">
+                            <i class="fas fa-gavel"></i> {% trans "Legal" %}
+                        </h2>
+                        <ul class="sitemap-list">
+                            <li><a href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
+                            <li><a href="{% url 'terms_conditions' %}">{% trans "Terms & Conditions" %}</a></li>
+                            <li><a href="{% url 'refund_policy' %}">{% trans "Refund Policy" %}</a></li>
+                            <li><a href="{% url 'guarantee' %}">{% trans "Our Guarantee" %}</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Account -->
+                    <div class="sitemap-section">
+                        <h2 class="sitemap-section-title">
+                            <i class="fas fa-user"></i> {% trans "Account" %}
+                        </h2>
+                        <ul class="sitemap-list">
+                            <li><a href="{% url 'login' %}">{% trans "Login" %}</a></li>
+                            <li><a href="{% url 'register' %}">{% trans "Register" %}</a></li>
+                            <li><a href="{% url 'quote_request' %}">{% trans "Request Quote" %}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

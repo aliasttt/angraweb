@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Terms and Conditions" %} | Angraweb.com{% endblock %}
+
+{% block meta_description %}{% trans "Read our terms and conditions to understand the rules and regulations for using our services." %}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">{% trans "Terms and Conditions" %}</span>
+        </h1>
+        <p class="hero-subtitle">{% trans "Last Updated: January 2026" %}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="legal-content">
+                    <h2>{% trans "1. Acceptance of Terms" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        By accessing and using Angraweb.com, you accept and agree to be bound by the terms and provision of this agreement. 
+                        If you do not agree to these terms, please do not use our services.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "2. Services Description" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        Angraweb.com provides web design, development, e-commerce solutions, mobile app development, SEO services, 
+                        and related digital services. We reserve the right to modify, suspend, or discontinue any service at any time.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "3. Client Responsibilities" %}</h2>
+                    <p>{% trans "As a client, you agree to:" %}</p>
+                    <ul>
+                        <li>{% trans "Provide accurate and complete information" %}</li>
+                        <li>{% trans "Respond promptly to requests for information or feedback" %}</li>
+                        <li>{% trans "Make timely payments as agreed" %}</li>
+                        <li>{% trans "Respect intellectual property rights" %}</li>
+                        <li>{% trans "Not use our services for illegal purposes" %}</li>
+                    </ul>
+
+                    <h2>{% trans "4. Payment Terms" %}</h2>
+                    <h3>{% trans "4.1 Payment Schedule" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Payment terms will be specified in your project agreement. Typically, we require a deposit before 
+                        starting work, with remaining payments due upon project milestones or completion.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h3>{% trans "4.2 Late Payments" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Late payments may result in project delays or suspension of services. We reserve the right to charge 
+                        interest on overdue amounts.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "5. Intellectual Property" %}</h2>
+                    <h3>{% trans "5.1 Client Content" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        You retain ownership of all content, data, and materials you provide to us. You grant us a license 
+                        to use this content solely for the purpose of providing our services.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h3>{% trans "5.2 Our Work" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Upon full payment, you will receive ownership of the final deliverables. We retain the right to use 
+                        completed work in our portfolio and marketing materials unless otherwise agreed.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "6. Project Timeline" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        Project timelines are estimates and may vary based on project complexity, client responsiveness, and 
+                        unforeseen circumstances. We will communicate any significant delays promptly.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "7. Revisions and Changes" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        We include a reasonable number of revisions in our packages. Additional revisions beyond the agreed 
+                        scope may incur additional charges.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "8. Cancellation Policy" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        Either party may cancel a project with written notice. If you cancel, you will be charged for work 
+                        completed up to the cancellation date. Deposits are non-refundable unless otherwise specified.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "9. Warranty and Support" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        We provide a warranty period for our work as specified in your agreement. Support and maintenance 
+                        services may be available separately.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "10. Limitation of Liability" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        Our liability is limited to the amount paid for the specific service. We are not liable for indirect, 
+                        incidental, or consequential damages.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "11. Indemnification" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        You agree to indemnify and hold us harmless from any claims, damages, or expenses arising from your 
+                        use of our services or violation of these terms.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "12. Confidentiality" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        We respect the confidentiality of your business information and will not disclose it to third parties 
+                        without your consent, except as required by law.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "13. Dispute Resolution" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        Any disputes will be resolved through good faith negotiation. If unresolved, disputes will be subject 
+                        to the jurisdiction of Turkish courts.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "14. Changes to Terms" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        We reserve the right to modify these terms at any time. Continued use of our services after changes 
+                        constitutes acceptance of the new terms.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "15. Contact Information" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        For questions about these terms, please contact us:
+                        {% endblocktrans %}
+                    </p>
+                    <ul>
+                        <li>{% trans "Email" %}: <a href="mailto:aliasadi3853@gmail.com">aliasadi3853@gmail.com</a></li>
+                        <li>{% trans "Phone" %}: <a href="tel:+905340382335">+90 534 038 23 35</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

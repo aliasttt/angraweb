@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Privacy Policy" %} | Angraweb.com{% endblock %}
+
+{% block meta_description %}{% trans "Read our privacy policy to understand how we collect, use, and protect your personal information." %}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">{% trans "Privacy Policy" %}</span>
+        </h1>
+        <p class="hero-subtitle">{% trans "Last Updated: January 2026" %}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="legal-content">
+                    <h2>{% trans "1. Introduction" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        At Angraweb.com, we respect your privacy and are committed to protecting your personal data. 
+                        This privacy policy explains how we collect, use, and safeguard your information when you visit our website.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "2. Information We Collect" %}</h2>
+                    <h3>{% trans "2.1 Personal Information" %}</h3>
+                    <p>{% trans "We may collect the following personal information:" %}</p>
+                    <ul>
+                        <li>{% trans "Name and contact information (email, phone number)" %}</li>
+                        <li>{% trans "Company name and business information" %}</li>
+                        <li>{% trans "Project requirements and details" %}</li>
+                        <li>{% trans "Payment information (processed securely through third-party providers)" %}</li>
+                    </ul>
+
+                    <h3>{% trans "2.2 Automatically Collected Information" %}</h3>
+                    <p>{% trans "We automatically collect certain information when you visit our website:" %}</p>
+                    <ul>
+                        <li>{% trans "IP address and location data" %}</li>
+                        <li>{% trans "Browser type and version" %}</li>
+                        <li>{% trans "Device information" %}</li>
+                        <li>{% trans "Pages visited and time spent on pages" %}</li>
+                        <li>{% trans "Referring website addresses" %}</li>
+                    </ul>
+
+                    <h2>{% trans "3. How We Use Your Information" %}</h2>
+                    <p>{% trans "We use your information to:" %}</p>
+                    <ul>
+                        <li>{% trans "Provide and improve our services" %}</li>
+                        <li>{% trans "Respond to your inquiries and requests" %}</li>
+                        <li>{% trans "Process transactions and send related information" %}</li>
+                        <li>{% trans "Send you marketing communications (with your consent)" %}</li>
+                        <li>{% trans "Analyze website usage and improve user experience" %}</li>
+                        <li>{% trans "Comply with legal obligations" %}</li>
+                    </ul>
+
+                    <h2>{% trans "4. Data Protection" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        We implement appropriate technical and organizational measures to protect your personal data against 
+                        unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over 
+                        the Internet is 100% secure.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "5. Cookies and Tracking Technologies" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        We use cookies and similar tracking technologies to track activity on our website and store certain 
+                        information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "6. Third-Party Services" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        We may use third-party services such as Google Analytics, payment processors, and email service providers. 
+                        These services have their own privacy policies regarding the handling of your information.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "7. Your Rights" %}</h2>
+                    <p>{% trans "You have the right to:" %}</p>
+                    <ul>
+                        <li>{% trans "Access your personal data" %}</li>
+                        <li>{% trans "Correct inaccurate data" %}</li>
+                        <li>{% trans "Request deletion of your data" %}</li>
+                        <li>{% trans "Object to processing of your data" %}</li>
+                        <li>{% trans "Request data portability" %}</li>
+                        <li>{% trans "Withdraw consent at any time" %}</li>
+                    </ul>
+
+                    <h2>{% trans "8. Data Retention" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        We retain your personal data only for as long as necessary to fulfill the purposes outlined in this 
+                        privacy policy, unless a longer retention period is required by law.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "9. Children's Privacy" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        Our services are not directed to individuals under the age of 18. We do not knowingly collect personal 
+                        information from children.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "10. Changes to This Policy" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        We may update this privacy policy from time to time. We will notify you of any changes by posting the 
+                        new policy on this page and updating the "Last Updated" date.
+                        {% endblocktrans %}
+                    </p>
+
+                    <h2>{% trans "11. Contact Us" %}</h2>
+                    <p>
+                        {% blocktrans %}
+                        If you have any questions about this privacy policy, please contact us:
+                        {% endblocktrans %}
+                    </p>
+                    <ul>
+                        <li>{% trans "Email" %}: <a href="mailto:aliasadi3853@gmail.com">aliasadi3853@gmail.com</a></li>
+                        <li>{% trans "Phone" %}: <a href="tel:+905340382335">+90 534 038 23 35</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

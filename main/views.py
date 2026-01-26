@@ -655,6 +655,41 @@ def technology_stack(request):
     return render(request, 'main/technology_stack.html', context)
 
 
+def privacy_policy(request):
+    """صفحه Privacy Policy"""
+    context = {}
+    context.update(get_language_context(request))
+    return render(request, 'main/privacy_policy.html', context)
+
+
+def terms_conditions(request):
+    """صفحه Terms and Conditions"""
+    context = {}
+    context.update(get_language_context(request))
+    return render(request, 'main/terms_conditions.html', context)
+
+
+def refund_policy(request):
+    """صفحه Refund Policy"""
+    context = {}
+    context.update(get_language_context(request))
+    return render(request, 'main/refund_policy.html', context)
+
+
+def guarantee(request):
+    """صفحه Guarantee"""
+    context = {}
+    context.update(get_language_context(request))
+    return render(request, 'main/guarantee.html', context)
+
+
+def sitemap(request):
+    """صفحه Sitemap"""
+    context = {}
+    context.update(get_language_context(request))
+    return render(request, 'main/sitemap.html', context)
+
+
 def set_language(request, lang_code):
     """سوئیچ زبان — ذخیره در session و cookie. بدون translate_url چون با prefix_default_language=False مسیر /en/... وجود ندارد."""
     from django.conf import settings

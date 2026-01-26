@@ -200,6 +200,19 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">{% trans "Contact" %}</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if 'privacy' in request.resolver_match.url_name or 'terms' in request.resolver_match.url_name or 'refund' in request.resolver_match.url_name or 'guarantee' in request.resolver_match.url_name or 'sitemap' in request.resolver_match.url_name %}active{% endif %}" href="#" id="legalDropdown" role="button" data-bs-toggle="dropdown">
+                            {% trans "More" %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{% url 'sitemap' %}">{% trans "Sitemap" %}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'terms_conditions' %}">{% trans "Terms & Conditions" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'refund_policy' %}">{% trans "Refund Policy" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'guarantee' %}">{% trans "Our Guarantee" %}</a></li>
+                        </ul>
+                    </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'dashboard' %}">{% trans "Hello" %}, {{ user.first_name|default:user.username }}</a>

@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Our Guarantee" %} | Angraweb.com{% endblock %}
+
+{% block meta_description %}{% trans "Learn about our quality guarantee, satisfaction promise, and commitment to excellence." %}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="text-gradient">{% trans "Our Guarantee" %}</span>
+        </h1>
+        <p class="hero-subtitle">{% trans "100% Satisfaction Guaranteed" %}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="guarantee-intro text-center mb-5">
+                    <div class="guarantee-badge">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h2>{% trans "We Stand Behind Our Work" %}</h2>
+                    <p class="lead">
+                        {% blocktrans %}
+                        At Angraweb.com, we are committed to delivering exceptional results. Our guarantee ensures that 
+                        you receive the quality service you deserve.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+
+                <div class="guarantee-cards">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="guarantee-card">
+                                <div class="guarantee-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>{% trans "Quality Guarantee" %}</h3>
+                                <p>
+                                    {% blocktrans %}
+                                    We guarantee that all our work meets professional standards. If you're not satisfied 
+                                    with the quality, we'll work with you to make it right.
+                                    {% endblocktrans %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="guarantee-card">
+                                <div class="guarantee-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h3>{% trans "Timeline Guarantee" %}</h3>
+                                <p>
+                                    {% blocktrans %}
+                                    We commit to delivering your project on time. If we fail to meet agreed deadlines 
+                                    due to our fault, we'll compensate accordingly.
+                                    {% endblocktrans %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="guarantee-card">
+                                <div class="guarantee-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h3>{% trans "Support Guarantee" %}</h3>
+                                <p>
+                                    {% blocktrans %}
+                                    We provide ongoing support for all our projects. Our support guarantee ensures you 
+                                    have help when you need it.
+                                    {% endblocktrans %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="guarantee-card">
+                                <div class="guarantee-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h3>{% trans "Security Guarantee" %}</h3>
+                                <p>
+                                    {% blocktrans %}
+                                    We guarantee that your data and information are secure. We follow industry best 
+                                    practices for data protection and security.
+                                    {% endblocktrans %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guarantee-details mt-5">
+                    <h2>{% trans "What Our Guarantee Covers" %}</h2>
+                    <ul class="guarantee-list">
+                        <li>
+                            <i class="fas fa-check text-success"></i>
+                            <strong>{% trans "Code Quality" %}</strong>: {% trans "Clean, maintainable, and well-documented code" %}
+                        </li>
+                        <li>
+                            <i class="fas fa-check text-success"></i>
+                            <strong>{% trans "Design Quality" %}</strong>: {% trans "Modern, responsive, and user-friendly designs" %}
+                        </li>
+                        <li>
+                            <i class="fas fa-check text-success"></i>
+                            <strong>{% trans "Functionality" %}</strong>: {% trans "All features work as specified in the agreement" %}
+                        </li>
+                        <li>
+                            <i class="fas fa-check text-success"></i>
+                            <strong>{% trans "Browser Compatibility" %}</strong>: {% trans "Works on all major browsers" %}
+                        </li>
+                        <li>
+                            <i class="fas fa-check text-success"></i>
+                            <strong>{% trans "Mobile Responsiveness" %}</strong>: {% trans "Fully responsive on all devices" %}
+                        </li>
+                        <li>
+                            <i class="fas fa-check text-success"></i>
+                            <strong>{% trans "SEO Optimization" %}</strong>: {% trans "Basic SEO best practices implemented" %}
+                        </li>
+                    </ul>
+
+                    <h2 class="mt-5">{% trans "Our Commitment" %}</h2>
+                    <div class="commitment-box">
+                        <p>
+                            {% blocktrans %}
+                            We are committed to your success. If you're not completely satisfied with our work, we will 
+                            work with you to resolve any issues. Our goal is not just to complete a project, but to build 
+                            a long-term relationship based on trust and quality.
+                            {% endblocktrans %}
+                        </p>
+                    </div>
+
+                    <h2 class="mt-5">{% trans "How to Claim Your Guarantee" %}</h2>
+                    <ol class="guarantee-steps">
+                        <li>{% trans "Contact us within 30 days of project completion" %}</li>
+                        <li>{% trans "Describe the issue or concern" %}</li>
+                        <li>{% trans "We'll review and respond within 48 hours" %}</li>
+                        <li>{% trans "We'll work together to resolve the issue" %}</li>
+                    </ol>
+                </div>
+
+                <div class="guarantee-cta mt-5 text-center">
+                    <h3>{% trans "Ready to Work With Us?" %}</h3>
+                    <p class="mb-4">{% trans "Experience our quality guarantee firsthand" %}</p>
+                    <a href="{% url 'quote_request' %}" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-paper-plane"></i> {% trans "Get Free Quote" %}
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-envelope"></i> {% trans "Contact Us" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

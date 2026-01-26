@@ -60,4 +60,138 @@
         </div>
     </div>
 </section>
+
+<!-- Service Comparison Section -->
+{% if services|length > 1 %}
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-5">
+                    <span class="text-gradient">{% trans "Compare Our Services" %}</span>
+                </h2>
+                <p class="text-center mb-4" style="color:#b2bec3; max-width: 800px; margin: 0 auto;">
+                    {% trans "Compare our services to find the best solution for your business needs." %}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="service-comparison-wrapper">
+                    <div class="table-responsive">
+                        <table class="service-comparison-table">
+                            <thead>
+                                <tr>
+                                    <th class="feature-column">{% trans "Features" %}</th>
+                                    {% for service in services %}
+                                    <th class="service-column">
+                                        <div class="service-header-compare">
+                                            <i class="{{ service.icon }}"></i>
+                                            <h4>{% localized service 'title' current_lang %}</h4>
+                                        </div>
+                                    </th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="feature-name">{% trans "Custom Design" %}</td>
+                                    {% for service in services %}
+                                    <td class="feature-check">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">{% trans "Responsive Design" %}</td>
+                                    {% for service in services %}
+                                    <td class="feature-check">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">{% trans "SEO Optimization" %}</td>
+                                    {% for service in services %}
+                                    <td class="feature-check">
+                                        {% if service.service_type == 'seo' %}
+                                        <i class="fas fa-check text-success"></i>
+                                        {% else %}
+                                        <i class="fas fa-check text-warning"></i>
+                                        {% endif %}
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">{% trans "E-commerce Features" %}</td>
+                                    {% for service in services %}
+                                    <td class="feature-check">
+                                        {% if service.service_type == 'ecommerce' %}
+                                        <i class="fas fa-check text-success"></i>
+                                        {% else %}
+                                        <i class="fas fa-minus text-secondary"></i>
+                                        {% endif %}
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">{% trans "Mobile App" %}</td>
+                                    {% for service in services %}
+                                    <td class="feature-check">
+                                        {% if service.service_type == 'mobile_app' %}
+                                        <i class="fas fa-check text-success"></i>
+                                        {% else %}
+                                        <i class="fas fa-minus text-secondary"></i>
+                                        {% endif %}
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">{% trans "Hosting Setup" %}</td>
+                                    {% for service in services %}
+                                    <td class="feature-check">
+                                        {% if service.service_type == 'hosting' %}
+                                        <i class="fas fa-check text-success"></i>
+                                        {% else %}
+                                        <i class="fas fa-check text-warning"></i>
+                                        {% endif %}
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">{% trans "Ongoing Support" %}</td>
+                                    {% for service in services %}
+                                    <td class="feature-check">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="feature-column"></td>
+                                    {% for service in services %}
+                                    <td class="service-cta-compare">
+                                        <a href="{% url 'service_detail' service.slug %}" class="btn btn-sm btn-primary w-100">
+                                            {% trans "Learn More" %}
+                                        </a>
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="comparison-legend mt-4 text-center">
+                        <p style="color: #b2bec3;">
+                            <i class="fas fa-check text-success"></i> {% trans "Included" %} | 
+                            <i class="fas fa-check text-warning"></i> {% trans "Optional" %} | 
+                            <i class="fas fa-minus text-secondary"></i> {% trans "Not Included" %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
 {% endblock %}
