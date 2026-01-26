@@ -203,6 +203,11 @@
                         <div class="skill-item"><i class="fab fa-github"></i><span>Git</span></div>
                         <div class="skill-item"><i class="fab fa-python"></i><span>Django</span></div>
                     </div>
+                    <div class="mt-4">
+                        <a href="{% url 'technology_stack' %}" class="btn btn-outline-primary">
+                            <i class="fas fa-code"></i> {% trans "View All Technologies" %}
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -317,6 +322,116 @@
     </div>
 </section>
 
+<!-- Statistics Section -->
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-5">
+                    <span class="text-gradient">{% trans "By The Numbers" %}</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number-large">{{ total_projects }}+</div>
+                    <div class="stat-label-large">{% trans "Projects Completed" %}</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number-large">{{ total_clients }}+</div>
+                    <div class="stat-label-large">{% trans "Happy Clients" %}</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-number-large">5+</div>
+                    <div class="stat-label-large">{% trans "Years Experience" %}</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number-large">100%</div>
+                    <div class="stat-label-large">{% trans "Satisfaction Rate" %}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Blog Posts Section -->
+{% if blog_posts %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-5">
+                    <span class="text-gradient">{% trans "Latest Blog Posts" %}</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for post in blog_posts %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="blog-card">
+                    {% if post.image %}
+                    <div class="blog-image">
+                        <a href="{% url 'blog_detail' post.slug %}">
+                            <img src="{{ post.image.url }}" alt="{% localized post 'title' current_lang %}">
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="far fa-calendar"></i> 
+                                {{ post.published_at|date:"d M Y" }}
+                            </span>
+                            <span class="blog-views">
+                                <i class="far fa-eye"></i> {{ post.views }}
+                            </span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="{% url 'blog_detail' post.slug %}">
+                                {% localized post 'title' current_lang %}
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            {% localized_truncate post 'excerpt' current_lang 20 %}
+                        </p>
+                        <a href="{% url 'blog_detail' post.slug %}" class="btn btn-sm btn-outline-primary">
+                            {% trans "Read More" %} <i class="fas fa-arrow-left ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <a href="{% url 'blog_list' %}" class="btn btn-primary btn-lg">
+                    {% trans "View All Blog Posts" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <!-- Testimonials Section -->
 {% if testimonials %}
 <section id="testimonials" class="section bg-gradient">
@@ -376,4 +491,21 @@
     </div>
 </section>
 {% endif %}
+
+<!-- How It Works CTA -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="services-cta text-center">
+                    <h3 class="mb-3">{% trans "Want to Know How We Work?" %}</h3>
+                    <p class="mb-4">{% trans "Learn about our professional process from consultation to delivery." %}</p>
+                    <a href="{% url 'how_it_works' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-cogs"></i> {% trans "See Our Process" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

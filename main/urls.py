@@ -21,6 +21,7 @@ urlpatterns = [
     
     # Packages
     path('packages/', views.packages_list, name='packages_list'),
+    path('packages/compare/', views.packages_compare, name='packages_compare'),
     
     # Projects
     path('projects/', views.projects_list, name='projects_list'),
@@ -47,4 +48,17 @@ urlpatterns = [
     
     # Newsletter
     path('newsletter/subscribe/', views.newsletter_subscribe, name='newsletter_subscribe'),
+    
+    # Process
+    path('how-it-works/', views.how_it_works, name='how_it_works'),
+    
+    # Case Studies
+    path('case-studies/', views.case_studies_list, name='case_studies_list'),
+    path('case-study/<slug:slug>/', views.case_study_detail, name='case_study_detail'),
+    
+    # Calculator
+    path('calculator/', views.price_calculator, name='price_calculator'),
+    
+    # Technology Stack
+    path('technology/', views.technology_stack, name='technology_stack'),
 ]

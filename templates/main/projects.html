@@ -11,6 +11,51 @@
         <h1 class="hero-title">
             <span class="text-gradient">{% trans "Projects" %}</span>
         </h1>
+        <p class="hero-subtitle">{% trans "Explore our portfolio of successful projects" %}</p>
+    </div>
+</section>
+
+<!-- Filters Section -->
+<section class="section" style="padding-top: 40px;">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="project-filters">
+                    <form method="get" action="{% url 'projects_list' %}" class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">{% trans "Project Type" %}</label>
+                            <select name="type" class="form-control" onchange="this.form.submit()">
+                                <option value="">{% trans "All Types" %}</option>
+                                {% for type_key, type_label in all_types %}
+                                <option value="{{ type_key }}" {% if selected_type == type_key %}selected{% endif %}>
+                                    {% trans type_label %}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">{% trans "Technology" %}</label>
+                            <select name="tech" class="form-control" onchange="this.form.submit()">
+                                <option value="">{% trans "All Technologies" %}</option>
+                                {% for tech in all_technologies %}
+                                <option value="{{ tech }}" {% if selected_tech == tech %}selected{% endif %}>
+                                    {{ tech }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">&nbsp;</label>
+                            <div>
+                                <a href="{% url 'projects_list' %}" class="btn btn-outline-light w-100">
+                                    <i class="fas fa-redo"></i> {% trans "Reset Filters" %}
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

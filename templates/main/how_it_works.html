@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load main_extras %}
+
+{% block title %}{% trans "How It Works - Our Process" %}{% endblock %}
+
+{% block meta_description %}{% trans "Learn about our professional web design and development process. From consultation to delivery, we ensure quality results." %}{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="hero-title">
+                    <span class="text-gradient">{% trans "How It Works" %}</span>
+                </h1>
+                <p class="hero-subtitle">{% trans "Our Professional Process" %}</p>
+                <p class="hero-description" style="max-width: 800px; margin: 2rem auto;">
+                    {% trans "We follow a proven process to ensure your project is completed on time, within budget, and exceeds your expectations. Here's how we work together to bring your vision to life." %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Steps -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            {% for step in steps %}
+            <div class="col-lg-6 col-md-6 mb-5">
+                <div class="process-step-card">
+                    <div class="process-step-header">
+                        <div class="process-step-number">
+                            <span>{{ step.step_number }}</span>
+                        </div>
+                        <div class="process-step-icon">
+                            <i class="{{ step.icon }}"></i>
+                        </div>
+                        <h3 class="process-step-title">{% localized step 'title' current_lang %}</h3>
+                    </div>
+                    <div class="process-step-content">
+                        <p>{% localized step 'description' current_lang %}</p>
+                        {% if step.duration %}
+                        <div class="process-step-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>{% trans "Duration" %}: {{ step.duration }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="text-center py-5">
+                    <i class="fas fa-cogs" style="font-size: 4rem; color: #74b9ff; margin-bottom: 1rem;"></i>
+                    <h3>{% trans "Process steps coming soon" %}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Why Our Process Works -->
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-5">
+                    <span class="text-gradient">{% trans "Why Our Process Works" %}</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>{% trans "Clear Communication" %}</h3>
+                    <p>{% trans "We keep you informed at every step with regular updates and transparent communication." %}</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3>{% trans "Quality Assurance" %}</h3>
+                    <p>{% trans "Every project goes through rigorous testing to ensure it meets our high standards." %}</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>{% trans "Ongoing Support" %}</h3>
+                    <p>{% trans "We don't disappear after delivery. We provide continuous support and maintenance." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="services-cta text-center">
+                    <h3 class="mb-3">{% trans "Ready to Start Your Project?" %}</h3>
+                    <p class="mb-4">{% trans "Let's begin with a free consultation. Contact us today!" %}</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="{% url 'quote_request' %}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane"></i> {% trans "Get Free Quote" %}
+                        </a>
+                        <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-envelope"></i> {% trans "Contact Us" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

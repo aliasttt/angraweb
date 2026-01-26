@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Project Price Calculator" %}{% endblock %}
+
+{% block meta_description %}{% trans "Calculate the estimated price for your web design project based on your requirements." %}{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="hero-title">
+                    <span class="text-gradient">{% trans "Project Price Calculator" %}</span>
+                </h1>
+                <p class="hero-subtitle">{% trans "Get an instant estimate for your project" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Calculator Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="calculator-card">
+                    <form id="priceCalculator">
+                        <!-- Project Type -->
+                        <div class="calculator-section mb-4">
+                            <h3 class="calculator-section-title">
+                                <i class="fas fa-tasks"></i> {% trans "Project Type" %}
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-option">
+                                        <input type="radio" name="project_type" value="website" data-price="5000" required>
+                                        <div class="option-content">
+                                            <i class="fas fa-globe"></i>
+                                            <span>{% trans "Website" %}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-option">
+                                        <input type="radio" name="project_type" value="ecommerce" data-price="10000">
+                                        <div class="option-content">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            <span>{% trans "E-commerce" %}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-option">
+                                        <input type="radio" name="project_type" value="mobile" data-price="15000">
+                                        <div class="option-content">
+                                            <i class="fas fa-mobile-alt"></i>
+                                            <span>{% trans "Mobile App" %}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-option">
+                                        <input type="radio" name="project_type" value="custom" data-price="20000">
+                                        <div class="option-content">
+                                            <i class="fas fa-code"></i>
+                                            <span>{% trans "Custom Platform" %}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Number of Pages -->
+                        <div class="calculator-section mb-4">
+                            <h3 class="calculator-section-title">
+                                <i class="fas fa-file-alt"></i> {% trans "Number of Pages" %}
+                            </h3>
+                            <div class="calculator-slider">
+                                <input type="range" id="pagesRange" name="pages" min="1" max="50" value="5" class="form-range">
+                                <div class="slider-labels">
+                                    <span>1</span>
+                                    <span id="pagesValue">5</span>
+                                    <span>50+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="calculator-section mb-4">
+                            <h3 class="calculator-section-title">
+                                <i class="fas fa-star"></i> {% trans "Additional Features" %}
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="features" value="seo" data-price="2000">
+                                        <span>{% trans "SEO Optimization" %} (+2,000 TL)</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="features" value="multilang" data-price="3000">
+                                        <span>{% trans "Multi-language" %} (+3,000 TL)</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="features" value="payment" data-price="5000">
+                                        <span>{% trans "Payment Gateway" %} (+5,000 TL)</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="features" value="admin" data-price="3000">
+                                        <span>{% trans "Admin Panel" %} (+3,000 TL)</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="features" value="responsive" data-price="2000">
+                                        <span>{% trans "Responsive Design" %} (+2,000 TL)</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="features" value="hosting" data-price="1000">
+                                        <span>{% trans "Hosting Setup" %} (+1,000 TL)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Urgency -->
+                        <div class="calculator-section mb-4">
+                            <h3 class="calculator-section-title">
+                                <i class="fas fa-clock"></i> {% trans "Delivery Time" %}
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="calculator-option">
+                                        <input type="radio" name="urgency" value="normal" data-multiplier="1" required>
+                                        <div class="option-content">
+                                            <span>{% trans "Normal (4-6 weeks)" %}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="calculator-option">
+                                        <input type="radio" name="urgency" value="fast" data-multiplier="1.3">
+                                        <div class="option-content">
+                                            <span>{% trans "Fast (2-3 weeks)" %}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="calculator-option">
+                                        <input type="radio" name="urgency" value="urgent" data-multiplier="1.5">
+                                        <div class="option-content">
+                                            <span>{% trans "Urgent (1-2 weeks)" %}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Estimated Price -->
+                        <div class="calculator-result">
+                            <div class="result-content">
+                                <h4>{% trans "Estimated Price" %}</h4>
+                                <div class="result-price">
+                                    <span class="price-currency">TL</span>
+                                    <span id="estimatedPrice" class="price-amount">0</span>
+                                </div>
+                                <p class="result-note">{% trans "* This is an estimate. Final price may vary based on specific requirements." %}</p>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="calculator-cta mt-4">
+                            <button type="button" class="btn btn-primary btn-lg w-100 mb-3" onclick="submitQuote()">
+                                <i class="fas fa-paper-plane"></i> {% trans "Get Detailed Quote" %}
+                            </button>
+                            <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg w-100">
+                                <i class="fas fa-envelope"></i> {% trans "Contact for Custom Quote" %}
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const calculator = document.getElementById('priceCalculator');
+    const pagesRange = document.getElementById('pagesRange');
+    const pagesValue = document.getElementById('pagesValue');
+    const estimatedPrice = document.getElementById('estimatedPrice');
+    
+    // Update pages value display
+    pagesRange.addEventListener('input', function() {
+        pagesValue.textContent = this.value;
+        calculatePrice();
+    });
+    
+    // Calculate price on any change
+    calculator.addEventListener('change', calculatePrice);
+    calculator.addEventListener('input', calculatePrice);
+    
+    function calculatePrice() {
+        let basePrice = 0;
+        let pages = parseInt(pagesRange.value) || 5;
+        let multiplier = 1;
+        
+        // Get selected project type
+        const projectType = document.querySelector('input[name="project_type"]:checked');
+        if (projectType) {
+            basePrice = parseFloat(projectType.dataset.price) || 0;
+        }
+        
+        // Add pages cost (500 TL per page after first 5)
+        if (pages > 5) {
+            basePrice += (pages - 5) * 500;
+        }
+        
+        // Add features
+        const features = document.querySelectorAll('input[name="features"]:checked');
+        features.forEach(feature => {
+            basePrice += parseFloat(feature.dataset.price) || 0;
+        });
+        
+        // Apply urgency multiplier
+        const urgency = document.querySelector('input[name="urgency"]:checked');
+        if (urgency) {
+            multiplier = parseFloat(urgency.dataset.multiplier) || 1;
+        }
+        
+        const finalPrice = Math.round(basePrice * multiplier);
+        estimatedPrice.textContent = finalPrice.toLocaleString();
+    }
+    
+    // Initial calculation
+    calculatePrice();
+});
+
+function submitQuote() {
+    const form = document.getElementById('priceCalculator');
+    const formData = new FormData(form);
+    const projectType = formData.get('project_type');
+    const pages = formData.get('pages');
+    const urgency = formData.get('urgency');
+    const features = Array.from(form.querySelectorAll('input[name="features"]:checked')).map(f => f.value);
+    const estimatedPrice = document.getElementById('estimatedPrice').textContent;
+    
+    // Redirect to quote request with pre-filled data
+    const params = new URLSearchParams({
+        'package': projectType || 'custom',
+        'description': `Pages: ${pages}, Urgency: ${urgency}, Features: ${features.join(', ')}, Estimated: ${estimatedPrice} TL`
+    });
+    
+    window.location.href = `{% url 'quote_request' %}?${params.toString()}`;
+}
+</script>
+{% endblock %}

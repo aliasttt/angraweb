@@ -13,7 +13,8 @@ from django_ratelimit.decorators import ratelimit
 from django_ratelimit.exceptions import Ratelimited
 from .models import (
     Service, Package, Project, ProjectVideo, Certificate,
-    ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember, UserProfile, FAQ, NewsletterSubscriber
+    ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember, UserProfile, FAQ, NewsletterSubscriber,
+    ProcessStep, CaseStudy, TimelineEvent, Skill
 )
 from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, NewsletterForm
 
@@ -66,12 +67,20 @@ def index(request):
     testimonials = Testimonial.objects.filter(active=True, featured=True).order_by('order')[:3]
     blog_posts = BlogPost.objects.filter(published=True).order_by('-published_at')[:3]
     
+    # Statistics
+    total_projects = Project.objects.filter(active=True).count()
+    total_clients = Testimonial.objects.filter(active=True).values('name').distinct().count()
+    total_blog_posts = BlogPost.objects.filter(published=True).count()
+    
     context = {
         'services': services,
         'packages': packages,
         'projects': projects,
         'testimonials': testimonials,
         'blog_posts': blog_posts,
+        'total_projects': total_projects,
+        'total_clients': total_clients,
+        'total_blog_posts': total_blog_posts,
     }
     context.update(get_language_context(request))
     return render(request, 'main/index.html', context)
@@ -198,14 +207,44 @@ def packages_list(request):
     return render(request, 'main/packages.html', context)
 
 
+def packages_compare(request):
+    """مقایسه پکیج‌ها"""
+    packages = Package.objects.filter(active=True).order_by('order')
+    
+    # Get all unique features across all packages
+    all_features = set()
+    for package in packages:
+        for feature in package.features.all():
+            all_features.add(feature.title)
+    
+    context = {
+        'packages': packages,
+        'all_features': sorted(all_features),
+    }
+    context.update(get_language_context(request))
+    return render(request, 'main/packages_compare.html', context)
+
+
 def about(request):
     """صفحه درباره ما"""
     certificates = Certificate.objects.filter(active=True).order_by('order')
     testimonials = Testimonial.objects.filter(active=True).order_by('order')[:6]
+    timeline_events = TimelineEvent.objects.filter(active=True).order_by('-date', 'order')
+    skills = Skill.objects.filter(active=True).order_by('order')
+    
+    # Group skills by category
+    skills_by_category = {}
+    for skill in skills:
+        if skill.category not in skills_by_category:
+            skills_by_category[skill.category] = []
+        skills_by_category[skill.category].append(skill)
     
     context = {
         'certificates': certificates,
         'testimonials': testimonials,
+        'timeline_events': timeline_events,
+        'skills': skills,
+        'skills_by_category': skills_by_category,
     }
     context.update(get_language_context(request))
     return render(request, 'main/about.html', context)
@@ -213,8 +252,28 @@ def about(request):
 
 def projects_list(request):
     """لیست پروژه‌ها"""
-    projects = Project.objects.filter(active=True).order_by('-created_at')
+    projects = Project.objects.filter(active=True)
     videos = ProjectVideo.objects.filter(active=True).order_by('order')
+    
+    # Filters
+    project_type = request.GET.get('type', '')
+    technology = request.GET.get('tech', '')
+    
+    if project_type:
+        projects = projects.filter(project_type=project_type)
+    
+    if technology:
+        projects = projects.filter(technologies__icontains=technology)
+    
+    projects = projects.order_by('-created_at')
+    
+    # Get unique project types and technologies for filters
+    all_types = Project.PROJECT_TYPES
+    all_technologies = set()
+    for project in Project.objects.filter(active=True):
+        if project.technologies:
+            for tech in project.get_technologies_list():
+                all_technologies.add(tech)
     
     # Pagination
     paginator = Paginator(projects, 12)
@@ -224,6 +283,10 @@ def projects_list(request):
     context = {
         'projects': page_obj,
         'videos': videos,
+        'all_types': all_types,
+        'all_technologies': sorted(all_technologies),
+        'selected_type': project_type,
+        'selected_tech': technology,
     }
     context.update(get_language_context(request))
     return render(request, 'main/projects.html', context)
@@ -516,6 +579,68 @@ def newsletter_subscribe(request):
             messages.error(request, _('Please check your email address and try again.'))
     
     return redirect('index')
+
+
+def how_it_works(request):
+    """صفحه فرآیند کار"""
+    steps = ProcessStep.objects.filter(active=True).order_by('order', 'step_number')
+    
+    context = {
+        'steps': steps,
+    }
+    context.update(get_language_context(request))
+    return render(request, 'main/how_it_works.html', context)
+
+
+def case_studies_list(request):
+    """لیست مطالعات موردی"""
+    case_studies = CaseStudy.objects.filter(active=True).order_by('order', '-created_at')
+    
+    # Filter by industry if provided
+    industry = request.GET.get('industry', '')
+    if industry:
+        case_studies = case_studies.filter(client_industry__icontains=industry)
+    
+    # Pagination
+    paginator = Paginator(case_studies, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    context = {
+        'case_studies': page_obj,
+        'selected_industry': industry,
+    }
+    context.update(get_language_context(request))
+    return render(request, 'main/case_studies.html', context)
+
+
+def case_study_detail(request, slug):
+    """جزئیات مطالعه موردی"""
+    case_study = get_object_or_404(CaseStudy, slug=slug, active=True)
+    related_cases = CaseStudy.objects.filter(
+        active=True
+    ).exclude(id=case_study.id)[:3]
+    
+    context = {
+        'case_study': case_study,
+        'related_cases': related_cases,
+    }
+    context.update(get_language_context(request))
+    return render(request, 'main/case_study_detail.html', context)
+
+
+def price_calculator(request):
+    """ماشین حساب قیمت پروژه"""
+    context = {}
+    context.update(get_language_context(request))
+    return render(request, 'main/calculator.html', context)
+
+
+def technology_stack(request):
+    """صفحه Technology Stack"""
+    context = {}
+    context.update(get_language_context(request))
+    return render(request, 'main/technology_stack.html', context)
 
 
 def set_language(request, lang_code):

@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load main_extras %}
+
+{% block title %}{% trans "Compare Packages" %}{% endblock %}
+
+{% block meta_description %}{% trans "Compare our web design packages and choose the best one for your needs." %}{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="hero-title">
+                    <span class="text-gradient">{% trans "Compare Packages" %}</span>
+                </h1>
+                <p class="hero-subtitle">{% trans "Find the perfect package for your needs" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th class="feature-column">{% trans "Features" %}</th>
+                                {% for package in packages %}
+                                <th class="package-column {% if package.popular %}popular-column{% endif %}">
+                                    <div class="package-header-compare">
+                                        <h3>{% localized package 'title' current_lang %}</h3>
+                                        <div class="package-price-compare">
+                                            {% if package.custom_price_text %}
+                                            <p class="custom-price">{{ package.custom_price_text }}</p>
+                                            {% else %}
+                                            <span class="price-amount">{{ package.price|floatformat:0 }}</span>
+                                            <span class="price-currency">{{ package.currency }}</span>
+                                            {% endif %}
+                                        </div>
+                                        {% if package.popular %}
+                                        <span class="popular-badge-compare">{% trans "Popular" %}</span>
+                                        {% endif %}
+                                    </div>
+                                </th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for feature_title in all_features %}
+                            <tr>
+                                <td class="feature-name">{{ feature_title }}</td>
+                                {% for package in packages %}
+                                <td class="feature-check {% if package.popular %}popular-column{% endif %}">
+                                    {% with feature=package.features.all|first %}
+                                    {% for pkg_feature in package.features.all %}
+                                        {% if pkg_feature.title == feature_title %}
+                                            {% if pkg_feature.included %}
+                                            <i class="fas fa-check text-success"></i>
+                                            {% else %}
+                                            <i class="fas fa-times text-danger"></i>
+                                            {% endif %}
+                                            {% break %}
+                                        {% endif %}
+                                    {% empty %}
+                                    <i class="fas fa-minus text-secondary"></i>
+                                    {% endfor %}
+                                    {% endwith %}
+                                </td>
+                                {% endfor %}
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="{{ packages|length|add:1 }}" class="text-center py-5">
+                                    <p>{% trans "No features to compare." %}</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="feature-column"></td>
+                                {% for package in packages %}
+                                <td class="package-cta-compare {% if package.popular %}popular-column{% endif %}">
+                                    <a href="{% url 'quote_request' %}?package={{ package.package_type }}" class="btn btn-primary w-100">
+                                        {% trans "Choose This Package" %}
+                                    </a>
+                                </td>
+                                {% endfor %}
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Section -->
+        <div class="row mt-5">
+            <div class="col-lg-8 mx-auto">
+                <div class="comparison-help">
+                    <h3 class="text-center mb-4">{% trans "Need Help Choosing?" %}</h3>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="help-item">
+                                <i class="fas fa-comments text-primary"></i>
+                                <h5>{% trans "Free Consultation" %}</h5>
+                                <p>{% trans "Contact us for a free consultation to discuss your needs." %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="help-item">
+                                <i class="fas fa-calculator text-primary"></i>
+                                <h5>{% trans "Custom Package" %}</h5>
+                                <p>{% trans "We can create a custom package tailored to your specific requirements." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{% url 'quote_request' %}" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-paper-plane"></i> {% trans "Get Free Quote" %}
+                        </a>
+                        <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-envelope"></i> {% trans "Contact Us" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Technology Stack - Tools & Technologies" %}{% endblock %}
+
+{% block meta_description %}{% trans "Explore the modern technologies and tools we use to build professional websites and applications." %}{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="hero-title">
+                    <span class="text-gradient">{% trans "Technology Stack" %}</span>
+                </h1>
+                <p class="hero-subtitle">{% trans "Modern Tools & Technologies We Use" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Stack Section -->
+<section class="section">
+    <div class="container">
+        <!-- Frontend Technologies -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-4">
+                    <i class="fas fa-paint-brush"></i> <span class="text-gradient">{% trans "Frontend Technologies" %}</span>
+                </h2>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-html5"></i></div>
+                    <h4>HTML5</h4>
+                    <p>{% trans "Semantic markup and modern web standards" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-css3-alt"></i></div>
+                    <h4>CSS3</h4>
+                    <p>{% trans "Advanced styling and animations" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-js-square"></i></div>
+                    <h4>JavaScript</h4>
+                    <p>{% trans "Interactive and dynamic web experiences" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-bootstrap"></i></div>
+                    <h4>Bootstrap</h4>
+                    <p>{% trans "Responsive framework for modern designs" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-react"></i></div>
+                    <h4>React</h4>
+                    <p>{% trans "Component-based UI library" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-vue"></i></div>
+                    <h4>Vue.js</h4>
+                    <p>{% trans "Progressive JavaScript framework" %}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backend Technologies -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-4">
+                    <i class="fas fa-server"></i> <span class="text-gradient">{% trans "Backend Technologies" %}</span>
+                </h2>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-python"></i></div>
+                    <h4>Python</h4>
+                    <p>{% trans "Powerful and versatile programming language" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-python"></i></div>
+                    <h4>Django</h4>
+                    <p>{% trans "High-level Python web framework" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                    <h4>Node.js</h4>
+                    <p>{% trans "JavaScript runtime for server-side" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-database"></i></div>
+                    <h4>PostgreSQL</h4>
+                    <p>{% trans "Advanced open-source database" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-database"></i></div>
+                    <h4>MySQL</h4>
+                    <p>{% trans "Reliable relational database" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-fire"></i></div>
+                    <h4>Firebase</h4>
+                    <p>{% trans "Backend-as-a-Service platform" %}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Development -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-4">
+                    <i class="fas fa-mobile-alt"></i> <span class="text-gradient">{% trans "Mobile Development" %}</span>
+                </h2>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-react"></i></div>
+                    <h4>React Native</h4>
+                    <p>{% trans "Cross-platform mobile development" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-android"></i></div>
+                    <h4>Android</h4>
+                    <p>{% trans "Native Android development" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-apple"></i></div>
+                    <h4>iOS</h4>
+                    <p>{% trans "Native iOS development" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-flutter"></i></div>
+                    <h4>Flutter</h4>
+                    <p>{% trans "Google's UI toolkit" %}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools & Services -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-4">
+                    <i class="fas fa-tools"></i> <span class="text-gradient">{% trans "Tools & Services" %}</span>
+                </h2>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-git-alt"></i></div>
+                    <h4>Git & GitHub</h4>
+                    <p>{% trans "Version control and collaboration" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-docker"></i></div>
+                    <h4>Docker</h4>
+                    <p>{% trans "Containerization platform" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-aws"></i></div>
+                    <h4>AWS</h4>
+                    <p>{% trans "Cloud services and hosting" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-cloud"></i></div>
+                    <h4>Cloudflare</h4>
+                    <p>{% trans "CDN and security services" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-figma"></i></div>
+                    <h4>Figma</h4>
+                    <p>{% trans "Design and prototyping tool" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Analytics</h4>
+                    <p>{% trans "Google Analytics, GA4" %}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why These Technologies -->
+        <div class="row mt-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="tech-explanation">
+                    <h3 class="text-center mb-4">{% trans "Why We Choose These Technologies" %}</h3>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="explanation-item">
+                                <i class="fas fa-rocket text-primary"></i>
+                                <h5>{% trans "Performance" %}</h5>
+                                <p>{% trans "Fast loading times and optimal performance" %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="explanation-item">
+                                <i class="fas fa-shield-alt text-primary"></i>
+                                <h5>{% trans "Security" %}</h5>
+                                <p>{% trans "Built-in security features and best practices" %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="explanation-item">
+                                <i class="fas fa-sync-alt text-primary"></i>
+                                <h5>{% trans "Scalability" %}</h5>
+                                <p>{% trans "Easy to scale as your business grows" %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

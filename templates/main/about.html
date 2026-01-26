@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load main_extras %}
 
 {% block title %}{% trans "About Me - Professional Web Design Expert" %} | Angraweb.com{% endblock %}
 
@@ -10,12 +11,14 @@
         <h1 class="hero-title">
             <span class="text-gradient">{% trans "About Me" %}</span>
         </h1>
+        <p class="hero-subtitle">{% trans "Get to know me better" %}</p>
     </div>
 </section>
 
+<!-- About Content Section -->
 <section id="about" class="section">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center mb-5">
             <div class="col-lg-6">
                 <div class="about-content">
                     <h3>{% trans "Professional Web Design Expert" %}</h3>
@@ -25,15 +28,12 @@
                         More than 20 of my clients have received service with 100% satisfaction.
                         {% endblocktrans %}
                     </p>
-                    <div class="skills-grid">
-                        <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
-                        <div class="skill-item"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
-                        <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
-                        <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-                        <div class="skill-item"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
-                        <div class="skill-item"><i class="fab fa-github"></i><span>Git</span></div>
-                        <div class="skill-item"><i class="fab fa-python"></i><span>Django</span></div>
-                    </div>
+                    <p>
+                        {% blocktrans %}
+                        I specialize in creating modern, responsive websites and web applications that help businesses grow online. 
+                        With expertise in both frontend and backend development, I deliver complete solutions from design to deployment.
+                        {% endblocktrans %}
+                    </p>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -49,6 +49,199 @@
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
                         <div class="stat-label">{% trans "Customer Satisfaction" %}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+{% if skills %}
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-5">
+                    <span class="text-gradient">{% trans "My Skills & Expertise" %}</span>
+                </h2>
+            </div>
+        </div>
+        {% for category, category_skills in skills_by_category.items %}
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3 class="skills-category-title">
+                    {% if category == 'frontend' %}{% trans "Frontend Development" %}
+                    {% elif category == 'backend' %}{% trans "Backend Development" %}
+                    {% elif category == 'database' %}{% trans "Database" %}
+                    {% elif category == 'tools' %}{% trans "Tools & Technologies" %}
+                    {% else %}{% trans "Other Skills" %}
+                    {% endif %}
+                </h3>
+            </div>
+            {% for skill in category_skills %}
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="skill-progress-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="{{ skill.icon }}"></i>
+                        </div>
+                        <div class="skill-name">
+                            {% localized skill 'name' current_lang %}
+                        </div>
+                        <div class="skill-percentage">{{ skill.percentage }}%</div>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress-fill" style="width: {{ skill.percentage }}%"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Timeline Section -->
+{% if timeline_events %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-5">
+                    <span class="text-gradient">{% trans "My Journey" %}</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="timeline">
+                    {% for event in timeline_events %}
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="{{ event.icon }}"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">{{ event.date|date:"Y" }}</div>
+                            <h4 class="timeline-title">{% localized event 'title' current_lang %}</h4>
+                            <p class="timeline-description">{% localized event 'description' current_lang %}</p>
+                            <span class="timeline-type-badge">{{ event.get_event_type_display }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Certificates Section -->
+{% if certificates %}
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-5">
+                    <span class="text-gradient">{% trans "Certifications & Education" %}</span>
+                </h2>
+            </div>
+        </div>
+        <div class="certificate-grid">
+            {% for certificate in certificates %}
+            <div class="certificate-item">
+                {% if certificate.image %}
+                <div class="certificate-image-container">
+                    <img src="{{ certificate.image.url }}" alt="{{ certificate.title }}" class="certificate-image">
+                    <div class="certificate-overlay">
+                        <button class="certificate-view-btn" onclick="openCertificateModal('{{ certificate.image.url }}', '{{ certificate.title }}')">
+                            <i class="fas fa-search-plus"></i> {% trans "View" %}
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="certificate-content">
+                    <h5>{{ certificate.title }}</h5>
+                    {% if certificate.issuer %}
+                    <p><i class="fas fa-building"></i> {{ certificate.issuer }}</p>
+                    {% endif %}
+                    {% if certificate.issue_date %}
+                    <p><i class="fas fa-calendar"></i> {{ certificate.issue_date|date:"Y" }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Testimonials Section -->
+{% if testimonials %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-5">
+                    <span class="text-gradient">{% trans "What Clients Say About Me" %}</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for testimonial in testimonials %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= testimonial.rating %}
+                            <i class="fas fa-star text-warning"></i>
+                            {% else %}
+                            <i class="far fa-star text-secondary"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="testimonial-content">
+                        <p>{% localized testimonial 'content' current_lang|truncatewords:30 %}</p>
+                    </div>
+                    <div class="testimonial-author">
+                        {% if testimonial.image %}
+                        <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" class="testimonial-avatar">
+                        {% else %}
+                        <div class="testimonial-avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        {% endif %}
+                        <div class="testimonial-info">
+                            <h5>{{ testimonial.name }}</h5>
+                            {% if testimonial.company %}
+                            <p class="testimonial-company">{{ testimonial.company }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="services-cta text-center">
+                    <h3 class="mb-3">{% trans "Let's Work Together" %}</h3>
+                    <p class="mb-4">{% trans "Ready to start your project? Let's discuss how I can help you achieve your goals." %}</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="{% url 'quote_request' %}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane"></i> {% trans "Get Free Quote" %}
+                        </a>
+                        <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-envelope"></i> {% trans "Contact Me" %}
+                        </a>
                     </div>
                 </div>
             </div>

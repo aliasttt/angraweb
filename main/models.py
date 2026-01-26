@@ -519,3 +519,159 @@ class NewsletterSubscriber(models.Model):
     
     def __str__(self):
         return self.email
+
+
+class ProcessStep(models.Model):
+    """مراحل فرآیند کار"""
+    title = models.CharField(max_length=200, verbose_name='عنوان')
+    title_en = models.CharField(max_length=200, blank=True, verbose_name='عنوان انگلیسی')
+    title_fa = models.CharField(max_length=200, blank=True, verbose_name='عنوان فارسی')
+    title_ar = models.CharField(max_length=200, blank=True, verbose_name='عنوان عربی')
+    
+    description = models.TextField(verbose_name='توضیحات')
+    description_en = models.TextField(blank=True, verbose_name='توضیحات انگلیسی')
+    description_fa = models.TextField(blank=True, verbose_name='توضیحات فارسی')
+    description_ar = models.TextField(blank=True, verbose_name='توضیحات عربی')
+    
+    icon = models.CharField(max_length=100, default='fas fa-check-circle', verbose_name='آیکون')
+    step_number = models.IntegerField(verbose_name='شماره مرحله')
+    duration = models.CharField(max_length=100, blank=True, verbose_name='مدت زمان (مثال: 1-2 روز)')
+    order = models.IntegerField(default=0, verbose_name='ترتیب نمایش')
+    active = models.BooleanField(default=True, verbose_name='فعال')
+    
+    class Meta:
+        verbose_name = 'مرحله فرآیند'
+        verbose_name_plural = 'مراحل فرآیند'
+        ordering = ['order', 'step_number']
+    
+    def __str__(self):
+        return f"Step {self.step_number}: {self.title}"
+
+
+class CaseStudy(models.Model):
+    """مطالعات موردی (Case Studies)"""
+    title = models.CharField(max_length=200, verbose_name='عنوان')
+    title_en = models.CharField(max_length=200, blank=True, verbose_name='عنوان انگلیسی')
+    title_fa = models.CharField(max_length=200, blank=True, verbose_name='عنوان فارسی')
+    title_ar = models.CharField(max_length=200, blank=True, verbose_name='عنوان عربی')
+    
+    slug = models.SlugField(max_length=200, unique=True, blank=True, verbose_name='اسلاگ')
+    
+    client_name = models.CharField(max_length=200, blank=True, verbose_name='نام مشتری')
+    client_industry = models.CharField(max_length=200, blank=True, verbose_name='صنعت')
+    
+    challenge = models.TextField(verbose_name='چالش')
+    challenge_en = models.TextField(blank=True, verbose_name='چالش انگلیسی')
+    challenge_fa = models.TextField(blank=True, verbose_name='چالش فارسی')
+    challenge_ar = models.TextField(blank=True, verbose_name='چالش عربی')
+    
+    solution = models.TextField(verbose_name='راه‌حل')
+    solution_en = models.TextField(blank=True, verbose_name='راه‌حل انگلیسی')
+    solution_fa = models.TextField(blank=True, verbose_name='راه‌حل فارسی')
+    solution_ar = models.TextField(blank=True, verbose_name='راه‌حل عربی')
+    
+    results = models.TextField(verbose_name='نتایج')
+    results_en = models.TextField(blank=True, verbose_name='نتایج انگلیسی')
+    results_fa = models.TextField(blank=True, verbose_name='نتایج فارسی')
+    results_ar = models.TextField(blank=True, verbose_name='نتایج عربی')
+    
+    # آمار و ارقام
+    metrics = models.JSONField(default=dict, blank=True, verbose_name='آمار (JSON)')
+    # مثال: {"sales_increase": "150%", "traffic_increase": "200%", "conversion_rate": "25%"}
+    
+    image_before = models.ImageField(upload_to='case_studies/', blank=True, null=True, verbose_name='تصویر قبل')
+    image_after = models.ImageField(upload_to='case_studies/', blank=True, null=True, verbose_name='تصویر بعد')
+    project_url = models.URLField(blank=True, verbose_name='لینک پروژه')
+    
+    technologies = models.CharField(max_length=500, blank=True, verbose_name='تکنولوژی‌ها (جدا شده با کاما)')
+    
+    project = models.ForeignKey(Project, on_delete=models.SET_NULL, blank=True, null=True, verbose_name='پروژه مرتبط')
+    
+    featured = models.BooleanField(default=False, verbose_name='ویژه')
+    order = models.IntegerField(default=0, verbose_name='ترتیب نمایش')
+    active = models.BooleanField(default=True, verbose_name='فعال')
+    
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='تاریخ به‌روزرسانی')
+    
+    class Meta:
+        verbose_name = 'مطالعه موردی'
+        verbose_name_plural = 'مطالعات موردی'
+        ordering = ['order', '-created_at']
+    
+    def __str__(self):
+        return self.title
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            from django.utils.text import slugify
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+    
+    def get_technologies_list(self):
+        if self.technologies:
+            return [tech.strip() for tech in self.technologies.split(',')]
+        return []
+
+
+class TimelineEvent(models.Model):
+    """رویدادهای Timeline"""
+    title = models.CharField(max_length=200, verbose_name='عنوان')
+    title_en = models.CharField(max_length=200, blank=True, verbose_name='عنوان انگلیسی')
+    title_fa = models.CharField(max_length=200, blank=True, verbose_name='عنوان فارسی')
+    title_ar = models.CharField(max_length=200, blank=True, verbose_name='عنوان عربی')
+    
+    description = models.TextField(verbose_name='توضیحات')
+    description_en = models.TextField(blank=True, verbose_name='توضیحات انگلیسی')
+    description_fa = models.TextField(blank=True, verbose_name='توضیحات فارسی')
+    description_ar = models.TextField(blank=True, verbose_name='توضیحات عربی')
+    
+    date = models.DateField(verbose_name='تاریخ')
+    icon = models.CharField(max_length=100, default='fas fa-calendar', verbose_name='آیکون')
+    event_type = models.CharField(max_length=50, choices=[
+        ('education', 'تحصیلات'),
+        ('work', 'کار'),
+        ('achievement', 'دستاورد'),
+        ('certification', 'گواهینامه'),
+        ('other', 'سایر'),
+    ], default='other', verbose_name='نوع رویداد')
+    
+    order = models.IntegerField(default=0, verbose_name='ترتیب نمایش')
+    active = models.BooleanField(default=True, verbose_name='فعال')
+    
+    class Meta:
+        verbose_name = 'رویداد Timeline'
+        verbose_name_plural = 'رویدادهای Timeline'
+        ordering = ['-date', 'order']
+    
+    def __str__(self):
+        return f"{self.date} - {self.title}"
+
+
+class Skill(models.Model):
+    """مهارت‌ها با درصد"""
+    name = models.CharField(max_length=100, verbose_name='نام مهارت')
+    name_en = models.CharField(max_length=100, blank=True, verbose_name='نام انگلیسی')
+    name_fa = models.CharField(max_length=100, blank=True, verbose_name='نام فارسی')
+    name_ar = models.CharField(max_length=100, blank=True, verbose_name='نام عربی')
+    
+    icon = models.CharField(max_length=100, default='fas fa-code', verbose_name='آیکون')
+    percentage = models.IntegerField(default=0, verbose_name='درصد (0-100)')
+    category = models.CharField(max_length=50, choices=[
+        ('frontend', 'Frontend'),
+        ('backend', 'Backend'),
+        ('database', 'Database'),
+        ('tools', 'Tools'),
+        ('other', 'سایر'),
+    ], default='other', verbose_name='دسته‌بندی')
+    
+    order = models.IntegerField(default=0, verbose_name='ترتیب نمایش')
+    active = models.BooleanField(default=True, verbose_name='فعال')
+    
+    class Meta:
+        verbose_name = 'مهارت'
+        verbose_name_plural = 'مهارت‌ها'
+        ordering = ['order', 'name']
+    
+    def __str__(self):
+        return self.name

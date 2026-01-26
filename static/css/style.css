@@ -3874,3 +3874,1060 @@ img.lazy-loaded {
         font-size: 1rem;
     }
 }
+
+/* Process Steps Styles */
+.process-step-card {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.process-step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(116, 185, 255, 0.2);
+    border-color: rgba(116, 185, 255, 0.5);
+}
+
+.process-step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.process-step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #74b9ff, #0984e3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.process-step-icon {
+    font-size: 2rem;
+    color: #74b9ff;
+    width: 50px;
+    text-align: center;
+}
+
+.process-step-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1;
+}
+
+.process-step-content {
+    color: #b2bec3;
+    line-height: 1.8;
+}
+
+.process-step-duration {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(116, 185, 255, 0.2);
+    color: #74b9ff;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Case Study Styles */
+.case-study-card {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-study-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(116, 185, 255, 0.2);
+    border-color: rgba(116, 185, 255, 0.5);
+}
+
+.case-study-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.case-study-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.case-study-card:hover .case-study-image img {
+    transform: scale(1.1);
+}
+
+.case-study-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-study-industry {
+    display: inline-block;
+    background: rgba(116, 185, 255, 0.2);
+    color: #74b9ff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.case-study-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.case-study-title a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.case-study-title a:hover {
+    color: #74b9ff;
+}
+
+.case-study-client {
+    color: #b2bec3;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.case-study-excerpt {
+    color: #b2bec3;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.case-study-metrics {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(116, 185, 255, 0.2);
+}
+
+.metric-item {
+    text-align: center;
+}
+
+.metric-value {
+    display: block;
+    color: #74b9ff;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.metric-label {
+    display: block;
+    color: #b2bec3;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+/* Case Study Detail Styles */
+.case-study-header {
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(116, 185, 255, 0.3);
+}
+
+.case-study-industry-badge {
+    display: inline-block;
+    background: rgba(116, 185, 255, 0.2);
+    color: #74b9ff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.case-study-title-main {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.case-study-client-main {
+    color: #b2bec3;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.case-study-comparison {
+    margin: 2rem 0;
+}
+
+.comparison-image {
+    text-align: center;
+}
+
+.comparison-image h4 {
+    color: #74b9ff;
+    font-weight: 600;
+}
+
+.comparison-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.case-study-section {
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.case-study-content {
+    color: #ffffff;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.case-study-content p {
+    margin-bottom: 1.5rem;
+}
+
+.case-study-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.case-study-metrics-detailed {
+    margin-top: 2rem;
+}
+
+.metric-card {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(116, 185, 255, 0.5);
+}
+
+.metric-value-large {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #74b9ff;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label-large {
+    color: #b2bec3;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.case-study-cta {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(116, 185, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(116, 185, 255, 0.3);
+}
+
+/* Responsive Process & Case Study Styles */
+@media (max-width: 768px) {
+    .process-step-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .process-step-title {
+        font-size: 1.2rem;
+    }
+    
+    .case-study-title-main {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .metric-value-large {
+        font-size: 2rem;
+    }
+}
+
+/* Skills with Percentage Styles */
+.skill-progress-card {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.skill-progress-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(116, 185, 255, 0.5);
+    box-shadow: 0 10px 25px rgba(116, 185, 255, 0.2);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.skill-icon {
+    font-size: 1.5rem;
+    color: #74b9ff;
+    width: 30px;
+    text-align: center;
+}
+
+.skill-name {
+    flex: 1;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.skill-percentage {
+    color: #74b9ff;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.skill-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(116, 185, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #74b9ff, #0984e3);
+    border-radius: 10px;
+    transition: width 1s ease;
+    position: relative;
+}
+
+.skill-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.skills-category-title {
+    color: #74b9ff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(116, 185, 255, 0.3);
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #74b9ff, #0984e3);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 80px;
+    margin-bottom: 3rem;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #74b9ff, #0984e3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(116, 185, 255, 0.4);
+    z-index: 2;
+}
+
+.timeline-content {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateX(10px);
+    border-color: rgba(116, 185, 255, 0.5);
+    box-shadow: 0 10px 25px rgba(116, 185, 255, 0.2);
+}
+
+.timeline-date {
+    color: #74b9ff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-description {
+    color: #b2bec3;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-type-badge {
+    display: inline-block;
+    background: rgba(116, 185, 255, 0.2);
+    color: #74b9ff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* RTL Timeline Support */
+[dir="rtl"] .timeline::before {
+    left: auto;
+    right: 30px;
+}
+
+[dir="rtl"] .timeline-item {
+    padding-left: 0;
+    padding-right: 80px;
+}
+
+[dir="rtl"] .timeline-marker {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .timeline-item:hover .timeline-content {
+    transform: translateX(-10px);
+}
+
+/* Responsive Timeline & Skills */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 60px;
+    }
+    
+    .timeline-marker {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .skill-header {
+        flex-wrap: wrap;
+    }
+    
+    .skills-category-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Statistics Cards */
+.stat-card {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(116, 185, 255, 0.2);
+    border-color: rgba(116, 185, 255, 0.5);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    color: #74b9ff;
+    margin-bottom: 1rem;
+}
+
+.stat-number-large {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.stat-label-large {
+    color: #b2bec3;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Responsive Statistics */
+@media (max-width: 768px) {
+    .stat-number-large {
+        font-size: 2.5rem;
+    }
+    
+    .stat-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* Comparison Table Styles */
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(116, 185, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(116, 185, 255, 0.2);
+}
+
+.comparison-table thead th {
+    background: rgba(116, 185, 255, 0.2);
+    color: #ffffff;
+    font-weight: 600;
+    vertical-align: top;
+}
+
+.comparison-table thead th.popular-column {
+    background: rgba(116, 185, 255, 0.3);
+    border: 2px solid rgba(116, 185, 255, 0.5);
+}
+
+.comparison-table tbody tr:hover {
+    background: rgba(116, 185, 255, 0.1);
+}
+
+.comparison-table tbody td.popular-column {
+    background: rgba(116, 185, 255, 0.05);
+}
+
+.feature-column {
+    text-align: right !important;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(26, 26, 46, 0.5);
+}
+
+.feature-name {
+    color: #b2bec3;
+    font-weight: 500;
+}
+
+.package-header-compare {
+    text-align: center;
+}
+
+.package-header-compare h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.package-price-compare {
+    margin-bottom: 0.5rem;
+}
+
+.package-price-compare .price-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #74b9ff;
+}
+
+.package-price-compare .price-currency {
+    font-size: 1.2rem;
+    color: #b2bec3;
+}
+
+.popular-badge-compare {
+    display: inline-block;
+    background: linear-gradient(45deg, #74b9ff, #0984e3);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.feature-check {
+    font-size: 1.5rem;
+}
+
+.package-cta-compare {
+    padding: 1.5rem !important;
+}
+
+.project-filters {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.project-filters .form-label {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.comparison-help {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.comparison-help h3 {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.help-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.help-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.help-item h5 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.help-item p {
+    color: #b2bec3;
+    line-height: 1.6;
+}
+
+/* Responsive Comparison Table */
+@media (max-width: 768px) {
+    .comparison-table {
+        font-size: 0.85rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.75rem;
+    }
+    
+    .package-header-compare h3 {
+        font-size: 1rem;
+    }
+    
+    .package-price-compare .price-amount {
+        font-size: 1.5rem;
+    }
+    
+    .feature-check {
+        font-size: 1.2rem;
+    }
+}
+
+/* Calculator Styles */
+.calculator-card {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.calculator-section {
+    padding: 1.5rem;
+    background: rgba(26, 26, 46, 0.5);
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.calculator-section-title {
+    color: #74b9ff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.calculator-option {
+    display: block;
+    cursor: pointer;
+}
+
+.calculator-option input[type="radio"] {
+    display: none;
+}
+
+.calculator-option .option-content {
+    background: rgba(116, 185, 255, 0.1);
+    border: 2px solid rgba(116, 185, 255, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.calculator-option .option-content i {
+    font-size: 2rem;
+    color: #74b9ff;
+}
+
+.calculator-option input[type="radio"]:checked + .option-content {
+    background: rgba(116, 185, 255, 0.2);
+    border-color: #74b9ff;
+    box-shadow: 0 5px 15px rgba(116, 185, 255, 0.3);
+}
+
+.calculator-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.calculator-checkbox:hover {
+    background: rgba(116, 185, 255, 0.15);
+    border-color: rgba(116, 185, 255, 0.5);
+}
+
+.calculator-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.calculator-checkbox input[type="checkbox"]:checked {
+    accent-color: #74b9ff;
+}
+
+.calculator-slider {
+    padding: 1rem 0;
+}
+
+.calculator-slider .form-range {
+    width: 100%;
+    height: 8px;
+    background: rgba(116, 185, 255, 0.2);
+    border-radius: 5px;
+    outline: none;
+}
+
+.calculator-slider .form-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #74b9ff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.calculator-slider .form-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #74b9ff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    color: #b2bec3;
+    font-size: 0.9rem;
+}
+
+.slider-labels span:not(:nth-child(2)) {
+    flex: 1;
+}
+
+.slider-labels span:nth-child(2) {
+    font-weight: 700;
+    color: #74b9ff;
+    font-size: 1.2rem;
+}
+
+.calculator-result {
+    background: linear-gradient(135deg, rgba(116, 185, 255, 0.2), rgba(162, 155, 254, 0.2));
+    border: 2px solid rgba(116, 185, 255, 0.5);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.result-content h4 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.result-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.result-price .price-amount {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #74b9ff;
+    line-height: 1;
+}
+
+.result-price .price-currency {
+    font-size: 1.5rem;
+    color: #b2bec3;
+    font-weight: 500;
+}
+
+.result-note {
+    color: #b2bec3;
+    font-size: 0.9rem;
+    margin: 0;
+    font-style: italic;
+}
+
+.calculator-cta {
+    margin-top: 2rem;
+}
+
+/* Responsive Calculator */
+@media (max-width: 768px) {
+    .calculator-card {
+        padding: 1.5rem;
+    }
+    
+    .calculator-section {
+        padding: 1rem;
+    }
+    
+    .result-price .price-amount {
+        font-size: 2.5rem;
+    }
+    
+    .calculator-option .option-content {
+        padding: 1rem;
+    }
+}
+
+/* Technology Stack Styles */
+.tech-card {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    backdrop-filter: blur(10px);
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(116, 185, 255, 0.2);
+    border-color: rgba(116, 185, 255, 0.5);
+}
+
+.tech-icon {
+    font-size: 4rem;
+    color: #74b9ff;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.tech-card h4 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.tech-card p {
+    color: #b2bec3;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.tech-explanation {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.tech-explanation h3 {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.explanation-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.explanation-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.explanation-item h5 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.explanation-item p {
+    color: #b2bec3;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Technology Stack */
+@media (max-width: 768px) {
+    .tech-icon {
+        font-size: 3rem;
+    }
+    
+    .tech-card {
+        padding: 1.5rem;
+    }
+    
+    .tech-card h4 {
+        font-size: 1.1rem;
+    }
+}

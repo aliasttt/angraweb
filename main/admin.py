@@ -3,7 +3,8 @@ from django.utils.html import format_html
 from .models import (
     Service, Package, PackageFeature, Project, ProjectVideo,
     Certificate, ContactMessage, QuoteRequest, BlogPost,
-    Testimonial, SiteSetting, TeamMember, UserProfile, FAQ, NewsletterSubscriber
+    Testimonial, SiteSetting, TeamMember, UserProfile, FAQ, NewsletterSubscriber,
+    ProcessStep, CaseStudy, TimelineEvent, Skill
 )
 
 
@@ -237,5 +238,96 @@ class NewsletterSubscriberAdmin(admin.ModelAdmin):
         ('اطلاعات سیستم', {
             'fields': ('ip_address', 'subscribed_at', 'unsubscribed_at'),
             'classes': ('collapse',)
+        }),
+    )
+
+
+@admin.register(ProcessStep)
+class ProcessStepAdmin(admin.ModelAdmin):
+    list_display = ['step_number', 'title', 'duration', 'order', 'active']
+    list_filter = ['active']
+    search_fields = ['title', 'description']
+    list_editable = ['order', 'active']
+    fieldsets = (
+        ('اطلاعات اصلی', {
+            'fields': ('title', 'title_en', 'title_fa', 'title_ar', 'step_number', 'icon')
+        }),
+        ('توضیحات', {
+            'fields': ('description', 'description_en', 'description_fa', 'description_ar')
+        }),
+        ('تنظیمات', {
+            'fields': ('duration', 'order', 'active')
+        }),
+    )
+
+
+@admin.register(CaseStudy)
+class CaseStudyAdmin(admin.ModelAdmin):
+    list_display = ['title', 'client_name', 'client_industry', 'featured', 'order', 'active']
+    list_filter = ['featured', 'active', 'client_industry', 'created_at']
+    search_fields = ['title', 'client_name', 'challenge', 'solution']
+    list_editable = ['featured', 'order', 'active']
+    prepopulated_fields = {'slug': ('title',)}
+    readonly_fields = ['created_at', 'updated_at']
+    fieldsets = (
+        ('اطلاعات اصلی', {
+            'fields': ('title', 'title_en', 'title_fa', 'title_ar', 'slug')
+        }),
+        ('اطلاعات مشتری', {
+            'fields': ('client_name', 'client_industry')
+        }),
+        ('محتوا', {
+            'fields': ('challenge', 'challenge_en', 'challenge_fa', 'challenge_ar',
+                      'solution', 'solution_en', 'solution_fa', 'solution_ar',
+                      'results', 'results_en', 'results_fa', 'results_ar')
+        }),
+        ('رسانه و لینک', {
+            'fields': ('image_before', 'image_after', 'project_url')
+        }),
+        ('آمار و تکنولوژی', {
+            'fields': ('metrics', 'technologies', 'project')
+        }),
+        ('تنظیمات', {
+            'fields': ('featured', 'order', 'active')
+        }),
+        ('تاریخ‌ها', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+
+
+@admin.register(TimelineEvent)
+class TimelineEventAdmin(admin.ModelAdmin):
+    list_display = ['title', 'date', 'event_type', 'order', 'active']
+    list_filter = ['event_type', 'active', 'date']
+    search_fields = ['title', 'description']
+    list_editable = ['order', 'active']
+    date_hierarchy = 'date'
+    fieldsets = (
+        ('اطلاعات اصلی', {
+            'fields': ('title', 'title_en', 'title_fa', 'title_ar', 'date', 'icon', 'event_type')
+        }),
+        ('توضیحات', {
+            'fields': ('description', 'description_en', 'description_fa', 'description_ar')
+        }),
+        ('تنظیمات', {
+            'fields': ('order', 'active')
+        }),
+    )
+
+
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ['name', 'category', 'percentage', 'order', 'active']
+    list_filter = ['category', 'active']
+    search_fields = ['name']
+    list_editable = ['percentage', 'order', 'active']
+    fieldsets = (
+        ('اطلاعات', {
+            'fields': ('name', 'name_en', 'name_fa', 'name_ar', 'icon', 'category')
+        }),
+        ('تنظیمات', {
+            'fields': ('percentage', 'order', 'active')
         }),
     )

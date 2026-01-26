@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load main_extras %}
+
+{% block title %}{% trans "Case Studies - Success Stories" %}{% endblock %}
+
+{% block meta_description %}{% trans "Explore our successful projects and see how we've helped businesses grow with professional web design and development." %}{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="hero-title">
+                    <span class="text-gradient">{% trans "Case Studies" %}</span>
+                </h1>
+                <p class="hero-subtitle">{% trans "Real Results from Real Projects" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Case Studies Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            {% for case in case_studies %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="case-study-card">
+                    {% if case.image_after %}
+                    <div class="case-study-image">
+                        <img src="{{ case.image_after.url }}" alt="{% localized case 'title' current_lang %}">
+                    </div>
+                    {% endif %}
+                    <div class="case-study-content">
+                        {% if case.client_industry %}
+                        <span class="case-study-industry">{{ case.client_industry }}</span>
+                        {% endif %}
+                        <h3 class="case-study-title">
+                            <a href="{% url 'case_study_detail' case.slug %}">
+                                {% localized case 'title' current_lang %}
+                            </a>
+                        </h3>
+                        {% if case.client_name %}
+                        <p class="case-study-client">
+                            <i class="fas fa-user"></i> {{ case.client_name }}
+                        </p>
+                        {% endif %}
+                        <p class="case-study-excerpt">
+                            {% localized_truncate case 'challenge' current_lang 20 %}
+                        </p>
+                        {% if case.metrics %}
+                        <div class="case-study-metrics">
+                            {% for key, value in case.metrics.items %}
+                            <div class="metric-item">
+                                <span class="metric-value">{{ value }}</span>
+                                <span class="metric-label">{{ key|title }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <a href="{% url 'case_study_detail' case.slug %}" class="btn btn-sm btn-outline-primary mt-3">
+                            {% trans "Read Full Story" %} <i class="fas fa-arrow-left ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="text-center py-5">
+                    <i class="fas fa-folder-open" style="font-size: 4rem; color: #74b9ff; margin-bottom: 1rem;"></i>
+                    <h3>{% trans "No case studies yet" %}</h3>
+                    <p class="text-muted">{% trans "Check back later for success stories." %}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if case_studies.has_other_pages %}
+        <div class="row mt-4">
+            <div class="col-12">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        {% if case_studies.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ case_studies.previous_page_number }}{% if selected_industry %}&industry={{ selected_industry }}{% endif %}">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        
+                        {% for num in case_studies.paginator.page_range %}
+                            {% if case_studies.number == num %}
+                            <li class="page-item active">
+                                <span class="page-link">{{ num }}</span>
+                            </li>
+                            {% elif num > case_studies.number|add:'-3' and num < case_studies.number|add:'3' %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}{% if selected_industry %}&industry={{ selected_industry }}{% endif %}">{{ num }}</a>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if case_studies.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ case_studies.next_page_number }}{% if selected_industry %}&industry={{ selected_industry }}{% endif %}">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
