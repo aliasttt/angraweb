@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="{{ current_lang|default:'tr' }}" dir="{% if is_rtl %}rtl{% else %}ltr{% endif %}">
+<html lang="tr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
     <meta property="og:title" content="{% block og_title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{% trans 'Professional web design and development services. Grow your business in the digital world!' %}{% endblock %}">
     <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endblock %}">
-    <meta property="og:locale" content="{% if current_lang == 'tr' %}tr_TR{% elif current_lang == 'fa' %}fa_IR{% elif current_lang == 'ar' %}ar_SA{% else %}en_US{% endif %}">
+    <meta property="og:locale" content="tr_TR">
     <meta property="og:site_name" content="Angraweb.com">
     
     <!-- Twitter Card -->
@@ -50,7 +50,7 @@
         "telephone": "+90-534-038-23-35",
         "contactType": "customer service",
         "email": "aliasadi3853@gmail.com",
-        "availableLanguage": ["tr", "en", "fa", "ar"],
+        "availableLanguage": ["tr"],
         "areaServed": "TR"
       },
       "sameAs": [
@@ -60,7 +60,7 @@
       ],
       "offers": {
         "@type": "Offer",
-        "category": "Web Design Services"
+        "category": "Web Tasarım Hizmetleri"
       }
     }
     </script>
@@ -110,28 +110,6 @@
         </div>
     </div>
 
-    <!-- Language Switcher: لینک مستقیم به /lang/xx/ — next= برای بازگشت به همین صفحه -->
-    {% with next_param=request.path|default:"/" %}
-    <div class="language-switcher">
-        <a href="{% url 'switch_lang' 'tr' %}?next={{ next_param|urlencode }}" class="lang-btn {% if current_lang == 'tr' %}active{% endif %}" data-lang="tr">
-            <img src="https://flagcdn.com/24x18/tr.png" alt="Türkçe" width="24" height="18">
-            TR
-        </a>
-        <a href="{% url 'switch_lang' 'en' %}?next={{ next_param|urlencode }}" class="lang-btn {% if current_lang == 'en' %}active{% endif %}" data-lang="en">
-            <img src="https://flagcdn.com/24x18/gb.png" alt="English" width="24" height="18">
-            EN
-        </a>
-        <a href="{% url 'switch_lang' 'fa' %}?next={{ next_param|urlencode }}" class="lang-btn {% if current_lang == 'fa' %}active{% endif %}" data-lang="fa">
-            <img src="https://flagcdn.com/24x18/ir.png" alt="فارسی" width="24" height="18">
-            FA
-        </a>
-        <a href="{% url 'switch_lang' 'ar' %}?next={{ next_param|urlencode }}" class="lang-btn {% if current_lang == 'ar' %}active{% endif %}" data-lang="ar">
-            <img src="https://flagcdn.com/24x18/sa.png" alt="العربية" width="24" height="18">
-            AR
-        </a>
-    </div>
-    {% endwith %}
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -178,7 +156,6 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{% url 'projects_list' %}">{% trans "All Projects" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'case_studies_list' %}">{% trans "Case Studies" %}</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -200,19 +177,6 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">{% trans "Contact" %}</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {% if 'privacy' in request.resolver_match.url_name or 'terms' in request.resolver_match.url_name or 'refund' in request.resolver_match.url_name or 'guarantee' in request.resolver_match.url_name or 'sitemap' in request.resolver_match.url_name %}active{% endif %}" href="#" id="legalDropdown" role="button" data-bs-toggle="dropdown">
-                            {% trans "More" %}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{% url 'sitemap' %}">{% trans "Sitemap" %}</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'terms_conditions' %}">{% trans "Terms & Conditions" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'refund_policy' %}">{% trans "Refund Policy" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'guarantee' %}">{% trans "Our Guarantee" %}</a></li>
-                        </ul>
-                    </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'dashboard' %}">{% trans "Hello" %}, {{ user.first_name|default:user.username }}</a>
@@ -233,9 +197,9 @@
                             <i class="fas fa-share-alt"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="https://www.instagram.com/ali_asadiz_ttt" target="_blank"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
-                            <li><a class="dropdown-item" href="https://t.me/Ali_asadiz_ttt" target="_blank"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
-                            <li><a class="dropdown-item" href="https://github.com/aliasttt" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a></li>
+                            <li><a class="dropdown-item" href="https://www.instagram.com/ali_asadiz_ttt" target="_blank"><i class="fab fa-instagram me-2"></i>{% trans "Instagram" %}</a></li>
+                            <li><a class="dropdown-item" href="https://t.me/Ali_asadiz_ttt" target="_blank"><i class="fab fa-telegram me-2"></i>{% trans "Telegram" %}</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/aliasttt" target="_blank"><i class="fab fa-github me-2"></i>{% trans "GitHub" %}</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -284,7 +248,19 @@
                         <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">{% trans "More" %}</h5>
+                    <ul class="footer-links">
+                        <li><a href="{% url 'sitemap' %}">{% trans "Sitemap" %}</a></li>
+                        <li><a href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
+                        <li><a href="{% url 'terms_conditions' %}">{% trans "Terms & Conditions" %}</a></li>
+                        <li><a href="{% url 'refund_policy' %}">{% trans "Refund Policy" %}</a></li>
+                        <li><a href="{% url 'guarantee' %}">{% trans "Our Guarantee" %}</a></li>
+                        <li><a href="{% url 'faq_list' %}">{% trans "FAQ" %}</a></li>
+                        <li><a href="{% url 'testimonials_list' %}">{% trans "Testimonials" %}</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
                     <h5 class="footer-title">{% trans "Contact Information" %}</h5>
                     <ul class="footer-contact">
                         <li>
@@ -297,7 +273,7 @@
                         </li>
                         <li>
                             <i class="fab fa-whatsapp"></i>
-                            <a href="https://wa.me/905340382335" target="_blank">WhatsApp</a>
+                            <a href="https://wa.me/905340382335" target="_blank">{% trans "WhatsApp" %}</a>
                         </li>
                     </ul>
                 </div>
@@ -319,15 +295,15 @@
                     <div class="footer-social-links mt-3">
                         <a href="https://www.instagram.com/ali_asadiz_ttt" class="footer-social-link" target="_blank">
                             <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
+                            <span>{% trans "Instagram" %}</span>
                         </a>
                         <a href="https://t.me/Ali_asadiz_ttt" class="footer-social-link" target="_blank">
                             <i class="fab fa-telegram"></i>
-                            <span>Telegram</span>
+                            <span>{% trans "Telegram" %}</span>
                         </a>
                         <a href="https://github.com/aliasttt" class="footer-social-link" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>GitHub</span>
+                            <span>{% trans "GitHub" %}</span>
                         </a>
                     </div>
                 </div>

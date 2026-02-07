@@ -52,10 +52,6 @@ urlpatterns = [
     # Process
     path('how-it-works/', views.how_it_works, name='how_it_works'),
     
-    # Case Studies
-    path('case-studies/', views.case_studies_list, name='case_studies_list'),
-    path('case-study/<slug:slug>/', views.case_study_detail, name='case_study_detail'),
-    
     # Calculator
     path('calculator/', views.price_calculator, name='price_calculator'),
     

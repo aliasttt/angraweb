@@ -40,22 +40,22 @@ class ContactForm(forms.ModelForm):
 
 
 class QuoteRequestForm(forms.ModelForm):
-    """فرم درخواست قیمت"""
+    """Teklif formu — site sadece Türkçe"""
     SERVICE_CHOICES = [
-        ('web_design', 'طراحی وبسایت'),
-        ('mobile_app', 'طراحی اپلیکیشن موبایل'),
-        ('ecommerce', 'فروشگاه اینترنتی'),
-        ('seo', 'سئو و بهینه‌سازی'),
-        ('hosting', 'هاستینگ و دامنه'),
-        ('ui_ux', 'طراحی UI/UX'),
-        ('custom', 'سفارشی'),
+        ('web_design', 'Web tasarımı'),
+        ('mobile_app', 'Mobil uygulama tasarımı'),
+        ('ecommerce', 'E-ticaret'),
+        ('seo', 'SEO ve optimizasyon'),
+        ('hosting', 'Hosting ve alan adı'),
+        ('ui_ux', 'UI/UX tasarımı'),
+        ('custom', 'Özel'),
     ]
     
     PACKAGE_CHOICES = [
-        ('basic', 'پکیج پایه'),
-        ('commercial', 'پکیج تجاری'),
-        ('professional', 'پکیج حرفه‌ای'),
-        ('custom', 'پکیج کاستوم'),
+        ('basic', 'Temel Paket'),
+        ('commercial', 'Ticari Paket'),
+        ('professional', 'Profesyonel Paket'),
+        ('custom', 'Özel Paket'),
     ]
     
     service_type = forms.ChoiceField(
@@ -64,7 +64,7 @@ class QuoteRequestForm(forms.ModelForm):
             'class': 'form-control',
             'required': True
         }),
-        label='نوع خدمت'
+        label=_('Service type')
     )
     
     package_type = forms.ChoiceField(
@@ -73,7 +73,7 @@ class QuoteRequestForm(forms.ModelForm):
         widget=forms.Select(attrs={
             'class': 'form-control'
         }),
-        label='نوع پکیج'
+        label=_('Package (optional)')
     )
     
     class Meta:

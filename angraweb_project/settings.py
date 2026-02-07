@@ -79,12 +79,27 @@ WSGI_APPLICATION = 'angraweb_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+_use_pg = os.environ.get('USE_POSTGRES', '').lower() in ('1', 'true', 'yes')
+if _use_pg:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('POSTGRES_DB', 'angraweb_db'),
+            'USER': os.environ.get('POSTGRES_USER', 'angraweb_user'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
+            'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
+            'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+            'CONN_MAX_AGE': 60,
+            'OPTIONS': {'sslmode': 'prefer'} if os.environ.get('POSTGRES_SSL') else {},
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -115,9 +130,6 @@ TIME_ZONE = 'Europe/Istanbul'
 
 LANGUAGES = [
     ('tr', 'Turkish'),
-    ('en', 'English'),
-    ('fa', 'Persian'),
-    ('ar', 'Arabic'),
 ]
 
 # تا LocaleMiddleware همان کلیدی را بخواند که set_language می‌نویسد

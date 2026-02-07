@@ -20,42 +20,12 @@ from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, Newslett
 
 
 def get_language_context(request):
-    """دریافت زبان فعلی و تنظیمات مربوطه — از session/cookie می‌خواند و activate می‌کند"""
-    from django.conf import settings
+    """Site sadece Türkçe — her zaman tr aktif"""
     from django.utils import translation
-    
-    # اول از session بخوان (که set_language می‌نویسد)
-    session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
-    lang = None
-    if hasattr(request, 'session'):
-        lang = request.session.get(session_key)
-    
-    # اگر session نبود، از cookie بخوان
-    if not lang:
-        cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
-        lang = request.COOKIES.get(cookie_name)
-    
-    # اگر هیچکدام نبود، از translation.get_language() (که middleware set کرده)
-    if not lang:
-        lang = translation.get_language()
-    
-    # اگر هنوز نبود، default
-    if not lang or lang not in ['tr', 'en', 'fa', 'ar']:
-        lang = 'tr'
-    
-    # اطمینان از activate شدن زبان برای این درخواست (برای {% trans %} در template)
-    if lang and lang in ['tr', 'en', 'fa', 'ar']:
-        translation.activate(lang)
-    
-    # دیباگ: چک کن که زبان درست خوانده شده
-    if settings.DEBUG:
-        session_lang = request.session.get(session_key) if hasattr(request, 'session') else None
-        cookie_lang = request.COOKIES.get(getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language'))
-        print(f"[get_language_context] Session: {session_lang}, Cookie: {cookie_lang}, Final: {lang}")
-    
+    translation.activate('tr')
     return {
-        'current_lang': lang,
-        'is_rtl': lang in ['fa', 'ar']
+        'current_lang': 'tr',
+        'is_rtl': False
     }
 
 
