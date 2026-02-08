@@ -29,6 +29,11 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
+# صفحه نگهداری (Bakım Modu): وقتی True باشد به جای سایت صفحه نگهداری به ترکی نمایش داده می‌شود.
+# برای غیرفعال کردن: MAINTENANCE_MODE=False یا حذف این خط و استفاده از مقدار پیش‌فرض.
+MAINTENANCE_MODE = os.environ.get('MAINTENANCE_MODE', 'True') == 'True'
+MAINTENANCE_BYPASS_STAFF = True  # کاربران staff (ادمین) سایت عادی را ببینند
+
 
 # Application definition
 
@@ -50,6 +55,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'main.middleware.MaintenanceMiddleware',  # صفحه نگهداری (Bakım Modu) وقتی MAINTENANCE_MODE=True
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]

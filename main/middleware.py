@@ -1,8 +1,29 @@
 """
 Middleware برای اطمینان از فعال شدن زبان از session/cookie
+و نمایش صفحه نگهداری (Bakım Modu)
 """
 from django.conf import settings
+from django.template.response import TemplateResponse
 from django.utils import translation
+
+
+class MaintenanceMiddleware:
+    """
+    وقتی MAINTENANCE_MODE فعال است، صفحه نگهداری به ترکی نمایش می‌دهد.
+    مسیرهای /static/ و /media/ و (اختیاری) ادمین از فیلتر خارج می‌شوند.
+    """
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        if not getattr(settings, 'MAINTENANCE_MODE', False):
+            return self.get_response(request)
+        path = request.path_info.lstrip('/')
+        if path.startswith('static/') or path.startswith('media/') or path.startswith('admin/'):
+            return self.get_response(request)
+        if getattr(settings, 'MAINTENANCE_BYPASS_STAFF', True) and getattr(request.user, 'is_staff', False):
+            return self.get_response(request)
+        return TemplateResponse(request, 'main/maintenance.html', status=503)
 
 
 class LanguageActivationMiddleware:
