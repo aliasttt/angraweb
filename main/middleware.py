@@ -3,7 +3,7 @@ Middleware برای اطمینان از فعال شدن زبان از session/co
 و نمایش صفحه نگهداری (Bakım Modu)
 """
 from django.conf import settings
-from django.template.response import TemplateResponse
+from django.shortcuts import render
 from django.utils import translation
 
 
@@ -23,7 +23,7 @@ class MaintenanceMiddleware:
             return self.get_response(request)
         if getattr(settings, 'MAINTENANCE_BYPASS_STAFF', True) and getattr(request.user, 'is_staff', False):
             return self.get_response(request)
-        return TemplateResponse(request, 'main/maintenance.html', status=503)
+        return render(request, 'main/maintenance.html', status=503)
 
 
 class LanguageActivationMiddleware:
