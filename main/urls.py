@@ -60,7 +60,6 @@ urlpatterns = [
     # Legal Pages
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('terms-conditions/', views.terms_conditions, name='terms_conditions'),
-    path('refund-policy/', views.refund_policy, name='refund_policy'),
     path('guarantee/', views.guarantee, name='guarantee'),
     
     # Sitemap

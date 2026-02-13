@@ -479,13 +479,9 @@ def testimonials_list(request):
 
 def faq_list(request):
     """صفحه سوالات متداول"""
-    category = request.GET.get('category', '')
     search_query = request.GET.get('search', '')
     
     faqs = FAQ.objects.filter(active=True)
-    
-    if category:
-        faqs = faqs.filter(category=category)
     
     if search_query:
         faqs = faqs.filter(
@@ -495,19 +491,9 @@ def faq_list(request):
     
     faqs = faqs.order_by('order', 'created_at')
     
-    # Group by category
-    faqs_by_category = {}
-    for faq in faqs:
-        if faq.category not in faqs_by_category:
-            faqs_by_category[faq.category] = []
-        faqs_by_category[faq.category].append(faq)
-    
     context = {
         'faqs': faqs,
-        'faqs_by_category': faqs_by_category,
-        'selected_category': category,
         'search_query': search_query,
-        'categories': FAQ.CATEGORY_CHOICES,
     }
     context.update(get_language_context(request))
     return render(request, 'main/faq.html', context)
@@ -627,13 +613,6 @@ def terms_conditions(request):
     context = {}
     context.update(get_language_context(request))
     return render(request, 'main/terms_conditions.html', context)
-
-
-def refund_policy(request):
-    """صفحه Refund Policy"""
-    context = {}
-    context.update(get_language_context(request))
-    return render(request, 'main/refund_policy.html', context)
 
 
 def guarantee(request):

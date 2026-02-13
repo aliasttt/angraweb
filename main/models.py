@@ -469,12 +469,12 @@ class SiteSetting(models.Model):
 class FAQ(models.Model):
     """سوالات متداول"""
     CATEGORY_CHOICES = [
-        ('general', 'عمومی'),
-        ('services', 'خدمات'),
-        ('pricing', 'قیمت‌گذاری'),
-        ('technical', 'فنی'),
-        ('support', 'پشتیبانی'),
-        ('other', 'سایر'),
+        ('general', 'General'),
+        ('services', 'Services'),
+        ('pricing', 'Pricing'),
+        ('technical', 'Technical'),
+        ('support', 'Support'),
+        ('other', 'Other'),
     ]
     
     question = models.CharField(max_length=500, verbose_name='سوال')

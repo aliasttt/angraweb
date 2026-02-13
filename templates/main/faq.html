@@ -25,27 +25,13 @@
 <!-- FAQ Section -->
 <section class="section">
     <div class="container">
-        <!-- Search and Filter -->
+        <!-- Search -->
         <div class="row mb-4">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-lg-6 mx-auto">
                 <form method="get" action="{% url 'faq_list' %}" class="mb-4">
-                    <div class="row">
-                        <div class="col-md-8 mb-3 mb-md-0">
-                            <input class="form-control" type="search" name="search" 
-                                   placeholder="{% trans 'Search questions...' %}" 
-                                   value="{{ search_query }}" aria-label="Search">
-                        </div>
-                        <div class="col-md-4">
-                            <select class="form-control" name="category" onchange="this.form.submit()">
-                                <option value="">{% trans "All Categories" %}</option>
-                                {% for cat_key, cat_label in categories %}
-                                <option value="{{ cat_key }}" {% if selected_category == cat_key %}selected{% endif %}>
-                                    {% trans cat_label %}
-                                </option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </div>
+                    <input class="form-control faq-search-input" type="search" name="search" 
+                           placeholder="{% trans 'Search questions...' %}" 
+                           value="{{ search_query }}" aria-label="Search">
                 </form>
             </div>
         </div>
@@ -63,7 +49,6 @@
                                     data-bs-target="#collapse{{ faq.id }}" 
                                     aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" 
                                     aria-controls="collapse{{ faq.id }}">
-                                <span class="faq-category-badge">{{ faq.get_category_display }}</span>
                                 {% localized faq 'question' current_lang %}
                             </button>
                         </h2>
@@ -81,8 +66,8 @@
                 {% else %}
                 <div class="text-center py-5">
                     <i class="fas fa-question-circle" style="font-size: 4rem; color: #74b9ff; margin-bottom: 1rem;"></i>
-                    <h3>{% trans "No questions found" %}</h3>
-                    <p class="text-muted">{% trans "Try a different search term or category." %}</p>
+                    <h3 style="color: #ffffff;">{% trans "No questions found" %}</h3>
+                    <p style="color: #ffffff;">{% trans "Try a different search term or category." %}</p>
                 </div>
                 {% endif %}
             </div>

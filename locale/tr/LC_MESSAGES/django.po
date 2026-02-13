@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-08 01:43+0330\n"
+"POT-Creation-Date: 2026-02-14 01:17+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Your name"
 msgstr "Adınız"
 
-#: .\main\forms.py:21 .\main\forms.py:91 .\templates\base.html:288
+#: .\main\forms.py:21 .\main\forms.py:91 .\templates\base.html:308
 #: .\templates\main\contact.html:31
 #, fuzzy
 #| msgid "Your Email"
@@ -84,8 +84,7 @@ msgstr "Teslim tarihi (isteğe bağlı)"
 #: .\main\forms.py:125 .\main\forms.py:198 .\templates\main\contact.html:72
 #: .\templates\main\contact.html:152 .\templates\main\dashboard.html:27
 #: .\templates\main\privacy_policy.html:130
-#: .\templates\main\quote_request.html:58
-#: .\templates\main\refund_policy.html:129 .\templates\main\register.html:39
+#: .\templates\main\quote_request.html:58 .\templates\main\register.html:39
 #: .\templates\main\terms_conditions.html:163
 msgid "Email"
 msgstr "E-posta"
@@ -120,7 +119,7 @@ msgstr "Şifreyi onayla"
 msgid "Your email address"
 msgstr "E-posta Adresiniz"
 
-#: .\main\forms.py:194 .\templates\base.html:294
+#: .\main\forms.py:194 .\templates\base.html:314
 #, fuzzy
 #| msgid "Package (optional)"
 msgid "Your name (optional)"
@@ -132,23 +131,23 @@ msgstr "Adınız (isteğe bağlı)"
 msgid "Name"
 msgstr "Adınız"
 
-#: .\main\views.py:453
+#: .\main\views.py:443
 msgid "Invalid phone number or password."
 msgstr "Geçersiz telefon numarası veya şifre."
 
-#: .\main\views.py:544
+#: .\main\views.py:520
 msgid "You are already subscribed to our newsletter."
 msgstr "Bültenimize zaten abonesiniz."
 
-#: .\main\views.py:550
+#: .\main\views.py:526
 msgid "Welcome back! You have been resubscribed to our newsletter."
 msgstr "Tekrar hoş geldiniz! Bültenimize yeniden abone oldunuz."
 
-#: .\main\views.py:553
+#: .\main\views.py:529
 msgid "Thank you for subscribing to our newsletter!"
 msgstr "Bültenimize abone olduğunuz için teşekkürler!"
 
-#: .\main\views.py:561
+#: .\main\views.py:537
 msgid "Please check your email address and try again."
 msgstr "Lütfen e-posta adresinizi kontrol edip tekrar deneyin."
 
@@ -170,9 +169,8 @@ msgstr "Aradığınız sayfa mevcut değil veya taşınmış."
 msgid "Go Home"
 msgstr "Ana Sayfa"
 
-#: .\templates\404.html:20 .\templates\500.html:20
-#: .\templates\main\faq.html:98 .\templates\main\guarantee.html:156
-#: .\templates\main\how_it_works.html:122
+#: .\templates\404.html:20 .\templates\500.html:20 .\templates\main\faq.html:83
+#: .\templates\main\guarantee.html:156 .\templates\main\how_it_works.html:122
 #: .\templates\main\packages_compare.html:126
 #, fuzzy
 #| msgid "Contact us"
@@ -204,14 +202,14 @@ msgstr "Angraweb.com - Profesyonel Web Tasarım ve E-ticaret"
 #: .\templates\base.html:12
 #, fuzzy
 #| msgid ""
-#| "Professional web design and development services. Grow your business in the "
-#| "digital world with modern, fast and user-friendly websites."
+#| "Professional web design and development services. Grow your business in "
+#| "the digital world with modern, fast and user-friendly websites."
 msgid ""
 "Professional web design, e-commerce development, mobile app design, and SEO "
 "services. Grow your business in the digital world!"
 msgstr ""
-"Profesyonel web tasarım ve geliştirme hizmetleri. Modern, hızlı ve kullanıcı"
-" dostu web siteleri ile işinizi dijital dünyada büyütün."
+"Profesyonel web tasarım ve geliştirme hizmetleri. Modern, hızlı ve kullanıcı "
+"dostu web siteleri ile işinizi dijital dünyada büyütün."
 
 #: .\templates\base.html:13
 msgid "web development"
@@ -220,265 +218,256 @@ msgstr "web geliştirme"
 #: .\templates\base.html:22 .\templates\base.html:31 .\templates\base.html:43
 #, fuzzy
 #| msgid ""
-#| "Professional web design and development services. Grow your business in the "
-#| "digital world with modern, fast and user-friendly websites."
+#| "Professional web design and development services. Grow your business in "
+#| "the digital world with modern, fast and user-friendly websites."
 msgid ""
 "Professional web design and development services. Grow your business in the "
 "digital world!"
 msgstr ""
-"Profesyonel web tasarım ve geliştirme hizmetleri. Modern, hızlı ve kullanıcı"
-" dostu web siteleri ile işinizi dijital dünyada büyütün."
+"Profesyonel web tasarım ve geliştirme hizmetleri. Modern, hızlı ve kullanıcı "
+"dostu web siteleri ile işinizi dijital dünyada büyütün."
 
-#: .\templates\base.html:125 .\templates\base.html:243
+#: .\templates\base.html:126 .\templates\base.html:264
 #: .\templates\main\blog_detail.html:22
 #: .\templates\main\case_study_detail.html:18 .\templates\main\sitemap.html:30
 msgid "Home"
 msgstr "Ana Sayfa"
 
-#: .\templates\base.html:129 .\templates\base.html:244
-#: .\templates\main\sitemap.html:57
+#: .\templates\base.html:130 .\templates\base.html:265
+#: .\templates\main\sitemap.html:56
 msgid "Packages"
 msgstr "Paketler"
 
-#: .\templates\base.html:132 .\templates\main\sitemap.html:60
+#: .\templates\base.html:133 .\templates\main\sitemap.html:59
 #, fuzzy
 #| msgid "Packages"
 msgid "All Packages"
 msgstr "Paketler"
 
-#: .\templates\base.html:133 .\templates\main\packages_compare.html:6
-#: .\templates\main\packages_compare.html:17 .\templates\main\sitemap.html:61
+#: .\templates\base.html:134 .\templates\main\packages_compare.html:6
+#: .\templates\main\packages_compare.html:17 .\templates\main\sitemap.html:60
 #, fuzzy
 #| msgid "Custom Package"
 msgid "Compare Packages"
 msgstr "Özel Paket"
 
-#: .\templates\base.html:137 .\templates\base.html:245
+#: .\templates\base.html:138 .\templates\base.html:266
 msgid "About"
 msgstr "Hakkımda"
 
-#: .\templates\base.html:141 .\templates\base.html:246
-#: .\templates\main\sitemap.html:41
+#: .\templates\base.html:142 .\templates\base.html:267
+#: .\templates\main\sitemap.html:40
 msgid "Services"
 msgstr "Hizmetler"
 
-#: .\templates\base.html:144 .\templates\main\sitemap.html:44
+#: .\templates\base.html:145 .\templates\main\sitemap.html:43
 #, fuzzy
 #| msgid "Services"
 msgid "All Services"
 msgstr "Tüm Hizmetler"
 
-#: .\templates\base.html:145 .\templates\main\sitemap.html:45
+#: .\templates\base.html:146 .\templates\main\sitemap.html:44
 #: .\templates\main\web_design.html:6
 #, fuzzy
 #| msgid "Get Design Quote"
 msgid "Web Design"
 msgstr "Web Tasarımı"
 
-#: .\templates\base.html:146 .\templates\main\mobile_app.html:5
+#: .\templates\base.html:147 .\templates\main\mobile_app.html:5
 #: .\templates\main\mobile_app.html:11
 #, fuzzy
 #| msgid "Mobile Responsive Design"
 msgid "Mobile App Design"
 msgstr "Mobil Uygulama Tasarımı"
 
-#: .\templates\base.html:147 .\templates\main\calculator.html:51
-#: .\templates\main\sitemap.html:47
+#: .\templates\base.html:148 .\templates\main\calculator.html:51
+#: .\templates\main\sitemap.html:46
 #, fuzzy
 #| msgid "E-commerce Website"
 msgid "E-commerce"
 msgstr "E-ticaret"
 
-#: .\templates\base.html:148 .\templates\main\sitemap.html:48
+#: .\templates\base.html:149 .\templates\main\sitemap.html:47
 #, fuzzy
 #| msgid "Services"
 msgid "SEO Services"
 msgstr "SEO Hizmetleri"
 
-#: .\templates\base.html:149
+#: .\templates\base.html:150
 #, fuzzy
 #| msgid "My Services"
 msgid "Hosting Services"
 msgstr "Hosting Hizmetleri"
 
-#: .\templates\base.html:150 .\templates\main\sitemap.html:50
+#: .\templates\base.html:151 .\templates\main\sitemap.html:49
 #: .\templates\main\ui_ux.html:5 .\templates\main\ui_ux.html:11
 msgid "UI/UX Design"
 msgstr "UI/UX Tasarımı"
 
-#: .\templates\base.html:155 .\templates\base.html:247
+#: .\templates\base.html:156 .\templates\base.html:268
 #: .\templates\main\projects.html:6 .\templates\main\projects.html:12
-#: .\templates\main\sitemap.html:68
+#: .\templates\main\sitemap.html:67
 msgid "Projects"
 msgstr "Projeler"
 
-#: .\templates\base.html:158 .\templates\main\sitemap.html:71
+#: .\templates\base.html:159 .\templates\main\sitemap.html:70
 #, fuzzy
 #| msgid "View Projects"
 msgid "All Projects"
 msgstr "Projelerimi İncele"
 
-#: .\templates\base.html:159 .\templates\main\case_studies.html:17
-#: .\templates\main\case_study_detail.html:19 .\templates\main\sitemap.html:72
-msgid "Case Studies"
-msgstr "Örnek Projeler"
-
-#: .\templates\base.html:163 .\templates\base.html:248
+#: .\templates\base.html:163 .\templates\base.html:269
 #: .\templates\main\sitemap.html:33
 msgid "Resume"
 msgstr "Özgeçmiş"
 
-#: .\templates\base.html:166 .\templates\main\sitemap.html:34
-#: .\templates\main\team.html:5
-msgid "Team"
-msgstr "Takım"
-
-#: .\templates\base.html:170
+#: .\templates\base.html:167
 msgid "Tools"
 msgstr "Araçlar"
 
-#: .\templates\base.html:173 .\templates\main\how_it_works.html:17
-#: .\templates\main\sitemap.html:92
+#: .\templates\base.html:170 .\templates\main\how_it_works.html:17
+#: .\templates\main\sitemap.html:90
 msgid "How It Works"
 msgstr "Nasıl Çalışırız"
 
-#: .\templates\base.html:174 .\templates\main\sitemap.html:93
+#: .\templates\base.html:171 .\templates\main\sitemap.html:91
 msgid "Price Calculator"
 msgstr "Fiyat Hesaplayıcı"
 
-#: .\templates\base.html:175 .\templates\main\sitemap.html:94
+#: .\templates\base.html:172 .\templates\main\sitemap.html:92
 #: .\templates\main\technology_stack.html:16
 msgid "Technology Stack"
 msgstr "Teknoloji Yığını"
 
-#: .\templates\base.html:179 .\templates\base.html:249
+#: .\templates\base.html:176 .\templates\base.html:270
 #: .\templates\main\contact.html:5 .\templates\main\dashboard.html:35
 #: .\templates\main\sitemap.html:32
 msgid "Contact"
 msgstr "İletişim"
 
-#: .\templates\base.html:183 .\templates\main\dashboard.html:13
+#: .\templates\base.html:180 .\templates\main\dashboard.html:13
 msgid "Hello"
 msgstr "Merhaba"
 
-#: .\templates\base.html:186
+#: .\templates\base.html:183
 msgid "Logout"
 msgstr "Çıkış"
 
-#: .\templates\base.html:190 .\templates\main\login.html:5
+#: .\templates\base.html:187 .\templates\main\login.html:5
 #: .\templates\main\login.html:13 .\templates\main\login.html:35
-#: .\templates\main\register.html:74 .\templates\main\sitemap.html:119
+#: .\templates\main\register.html:74 .\templates\main\sitemap.html:116
 msgid "Login"
 msgstr "Giriş"
 
-#: .\templates\base.html:193 .\templates\main\login.html:39
+#: .\templates\base.html:190 .\templates\main\login.html:39
 #: .\templates\main\register.html:5 .\templates\main\register.html:21
-#: .\templates\main\register.html:70 .\templates\main\sitemap.html:120
+#: .\templates\main\register.html:70 .\templates\main\sitemap.html:117
 msgid "Register"
 msgstr "Kayıt"
 
-#: .\templates\base.html:201 .\templates\base.html:299
+#: .\templates\base.html:201
+#, fuzzy
+#| msgid "Multi-language Support"
+msgid "Language"
+msgstr "Çok Dilli"
+
+#: .\templates\base.html:222 .\templates\base.html:319
 msgid "Instagram"
 msgstr "Instagram"
 
-#: .\templates\base.html:202 .\templates\base.html:303
+#: .\templates\base.html:223 .\templates\base.html:323
 msgid "Telegram"
 msgstr "Telegram"
 
-#: .\templates\base.html:203 .\templates\base.html:307
+#: .\templates\base.html:224 .\templates\base.html:327
 #: .\templates\main\team.html:66
 msgid "GitHub"
 msgstr "GitHub"
 
-#: .\templates\base.html:236
+#: .\templates\base.html:257
 msgid ""
 "Professional web design and development services. Grow your business in the "
 "digital world with modern, fast and user-friendly websites."
 msgstr ""
-"Profesyonel web tasarım ve geliştirme hizmetleri. Modern, hızlı ve kullanıcı"
-" dostu web siteleri ile işinizi dijital dünyada büyütün."
+"Profesyonel web tasarım ve geliştirme hizmetleri. Modern, hızlı ve kullanıcı "
+"dostu web siteleri ile işinizi dijital dünyada büyütün."
 
-#: .\templates\base.html:241
+#: .\templates\base.html:262
 msgid "Quick Links"
 msgstr "Hızlı Bağlantılar"
 
-#: .\templates\base.html:253
+#: .\templates\base.html:274
 msgid "More"
 msgstr "Daha Fazla"
 
-#: .\templates\base.html:255 .\templates\main\sitemap.html:5
+#: .\templates\base.html:276 .\templates\main\sitemap.html:5
 #: .\templates\main\sitemap.html:13
 msgid "Sitemap"
 msgstr "Site Haritası"
 
-#: .\templates\base.html:256 .\templates\main\privacy_policy.html:5
-#: .\templates\main\privacy_policy.html:13 .\templates\main\sitemap.html:106
+#: .\templates\base.html:277 .\templates\main\privacy_policy.html:5
+#: .\templates\main\privacy_policy.html:13 .\templates\main\sitemap.html:104
 msgid "Privacy Policy"
 msgstr "Gizlilik Politikası"
 
-#: .\templates\base.html:257 .\templates\main\sitemap.html:107
+#: .\templates\base.html:278 .\templates\main\sitemap.html:105
 #, fuzzy
 #| msgid "Purchase Terms and Conditions"
 msgid "Terms & Conditions"
 msgstr "Şartlar ve Koşullar"
 
-#: .\templates\base.html:258 .\templates\main\refund_policy.html:5
-#: .\templates\main\refund_policy.html:13 .\templates\main\sitemap.html:108
-msgid "Refund Policy"
-msgstr "İade Politikası"
-
-#: .\templates\base.html:259 .\templates\main\guarantee.html:5
-#: .\templates\main\guarantee.html:13 .\templates\main\sitemap.html:109
+#: .\templates\base.html:279 .\templates\main\guarantee.html:5
+#: .\templates\main\guarantee.html:13 .\templates\main\sitemap.html:106
 msgid "Our Guarantee"
 msgstr "Garantimiz"
 
-#: .\templates\base.html:260 .\templates\main\ecommerce.html:63
+#: .\templates\base.html:280 .\templates\main\ecommerce.html:63
 #: .\templates\main\hosting.html:68 .\templates\main\seo.html:62
-#: .\templates\main\sitemap.html:95 .\templates\main\ui_ux.html:69
+#: .\templates\main\sitemap.html:93 .\templates\main\ui_ux.html:69
 msgid "FAQ"
 msgstr "SSS"
 
-#: .\templates\base.html:261 .\templates\main\sitemap.html:96
+#: .\templates\base.html:281 .\templates\main\sitemap.html:94
 msgid "Testimonials"
 msgstr "Müşteri Yorumları"
 
-#: .\templates\base.html:265
+#: .\templates\base.html:285
 msgid "Contact Information"
 msgstr "İletişim Bilgileri"
 
-#: .\templates\base.html:277 .\templates\main\blog_detail.html:88
+#: .\templates\base.html:297 .\templates\main\blog_detail.html:88
 #: .\templates\main\contact.html:60 .\templates\main\contact.html:162
-#: .\templates\main\faq.html:101
+#: .\templates\main\faq.html:86
 #, fuzzy
 #| msgid "Write on WhatsApp"
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
-#: .\templates\base.html:282
+#: .\templates\base.html:302
 msgid "Newsletter"
 msgstr "Bülten"
 
-#: .\templates\base.html:283
+#: .\templates\base.html:303
 msgid "Subscribe to our newsletter for updates and special offers."
 msgstr "Güncellemeler ve özel teklifler için bültenimize abone olun."
 
-#: .\templates\base.html:315
+#: .\templates\base.html:335
 msgid "All rights reserved."
 msgstr "Tüm hakları saklıdır."
 
-#: .\templates\base.html:323
+#: .\templates\base.html:343
 msgid "Back to top"
 msgstr "Yukarı çık"
 
-#: .\templates\base.html:330 .\templates\main\ecommerce.html:78
+#: .\templates\base.html:350 .\templates\main\ecommerce.html:78
 #: .\templates\main\ecommerce.html:80 .\templates\main\hosting.html:83
 #: .\templates\main\hosting.html:85 .\templates\main\index.html:118
 #: .\templates\main\mobile_app.html:54 .\templates\main\mobile_app.html:56
-#: .\templates\main\quote_request.html:5
-#: .\templates\main\quote_request.html:11 .\templates\main\seo.html:77
-#: .\templates\main\seo.html:79 .\templates\main\service_detail.html:70
-#: .\templates\main\ui_ux.html:84 .\templates\main\ui_ux.html:86
-#: .\templates\main\web_design.html:60 .\templates\main\web_design.html:62
+#: .\templates\main\quote_request.html:5 .\templates\main\quote_request.html:11
+#: .\templates\main\seo.html:77 .\templates\main\seo.html:79
+#: .\templates\main\service_detail.html:70 .\templates\main\ui_ux.html:84
+#: .\templates\main\ui_ux.html:86 .\templates\main\web_design.html:60
+#: .\templates\main\web_design.html:62
 msgid "Get Quote"
 msgstr "Teklif Al"
 
@@ -506,25 +495,33 @@ msgstr "Profesyonel Web Tasarım Uzmanı"
 #, python-format
 msgid ""
 "\n"
-"                        As a graduate of Marmara University Computer Programming, I offer professional web design solutions. \n"
-"                        More than 20 of my clients have received service with 100%% satisfaction.\n"
+"                        As a graduate of Marmara University Computer "
+"Programming, I offer professional web design solutions. \n"
+"                        More than 20 of my clients have received service "
+"with 100%% satisfaction.\n"
 "                        "
 msgstr ""
 "\n"
-"                        Marmara Üniversitesi Bilgisayar Programlama mezunu olarak profesyonel web tasarım çözümleri sunuyorum. \n"
-"                        20'den fazla müşterim %%100 memnuniyet ile hizmet aldı.\n"
+"                        Marmara Üniversitesi Bilgisayar Programlama mezunu "
+"olarak profesyonel web tasarım çözümleri sunuyorum. \n"
+"                        20'den fazla müşterim %%100 memnuniyet ile hizmet "
+"aldı.\n"
 "                        "
 
 #: .\templates\main\about.html:32
 msgid ""
 "\n"
-"                        I specialize in creating modern, responsive websites and web applications that help businesses grow online. \n"
-"                        With expertise in both frontend and backend development, I deliver complete solutions from design to deployment.\n"
+"                        I specialize in creating modern, responsive websites "
+"and web applications that help businesses grow online. \n"
+"                        With expertise in both frontend and backend "
+"development, I deliver complete solutions from design to deployment.\n"
 "                        "
 msgstr ""
 "\n"
-"İşletmelerin çevrimiçi büyümesine yardımcı olan modern, duyarlı web siteleri ve web uygulamaları oluşturma konusunda uzmanım. \n"
-"                        Hem ön uç hem de arka uç geliştirmedeki uzmanlığımla tasarımdan dağıtıma kadar eksiksiz çözümler sunuyorum."
+"İşletmelerin çevrimiçi büyümesine yardımcı olan modern, duyarlı web siteleri "
+"ve web uygulamaları oluşturma konusunda uzmanım. \n"
+"                        Hem ön uç hem de arka uç geliştirmedeki uzmanlığımla "
+"tasarımdan dağıtıma kadar eksiksiz çözümler sunuyorum."
 
 #: .\templates\main\about.html:43 .\templates\main\index.html:217
 msgid "Successful Projects"
@@ -614,14 +611,14 @@ msgstr "Blog - Makaleler ve Haberler"
 
 #: .\templates\main\blog.html:8
 msgid ""
-"Read our latest articles about web design, e-commerce, mobile apps, SEO, and"
-" digital marketing tips."
+"Read our latest articles about web design, e-commerce, mobile apps, SEO, and "
+"digital marketing tips."
 msgstr ""
 "Web tasarımı, e-ticaret, mobil uygulamalar, SEO ve dijital pazarlama "
 "ipuçlarıyla ilgili en son makalelerimizi okuyun."
 
 #: .\templates\main\blog.html:17 .\templates\main\blog_detail.html:6
-#: .\templates\main\blog_detail.html:23 .\templates\main\sitemap.html:79
+#: .\templates\main\blog_detail.html:23 .\templates\main\sitemap.html:77
 msgid "Blog"
 msgstr "Blog"
 
@@ -679,7 +676,7 @@ msgstr ""
 msgid "Get an instant estimate for your project"
 msgstr "Projeniz için anında tahmini fiyat alın"
 
-#: .\templates\main\calculator.html:34 .\templates\main\projects.html:26
+#: .\templates\main\calculator.html:34
 #, fuzzy
 #| msgid "Projects"
 msgid "Project Type"
@@ -689,7 +686,8 @@ msgstr "Proje Türü"
 msgid "Website"
 msgstr "Web Sitesi"
 
-#: .\templates\main\calculator.html:60 .\templates\main\services.html:138
+#: .\templates\main\calculator.html:60 .\templates\main\projects.html:113
+#: .\templates\main\services.html:138
 #, fuzzy
 #| msgid "Mobile app"
 msgid "Mobile App"
@@ -793,8 +791,13 @@ msgid ""
 "Explore our successful projects and see how we've helped businesses grow "
 "with professional web design and development."
 msgstr ""
-"Başarılı projelerimizi keşfedin ve profesyonel web tasarımı ve geliştirmeyle"
-" işletmelerin büyümesine nasıl yardımcı olduğumuzu görün."
+"Başarılı projelerimizi keşfedin ve profesyonel web tasarımı ve geliştirmeyle "
+"işletmelerin büyümesine nasıl yardımcı olduğumuzu görün."
+
+#: .\templates\main\case_studies.html:17
+#: .\templates\main\case_study_detail.html:19
+msgid "Case Studies"
+msgstr "Örnek Projeler"
 
 #: .\templates\main\case_studies.html:19
 msgid "Real Results from Real Projects"
@@ -832,7 +835,7 @@ msgstr "Zorluk"
 msgid "Our Solution"
 msgstr "Çözümümüz"
 
-#: .\templates\main\case_study_detail.html:97
+#: .\templates\main\case_study_detail.html:97 .\templates\main\projects.html:95
 #, fuzzy
 #| msgid "Technologies we use"
 msgid "Technologies Used"
@@ -889,7 +892,6 @@ msgstr "E-posta Gönder"
 #: .\templates\main\contact.html:84 .\templates\main\contact.html:172
 #: .\templates\main\privacy_policy.html:131
 #: .\templates\main\quote_request.html:64
-#: .\templates\main\refund_policy.html:130
 #: .\templates\main\terms_conditions.html:164
 msgid "Phone"
 msgstr "Telefon"
@@ -910,9 +912,17 @@ msgstr "Çalışma Saatleri"
 msgid "Monday - Friday"
 msgstr "Pazartesi - Cuma"
 
+#: .\templates\main\contact.html:110
+msgid "9:00 AM - 6:00 PM (GMT+3)"
+msgstr "09:00 - 18:00 (GMT+3)"
+
 #: .\templates\main\contact.html:115
 msgid "Saturday"
 msgstr "Cumartesi"
+
+#: .\templates\main\contact.html:116
+msgid "10:00 AM - 4:00 PM (GMT+3)"
+msgstr "10:00 - 16:00 (GMT+3)"
 
 #: .\templates\main\contact.html:121
 msgid "Sunday"
@@ -931,10 +941,8 @@ msgid "24/7 via WhatsApp"
 msgstr "7/24 WhatsApp ile"
 
 #: .\templates\main\contact.html:144
-#, fuzzy
-#| msgid "Responsive Design"
 msgid "Response Time"
-msgstr "Responsive Tasarım"
+msgstr "Yanıt Süresi"
 
 #: .\templates\main\contact.html:153
 msgid "Within 24 hours"
@@ -961,14 +969,12 @@ msgid "During office hours"
 msgstr "Çalışma saatleri içinde"
 
 #: .\templates\main\contact.html:189
-#, fuzzy
-#| msgid "Education"
 msgid "Our Location"
-msgstr "Eğitim"
+msgstr "Konumumuz"
 
 #: .\templates\main\contact.html:204
-msgid "Istanbul, Turkey"
-msgstr "İstanbul, Türkiye"
+msgid "Belicium AVM, Beylikdüzü, İstanbul, Türkiye"
+msgstr "Belicium AVM, Beylikdüzü, İstanbul, Türkiye"
 
 #: .\templates\main\dashboard.html:5 .\templates\main\dashboard.html:11
 msgid "Dashboard"
@@ -1014,8 +1020,8 @@ msgstr "E-ticaret geliştirme hizmetleri"
 
 #: .\templates\main\ecommerce.html:25
 msgid ""
-"We build full-featured online stores that handle products, orders, payments,"
-" shipping, and customer accounts. From small shops to multi-vendor "
+"We build full-featured online stores that handle products, orders, payments, "
+"shipping, and customer accounts. From small shops to multi-vendor "
 "marketplaces, we deliver secure, scalable e-commerce platforms with modern "
 "UI and powerful admin tools."
 msgstr ""
@@ -1043,8 +1049,8 @@ msgstr ""
 
 #: .\templates\main\ecommerce.html:31
 msgid ""
-"Shopping cart, checkout flow, and multiple payment gateways (Stripe, PayPal,"
-" local)"
+"Shopping cart, checkout flow, and multiple payment gateways (Stripe, PayPal, "
+"local)"
 msgstr ""
 "Alışveriş sepeti, ödeme akışı ve çoklu ödeme ağ geçitleri (Stripe, PayPal, "
 "yerel)"
@@ -1085,8 +1091,7 @@ msgid "Process"
 msgstr "Süreç"
 
 #: .\templates\main\ecommerce.html:41
-msgid ""
-"Requirements: product types, payment methods, shipping zones, tax rules"
+msgid "Requirements: product types, payment methods, shipping zones, tax rules"
 msgstr ""
 "Gereksinimler: ürün türleri, ödeme yöntemleri, kargo bölgeleri, vergi "
 "kuralları"
@@ -1097,8 +1102,7 @@ msgstr ""
 "Tasarım: ürün sayfaları, sepet, ödeme, yönetim paneli arayüz taslakları"
 
 #: .\templates\main\ecommerce.html:43
-msgid ""
-"Development: Django e-commerce backend + frontend + payment integration"
+msgid "Development: Django e-commerce backend + frontend + payment integration"
 msgstr "Geliştirme: Django e-ticaret backend + frontend + ödeme entegrasyonu"
 
 #: .\templates\main\ecommerce.html:44
@@ -1121,8 +1125,8 @@ msgid ""
 "JavaScript, responsive design."
 msgstr ""
 "Django + PostgreSQL, Stripe/PayPal API'leri, önbellekleme için Redis, arka "
-"plan görevleri için Celery, dağıtım için Docker. Frontend: "
-"Bootstrap/Tailwind, JavaScript, duyarlı tasarım."
+"plan görevleri için Celery, dağıtım için Docker. Frontend: Bootstrap/"
+"Tailwind, JavaScript, duyarlı tasarım."
 
 #: .\templates\main\ecommerce.html:53 .\templates\main\web_design.html:47
 msgid "Typical timeline"
@@ -1130,8 +1134,8 @@ msgstr "Tipik zaman çizelgesi"
 
 #: .\templates\main\ecommerce.html:55
 msgid ""
-"Small store (50-200 products): 4-8 weeks · Medium store (200-1000 products):"
-" 8-16 weeks · Large marketplace: 16+ weeks"
+"Small store (50-200 products): 4-8 weeks · Medium store (200-1000 products): "
+"8-16 weeks · Large marketplace: 16+ weeks"
 msgstr ""
 "Küçük mağaza (50-200 ürün): 4-8 hafta · Orta mağaza (200-1000 ürün): 8-16 "
 "hafta · Büyük pazaryeri: 16+ hafta"
@@ -1158,8 +1162,8 @@ msgstr "S: Ödeme ağ geçidi kurulumunu siz mi yapıyorsunuz?"
 
 #: .\templates\main\ecommerce.html:66
 msgid ""
-"A: Yes, we integrate Stripe, PayPal, or local payment providers. You'll need"
-" to provide API credentials from your payment account."
+"A: Yes, we integrate Stripe, PayPal, or local payment providers. You'll need "
+"to provide API credentials from your payment account."
 msgstr ""
 "C: Evet, Stripe, PayPal veya yerel ödeme sağlayıcılarını entegre ediyoruz. "
 "Ödeme hesabınızdan API kimlik bilgilerini sağlamanız gerekecek."
@@ -1170,8 +1174,8 @@ msgstr "S: Ürünleri kendim yönetebilir miyim?"
 
 #: .\templates\main\ecommerce.html:69
 msgid ""
-"A: Yes, the admin panel includes full product management: add/edit products,"
-" set prices, manage inventory, upload images."
+"A: Yes, the admin panel includes full product management: add/edit products, "
+"set prices, manage inventory, upload images."
 msgstr ""
 "C: Evet, yönetim paneli tam ürün yönetimini içerir: ürün ekleme/düzenleme, "
 "fiyat belirleme, envanter yönetimi, görsel yükleme."
@@ -1182,8 +1186,8 @@ msgstr "S: Hosting sağlıyor musunuz?"
 
 #: .\templates\main\ecommerce.html:72
 msgid ""
-"A: We can set up hosting or you can use your own. We recommend cloud hosting"
-" (AWS, DigitalOcean) for better performance and scalability."
+"A: We can set up hosting or you can use your own. We recommend cloud hosting "
+"(AWS, DigitalOcean) for better performance and scalability."
 msgstr ""
 "C: Hosting kurabiliriz veya kendi hosting'inizi kullanabilirsiniz. Daha iyi "
 "performans ve ölçeklenebilirlik için bulut hosting'i (AWS, DigitalOcean) "
@@ -1230,31 +1234,25 @@ msgstr "Sıkça Sorulan Sorular"
 msgid "Find answers to common questions"
 msgstr "Yaygın sorulara yanıtlar bulun"
 
-#: .\templates\main\faq.html:35
+#: .\templates\main\faq.html:33
 msgid "Search questions..."
 msgstr "Soru ara..."
 
-#: .\templates\main\faq.html:40
-#, fuzzy
-#| msgid "Services"
-msgid "All Categories"
-msgstr "Hizmetler"
-
-#: .\templates\main\faq.html:84
+#: .\templates\main\faq.html:69
 #, fuzzy
 #| msgid "No services found."
 msgid "No questions found"
 msgstr "Hizmet bulunamadı."
 
-#: .\templates\main\faq.html:85
+#: .\templates\main\faq.html:70
 msgid "Try a different search term or category."
 msgstr "Farklı bir arama terimi veya kategori deneyin."
 
-#: .\templates\main\faq.html:95
+#: .\templates\main\faq.html:80
 msgid "Still have questions?"
 msgstr "Hâlâ sorunuz mu var?"
 
-#: .\templates\main\faq.html:96
+#: .\templates\main\faq.html:81
 #, fuzzy
 #| msgid "Contact forms and lead capture"
 msgid "Contact us and we'll be happy to help!"
@@ -1280,12 +1278,14 @@ msgstr "İşimizin Arkasındayız"
 #: .\templates\main\guarantee.html:29
 msgid ""
 "\n"
-"                        At Angraweb.com, we are committed to delivering exceptional results. Our guarantee ensures that \n"
+"                        At Angraweb.com, we are committed to delivering "
+"exceptional results. Our guarantee ensures that \n"
 "                        you receive the quality service you deserve.\n"
 "                        "
 msgstr ""
 "\n"
-"Angraweb.com olarak olağanüstü sonuçlar sunmaya kendimizi adadık. Garantimiz şunu sağlar: \n"
+"Angraweb.com olarak olağanüstü sonuçlar sunmaya kendimizi adadık. Garantimiz "
+"şunu sağlar: \n"
 "                        Hak ettiğiniz kaliteli hizmeti alırsınız."
 
 #: .\templates\main\guarantee.html:43
@@ -1295,13 +1295,17 @@ msgstr "Kalite Garantisi"
 #: .\templates\main\guarantee.html:45
 msgid ""
 "\n"
-"                                    We guarantee that all our work meets professional standards. If you're not satisfied \n"
-"                                    with the quality, we'll work with you to make it right.\n"
+"                                    We guarantee that all our work meets "
+"professional standards. If you're not satisfied \n"
+"                                    with the quality, we'll work with you to "
+"make it right.\n"
 "                                    "
 msgstr ""
 "\n"
-"Tüm çalışmalarımızın profesyonel standartlara uygun olduğunu garanti ediyoruz. Eğer memnun değilseniz \n"
-"                                    kaliteyle, bunu doğru yapmak için sizinle birlikte çalışacağız."
+"Tüm çalışmalarımızın profesyonel standartlara uygun olduğunu garanti "
+"ediyoruz. Eğer memnun değilseniz \n"
+"                                    kaliteyle, bunu doğru yapmak için "
+"sizinle birlikte çalışacağız."
 
 #: .\templates\main\guarantee.html:58
 #, fuzzy
@@ -1312,13 +1316,17 @@ msgstr "Zaman çizelgesi"
 #: .\templates\main\guarantee.html:60
 msgid ""
 "\n"
-"                                    We commit to delivering your project on time. If we fail to meet agreed deadlines \n"
-"                                    due to our fault, we'll compensate accordingly.\n"
+"                                    We commit to delivering your project on "
+"time. If we fail to meet agreed deadlines \n"
+"                                    due to our fault, we'll compensate "
+"accordingly.\n"
 "                                    "
 msgstr ""
 "\n"
-"Projenizi zamanında teslim etmeyi taahhüt ediyoruz. Kararlaştırılan son teslim tarihlerine yetişemezsek \n"
-"                                    bizim hatamız nedeniyle buna göre tazminat ödeyeceğiz."
+"Projenizi zamanında teslim etmeyi taahhüt ediyoruz. Kararlaştırılan son "
+"teslim tarihlerine yetişemezsek \n"
+"                                    bizim hatamız nedeniyle buna göre "
+"tazminat ödeyeceğiz."
 
 #: .\templates\main\guarantee.html:73
 msgid "Support Guarantee"
@@ -1327,12 +1335,14 @@ msgstr "Destek Garantisi"
 #: .\templates\main\guarantee.html:75
 msgid ""
 "\n"
-"                                    We provide ongoing support for all our projects. Our support guarantee ensures you \n"
+"                                    We provide ongoing support for all our "
+"projects. Our support guarantee ensures you \n"
 "                                    have help when you need it.\n"
 "                                    "
 msgstr ""
 "\n"
-"Tüm projelerimize sürekli destek sağlıyoruz. Destek garantimiz sizi güvence altına alır \n"
+"Tüm projelerimize sürekli destek sağlıyoruz. Destek garantimiz sizi güvence "
+"altına alır \n"
 "                                    İhtiyacınız olduğunda yardım alın."
 
 #: .\templates\main\guarantee.html:88
@@ -1342,13 +1352,17 @@ msgstr "Güvenlik Garantisi"
 #: .\templates\main\guarantee.html:90
 msgid ""
 "\n"
-"                                    We guarantee that your data and information are secure. We follow industry best \n"
-"                                    practices for data protection and security.\n"
+"                                    We guarantee that your data and "
+"information are secure. We follow industry best \n"
+"                                    practices for data protection and "
+"security.\n"
 "                                    "
 msgstr ""
 "\n"
-"Verilerinizin ve bilgilerinizin güvende olduğunu garanti ediyoruz. Sektörü en iyi takip ediyoruz \n"
-"                                    Veri koruma ve güvenliğine yönelik uygulamalar."
+"Verilerinizin ve bilgilerinizin güvende olduğunu garanti ediyoruz. Sektörü "
+"en iyi takip ediyoruz \n"
+"                                    Veri koruma ve güvenliğine yönelik "
+"uygulamalar."
 
 #: .\templates\main\guarantee.html:101
 msgid "What Our Guarantee Covers"
@@ -1407,14 +1421,18 @@ msgstr "Taahhüdümüz"
 #: .\templates\main\guarantee.html:132
 msgid ""
 "\n"
-"                            We are committed to your success. If you're not completely satisfied with our work, we will \n"
-"                            work with you to resolve any issues. Our goal is not just to complete a project, but to build \n"
-"                            a long-term relationship based on trust and quality.\n"
+"                            We are committed to your success. If you're not "
+"completely satisfied with our work, we will \n"
+"                            work with you to resolve any issues. Our goal is "
+"not just to complete a project, but to build \n"
+"                            a long-term relationship based on trust and "
+"quality.\n"
 "                            "
 msgstr ""
 "\n"
 "Başarınıza kendimizi adadık. Eğer işimizden tamamen memnun değilseniz, \n"
-"                            herhangi bir sorunu çözmek için sizinle birlikte çalışırız. Amacımız sadece projeyi tamamlamak değil, inşa etmek. \n"
+"                            herhangi bir sorunu çözmek için sizinle birlikte "
+"çalışırız. Amacımız sadece projeyi tamamlamak değil, inşa etmek. \n"
 "                            güven ve kaliteye dayalı uzun vadeli bir ilişki."
 
 #: .\templates\main\guarantee.html:140
@@ -1447,7 +1465,7 @@ msgstr "Bizimle Çalışmaya Hazır mısınız?"
 msgid "Experience our quality guarantee firsthand"
 msgstr "Kalite garantimizi bizzat deneyimleyin"
 
-#: .\templates\main\hosting.html:5 .\templates\main\sitemap.html:49
+#: .\templates\main\hosting.html:5 .\templates\main\sitemap.html:48
 msgid "Hosting & Domain"
 msgstr "Hosting ve Alan Adı"
 
@@ -1482,8 +1500,7 @@ msgstr "Web hosting: ihtiyaçlarınıza göre paylaşımlı, VPS veya özel sunu
 #: .\templates\main\hosting.html:30
 msgid "SSL certificates: free Let's Encrypt or premium SSL for secure HTTPS"
 msgstr ""
-"SSL sertifikaları: güvenli HTTPS için ücretsiz Let's Encrypt veya premium "
-"SSL"
+"SSL sertifikaları: güvenli HTTPS için ücretsiz Let's Encrypt veya premium SSL"
 
 #: .\templates\main\hosting.html:31
 msgid ""
@@ -1517,8 +1534,8 @@ msgstr "Paylaşımlı Hosting"
 
 #: .\templates\main\hosting.html:41
 msgid ""
-"Ideal for small websites, blogs, and low-traffic sites. Cost-effective, easy"
-" to manage, includes cPanel. Starting from 500 TL/year."
+"Ideal for small websites, blogs, and low-traffic sites. Cost-effective, easy "
+"to manage, includes cPanel. Starting from 500 TL/year."
 msgstr ""
 "Küçük web siteleri, bloglar ve düşük trafikli siteler için ideal. Uygun "
 "maliyetli, yönetimi kolay, cPanel dahil. Yıllık 500 TL'den başlar."
@@ -1553,8 +1570,8 @@ msgstr "Bulut Hosting"
 
 #: .\templates\main\hosting.html:50
 msgid ""
-"Scalable cloud infrastructure (AWS, DigitalOcean, etc.). Pay-as-you-go, "
-"auto-scaling. Ideal for apps with variable traffic."
+"Scalable cloud infrastructure (AWS, DigitalOcean, etc.). Pay-as-you-go, auto-"
+"scaling. Ideal for apps with variable traffic."
 msgstr ""
 "Ölçeklenebilir bulut altyapısı (AWS, DigitalOcean vb.). Kullandığınız kadar "
 "öde, otomatik ölçeklendirme. Değişken trafikli uygulamalar için ideal."
@@ -1577,9 +1594,8 @@ msgstr "Güvenlik ve yedeklemeler"
 
 #: .\templates\main\hosting.html:60
 msgid ""
-"SSL certificates (free Let's Encrypt or premium), automated backups "
-"(daily/weekly), malware scanning, DDoS protection basics, firewall "
-"configuration."
+"SSL certificates (free Let's Encrypt or premium), automated backups (daily/"
+"weekly), malware scanning, DDoS protection basics, firewall configuration."
 msgstr ""
 "SSL sertifikaları (ücretsiz Let's Encrypt veya premium), otomatik "
 "yedeklemeler (günlük/haftalık), kötü amaçlı yazılım taraması, DDoS koruması "
@@ -1588,14 +1604,14 @@ msgstr ""
 #: .\templates\main\hosting.html:65
 msgid ""
 "Shared hosting: 500-1,500 TL/year · VPS: 2,000-8,000 TL/year · Domain "
-"registration: 100-500 TL/year (varies by TLD) · SSL certificate: Free (Let's"
-" Encrypt) or 500-2,000 TL/year (premium). Server management and migration "
+"registration: 100-500 TL/year (varies by TLD) · SSL certificate: Free (Let's "
+"Encrypt) or 500-2,000 TL/year (premium). Server management and migration "
 "services quoted separately."
 msgstr ""
 "Paylaşımlı hosting: yıllık 500-1.500 TL · VPS: yıllık 2.000-8.000 TL · Alan "
 "adı kaydı: yıllık 100-500 TL (TLD'ye göre değişir) · SSL sertifikası: "
-"Ücretsiz (Let's Encrypt) veya yıllık 500-2.000 TL (premium). Sunucu yönetimi"
-" ve taşıma hizmetleri ayrıca fiyatlandırılır."
+"Ücretsiz (Let's Encrypt) veya yıllık 500-2.000 TL (premium). Sunucu yönetimi "
+"ve taşıma hizmetleri ayrıca fiyatlandırılır."
 
 #: .\templates\main\hosting.html:70
 msgid "Q: Can you migrate my existing website?"
@@ -1606,8 +1622,8 @@ msgid ""
 "A: Yes, we handle website migrations: files, databases, email accounts, DNS "
 "configuration. We ensure zero downtime during migration."
 msgstr ""
-"C: Evet, web sitesi taşımalarını yönetiyoruz: dosyalar, veritabanları, "
-"e-posta hesapları, DNS yapılandırması. Taşıma sırasında sıfır kesinti "
+"C: Evet, web sitesi taşımalarını yönetiyoruz: dosyalar, veritabanları, e-"
+"posta hesapları, DNS yapılandırması. Taşıma sırasında sıfır kesinti "
 "sağlıyoruz."
 
 #: .\templates\main\hosting.html:73
@@ -1666,8 +1682,8 @@ msgstr "Profesyonel Sürecimiz"
 #: .\templates\main\how_it_works.html:21
 msgid ""
 "We follow a proven process to ensure your project is completed on time, "
-"within budget, and exceeds your expectations. Here's how we work together to"
-" bring your vision to life."
+"within budget, and exceeds your expectations. Here's how we work together to "
+"bring your vision to life."
 msgstr ""
 "Projenizin zamanında, bütçe dahilinde tamamlanması ve beklentilerinizi "
 "aşması için kanıtlanmış bir süreç izliyoruz. Vizyonunuzu hayata geçirmek "
@@ -1696,8 +1712,7 @@ msgid ""
 "We keep you informed at every step with regular updates and transparent "
 "communication."
 msgstr ""
-"Her adımda düzenli güncellemeler ve şeffaf iletişimle sizi "
-"bilgilendiriyoruz."
+"Her adımda düzenli güncellemeler ve şeffaf iletişimle sizi bilgilendiriyoruz."
 
 #: .\templates\main\how_it_works.html:92
 msgid "Quality Assurance"
@@ -1750,11 +1765,16 @@ msgstr "Dijital dünyada işinizi büyütün!"
 #: .\templates\main\index.html:22
 msgid ""
 "\n"
-"                        I design modern, fast and user‑friendly websites for your business. From corporate websites to e‑commerce and custom platforms, I deliver professional design, clean code and measurable results.\n"
+"                        I design modern, fast and user‑friendly websites for "
+"your business. From corporate websites to e‑commerce and custom platforms, I "
+"deliver professional design, clean code and measurable results.\n"
 "                        "
 msgstr ""
 "\n"
-"                        İşletmeniz için modern, hızlı ve kullanıcı dostu web siteleri tasarlıyorum. Kurumsal web sitelerinden e-ticaret ve özel platformlara kadar, profesyonel tasarım, temiz kod ve ölçülebilir sonuçlar sunuyorum.\n"
+"                        İşletmeniz için modern, hızlı ve kullanıcı dostu web "
+"siteleri tasarlıyorum. Kurumsal web sitelerinden e-ticaret ve özel "
+"platformlara kadar, profesyonel tasarım, temiz kod ve ölçülebilir sonuçlar "
+"sunuyorum.\n"
 "                        "
 
 #: .\templates\main\index.html:28
@@ -1813,8 +1833,7 @@ msgstr "İşinizi Büyütün"
 
 #: .\templates\main\index.html:143
 #, fuzzy
-#| msgid ""
-#| "Increase your sales and customer satisfaction with modern websites"
+#| msgid "Increase your sales and customer satisfaction with modern websites"
 msgid "Increase your sales with modern websites"
 msgstr "Modern web siteleri ile satışlarınızı artırın"
 
@@ -1865,11 +1884,12 @@ msgstr "Paketlerimiz"
 msgid "Popular"
 msgstr "Popüler"
 
-#: .\templates\main\index.html:286 .\templates\main\projects.html:96
+#: .\templates\main\index.html:286 .\templates\main\projects.html:23
 msgid "My Projects"
 msgstr "Projelerim"
 
-#: .\templates\main\index.html:307 .\templates\main\projects.html:117
+#: .\templates\main\index.html:307 .\templates\main\projects.html:37
+#: .\templates\main\projects.html:65 .\templates\main\projects.html:122
 #, fuzzy
 #| msgid "Website"
 msgid "Visit Website"
@@ -1963,8 +1983,8 @@ msgid ""
 msgstr ""
 "Premium hissettiren mobil uygulamalar geliştiriyoruz: akıcı arayüz, hızlı "
 "performans, güvenli kimlik doğrulama ve ölçeklenebilir backend. MVP'ye mi "
-"ihtiyacınız var yoksa tam bir ürüne mi, net kilometre taşları ve profesyonel"
-" dokümantasyonla teslim ediyoruz."
+"ihtiyacınız var yoksa tam bir ürüne mi, net kilometre taşları ve profesyonel "
+"dokümantasyonla teslim ediyoruz."
 
 #: .\templates\main\mobile_app.html:29
 msgid "Modern UI/UX (Figma → app) with consistent components"
@@ -2036,11 +2056,9 @@ msgid "Choose the package that fits your needs"
 msgstr "İhtiyacınıza uygun paketi seçin ve işinizi dijital dünyaya taşıyın"
 
 #: .\templates\main\packages_compare.html:8
-msgid ""
-"Compare our web design packages and choose the best one for your needs."
+msgid "Compare our web design packages and choose the best one for your needs."
 msgstr ""
-"Web tasarım paketlerimizi karşılaştırın ve ihtiyacınıza en uygun olanı "
-"seçin."
+"Web tasarım paketlerimizi karşılaştırın ve ihtiyacınıza en uygun olanı seçin."
 
 #: .\templates\main\packages_compare.html:19
 #, fuzzy
@@ -2097,7 +2115,6 @@ msgstr ""
 "anlamak için gizlilik politikamızı okuyun."
 
 #: .\templates\main\privacy_policy.html:15
-#: .\templates\main\refund_policy.html:15
 #: .\templates\main\terms_conditions.html:15
 msgid "Last Updated: January 2026"
 msgstr "Son Güncelleme: Ocak 2026"
@@ -2109,13 +2126,18 @@ msgstr "1. Giriş"
 #: .\templates\main\privacy_policy.html:26
 msgid ""
 "\n"
-"                        At Angraweb.com, we respect your privacy and are committed to protecting your personal data. \n"
-"                        This privacy policy explains how we collect, use, and safeguard your information when you visit our website.\n"
+"                        At Angraweb.com, we respect your privacy and are "
+"committed to protecting your personal data. \n"
+"                        This privacy policy explains how we collect, use, "
+"and safeguard your information when you visit our website.\n"
 "                        "
 msgstr ""
 "\n"
-"Angraweb.com olarak gizliliğinize saygı duyuyoruz ve kişisel verilerinizi korumaya kararlıyız. \n"
-"                        Bu gizlilik politikası, web sitemizi ziyaret ettiğinizde bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklamaktadır."
+"Angraweb.com olarak gizliliğinize saygı duyuyoruz ve kişisel verilerinizi "
+"korumaya kararlıyız. \n"
+"                        Bu gizlilik politikası, web sitemizi ziyaret "
+"ettiğinizde bilgilerinizi nasıl topladığımızı, kullandığımızı ve "
+"koruduğumuzu açıklamaktadır."
 
 #: .\templates\main\privacy_policy.html:32
 msgid "2. Information We Collect"
@@ -2214,8 +2236,7 @@ msgstr "Size pazarlama iletişimleri göndermek (izniniz doğrultusunda)"
 
 #: .\templates\main\privacy_policy.html:59
 msgid "Analyze website usage and improve user experience"
-msgstr ""
-"Web sitesi kullanımını analiz edin ve kullanıcı deneyimini iyileştirin"
+msgstr "Web sitesi kullanımını analiz edin ve kullanıcı deneyimini iyileştirin"
 
 #: .\templates\main\privacy_policy.html:60
 msgid "Comply with legal obligations"
@@ -2229,14 +2250,18 @@ msgstr "4. Veri Koruma"
 #, python-format
 msgid ""
 "\n"
-"                        We implement appropriate technical and organizational measures to protect your personal data against \n"
-"                        unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over \n"
+"                        We implement appropriate technical and "
+"organizational measures to protect your personal data against \n"
+"                        unauthorized access, alteration, disclosure, or "
+"destruction. However, no method of transmission over \n"
 "                        the Internet is 100%% secure.\n"
 "                        "
 msgstr ""
 "\n"
-"Kişisel verilerinizi korumak için uygun teknik ve organizasyonel önlemleri uyguluyoruz. \n"
-"                        yetkisiz erişim, değişiklik, ifşa veya imha. Ancak herhangi bir iletim yöntemi yok \n"
+"Kişisel verilerinizi korumak için uygun teknik ve organizasyonel önlemleri "
+"uyguluyoruz. \n"
+"                        yetkisiz erişim, değişiklik, ifşa veya imha. Ancak "
+"herhangi bir iletim yöntemi yok \n"
 "                        İnternet %%%%100 güvenlidir."
 
 #: .\templates\main\privacy_policy.html:72
@@ -2246,13 +2271,17 @@ msgstr "5. Çerezler ve İzleme Teknolojileri"
 #: .\templates\main\privacy_policy.html:74
 msgid ""
 "\n"
-"                        We use cookies and similar tracking technologies to track activity on our website and store certain \n"
-"                        information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.\n"
+"                        We use cookies and similar tracking technologies to "
+"track activity on our website and store certain \n"
+"                        information. You can instruct your browser to refuse "
+"all cookies or to indicate when a cookie is being sent.\n"
 "                        "
 msgstr ""
 "\n"
-"Web sitemizdeki etkinliği izlemek ve belirli bilgileri saklamak için çerezleri ve benzer izleme teknolojilerini kullanıyoruz. \n"
-"                        bilgi. Tarayıcınıza tüm çerezleri reddetmesi veya bir çerez gönderildiğinde bunu belirtmesi talimatını verebilirsiniz."
+"Web sitemizdeki etkinliği izlemek ve belirli bilgileri saklamak için "
+"çerezleri ve benzer izleme teknolojilerini kullanıyoruz. \n"
+"                        bilgi. Tarayıcınıza tüm çerezleri reddetmesi veya "
+"bir çerez gönderildiğinde bunu belirtmesi talimatını verebilirsiniz."
 
 #: .\templates\main\privacy_policy.html:80
 msgid "6. Third-Party Services"
@@ -2261,13 +2290,17 @@ msgstr "6. Üçüncü Taraf Hizmetleri"
 #: .\templates\main\privacy_policy.html:82
 msgid ""
 "\n"
-"                        We may use third-party services such as Google Analytics, payment processors, and email service providers. \n"
-"                        These services have their own privacy policies regarding the handling of your information.\n"
+"                        We may use third-party services such as Google "
+"Analytics, payment processors, and email service providers. \n"
+"                        These services have their own privacy policies "
+"regarding the handling of your information.\n"
 "                        "
 msgstr ""
 "\n"
-"Google Analytics, ödeme işlemcileri ve e-posta servis sağlayıcıları gibi üçüncü taraf hizmetleri kullanabiliriz. \n"
-"                        Bu hizmetlerin, bilgilerinizin işlenmesine ilişkin kendi gizlilik politikaları vardır."
+"Google Analytics, ödeme işlemcileri ve e-posta servis sağlayıcıları gibi "
+"üçüncü taraf hizmetleri kullanabiliriz. \n"
+"                        Bu hizmetlerin, bilgilerinizin işlenmesine ilişkin "
+"kendi gizlilik politikaları vardır."
 
 #: .\templates\main\privacy_policy.html:88
 msgid "7. Your Rights"
@@ -2310,13 +2343,17 @@ msgstr "8. Veri Saklama"
 #: .\templates\main\privacy_policy.html:101
 msgid ""
 "\n"
-"                        We retain your personal data only for as long as necessary to fulfill the purposes outlined in this \n"
-"                        privacy policy, unless a longer retention period is required by law.\n"
+"                        We retain your personal data only for as long as "
+"necessary to fulfill the purposes outlined in this \n"
+"                        privacy policy, unless a longer retention period is "
+"required by law.\n"
 "                        "
 msgstr ""
 "\n"
-"Kişisel verilerinizi yalnızca bu belgede belirtilen amaçların yerine getirilmesi için gerekli olduğu sürece saklıyoruz. \n"
-"                        Kanunen daha uzun bir saklama süresi gerekmedikçe gizlilik politikası."
+"Kişisel verilerinizi yalnızca bu belgede belirtilen amaçların yerine "
+"getirilmesi için gerekli olduğu sürece saklıyoruz. \n"
+"                        Kanunen daha uzun bir saklama süresi gerekmedikçe "
+"gizlilik politikası."
 
 #: .\templates\main\privacy_policy.html:107
 msgid "9. Children's Privacy"
@@ -2325,7 +2362,8 @@ msgstr "9. Çocukların Gizliliği"
 #: .\templates\main\privacy_policy.html:109
 msgid ""
 "\n"
-"                        Our services are not directed to individuals under the age of 18. We do not knowingly collect personal \n"
+"                        Our services are not directed to individuals under "
+"the age of 18. We do not knowingly collect personal \n"
 "                        information from children.\n"
 "                        "
 msgstr ""
@@ -2340,13 +2378,17 @@ msgstr "10. Bu Politikadaki Değişiklikler"
 #: .\templates\main\privacy_policy.html:117
 msgid ""
 "\n"
-"                        We may update this privacy policy from time to time. We will notify you of any changes by posting the \n"
-"                        new policy on this page and updating the \"Last Updated\" date.\n"
+"                        We may update this privacy policy from time to time. "
+"We will notify you of any changes by posting the \n"
+"                        new policy on this page and updating the \"Last "
+"Updated\" date.\n"
 "                        "
 msgstr ""
 "\n"
-"Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Değişiklikleri yayınlayarak sizi bilgilendireceğiz \n"
-"                        Bu sayfada yeni politika ve \"Son Güncelleme\" tarihinin güncellenmesi."
+"Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Değişiklikleri "
+"yayınlayarak sizi bilgilendireceğiz \n"
+"                        Bu sayfada yeni politika ve \"Son Güncelleme\" "
+"tarihinin güncellenmesi."
 
 #: .\templates\main\privacy_policy.html:123
 #, fuzzy
@@ -2357,13 +2399,15 @@ msgstr "Bize ulaşın"
 #: .\templates\main\privacy_policy.html:125
 msgid ""
 "\n"
-"                        If you have any questions about this privacy policy, please contact us:\n"
+"                        If you have any questions about this privacy policy, "
+"please contact us:\n"
 "                        "
 msgstr ""
 "\n"
-"Bu gizlilik politikasıyla ilgili herhangi bir sorunuz varsa lütfen bizimle iletişime geçin:"
+"Bu gizlilik politikasıyla ilgili herhangi bir sorunuz varsa lütfen bizimle "
+"iletişime geçin:"
 
-#: .\templates\main\projects.html:6 .\templates\main\projects.html:68
+#: .\templates\main\projects.html:6 .\templates\main\projects.html:167
 msgid "Video Demos"
 msgstr "Video Demoları"
 
@@ -2377,47 +2421,49 @@ msgstr "Örnek Çalışmalarımız"
 msgid "Explore our portfolio of successful projects"
 msgstr "Başarılı projelerden oluşan portföyümüzü keşfedin"
 
-#: .\templates\main\projects.html:28
-msgid "All Types"
-msgstr "Tüm Türler"
-
-#: .\templates\main\projects.html:37
+#: .\templates\main\projects.html:109
 #, fuzzy
-#| msgid "Technologies we use"
-msgid "Technology"
-msgstr "Kullandığımız teknolojiler"
+#| msgid "web development"
+msgid "Web Development"
+msgstr "web geliştirme"
 
-#: .\templates\main\projects.html:39
+#: .\templates\main\projects.html:111
 #, fuzzy
-#| msgid "Technologies we use"
-msgid "All Technologies"
-msgstr "Kullandığımız teknolojiler"
+#| msgid "E-commerce Website"
+msgid "E-Commerce"
+msgstr "E-ticaret"
 
-#: .\templates\main\projects.html:51
-msgid "Reset Filters"
-msgstr "Filtreleri Sıfırla"
+#: .\templates\main\projects.html:115
+#, fuzzy
+#| msgid "Custom software / platform"
+msgid "Platform"
+msgstr "Özel yazılım / platform"
 
-#: .\templates\main\projects.html:125
+#: .\templates\main\projects.html:117
+msgid "Other"
+msgstr ""
+
+#: .\templates\main\projects.html:133
 #, fuzzy
 #| msgid "No services found."
 msgid "No projects found."
 msgstr "Proje bulunamadı."
 
-#: .\templates\main\projects.html:137
+#: .\templates\main\projects.html:146
 msgid "Previous"
 msgstr "Önceki"
 
-#: .\templates\main\projects.html:145
+#: .\templates\main\projects.html:154
 msgid "Next"
 msgstr "Sonraki"
 
 #: .\templates\main\quote_request.html:14
 msgid ""
-"Tell us about your project and receive a detailed proposal (scope, timeline,"
-" price)."
+"Tell us about your project and receive a detailed proposal (scope, timeline, "
+"price)."
 msgstr ""
-"Projeniz hakkında bize bilgi verin ve detaylı bir teklif alın (kapsam, zaman"
-" çizelgesi, fiyat)."
+"Projeniz hakkında bize bilgi verin ve detaylı bir teklif alın (kapsam, zaman "
+"çizelgesi, fiyat)."
 
 #: .\templates\main\quote_request.html:26
 msgid "Typical price ranges"
@@ -2441,8 +2487,8 @@ msgstr "Özel yazılım / platform"
 
 #: .\templates\main\quote_request.html:34
 msgid ""
-"Final pricing depends on scope, integrations, content, multi‑language, admin"
-" needs and delivery time."
+"Final pricing depends on scope, integrations, content, multi‑language, admin "
+"needs and delivery time."
 msgstr ""
 "Nihai fiyatlandırma kapsam, entegrasyonlar, içerik, çok dilli, yönetim "
 "ihtiyaçları ve teslimat süresine bağlıdır."
@@ -2472,246 +2518,6 @@ msgstr "Proje detayları"
 msgid "Submit request"
 msgstr "Talebi gönder"
 
-#: .\templates\main\refund_policy.html:7
-msgid ""
-"Learn about our refund policy and money-back guarantee for our services."
-msgstr ""
-"Hizmetlerimize ilişkin geri ödeme politikamız ve para iade garantimiz "
-"hakkında bilgi edinin."
-
-#: .\templates\main\refund_policy.html:24
-msgid "1. Our Commitment"
-msgstr "1. Taahhüdümüz"
-
-#: .\templates\main\refund_policy.html:26
-msgid ""
-"\n"
-"                        At Angraweb.com, we are committed to delivering high-quality services that meet your expectations. \n"
-"                        If you are not satisfied with our work, we offer a fair refund policy.\n"
-"                        "
-msgstr ""
-"\n"
-"Angraweb.com olarak beklentilerinizi karşılayan yüksek kaliteli hizmetler sunmaya kendimizi adadık. \n"
-"                        Eğer işimizden memnun kalmazsanız adil bir geri ödeme politikası sunuyoruz."
-
-#: .\templates\main\refund_policy.html:32
-msgid "2. Refund Eligibility"
-msgstr "2. Geri Ödemeye Uygunluk"
-
-#: .\templates\main\refund_policy.html:33
-msgid "2.1 Full Refund"
-msgstr "2.1 Tam İade"
-
-#: .\templates\main\refund_policy.html:34
-msgid "You may be eligible for a full refund if:"
-msgstr "Aşağıdaki durumlarda tam para iadesi almaya hak kazanabilirsiniz:"
-
-#: .\templates\main\refund_policy.html:36
-msgid "We fail to deliver the agreed services within the specified timeframe"
-msgstr ""
-"Kararlaştırılan hizmetleri belirtilen zaman dilimi içerisinde teslim "
-"edemiyoruz"
-
-#: .\templates\main\refund_policy.html:37
-msgid "The delivered work does not meet the agreed specifications"
-msgstr "Teslim edilen iş, üzerinde anlaşılan spesifikasyonları karşılamıyor"
-
-#: .\templates\main\refund_policy.html:38
-msgid "We cancel the project before completion"
-msgstr "Projeyi tamamlanmadan iptal ediyoruz"
-
-#: .\templates\main\refund_policy.html:39
-msgid "You cancel within 24 hours of payment (before work begins)"
-msgstr ""
-"Ödemeyi takip eden 24 saat içinde (iş başlamadan önce) iptal edersiniz"
-
-#: .\templates\main\refund_policy.html:42
-msgid "2.2 Partial Refund"
-msgstr "2.2 Kısmi İade"
-
-#: .\templates\main\refund_policy.html:43
-msgid "You may be eligible for a partial refund if:"
-msgstr "Aşağıdaki durumlarda kısmi geri ödeme almaya hak kazanabilirsiniz:"
-
-#: .\templates\main\refund_policy.html:45
-msgid "You cancel after work has begun (refund for work not completed)"
-msgstr ""
-"İş başladıktan sonra iptal edersiniz (tamamlanmayan iş için para iadesi)"
-
-#: .\templates\main\refund_policy.html:46
-msgid "Major changes are requested that were not in the original agreement"
-msgstr "Orijinal anlaşmada olmayan büyük değişiklikler talep ediliyor"
-
-#: .\templates\main\refund_policy.html:47
-msgid "Project scope is significantly reduced"
-msgstr "Proje kapsamı önemli ölçüde azaldı"
-
-#: .\templates\main\refund_policy.html:50
-msgid "3. Non-Refundable Items"
-msgstr "3. İade Edilmeyen Ürünler"
-
-#: .\templates\main\refund_policy.html:51
-msgid "The following are generally non-refundable:"
-msgstr "Aşağıdakiler genellikle iade edilmez:"
-
-#: .\templates\main\refund_policy.html:53
-msgid "Deposits (unless we fail to deliver)"
-msgstr "Depozitolar (teslimatta başarısız olmadığımız sürece)"
-
-#: .\templates\main\refund_policy.html:54
-msgid "Third-party services and licenses (hosting, domains, plugins)"
-msgstr ""
-"Üçüncü taraf hizmetleri ve lisansları (barındırma, etki alanları, "
-"eklentiler)"
-
-#: .\templates\main\refund_policy.html:55
-msgid "Work that has been approved and delivered"
-msgstr "Onaylanan ve teslim edilen çalışma"
-
-#: .\templates\main\refund_policy.html:56
-msgid "Services completed more than 30 days ago"
-msgstr "Hizmetler 30 günden daha önce tamamlandı"
-
-#: .\templates\main\refund_policy.html:59
-msgid "4. Refund Process"
-msgstr "4. İade Süreci"
-
-#: .\templates\main\refund_policy.html:60
-msgid "4.1 Requesting a Refund"
-msgstr "4.1 Geri Ödeme Talebi"
-
-#: .\templates\main\refund_policy.html:62
-msgid ""
-"\n"
-"                        To request a refund, please contact us via email or phone within 7 days of project completion or \n"
-"                        the issue occurring. Include:\n"
-"                        "
-msgstr ""
-"\n"
-"Geri ödeme talebinde bulunmak için lütfen projenin tamamlanmasından sonraki 7 gün içinde e-posta veya telefon yoluyla bizimle iletişime geçin veya \n"
-"                        ortaya çıkan sorun. Katmak:"
-
-#: .\templates\main\refund_policy.html:68
-msgid "Your project reference number"
-msgstr "Proje referans numaranız"
-
-#: .\templates\main\refund_policy.html:69
-msgid "Reason for refund request"
-msgstr "Geri ödeme talebinin nedeni"
-
-#: .\templates\main\refund_policy.html:70
-msgid "Supporting documentation if applicable"
-msgstr "Varsa destekleyici belgeler"
-
-#: .\templates\main\refund_policy.html:73
-msgid "4.2 Review Process"
-msgstr "4.2 İnceleme Süreci"
-
-#: .\templates\main\refund_policy.html:75
-msgid ""
-"\n"
-"                        We will review your request within 5 business days. We may request additional information or discuss \n"
-"                        alternative solutions before processing a refund.\n"
-"                        "
-msgstr ""
-"\n"
-"Talebinizi 5 iş günü içinde inceleyeceğiz. Ek bilgi talep edebilir veya tartışabiliriz \n"
-"                        Geri ödemeyi işleme koymadan önce alternatif çözümler."
-
-#: .\templates\main\refund_policy.html:81
-msgid "4.3 Refund Processing"
-msgstr "4.3 İade İşlemleri"
-
-#: .\templates\main\refund_policy.html:83
-msgid ""
-"\n"
-"                        Approved refunds will be processed within 10 business days using the original payment method. \n"
-"                        Processing time may vary depending on your payment provider.\n"
-"                        "
-msgstr ""
-"\n"
-"Onaylanan geri ödemeler, orijinal ödeme yöntemi kullanılarak 10 iş günü içinde işleme alınacaktır. \n"
-"                        İşlem süresi ödeme sağlayıcınıza bağlı olarak değişebilir."
-
-#: .\templates\main\refund_policy.html:89
-msgid "5. Dispute Resolution"
-msgstr "5. Uyuşmazlık Çözümü"
-
-#: .\templates\main\refund_policy.html:91
-msgid ""
-"\n"
-"                        If you are not satisfied with our refund decision, we encourage open communication to find a \n"
-"                        mutually acceptable solution. We are committed to resolving disputes fairly.\n"
-"                        "
-msgstr ""
-"\n"
-"Geri ödeme kararımızdan memnun değilseniz, bir çözüm bulmak için açık iletişimi teşvik ediyoruz. \n"
-"                        karşılıklı olarak kabul edilebilir bir çözüm. Anlaşmazlıkları adil bir şekilde çözmeye kararlıyız."
-
-#: .\templates\main\refund_policy.html:97
-msgid "6. Special Circumstances"
-msgstr "6. Özel Durumlar"
-
-#: .\templates\main\refund_policy.html:98
-msgid "6.1 Force Majeure"
-msgstr "6.1 Mücbir Sebep"
-
-#: .\templates\main\refund_policy.html:100
-msgid ""
-"\n"
-"                        Refunds may be affected by circumstances beyond our control, such as natural disasters, pandemics, \n"
-"                        or other force majeure events.\n"
-"                        "
-msgstr ""
-"\n"
-"İadeler doğal afetler, salgın hastalıklar gibi kontrolümüz dışındaki durumlardan etkilenebilir. \n"
-"                        veya diğer mücbir sebep olayları."
-
-#: .\templates\main\refund_policy.html:106
-msgid "6.2 Client Default"
-msgstr "6.2 İstemci Varsayılanı"
-
-#: .\templates\main\refund_policy.html:108
-msgid ""
-"\n"
-"                        If a client fails to provide necessary information, respond to communications, or make required \n"
-"                        payments, refund eligibility may be affected.\n"
-"                        "
-msgstr ""
-"\n"
-"Müşterinin gerekli bilgileri sağlamaması, iletişimlere yanıt vermemesi veya gerekli bilgileri vermemesi durumunda \n"
-"                        ödemeler, geri ödeme uygunluğu etkilenebilir."
-
-#: .\templates\main\refund_policy.html:114
-msgid "7. Chargebacks"
-msgstr "7. Ters İbrazlar"
-
-#: .\templates\main\refund_policy.html:116
-msgid ""
-"\n"
-"                        We strongly encourage direct communication before initiating a chargeback. Chargebacks may result \n"
-"                        in additional fees and may affect future service eligibility.\n"
-"                        "
-msgstr ""
-"\n"
-"Ters ibraz başlatmadan önce doğrudan iletişime geçmenizi önemle tavsiye ederiz. Ters ibrazlar ortaya çıkabilir \n"
-"                        ek ücrete tabidir ve gelecekteki hizmet uygunluğunu etkileyebilir."
-
-#: .\templates\main\refund_policy.html:122
-#, fuzzy
-#| msgid "Contact us"
-msgid "8. Contact Us"
-msgstr "Bize ulaşın"
-
-#: .\templates\main\refund_policy.html:124
-msgid ""
-"\n"
-"                        For refund requests or questions about this policy, please contact us:\n"
-"                        "
-msgstr ""
-"\n"
-"Geri ödeme talepleri veya bu politikayla ilgili sorularınız için lütfen bizimle iletişime geçin:"
-
 #: .\templates\main\register.html:74
 msgid "Already have an account?"
 msgstr "Zaten hesabınız var mı?"
@@ -2723,44 +2529,16 @@ msgid "Resume and Certificates"
 msgstr "Özgeçmiş ve Sertifikalar"
 
 #: .\templates\main\resume.html:21
-msgid "Education"
-msgstr "Eğitim"
-
-#: .\templates\main\resume.html:23
-msgid "Computer Programming"
-msgstr "Bilgisayar Programlama"
-
-#: .\templates\main\resume.html:24
-#, fuzzy
-#| msgid "Marmara University - 2025"
-msgid "Marmara University"
-msgstr "Marmara Üniversitesi - 2025"
-
-#: .\templates\main\resume.html:29
-msgid "Experience"
-msgstr "Deneyim"
-
-#: .\templates\main\resume.html:31
-msgid "Freelance Web Developer"
-msgstr "Freelance Web Geliştirici"
-
-#: .\templates\main\resume.html:32
-#, fuzzy
-#| msgid "2019 - Present"
-msgid "Present"
-msgstr "2019 - Günümüz"
-
-#: .\templates\main\resume.html:39
 msgid "Certificates"
 msgstr "Sertifikalar"
 
-#: .\templates\main\resume.html:96
+#: .\templates\main\resume.html:78
 #, fuzzy
 #| msgid "Marmara University Graduate"
 msgid "Marmara University certificate as PDF:"
 msgstr "Marmara Üniversitesi Mezunu"
 
-#: .\templates\main\resume.html:98
+#: .\templates\main\resume.html:80
 #, fuzzy
 #| msgid "Download PDF"
 msgid "Open / Download PDF"
@@ -2784,16 +2562,15 @@ msgstr "SEO hizmetleri"
 
 #: .\templates\main\seo.html:24
 msgid ""
-"We optimize your website for search engines so you rank higher on Google and"
-" attract more organic visitors. Our SEO strategy covers technical "
+"We optimize your website for search engines so you rank higher on Google and "
+"attract more organic visitors. Our SEO strategy covers technical "
 "optimization, content strategy, keyword research, and ongoing monitoring to "
 "improve your visibility over time."
 msgstr ""
 "Web sitenizi arama motorları için optimize ediyoruz, böylece Google'da daha "
 "yüksek sıralama alır ve daha fazla organik ziyaretçi çekersiniz. SEO "
 "stratejimiz teknik optimizasyon, içerik stratejisi, anahtar kelime "
-"araştırması ve görünürlüğünüzü zamanla artırmak için sürekli izlemeyi "
-"kapsar."
+"araştırması ve görünürlüğünüzü zamanla artırmak için sürekli izlemeyi kapsar."
 
 #: .\templates\main\seo.html:29
 msgid ""
@@ -2808,8 +2585,8 @@ msgid ""
 "On-page optimization: meta titles/descriptions, header tags (H1-H6), alt "
 "text for images, internal linking"
 msgstr ""
-"Sayfa içi optimizasyon: meta başlıklar/açıklamalar, başlık etiketleri "
-"(H1-H6), görseller için alt metin, dahili bağlantılar"
+"Sayfa içi optimizasyon: meta başlıklar/açıklamalar, başlık etiketleri (H1-"
+"H6), görseller için alt metin, dahili bağlantılar"
 
 #: .\templates\main\seo.html:31
 msgid ""
@@ -2922,8 +2699,8 @@ msgstr ""
 
 #: .\templates\main\seo.html:59
 msgid ""
-"One-time SEO audit: 5,000-10,000 TL · Monthly SEO packages: 8,000-25,000 "
-"TL/month (depending on scope: content creation, link building, reporting). "
+"One-time SEO audit: 5,000-10,000 TL · Monthly SEO packages: 8,000-25,000 TL/"
+"month (depending on scope: content creation, link building, reporting). "
 "Custom packages available for enterprise clients."
 msgstr ""
 "Tek seferlik SEO denetimi: 5.000-10.000 TL · Aylık SEO paketleri: ayda "
@@ -2948,8 +2725,8 @@ msgstr "S: #1 sıralamayı garanti ediyor musunuz?"
 
 #: .\templates\main\seo.html:68
 msgid ""
-"A: No ethical SEO service guarantees #1 rankings. We focus on improving your"
-" visibility, traffic, and conversions through proven strategies."
+"A: No ethical SEO service guarantees #1 rankings. We focus on improving your "
+"visibility, traffic, and conversions through proven strategies."
 msgstr ""
 "C: Hiçbir etik SEO hizmeti #1 sıralamayı garanti etmez. Kanıtlanmış "
 "stratejilerle görünürlüğünüzü, trafiğinizi ve dönüşümlerinizi artırmaya "
@@ -3097,7 +2874,7 @@ msgstr ""
 "Ücretsiz danışmanlık ve teklif alın. Projenizi tartışalım ve ihtiyaçlarınız "
 "için en iyi çözümü bulalım."
 
-#: .\templates\main\services.html:56 .\templates\main\sitemap.html:121
+#: .\templates\main\services.html:56 .\templates\main\sitemap.html:118
 msgid "Request Quote"
 msgstr "Teklif İste"
 
@@ -3108,8 +2885,7 @@ msgid "Compare Our Services"
 msgstr "Hizmetlerimiz"
 
 #: .\templates\main\services.html:74
-msgid ""
-"Compare our services to find the best solution for your business needs."
+msgid "Compare our services to find the best solution for your business needs."
 msgstr ""
 "İş ihtiyaçlarınıza en uygun çözümü bulmak için hizmetlerimizi karşılaştırın."
 
@@ -3162,29 +2938,33 @@ msgstr "Ana Sayfalar"
 msgid "About Us"
 msgstr "Hakkımda"
 
-#: .\templates\main\sitemap.html:46
+#: .\templates\main\sitemap.html:45
 #, fuzzy
 #| msgid "Mobile application development"
 msgid "Mobile App Development"
 msgstr "Mobil uygulama geliştirme"
 
-#: .\templates\main\sitemap.html:82
+#: .\templates\main\sitemap.html:80
 msgid "All Blog Posts"
 msgstr "Tüm Blog Yazıları"
 
-#: .\templates\main\sitemap.html:89
+#: .\templates\main\sitemap.html:87
 #, fuzzy
 #| msgid "Tools we use"
 msgid "Tools & Resources"
 msgstr "Kullandığımız araçlar"
 
-#: .\templates\main\sitemap.html:103
+#: .\templates\main\sitemap.html:101
 msgid "Legal"
 msgstr "Yasal"
 
-#: .\templates\main\sitemap.html:116
+#: .\templates\main\sitemap.html:113
 msgid "Account"
 msgstr "Hesap"
+
+#: .\templates\main\team.html:5
+msgid "Team"
+msgstr "Takım"
 
 #: .\templates\main\team.html:11
 msgid "Our Team"
@@ -3218,8 +2998,8 @@ msgid ""
 "Explore the modern technologies and tools we use to build professional "
 "websites and applications."
 msgstr ""
-"Profesyonel web siteleri ve uygulamalar oluşturmak için kullandığımız modern"
-" teknolojileri ve araçları keşfedin."
+"Profesyonel web siteleri ve uygulamalar oluşturmak için kullandığımız modern "
+"teknolojileri ve araçları keşfedin."
 
 #: .\templates\main\technology_stack.html:18
 #, fuzzy
@@ -3402,13 +3182,17 @@ msgstr "1. Şartların Kabulü"
 #: .\templates\main\terms_conditions.html:26
 msgid ""
 "\n"
-"                        By accessing and using Angraweb.com, you accept and agree to be bound by the terms and provision of this agreement. \n"
-"                        If you do not agree to these terms, please do not use our services.\n"
+"                        By accessing and using Angraweb.com, you accept and "
+"agree to be bound by the terms and provision of this agreement. \n"
+"                        If you do not agree to these terms, please do not "
+"use our services.\n"
 "                        "
 msgstr ""
 "\n"
-"Angraweb.com'a erişerek ve onu kullanarak, bu sözleşmenin şartlarına ve hükümlerine bağlı kalmayı kabul ve taahhüt ediyorsunuz. \n"
-"                        Bu şartları kabul etmiyorsanız lütfen hizmetlerimizi kullanmayın."
+"Angraweb.com'a erişerek ve onu kullanarak, bu sözleşmenin şartlarına ve "
+"hükümlerine bağlı kalmayı kabul ve taahhüt ediyorsunuz. \n"
+"                        Bu şartları kabul etmiyorsanız lütfen hizmetlerimizi "
+"kullanmayın."
 
 #: .\templates\main\terms_conditions.html:32
 #, fuzzy
@@ -3419,13 +3203,18 @@ msgstr "Proje detayları"
 #: .\templates\main\terms_conditions.html:34
 msgid ""
 "\n"
-"                        Angraweb.com provides web design, development, e-commerce solutions, mobile app development, SEO services, \n"
-"                        and related digital services. We reserve the right to modify, suspend, or discontinue any service at any time.\n"
+"                        Angraweb.com provides web design, development, e-"
+"commerce solutions, mobile app development, SEO services, \n"
+"                        and related digital services. We reserve the right "
+"to modify, suspend, or discontinue any service at any time.\n"
 "                        "
 msgstr ""
 "\n"
-"Angraweb.com web tasarımı, geliştirme, e-ticaret çözümleri, mobil uygulama geliştirme, SEO hizmetleri sağlar, \n"
-"                        ve ilgili dijital hizmetler. Herhangi bir hizmeti herhangi bir zamanda değiştirme, askıya alma veya durdurma hakkını saklı tutuyoruz."
+"Angraweb.com web tasarımı, geliştirme, e-ticaret çözümleri, mobil uygulama "
+"geliştirme, SEO hizmetleri sağlar, \n"
+"                        ve ilgili dijital hizmetler. Herhangi bir hizmeti "
+"herhangi bir zamanda değiştirme, askıya alma veya durdurma hakkını saklı "
+"tutuyoruz."
 
 #: .\templates\main\terms_conditions.html:40
 msgid "3. Client Responsibilities"
@@ -3466,13 +3255,17 @@ msgstr "4.1 Ödeme Planı"
 #: .\templates\main\terms_conditions.html:53
 msgid ""
 "\n"
-"                        Payment terms will be specified in your project agreement. Typically, we require a deposit before \n"
-"                        starting work, with remaining payments due upon project milestones or completion.\n"
+"                        Payment terms will be specified in your project "
+"agreement. Typically, we require a deposit before \n"
+"                        starting work, with remaining payments due upon "
+"project milestones or completion.\n"
 "                        "
 msgstr ""
 "\n"
-"Ödeme koşulları proje sözleşmenizde belirtilecektir. Genellikle önceden depozito talep ederiz \n"
-"                        Projenin aşamaları veya tamamlanması üzerine kalan ödemelerle birlikte işe başlama."
+"Ödeme koşulları proje sözleşmenizde belirtilecektir. Genellikle önceden "
+"depozito talep ederiz \n"
+"                        Projenin aşamaları veya tamamlanması üzerine kalan "
+"ödemelerle birlikte işe başlama."
 
 #: .\templates\main\terms_conditions.html:59
 msgid "4.2 Late Payments"
@@ -3481,12 +3274,14 @@ msgstr "4.2 Geç Ödemeler"
 #: .\templates\main\terms_conditions.html:61
 msgid ""
 "\n"
-"                        Late payments may result in project delays or suspension of services. We reserve the right to charge \n"
+"                        Late payments may result in project delays or "
+"suspension of services. We reserve the right to charge \n"
 "                        interest on overdue amounts.\n"
 "                        "
 msgstr ""
 "\n"
-"Geç ödemeler projede gecikmelere veya hizmetlerin askıya alınmasına neden olabilir. Ücretlendirme hakkımız saklıdır \n"
+"Geç ödemeler projede gecikmelere veya hizmetlerin askıya alınmasına neden "
+"olabilir. Ücretlendirme hakkımız saklıdır \n"
 "                        vadesi geçmiş tutarlara faiz."
 
 #: .\templates\main\terms_conditions.html:67
@@ -3500,13 +3295,17 @@ msgstr "5.1 Müşteri İçeriği"
 #: .\templates\main\terms_conditions.html:70
 msgid ""
 "\n"
-"                        You retain ownership of all content, data, and materials you provide to us. You grant us a license \n"
-"                        to use this content solely for the purpose of providing our services.\n"
+"                        You retain ownership of all content, data, and "
+"materials you provide to us. You grant us a license \n"
+"                        to use this content solely for the purpose of "
+"providing our services.\n"
 "                        "
 msgstr ""
 "\n"
-"Bize sağladığınız tüm içerik, veri ve materyallerin mülkiyeti sizde kalır. Bize bir lisans veriyorsunuz \n"
-"                        Bu içeriği yalnızca hizmetlerimizi sağlamak amacıyla kullanmak."
+"Bize sağladığınız tüm içerik, veri ve materyallerin mülkiyeti sizde kalır. "
+"Bize bir lisans veriyorsunuz \n"
+"                        Bu içeriği yalnızca hizmetlerimizi sağlamak amacıyla "
+"kullanmak."
 
 #: .\templates\main\terms_conditions.html:76
 msgid "5.2 Our Work"
@@ -3515,13 +3314,17 @@ msgstr "5.2 Çalışmamız"
 #: .\templates\main\terms_conditions.html:78
 msgid ""
 "\n"
-"                        Upon full payment, you will receive ownership of the final deliverables. We retain the right to use \n"
-"                        completed work in our portfolio and marketing materials unless otherwise agreed.\n"
+"                        Upon full payment, you will receive ownership of the "
+"final deliverables. We retain the right to use \n"
+"                        completed work in our portfolio and marketing "
+"materials unless otherwise agreed.\n"
 "                        "
 msgstr ""
 "\n"
-"Ödemenin tamamının yapılmasının ardından nihai teslimatların mülkiyetini alacaksınız. Kullanım hakkını saklı tutuyoruz \n"
-"                        Aksi kararlaştırılmadıkça portföyümüzdeki ve pazarlama materyallerimizdeki çalışmaları tamamladık."
+"Ödemenin tamamının yapılmasının ardından nihai teslimatların mülkiyetini "
+"alacaksınız. Kullanım hakkını saklı tutuyoruz \n"
+"                        Aksi kararlaştırılmadıkça portföyümüzdeki ve "
+"pazarlama materyallerimizdeki çalışmaları tamamladık."
 
 #: .\templates\main\terms_conditions.html:84
 msgid "6. Project Timeline"
@@ -3530,13 +3333,17 @@ msgstr "6. Proje Zaman Çizelgesi"
 #: .\templates\main\terms_conditions.html:86
 msgid ""
 "\n"
-"                        Project timelines are estimates and may vary based on project complexity, client responsiveness, and \n"
-"                        unforeseen circumstances. We will communicate any significant delays promptly.\n"
+"                        Project timelines are estimates and may vary based "
+"on project complexity, client responsiveness, and \n"
+"                        unforeseen circumstances. We will communicate any "
+"significant delays promptly.\n"
 "                        "
 msgstr ""
 "\n"
-"Proje zaman çizelgeleri tahminlerdir ve projenin karmaşıklığına, müşterinin yanıt verme hızına ve \n"
-"                        öngörülemeyen durumlar. Herhangi bir önemli gecikmeyi derhal bildireceğiz."
+"Proje zaman çizelgeleri tahminlerdir ve projenin karmaşıklığına, müşterinin "
+"yanıt verme hızına ve \n"
+"                        öngörülemeyen durumlar. Herhangi bir önemli "
+"gecikmeyi derhal bildireceğiz."
 
 #: .\templates\main\terms_conditions.html:92
 #, fuzzy
@@ -3547,12 +3354,14 @@ msgstr "Yorumlar ve Değerlendirme"
 #: .\templates\main\terms_conditions.html:94
 msgid ""
 "\n"
-"                        We include a reasonable number of revisions in our packages. Additional revisions beyond the agreed \n"
+"                        We include a reasonable number of revisions in our "
+"packages. Additional revisions beyond the agreed \n"
 "                        scope may incur additional charges.\n"
 "                        "
 msgstr ""
 "\n"
-"Paketlerimizde makul sayıda revizyona yer veriyoruz. Mutabakatın ötesinde ek revizyonlar \n"
+"Paketlerimizde makul sayıda revizyona yer veriyoruz. Mutabakatın ötesinde ek "
+"revizyonlar \n"
 "                        kapsam ek ücrete tabi olabilir."
 
 #: .\templates\main\terms_conditions.html:100
@@ -3562,13 +3371,17 @@ msgstr "8. İptal Politikası"
 #: .\templates\main\terms_conditions.html:102
 msgid ""
 "\n"
-"                        Either party may cancel a project with written notice. If you cancel, you will be charged for work \n"
-"                        completed up to the cancellation date. Deposits are non-refundable unless otherwise specified.\n"
+"                        Either party may cancel a project with written "
+"notice. If you cancel, you will be charged for work \n"
+"                        completed up to the cancellation date. Deposits are "
+"non-refundable unless otherwise specified.\n"
 "                        "
 msgstr ""
 "\n"
-"Taraflardan herhangi biri bir projeyi yazılı bildirimde bulunarak iptal edebilir. İptal ederseniz, sizden iş ücreti alınacaktır \n"
-"                        iptal tarihine kadar tamamlanmıştır. Aksi belirtilmedikçe depozitolar iade edilmez."
+"Taraflardan herhangi biri bir projeyi yazılı bildirimde bulunarak iptal "
+"edebilir. İptal ederseniz, sizden iş ücreti alınacaktır \n"
+"                        iptal tarihine kadar tamamlanmıştır. Aksi "
+"belirtilmedikçe depozitolar iade edilmez."
 
 #: .\templates\main\terms_conditions.html:108
 msgid "9. Warranty and Support"
@@ -3577,12 +3390,14 @@ msgstr "9. Garanti ve Destek"
 #: .\templates\main\terms_conditions.html:110
 msgid ""
 "\n"
-"                        We provide a warranty period for our work as specified in your agreement. Support and maintenance \n"
+"                        We provide a warranty period for our work as "
+"specified in your agreement. Support and maintenance \n"
 "                        services may be available separately.\n"
 "                        "
 msgstr ""
 "\n"
-"Yaptığımız işlere sözleşmenizde belirtilen garanti süresini sunuyoruz. Destek ve bakım \n"
+"Yaptığımız işlere sözleşmenizde belirtilen garanti süresini sunuyoruz. "
+"Destek ve bakım \n"
 "                        hizmetler ayrı olarak sunulabilir."
 
 #: .\templates\main\terms_conditions.html:116
@@ -3592,12 +3407,14 @@ msgstr "10. Sorumluluğun Sınırlandırılması"
 #: .\templates\main\terms_conditions.html:118
 msgid ""
 "\n"
-"                        Our liability is limited to the amount paid for the specific service. We are not liable for indirect, \n"
+"                        Our liability is limited to the amount paid for the "
+"specific service. We are not liable for indirect, \n"
 "                        incidental, or consequential damages.\n"
 "                        "
 msgstr ""
 "\n"
-"Sorumluluğumuz belirli bir hizmet için ödenen tutarla sınırlıdır. Dolaylı olarak sorumlu değiliz, \n"
+"Sorumluluğumuz belirli bir hizmet için ödenen tutarla sınırlıdır. Dolaylı "
+"olarak sorumlu değiliz, \n"
 "                        tesadüfi veya sonuç olarak ortaya çıkan hasarlar."
 
 #: .\templates\main\terms_conditions.html:124
@@ -3607,13 +3424,16 @@ msgstr "11. Tazminat"
 #: .\templates\main\terms_conditions.html:126
 msgid ""
 "\n"
-"                        You agree to indemnify and hold us harmless from any claims, damages, or expenses arising from your \n"
+"                        You agree to indemnify and hold us harmless from any "
+"claims, damages, or expenses arising from your \n"
 "                        use of our services or violation of these terms.\n"
 "                        "
 msgstr ""
 "\n"
-"Tarafınızdan kaynaklanan her türlü iddia, zarar veya masrafa karşı bizi tazmin edeceğinizi ve zarar görmememizi sağlayacağınızı kabul edersiniz. \n"
-"                        hizmetlerimizin kullanılması veya bu şartların ihlali."
+"Tarafınızdan kaynaklanan her türlü iddia, zarar veya masrafa karşı bizi "
+"tazmin edeceğinizi ve zarar görmememizi sağlayacağınızı kabul edersiniz. \n"
+"                        hizmetlerimizin kullanılması veya bu şartların "
+"ihlali."
 
 #: .\templates\main\terms_conditions.html:132
 msgid "12. Confidentiality"
@@ -3622,13 +3442,16 @@ msgstr "12. Gizlilik"
 #: .\templates\main\terms_conditions.html:134
 msgid ""
 "\n"
-"                        We respect the confidentiality of your business information and will not disclose it to third parties \n"
+"                        We respect the confidentiality of your business "
+"information and will not disclose it to third parties \n"
 "                        without your consent, except as required by law.\n"
 "                        "
 msgstr ""
 "\n"
-"Ticari bilgilerinizin gizliliğine saygı duyuyoruz ve bunları üçüncü taraflara açıklamayacağız \n"
-"                        yasaların gerektirdiği durumlar dışında, sizin izniniz olmadan."
+"Ticari bilgilerinizin gizliliğine saygı duyuyoruz ve bunları üçüncü "
+"taraflara açıklamayacağız \n"
+"                        yasaların gerektirdiği durumlar dışında, sizin "
+"izniniz olmadan."
 
 #: .\templates\main\terms_conditions.html:140
 msgid "13. Dispute Resolution"
@@ -3637,12 +3460,14 @@ msgstr "13. Uyuşmazlık Çözümü"
 #: .\templates\main\terms_conditions.html:142
 msgid ""
 "\n"
-"                        Any disputes will be resolved through good faith negotiation. If unresolved, disputes will be subject \n"
+"                        Any disputes will be resolved through good faith "
+"negotiation. If unresolved, disputes will be subject \n"
 "                        to the jurisdiction of Turkish courts.\n"
 "                        "
 msgstr ""
 "\n"
-"Her türlü anlaşmazlık iyi niyetle müzakere yoluyla çözülecektir. Çözülmezse anlaşmazlıklar devam edecek \n"
+"Her türlü anlaşmazlık iyi niyetle müzakere yoluyla çözülecektir. Çözülmezse "
+"anlaşmazlıklar devam edecek \n"
 "                        Türk mahkemelerinin yetkisindedir."
 
 #: .\templates\main\terms_conditions.html:148
@@ -3652,12 +3477,14 @@ msgstr "14. Şartlarda Değişiklikler"
 #: .\templates\main\terms_conditions.html:150
 msgid ""
 "\n"
-"                        We reserve the right to modify these terms at any time. Continued use of our services after changes \n"
+"                        We reserve the right to modify these terms at any "
+"time. Continued use of our services after changes \n"
 "                        constitutes acceptance of the new terms.\n"
 "                        "
 msgstr ""
 "\n"
-"Bu şartları herhangi bir zamanda değiştirme hakkını saklı tutuyoruz. Değişikliklerden sonra hizmetlerimizi kullanmaya devam etmek \n"
+"Bu şartları herhangi bir zamanda değiştirme hakkını saklı tutuyoruz. "
+"Değişikliklerden sonra hizmetlerimizi kullanmaya devam etmek \n"
 "                        yeni koşulların kabul edildiği anlamına gelir."
 
 #: .\templates\main\terms_conditions.html:156
@@ -3710,8 +3537,8 @@ msgstr "UI/UX tasarım hizmetleri"
 msgid ""
 "We design intuitive, beautiful interfaces that users love. Our process "
 "combines user research, wireframing, prototyping, and visual design to "
-"create experiences that are both functional and delightful. From websites to"
-" mobile apps, we ensure your product is easy to use and drives conversions."
+"create experiences that are both functional and delightful. From websites to "
+"mobile apps, we ensure your product is easy to use and drives conversions."
 msgstr ""
 "Kullanıcıların sevdiği sezgisel, güzel arayüzler tasarlıyoruz. Sürecimiz "
 "kullanıcı araştırması, wireframing, prototipleme ve görsel tasarımı "
@@ -3733,11 +3560,10 @@ msgstr ""
 
 #: .\templates\main\ui_ux.html:31
 msgid ""
-"Prototypes: interactive clickable prototypes (Figma) for testing and "
-"feedback"
+"Prototypes: interactive clickable prototypes (Figma) for testing and feedback"
 msgstr ""
-"Prototipler: test ve geri bildirim için etkileşimli tıklanabilir prototipler"
-" (Figma)"
+"Prototipler: test ve geri bildirim için etkileşimli tıklanabilir prototipler "
+"(Figma)"
 
 #: .\templates\main\ui_ux.html:32
 msgid ""
@@ -3763,14 +3589,12 @@ msgstr ""
 
 #: .\templates\main\ui_ux.html:40
 msgid "Discovery: understand goals, users, competitors, brand guidelines"
-msgstr ""
-"Keşif: hedefleri, kullanıcıları, rakipleri, marka yönergelerini anlama"
+msgstr "Keşif: hedefleri, kullanıcıları, rakipleri, marka yönergelerini anlama"
 
 #: .\templates\main\ui_ux.html:41
 msgid "Research: user interviews, surveys, analytics review, persona creation"
 msgstr ""
-"Araştırma: kullanıcı görüşmeleri, anketler, analitik inceleme, kişi "
-"oluşturma"
+"Araştırma: kullanıcı görüşmeleri, anketler, analitik inceleme, kişi oluşturma"
 
 #: .\templates\main\ui_ux.html:42
 msgid "Wireframing: structure, layout, navigation, key user flows"
@@ -3864,8 +3688,8 @@ msgid ""
 "A: Typically 2-3 rounds of revisions are included. Additional revisions can "
 "be arranged based on project scope."
 msgstr ""
-"C: Genellikle 2-3 tur revizyon dahildir. Ek revizyonlar proje kapsamına göre"
-" ayarlanabilir."
+"C: Genellikle 2-3 tur revizyon dahildir. Ek revizyonlar proje kapsamına göre "
+"ayarlanabilir."
 
 #: .\templates\main\ui_ux.html:77
 msgid "Q: Can you work with our existing brand?"
@@ -3903,8 +3727,8 @@ msgstr "Web tasarım hizmetleri"
 msgid ""
 "We design and build high‑performance websites that load fast, rank on "
 "Google, and convert visitors into customers. From corporate websites to "
-"landing pages and web applications, we deliver a clean UI, solid engineering"
-" and measurable results."
+"landing pages and web applications, we deliver a clean UI, solid engineering "
+"and measurable results."
 msgstr ""
 "Hızlı yüklenen, Google'da sıralanan ve ziyaretçileri müşteriye dönüştüren "
 "yüksek performanslı web siteleri tasarlıyor ve geliştiriyoruz. Kurumsal web "
@@ -3914,8 +3738,7 @@ msgstr ""
 #: .\templates\main\web_design.html:30
 msgid ""
 "Responsive UI (mobile, tablet, desktop) with modern layout and typography"
-msgstr ""
-"Modern düzen ve tipografi ile duyarlı arayüz (mobil, tablet, masaüstü)"
+msgstr "Modern düzen ve tipografi ile duyarlı arayüz (mobil, tablet, masaüstü)"
 
 #: .\templates\main\web_design.html:31
 msgid "SEO foundations: semantic HTML, meta tags, sitemap, schema basics"
@@ -3966,8 +3789,8 @@ msgid ""
 "Landing page: 3–7 days · Corporate site: 1–3 weeks · Custom web app: 3–8+ "
 "weeks"
 msgstr ""
-"Landing sayfası: 3–7 gün · Kurumsal site: 1–3 hafta · Özel web uygulaması: "
-"3–8+ hafta"
+"Landing sayfası: 3–7 gün · Kurumsal site: 1–3 hafta · Özel web uygulaması: 3–"
+"8+ hafta"
 
 #: .\templates\main\web_design.html:54
 msgid ""

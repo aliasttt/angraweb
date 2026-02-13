@@ -51,6 +51,9 @@ class LanguageActivationMiddleware:
         # اگر زبان پیدا شد و معتبر است، activate کن (قبل از اجرای view)
         if lang and lang in ['tr', 'en', 'fa', 'ar']:
             translation.activate(lang)
+        else:
+            # هیچ انتخاب صریحی از کاربر نیست → همیشه زبان پیش‌فرض سایت (ترکی)
+            translation.activate(settings.LANGUAGE_CODE)
         
         # حالا view را اجرا کن
         response = self.get_response(request)
