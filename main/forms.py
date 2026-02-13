@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
-from .models import ContactMessage, QuoteRequest, UserProfile, NewsletterSubscriber
+from .models import ContactMessage, QuoteRequest, UserProfile, NewsletterSubscriber, Testimonial
 
 
 class ContactForm(forms.ModelForm):
@@ -198,3 +198,33 @@ class NewsletterForm(forms.ModelForm):
             'email': _('Email'),
             'name': _('Name'),
         }
+
+
+class TestimonialSubmitForm(forms.Form):
+    """فرم ثبت نظر مشتری — ذخیره با active=False تا ادمین تأیید کند"""
+    name = forms.CharField(max_length=200, label=_('Your name'), widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': _('Your name'),
+        'required': True,
+    }))
+    company = forms.CharField(max_length=200, required=False, label=_('Company (optional)'), widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': _('Company (optional)'),
+    }))
+    position = forms.CharField(max_length=200, required=False, label=_('Position (optional)'), widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': _('Position (optional)'),
+    }))
+    content = forms.CharField(label=_('Your review'), widget=forms.Textarea(attrs={
+        'class': 'form-control',
+        'placeholder': _('Write your review here...'),
+        'rows': 4,
+        'required': True,
+    }))
+    rating = forms.TypedChoiceField(
+        choices=[(i, f'{i} ★') for i in range(1, 6)],
+        coerce=int,
+        initial=5,
+        label=_('Rating'),
+        widget=forms.Select(attrs={'class': 'form-control'}),
+    )

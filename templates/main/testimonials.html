@@ -65,6 +65,9 @@
                                 </a>
                             </p>
                             {% endif %}
+                            <p class="testimonial-date text-muted small mb-0 mt-1">
+                                <i class="far fa-calendar-alt"></i> {{ testimonial.created_at|date:"d.m.Y" }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -78,6 +81,61 @@
                 </div>
             </div>
             {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Submit Testimonial Form -->
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="office-hours-card">
+                    <h2 class="text-center mb-4">
+                        <i class="fas fa-pen-fancy"></i> {% trans "Write a Review" %}
+                    </h2>
+                    <p class="text-center text-muted mb-4">{% trans "Share your experience with us. Your review will be published after approval." %}</p>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">{{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <form method="POST" class="contact-form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">{{ testimonial_form.name.label }}</label>
+                                {{ testimonial_form.name }}
+                                {% if testimonial_form.name.errors %}<div class="text-danger small">{{ testimonial_form.name.errors.0 }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">{{ testimonial_form.company.label }}</label>
+                                {{ testimonial_form.company }}
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">{{ testimonial_form.position.label }}</label>
+                            {{ testimonial_form.position }}
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">{{ testimonial_form.rating.label }}</label>
+                            {{ testimonial_form.rating }}
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">{{ testimonial_form.content.label }}</label>
+                            {{ testimonial_form.content }}
+                            {% if testimonial_form.content.errors %}<div class="text-danger small">{{ testimonial_form.content.errors.0 }}</div>{% endif %}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane"></i> {% trans "Submit Review" %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </section>

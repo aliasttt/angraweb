@@ -16,7 +16,7 @@ from .models import (
     ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember, UserProfile, FAQ, NewsletterSubscriber,
     ProcessStep, CaseStudy, TimelineEvent, Skill
 )
-from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, NewsletterForm
+from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, NewsletterForm, TestimonialSubmitForm
 
 
 def get_language_context(request):
@@ -34,7 +34,7 @@ def index(request):
     services = Service.objects.filter(active=True).order_by('order')[:6]
     packages = Package.objects.filter(active=True).order_by('order')
     projects = Project.objects.filter(active=True, featured=True).order_by('order')[:6]
-    testimonials = Testimonial.objects.filter(active=True, featured=True).order_by('order')[:3]
+    testimonials = Testimonial.objects.filter(active=True, featured=True).order_by('order')[:6]
     blog_posts = BlogPost.objects.filter(published=True).order_by('-published_at')[:3]
     
     # Statistics
@@ -467,11 +467,30 @@ def user_logout(request):
 
 
 def testimonials_list(request):
-    """لیست نظرات مشتریان"""
+    """لیست نظرات مشتریان + فرم ثبت نظر"""
     testimonials = Testimonial.objects.filter(active=True).order_by('order', '-created_at')
-    
+    form = TestimonialSubmitForm()
+
+    if request.method == 'POST':
+        form = TestimonialSubmitForm(request.POST)
+        if form.is_valid():
+            Testimonial.objects.create(
+                name=form.cleaned_data['name'],
+                company=form.cleaned_data.get('company') or '',
+                position=form.cleaned_data.get('position') or '',
+                content=form.cleaned_data['content'],
+                content_en=form.cleaned_data['content'],
+                rating=form.cleaned_data['rating'],
+                featured=False,
+                order=0,
+                active=False,
+            )
+            messages.success(request, _('Thank you! Your review has been submitted and will be published after approval.'))
+            return redirect('testimonials_list')
+
     context = {
         'testimonials': testimonials,
+        'testimonial_form': form,
     }
     context.update(get_language_context(request))
     return render(request, 'main/testimonials.html', context)

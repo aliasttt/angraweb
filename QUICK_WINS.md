@@ -71,7 +71,7 @@ if not DEBUG:
     "availableLanguage": ["tr", "en", "fa", "ar"]
   },
   "sameAs": [
-    "https://www.instagram.com/ali_asadiz_ttt",
+    "https://www.instagram.com/angrawebtr",
     "https://t.me/Ali_asadiz_ttt",
     "https://github.com/aliasttt"
   ]

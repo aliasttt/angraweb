@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-14 01:17+0330\n"
+"POT-Creation-Date: 2026-02-14 01:25+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\main\forms.py:16 .\main\forms.py:86 .\templates\main\contact.html:27
+#: .\main\forms.py:16 .\main\forms.py:86 .\main\forms.py:205
+#: .\main\forms.py:207 .\templates\main\contact.html:27
 #, fuzzy
 #| msgid "Your Message"
 msgid "Your name"
@@ -63,7 +64,8 @@ msgstr "Paket (isteğe bağlı)"
 msgid "Phone number"
 msgstr "Telefon numarası"
 
-#: .\main\forms.py:101 .\templates\main\quote_request.html:68
+#: .\main\forms.py:101 .\main\forms.py:210 .\main\forms.py:212
+#: .\templates\main\quote_request.html:68
 msgid "Company (optional)"
 msgstr "Şirket (isteğe bağlı)"
 
@@ -131,23 +133,45 @@ msgstr "Adınız (isteğe bağlı)"
 msgid "Name"
 msgstr "Adınız"
 
+#: .\main\forms.py:214 .\main\forms.py:216
+msgid "Position (optional)"
+msgstr "Pozisyon (isteğe bağlı)"
+
+#: .\main\forms.py:218
+msgid "Your review"
+msgstr "Yorumunuz"
+
+#: .\main\forms.py:220
+msgid "Write your review here..."
+msgstr "Yorumunuzu buraya yazın..."
+
+#: .\main\forms.py:228
+msgid "Rating"
+msgstr "Puan"
+
 #: .\main\views.py:443
 msgid "Invalid phone number or password."
 msgstr "Geçersiz telefon numarası veya şifre."
 
-#: .\main\views.py:520
+#: .\main\views.py:490
+msgid ""
+"Thank you! Your review has been submitted and will be published after "
+"approval."
+msgstr "Teşekkürler! Yorumunuz gönderildi ve onaylandıktan sonra yayınlanacaktır."
+
+#: .\main\views.py:541
 msgid "You are already subscribed to our newsletter."
 msgstr "Bültenimize zaten abonesiniz."
 
-#: .\main\views.py:526
+#: .\main\views.py:547
 msgid "Welcome back! You have been resubscribed to our newsletter."
 msgstr "Tekrar hoş geldiniz! Bültenimize yeniden abone oldunuz."
 
-#: .\main\views.py:529
+#: .\main\views.py:550
 msgid "Thank you for subscribing to our newsletter!"
 msgstr "Bültenimize abone olduğunuz için teşekkürler!"
 
-#: .\main\views.py:537
+#: .\main\views.py:558
 msgid "Please check your email address and try again."
 msgstr "Lütfen e-posta adresinizi kontrol edip tekrar deneyin."
 
@@ -3517,13 +3541,26 @@ msgstr ""
 msgid "What our satisfied clients say about us"
 msgstr "Memnun müşterilerimiz hakkımızda neler söylüyor"
 
-#: .\templates\main\testimonials.html:76
+#: .\templates\main\testimonials.html:79
 msgid "No testimonials yet"
 msgstr "Henüz referans yok"
 
-#: .\templates\main\testimonials.html:77
+#: .\templates\main\testimonials.html:80
 msgid "Check back later for client reviews."
 msgstr "Müşteri incelemeleri için daha sonra tekrar kontrol edin."
+
+#: .\templates\main\testimonials.html:95
+msgid "Write a Review"
+msgstr "Yorum Yazın"
+
+#: .\templates\main\testimonials.html:97
+msgid ""
+"Share your experience with us. Your review will be published after approval."
+msgstr "Deneyiminizi paylaşın. Yorumunuz onaylandıktan sonra yayınlanacaktır."
+
+#: .\templates\main\testimonials.html:133
+msgid "Submit Review"
+msgstr "Yorum Gönder"
 
 #: .\templates\main\ui_ux.html:13
 msgid "User-centered design that converts visitors into customers"

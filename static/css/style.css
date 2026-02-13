@@ -4186,6 +4186,24 @@ img.lazy-loaded {
     border-color: rgba(116, 185, 255, 0.5);
 }
 
+/* Home page testimonials - gentle floating animation */
+#testimonials .testimonial-card {
+    animation: testimonial-float 5s ease-in-out infinite;
+}
+#testimonials .testimonial-card:nth-child(1) { animation-delay: 0s; }
+#testimonials .testimonial-card:nth-child(2) { animation-delay: 0.5s; }
+#testimonials .testimonial-card:nth-child(3) { animation-delay: 1s; }
+#testimonials .testimonial-card:nth-child(4) { animation-delay: 1.5s; }
+#testimonials .testimonial-card:nth-child(5) { animation-delay: 2s; }
+#testimonials .testimonial-card:nth-child(6) { animation-delay: 2.5s; }
+@keyframes testimonial-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+#testimonials .testimonial-card:hover {
+    animation-play-state: paused;
+}
+
 .testimonial-rating {
     margin-bottom: 1rem;
     font-size: 1.2rem;
