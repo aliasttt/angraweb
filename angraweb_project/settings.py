@@ -136,6 +136,7 @@ TIME_ZONE = 'Europe/Istanbul'
 
 LANGUAGES = [
     ('tr', 'Turkish'),
+    ('en', 'English'),
 ]
 
 # تا LocaleMiddleware همان کلیدی را بخواند که set_language می‌نویسد

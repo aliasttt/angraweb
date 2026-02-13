@@ -88,6 +88,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap">
@@ -189,6 +190,30 @@
                         <a class="nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
                     </li>
                     {% endif %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% get_current_language as CURRENT_LANGUAGE %}
+                            {% if CURRENT_LANGUAGE == 'tr' or not CURRENT_LANGUAGE %}
+                                <span class="fi fi-tr me-1"></span> TR
+                            {% elif CURRENT_LANGUAGE == 'en' %}
+                                <span class="fi fi-gb me-1"></span> EN
+                            {% else %}
+                                <i class="fas fa-globe me-1"></i> {% trans "Language" %}
+                            {% endif %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item {% if CURRENT_LANGUAGE == 'tr' or not CURRENT_LANGUAGE %}active{% endif %}" href="{% url 'switch_lang' 'tr' %}?next={{ request.get_full_path|urlencode }}">
+                                    <span class="fi fi-tr me-2"></span> Türkçe
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}" href="{% url 'switch_lang' 'en' %}?next={{ request.get_full_path|urlencode }}">
+                                    <span class="fi fi-gb me-2"></span> English
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="socialDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-share-alt"></i>

@@ -624,6 +624,30 @@ body[dir="rtl"] .language-switcher {
     width: 100%;
 }
 
+/* Flag Icons Styling */
+.fi {
+    width: 20px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item .fi {
+    width: 18px;
+    height: 13px;
+}
+
+.dropdown-item.active {
+    background-color: rgba(116, 185, 255, 0.2);
+    color: #74b9ff;
+}
+
+.dropdown-item.active .fi {
+    opacity: 1;
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
@@ -5408,9 +5432,13 @@ img.lazy-loaded {
 
 .tech-icon {
     font-size: 4rem;
-    color: #74b9ff;
+    color: #ffffff;
     margin-bottom: 1rem;
     transition: transform 0.3s ease;
+}
+
+.tech-icon i {
+    color: #ffffff !important;
 }
 
 .tech-card:hover .tech-icon {

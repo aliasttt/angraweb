@@ -3228,10 +3228,8 @@ msgid "Modern Tools & Technologies We Use"
 msgstr "Kullandığımız Modern Araçlar ve Teknolojiler"
 
 #: .\templates\main\technology_stack.html:31
-#, fuzzy
-#| msgid "Technologies we use"
 msgid "Frontend Technologies"
-msgstr "Kullandığımız teknolojiler"
+msgstr "Ön Yüz Teknolojileri"
 
 #: .\templates\main\technology_stack.html:38
 msgid "Semantic markup and modern web standards"
@@ -3259,9 +3257,8 @@ msgstr "Aşamalı JavaScript çerçevesi"
 
 #: .\templates\main\technology_stack.html:82
 #, fuzzy
-#| msgid "Technologies we use"
 msgid "Backend Technologies"
-msgstr "Kullandığımız teknolojiler"
+msgstr "Arka Uç Teknolojileri"
 
 #: .\templates\main\technology_stack.html:89
 msgid "Powerful and versatile programming language"
@@ -3293,7 +3290,7 @@ msgstr "Hizmet Olarak Arka Uç Platformu"
 #, fuzzy
 #| msgid "Mobile application development"
 msgid "Mobile Development"
-msgstr "Mobil uygulama geliştirme"
+msgstr "Mobil Geliştirme"
 
 #: .\templates\main\technology_stack.html:140
 msgid "Cross-platform mobile development"
@@ -3317,7 +3314,7 @@ msgstr "Google'ın kullanıcı arayüzü araç seti"
 #, fuzzy
 #| msgid "Services"
 msgid "Tools & Services"
-msgstr "Hizmetler"
+msgstr "Araçlar ve Hizmetler"
 
 #: .\templates\main\technology_stack.html:176
 msgid "Git & GitHub"
