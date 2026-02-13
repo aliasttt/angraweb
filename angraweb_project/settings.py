@@ -31,7 +31,7 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(','
 
 # صفحه نگهداری (Bakım Modu): وقتی True باشد به جای سایت صفحه نگهداری به ترکی نمایش داده می‌شود.
 # برای غیرفعال کردن: MAINTENANCE_MODE=False یا حذف این خط و استفاده از مقدار پیش‌فرض.
-MAINTENANCE_MODE = os.environ.get('MAINTENANCE_MODE', 'True') == 'True'
+MAINTENANCE_MODE = os.environ.get('MAINTENANCE_MODE', 'False') == 'True'
 MAINTENANCE_BYPASS_STAFF = True  # کاربران staff (ادمین) سایت عادی را ببینند
 
 

@@ -161,9 +161,6 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'resume' %}active{% endif %}" href="{% url 'resume' %}">{% trans "Resume" %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.resolver_match.url_name == 'team' %}active{% endif %}" href="{% url 'team' %}">{% trans "Team" %}</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {% if 'how_it_works' in request.resolver_match.url_name or 'calculator' in request.resolver_match.url_name or 'technology' in request.resolver_match.url_name %}active{% endif %}" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown">
                             {% trans "Tools" %}

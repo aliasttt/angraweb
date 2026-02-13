@@ -6,129 +6,138 @@
 {% block title %}{% trans "Projects" %} - {% trans "Video Demos" %} & {% trans "Portfolio" %} | Angraweb.com{% endblock %}
 
 {% block content %}
-<section class="page-hero">
+<section class="page-hero" style="margin-bottom: 2rem;">
     <div class="container">
         <h1 class="hero-title">
             <span class="text-gradient">{% trans "Projects" %}</span>
         </h1>
-        <p class="hero-subtitle">{% trans "Explore our portfolio of successful projects" %}</p>
+        <p class="hero-subtitle" style="margin-bottom: 0;">{% trans "Explore our portfolio of successful projects" %}</p>
     </div>
 </section>
 
-<!-- Filters Section -->
-<section class="section" style="padding-top: 40px;">
+<section id="projects" class="section" style="padding-top: 2rem;">
     <div class="container">
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="project-filters">
-                    <form method="get" action="{% url 'projects_list' %}" class="row g-3">
-                        <div class="col-md-4">
-                            <label class="form-label">{% trans "Project Type" %}</label>
-                            <select name="type" class="form-control" onchange="this.form.submit()">
-                                <option value="">{% trans "All Types" %}</option>
-                                {% for type_key, type_label in all_types %}
-                                <option value="{{ type_key }}" {% if selected_type == type_key %}selected{% endif %}>
-                                    {% trans type_label %}
-                                </option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">{% trans "Technology" %}</label>
-                            <select name="tech" class="form-control" onchange="this.form.submit()">
-                                <option value="">{% trans "All Technologies" %}</option>
-                                {% for tech in all_technologies %}
-                                <option value="{{ tech }}" {% if selected_tech == tech %}selected{% endif %}>
-                                    {{ tech }}
-                                </option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">&nbsp;</label>
-                            <div>
-                                <a href="{% url 'projects_list' %}" class="btn btn-outline-light w-100">
-                                    <i class="fas fa-redo"></i> {% trans "Reset Filters" %}
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="projects" class="section">
-    <div class="container">
-        {% if videos %}
-        <div class="row mt-5">
-            <div class="col-12">
-                <h3 class="text-center mb-4">
-                    <span class="text-gradient">{% trans "Video Demos" %}</span>
-                </h3>
-            </div>
-        </div>
         <div class="row">
-            {% for video in videos %}
-            <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
-                <div class="video-card">
-                    <div class="video-container">
-                        <video controls preload="metadata" class="project-video" playsinline>
-                            <source src="{{ video.video_file.url }}" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-content">
-                        <h4>{{ video.title }}</h4>
-                        {% if video.description %}
-                        <p>{{ video.description }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
-        
-        <div class="row mt-5">
             <div class="col-12">
-                <h3 class="text-center mb-4">
+                <h2 class="section-title text-center mb-4">
                     <span class="text-gradient">{% trans "My Projects" %}</span>
-                </h3>
+                </h2>
             </div>
         </div>
-        <div class="row">
+        
+        <div class="projects-list-container">
             {% for project in projects %}
-            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                <div class="project-card">
+            <div class="project-item-large mb-5">
+                <div class="project-item-wrapper">
                     {% if project.image %}
-                    <div class="project-image">
-                        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    <div class="project-image-large">
+                        <img src="{{ project.image.url }}" alt="{% localized project 'title' current_lang %}" loading="lazy">
+                        <div class="project-image-overlay">
+                            <a href="{{ project.url }}" class="btn btn-light btn-lg" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
+                            </a>
+                        </div>
+                    </div>
+                    {% elif project.url %}
+                    <div class="project-image-large">
+                        {% localized project 'title' current_lang as project_title %}
+                        {% if project.slug == 'firmentshirt-custom-tshirt-printing' %}
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                        {% elif project.slug == 'bonus-berlin-qr-menu-loyalty' %}
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                        {% elif project.slug == 'kanoon-hamyari-persian-community' %}
+                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                        {% elif project.slug == 'pier-insaat-construction' %}
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                        {% elif project.slug == 'kalici-makyaj-monir-permanent-makeup' %}
+                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                        {% elif project.slug == 'angraweb-portfolio' %}
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                        {% elif project.slug == 'hedef-surucu-kursu-driving-school' %}
+                            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                        {% elif project.slug == 'gezgin-ustalar-home-services' %}
+                            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                        {% else %}
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                        {% endif %}
+                        <div class="project-image-overlay">
+                            <a href="{{ project.url }}" class="btn btn-light btn-lg" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
+                            </a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="project-image-large project-image-placeholder">
+                        <div class="placeholder-content">
+                            <i class="fas fa-globe fa-4x"></i>
+                            <p>{% localized project 'title' current_lang %}</p>
+                        </div>
                     </div>
                     {% endif %}
-                    <div class="project-content">
-                        <h3>{% localized project 'title' current_lang %}</h3>
-                        {% if project.domain %}
-                        <p class="portfolio-domain">{{ project.domain }}</p>
+                    <div class="project-content-large">
+                        <div class="project-header">
+                            <h2 class="project-title-large">{% localized project 'title' current_lang %}</h2>
+                            {% if project.domain %}
+                            <div class="project-domain-large">
+                                <i class="fas fa-globe me-2"></i>
+                                <a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.domain }}</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="project-description-full">
+                            <p>{% localized project 'description' current_lang %}</p>
+                        </div>
+                        
+                        {% if project.technologies %}
+                        <div class="project-technologies">
+                            <h4 class="tech-title">
+                                <i class="fas fa-code me-2"></i>{% trans "Technologies Used" %}:
+                            </h4>
+                            <div class="tech-tags-container">
+                                {% for tech in project.get_technologies_list %}
+                                <span class="tech-tag-large">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
                         {% endif %}
-                        <p>{% localized_truncate project 'description' current_lang 15 %}</p>
-                        {% if project.url %}
-                        <a href="{{ project.url }}" class="btn btn-primary portfolio-visit-btn" target="_blank">
-                            {% trans "Visit Website" %}
-                        </a>
-                        {% endif %}
+                        
+                        <div class="project-footer">
+                            <div class="project-type-badge">
+                                <i class="fas fa-tag me-2"></i>
+                                {% if project.project_type == 'web' %}
+                                    {% trans "Web Development" %}
+                                {% elif project.project_type == 'ecommerce' %}
+                                    {% trans "E-Commerce" %}
+                                {% elif project.project_type == 'mobile' %}
+                                    {% trans "Mobile App" %}
+                                {% elif project.project_type == 'platform' %}
+                                    {% trans "Platform" %}
+                                {% else %}
+                                    {% trans "Other" %}
+                                {% endif %}
+                            </div>
+                            {% if project.url %}
+                            <a href="{{ project.url }}" class="btn btn-primary btn-lg project-visit-btn-large" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
+                            </a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
             {% empty %}
             <div class="col-12">
-                <p class="text-center">{% trans "No projects found." %}</p>
+                <div class="no-projects-message">
+                    <i class="fas fa-folder-open fa-3x mb-3"></i>
+                    <p class="text-center">{% trans "No projects found." %}</p>
+                </div>
             </div>
             {% endfor %}
         </div>
         
         {% if projects.has_other_pages %}
-        <div class="row mt-4">
+        <div class="row mt-5">
             <div class="col-12">
                 <nav>
                     <ul class="pagination justify-content-center">
@@ -150,6 +159,36 @@
             </div>
         </div>
         {% endif %}
+        
+        {% if videos %}
+        <div class="row mt-5 mb-5" style="margin-top: 4rem !important;">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-5">
+                    <span class="text-gradient">{% trans "Video Demos" %}</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row mb-5">
+            {% for video in videos %}
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="metadata" class="project-video" playsinline>
+                            <source src="{{ video.video_file.url }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-content">
+                        <h4>{{ video.title }}</h4>
+                        {% if video.description %}
+                        <p>{{ video.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
 </section>
+
 {% endblock %}

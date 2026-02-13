@@ -247,7 +247,7 @@ def projects_list(request):
     if technology:
         projects = projects.filter(technologies__icontains=technology)
     
-    projects = projects.order_by('-created_at')
+    projects = projects.order_by('order', '-created_at')
     
     # Get unique project types and technologies for filters
     all_types = Project.PROJECT_TYPES
@@ -257,8 +257,8 @@ def projects_list(request):
             for tech in project.get_technologies_list():
                 all_technologies.add(tech)
     
-    # Pagination
-    paginator = Paginator(projects, 12)
+    # Pagination - Show more projects per page for better display
+    paginator = Paginator(projects, 20)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
@@ -298,16 +298,6 @@ def resume(request):
     }
     context.update(get_language_context(request))
     return render(request, 'main/resume.html', context)
-
-
-def team(request):
-    """صفحه تیم"""
-    team_members = TeamMember.objects.filter(active=True).order_by('order', 'created_at')
-    context = {
-        'team_members': team_members,
-    }
-    context.update(get_language_context(request))
-    return render(request, 'main/team.html', context)
 
 
 @ratelimit(key='ip', rate='5/m', method='POST', block=True)
