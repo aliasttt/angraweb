@@ -131,7 +131,6 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{% url 'packages_list' %}">{% trans "All Packages" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'packages_compare' %}">{% trans "Compare Packages" %}</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -305,13 +304,13 @@
                         {% csrf_token %}
                         <div class="input-group mb-2">
                             <input type="email" name="email" class="form-control" 
-                                   placeholder="{% trans 'Your email' %}" required>
+                                   placeholder="E-posta Adresiniz" required>
                             <button class="btn btn-primary" type="submit">
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </div>
                         <input type="text" name="name" class="form-control" 
-                               placeholder="{% trans 'Your name (optional)' %}">
+                               placeholder="Adınız (isteğe bağlı)">
                     </form>
                     <div class="footer-social-links mt-3">
                         <a href="https://www.instagram.com/angrawebtr" class="footer-social-link" target="_blank">

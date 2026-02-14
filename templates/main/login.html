@@ -18,7 +18,7 @@
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 mx-auto">
+            <div class="col-12 col-lg-6 mx-auto">
                 <div class="contact-form">
                     <form method="POST">
                         {% csrf_token %}
@@ -35,8 +35,11 @@
                             <button type="submit" class="btn btn-primary btn-lg">{% trans "Login" %}</button>
                         </div>
                     </form>
-                    <div class="text-center mt-3">
-                        <p>{% trans "Don't have an account?" %} <a href="{% url 'register' %}">{% trans "Register" %}</a></p>
+                    <div class="text-center mt-4 auth-switch-block">
+                        <p class="auth-switch-text">{% trans "Don't have an account?" %}</p>
+                        <a href="{% url 'register' %}{% if request.GET.next %}?next={{ request.GET.next|urlencode }}{% endif %}" class="btn btn-outline-primary btn-auth-link">
+                            <i class="fas fa-user-plus me-2"></i>{% trans "Register" %}
+                        </a>
                     </div>
                 </div>
             </div>

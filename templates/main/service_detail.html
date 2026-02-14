@@ -20,7 +20,7 @@
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-12 col-lg-8">
                 {% if service.image %}
                 <img src="{{ service.image.url }}" alt="{% localized service 'title' current_lang %}" class="img-fluid mb-4 rounded">
                 {% endif %}
@@ -60,7 +60,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-12 col-lg-4">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="{{ service.icon }}"></i>

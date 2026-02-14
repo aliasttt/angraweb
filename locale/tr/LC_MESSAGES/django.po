@@ -1896,7 +1896,7 @@ msgstr "7/24 Teknik Destek"
 #, fuzzy
 #| msgid "View Projects"
 msgid "View All Technologies"
-msgstr "Projelerimi İncele"
+msgstr "Tüm Teknolojileri Gör"
 
 #: .\templates\main\index.html:239 .\templates\main\packages.html:6
 #: .\templates\main\packages.html:12
@@ -1971,7 +1971,7 @@ msgstr "Müşterilerimiz Ne Diyor"
 #, fuzzy
 #| msgid "View Projects"
 msgid "View All Testimonials"
-msgstr "Projelerimi İncele"
+msgstr "Tüm Yorumları Gör"
 
 #: .\templates\main\index.html:501
 msgid "Want to Know How We Work?"
@@ -1985,7 +1985,7 @@ msgstr "Danışmanlıktan teslimata profesyonel sürecimizi öğrenin."
 #, fuzzy
 #| msgid "Process"
 msgid "See Our Process"
-msgstr "Süreç"
+msgstr "Sürecimizi Görün"
 
 #: .\templates\main\login.html:39
 msgid "Don't have an account?"

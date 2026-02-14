@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             {% for package in packages %}
-            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+            <div class="col-12 col-lg-3 col-md-6 col-sm-6 mb-4">
                 <a href="{% url 'quote_request' %}?package={{ package.package_type }}" class="package-card-link">
                 <div class="package-card {% if package.popular %}package-featured{% endif %}">
                     {% if package.popular %}
@@ -29,7 +29,7 @@
                         <h3>{% localized package 'title' current_lang %}</h3>
                         <div class="package-price">
                             {% if package.custom_price_text %}
-                            <p class="custom-price">{{ package.custom_price_text }}</p>
+                            <p class="custom-price">{% if current_lang == 'en' and package.description_en %}{{ package.description_en }}{% else %}{{ package.custom_price_text }}{% endif %}</p>
                             {% else %}
                             <span class="price-amount">{{ package.price|floatformat:0 }}</span>
                             <span class="price-currency">{{ package.currency }}</span>

@@ -20,17 +20,27 @@ from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, Newslett
 
 
 def get_language_context(request):
-    """Site sadece Türkçe — her zaman tr aktif"""
-    from django.utils import translation
-    translation.activate('tr')
+    """زبان از session/cookie بخوان و حتماً activate کن تا {% trans %} در قالب درست کار کند"""
+    from django.conf import settings
+    session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
+    cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
+    lang = None
+    if hasattr(request, 'session'):
+        lang = request.session.get(session_key)
+    if not lang:
+        lang = request.COOKIES.get(cookie_name)
+    if not lang or lang not in ('tr', 'en', 'fa', 'ar'):
+        lang = getattr(settings, 'LANGUAGE_CODE', 'tr')
+    translation.activate(lang)
     return {
-        'current_lang': 'tr',
-        'is_rtl': False
+        'current_lang': lang,
+        'is_rtl': lang in ('fa', 'ar')
     }
 
 
 def index(request):
-    """صفحه اصلی"""
+    """صفحه اصلی — زبان را همین اول از session/cookie فعال کن تا {% trans %} ترکی/انگلیسی درست بیاید"""
+    get_language_context(request)
     services = Service.objects.filter(active=True).order_by('order')[:6]
     packages = Package.objects.filter(active=True).order_by('order')
     projects = Project.objects.filter(active=True, featured=True).order_by('order')[:6]
@@ -169,6 +179,7 @@ def ui_ux_design(request):
 
 def packages_list(request):
     """لیست پکیج‌ها"""
+    get_language_context(request)
     packages = Package.objects.filter(active=True).order_by('order')
     context = {
         'packages': packages,
@@ -315,7 +326,11 @@ def contact(request):
                 contact_message.ip_address = request.META.get('REMOTE_ADDR')
             contact_message.user_agent = request.META.get('HTTP_USER_AGENT', '')
             contact_message.save()
-            messages.success(request, 'پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.')
+            lang = translation.get_language() or 'tr'
+            if lang == 'tr':
+                messages.success(request, 'Mesajınız başarıyla gönderildi. En kısa sürede sizinle iletişime geçeceğiz.')
+            else:
+                messages.success(request, 'Your message has been sent successfully. We will contact you soon.')
             return redirect('contact')
     else:
         form = ContactForm()
@@ -330,11 +345,16 @@ def contact(request):
 @ratelimit(key='ip', rate='3/m', method='POST', block=True)
 def quote_request(request):
     """درخواست قیمت"""
+    get_language_context(request)
     if request.method == 'POST':
         form = QuoteRequestForm(request.POST)
         if form.is_valid():
             quote = form.save()
-            messages.success(request, 'درخواست شما با موفقیت ثبت شد. به زودی با شما تماس خواهیم گرفت.')
+            lang = translation.get_language() or 'tr'
+            if lang == 'tr':
+                messages.success(request, 'Talebiniz başarıyla alındı. En kısa sürede sizinle iletişime geçeceğiz.')
+            else:
+                messages.success(request, 'Your request has been submitted successfully. We will contact you soon.')
             return redirect('quote_request')
     else:
         form = QuoteRequestForm()
@@ -485,7 +505,12 @@ def testimonials_list(request):
                 order=0,
                 active=False,
             )
-            messages.success(request, _('Thank you! Your review has been submitted and will be published after approval.'))
+            # پیام موفقیت به زبان فعلی (ترکی/انگلیسی)
+            if translation.get_language() == 'tr':
+                success_msg = 'Teşekkürler! Yorumunuz gönderildi ve onaylandıktan sonra yayınlanacaktır.'
+            else:
+                success_msg = _('Thank you! Your review has been submitted and will be published after approval.')
+            messages.success(request, success_msg)
             return redirect('testimonials_list')
 
     context = {

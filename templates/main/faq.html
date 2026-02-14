@@ -27,7 +27,7 @@
     <div class="container">
         <!-- Search -->
         <div class="row mb-4">
-            <div class="col-lg-6 mx-auto">
+            <div class="col-12 col-lg-6 mx-auto">
                 <form method="get" action="{% url 'faq_list' %}" class="mb-4">
                     <input class="form-control faq-search-input" type="search" name="search" 
                            placeholder="{% trans 'Search questions...' %}" 
@@ -38,7 +38,7 @@
 
         <!-- FAQ Accordion -->
         <div class="row">
-            <div class="col-lg-10 mx-auto">
+            <div class="col-12 col-lg-10 mx-auto">
                 {% if faqs %}
                 <div class="accordion" id="faqAccordion">
                     {% for faq in faqs %}

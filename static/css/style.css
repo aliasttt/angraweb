@@ -11,6 +11,11 @@
     box-sizing: border-box;
 }
 
+/* موبایل ریسپانسیو - جلوگیری از اسکرول افقی و تصاویر واکنش‌گرا */
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
@@ -19,6 +24,12 @@ body {
     overflow-x: hidden;
     /* Fixed-top navbar spacing (prevents content going under navbar) */
     padding-top: 90px;
+}
+
+/* تصاویر در همه صفحات ریسپانسیو */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Language Support */
@@ -915,20 +926,62 @@ body[dir="rtl"] .benefit-item {
     font-weight: 700;
     margin-bottom: 3rem;
     text-align: center;
+    color: #ffffff !important;
 }
 
-/* About Section */
+.section-title .text-gradient {
+    color: #ffffff !important;
+}
+
+/* About Section & Service pages - تایتل و متن روشن، نه مشکی */
+.about-content h2 {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
 .about-content h3 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #74b9ff;
+    color: #74b9ff !important;
 }
 
 .about-content p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #b2bec3;
+    color: #e2e8f0 !important;
     margin-bottom: 2rem;
+}
+
+.about-content ul,
+.about-content ol {
+    color: #e2e8f0 !important;
+}
+
+.about-content li {
+    color: #e2e8f0 !important;
+}
+
+/* هر h2 در سکشن (صفحات سرویس و غیره) سفید */
+.section h2 {
+    color: #ffffff !important;
+}
+
+/* زیرعنوان‌های سکشن در صفحات سرویس (مثل Web Design Project Samples) */
+.section .col-12 > h3 {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* کارت پروژه در صفحات سرویس */
+.project-content h4 {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.project-content p {
+    color: #e2e8f0 !important;
 }
 
 .skills-grid {
@@ -957,6 +1010,11 @@ body[dir="rtl"] .benefit-item {
     color: #74b9ff;
     margin-bottom: 0.5rem;
     display: block;
+}
+
+.skill-item span {
+    color: #ffffff !important;
+    font-weight: 500;
 }
 
 .about-stats {
@@ -1599,6 +1657,34 @@ label {
 
 .contact-form a:hover {
     color: #a29bfe;
+}
+
+/* Login / Register - bottom switch block */
+.auth-switch-block {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(116, 185, 255, 0.2);
+}
+.auth-switch-text {
+    color: #ffffff !important;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+.btn-auth-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    border-radius: 10px;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    border: 2px solid #74b9ff;
+    color: #74b9ff;
+}
+.btn-auth-link:hover {
+    background: rgba(116, 185, 255, 0.15);
+    color: #ffffff;
+    border-color: #74b9ff;
+    transform: translateY(-2px);
 }
 
 /* Contact Info Cards */

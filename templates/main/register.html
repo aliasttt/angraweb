@@ -26,7 +26,7 @@ if(m !== "Registration error:\n") alert(m);
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-12 col-lg-8 mx-auto">
                 <div class="contact-form">
                     <form method="POST">
                         {% csrf_token %}
@@ -70,8 +70,11 @@ if(m !== "Registration error:\n") alert(m);
                             <button type="submit" class="btn btn-primary btn-lg">{% trans "Register" %}</button>
                         </div>
                     </form>
-                    <div class="text-center mt-3">
-                        <p>{% trans "Already have an account?" %} <a href="{% url 'login' %}">{% trans "Login" %}</a></p>
+                    <div class="text-center mt-4 auth-switch-block">
+                        <p class="auth-switch-text">{% trans "Already have an account?" %}</p>
+                        <a href="{% url 'login' %}{% if request.GET.next %}?next={{ request.GET.next|urlencode }}{% endif %}" class="btn btn-outline-primary btn-auth-link">
+                            <i class="fas fa-sign-in-alt me-2"></i>{% trans "Login" %}
+                        </a>
                     </div>
                 </div>
             </div>
