@@ -1,0 +1,867 @@
+﻿[
+{
+  "model": "main.service",
+  "pk": 1,
+  "fields": {
+    "title": "Uzman Web Tasarımı",
+    "title_en": "Professional Web Design",
+    "title_fa": "طراحی وب حرفه‌ای",
+    "title_ar": "تصميم ويب احترافي",
+    "slug": "uzman-web-tasarm",
+    "service_type": "web_design",
+    "description": "İşinizi büyütecek modern ve hızlı web siteleri tasarlıyorum.",
+    "description_en": "I design modern and fast websites to grow your business.",
+    "description_fa": "من وب‌سایت‌های مدرن و سریع برای رشد کسب‌وکار شما طراحی می‌کنم.",
+    "description_ar": "أصمم مواقع ويب حديثة وسريعة لتنمية عملك.",
+    "icon": "fas fa-code",
+    "image": "",
+    "featured": true,
+    "order": 1,
+    "active": true,
+    "created_at": "2026-01-19T10:55:42.771Z",
+    "updated_at": "2026-01-26T16:09:16.609Z"
+  }
+},
+{
+  "model": "main.service",
+  "pk": 2,
+  "fields": {
+    "title": "E-Ticaret Çözümleri",
+    "title_en": "E-Commerce Solutions",
+    "title_fa": "راه‌حل‌های تجارت الکترونیک",
+    "title_ar": "حلول التجارة الإلكترونية",
+    "slug": "e-ticaret-cozumleri",
+    "service_type": "ecommerce",
+    "description": "Satışlarınızı artıracak profesyonel e-ticaret sitesi.",
+    "description_en": "Professional e-commerce site to increase your sales.",
+    "description_fa": "فروشگاه اینترنتی حرفه‌ای برای افزایش فروش شما.",
+    "description_ar": "موقع تجارة إلكترونية احترافي لزيادة مبيعاتك.",
+    "icon": "fas fa-shopping-cart",
+    "image": "",
+    "featured": true,
+    "order": 2,
+    "active": true,
+    "created_at": "2026-01-19T10:55:55.219Z",
+    "updated_at": "2026-01-26T16:09:16.624Z"
+  }
+},
+{
+  "model": "main.service",
+  "pk": 3,
+  "fields": {
+    "title": "Mobil Uyumlu Tasarım",
+    "title_en": "Mobile Responsive Design",
+    "title_fa": "طراحی واکنش‌گرا",
+    "title_ar": "التصميم المتجاوب للجوال",
+    "slug": "mobil-uyumlu-tasarm",
+    "service_type": "web_design",
+    "description": "Tüm cihazlarda mükemmel görünen web siteleri.",
+    "description_en": "Websites that look perfect on all devices.",
+    "description_fa": "وب‌سایت‌هایی که در تمام دستگاه‌ها عالی به نظر می‌رسند.",
+    "description_ar": "مواقع ويب تبدو مثالية على جميع الأجهزة.",
+    "icon": "fas fa-mobile-alt",
+    "image": "",
+    "featured": false,
+    "order": 3,
+    "active": true,
+    "created_at": "2026-01-19T10:55:55.224Z",
+    "updated_at": "2026-01-26T16:09:16.624Z"
+  }
+},
+{
+  "model": "main.service",
+  "pk": 4,
+  "fields": {
+    "title": "Hosting ve Yayınlama",
+    "title_en": "Hosting and Publishing",
+    "title_fa": "هاستینگ و انتشار",
+    "title_ar": "الاستضافة والنشر",
+    "slug": "hosting-ve-yaynlama",
+    "service_type": "hosting",
+    "description": "Web sitenizi güvenli sunucularda yayınlıyorum.",
+    "description_en": "I publish your website on secure servers.",
+    "description_fa": "وب‌سایت شما را در سرورهای امن منتشر می‌کنم.",
+    "description_ar": "أنشر موقعك على خوادم آمنة.",
+    "icon": "fas fa-server",
+    "image": "",
+    "featured": false,
+    "order": 4,
+    "active": true,
+    "created_at": "2026-01-19T10:56:01.949Z",
+    "updated_at": "2026-01-26T16:09:16.632Z"
+  }
+},
+{
+  "model": "main.service",
+  "pk": 5,
+  "fields": {
+    "title": "Kullanıcı Deneyimi Tasarımı",
+    "title_en": "User Experience Design",
+    "title_fa": "طراحی تجربه کاربری",
+    "title_ar": "تصميم تجربة المستخدم",
+    "slug": "kullanc-deneyimi-tasarm",
+    "service_type": "ui_ux",
+    "description": "Müşterilerinizi etkileyecek güzel ve kullanışlı arayüz tasarımları.",
+    "description_en": "Beautiful and functional interface designs that impress your customers.",
+    "description_fa": "طراحی رابط‌های زیبا و کاربردی که مشتریان شما را تحت تأثیر قرار می‌دهد.",
+    "description_ar": "تصاميم واجهات جميلة وعملية تثير إعجاب عملائك.",
+    "icon": "fas fa-paint-brush",
+    "image": "",
+    "featured": false,
+    "order": 5,
+    "active": true,
+    "created_at": "2026-01-19T10:56:11.483Z",
+    "updated_at": "2026-01-26T16:09:16.632Z"
+  }
+},
+{
+  "model": "main.service",
+  "pk": 6,
+  "fields": {
+    "title": "Hız ve SEO",
+    "title_en": "Speed and SEO",
+    "title_fa": "سرعت و سئو",
+    "title_ar": "السرعة وتحسين محركات البحث",
+    "slug": "hz-ve-seo",
+    "service_type": "seo",
+    "description": "Web sitenizi Google'da üst sıralara çıkarıyorum.",
+    "description_en": "I bring your website to the top ranks in Google.",
+    "description_fa": "وب‌سایت شما را در Google به رتبه‌های بالا می‌رسانم.",
+    "description_ar": "أجعل موقعك في المراتب العليا في Google.",
+    "icon": "fas fa-cogs",
+    "image": "",
+    "featured": false,
+    "order": 6,
+    "active": true,
+    "created_at": "2026-01-19T10:56:11.527Z",
+    "updated_at": "2026-01-26T16:09:16.632Z"
+  }
+},
+{
+  "model": "main.package",
+  "pk": 1,
+  "fields": {
+    "title": "Temel Paket",
+    "title_en": "Basic Package",
+    "title_fa": "Temel Paket",
+    "title_ar": "Temel Paket",
+    "package_type": "basic",
+    "price": "5000.00",
+    "currency": "TL",
+    "custom_price_text": "",
+    "description": "",
+    "description_en": "",
+    "description_fa": "",
+    "description_ar": "",
+    "featured": false,
+    "popular": false,
+    "order": 1,
+    "active": true,
+    "created_at": "2026-01-19T10:56:11.535Z",
+    "updated_at": "2026-01-26T16:06:10.151Z"
+  }
+},
+{
+  "model": "main.package",
+  "pk": 2,
+  "fields": {
+    "title": "Ticari Paket",
+    "title_en": "Commercial Package",
+    "title_fa": "Ticari Paket",
+    "title_ar": "Ticari Paket",
+    "package_type": "commercial",
+    "price": "10000.00",
+    "currency": "TL",
+    "custom_price_text": "",
+    "description": "",
+    "description_en": "",
+    "description_fa": "",
+    "description_ar": "",
+    "featured": false,
+    "popular": true,
+    "order": 2,
+    "active": true,
+    "created_at": "2026-01-19T10:56:11.566Z",
+    "updated_at": "2026-01-26T16:06:10.152Z"
+  }
+},
+{
+  "model": "main.package",
+  "pk": 3,
+  "fields": {
+    "title": "Profesyonel Paket",
+    "title_en": "Professional Package",
+    "title_fa": "Profesyonel Paket",
+    "title_ar": "Profesyonel Paket",
+    "package_type": "professional",
+    "price": "15000.00",
+    "currency": "TL",
+    "custom_price_text": "",
+    "description": "",
+    "description_en": "",
+    "description_fa": "",
+    "description_ar": "",
+    "featured": false,
+    "popular": false,
+    "order": 3,
+    "active": true,
+    "created_at": "2026-01-19T10:56:11.581Z",
+    "updated_at": "2026-01-26T16:06:10.156Z"
+  }
+},
+{
+  "model": "main.package",
+  "pk": 4,
+  "fields": {
+    "title": "Özel Paket",
+    "title_en": "Custom Package",
+    "title_fa": "Özel Paket",
+    "title_ar": "Özel Paket",
+    "package_type": "custom",
+    "price": "0.00",
+    "currency": "TL",
+    "custom_price_text": "Özel fiyatlandırma için WhatsApp'tan mesaj gönderin",
+    "description": "",
+    "description_en": "Send a message via WhatsApp for custom pricing.",
+    "description_fa": "",
+    "description_ar": "",
+    "featured": false,
+    "popular": false,
+    "order": 4,
+    "active": true,
+    "created_at": "2026-01-19T10:56:11.600Z",
+    "updated_at": "2026-01-26T16:06:10.158Z"
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 1,
+  "fields": {
+    "package": 1,
+    "title": "Duyarlı tasarım",
+    "title_en": "Responsive Design",
+    "title_fa": "طراحی ریسپانسیو",
+    "title_ar": "طراحی ریسپانسیو",
+    "included": true,
+    "order": 0
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 2,
+  "fields": {
+    "package": 1,
+    "title": "5 sayfaya kadar",
+    "title_en": "Up to 5 pages",
+    "title_fa": "تا 5 صفحه",
+    "title_ar": "تا 5 صفحه",
+    "included": true,
+    "order": 1
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 3,
+  "fields": {
+    "package": 1,
+    "title": "İletişim formu",
+    "title_en": "Contact Form",
+    "title_fa": "فرم تماس",
+    "title_ar": "فرم تماس",
+    "included": true,
+    "order": 2
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 4,
+  "fields": {
+    "package": 1,
+    "title": "Temel SEO",
+    "title_en": "Basic SEO",
+    "title_fa": "سئو پایه",
+    "title_ar": "سئو پایه",
+    "included": true,
+    "order": 3
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 5,
+  "fields": {
+    "package": 2,
+    "title": "Duyarlı tasarım",
+    "title_en": "Responsive Design",
+    "title_fa": "طراحی ریسپانسیو",
+    "title_ar": "طراحی ریسپانسیو",
+    "included": true,
+    "order": 0
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 6,
+  "fields": {
+    "package": 2,
+    "title": "10 sayfaya kadar",
+    "title_en": "Up to 10 pages",
+    "title_fa": "تا 10 صفحه",
+    "title_ar": "تا 10 صفحه",
+    "included": true,
+    "order": 1
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 7,
+  "fields": {
+    "package": 2,
+    "title": "Basit yönetim paneli",
+    "title_en": "Simple Admin Panel",
+    "title_fa": "پنل ادمین ساده",
+    "title_ar": "پنل ادمین ساده",
+    "included": true,
+    "order": 2
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 8,
+  "fields": {
+    "package": 2,
+    "title": "Temel veritabanı",
+    "title_en": "Basic Database",
+    "title_fa": "دیتابیس پایه",
+    "title_ar": "دیتابیس پایه",
+    "included": true,
+    "order": 3
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 9,
+  "fields": {
+    "package": 3,
+    "title": "Duyarlı tasarım",
+    "title_en": "Responsive Design",
+    "title_fa": "طراحی ریسپانسیو",
+    "title_ar": "طراحی ریسپانسیو",
+    "included": true,
+    "order": 0
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 10,
+  "fields": {
+    "package": 3,
+    "title": "Sınırsız sayfa",
+    "title_en": "Unlimited Pages",
+    "title_fa": "صفحات نامحدود",
+    "title_ar": "صفحات نامحدود",
+    "included": true,
+    "order": 1
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 11,
+  "fields": {
+    "package": 3,
+    "title": "Özel yönetim paneli",
+    "title_en": "Dedicated Admin Panel",
+    "title_fa": "پنل ادمین اختصاصی",
+    "title_ar": "پنل ادمین اختصاصی",
+    "included": true,
+    "order": 2
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 12,
+  "fields": {
+    "package": 3,
+    "title": "Gelişmiş veritabanı",
+    "title_en": "Advanced Database",
+    "title_fa": "دیتابیس پیشرفته",
+    "title_ar": "دیتابیس پیشرفته",
+    "included": true,
+    "order": 3
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 13,
+  "fields": {
+    "package": 4,
+    "title": "Özel platform ve ağ tasarımı",
+    "title_en": "Dedicated Platform & Network Design",
+    "title_fa": "طراحی پلتفرم و شبکه اختصاصی",
+    "title_ar": "طراحی پلتفرم و شبکه اختصاصی",
+    "included": true,
+    "order": 0
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 14,
+  "fields": {
+    "package": 4,
+    "title": "Birden fazla web sitesi ve portal",
+    "title_en": "Multiple Websites & Harmonized Portals",
+    "title_fa": "چندین وبسایت و پورتال هماهنگ",
+    "title_ar": "چندین وبسایت و پورتال هماهنگ",
+    "included": true,
+    "order": 1
+  }
+},
+{
+  "model": "main.packagefeature",
+  "pk": 15,
+  "fields": {
+    "package": 4,
+    "title": "Android ve iOS mobil uygulama",
+    "title_en": "Android and iOS Mobile Applications",
+    "title_fa": "اپلیکیشن موبایل iOS و Android",
+    "title_ar": "اپلیکیشن موبایل iOS و Android",
+    "included": true,
+    "order": 2
+  }
+},
+{
+  "model": "main.project",
+  "pk": 1,
+  "fields": {
+    "title": "Angraweb Portföyü",
+    "title_en": "Angraweb Portfolio",
+    "title_fa": "Angraweb Portfolio",
+    "title_ar": "Angraweb Portfolio",
+    "slug": "angraweb-portfolio",
+    "project_type": "web",
+    "description": "Profesyonel portföy ve şirket web sitesi.",
+    "description_en": "Professional portfolio and company website.",
+    "description_fa": "Professional portfolio and company website.",
+    "description_ar": "Professional portfolio and company website.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://angraweb.com",
+    "domain": "angraweb.com",
+    "technologies": "Django, HTML, CSS, JavaScript",
+    "featured": true,
+    "order": 6,
+    "active": true,
+    "created_at": "2026-01-25T09:55:01.031Z",
+    "updated_at": "2026-02-13T12:05:51.172Z"
+  }
+},
+{
+  "model": "main.project",
+  "pk": 3,
+  "fields": {
+    "title": "Firmentshirt - Custom T-Shirt Printing",
+    "title_en": "Firmentshirt - Custom T-Shirt Printing",
+    "title_fa": "Firmentshirt - چاپ تی‌شرت سفارشی",
+    "title_ar": "Firmentshirt - طباعة القمصان المخصصة",
+    "slug": "firmentshirt-custom-tshirt-printing",
+    "project_type": "ecommerce",
+    "description": "E-commerce platform for custom printed T-shirts, caps, mugs, and aprons. Features include design studio, product customization, multi-language support (German/English), and integrated payment system.",
+    "description_en": "E-commerce platform for custom printed T-shirts, caps, mugs, and aprons. Features include design studio, product customization, multi-language support (German/English), and integrated payment system.",
+    "description_fa": "پلتفرم تجارت الکترونیک برای چاپ تی‌شرت، کلاه، فنجان و پیش‌بند سفارشی. شامل استودیو طراحی، سفارشی‌سازی محصول، پشتیبانی چندزبانه (آلمانی/انگلیسی) و سیستم پرداخت یکپارچه.",
+    "description_ar": "منصة التجارة الإلكترونية لطباعة القمصان والقمم والأكواب والمراييل المخصصة. تتضمن استوديو التصميم وتخصيص المنتجات ودعم متعدد اللغات (الألمانية/الإنجليزية) ونظام الدفع المتكامل.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://www.firmentshirt.shop/",
+    "domain": "firmentshirt.shop",
+    "technologies": "Django, Python, E-commerce, Payment Integration, Multi-language",
+    "featured": true,
+    "order": 1,
+    "active": true,
+    "created_at": "2026-02-13T11:41:31.842Z",
+    "updated_at": "2026-02-13T12:05:51.156Z"
+  }
+},
+{
+  "model": "main.project",
+  "pk": 4,
+  "fields": {
+    "title": "Bonus Berlin - QR Menu & Loyalty Platform",
+    "title_en": "Bonus Berlin - QR Menu & Loyalty Platform",
+    "title_fa": "Bonus Berlin - پلتفرم منوی QR و وفاداری",
+    "title_ar": "Bonus Berlin - منصة قائمة QR والولاء",
+    "slug": "bonus-berlin-qr-menu-loyalty",
+    "project_type": "platform",
+    "description": "Complete QR menu and customer loyalty platform for restaurants and businesses. Features include digital menus, loyalty points system, customer reviews, push notifications, and business dashboard. Available as web app and mobile application.",
+    "description_en": "Complete QR menu and customer loyalty platform for restaurants and businesses. Features include digital menus, loyalty points system, customer reviews, push notifications, and business dashboard. Available as web app and mobile application.",
+    "description_fa": "پلتفرم کامل منوی QR و وفاداری مشتری برای رستوران‌ها و کسب‌وکارها. شامل منوهای دیجیتال، سیستم امتیاز وفاداری، نظرات مشتریان، اعلان‌های فوری و داشبورد کسب‌وکار. به صورت وب اپلیکیشن و اپلیکیشن موبایل در دسترس است.",
+    "description_ar": "منصة كاملة لقائمة QR وولاء العملاء للمطاعم والشركات. تتضمن القوائم الرقمية ونظام نقاط الولاء ومراجعات العملاء والإشعارات الفورية ولوحة تحكم الأعمال. متاح كتطبيق ويب وتطبيق جوال.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://mybonusberlin.de/",
+    "domain": "mybonusberlin.de",
+    "technologies": "Django, Python, React, Mobile App, Firebase, JWT Authentication",
+    "featured": true,
+    "order": 2,
+    "active": true,
+    "created_at": "2026-02-13T11:41:38.154Z",
+    "updated_at": "2026-02-13T12:05:51.161Z"
+  }
+},
+{
+  "model": "main.project",
+  "pk": 5,
+  "fields": {
+    "title": "Kanoon Hamyari - Persian Community Services",
+    "title_en": "Kanoon Hamyari - Persian Community Services",
+    "title_fa": "کانون همیاری - خدمات جامع ایرانیان در ترکیه",
+    "title_ar": "كانون همياري - خدمات المجتمع الفارسي",
+    "slug": "kanoon-hamyari-persian-community",
+    "project_type": "platform",
+    "description": "Comprehensive community platform for Persian speakers in Turkey. Services include events, tours, real estate, advertising, educational consulting, legal affairs, and business support. Multi-language support (Persian, Turkish, English) with integrated social features.",
+    "description_en": "Comprehensive community platform for Persian speakers in Turkey. Services include events, tours, real estate, advertising, educational consulting, legal affairs, and business support. Multi-language support (Persian, Turkish, English) with integrated social features.",
+    "description_fa": "پلتفرم جامع جامعه برای فارسی‌زبانان در ترکیه. خدمات شامل رویدادها، تورها، املاک، تبلیغات، مشاوره تحصیلی، امور حقوقی و پشتیبانی کسب‌وکار. پشتیبانی چندزبانه (فارسی، ترکی، انگلیسی) با ویژگی‌های اجتماعی یکپارچه.",
+    "description_ar": "منصة مجتمع شاملة للناطقين بالفارسية في تركيا. الخدمات تشمل الأحداث والجولات والعقارات والإعلانات والاستشارات التعليمية والشؤون القانونية ودعم الأعمال. دعم متعدد اللغات (الفارسية والتركية والإنجليزية) مع ميزات اجتماعية متكاملة.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://kanoonhamyari.com/",
+    "domain": "kanoonhamyari.com",
+    "technologies": "Django, Python, Multi-language, Community Platform, Social Features",
+    "featured": true,
+    "order": 3,
+    "active": true,
+    "created_at": "2026-02-13T11:41:38.159Z",
+    "updated_at": "2026-02-13T12:05:51.164Z"
+  }
+},
+{
+  "model": "main.project",
+  "pk": 6,
+  "fields": {
+    "title": "Gezgin Ustalar - Home Services Istanbul",
+    "title_en": "Gezgin Ustalar - Home Services Istanbul",
+    "title_fa": "Gezgin Ustalar - خدمات خانگی استانبول",
+    "title_ar": "Gezgin Ustalar - خدمات المنزل إسطنبول",
+    "slug": "gezgin-ustalar-home-services",
+    "project_type": "web",
+    "description": "Professional home services platform in Istanbul. Services include home decoration, repair & renovation, apartment painting, exterior insulation, flooring, elevator maintenance, and drilling services. Features service booking, portfolio gallery, and customer reviews.",
+    "description_en": "Professional home services platform in Istanbul. Services include home decoration, repair & renovation, apartment painting, exterior insulation, flooring, elevator maintenance, and drilling services. Features service booking, portfolio gallery, and customer reviews.",
+    "description_fa": "پلتفرم خدمات خانگی حرفه‌ای در استانبول. خدمات شامل دکوراسیون خانه، تعمیر و بازسازی، نقاشی آپارتمان، عایق‌بندی خارجی، کف‌پوش، نگهداری آسانسور و خدمات حفاری. شامل رزرو خدمات، گالری نمونه کارها و نظرات مشتریان.",
+    "description_ar": "منصة خدمات منزلية احترافية في إسطنبول. الخدمات تشمل ديكور المنزل والإصلاح والتجديد وطلاء الشقق والعزل الخارجي والأرضيات وصيانة المصاعد وخدمات الحفر. تتضمن حجز الخدمات ومعرض المحفظة ومراجعات العملاء.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://gezginustalar.com/",
+    "domain": "gezginustalar.com",
+    "technologies": "Django, Python, Service Booking, Portfolio Gallery, Reviews",
+    "featured": true,
+    "order": 8,
+    "active": true,
+    "created_at": "2026-02-13T11:41:38.162Z",
+    "updated_at": "2026-02-13T12:05:51.177Z"
+  }
+},
+{
+  "model": "main.project",
+  "pk": 7,
+  "fields": {
+    "title": "Pier İnşaat - Construction & Sports Facilities",
+    "title_en": "Pier İnşaat - Construction & Sports Facilities",
+    "title_fa": "Pier İnşaat - ساخت‌وساز و تأسیسات ورزشی",
+    "title_ar": "Pier İnşaat - البناء والمرافق الرياضية",
+    "slug": "pier-insaat-construction",
+    "project_type": "web",
+    "description": "Construction company specializing in modern residential projects and sports facilities. Services include stadium construction, football field projects, infrastructure development, and premium residential complexes in Istanbul and Bursa. Features project portfolio, progress tracking, and client testimonials.",
+    "description_en": "Construction company specializing in modern residential projects and sports facilities. Services include stadium construction, football field projects, infrastructure development, and premium residential complexes in Istanbul and Bursa. Features project portfolio, progress tracking, and client testimonials.",
+    "description_fa": "شرکت ساخت‌وساز متخصص در پروژه‌های مسکونی مدرن و تأسیسات ورزشی. خدمات شامل ساخت استادیوم، پروژه‌های زمین فوتبال، توسعه زیرساخت و مجتمع‌های مسکونی پریمیوم در استانبول و بورسا. شامل نمونه کارها، ردیابی پیشرفت و نظرات مشتریان.",
+    "description_ar": "شركة بناء متخصصة في المشاريع السكنية الحديثة والمرافق الرياضية. الخدمات تشمل بناء الملاعب ومشاريع ملاعب كرة القدم وتطوير البنية التحتية والمجمعات السكنية المميزة في إسطنبول وبورصة. تتضمن محفظة المشاريع وتتبع التقدم وشهادات العملاء.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://pierinsaat.com/",
+    "domain": "pierinsaat.com",
+    "technologies": "Django, Python, Project Portfolio, Progress Tracking, Testimonials",
+    "featured": true,
+    "order": 4,
+    "active": true,
+    "created_at": "2026-02-13T11:41:38.165Z",
+    "updated_at": "2026-02-13T12:05:51.167Z"
+  }
+},
+{
+  "model": "main.project",
+  "pk": 8,
+  "fields": {
+    "title": "Kalıcı Makyaj Monir - Permanent Makeup Studio",
+    "title_en": "Kalıcı Makyaj Monir - Permanent Makeup Studio",
+    "title_fa": "Kalıcı Makyaj Monir - استودیو آرایش دائمی",
+    "title_ar": "Kalıcı Makyaj Monir - استوديو المكياج الدائم",
+    "slug": "kalici-makyaj-monir-permanent-makeup",
+    "project_type": "web",
+    "description": "Premium beauty studio specializing in permanent makeup services in Istanbul. Services include microblading, eyebrow shading, permanent eyeliner, lip shading, tattoos, and piercings. Features service booking, portfolio gallery, customer reviews, and training programs.",
+    "description_en": "Premium beauty studio specializing in permanent makeup services in Istanbul. Services include microblading, eyebrow shading, permanent eyeliner, lip shading, tattoos, and piercings. Features service booking, portfolio gallery, customer reviews, and training programs.",
+    "description_fa": "استودیو زیبایی پریمیوم متخصص در خدمات آرایش دائمی در استانبول. خدمات شامل میکروبلیدینگ، سایه ابرو، خط چشم دائمی، سایه لب، خالکوبی و پیرسینگ. شامل رزرو خدمات، گالری نمونه کارها، نظرات مشتریان و برنامه‌های آموزشی.",
+    "description_ar": "استوديو جمال متميز متخصص في خدمات المكياج الدائم في إسطنبول. الخدمات تشمل الميكروبلادينغ وتظليل الحواجب وكحل العين الدائم وتظليل الشفاه والوشم والثقب. تتضمن حجز الخدمات ومعرض المحفظة ومراجعات العملاء وبرامج التدريب.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://kalicimakyajmonir.com.tr/",
+    "domain": "kalicimakyajmonir.com.tr",
+    "technologies": "Django, Python, Appointment Booking, Portfolio Gallery, Reviews",
+    "featured": true,
+    "order": 5,
+    "active": true,
+    "created_at": "2026-02-13T11:41:49.513Z",
+    "updated_at": "2026-02-13T12:05:51.170Z"
+  }
+},
+{
+  "model": "main.project",
+  "pk": 9,
+  "fields": {
+    "title": "Hedef Sürücü Kursu - Driving School",
+    "title_en": "Hedef Sürücü Kursu - Driving School",
+    "title_fa": "Hedef Sürücü Kursu - آموزشگاه رانندگی",
+    "title_ar": "Hedef Sürücü Kursu - مدرسة القيادة",
+    "slug": "hedef-surucu-kursu-driving-school",
+    "project_type": "web",
+    "description": "Professional driving school website in Diyarbakır. Features include course information, instructor profiles, student testimonials, announcements, FAQ section, and contact forms. Modern design with high success rate display and international license information.",
+    "description_en": "Professional driving school website in Diyarbakır. Features include course information, instructor profiles, student testimonials, announcements, FAQ section, and contact forms. Modern design with high success rate display and international license information.",
+    "description_fa": "وب‌سایت آموزشگاه رانندگی حرفه‌ای در دیاربکر. شامل اطلاعات دوره، پروفایل مربیان، نظرات دانشجویان، اطلاعیه‌ها، بخش سوالات متداول و فرم‌های تماس. طراحی مدرن با نمایش نرخ موفقیت بالا و اطلاعات گواهینامه بین‌المللی.",
+    "description_ar": "موقع مدرسة القيادة الاحترافية في ديار بكر. يتضمن معلومات الدورة وملفات المدربين وشهادات الطلاب والإعلانات وقسم الأسئلة الشائعة ونماذج الاتصال. تصميم حديث مع عرض معدل النجاح العالي ومعلومات الترخيص الدولي.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://xn--hedefsrckurslar-4vbbb82h.com.tr/",
+    "domain": "hedefsürücükursları.com.tr",
+    "technologies": "Django, Python, Course Management, Testimonials, FAQ",
+    "featured": true,
+    "order": 7,
+    "active": true,
+    "created_at": "2026-02-13T11:41:49.519Z",
+    "updated_at": "2026-02-13T12:05:51.174Z"
+  }
+},
+{
+  "model": "main.projectvideo",
+  "pk": 1,
+  "fields": {
+    "project": null,
+    "title": "06.08.2025_18.08.02_REC",
+    "title_en": "",
+    "title_fa": "",
+    "title_ar": "",
+    "description": "Demo: 06.08.2025_18.08.02_REC",
+    "video_file": "videos/06.08.2025_18.08.02_REC.mp4",
+    "thumbnail": "",
+    "order": 0,
+    "active": true,
+    "created_at": "2026-01-25T09:55:01.052Z"
+  }
+},
+{
+  "model": "main.projectvideo",
+  "pk": 2,
+  "fields": {
+    "project": null,
+    "title": "bandicam 2025-06-02 17-35-46-733",
+    "title_en": "",
+    "title_fa": "",
+    "title_ar": "",
+    "description": "Demo: bandicam 2025-06-02 17-35-46-733",
+    "video_file": "videos/bandicam 2025-06-02 17-35-46-733.mp4",
+    "thumbnail": "",
+    "order": 0,
+    "active": true,
+    "created_at": "2026-01-25T09:55:01.068Z"
+  }
+},
+{
+  "model": "main.projectvideo",
+  "pk": 3,
+  "fields": {
+    "project": null,
+    "title": "Hata 500 (Sunucu Hatası)!!1500.Bu bir hata.Bir hata oluştu. Lütfen daha sonra tekrar deneyin. Tek bildiğimiz bu.",
+    "title_en": "",
+    "title_fa": "",
+    "title_ar": "",
+    "description": "Demo: bandicam 2025-06-03 00-31-12-332",
+    "video_file": "videos/bandicam 2025-06-03 00-31-12-332.mp4",
+    "thumbnail": "",
+    "order": 0,
+    "active": true,
+    "created_at": "2026-01-25T09:55:01.092Z"
+  }
+},
+{
+  "model": "main.projectvideo",
+  "pk": 4,
+  "fields": {
+    "project": null,
+    "title": "bandicam 2025-06-04 02-06-20-461",
+    "title_en": "",
+    "title_fa": "",
+    "title_ar": "",
+    "description": "Demo: bandicam 2025-06-04 02-06-20-461",
+    "video_file": "videos/bandicam 2025-06-04 02-06-20-461.mp4",
+    "thumbnail": "",
+    "order": 0,
+    "active": true,
+    "created_at": "2026-01-25T09:55:01.114Z"
+  }
+},
+{
+  "model": "main.testimonial",
+  "pk": 1,
+  "fields": {
+    "name": "Ahmet Yılmaz",
+    "company": "Yılmaz Ticaret",
+    "position": "Yönetici",
+    "image": "",
+    "content": "Web sitemizi Angraweb ile yaptırdık. Çok profesyonel ve hızlı bir çalışma oldu. Müşteri memnuniyeti konusunda gerçekten hassaslar. Kesinlikle tavsiye ederim.",
+    "content_en": "We had our website made with Angraweb. Very professional and fast work. They are really sensitive about customer satisfaction. I definitely recommend.",
+    "content_fa": "",
+    "content_ar": "",
+    "rating": 5,
+    "project": null,
+    "featured": true,
+    "order": 1,
+    "active": true,
+    "created_at": "2025-12-30T21:55:54.178Z"
+  }
+},
+{
+  "model": "main.testimonial",
+  "pk": 2,
+  "fields": {
+    "name": "Ayşe Demir",
+    "company": "Demir Gıda",
+    "position": "İşletme Sahibi",
+    "image": "",
+    "content": "E-ticaret sitemiz hayal ettiğimizden daha güzel oldu. Özellikle mobil uyumluluk ve hız konusunda çok başarılılar. Teşekkürler!",
+    "content_en": "Our e-commerce site turned out more beautiful than we imagined. They are very successful especially in mobile compatibility and speed. Thanks!",
+    "content_fa": "",
+    "content_ar": "",
+    "rating": 5,
+    "project": null,
+    "featured": true,
+    "order": 2,
+    "active": true,
+    "created_at": "2026-01-14T21:55:54.178Z"
+  }
+},
+{
+  "model": "main.testimonial",
+  "pk": 3,
+  "fields": {
+    "name": "Mehmet Kaya",
+    "company": "",
+    "position": "Serbest Çalışan",
+    "image": "",
+    "content": "Kurumsal web sitemi çok kısa sürede teslim ettiler. Fiyat-performans açısından piyasadaki en iyi seçenek. Destek ekibi de her zaman yanımızda.",
+    "content_en": "They delivered my corporate website in a very short time. The best option in the market in terms of price-performance. The support team is always with us.",
+    "content_fa": "",
+    "content_ar": "",
+    "rating": 5,
+    "project": null,
+    "featured": true,
+    "order": 3,
+    "active": true,
+    "created_at": "2025-12-15T21:55:54.179Z"
+  }
+},
+{
+  "model": "main.testimonial",
+  "pk": 4,
+  "fields": {
+    "name": "Zeynep Öztürk",
+    "company": "Öztürk Danışmanlık",
+    "position": "Kurucu",
+    "image": "",
+    "content": "SEO ve tasarım konusunda uzman bir ekip. Sitemiz yayına girdikten sonra arama motoru sıralamalarımız belirgin şekilde yükseldi. Çok memnunuz.",
+    "content_en": "An expert team in SEO and design. After our site went live, our search engine rankings increased significantly. We are very satisfied.",
+    "content_fa": "",
+    "content_ar": "",
+    "rating": 5,
+    "project": null,
+    "featured": true,
+    "order": 4,
+    "active": true,
+    "created_at": "2026-01-24T21:55:54.179Z"
+  }
+},
+{
+  "model": "main.testimonial",
+  "pk": 5,
+  "fields": {
+    "name": "Can Arslan",
+    "company": "Arslan Teknoloji",
+    "position": "IT Müdürü",
+    "image": "",
+    "content": "Teknik altyapı ve kod kalitesi çok iyi. Özelleştirme taleplerimizi hızlıca karşıladılar. Uzun vadeli çalışmak istediğimiz bir ekip.",
+    "content_en": "Technical infrastructure and code quality are very good. They quickly met our customization requests. A team we want to work with in the long term.",
+    "content_fa": "",
+    "content_ar": "",
+    "rating": 5,
+    "project": null,
+    "featured": false,
+    "order": 5,
+    "active": true,
+    "created_at": "2026-01-29T21:55:54.179Z"
+  }
+},
+{
+  "model": "main.testimonial",
+  "pk": 6,
+  "fields": {
+    "name": "Elif Şahin",
+    "company": "Şahin Mimarlık",
+    "position": "Ortak",
+    "image": "",
+    "content": "Portfolyo sitemiz hem görsel hem işlevsel anlamda mükemmel oldu. İletişim ve teslim süreleri konusunda da çok titizler. Teşekkürler Angraweb!",
+    "content_en": "Our portfolio site was perfect both visually and functionally. They are also very meticulous about communication and delivery times. Thanks Angraweb!",
+    "content_fa": "",
+    "content_ar": "",
+    "rating": 5,
+    "project": null,
+    "featured": true,
+    "order": 6,
+    "active": true,
+    "created_at": "2026-02-03T21:55:54.180Z"
+  }
+},
+{
+  "model": "main.testimonial",
+  "pk": 7,
+  "fields": {
+    "name": "Ali Doner",
+    "company": "angraweb",
+    "position": "ببیبیب",
+    "image": "",
+    "content": "بیبیبیب",
+    "content_en": "بیبیبیب",
+    "content_fa": "",
+    "content_ar": "",
+    "rating": 5,
+    "project": null,
+    "featured": false,
+    "order": 0,
+    "active": false,
+    "created_at": "2026-02-13T22:33:38.273Z"
+  }
+},
+{
+  "model": "main.testimonial",
+  "pk": 8,
+  "fields": {
+    "name": "Ali Doner",
+    "company": "angraweb",
+    "position": "سیسی",
+    "image": "",
+    "content": "یسسی",
+    "content_en": "یسسی",
+    "content_fa": "",
+    "content_ar": "",
+    "rating": 5,
+    "project": null,
+    "featured": false,
+    "order": 0,
+    "active": false,
+    "created_at": "2026-02-13T22:36:04.858Z"
+  }
+}
+]

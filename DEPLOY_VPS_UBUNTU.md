@@ -323,6 +323,89 @@ systemctl restart angraweb
 
 ---
 
+## ۱۳) همگام‌سازی همهٔ تغییرات لوکال با سرور
+
+هر وقت روی لوکال چیز جدیدی اضافه کردید (صفحات، پکیج‌ها، پروژه‌ها، قالب، استاتیک و…) باید دو کار انجام شود: **به‌روزرسانی کد روی سرور** و در صورت نیاز **به‌روزرسانی داده (دیتابیس)**.
+
+### الف) روی ویندوز (لوکال) — قبل از هر چیز
+
+۱. همهٔ تغییرات را کامیت و پوش کنید تا روی سرور بتوانید `git pull` بزنید:
+
+```powershell
+cd "c:\Users\L E N O V O\Desktop\angraweb"
+git add .
+git status
+# اگر فقط db.sqlite3 تغییر کرده، آن را اضافه نکنید (یا در .gitignore باشد)
+git restore --staged db.sqlite3
+git commit -m "توضیح تغییرات"
+git push origin main
+```
+
+اگر از **Git روی سرور** استفاده نمی‌کنید و با **SCP یا rsync** کد را کپی می‌کنید، همین پوشه را دوباره به سرور بفرستید (مطابق بخش ۴).
+
+### ب) روی سرور — به‌روزرسانی کد و اپ
+
+**اگر روی سرور از Git استفاده می‌کنید:**
+
+```bash
+cd /var/www/angraweb
+source venv/bin/activate
+git pull origin main
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py collectstatic --noinput
+systemctl restart angraweb
+```
+
+**اگر با SCP/rsync کد می‌فرستید:** بعد از کپی کردن فایل‌ها روی سرور همان سه خط آخر را اجرا کنید (بدون `git pull`):
+
+```bash
+cd /var/www/angraweb
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py collectstatic --noinput
+systemctl restart angraweb
+```
+
+### ج) اگر روی سرور پکیج‌ها یا پروژه‌ها خالی است (صفحه پکیج/پروژه خالی است)
+
+محتوای صفحه «پکیج‌ها» و «پروژه‌ها» از **دیتابیس** می‌آید. اگر روی سرور تازه نصب کرده‌اید یا دیتابیس خالی است، باید داده را از لوکال به سرور منتقل کنید.
+
+**۱) روی ویندوز (لوکال)** — خروجی گرفتن از دیتابیس لوکال (فقط اپ `main`):
+
+اگر خطای encoding (مثل `charmap can't encode`) گرفتید، از این استفاده کنید:
+
+```powershell
+cd "c:\Users\L E N O V O\Desktop\angraweb"
+$OutputEncoding = [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+python manage.py dumpdata main.Service main.Package main.PackageFeature main.Project main.ProjectVideo main.Testimonial --indent 2 | Out-File -FilePath main_data.json -Encoding utf8
+```
+
+در غیر این صورت:
+
+```powershell
+cd "c:\Users\L E N O V O\Desktop\angraweb"
+python manage.py dumpdata main.Service main.Package main.PackageFeature main.Project main.ProjectVideo main.Testimonial --indent 2 -o main_data.json
+```
+
+فایل `main_data.json` در پوشه پروژه ساخته می‌شود. این فایل را با SCP یا هر روش دیگر به سرور ببرید، مثلاً در `/var/www/angraweb/`.
+
+**۲) روی سرور** — وارد کردن همان داده در دیتابیس سرور:
+
+```bash
+cd /var/www/angraweb
+source venv/bin/activate
+python manage.py loaddata main_data.json
+systemctl restart angraweb
+```
+
+اگر خطای تکراری (duplicate key) گرفتید، یعنی آن رکوردها از قبل روی سرور وجود دارند؛ یا از ادمین سرور محتوا را ویرایش کنید یا فقط مدل‌هایی را که خالی هستند در `dumpdata` بگذارید.
+
+**راه دیگر:** از **پنل ادمین Django روی سرور** (`https://yourdomain.com/admin/`) با یک سوپریوزر وارد شوید و پکیج‌ها و پروژه‌ها را دستی اضافه کنید.
+
+---
+
 ## خلاصه ترتیب دستورات (چک‌لیست)
 
 | مرحله | کار |
