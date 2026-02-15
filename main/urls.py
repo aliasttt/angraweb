@@ -1,7 +1,18 @@
 from django.urls import path
+from django.views.generic.base import RedirectView
 from . import views
 
+# ─── 301 Redirects: آدرس‌های قدیمی سایت استاتیک (.html) → آدرس جدید (Django)
+#     جلوگیری از از دست رفتن رتبه در گوگل وقتی URL عوض شده
 urlpatterns = [
+    path('index.html', RedirectView.as_view(url='/', permanent=True)),
+    path('about.html', RedirectView.as_view(url='/about/', permanent=True)),
+    path('contact.html', RedirectView.as_view(url='/contact/', permanent=True)),
+    path('services.html', RedirectView.as_view(url='/services/', permanent=True)),
+    path('packages.html', RedirectView.as_view(url='/packages/', permanent=True)),
+    path('projects.html', RedirectView.as_view(url='/projects/', permanent=True)),
+    path('resume.html', RedirectView.as_view(url='/resume/', permanent=True)),
+    # ─── مسیرهای اصلی
     # Main pages
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
@@ -64,4 +75,6 @@ urlpatterns = [
     
     # Sitemap
     path('sitemap/', views.sitemap, name='sitemap'),
+    # Sitemap XML برای Google Search Console
+    path('sitemap.xml', views.sitemap_xml, name='sitemap_xml'),
 ]

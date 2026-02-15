@@ -4,7 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.utils import timezone
+from django.urls import reverse
+from xml.sax.saxutils import escape as xml_escape
 from django.views.decorators.http import require_http_methods
 from django.utils import translation
 from django.utils.translation import gettext as _
@@ -671,6 +674,61 @@ def sitemap(request):
     context = {}
     context.update(get_language_context(request))
     return render(request, 'main/sitemap.html', context)
+
+
+def sitemap_xml(request):
+    """Sitemap XML برای Google Search Console — همه URLهای مهم با lastmod."""
+    base = f"{request.scheme}://{request.get_host()}"
+
+    def w(url, lastmod=None, changefreq='monthly', priority='0.8'):
+        lastmod = lastmod or timezone.now()
+        if hasattr(lastmod, 'strftime'):
+            lastmod = lastmod.strftime('%Y-%m-%d')
+        loc = xml_escape(base + url)
+        return f'  <url><loc>{loc}</loc><lastmod>{lastmod}</lastmod><changefreq>{changefreq}</changefreq><priority>{priority}</priority></url>\n'
+
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n']
+    # صفحات ثابت
+    for path, freq, prio in [
+        ('/', 'weekly', '1.0'),
+        ('/about/', 'monthly', '0.9'),
+        ('/contact/', 'monthly', '0.9'),
+        ('/resume/', 'monthly', '0.8'),
+        ('/services/', 'weekly', '0.9'),
+        ('/packages/', 'weekly', '0.9'),
+        ('/packages/compare/', 'monthly', '0.7'),
+        ('/projects/', 'weekly', '0.9'),
+        ('/blog/', 'weekly', '0.9'),
+        ('/quote/', 'monthly', '0.8'),
+        ('/faq/', 'monthly', '0.8'),
+        ('/testimonials/', 'monthly', '0.7'),
+        ('/how-it-works/', 'monthly', '0.7'),
+        ('/calculator/', 'monthly', '0.7'),
+        ('/technology/', 'monthly', '0.7'),
+        ('/web-design/', 'monthly', '0.8'),
+        ('/mobile-app/', 'monthly', '0.8'),
+        ('/ecommerce/', 'monthly', '0.8'),
+        ('/seo/', 'monthly', '0.8'),
+        ('/hosting/', 'monthly', '0.8'),
+        ('/ui-ux/', 'monthly', '0.8'),
+        ('/privacy-policy/', 'yearly', '0.4'),
+        ('/terms-conditions/', 'yearly', '0.4'),
+        ('/guarantee/', 'yearly', '0.5'),
+        ('/sitemap/', 'monthly', '0.5'),
+    ]:
+        lines.append(w(path, changefreq=freq, priority=prio))
+    # سرویس‌ها (داینامیک)
+    for s in Service.objects.filter(active=True):
+        lines.append(w(s.get_absolute_url(), lastmod=s.updated_at, changefreq='monthly', priority='0.7'))
+    # پروژه‌ها
+    for p in Project.objects.filter(active=True):
+        path = reverse('project_detail', kwargs={'slug': p.slug})
+        lines.append(w(path, lastmod=getattr(p, 'updated_at', None), changefreq='monthly', priority='0.7'))
+    # بلاگ (فقط منتشر شده)
+    for b in BlogPost.objects.filter(published=True):
+        lines.append(w(b.get_absolute_url(), lastmod=b.updated_at or b.published_at, changefreq='monthly', priority='0.7'))
+    lines.append('</urlset>')
+    return HttpResponse(''.join(lines), content_type='application/xml')
 
 
 def set_language(request, lang_code):
