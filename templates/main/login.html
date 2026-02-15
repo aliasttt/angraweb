@@ -4,6 +4,8 @@
 
 {% block title %}{% trans "Login" %} | Angraweb.com{% endblock %}
 
+{% block meta_robots %}noindex, nofollow{% endblock %}
+
 {% block content %}
 {% for msg in messages %}{% if msg.tags == 'error' %}
 <script>alert("{{ msg|escapejs }}");</script>{% endif %}{% endfor %}

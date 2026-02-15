@@ -3,9 +3,15 @@
 {% load i18n %}
 {% load main_extras %}
 
-{% block title %}{% localized case_study 'title' current_lang %} - {% trans "Case Study" %}{% endblock %}
+{% block title %}{% localized case_study 'title' current_lang %} - {% trans "Case Study" %} | Angraweb.com{% endblock %}
 
 {% block meta_description %}{% localized case_study 'challenge' current_lang|truncatewords:20 %}{% endblock %}
+
+{% block meta_keywords %}{% localized case_study 'title' current_lang %}, case study, portfolio, Angraweb{% endblock %}
+
+{% block og_title %}{% localized case_study 'title' current_lang %} - {% trans "Case Study" %} | Angraweb.com{% endblock %}
+
+{% block og_description %}{% localized case_study 'challenge' current_lang|truncatewords:15 %}{% endblock %}
 
 {% block content %}
 <!-- Page Hero -->

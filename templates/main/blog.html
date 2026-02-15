@@ -3,9 +3,15 @@
 {% load i18n %}
 {% load main_extras %}
 
-{% block title %}{% trans "Blog - Articles and News" %}{% endblock %}
+{% block title %}{% trans "Blog - Articles and News" %} | Angraweb.com{% endblock %}
 
 {% block meta_description %}{% trans "Read our latest articles about web design, e-commerce, mobile apps, SEO, and digital marketing tips." %}{% endblock %}
+
+{% block meta_keywords %}blog, {% trans "web design" %}, e-commerce, {% trans "mobile app" %}, SEO, {% trans "articles" %}, Angraweb{% endblock %}
+
+{% block og_title %}{% trans "Blog - Articles and News" %} | Angraweb.com{% endblock %}
+
+{% block og_description %}{% trans "Latest articles and news about web design and development" %}{% endblock %}
 
 {% block content %}
 <!-- Page Hero -->

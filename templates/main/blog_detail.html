@@ -11,6 +11,31 @@
 {% block og_description %}{% localized post 'excerpt' current_lang %}{% endblock %}
 {% block og_image %}{% if post.image %}{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endif %}{% endblock %}
 
+{% block meta_keywords %}{% localized post 'title' current_lang %}, blog, Angraweb{% endblock %}
+
+{% block twitter_title %}{% localized post 'title' current_lang %}{% endblock %}
+
+{% block twitter_description %}{% localized post 'excerpt' current_lang %}{% endblock %}
+
+{% block twitter_image %}{% if post.image %}{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endif %}{% endblock %}
+
+{% block extra_ld_json %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{% localized post 'title' current_lang|escapejs %}",
+  "description": "{% localized post 'excerpt' current_lang|escapejs %}",
+  "url": "{{ request.build_absolute_uri }}",
+  "datePublished": "{{ post.published_at|date:'c' }}",
+  "dateModified": "{% if post.updated_at %}{{ post.updated_at|date:'c' }}{% else %}{{ post.published_at|date:'c' }}{% endif %}",
+  "author": {"@type": "Organization", "name": "Angraweb.com"},
+  "publisher": {"@type": "Organization", "name": "Angraweb.com", "logo": {"@type": "ImageObject", "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}"}}
+  {% if post.image %},"image": "{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}"{% endif %}
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <!-- Page Hero -->
 <section class="page-hero">

@@ -3,9 +3,38 @@
 {% load i18n %}
 {% load main_extras %}
 
-{% block title %}{% trans "Frequently Asked Questions (FAQ)" %}{% endblock %}
+{% block title %}{% trans "Frequently Asked Questions (FAQ)" %} | Angraweb.com{% endblock %}
 
 {% block meta_description %}{% trans "Find answers to common questions about our web design, e-commerce, and development services." %}{% endblock %}
+
+{% block meta_keywords %}FAQ, {% trans "questions" %}, {% trans "web design" %}, e-commerce, {% trans "services" %}, Angraweb{% endblock %}
+
+{% block og_title %}{% trans "Frequently Asked Questions (FAQ)" %} | Angraweb.com{% endblock %}
+
+{% block og_description %}{% trans "Find answers to common questions" %}{% endblock %}
+
+{% block extra_ld_json %}
+{% if faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {% for faq in faqs %}
+  {
+    "@type": "Question",
+    "name": "{% localized faq 'question' current_lang|escapejs %}",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "{% localized faq 'answer' current_lang|striptags|truncatewords:80|escapejs %}"
+    }
+  }{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+{% endblock %}
 
 {% block content %}
 <!-- Page Hero -->

@@ -5,6 +5,16 @@
 
 {% block title %}{% localized service 'title' current_lang %} | Angraweb.com{% endblock %}
 
+{% block meta_description %}{% localized_truncate service 'description' current_lang 25 %}{% endblock %}
+
+{% block meta_keywords %}{% localized service 'title' current_lang %}, {% trans "web design" %}, {% trans "services" %}, Angraweb{% endblock %}
+
+{% block og_title %}{% localized service 'title' current_lang %} | Angraweb.com{% endblock %}
+
+{% block og_description %}{% localized_truncate service 'description' current_lang 20 %}{% endblock %}
+
+{% block og_image %}{% if service.image %}{{ request.scheme }}://{{ request.get_host }}{{ service.image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endif %}{% endblock %}
+
 {% block content %}
 <section class="page-hero">
     <div class="container">
