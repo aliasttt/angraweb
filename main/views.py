@@ -329,11 +329,7 @@ def contact(request):
                 contact_message.ip_address = request.META.get('REMOTE_ADDR')
             contact_message.user_agent = request.META.get('HTTP_USER_AGENT', '')
             contact_message.save()
-            lang = translation.get_language() or 'tr'
-            if lang == 'tr':
-                messages.success(request, 'Mesajınız başarıyla gönderildi. En kısa sürede sizinle iletişime geçeceğiz.')
-            else:
-                messages.success(request, 'Your message has been sent successfully. We will contact you soon.')
+            messages.success(request, _('Your message has been sent successfully. We will contact you soon.'))
             return redirect('contact')
     else:
         form = ContactForm()
@@ -353,11 +349,7 @@ def quote_request(request):
         form = QuoteRequestForm(request.POST)
         if form.is_valid():
             quote = form.save()
-            lang = translation.get_language() or 'tr'
-            if lang == 'tr':
-                messages.success(request, 'Talebiniz başarıyla alındı. En kısa sürede sizinle iletişime geçeceğiz.')
-            else:
-                messages.success(request, 'Your request has been submitted successfully. We will contact you soon.')
+            messages.success(request, _('Your request has been submitted successfully. We will contact you soon.'))
             return redirect('quote_request')
     else:
         form = QuoteRequestForm()
@@ -425,7 +417,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, 'ثبت‌نام با موفقیت انجام شد!')
+            messages.success(request, _('Registration completed successfully!'))
             return redirect('index')
     else:
         form = UserRegistrationForm()
@@ -507,11 +499,7 @@ def edit_profile(request):
         form = UserProfileEditForm(request.POST, instance=profile, user=request.user)
         if form.is_valid():
             form.save()
-            lang = translation.get_language() or 'tr'
-            if lang == 'tr':
-                messages.success(request, 'پروفایل شما با موفقیت به‌روزرسانی شد.')
-            else:
-                messages.success(request, 'Your profile has been updated successfully.')
+            messages.success(request, _('Your profile has been updated successfully.'))
             return redirect('dashboard')
     else:
         form = UserProfileEditForm(instance=profile, user=request.user)
@@ -528,7 +516,7 @@ def edit_profile(request):
 def user_logout(request):
     """خروج کاربر"""
     logout(request)
-    messages.success(request, 'با موفقیت خارج شدید.')
+    messages.success(request, _('You have been logged out successfully.'))
     return redirect('index')
 
 
