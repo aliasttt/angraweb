@@ -19,23 +19,254 @@
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-8 mx-auto">
-                <div class="contact-form">
-                    <h3 class="mb-4" style="color:#ffffff;">{% trans "Your information" %}</h3>
-                    <ul class="list-unstyled" style="color:#ffffff;">
-                        <li class="mb-2"><strong>{% trans "Username" %}:</strong> {{ user.username }}</li>
-                        <li class="mb-2"><strong>{% trans "First name" %}:</strong> {{ user.first_name|default:"—" }}</li>
-                        <li class="mb-2"><strong>{% trans "Last name" %}:</strong> {{ user.last_name|default:"—" }}</li>
-                        <li class="mb-2"><strong>{% trans "Email" %}:</strong> {{ user.email|default:"—" }}</li>
-                        <li class="mb-2"><strong>{% trans "Phone number" %}:</strong> {{ profile.phone|default:"—" }}</li>
-                    </ul>
-                    <hr style="border-color: rgba(116,185,255,0.3);">
-                    <h4 class="mt-4 mb-3" style="color:#ffffff;">{% trans "Activity" %}</h4>
-                    <p style="color:#b2bec3;">{% trans "Your recent activity and requests will appear here." %}</p>
-                    <div class="mt-4">
-                        <a href="{% url 'quote_request' %}" class="btn btn-primary me-2">{% trans "Request a quote" %}</a>
-                        <a href="{% url 'contact' %}" class="btn btn-outline-light">{% trans "Contact" %}</a>
+            <!-- اطلاعات کاربر -->
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="service-card h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="mb-0"><i class="fas fa-user-circle me-2"></i>{% trans "Your Information" %}</h3>
+                        <a href="{% url 'edit_profile' %}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-edit me-1"></i>{% trans "Edit" %}
+                        </a>
                     </div>
+                    <div class="profile-info">
+                        <div class="profile-item mb-3">
+                            <label class="text-muted small">{% trans "Username" %}</label>
+                            <div class="fw-bold">{{ user.username }}</div>
+                        </div>
+                        <div class="profile-item mb-3">
+                            <label class="text-muted small">{% trans "First name" %}</label>
+                            <div class="fw-bold">{{ user.first_name|default:"—" }}</div>
+                        </div>
+                        <div class="profile-item mb-3">
+                            <label class="text-muted small">{% trans "Last name" %}</label>
+                            <div class="fw-bold">{{ user.last_name|default:"—" }}</div>
+                        </div>
+                        <div class="profile-item mb-3">
+                            <label class="text-muted small">{% trans "Email" %}</label>
+                            <div class="fw-bold">{{ user.email|default:"—" }}</div>
+                        </div>
+                        <div class="profile-item mb-3">
+                            <label class="text-muted small">{% trans "Phone number" %}</label>
+                            <div class="fw-bold">{{ profile.phone|default:"—" }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- درخواست‌های قیمت -->
+            <div class="col-12 col-lg-8 mb-4">
+                <div class="service-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="mb-0"><i class="fas fa-file-invoice-dollar me-2"></i>{% trans "Quote Requests" %}</h3>
+                        <a href="{% url 'quote_request' %}" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-plus me-1"></i>{% trans "New Request" %}
+                        </a>
+                    </div>
+                    {% if quote_requests %}
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "Date" %}</th>
+                                    <th>{% trans "Service" %}</th>
+                                    <th>{% trans "Status" %}</th>
+                                    <th>{% trans "Actions" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for quote in quote_requests %}
+                                <tr>
+                                    <td>{{ quote.created_at|date:"d M Y" }}</td>
+                                    <td>{{ quote.get_service_type_display|default:quote.service_type }}</td>
+                                    <td>
+                                        <span class="badge 
+                                            {% if quote.status == 'new' %}bg-primary
+                                            {% elif quote.status == 'reviewed' %}bg-info
+                                            {% elif quote.status == 'quoted' %}bg-success
+                                            {% elif quote.status == 'accepted' %}bg-success
+                                            {% else %}bg-secondary{% endif %}">
+                                            {{ quote.get_status_display }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#quoteModal{{ quote.id }}">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Modal برای نمایش جزئیات -->
+                                <div class="modal fade" id="quoteModal{{ quote.id }}" tabindex="-1">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content bg-dark text-light">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">{% trans "Quote Request Details" %}</h5>
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6"><strong>{% trans "Name" %}:</strong> {{ quote.name }}</div>
+                                                    <div class="col-md-6"><strong>{% trans "Email" %}:</strong> {{ quote.email }}</div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6"><strong>{% trans "Phone" %}:</strong> {{ quote.phone }}</div>
+                                                    <div class="col-md-6"><strong>{% trans "Company" %}:</strong> {{ quote.company|default:"—" }}</div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Service Type" %}:</strong> {{ quote.get_service_type_display|default:quote.service_type }}
+                                                </div>
+                                                {% if quote.package_type %}
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Package" %}:</strong> {{ quote.package_type }}
+                                                </div>
+                                                {% endif %}
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Description" %}:</strong>
+                                                    <p class="mt-2">{{ quote.description }}</p>
+                                                </div>
+                                                {% if quote.budget %}
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Budget" %}:</strong> {{ quote.budget }}
+                                                </div>
+                                                {% endif %}
+                                                {% if quote.deadline %}
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Deadline" %}:</strong> {{ quote.deadline }}
+                                                </div>
+                                                {% endif %}
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Status" %}:</strong> 
+                                                    <span class="badge 
+                                                        {% if quote.status == 'new' %}bg-primary
+                                                        {% elif quote.status == 'reviewed' %}bg-info
+                                                        {% elif quote.status == 'quoted' %}bg-success
+                                                        {% elif quote.status == 'accepted' %}bg-success
+                                                        {% else %}bg-secondary{% endif %}">
+                                                        {{ quote.get_status_display }}
+                                                    </span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Created" %}:</strong> {{ quote.created_at|date:"d F Y, H:i" }}
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-file-invoice-dollar fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">{% trans "No quote requests yet." %}</p>
+                        <a href="{% url 'quote_request' %}" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>{% trans "Request a Quote" %}
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- پیام‌های تماس -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="service-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="mb-0"><i class="fas fa-envelope me-2"></i>{% trans "Contact Messages" %}</h3>
+                        <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-plus me-1"></i>{% trans "New Message" %}
+                        </a>
+                    </div>
+                    {% if contact_messages %}
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "Date" %}</th>
+                                    <th>{% trans "Subject" %}</th>
+                                    <th>{% trans "Status" %}</th>
+                                    <th>{% trans "Actions" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for message in contact_messages %}
+                                <tr>
+                                    <td>{{ message.created_at|date:"d M Y" }}</td>
+                                    <td>{{ message.subject }}</td>
+                                    <td>
+                                        <span class="badge 
+                                            {% if message.status == 'new' %}bg-primary
+                                            {% elif message.status == 'read' %}bg-info
+                                            {% elif message.status == 'replied' %}bg-success
+                                            {% else %}bg-secondary{% endif %}">
+                                            {{ message.get_status_display }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#messageModal{{ message.id }}">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Modal برای نمایش پیام -->
+                                <div class="modal fade" id="messageModal{{ message.id }}" tabindex="-1">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content bg-dark text-light">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">{{ message.subject }}</h5>
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6"><strong>{% trans "Name" %}:</strong> {{ message.name }}</div>
+                                                    <div class="col-md-6"><strong>{% trans "Email" %}:</strong> {{ message.email }}</div>
+                                                </div>
+                                                {% if message.phone %}
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Phone" %}:</strong> {{ message.phone }}
+                                                </div>
+                                                {% endif %}
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Message" %}:</strong>
+                                                    <p class="mt-2">{{ message.message|linebreaks }}</p>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Status" %}:</strong> 
+                                                    <span class="badge 
+                                                        {% if message.status == 'new' %}bg-primary
+                                                        {% elif message.status == 'read' %}bg-info
+                                                        {% elif message.status == 'replied' %}bg-success
+                                                        {% else %}bg-secondary{% endif %}">
+                                                        {{ message.get_status_display }}
+                                                    </span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <strong>{% trans "Sent" %}:</strong> {{ message.created_at|date:"d F Y, H:i" }}
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-envelope fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">{% trans "No contact messages yet." %}</p>
+                        <a href="{% url 'contact' %}" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>{% trans "Contact Us" %}
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@ from .models import (
     ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember, UserProfile, FAQ, NewsletterSubscriber,
     ProcessStep, CaseStudy, TimelineEvent, Skill
 )
-from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, NewsletterForm, TestimonialSubmitForm
+from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, NewsletterForm, TestimonialSubmitForm, UserProfileEditForm
 
 
 def get_language_context(request):
@@ -470,15 +470,54 @@ def user_login(request):
 
 
 @login_required
+@login_required
 def dashboard(request):
     """داشبورد کاربر — اطلاعات و فعالیت‌ها"""
     try:
         profile = request.user.profile
     except UserProfile.DoesNotExist:
-        profile = None
-    context = {'profile': profile}
+        profile = UserProfile.objects.create(user=request.user)
+    
+    # دریافت درخواست‌های کاربر بر اساس email
+    quote_requests = QuoteRequest.objects.filter(email=request.user.email).order_by('-created_at')[:10]
+    contact_messages = ContactMessage.objects.filter(email=request.user.email).order_by('-created_at')[:10]
+    
+    context = {
+        'profile': profile,
+        'quote_requests': quote_requests,
+        'contact_messages': contact_messages,
+    }
     context.update(get_language_context(request))
     return render(request, 'main/dashboard.html', context)
+
+
+@login_required
+def edit_profile(request):
+    """ویرایش پروفایل کاربر"""
+    try:
+        profile = request.user.profile
+    except UserProfile.DoesNotExist:
+        profile = UserProfile.objects.create(user=request.user)
+    
+    if request.method == 'POST':
+        form = UserProfileEditForm(request.POST, instance=profile, user=request.user)
+        if form.is_valid():
+            form.save()
+            lang = translation.get_language() or 'tr'
+            if lang == 'tr':
+                messages.success(request, 'پروفایل شما با موفقیت به‌روزرسانی شد.')
+            else:
+                messages.success(request, 'Your profile has been updated successfully.')
+            return redirect('dashboard')
+    else:
+        form = UserProfileEditForm(instance=profile, user=request.user)
+    
+    context = {
+        'form': form,
+        'profile': profile,
+    }
+    context.update(get_language_context(request))
+    return render(request, 'main/edit_profile.html', context)
 
 
 @login_required
