@@ -104,7 +104,8 @@ class SessionExpiryMiddleware:
                     pass
             
             # به‌روزرسانی last_activity در هر درخواست
-            request.session['last_activity'] = timezone.now()
+            # Store as ISO string for JSON serialization
+            request.session['last_activity'] = timezone.now().isoformat()
         else:
             # اگر کاربر لاگین نکرده باشد، last_activity را پاک کن
             if 'last_activity' in request.session:
