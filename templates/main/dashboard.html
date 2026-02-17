@@ -31,23 +31,23 @@
                     <div class="profile-info">
                         <div class="profile-item mb-3">
                             <label class="text-muted small">{% trans "Username" %}</label>
-                            <div class="fw-bold">{{ user.username }}</div>
+                            <div class="fw-bold text-white">{{ user.username }}</div>
                         </div>
                         <div class="profile-item mb-3">
                             <label class="text-muted small">{% trans "First name" %}</label>
-                            <div class="fw-bold">{{ user.first_name|default:"—" }}</div>
+                            <div class="fw-bold text-white">{{ user.first_name|default:"—" }}</div>
                         </div>
                         <div class="profile-item mb-3">
                             <label class="text-muted small">{% trans "Last name" %}</label>
-                            <div class="fw-bold">{{ user.last_name|default:"—" }}</div>
+                            <div class="fw-bold text-white">{{ user.last_name|default:"—" }}</div>
                         </div>
                         <div class="profile-item mb-3">
                             <label class="text-muted small">{% trans "Email" %}</label>
-                            <div class="fw-bold">{{ user.email|default:"—" }}</div>
+                            <div class="fw-bold text-white">{{ user.email|default:"—" }}</div>
                         </div>
                         <div class="profile-item mb-3">
                             <label class="text-muted small">{% trans "Phone number" %}</label>
-                            <div class="fw-bold">{{ profile.phone|default:"—" }}</div>
+                            <div class="fw-bold text-white">{{ profile.phone|default:"—" }}</div>
                         </div>
                     </div>
                 </div>
@@ -95,46 +95,46 @@
                                     </td>
                                 </tr>
                                 <!-- Modal برای نمایش جزئیات -->
-                                <div class="modal fade" id="quoteModal{{ quote.id }}" tabindex="-1">
+                                <div class="modal fade" id="quoteModal{{ quote.id }}" tabindex="-1" aria-labelledby="quoteModalLabel{{ quote.id }}" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
-                                        <div class="modal-content bg-dark text-light">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">{% trans "Quote Request Details" %}</h5>
-                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                        <div class="modal-content bg-dark text-white">
+                                            <div class="modal-header border-secondary">
+                                                <h5 class="modal-title text-white" id="quoteModalLabel{{ quote.id }}">{% trans "Quote Request Details" %}</h5>
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body text-white">
                                                 <div class="row mb-3">
-                                                    <div class="col-md-6"><strong>{% trans "Name" %}:</strong> {{ quote.name }}</div>
-                                                    <div class="col-md-6"><strong>{% trans "Email" %}:</strong> {{ quote.email }}</div>
+                                                    <div class="col-md-6"><strong class="text-white">{% trans "Name" %}:</strong> <span class="text-white">{{ quote.name }}</span></div>
+                                                    <div class="col-md-6"><strong class="text-white">{% trans "Email" %}:</strong> <span class="text-white">{{ quote.email }}</span></div>
                                                 </div>
                                                 <div class="row mb-3">
-                                                    <div class="col-md-6"><strong>{% trans "Phone" %}:</strong> {{ quote.phone }}</div>
-                                                    <div class="col-md-6"><strong>{% trans "Company" %}:</strong> {{ quote.company|default:"—" }}</div>
+                                                    <div class="col-md-6"><strong class="text-white">{% trans "Phone" %}:</strong> <span class="text-white">{{ quote.phone }}</span></div>
+                                                    <div class="col-md-6"><strong class="text-white">{% trans "Company" %}:</strong> <span class="text-white">{{ quote.company|default:"—" }}</span></div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Service Type" %}:</strong> {{ quote.get_service_type_display|default:quote.service_type }}
+                                                    <strong class="text-white">{% trans "Service Type" %}:</strong> <span class="text-white">{{ quote.get_service_type_display|default:quote.service_type }}</span>
                                                 </div>
                                                 {% if quote.package_type %}
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Package" %}:</strong> {{ quote.package_type }}
+                                                    <strong class="text-white">{% trans "Package" %}:</strong> <span class="text-white">{{ quote.package_type }}</span>
                                                 </div>
                                                 {% endif %}
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Description" %}:</strong>
-                                                    <p class="mt-2">{{ quote.description }}</p>
+                                                    <strong class="text-white">{% trans "Description" %}:</strong>
+                                                    <p class="mt-2 text-white">{{ quote.description }}</p>
                                                 </div>
                                                 {% if quote.budget %}
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Budget" %}:</strong> {{ quote.budget }}
+                                                    <strong class="text-white">{% trans "Budget" %}:</strong> <span class="text-white">{{ quote.budget }}</span>
                                                 </div>
                                                 {% endif %}
                                                 {% if quote.deadline %}
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Deadline" %}:</strong> {{ quote.deadline }}
+                                                    <strong class="text-white">{% trans "Deadline" %}:</strong> <span class="text-white">{{ quote.deadline }}</span>
                                                 </div>
                                                 {% endif %}
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Status" %}:</strong> 
+                                                    <strong class="text-white">{% trans "Status" %}:</strong> 
                                                     <span class="badge 
                                                         {% if quote.status == 'new' %}bg-primary
                                                         {% elif quote.status == 'reviewed' %}bg-info
@@ -145,10 +145,10 @@
                                                     </span>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Created" %}:</strong> {{ quote.created_at|date:"d F Y, H:i" }}
+                                                    <strong class="text-white">{% trans "Created" %}:</strong> <span class="text-white">{{ quote.created_at|date:"d F Y, H:i" }}</span>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
+                                            <div class="modal-footer border-secondary">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
                                             </div>
                                         </div>
@@ -213,29 +213,29 @@
                                     </td>
                                 </tr>
                                 <!-- Modal برای نمایش پیام -->
-                                <div class="modal fade" id="messageModal{{ message.id }}" tabindex="-1">
+                                <div class="modal fade" id="messageModal{{ message.id }}" tabindex="-1" aria-labelledby="messageModalLabel{{ message.id }}" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
-                                        <div class="modal-content bg-dark text-light">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">{{ message.subject }}</h5>
-                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                        <div class="modal-content bg-dark text-white">
+                                            <div class="modal-header border-secondary">
+                                                <h5 class="modal-title text-white" id="messageModalLabel{{ message.id }}">{{ message.subject }}</h5>
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body text-white">
                                                 <div class="row mb-3">
-                                                    <div class="col-md-6"><strong>{% trans "Name" %}:</strong> {{ message.name }}</div>
-                                                    <div class="col-md-6"><strong>{% trans "Email" %}:</strong> {{ message.email }}</div>
+                                                    <div class="col-md-6"><strong class="text-white">{% trans "Name" %}:</strong> <span class="text-white">{{ message.name }}</span></div>
+                                                    <div class="col-md-6"><strong class="text-white">{% trans "Email" %}:</strong> <span class="text-white">{{ message.email }}</span></div>
                                                 </div>
                                                 {% if message.phone %}
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Phone" %}:</strong> {{ message.phone }}
+                                                    <strong class="text-white">{% trans "Phone" %}:</strong> <span class="text-white">{{ message.phone }}</span>
                                                 </div>
                                                 {% endif %}
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Message" %}:</strong>
-                                                    <p class="mt-2">{{ message.message|linebreaks }}</p>
+                                                    <strong class="text-white">{% trans "Message" %}:</strong>
+                                                    <p class="mt-2 text-white">{{ message.message|linebreaks }}</p>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Status" %}:</strong> 
+                                                    <strong class="text-white">{% trans "Status" %}:</strong> 
                                                     <span class="badge 
                                                         {% if message.status == 'new' %}bg-primary
                                                         {% elif message.status == 'read' %}bg-info
@@ -245,10 +245,10 @@
                                                     </span>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <strong>{% trans "Sent" %}:</strong> {{ message.created_at|date:"d F Y, H:i" }}
+                                                    <strong class="text-white">{% trans "Sent" %}:</strong> <span class="text-white">{{ message.created_at|date:"d F Y, H:i" }}</span>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
+                                            <div class="modal-footer border-secondary">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
                                             </div>
                                         </div>
