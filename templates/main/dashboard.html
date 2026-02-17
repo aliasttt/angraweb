@@ -135,7 +135,7 @@ body.modal-open {
                                         <div class="modal-content bg-dark text-white">
                                             <div class="modal-header border-secondary">
                                                 <h5 class="modal-title text-white" id="quoteModalLabel{{ quote.id }}">{% trans "Quote Request Details" %}</h5>
-                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onclick="this.closest('.modal').classList.remove('show'); document.body.classList.remove('modal-open'); document.querySelector('.modal-backdrop')?.remove();"></button>
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body text-white">
                                                 <div class="row mb-3">
@@ -184,7 +184,7 @@ body.modal-open {
                                                 </div>
                                             </div>
                                             <div class="modal-footer border-secondary">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="this.closest('.modal').classList.remove('show'); document.body.classList.remove('modal-open'); document.querySelector('.modal-backdrop')?.remove();">{% trans "Close" %}</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -253,7 +253,7 @@ body.modal-open {
                                         <div class="modal-content bg-dark text-white">
                                             <div class="modal-header border-secondary">
                                                 <h5 class="modal-title text-white" id="messageModalLabel{{ message.id }}">{{ message.subject }}</h5>
-                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onclick="this.closest('.modal').classList.remove('show'); document.body.classList.remove('modal-open'); document.querySelector('.modal-backdrop')?.remove();"></button>
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body text-white">
                                                 <div class="row mb-3">
@@ -284,7 +284,7 @@ body.modal-open {
                                                 </div>
                                             </div>
                                             <div class="modal-footer border-secondary">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="this.closest('.modal').classList.remove('show'); document.body.classList.remove('modal-open'); document.querySelector('.modal-backdrop')?.remove();">{% trans "Close" %}</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -311,43 +311,76 @@ body.modal-open {
 {% block extra_js %}
 <script>
 // اطمینان از کار کردن دکمه close modal
-document.addEventListener('DOMContentLoaded', function() {
-    // برای همه modal ها
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(function(modal) {
-        // دکمه close
-        const closeButtons = modal.querySelectorAll('[data-bs-dismiss="modal"], .btn-close');
-        closeButtons.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                const modalInstance = bootstrap.Modal.getInstance(modal);
+(function() {
+    'use strict';
+    
+    function closeModal(modal) {
+        if (!modal) return;
+        
+        // استفاده از Bootstrap API اگر در دسترس باشد
+        if (window.bootstrap && window.bootstrap.Modal) {
+            try {
+                var modalInstance = window.bootstrap.Modal.getInstance(modal);
                 if (modalInstance) {
                     modalInstance.hide();
-                } else {
-                    // اگر modal instance وجود نداشت، دستی ببند
-                    modal.classList.remove('show');
-                    modal.setAttribute('aria-hidden', 'true');
-                    modal.style.display = 'none';
-                    document.body.classList.remove('modal-open');
-                    const backdrop = document.querySelector('.modal-backdrop');
-                    if (backdrop) {
-                        backdrop.remove();
-                    }
-                    document.body.style.overflow = '';
-                    document.body.style.paddingRight = '';
+                    return;
+                }
+            } catch (e) {
+                // اگر خطا داد، ادامه بده به روش دستی
+            }
+        }
+        
+        // روش دستی برای بستن modal
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        modal.style.display = 'none';
+        
+        // حذف backdrop
+        var backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.remove();
+        }
+        
+        // بازگرداندن scroll به body
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // برای همه modal ها
+        var modals = document.querySelectorAll('.modal');
+        for (var i = 0; i < modals.length; i++) {
+            var modal = modals[i];
+            
+            // دکمه close
+            var closeButtons = modal.querySelectorAll('[data-bs-dismiss="modal"], .btn-close');
+            for (var j = 0; j < closeButtons.length; j++) {
+                closeButtons[j].addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeModal(modal);
+                });
+            }
+            
+            // بستن با کلیک روی backdrop
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal(modal);
                 }
             });
-        });
+        }
         
-        // بستن با کلیک روی backdrop (فقط اگر backdrop روشن باشد)
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                const modalInstance = bootstrap.Modal.getInstance(modal);
-                if (modalInstance) {
-                    modalInstance.hide();
+        // بستن با کلید Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                var openModal = document.querySelector('.modal.show');
+                if (openModal) {
+                    closeModal(openModal);
                 }
             }
         });
     });
-});
+})();
 </script>
 {% endblock %}

@@ -478,9 +478,13 @@ def dashboard(request):
     except UserProfile.DoesNotExist:
         profile = UserProfile.objects.create(user=request.user)
     
-    # دریافت درخواست‌های کاربر بر اساس email
-    quote_requests = QuoteRequest.objects.filter(email=request.user.email).order_by('-created_at')[:10]
-    contact_messages = ContactMessage.objects.filter(email=request.user.email).order_by('-created_at')[:10]
+    # دریافت درخواست‌های کاربر بر اساس email (اگر email وجود داشته باشد)
+    quote_requests = []
+    contact_messages = []
+    
+    if request.user.email:
+        quote_requests = QuoteRequest.objects.filter(email=request.user.email).order_by('-created_at')[:10]
+        contact_messages = ContactMessage.objects.filter(email=request.user.email).order_by('-created_at')[:10]
     
     context = {
         'profile': profile,
