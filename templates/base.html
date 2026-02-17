@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}</title>
+    <title>{% block title %}Angraweb | {% trans "Web Design and E-commerce" %}{% endblock %}</title>
     
     <!-- Meta Tags for SEO -->
     {% block meta %}
@@ -23,7 +23,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:title" content="{% block og_title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Angraweb | {% trans "Web Design and E-commerce" %}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{% trans 'Professional web design and development services. Grow your business in the digital world!' %}{% endblock %}">
     <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endblock %}">
     <meta property="og:image:width" content="1200">
@@ -35,17 +35,18 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
-    <meta name="twitter:title" content="{% block twitter_title %}{% trans "Angraweb.com - Professional Web Design and E-commerce" %}{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}Angraweb | {% trans "Web Design and E-commerce" %}{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}{% trans 'Professional web design and development services. Grow your business in the digital world!' %}{% endblock %}">
     <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endblock %}">
     {% endblock %}
     
-    <!-- Schema.org JSON-LD -->
+    <!-- Schema.org JSON-LD - برند Angraweb برای جستجو -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Angraweb.com",
+      "name": "Angraweb",
+      "alternateName": ["Angraweb.com", "انگرا وب", "Angraweb Web Tasarım"],
       "url": "{{ request.scheme }}://{{ request.get_host }}",
       "logo": "{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}",
       "description": "{% trans 'Professional web design and development services. Grow your business in the digital world!' %}",
@@ -58,7 +59,7 @@
         "telephone": "+90-534-038-23-35",
         "contactType": "customer service",
         "email": "aliasadi3853@gmail.com",
-        "availableLanguage": ["tr"],
+        "availableLanguage": ["tr", "en"],
         "areaServed": "TR"
       },
       "sameAs": [
@@ -134,13 +135,8 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">{% trans "Home" %}</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {% if 'package' in request.resolver_match.url_name %}active{% endif %}" href="#" id="packagesDropdown" role="button" data-bs-toggle="dropdown">
-                            {% trans "Packages" %}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{% url 'packages_list' %}">{% trans "All Packages" %}</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'package' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'packages_list' %}">{% trans "Packages" %}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">{% trans "About" %}</a>
@@ -184,11 +180,15 @@
                         <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">{% trans "Contact" %}</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'dashboard' %}">{% trans "Hello" %}, {{ user.first_name|default:user.username }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ user.first_name|default:user.username }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{% url 'dashboard' %}"><i class="fas fa-user me-2"></i>{% trans "Dashboard" %}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt me-2"></i>{% trans "Logout" %}</a></li>
+                        </ul>
                     </li>
                     {% else %}
                     <li class="nav-item">

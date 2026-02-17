@@ -1,10 +1,14 @@
 """
 Middleware برای اطمینان از فعال شدن زبان از session/cookie
 و نمایش صفحه نگهداری (Bakım Modu)
+و مدیریت انقضای session
 """
 from django.conf import settings
 from django.shortcuts import render
 from django.utils import translation
+from django.contrib.auth import logout
+from django.utils import timezone
+from datetime import timedelta
 
 
 class MaintenanceMiddleware:
@@ -58,4 +62,53 @@ class LanguageActivationMiddleware:
         # حالا view را اجرا کن
         response = self.get_response(request)
         
+        return response
+
+
+class SessionExpiryMiddleware:
+    """
+    چک می‌کند که session منقضی شده باشد یا نه.
+    اگر session منقضی شده باشد و کاربر لاگین کرده باشد، او را logout می‌کند.
+    """
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        # اگر کاربر لاگین کرده باشد
+        if request.user.is_authenticated:
+            # زمان آخرین فعالیت را از session بخوان
+            last_activity = request.session.get('last_activity')
+            session_age = getattr(settings, 'SESSION_COOKIE_AGE', 7200)  # پیش‌فرض 2 ساعت
+            
+            if last_activity:
+                try:
+                    # اگر string است، تبدیل به datetime کن
+                    if isinstance(last_activity, str):
+                        from datetime import datetime
+                        last_activity = datetime.fromisoformat(last_activity.replace('Z', '+00:00'))
+                        if timezone.is_naive(last_activity):
+                            last_activity = timezone.make_aware(last_activity)
+                    
+                    # محاسبه زمان گذشته از آخرین فعالیت
+                    time_passed = (timezone.now() - last_activity).total_seconds()
+                    
+                    # اگر زمان گذشته بیشتر از session_age باشد، کاربر را logout کن
+                    if time_passed > session_age:
+                        logout(request)
+                        request.session.flush()  # پاک کردن session
+                        # بعد از logout، ادامه نده
+                        response = self.get_response(request)
+                        return response
+                except (ValueError, TypeError, AttributeError):
+                    # اگر خطا در parsing بود، last_activity را reset کن
+                    pass
+            
+            # به‌روزرسانی last_activity در هر درخواست
+            request.session['last_activity'] = timezone.now()
+        else:
+            # اگر کاربر لاگین نکرده باشد، last_activity را پاک کن
+            if 'last_activity' in request.session:
+                del request.session['last_activity']
+        
+        response = self.get_response(request)
         return response

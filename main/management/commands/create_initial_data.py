@@ -78,7 +78,7 @@ class Command(BaseCommand):
         PACKAGE_I18N = {
             'basic': {'title': 'Temel Paket', 'title_en': 'Basic Package', 'title_fa': 'پکیج پایه', 'title_ar': 'الباقة الأساسية'},
             'commercial': {'title': 'Ticari Paket', 'title_en': 'Commercial Package', 'title_fa': 'پکیج تجاری', 'title_ar': 'الباقة التجارية'},
-            'professional': {'title': 'Profesyonel Paket', 'title_en': 'Professional Package', 'title_fa': 'پکیج حرفه‌ای', 'title_ar': 'الباقة المهنية'},
+            'professional': {'title': 'E-Ticaret Web Sitesi', 'title_en': 'E-commerce Website', 'title_fa': 'وبسایت فروشگاهی', 'title_ar': 'موقع التجارة الإلكترونية'},
             'custom': {'title': 'Özel Paket', 'title_en': 'Custom Package', 'title_fa': 'پکیج کاستوم', 'title_ar': 'الباقة المخصصة'},
         }
         FEATURE_I18N = {
@@ -97,9 +97,9 @@ class Command(BaseCommand):
             'اپلیکیشن موبایل iOS و Android': ('iOS & Android app', 'اپلیکیشن موبایل', 'تطبيق iOS و Android'),
         }
         packages_data = [
-            {'package_type': 'basic', 'price': 5000, 'currency': 'TL', 'order': 1, **PACKAGE_I18N['basic']},
-            {'package_type': 'commercial', 'price': 10000, 'currency': 'TL', 'order': 2, 'popular': True, **PACKAGE_I18N['commercial']},
-            {'package_type': 'professional', 'price': 15000, 'currency': 'TL', 'order': 3, **PACKAGE_I18N['professional']},
+            {'package_type': 'basic', 'price': 8000, 'currency': 'TL', 'order': 1, **PACKAGE_I18N['basic']},
+            {'package_type': 'commercial', 'price': 15000, 'currency': 'TL', 'order': 2, 'popular': True, **PACKAGE_I18N['commercial']},
+            {'package_type': 'professional', 'price': 35000, 'currency': 'TL', 'order': 3, **PACKAGE_I18N['professional']},
             {'package_type': 'custom', 'price': 0, 'custom_price_text': 'برای قیمت‌گذاری اختصاصی واتساپ پیام دهید', 'order': 4, **PACKAGE_I18N['custom']},
         ]
         for p in packages_data:

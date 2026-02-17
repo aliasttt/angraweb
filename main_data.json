@@ -1,4 +1,4 @@
-﻿[
+[
 {
   "model": "main.service",
   "pk": 1,
@@ -146,7 +146,7 @@
     "title_fa": "Temel Paket",
     "title_ar": "Temel Paket",
     "package_type": "basic",
-    "price": "5000.00",
+    "price": "8000.00",
     "currency": "TL",
     "custom_price_text": "",
     "description": "",
@@ -170,7 +170,7 @@
     "title_fa": "Ticari Paket",
     "title_ar": "Ticari Paket",
     "package_type": "commercial",
-    "price": "10000.00",
+    "price": "15000.00",
     "currency": "TL",
     "custom_price_text": "",
     "description": "",
@@ -189,12 +189,12 @@
   "model": "main.package",
   "pk": 3,
   "fields": {
-    "title": "Profesyonel Paket",
-    "title_en": "Professional Package",
-    "title_fa": "Profesyonel Paket",
-    "title_ar": "Profesyonel Paket",
+    "title": "E-Ticaret Web Sitesi",
+    "title_en": "E-commerce Website",
+    "title_fa": "وبسایت فروشگاهی",
+    "title_ar": "موقع التجارة الإلكترونية",
     "package_type": "professional",
-    "price": "15000.00",
+    "price": "35000.00",
     "currency": "TL",
     "custom_price_text": "",
     "description": "",

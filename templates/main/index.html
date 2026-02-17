@@ -3,15 +3,33 @@
 {% load i18n %}
 {% load main_extras %}
 
-{% block title %}{% trans "Web and mobile app design | Custom developer and designer" %} | Angraweb.com{% endblock %}
+{% block title %}Angraweb | {% trans "Web Design, E-commerce and Mobile App" %}{% endblock %}
 
-{% block meta_description %}{% trans "Professional web design, e-commerce, mobile app design, and SEO in Turkey. Modern, fast websites. Free quote and 24/7 support. Contact Angraweb.com." %}{% endblock %}
+{% block meta_description %}Angraweb - {% trans "Professional web design, e-commerce and mobile app. Modern, fast websites. Free quote. Turkey." %} {% trans "Contact Angraweb." %}{% endblock %}
 
-{% block meta_keywords %}{% trans "web design" %}, {% trans "ecommerce" %}, {% trans "mobile app" %}, SEO, {% trans "hosting" %}, UI/UX, {% trans "web development" %}, Turkey, Angraweb{% endblock %}
+{% block meta_keywords %}Angraweb, انگرا وب, {% trans "web design" %}, {% trans "ecommerce" %}, {% trans "mobile app" %}, SEO, {% trans "hosting" %}, UI/UX, Turkey{% endblock %}
 
-{% block og_title %}{% trans "Professional Web Design & E-commerce" %} | Angraweb.com{% endblock %}
+{% block og_title %}Angraweb | {% trans "Web Design and E-commerce" %}{% endblock %}
 
-{% block og_description %}{% trans "Professional web design and development services. Grow your business in the digital world!" %}{% endblock %}
+{% block og_description %}Angraweb - {% trans "Professional web design and development services. Grow your business in the digital world!" %}{% endblock %}
+
+{% block extra_ld_json %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Angraweb",
+  "alternateName": "انگرا وب",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/",
+  "description": "{% trans 'Professional web design, e-commerce and mobile app. Free quote.' %}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {"@type": "EntryPoint", "urlTemplate": "{{ request.scheme }}://{{ request.get_host }}/blog/?search={search_term_string}"},
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -21,9 +39,12 @@
             <div class="col-12 col-lg-6">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        <span class="text-gradient">{% trans "Professional Web Design & E-commerce" %}</span>
+                        <span class="text-gradient">Angraweb</span>
                     </h1>
                     <p class="hero-subtitle">
+                        {% trans "Professional Web Design & E-commerce" %}
+                    </p>
+                    <p class="hero-tagline">
                         {% trans "Grow your business in the digital world!" %}
                     </p>
                     <p class="hero-description">

@@ -423,3 +423,30 @@ systemctl restart angraweb
 | 11 | (اختیاری) `ufw` |
 
 با انجام این مراحل، پروژه با Gunicorn، PostgreSQL، Nginx و SSL روی VPS اوبونتو آماده سرویس‌دهی است.
+
+
+
+sudo -u angraweb bash -lc "
+cd /srv/angraweb || exit 1
+
+# Git: fix safe directory + pull latest
+git config --global --add safe.directory /srv/angraweb
+git pull --ff-only || exit 1
+
+# Load env + activate venv
+set -a
+source /etc/angraweb/angraweb.env
+set +a
+source /srv/angraweb/venv/bin/activate
+
+# Django tasks
+python manage.py migrate --noinput || exit 1
+python manage.py collectstatic --noinput || exit 1
+"
+
+# Restart services
+sudo systemctl restart angraweb
+sudo systemctl restart nginx
+
+# Quick health check
+curl -I https://angraweb.com | head -n 20

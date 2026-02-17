@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'main.middleware.SessionExpiryMiddleware',  # انقضای خودکار session بعد از مدت زمان مشخص
     'main.middleware.MaintenanceMiddleware',  # صفحه نگهداری (Bakım Modu) وقتی MAINTENANCE_MODE=True
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -144,6 +145,11 @@ LANGUAGE_SESSION_KEY = '_language'
 
 # اطمینان از ذخیره شدن session در هر درخواست
 SESSION_SAVE_EVERY_REQUEST = True
+
+# Session Expiry - انقضای خودکار session بعد از 2 ساعت (7200 ثانیه)
+# اگر کاربر 2 ساعت غیرفعال باشد، خودکار logout می‌شود
+SESSION_COOKIE_AGE = 7200  # 2 hours in seconds
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Session تا زمانی که مرورگر بسته نشود یا expire نشود باقی می‌ماند
 
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
