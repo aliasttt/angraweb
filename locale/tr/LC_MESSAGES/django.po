@@ -263,10 +263,8 @@ msgid "Packages"
 msgstr "Paketler"
 
 #: .\templates\base.html:133 .\templates\main\sitemap.html:59
-#, fuzzy
-#| msgid "Packages"
 msgid "All Packages"
-msgstr "Paketler"
+msgstr "Tüm Paketler"
 
 #: .\templates\base.html:134 .\templates\main\packages_compare.html:6
 #: .\templates\main\packages_compare.html:17 .\templates\main\sitemap.html:60
@@ -285,48 +283,36 @@ msgid "Services"
 msgstr "Hizmetler"
 
 #: .\templates\base.html:145 .\templates\main\sitemap.html:43
-#, fuzzy
-#| msgid "Services"
 msgid "All Services"
 msgstr "Tüm Hizmetler"
 
 #: .\templates\base.html:146 .\templates\main\sitemap.html:44
 #: .\templates\main\web_design.html:6
-#, fuzzy
-#| msgid "Get Design Quote"
 msgid "Web Design"
 msgstr "Web Tasarımı"
 
 #: .\templates\base.html:147 .\templates\main\mobile_app.html:5
 #: .\templates\main\mobile_app.html:11
-#, fuzzy
-#| msgid "Mobile Responsive Design"
 msgid "Mobile App Design"
 msgstr "Mobil Uygulama Tasarımı"
 
 #: .\templates\base.html:148 .\templates\main\calculator.html:51
 #: .\templates\main\sitemap.html:46
-#, fuzzy
-#| msgid "E-commerce Website"
 msgid "E-commerce"
 msgstr "E-ticaret"
 
 #: .\templates\base.html:149 .\templates\main\sitemap.html:47
-#, fuzzy
-#| msgid "Services"
 msgid "SEO Services"
 msgstr "SEO Hizmetleri"
 
 #: .\templates\base.html:150
-#, fuzzy
-#| msgid "My Services"
 msgid "Hosting Services"
 msgstr "Hosting Hizmetleri"
 
 #: .\templates\base.html:151 .\templates\main\sitemap.html:49
 #: .\templates\main\ui_ux.html:5 .\templates\main\ui_ux.html:11
 msgid "UI/UX Design"
-msgstr "UI/UX Tasarımı"
+msgstr "Arayüz Tasarımı"
 
 #: .\templates\base.html:156 .\templates\base.html:268
 #: .\templates\main\projects.html:6 .\templates\main\projects.html:12
@@ -335,10 +321,8 @@ msgid "Projects"
 msgstr "Projeler"
 
 #: .\templates\base.html:159 .\templates\main\sitemap.html:70
-#, fuzzy
-#| msgid "View Projects"
 msgid "All Projects"
-msgstr "Projelerimi İncele"
+msgstr "Tüm Projeler"
 
 #: .\templates\base.html:163 .\templates\base.html:269
 #: .\templates\main\sitemap.html:33
@@ -356,12 +340,12 @@ msgstr "Nasıl Çalışırız"
 
 #: .\templates\base.html:171 .\templates\main\sitemap.html:91
 msgid "Price Calculator"
-msgstr "Fiyat Hesaplayıcı"
+msgstr "Fiyat Hesaplama"
 
 #: .\templates\base.html:172 .\templates\main\sitemap.html:92
 #: .\templates\main\technology_stack.html:16
 msgid "Technology Stack"
-msgstr "Teknoloji Yığını"
+msgstr "Kullanılan Teknolojiler"
 
 #: .\templates\base.html:176 .\templates\base.html:270
 #: .\templates\main\contact.html:5 .\templates\main\dashboard.html:35
@@ -1775,14 +1759,10 @@ msgid "Web and mobile app design | Custom developer and designer"
 msgstr "Web sitesi ve mobil uygulama tasarımı | Özel yazılımcı ve tasarımcı"
 
 #: .\templates\main\index.html:16
-#, fuzzy
-#| msgid "Professional Web Design and Development Expert"
 msgid "Professional Web Design & E-commerce"
 msgstr "Profesyonel Web Tasarım ve E-Ticaret"
 
 #: .\templates\main\index.html:19
-#, fuzzy
-#| msgid "Solutions That Grow Your Business in the Digital World"
 msgid "Grow your business in the digital world!"
 msgstr "Dijital dünyada işinizi büyütün!"
 
@@ -1862,17 +1842,12 @@ msgid "Increase your sales with modern websites"
 msgstr "Modern web siteleri ile satışlarınızı artırın"
 
 #: .\templates\main\index.html:151
-#, fuzzy
-#| msgid "Timeline"
 msgid "Time Saving"
 msgstr "Zaman Tasarrufu"
 
 #: .\templates\main\index.html:152
-#, fuzzy
-#| msgid ""
-#| "Use your time efficiently with fast delivery and professional service"
 msgid "Fast delivery and professional service"
-msgstr "Hızlı teslimat ve profesyonel hizmet ile zamanınızı verimli kullanın"
+msgstr "Hızlı teslimat ve profesyonel hizmet"
 
 #: .\templates\main\index.html:160
 msgid "Affordable Price"
@@ -1893,8 +1868,6 @@ msgid "24/7 technical support service"
 msgstr "7/24 Teknik Destek"
 
 #: .\templates\main\index.html:208
-#, fuzzy
-#| msgid "View Projects"
 msgid "View All Technologies"
 msgstr "Tüm Teknolojileri Gör"
 
@@ -1920,10 +1893,8 @@ msgid "Visit Website"
 msgstr "Web Sitesi"
 
 #: .\templates\main\index.html:318
-#, fuzzy
-#| msgid "View Projects"
 msgid "View All Projects"
-msgstr "Projelerimi İncele"
+msgstr "Tüm Projeleri Gör"
 
 #: .\templates\main\index.html:331
 #, fuzzy
@@ -1968,8 +1939,6 @@ msgid "What Our Clients Say"
 msgstr "Müşterilerimiz Ne Diyor"
 
 #: .\templates\main\index.html:487
-#, fuzzy
-#| msgid "View Projects"
 msgid "View All Testimonials"
 msgstr "Tüm Yorumları Gör"
 
@@ -1982,8 +1951,6 @@ msgid "Learn about our professional process from consultation to delivery."
 msgstr "Danışmanlıktan teslimata profesyonel sürecimizi öğrenin."
 
 #: .\templates\main\index.html:504
-#, fuzzy
-#| msgid "Process"
 msgid "See Our Process"
 msgstr "Sürecimizi Görün"
 

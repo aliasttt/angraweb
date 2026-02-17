@@ -33,6 +33,7 @@ class MaintenanceMiddleware:
 class LanguageActivationMiddleware:
     """
     بعد از LocaleMiddleware اجرا می‌شود و مطمئن می‌شود که زبان از session/cookie activate شده
+    و ترجمه‌ها به درستی لود می‌شوند
     """
     def __init__(self, get_response):
         self.get_response = get_response
@@ -52,12 +53,17 @@ class LanguageActivationMiddleware:
             cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
             lang = request.COOKIES.get(cookie_name)
         
-        # اگر زبان پیدا شد و معتبر است، activate کن (قبل از اجرای view)
-        if lang and lang in ['tr', 'en', 'fa', 'ar']:
-            translation.activate(lang)
-        else:
-            # هیچ انتخاب صریحی از کاربر نیست → همیشه زبان پیش‌فرض سایت (ترکی)
-            translation.activate(settings.LANGUAGE_CODE)
+        # اگر زبان پیدا نشد، از زبان پیش‌فرض استفاده کن
+        if not lang or lang not in ['tr', 'en', 'fa', 'ar']:
+            lang = settings.LANGUAGE_CODE
+        
+        # حتماً زبان را activate کن تا ترجمه‌ها لود شوند
+        translation.activate(lang)
+        
+        # اگر زبان در session نیست، آن را ذخیره کن تا دفعه بعد استفاده شود
+        if hasattr(request, 'session') and request.session.get(session_key) != lang:
+            request.session[session_key] = lang
+            request.session.modified = True
         
         # حالا view را اجرا کن
         response = self.get_response(request)

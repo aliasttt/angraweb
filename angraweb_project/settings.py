@@ -50,9 +50,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'main.middleware.LanguageActivationMiddleware',  # اطمینان از activate شدن زبان از session/cookie
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'main.middleware.LanguageActivationMiddleware',  # اطمینان از activate شدن زبان از session/cookie و لود ترجمه‌ها
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'main.middleware.SessionExpiryMiddleware',  # انقضای خودکار session بعد از مدت زمان مشخص
