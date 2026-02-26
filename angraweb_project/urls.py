@@ -19,13 +19,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from main.views import set_language
+from insights.views_admin import admin_dashboard as admin_dashboard_view
 
 # همه مسیرها بدون i18n_patterns — زبان از session/cookie خوانده می‌شود
 urlpatterns = [
     # سوئیچ زبان
     path('lang/<str:lang_code>/', set_language, name='switch_lang'),
+    # Admin (custom insights dashboard before admin catch-all)
+    path('admin/insights/', admin_dashboard_view),
     # Admin
     path('admin/', admin.site.urls),
+    # Insights: collect endpoint
+    path('insights/', include('insights.urls')),
     # مسیرهای اصلی
     path('', include('main.urls')),
 ]

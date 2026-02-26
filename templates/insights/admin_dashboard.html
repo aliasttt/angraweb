@@ -1,0 +1,165 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% block title %}Insights Dashboard{% endblock %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo; Insights
+</div>
+{% endblock %}
+{% block content %}
+<h1>Insights Dashboard</h1>
+<p><a href="{% url 'admin:index' %}">&larr; Back to Admin</a></p>
+
+<div style="margin-top:1.5em;">
+  <h2>SEO (Google Search Console)</h2>
+  <div style="display:flex; flex-wrap:wrap; gap:1em; margin-bottom:1em;">
+    <div class="kpi-card" style="border:1px solid #ddd; padding:1em; min-width:140px;">
+      <strong>Last 7 days</strong><br>
+      Clicks: {{ kpis_7.clicks }} | Impressions: {{ kpis_7.impressions }}<br>
+      Avg CTR: {{ kpis_7.avg_ctr }}% | Avg position: {{ kpis_7.avg_position }}
+    </div>
+    <div class="kpi-card" style="border:1px solid #ddd; padding:1em; min-width:140px;">
+      <strong>Last 28 days</strong><br>
+      Clicks: {{ kpis_28.clicks }} | Impressions: {{ kpis_28.impressions }}<br>
+      Avg CTR: {{ kpis_28.avg_ctr }}% | Avg position: {{ kpis_28.avg_position }}
+    </div>
+  </div>
+  {% if seo_alerts %}
+  <div style="background:#fff3cd; padding:0.5em 1em; margin-bottom:1em;">
+    <strong>Alerts:</strong>
+    {% for a in seo_alerts %}<span style="margin-right:1em;">{{ a.message }}</span>{% endfor %}
+  </div>
+  {% endif %}
+  <h3>Top queries (7d, with delta)</h3>
+  <table style="border-collapse:collapse; width:100%; max-width:800px;">
+    <thead><tr><th style="text-align:left; border:1px solid #ddd;">Query</th><th style="border:1px solid #ddd;">Clicks</th><th style="border:1px solid #ddd;">Delta</th></tr></thead>
+    <tbody>
+    {% for r in top_queries %}
+    <tr>
+      <td style="border:1px solid #ddd;">{{ r.query|truncatechars:60 }}</td>
+      <td style="border:1px solid #ddd;">{{ r.clicks }}</td>
+      <td style="border:1px solid #ddd;">{% if r.delta >= 0 %}+{% endif %}{{ r.delta }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3" style="border:1px solid #ddd;">No data. Run <code>python manage.py insights_sync_gsc --days 28</code>.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <h3>Top pages (7d, with delta)</h3>
+  <table style="border-collapse:collapse; width:100%; max-width:800px;">
+    <thead><tr><th style="text-align:left; border:1px solid #ddd;">Page</th><th style="border:1px solid #ddd;">Clicks</th><th style="border:1px solid #ddd;">Delta</th></tr></thead>
+    <tbody>
+    {% for r in top_pages_gsc %}
+    <tr>
+      <td style="border:1px solid #ddd;">{{ r.page|truncatechars:60 }}</td>
+      <td style="border:1px solid #ddd;">{{ r.clicks }}</td>
+      <td style="border:1px solid #ddd;">{% if r.delta >= 0 %}+{% endif %}{{ r.delta }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3" style="border:1px solid #ddd;">No data.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div style="margin-top:2em;">
+  <h2>Behavior Analytics</h2>
+  <h3>Top pages (7d)</h3>
+  <table style="border-collapse:collapse; width:100%; max-width:800px;">
+    <thead><tr><th style="text-align:left; border:1px solid #ddd;">URL</th><th style="border:1px solid #ddd;">Views</th></tr></thead>
+    <tbody>
+    {% for r in behavior_top_pages %}
+    <tr><td style="border:1px solid #ddd;">{{ r.url|truncatechars:70 }}</td><td style="border:1px solid #ddd;">{{ r.views }}</td></tr>
+    {% empty %}
+    <tr><td colspan="2" style="border:1px solid #ddd;">No page views yet. Ensure tracker is loaded and consent given.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <h3>Avg time on page (7d)</h3>
+  <table style="border-collapse:collapse; width:100%; max-width:800px;">
+    <thead><tr><th style="text-align:left; border:1px solid #ddd;">URL</th><th style="border:1px solid #ddd;">Avg time (ms)</th></tr></thead>
+    <tbody>
+    {% for r in avg_time %}
+    <tr><td style="border:1px solid #ddd;">{{ r.url|truncatechars:70 }}</td><td style="border:1px solid #ddd;">{{ r.avg_time_ms|floatformat:0 }}</td></tr>
+    {% empty %}
+    <tr><td colspan="2" style="border:1px solid #ddd;">No data.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <h3>Scroll depth (50% / 90%)</h3>
+  <table style="border-collapse:collapse; width:100%; max-width:800px;">
+    <thead><tr><th style="text-align:left; border:1px solid #ddd;">URL</th><th style="border:1px solid #ddd;">Sessions</th><th style="border:1px solid #ddd;">Reached 50%</th><th style="border:1px solid #ddd;">Reached 90%</th></tr></thead>
+    <tbody>
+    {% for r in scroll_by_page %}
+    <tr>
+      <td style="border:1px solid #ddd;">{{ r.url|truncatechars:50 }}</td>
+      <td style="border:1px solid #ddd;">{{ r.sessions_with_scroll }}</td>
+      <td style="border:1px solid #ddd;">{{ r.reached_50_pct }}%</td>
+      <td style="border:1px solid #ddd;">{{ r.reached_90_pct }}%</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="4" style="border:1px solid #ddd;">No scroll data.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <h3>Top CTA clicks</h3>
+  <table style="border-collapse:collapse; width:100%; max-width:800px;">
+    <thead><tr><th style="text-align:left; border:1px solid #ddd;">URL / Selector</th><th style="border:1px solid #ddd;">Clicks</th></tr></thead>
+    <tbody>
+    {% for r in cta_clicks %}
+    <tr><td style="border:1px solid #ddd;">{{ r.url|truncatechars:40 }} / {{ r.selector }}</td><td style="border:1px solid #ddd;">{{ r.clicks }}</td></tr>
+    {% empty %}
+    <tr><td colspan="2" style="border:1px solid #ddd;">No click data.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <h3>Click rate per page (CTA clicks / page views %)</h3>
+  <table style="border-collapse:collapse; width:100%; max-width:800px;">
+    <thead><tr><th style="text-align:left; border:1px solid #ddd;">URL</th><th style="border:1px solid #ddd;">Views</th><th style="border:1px solid #ddd;">CTA clicks</th><th style="border:1px solid #ddd;">Rate %</th></tr></thead>
+    <tbody>
+    {% for r in click_rate %}
+    <tr>
+      <td style="border:1px solid #ddd;">{{ r.url|truncatechars:50 }}</td>
+      <td style="border:1px solid #ddd;">{{ r.page_views }}</td>
+      <td style="border:1px solid #ddd;">{{ r.cta_clicks }}</td>
+      <td style="border:1px solid #ddd;">{{ r.click_rate_pct }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <h3>Funnel (sessions per step)</h3>
+  <p>Steps: {{ funnel_steps|join:" → " }}</p>
+  <table style="border-collapse:collapse; width:100%; max-width:500px;">
+    <thead><tr><th style="text-align:left; border:1px solid #ddd;">Step</th><th style="border:1px solid #ddd;">Sessions</th></tr></thead>
+    <tbody>
+    {% for r in funnel %}
+    <tr><td style="border:1px solid #ddd;">{{ r.step }}</td><td style="border:1px solid #ddd;">{{ r.sessions }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% if rage_alerts %}
+  <h3>Rage click alerts (possible UX issues)</h3>
+  <ul>
+  {% for r in rage_alerts %}
+  <li>{{ r.url }}: {{ r.count }} rage clicks {% if r.payload %}({{ r.payload }}){% endif %}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+  {% if low_cta %}
+  <h3>Low CTA rate (high views, low clicks)</h3>
+  <ul>
+  {% for r in low_cta %}
+  <li>{{ r.url|truncatechars:60 }} — {{ r.page_views }} views, {{ r.click_rate_pct }}% click rate</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+  {% if low_scroll %}
+  <h3>Low scroll (strong drop-off)</h3>
+  <ul>
+  {% for r in low_scroll %}
+  <li>{{ r.url|truncatechars:60 }} — {{ r.sessions }} sessions, {{ r.reached_25_pct }}% reached 25%</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+</div>
+{% endblock %}

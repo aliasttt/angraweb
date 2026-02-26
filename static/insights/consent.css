@@ -1,0 +1,42 @@
+/* Minimal consent banner for insights tracker */
+.insights-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a2e;
+  color: #eee;
+  padding: 14px 20px;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.2);
+  z-index: 99999;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+.insights-consent-banner a {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+.insights-consent-banner .insights-consent-actions {
+  display: flex;
+  gap: 10px;
+}
+.insights-consent-banner button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.insights-consent-banner .insights-consent-accept {
+  background: #22c55e;
+  color: #fff;
+}
+.insights-consent-banner .insights-consent-reject {
+  background: #475569;
+  color: #e2e8f0;
+}
