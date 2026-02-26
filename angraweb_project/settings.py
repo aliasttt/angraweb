@@ -33,6 +33,10 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(','
 # در production حتماً تنظیم کن: CANONICAL_DOMAIN=https://angraweb.com
 CANONICAL_DOMAIN = (os.environ.get('CANONICAL_DOMAIN') or os.environ.get('SITE_URL') or 'https://angraweb.com').strip().rstrip('/')
 
+# Insights GSC sync: خوانده می‌شود توسط insights_sync_gsc و داشبورد SEO
+INSIGHTS_GSC_SITE_URL = os.environ.get('INSIGHTS_GSC_SITE_URL', '')
+INSIGHTS_GSC_CREDENTIALS_JSON = os.environ.get('INSIGHTS_GSC_CREDENTIALS_JSON', '')
+
 # صفحه نگهداری (Bakım Modu): وقتی True باشد به جای سایت صفحه نگهداری به ترکی نمایش داده می‌شود.
 # برای غیرفعال کردن: MAINTENANCE_MODE=False یا حذف این خط و استفاده از مقدار پیش‌فرض.
 MAINTENANCE_MODE = os.environ.get('MAINTENANCE_MODE', 'False') == 'True'

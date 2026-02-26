@@ -34,11 +34,21 @@ Use env vars (or Django settings) for secrets. Optional vars have defaults or ca
 
 #### Google Search Console (required for SEO sync)
 
+Set in environment (or `angraweb_project/settings.py` reads from `os.environ`):
+
 | Variable | Description |
 |----------|-------------|
-| `INSIGHTS_GSC_SITE_URL` | Property URL, e.g. `https://example.com/` |
+| `INSIGHTS_GSC_SITE_URL` | Property URL, e.g. `sc-domain:angraweb.com` or `https://example.com/` |
 | `INSIGHTS_GSC_CREDENTIALS_JSON` | Path to service account JSON file, or JSON string |
 | `INSIGHTS_GSC_DAYS_DEFAULT` | Default days to sync (default: `28`) |
+
+**Smoke-test** (ensure env is loaded; run from project root with env vars set):
+
+```bash
+python manage.py shell -c "from django.conf import settings; print(settings.INSIGHTS_GSC_SITE_URL); print(bool(settings.INSIGHTS_GSC_CREDENTIALS_JSON))"
+```
+
+Expected with GSC configured: first line is site URL (e.g. `sc-domain:angraweb.com`), second is `True`.
 
 #### Optional: GA4
 
