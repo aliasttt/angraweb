@@ -98,7 +98,16 @@ python manage.py insights_sync_ga4 --days 28
 python manage.py insights_audit_meta --sitemap https://example.com/sitemap.xml --max-pages 200
 ```
 
-### Include tracker on site pages
+### SEO Health snapshot (weekly recommended)
+
+Computes a combined SEO Health report (GSC last 28 days + behavior last 7 days + meta issues), stores it in `SEOHealthSnapshot`, and runs alert rules (clicks/impressions drop >30%, meta issues +20%). Run weekly (e.g. cron):
+
+```bash
+python manage.py insights_seo_health_snapshot --days 28
+```
+
+- **Dashboard:** `/admin/insights/` shows latest snapshot summary and recent alerts; `/admin/insights/seo-health/` shows full report (KPIs, Opportunities, UX issues, Meta issues, Alerts).
+- **Alerts:** When thresholds are triggered, `InsightAlert` records are created (list in Django Admin → Insights → Insight Alerts).
 
 The tracker is already included in `templates/base.html`:
 
@@ -175,15 +184,16 @@ The command `insights_load_sample_data` is only for demo; do not run it if you w
 
 ## App structure
 
-- `insights/models.py` — GSC, SERP, MetaAudit, InsightSession, InsightEvent
+- `insights/models.py` — GSC, SERP, MetaAudit, InsightSession, InsightEvent, **SEOHealthSnapshot**, **InsightAlert**
 - `insights/services/gsc.py` — GSC API sync
 - `insights/services/ga4.py` — GA4 stub
 - `insights/services/serp.py` — SERP snapshots (feature flag)
 - `insights/services/analytics_ingest.py` — collect validation and process_events
 - `insights/services/analytics_reports.py` — behavior aggregations
 - `insights/services/gsc_reports.py` — GSC KPIs and alerts
+- `insights/services/seo_health.py` — SEO Health snapshot, opportunities, UX issues, meta issues, alert rules
 - `insights/views.py` — POST `/insights/collect/`
 - `insights/views_admin.py` — dashboard view
-- `insights/management/commands/` — insights_sync_gsc, insights_sync_ga4, insights_audit_meta
+- `insights/management/commands/` — insights_sync_gsc, insights_sync_ga4, insights_audit_meta, insights_seo_health_snapshot
 - `static/insights/tracker.js` — client-side tracker
 - `static/insights/consent.js` + `consent.css` — consent banner

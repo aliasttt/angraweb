@@ -1,0 +1,98 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% block title %}SEO Health Dashboard{% endblock %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
+  <a href="{% url 'admin:index' %}admin/insights/">Insights</a> &rsaquo; SEO Health
+</div>
+{% endblock %}
+{% block content %}
+<h1>SEO Health Dashboard</h1>
+<p><a href="/admin/insights/">&larr; Back to Insights</a></p>
+
+{% if not snapshot %}
+<p>No snapshot yet. Run: <code>python manage.py insights_seo_health_snapshot --days 28</code></p>
+{% else %}
+<p><strong>Snapshot:</strong> {{ snapshot.snapshot_at|date:"Y-m-d H:i" }} — GSC {{ snapshot.gsc_start_date }}–{{ snapshot.gsc_end_date }}, Behavior {{ snapshot.behavior_start_date }}–{{ snapshot.behavior_end_date }}</p>
+
+<div style="display:flex; flex-wrap:wrap; gap:1em; margin:1em 0;">
+  <div style="border:1px solid #ddd; padding:1em; min-width:160px;">
+    <strong>GSC ({{ snapshot.gsc_start_date }}–{{ snapshot.gsc_end_date }})</strong><br>
+    Clicks: {{ snapshot.gsc_json.clicks }} | Impressions: {{ snapshot.gsc_json.impressions }}<br>
+    Avg CTR: {{ snapshot.gsc_json.avg_ctr }}% | Avg position: {{ snapshot.gsc_json.avg_position }}
+  </div>
+  <div style="border:1px solid #ddd; padding:1em; min-width:160px;">
+    <strong>Behavior ({{ snapshot.behavior_start_date }}–{{ snapshot.behavior_end_date }})</strong><br>
+    Sessions: {{ snapshot.behavior_json.sessions }} | Pageviews: {{ snapshot.behavior_json.pageviews }}<br>
+    Clicks: {{ snapshot.behavior_json.total_clicks }} | Avg scroll: {{ snapshot.behavior_json.avg_scroll_depth_pct }}%
+  </div>
+  <div style="border:1px solid #ddd; padding:1em; min-width:140px;">
+    <strong>Meta issues</strong><br>
+    {% for k, v in snapshot.meta_issues_json.items %}{{ k }}: {{ v }}{% if not forloop.last %} | {% endif %}{% endfor %}
+    {% if not snapshot.meta_issues_json %}—{% endif %}
+  </div>
+</div>
+
+<h3>Opportunities (high impressions low CTR / position &le;10 low CTR)</h3>
+<table style="border-collapse:collapse; width:100%; max-width:900px;">
+  <thead><tr><th style="text-align:left; border:1px solid #ddd;">Page</th><th style="border:1px solid #ddd;">Clicks</th><th style="border:1px solid #ddd;">Impressions</th><th style="border:1px solid #ddd;">CTR%</th><th style="border:1px solid #ddd;">Position</th><th style="border:1px solid #ddd;">Reason</th></tr></thead>
+  <tbody>
+  {% for r in snapshot.opportunities_json %}
+  <tr>
+    <td style="border:1px solid #ddd;">{{ r.page|truncatechars:55 }}</td>
+    <td style="border:1px solid #ddd;">{{ r.clicks }}</td>
+    <td style="border:1px solid #ddd;">{{ r.impressions }}</td>
+    <td style="border:1px solid #ddd;">{{ r.ctr_pct }}</td>
+    <td style="border:1px solid #ddd;">{{ r.position }}</td>
+    <td style="border:1px solid #ddd;">{{ r.reason }}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="6" style="border:1px solid #ddd;">None.</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3>UX issues (high pageviews, low scroll/click rate)</h3>
+<table style="border-collapse:collapse; width:100%; max-width:900px;">
+  <thead><tr><th style="text-align:left; border:1px solid #ddd;">URL</th><th style="border:1px solid #ddd;">Pageviews</th><th style="border:1px solid #ddd;">Click rate %</th><th style="border:1px solid #ddd;">Reached 50% scroll %</th></tr></thead>
+  <tbody>
+  {% for r in snapshot.ux_issues_json %}
+  <tr>
+    <td style="border:1px solid #ddd;">{{ r.url|truncatechars:60 }}</td>
+    <td style="border:1px solid #ddd;">{{ r.pageviews }}</td>
+    <td style="border:1px solid #ddd;">{{ r.click_rate_pct }}</td>
+    <td style="border:1px solid #ddd;">{{ r.reached_50_scroll_pct }}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="4" style="border:1px solid #ddd;">None.</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3>Meta issues (top problem pages)</h3>
+<table style="border-collapse:collapse; width:100%; max-width:900px;">
+  <thead><tr><th style="text-align:left; border:1px solid #ddd;">URL</th><th style="border:1px solid #ddd;">Issues count</th><th style="text-align:left; border:1px solid #ddd;">Issues</th></tr></thead>
+  <tbody>
+  {% for r in snapshot.meta_issues_pages_json %}
+  <tr>
+    <td style="border:1px solid #ddd;">{{ r.url|truncatechars:50 }}</td>
+    <td style="border:1px solid #ddd;">{{ r.count }}</td>
+    <td style="border:1px solid #ddd;">{{ r.issues|join:", " }}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="3" style="border:1px solid #ddd;">None.</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3>Recent alerts</h3>
+<ul>
+{% for a in recent_alerts %}
+<li><strong>{{ a.rule_key }}</strong> ({{ a.severity }}) — {{ a.message }} <small>{{ a.created_at|date:"Y-m-d H:i" }}</small></li>
+{% empty %}
+<li>No alerts.</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

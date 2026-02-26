@@ -163,6 +163,11 @@ angraweb/
 
 ## ✨ بهبودهای آینده (پیشنهادی)
 
+- **Insights SEO Health** (اضافه شده): اپ `insights` شامل سنک GSC، ریدایرکت رفتار، و گزارش سلامت SEO است. برای گزارش هفتگی اجرا کنید:
+  - `python manage.py insights_sync_gsc --days 28`
+  - `python manage.py insights_audit_meta --sitemap https://example.com/sitemap.xml --max-pages 200`
+  - `python manage.py insights_seo_health_snapshot --days 28`
+  - داشبورد: `/admin/insights/` و `/admin/insights/seo-health/`
 - اضافه کردن سیستم پرداخت آنلاین
 - اضافه کردن چت آنلاین
 - اضافه کردن سیستم نظرات برای وبلاگ

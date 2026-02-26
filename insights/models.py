@@ -165,3 +165,48 @@ class InsightEvent(models.Model):
 
     def __str__(self):
         return f'{self.type} @ {self.url[:40]} @ {self.occurred_at}'
+
+
+# ─── SEO Health snapshots & alerts ───────────────────────────────────────────
+
+class SEOHealthSnapshot(models.Model):
+    """Weekly SEO health summary: GSC + behavior + meta issues + opportunities."""
+    snapshot_at = models.DateTimeField(db_index=True, default=timezone.now)
+    gsc_start_date = models.DateField(null=True, blank=True)
+    gsc_end_date = models.DateField(null=True, blank=True)
+    behavior_start_date = models.DateField(null=True, blank=True)
+    behavior_end_date = models.DateField(null=True, blank=True)
+    gsc_json = models.JSONField(default=dict)  # clicks, impressions, avg_ctr, avg_position
+    behavior_json = models.JSONField(default=dict)  # sessions, pageviews, avg_scroll_depth_pct, total_clicks
+    meta_issues_json = models.JSONField(default=dict)  # counts by issue type
+    opportunities_json = models.JSONField(default=list)  # high imp low CTR; pos<=10 low CTR
+    ux_issues_json = models.JSONField(default=list)  # high pageviews low scroll/click
+    meta_issues_pages_json = models.JSONField(default=list)  # top problem pages
+
+    class Meta:
+        db_table = 'insights_seo_health_snapshot'
+        verbose_name = 'SEO Health Snapshot'
+        verbose_name_plural = 'SEO Health Snapshots'
+        ordering = ['-snapshot_at']
+
+    def __str__(self):
+        return f'SEO Health @ {self.snapshot_at.date()}'
+
+
+class InsightAlert(models.Model):
+    """SEO/UX alert when thresholds are triggered (e.g. clicks drop >30%)."""
+    SEVERITY_CHOICES = [('info', 'Info'), ('warning', 'Warning'), ('critical', 'Critical')]
+    created_at = models.DateTimeField(db_index=True, default=timezone.now)
+    severity = models.CharField(max_length=20, choices=SEVERITY_CHOICES, default='warning')
+    rule_key = models.CharField(max_length=64, db_index=True)  # e.g. clicks_drop_30
+    message = models.CharField(max_length=500)
+    context_json = models.JSONField(default=dict)
+
+    class Meta:
+        db_table = 'insights_alert'
+        verbose_name = 'Insight Alert'
+        verbose_name_plural = 'Insight Alerts'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'{self.rule_key}: {self.message[:50]}'

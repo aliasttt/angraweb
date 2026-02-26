@@ -8,7 +8,22 @@
 {% endblock %}
 {% block content %}
 <h1>Insights Dashboard</h1>
-<p><a href="{% url 'admin:index' %}">&larr; Back to Admin</a></p>
+<p><a href="{% url 'admin:index' %}">&larr; Back to Admin</a> | <a href="/admin/insights/seo-health/">SEO Health</a></p>
+
+{% if latest_snapshot %}
+<div style="margin-top:1em;">
+  <h2>SEO Health (latest snapshot)</h2>
+  <p>Snapshot: {{ latest_snapshot.snapshot_at|date:"Y-m-d H:i" }} — <a href="/admin/insights/seo-health/">Full report</a></p>
+  <div style="display:flex; flex-wrap:wrap; gap:1em;">
+    <span>GSC: {{ latest_snapshot.gsc_json.clicks }} clicks, {{ latest_snapshot.gsc_json.impressions }} imp.</span>
+    <span>Behavior: {{ latest_snapshot.behavior_json.sessions }} sessions, {{ latest_snapshot.behavior_json.pageviews }} pv.</span>
+    <span>Meta issues: {{ latest_snapshot.meta_issues_json|length }} types.</span>
+  </div>
+  {% if recent_alerts %}
+  <p><strong>Alerts:</strong> {% for a in recent_alerts %}{{ a.message }}{% if not forloop.last %} | {% endif %}{% endfor %}</p>
+  {% endif %}
+</div>
+{% endif %}
 
 <div style="margin-top:1.5em;">
   <h2>SEO (Google Search Console)</h2>

@@ -1,5 +1,5 @@
 """
-Admin dashboard view: SEO (GSC KPIs, top queries/pages, alerts) + Behavior (top pages, scroll, clicks, funnels, alerts).
+Admin dashboard view: SEO (GSC KPIs, top queries/pages, alerts) + Behavior + SEO Health snapshot.
 """
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
@@ -23,6 +23,7 @@ from insights.services.analytics_reports import (
     low_cta_pages,
     low_scroll_pages,
 )
+from insights.models import SEOHealthSnapshot, InsightAlert
 
 
 def get_funnel_steps():
@@ -58,12 +59,18 @@ def admin_dashboard(request):
     low_cta = low_cta_pages(7, min_views=20, max_click_rate=2.0)
     low_scroll = low_scroll_pages(7, min_sessions=10, max_reached_25=25.0)
 
+    # SEO Health: latest snapshot + recent alerts
+    latest_snapshot = SEOHealthSnapshot.objects.order_by('-snapshot_at').first()
+    recent_alerts = list(InsightAlert.objects.order_by('-created_at')[:15])
+
     context = {
         'kpis_7': kpis_7,
         'kpis_28': kpis_28,
         'top_queries': top_queries,
         'top_pages_gsc': top_pages_gsc,
         'seo_alerts': seo_alerts,
+        'latest_snapshot': latest_snapshot,
+        'recent_alerts': recent_alerts,
         'behavior_top_pages': behavior_top_pages,
         'avg_time': avg_time,
         'scroll_by_page': scroll_by_page,
@@ -76,3 +83,15 @@ def admin_dashboard(request):
         'low_scroll': low_scroll,
     }
     return render(request, 'insights/admin_dashboard.html', context)
+
+
+@staff_member_required
+def seo_health_dashboard(request):
+    """SEO Health snapshot dashboard: KPIs, opportunities, UX issues, meta issues, alerts."""
+    latest = SEOHealthSnapshot.objects.order_by('-snapshot_at').first()
+    recent_alerts = list(InsightAlert.objects.order_by('-created_at')[:20])
+    context = {
+        'snapshot': latest,
+        'recent_alerts': recent_alerts,
+    }
+    return render(request, 'insights/seo_health_dashboard.html', context)

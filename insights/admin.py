@@ -6,6 +6,8 @@ from .models import (
     MetaAuditResult,
     InsightSession,
     InsightEvent,
+    SEOHealthSnapshot,
+    InsightAlert,
 )
 
 
@@ -84,3 +86,31 @@ class InsightEventAdmin(admin.ModelAdmin):
     def url_short(self, obj):
         return (obj.url or '')[:60]
     url_short.short_description = 'URL'
+
+
+@admin.register(SEOHealthSnapshot)
+class SEOHealthSnapshotAdmin(admin.ModelAdmin):
+    list_display = ['snapshot_at', 'gsc_end_date', 'behavior_end_date']
+    list_filter = ['snapshot_at']
+    date_hierarchy = 'snapshot_at'
+    readonly_fields = [
+        'snapshot_at', 'gsc_start_date', 'gsc_end_date', 'behavior_start_date', 'behavior_end_date',
+        'gsc_json', 'behavior_json', 'meta_issues_json', 'opportunities_json',
+        'ux_issues_json', 'meta_issues_pages_json',
+    ]
+
+    def has_add_permission(self, request):
+        return False
+
+
+@admin.register(InsightAlert)
+class InsightAlertAdmin(admin.ModelAdmin):
+    list_display = ['rule_key', 'severity', 'message_short', 'created_at']
+    list_filter = ['severity', 'rule_key', 'created_at']
+    search_fields = ['message', 'rule_key']
+    date_hierarchy = 'created_at'
+    readonly_fields = ['created_at']
+
+    def message_short(self, obj):
+        return (obj.message or '')[:60]
+    message_short.short_description = 'Message'
