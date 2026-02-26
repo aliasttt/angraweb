@@ -139,6 +139,30 @@ python manage.py test insights.tests
 
 ---
 
+## Clear all data (only real data)
+
+To remove all Insights data (including any sample/demo data) and use only real data:
+
+```bash
+python manage.py insights_clear_data
+```
+
+Type `yes` when asked. To skip confirmation (e.g. in scripts):
+
+```bash
+python manage.py insights_clear_data --no-input
+```
+
+After that, data will come only from:
+- **GSC:** `insights_sync_gsc`
+- **Behavior:** real site visits (tracker + consent)
+- **Meta:** `insights_audit_meta`
+- **SERP:** SERP sync (if enabled)
+
+The command `insights_load_sample_data` is only for demo; do not run it if you want only real data.
+
+---
+
 ## App structure
 
 - `insights/models.py` — GSC, SERP, MetaAudit, InsightSession, InsightEvent
