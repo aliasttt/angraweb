@@ -51,6 +51,15 @@ class Command(BaseCommand):
             MetaAuditResult.objects.all().delete()
             SerpSnapshot.objects.all().delete()
             self.stdout.write('Cleared.')
+        else:
+            # بدون --clear اگر قبلاً دادهٔ نمونه داریم، دوباره اضافه نکن
+            if InsightSession.objects.filter(ip_hash__startswith='sample_').exists():
+                self.stdout.write(
+                    self.style.WARNING(
+                        'Sample data already exists. Use --clear to clear and reload once.'
+                    )
+                )
+                return
 
         # ─── GSC: last 28 days, multiple queries and pages ─────────────────
         queries = [
