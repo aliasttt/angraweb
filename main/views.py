@@ -22,8 +22,8 @@ from .models import (
 from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, NewsletterForm, TestimonialSubmitForm, UserProfileEditForm
 
 
-def get_language_context(request):
-    """زبان از session/cookie بخوان و حتماً activate کن تا {% trans %} در قالب درست کار کند"""
+def redirect_to_default_language(request):
+    """Redirect bare / to language-prefixed home (e.g. /tr/ or /en/) for SEO."""
     from django.conf import settings
     session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
     cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
@@ -32,13 +32,34 @@ def get_language_context(request):
         lang = request.session.get(session_key)
     if not lang:
         lang = request.COOKIES.get(cookie_name)
-    if not lang or lang not in ('tr', 'en', 'fa', 'ar'):
+    if lang not in ('tr', 'en'):
+        lang = settings.LANGUAGE_CODE
+    return redirect(f'/{lang}/')
+
+
+def _redirect_to_name(request, view_name, permanent=True, **kwargs):
+    """Redirect to a named URL (respects current language prefix)."""
+    return redirect(reverse(view_name, kwargs=kwargs), permanent=permanent)
+
+
+def get_language_context(request):
+    """Language for templates: from URL (i18n) or session/cookie. Activate so {% trans %} works."""
+    from django.conf import settings
+    lang = getattr(request, 'LANGUAGE_CODE', None)
+    if lang in ('tr', 'en'):
+        translation.activate(lang)
+        return {'current_lang': lang, 'is_rtl': False}
+    session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
+    cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
+    lang = None
+    if hasattr(request, 'session'):
+        lang = request.session.get(session_key)
+    if not lang:
+        lang = request.COOKIES.get(cookie_name)
+    if not lang or lang not in ('tr', 'en'):
         lang = getattr(settings, 'LANGUAGE_CODE', 'tr')
     translation.activate(lang)
-    return {
-        'current_lang': lang,
-        'is_rtl': lang in ('fa', 'ar')
-    }
+    return {'current_lang': lang, 'is_rtl': False}
 
 
 def index(request):
@@ -708,21 +729,19 @@ def sitemap(request):
 
 
 def sitemap_xml(request):
-    """Sitemap XML برای Google Search Console — همه URLهای مهم با lastmod. همیشه با دامنهٔ canonical."""
+    """Sitemap XML for GSC: all important URLs for both languages (tr, en) with lastmod."""
     from django.conf import settings
     canonical = getattr(settings, 'CANONICAL_DOMAIN', '').strip()
-    base = canonical if canonical else f"{request.scheme}://{request.get_host()}"
+    base = (canonical.rstrip('/') if canonical else f"{request.scheme}://{request.get_host()}").rstrip('/')
 
-    def w(url, lastmod=None, changefreq='monthly', priority='0.8'):
+    def w(url_path, lastmod=None, changefreq='monthly', priority='0.8'):
         lastmod = lastmod or timezone.now()
         if hasattr(lastmod, 'strftime'):
             lastmod = lastmod.strftime('%Y-%m-%d')
-        loc = xml_escape(base + url)
+        loc = xml_escape(base + url_path)
         return f'  <url><loc>{loc}</loc><lastmod>{lastmod}</lastmod><changefreq>{changefreq}</changefreq><priority>{priority}</priority></url>\n'
 
-    lines = ['<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n']
-    # صفحات ثابت
-    for path, freq, prio in [
+    static_paths = [
         ('/', 'weekly', '1.0'),
         ('/about/', 'monthly', '0.9'),
         ('/contact/', 'monthly', '0.9'),
@@ -748,61 +767,68 @@ def sitemap_xml(request):
         ('/terms-conditions/', 'yearly', '0.4'),
         ('/guarantee/', 'yearly', '0.5'),
         ('/sitemap/', 'monthly', '0.5'),
-    ]:
-        lines.append(w(path, changefreq=freq, priority=prio))
-    # سرویس‌ها (داینامیک)
-    for s in Service.objects.filter(active=True):
-        lines.append(w(s.get_absolute_url(), lastmod=s.updated_at, changefreq='monthly', priority='0.7'))
-    # پروژه‌ها
-    for p in Project.objects.filter(active=True):
-        path = reverse('project_detail', kwargs={'slug': p.slug})
-        lines.append(w(path, lastmod=getattr(p, 'updated_at', None), changefreq='monthly', priority='0.7'))
-    # بلاگ (فقط منتشر شده)
-    for b in BlogPost.objects.filter(published=True):
-        lines.append(w(b.get_absolute_url(), lastmod=b.updated_at or b.published_at, changefreq='monthly', priority='0.7'))
+    ]
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n']
+    for lang_code, _ in getattr(settings, 'LANGUAGES', [('tr', 'Turkish'), ('en', 'English')]):
+        translation.activate(lang_code)
+        for path, freq, prio in static_paths:
+            url_path = f'/{lang_code}{path}' if path != '/' else f'/{lang_code}/'
+            lines.append(w(url_path, changefreq=freq, priority=prio))
+        for s in Service.objects.filter(active=True):
+            url_path = reverse('service_detail', kwargs={'slug': s.slug})
+            lines.append(w(url_path, lastmod=s.updated_at, changefreq='monthly', priority='0.7'))
+        for p in Project.objects.filter(active=True):
+            url_path = reverse('project_detail', kwargs={'slug': p.slug})
+            lines.append(w(url_path, lastmod=getattr(p, 'updated_at', None), changefreq='monthly', priority='0.7'))
+        for b in BlogPost.objects.filter(published=True):
+            url_path = reverse('blog_detail', kwargs={'slug': b.slug})
+            lines.append(w(url_path, lastmod=b.updated_at or b.published_at, changefreq='monthly', priority='0.7'))
     lines.append('</urlset>')
     return HttpResponse(''.join(lines), content_type='application/xml')
 
 
 def set_language(request, lang_code):
-    """سوئیچ زبان — ذخیره در session و cookie. بدون translate_url چون با prefix_default_language=False مسیر /en/... وجود ندارد."""
+    """Switch language: redirect to same path with new prefix (/tr/... or /en/...)."""
     from django.conf import settings
-    from django.utils import translation
+    from urllib.parse import urlparse
 
-    if lang_code not in ['tr', 'en', 'fa', 'ar']:
-        return redirect('index')
-
-    # ذخیره در session
-    session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
-    if hasattr(request, 'session'):
-        request.session[session_key] = lang_code
-        request.session.modified = True
-        # اطمینان از save شدن session
-        try:
-            request.session.save()
-        except Exception as e:
-            # در صورت خطا، لاگ کن (فقط در DEBUG)
-            if settings.DEBUG:
-                print(f"[set_language] Session save error: {e}")
-
-    # activate برای درخواست فعلی (اختیاری — middleware بعد از redirect می‌خواند)
-    translation.activate(lang_code)
+    if lang_code not in ('tr', 'en'):
+        return redirect('/')
 
     next_url = (request.GET.get('next') or request.META.get('HTTP_REFERER') or '').strip()
     if not next_url or '/lang/' in next_url:
         next_url = '/'
-    # فقط مسیرهای همون سایت (شروع با /) یا آدرس همین دامنه
     if next_url.startswith('//') or (next_url.startswith('http') and request.get_host() not in next_url):
         next_url = '/'
 
-    response = redirect(next_url)
-    # ذخیره در cookie
+    # Parse path from next (may be full URL or path)
+    if next_url.startswith('http'):
+        parsed = urlparse(next_url)
+        path = parsed.path or '/'
+    else:
+        path = next_url
+
+    # Strip existing language prefix to get path without prefix
+    path = path.rstrip('/') or '/'
+    parts = path.strip('/').split('/')
+    if parts and parts[0] in ('tr', 'en'):
+        path_without_lang = '/' + '/'.join(parts[1:]) if len(parts) > 1 else '/'
+        if path_without_lang != '/' and not path_without_lang.endswith('/'):
+            path_without_lang += '/'
+    else:
+        path_without_lang = path if path != '/' else '/'
+    if not path_without_lang.startswith('/'):
+        path_without_lang = '/' + path_without_lang
+
+    target_path = f'/{lang_code}{path_without_lang}'
+
+    session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
+    if hasattr(request, 'session'):
+        request.session[session_key] = lang_code
+        request.session.modified = True
+
+    translation.activate(lang_code)
+    response = redirect(target_path)
     cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
     response.set_cookie(cookie_name, lang_code, max_age=365 * 24 * 60 * 60, path='/', samesite='Lax')
-    
-    # دیباگ: چک کن که session set شده
-    if settings.DEBUG and hasattr(request, 'session'):
-        saved_lang = request.session.get(session_key)
-        print(f"[set_language] Set language to: {lang_code}, Session now has: {saved_lang}")
-    
     return response

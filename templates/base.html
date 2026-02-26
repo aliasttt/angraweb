@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="tr" dir="ltr">
+<html lang="{{ request.LANGUAGE_CODE|default:'tr' }}" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +14,11 @@
     <meta name="author" content="Angraweb.com">
     <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
     <link rel="canonical" href="{{ canonical_url }}">
-    <!-- Alternate languages (same URL, content varies by session) -->
-    <link rel="alternate" hreflang="tr" href="{{ request.build_absolute_uri }}">
-    <link rel="alternate" hreflang="en" href="{{ request.build_absolute_uri }}">
-    <link rel="alternate" hreflang="x-default" href="{{ request.build_absolute_uri }}">
+    {% if hreflang_urls %}
+    {% for code, url in hreflang_urls %}
+    <link rel="alternate" hreflang="{{ code }}" href="{{ url }}">
+    {% endfor %}
+    {% endif %}
     <meta name="theme-color" content="#0a0e27">
     
     <!-- Open Graph / Facebook -->

@@ -168,6 +168,7 @@ angraweb/
   - `python manage.py insights_audit_meta --sitemap https://example.com/sitemap.xml --max-pages 200`
   - `python manage.py insights_seo_health_snapshot --days 28`
   - داشبورد: `/admin/insights/` و `/admin/insights/seo-health/`
+- **آدرس‌های چندزبانه برای سئو (i18n)**: تمام صفحات اصلی با پیشوند زبان `/tr/` و `/en/`؛ ریشه `/` به `/tr/` یا `/en/` ریدایرکت می‌شود. جزئیات در `I18N_MIGRATION_NOTES.md`.
 - اضافه کردن سیستم پرداخت آنلاین
 - اضافه کردن چت آنلاین
 - اضافه کردن سیستم نظرات برای وبلاگ

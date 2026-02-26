@@ -1,19 +1,17 @@
 from django.urls import path
-from django.views.generic.base import RedirectView
+from functools import partial
 from . import views
 
-# ─── 301 Redirects: آدرس‌های قدیمی سایت استاتیک (.html) → آدرس جدید (Django)
-#     جلوگیری از از دست رفتن رتبه در گوگل وقتی URL عوض شده
+# ─── 301 Redirects: old static .html URLs → language-prefixed Django URLs
 urlpatterns = [
-    path('index.html', RedirectView.as_view(url='/', permanent=True)),
-    path('about.html', RedirectView.as_view(url='/about/', permanent=True)),
-    path('contact.html', RedirectView.as_view(url='/contact/', permanent=True)),
-    path('services.html', RedirectView.as_view(url='/services/', permanent=True)),
-    path('packages.html', RedirectView.as_view(url='/packages/', permanent=True)),
-    path('projects.html', RedirectView.as_view(url='/projects/', permanent=True)),
-    path('resume.html', RedirectView.as_view(url='/resume/', permanent=True)),
-    # ─── مسیرهای اصلی
-    # Main pages
+    path('index.html', partial(views._redirect_to_name, view_name='index')),
+    path('about.html', partial(views._redirect_to_name, view_name='about')),
+    path('contact.html', partial(views._redirect_to_name, view_name='contact')),
+    path('services.html', partial(views._redirect_to_name, view_name='services_list')),
+    path('packages.html', partial(views._redirect_to_name, view_name='packages_list')),
+    path('projects.html', partial(views._redirect_to_name, view_name='projects_list')),
+    path('resume.html', partial(views._redirect_to_name, view_name='resume')),
+    # ─── Main routes
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),

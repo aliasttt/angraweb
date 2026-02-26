@@ -143,6 +143,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
+USE_I18N = True
+
 LANGUAGE_CODE = 'tr'
 
 TIME_ZONE = 'Europe/Istanbul'
@@ -152,8 +154,10 @@ LANGUAGES = [
     ('en', 'English'),
 ]
 
-# تا LocaleMiddleware همان کلیدی را بخواند که set_language می‌نویسد
+# Language-prefixed URLs use both /tr/ and /en/ (prefix_default_language=True in i18n_patterns).
+# Until LocaleMiddleware runs, use this key for session; set_language view also uses it.
 LANGUAGE_SESSION_KEY = '_language'
+LANGUAGE_COOKIE_NAME = 'django_language'
 
 # اطمینان از ذخیره شدن session در هر درخواست
 SESSION_SAVE_EVERY_REQUEST = True
@@ -166,8 +170,6 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Session تا زمانی که مرور
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
-
-USE_I18N = True
 
 USE_TZ = True
 

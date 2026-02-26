@@ -54,43 +54,31 @@ class MaintenanceMiddleware:
 
 class LanguageActivationMiddleware:
     """
-    بعد از LocaleMiddleware اجرا می‌شود و مطمئن می‌شود که زبان از session/cookie activate شده
-    و ترجمه‌ها به درستی لود می‌شوند
+    After LocaleMiddleware: for non-prefixed paths (e.g. /admin/) set language from
+    session/cookie. For /tr/ and /en/ paths, do nothing — URL is source of truth.
     """
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
-        # قبل از اجرای view، زبان را از session/cookie بخوان و activate کن
-        # (LocaleMiddleware قبلاً اجرا شده و زبان را از session خوانده، اما ما دوباره چک می‌کنیم)
+        path = request.path_info.lstrip('/')
+        if path.startswith('tr/') or path.startswith('en/'):
+            return self.get_response(request)
+
         session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
         lang = None
-        
-        # از session بخوان
         if hasattr(request, 'session'):
             lang = request.session.get(session_key)
-        
-        # اگر session نبود، از cookie بخوان
         if not lang:
             cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
             lang = request.COOKIES.get(cookie_name)
-        
-        # اگر زبان پیدا نشد، از زبان پیش‌فرض استفاده کن
-        if not lang or lang not in ['tr', 'en', 'fa', 'ar']:
+        if not lang or lang not in ['tr', 'en']:
             lang = settings.LANGUAGE_CODE
-        
-        # حتماً زبان را activate کن تا ترجمه‌ها لود شوند
         translation.activate(lang)
-        
-        # اگر زبان در session نیست، آن را ذخیره کن تا دفعه بعد استفاده شود
         if hasattr(request, 'session') and request.session.get(session_key) != lang:
             request.session[session_key] = lang
             request.session.modified = True
-        
-        # حالا view را اجرا کن
-        response = self.get_response(request)
-        
-        return response
+        return self.get_response(request)
 
 
 class SessionExpiryMiddleware:
