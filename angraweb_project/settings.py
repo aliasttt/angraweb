@@ -29,6 +29,10 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
+# دامنهٔ canonical برای ایندکس و sitemap (بدون www، با https)
+# در production حتماً تنظیم کن: CANONICAL_DOMAIN=https://angraweb.com
+CANONICAL_DOMAIN = (os.environ.get('CANONICAL_DOMAIN') or os.environ.get('SITE_URL') or 'https://angraweb.com').strip().rstrip('/')
+
 # صفحه نگهداری (Bakım Modu): وقتی True باشد به جای سایت صفحه نگهداری به ترکی نمایش داده می‌شود.
 # برای غیرفعال کردن: MAINTENANCE_MODE=False یا حذف این خط و استفاده از مقدار پیش‌فرض.
 MAINTENANCE_MODE = os.environ.get('MAINTENANCE_MODE', 'False') == 'True'
@@ -49,6 +53,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'main.middleware.CanonicalRedirectMiddleware',  # www → non-www و یکسان‌سازی canonical
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,6 +82,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
                 'insights.context_processors.insights_settings',
+                'main.context_processors.canonical_url',
             ],
         },
     },

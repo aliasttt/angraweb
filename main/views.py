@@ -708,8 +708,10 @@ def sitemap(request):
 
 
 def sitemap_xml(request):
-    """Sitemap XML برای Google Search Console — همه URLهای مهم با lastmod."""
-    base = f"{request.scheme}://{request.get_host()}"
+    """Sitemap XML برای Google Search Console — همه URLهای مهم با lastmod. همیشه با دامنهٔ canonical."""
+    from django.conf import settings
+    canonical = getattr(settings, 'CANONICAL_DOMAIN', '').strip()
+    base = canonical if canonical else f"{request.scheme}://{request.get_host()}"
 
     def w(url, lastmod=None, changefreq='monthly', priority='0.8'):
         lastmod = lastmod or timezone.now()

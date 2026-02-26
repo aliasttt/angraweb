@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load main_extras %}
+
+{% block title %}{% localized project 'title' current_lang %} | {% trans "Project" %} | Angraweb.com{% endblock %}
+
+{% block meta_description %}{% localized project 'description' current_lang|truncatewords:25 %}{% endblock %}
+
+{% block meta_keywords %}{% localized project 'title' current_lang %}, portfolio, {% trans "project" %}, Angraweb{% endblock %}
+
+{% block og_title %}{% localized project 'title' current_lang %} | Angraweb.com{% endblock %}
+
+{% block og_description %}{% localized project 'description' current_lang|truncatewords:15 %}{% endblock %}
+
+{% block content %}
+<section class="page-hero" style="margin-bottom: 2rem;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'projects_list' %}">{% trans "Projects" %}</a></li>
+                <li class="breadcrumb-item active">{% localized project 'title' current_lang %}</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="section" style="padding-top: 2rem;">
+    <div class="container">
+        <div class="project-item-large mb-5">
+            <div class="project-item-wrapper">
+                {% if project.image %}
+                <div class="project-image-large">
+                    <img src="{{ project.image.url }}" alt="{% localized project 'title' current_lang %}" loading="lazy">
+                    {% if project.url %}
+                    <div class="project-image-overlay">
+                        <a href="{{ project.url }}" class="btn btn-light btn-lg" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% elif project.url %}
+                <div class="project-image-large">
+                    {% localized project 'title' current_lang as project_title %}
+                    {% if project.slug == 'firmentshirt-custom-tshirt-printing' %}
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                    {% elif project.slug == 'bonus-berlin-qr-menu-loyalty' %}
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                    {% elif project.slug == 'kanoon-hamyari-persian-community' %}
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                    {% elif project.slug == 'pier-insaat-construction' %}
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                    {% elif project.slug == 'kalici-makyaj-monir-permanent-makeup' %}
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                    {% elif project.slug == 'angraweb-portfolio' %}
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                    {% elif project.slug == 'hedef-surucu-kursu-driving-school' %}
+                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                    {% elif project.slug == 'gezgin-ustalar-home-services' %}
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                    {% else %}
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                    {% endif %}
+                    <div class="project-image-overlay">
+                        <a href="{{ project.url }}" class="btn btn-light btn-lg" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
+                        </a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="project-image-large project-image-placeholder">
+                    <div class="placeholder-content">
+                        <i class="fas fa-globe fa-4x"></i>
+                        <p>{% localized project 'title' current_lang %}</p>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="project-content-large">
+                    <div class="project-header">
+                        <h1 class="project-title-large">{% localized project 'title' current_lang %}</h1>
+                        {% if project.domain %}
+                        <div class="project-domain-large">
+                            <i class="fas fa-globe me-2"></i>
+                            <a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.domain }}</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="project-description-full">
+                        <p>{% localized project 'description' current_lang|linebreaks %}</p>
+                    </div>
+                    {% if project.technologies %}
+                    <div class="project-technologies">
+                        <h4 class="tech-title">
+                            <i class="fas fa-code me-2"></i>{% trans "Technologies Used" %}:
+                        </h4>
+                        <div class="tech-tags-container">
+                            {% for tech in project.get_technologies_list %}
+                            <span class="tech-tag-large">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="project-footer">
+                        <div class="project-type-badge">
+                            <i class="fas fa-tag me-2"></i>
+                            {% if project.project_type == 'web' %}
+                                {% trans "Web Development" %}
+                            {% elif project.project_type == 'ecommerce' %}
+                                {% trans "E-Commerce" %}
+                            {% elif project.project_type == 'mobile' %}
+                                {% trans "Mobile App" %}
+                            {% elif project.project_type == 'platform' %}
+                                {% trans "Platform" %}
+                            {% else %}
+                                {% trans "Other" %}
+                            {% endif %}
+                        </div>
+                        {% if project.url %}
+                        <a href="{{ project.url }}" class="btn btn-primary btn-lg project-visit-btn-large" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if related_projects %}
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-4">
+                    <span class="text-gradient">{% trans "Related Projects" %}</span>
+                </h2>
+            </div>
+            {% for rel in related_projects %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="project-item-wrapper">
+                    {% if rel.image %}
+                    <div class="project-image-large">
+                        <a href="{% url 'project_detail' rel.slug %}">
+                            <img src="{{ rel.image.url }}" alt="{% localized rel 'title' current_lang %}" loading="lazy" class="img-fluid">
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="project-content-large p-3">
+                        <h3 class="project-title-large h5">
+                            <a href="{% url 'project_detail' rel.slug %}">{% localized rel 'title' current_lang %}</a>
+                        </h3>
+                        <a href="{% url 'project_detail' rel.slug %}" class="btn btn-sm btn-outline-primary">{% trans "View Project" %}</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

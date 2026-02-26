@@ -13,7 +13,7 @@
     <meta name="keywords" content="{% block meta_keywords %}web design, ecommerce, mobile app, SEO, hosting, UI/UX design, {% trans 'web development' %}{% endblock %}">
     <meta name="author" content="Angraweb.com">
     <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
-    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    <link rel="canonical" href="{{ canonical_url }}">
     <!-- Alternate languages (same URL, content varies by session) -->
     <link rel="alternate" hreflang="tr" href="{{ request.build_absolute_uri }}">
     <link rel="alternate" hreflang="en" href="{{ request.build_absolute_uri }}">

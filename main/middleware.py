@@ -2,13 +2,35 @@
 Middleware برای اطمینان از فعال شدن زبان از session/cookie
 و نمایش صفحه نگهداری (Bakım Modu)
 و مدیریت انقضای session
+و ریدایرکت www به دامنهٔ canonical
 """
 from django.conf import settings
 from django.shortcuts import render
 from django.utils import translation
 from django.contrib.auth import logout
 from django.utils import timezone
+from django.http import HttpResponseRedirect
 from datetime import timedelta
+
+
+class CanonicalRedirectMiddleware:
+    """
+    اگر درخواست با www باشد، به دامنهٔ canonical (بدون www) با 301 ریدایرکت کن.
+    برای رفع "Page with redirect" و "Duplicate canonical" در GSC.
+    """
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        canonical = getattr(settings, 'CANONICAL_DOMAIN', '').strip()
+        if not canonical:
+            return self.get_response(request)
+        host = request.get_host().split(':')[0].lower()
+        if host.startswith('www.'):
+            path = request.get_full_path()
+            redirect_url = canonical + path
+            return HttpResponseRedirect(redirect_url, status=301)
+        return self.get_response(request)
 
 
 class MaintenanceMiddleware:

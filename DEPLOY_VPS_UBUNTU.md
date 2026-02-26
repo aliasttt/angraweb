@@ -110,12 +110,15 @@ nano /var/www/angraweb/.env
 DEBUG=False
 SECRET_KEY=یک-رشته-تصادفی-طولانی-و-امن-اینجا-بگذارید
 ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com,IP_SERVER
+CANONICAL_DOMAIN=https://yourdomain.com
 USE_POSTGRES=True
 POSTGRES_DB=angraweb_db
 POSTGRES_USER=angraweb_user
 POSTGRES_PASSWORD=YOUR_DB_PASSWORD
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
+INSIGHTS_GSC_SITE_URL=sc-domain:angraweb.com
+INSIGHTS_GSC_CREDENTIALS_JSON=/srv/angraweb/gsc.json
 ```
 
 ذخیره: `Ctrl+O`, `Enter`, خروج: `Ctrl+X`.
@@ -197,12 +200,15 @@ Environment="PATH=/var/www/angraweb/venv/bin"
 Environment="DEBUG=False"
 Environment="SECRET_KEY=your-secret-key-here"
 Environment="ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com"
+Environment="CANONICAL_DOMAIN=https://yourdomain.com"
 Environment="USE_POSTGRES=True"
 Environment="POSTGRES_DB=angraweb_db"
 Environment="POSTGRES_USER=angraweb_user"
 Environment="POSTGRES_PASSWORD=YOUR_DB_PASSWORD"
 Environment="POSTGRES_HOST=localhost"
 Environment="POSTGRES_PORT=5432"
+Environment="INSIGHTS_GSC_SITE_URL=sc-domain:angraweb.com"
+Environment="INSIGHTS_GSC_CREDENTIALS_JSON=/srv/angraweb/gsc.json"
 ExecStart=/var/www/angraweb/venv/bin/gunicorn --workers 3 --bind unix:/var/www/angraweb/angraweb.sock angraweb_project.wsgi:application
 Restart=always
 
@@ -218,6 +224,70 @@ systemctl enable angraweb
 systemctl start angraweb
 systemctl status angraweb
 ```
+
+---
+
+## قدم ۴ – ست کردن GSC (Google Search Console) روی سرور
+
+برای داشتن دادهٔ واقعی SEO در داشبورد Insights باید کلید سرویس (Service Account) گوگل را روی سرور ست کنی.
+
+### ۱) آپلود فایل JSON روی سرور
+
+فایل JSON که از Google Cloud Console گرفتی (مثلاً `gen-lang-client-0574560023-d10a164b0ddd.json`) را روی سرور بگذار، مثلاً:
+
+```bash
+# روی ویندوز (PowerShell) از پوشهٔ Downloads:
+scp "gen-lang-client-0574560023-d10a164b0ddd.json" root@IP_SERVER:/srv/angraweb/gsc.json
+```
+
+یا با نام دیگر؛ فقط مسیر را بعداً در env استفاده کن.
+
+روی سرور مطمئن شو فایل خوانا است و دسترسی امن است:
+
+```bash
+chmod 600 /srv/angraweb/gsc.json
+```
+
+### ۲) تنظیم متغیرهای محیط
+
+**اگر از Domain property استفاده می‌کنی** (مثل `angraweb.com` بدون پیشوند URL):
+
+در `.env` یا در سرویس systemd این دو خط را اضافه کن:
+
+```env
+INSIGHTS_GSC_SITE_URL=sc-domain:angraweb.com
+INSIGHTS_GSC_CREDENTIALS_JSON=/srv/angraweb/gsc.json
+```
+
+**اگر از URL-prefix property استفاده می‌کنی** (مثل `https://angraweb.com/`):
+
+```env
+INSIGHTS_GSC_SITE_URL=https://angraweb.com/
+INSIGHTS_GSC_CREDENTIALS_JSON=/srv/angraweb/gsc.json
+```
+
+در **systemd** (فایل `/etc/systemd/system/angraweb.service`) همین دو خط را در بخش `[Service]` داخل `Environment=` اضافه کن (در همین سند قبلاً به نمونه systemd اضافه شده است).
+
+بعد از ذخیره:
+
+```bash
+systemctl daemon-reload
+systemctl restart angraweb
+```
+
+### ۳) تست و اجرای سنک
+
+روی سرور:
+
+```bash
+cd /srv/angraweb
+source venv/bin/activate
+export INSIGHTS_GSC_SITE_URL=sc-domain:angraweb.com
+export INSIGHTS_GSC_CREDENTIALS_JSON=/srv/angraweb/gsc.json
+python manage.py insights_sync_gsc --days 28
+```
+
+اگر خطایی نبود، دادهٔ GSC در ادمین و داشبورد `/admin/insights/` نمایش داده می‌شود. می‌توانی این دستور را با cron روزانه اجرا کنی.
 
 ---
 
