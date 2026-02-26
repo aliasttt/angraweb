@@ -23,7 +23,7 @@ from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, Newslett
 
 
 def redirect_to_default_language(request):
-    """Redirect bare / to language-prefixed home (e.g. /tr/ or /en/) for SEO."""
+    """Redirect bare / to language-prefixed home (e.g. /tr/ or /en/) for SEO. Uses 301 permanent."""
     from django.conf import settings
     session_key = getattr(settings, 'LANGUAGE_SESSION_KEY', '_language')
     cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
@@ -34,7 +34,7 @@ def redirect_to_default_language(request):
         lang = request.COOKIES.get(cookie_name)
     if lang not in ('tr', 'en'):
         lang = settings.LANGUAGE_CODE
-    return redirect(f'/{lang}/')
+    return redirect(f'/{lang}/', permanent=True)
 
 
 def _redirect_to_name(request, view_name, permanent=True, **kwargs):
@@ -729,10 +729,13 @@ def sitemap(request):
 
 
 def sitemap_xml(request):
-    """Sitemap XML for GSC: all important URLs for both languages (tr, en) with lastmod."""
+    """Sitemap XML for GSC: all important URLs for both languages (tr, en) with lastmod. Uses https when CANONICAL_DOMAIN is set."""
     from django.conf import settings
-    canonical = getattr(settings, 'CANONICAL_DOMAIN', '').strip()
-    base = (canonical.rstrip('/') if canonical else f"{request.scheme}://{request.get_host()}").rstrip('/')
+    canonical = getattr(settings, 'CANONICAL_DOMAIN', '').strip().rstrip('/')
+    if canonical and canonical.startswith('http://'):
+        canonical = 'https://' + canonical[7:]
+    base = canonical if canonical else f"{request.scheme}://{request.get_host()}"
+    base = base.rstrip('/')
 
     def w(url_path, lastmod=None, changefreq='monthly', priority='0.8'):
         lastmod = lastmod or timezone.now()
@@ -785,6 +788,17 @@ def sitemap_xml(request):
             lines.append(w(url_path, lastmod=b.updated_at or b.published_at, changefreq='monthly', priority='0.7'))
     lines.append('</urlset>')
     return HttpResponse(''.join(lines), content_type='application/xml')
+
+
+def robots_txt(request):
+    """Serve robots.txt with Sitemap line for crawlers."""
+    from django.conf import settings
+    canonical = getattr(settings, 'CANONICAL_DOMAIN', '').strip().rstrip('/')
+    if not canonical:
+        canonical = f"{request.scheme}://{request.get_host()}"
+    sitemap_url = f"{canonical}/sitemap.xml"
+    body = f"User-agent: *\nAllow: /\n\nSitemap: {sitemap_url}\n"
+    return HttpResponse(body, content_type='text/plain')
 
 
 def set_language(request, lang_code):

@@ -9,7 +9,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
-from main.views import set_language, redirect_to_default_language
+from main.views import set_language, redirect_to_default_language, sitemap_xml, robots_txt
 from insights.views_admin import admin_dashboard as admin_dashboard_view
 from insights.views_admin import seo_health_dashboard as seo_health_dashboard_view
 
@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/insights/', admin_dashboard_view),
     path('admin/', admin.site.urls),
     path('insights/', include('insights.urls')),
+    path('sitemap.xml', sitemap_xml),
+    path('robots.txt', robots_txt),
     path('', redirect_to_default_language),
 ]
 
