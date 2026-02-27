@@ -1,10 +1,15 @@
 from __future__ import annotations
 
+import html
 import json
+import random
+import re
 from typing import Any, Dict, List, Optional
 
 from django import template
 from django.conf import settings
+from django.db.models import Q
+from django.utils.safestring import mark_safe
 
 from ..models import SeoPage
 
@@ -146,4 +151,199 @@ def jsonld_faq(page: SeoPage) -> str:
         return ""
     data = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": main_entity}
     return _jsonld(data)
+
+
+_PLACEHOLDER_RE = re.compile(r"\{\{\s*link:([^\}]+)\s*\}\}")
+
+
+def _is_same_language(page: SeoPage, url: str) -> bool:
+    return url.startswith(f"/{page.language}/")
+
+
+def _resolve_target_page(url: str) -> Optional[SeoPage]:
+    # canonical_url is stored as path for seo_pages
+    return SeoPage.objects.select_related("service").filter(Q(canonical_url=url) | Q(canonical_url=url.rstrip("/"))).first()
+
+
+def _slug_words_from_url(url: str) -> List[str]:
+    parts = [p for p in (url or "").strip("/").split("/") if p]
+    if len(parts) < 3:
+        return []
+    slug = parts[-1]
+    if slug in ("fiyatlar", "rehber", "teklif-al", "pricing", "guide", "get-quote"):
+        return []
+    return [w for w in slug.replace("-", " ").split() if w]
+
+
+def _choose_anchor(page: SeoPage, target: SeoPage, url: str, mode: str) -> str:
+    """
+    mode: partial | semantic | branded
+    Rules are driven by SOURCE page_type.
+    """
+    lang = page.language
+    if page.page_type == SeoPage.TYPE_QUOTE:
+        return "Teklif Al" if lang == "tr" else "Get a Quote"
+
+    if page.page_type == SeoPage.TYPE_PRICING:
+        if lang == "tr":
+            options = {
+                "semantic": ["fiyat detaylarını inceleyin", "paketleri karşılaştırın", "maliyet kalemlerini görün", "fiyatlandırmayı okuyun"],
+                "partial": ["fiyatlar", "fiyatlandırma", "paket fiyatları"],
+                "branded": ["Angraweb fiyatlandırma", "Angraweb paketleri"],
+            }
+        else:
+            options = {
+                "semantic": ["see pricing details", "compare pricing options", "review cost drivers", "read pricing"],
+                "partial": ["pricing", "pricing options", "cost"],
+                "branded": ["Angraweb pricing", "Angraweb pricing options"],
+            }
+        return random.choice(options.get(mode, options["semantic"]))
+
+    if page.page_type == SeoPage.TYPE_GUIDE:
+        if lang == "tr":
+            options = {
+                "semantic": ["detaylı rehberi okuyun", "adım adım süreci inceleyin", "kontrol listesini görün", "rehber bölümüne göz atın"],
+                "partial": ["rehber", "adım adım süreç", "uygulama rehberi"],
+                "branded": ["Angraweb rehberi", "Angraweb süreç rehberi"],
+            }
+        else:
+            options = {
+                "semantic": ["read the guide", "follow the step-by-step workflow", "see the checklist", "review the guide section"],
+                "partial": ["guide", "step-by-step guide", "implementation guide"],
+                "branded": ["Angraweb guide", "Angraweb workflow guide"],
+            }
+        return random.choice(options.get(mode, options["semantic"]))
+
+    # Cluster / Pillar sources: partial match anchors should resemble target topic
+    if mode == "branded":
+        return "Angraweb"
+
+    if mode == "partial":
+        words = _slug_words_from_url(url)
+        if page.language == "tr":
+            if words:
+                return " ".join(words[:3])
+            return target.title
+        if words:
+            return " ".join(words[:3]).lower()
+        return target.title
+
+    # semantic
+    if page.language == "tr":
+        return random.choice(
+            [
+                "detayları inceleyin",
+                "konuyu adım adım okuyun",
+                "ilgili sayfaya geçin",
+                "kapsamı ve yaklaşımı görün",
+            ]
+        )
+    return random.choice(
+        [
+            "read the details",
+            "see the related page",
+            "review the approach",
+            "explore the topic",
+        ]
+    )
+
+
+def _assign_anchor_modes(n: int, seed: str) -> List[str]:
+    """
+    Anchor distribution:
+    - 10–20% partial
+    - 60–70% semantic
+    - 10–20% branded
+    """
+    if n <= 0:
+        return []
+    rnd = random.Random(seed)
+    partial_n = max(1, round(n * rnd.uniform(0.10, 0.20)))
+    branded_n = max(1, round(n * rnd.uniform(0.10, 0.20)))
+    semantic_n = max(0, n - partial_n - branded_n)
+    modes = (["partial"] * partial_n) + (["branded"] * branded_n) + (["semantic"] * semantic_n)
+    rnd.shuffle(modes)
+    return modes[:n]
+
+
+def _related_reading_html(page: SeoPage, seed: str) -> str:
+    qs = SeoPage.objects.filter(language=page.language, service=page.service, is_indexable=True, published_at__isnull=False)
+    clusters = list(qs.filter(page_type=SeoPage.TYPE_CLUSTER).exclude(id=page.id).only("id", "title", "canonical_url", "slug"))
+    if not clusters:
+        return ""
+
+    # Weighted by "type similarity": clusters for cluster/guide/pillar, cost-ish clusters for pricing, high-intent clusters for quote.
+    def is_cost(p: SeoPage) -> bool:
+        return any(k in (p.slug or "") for k in ["fiyat", "maliyet", "cost", "pricing"])
+
+    rnd = random.Random(seed + ":related")
+    pool = clusters
+    if page.page_type == SeoPage.TYPE_PRICING:
+        cost_pool = [c for c in clusters if is_cost(c)]
+        pool = cost_pool or clusters
+    elif page.page_type == SeoPage.TYPE_QUOTE:
+        # "high intent" cluster heuristic: comparison or hiring words
+        hi = [c for c in clusters if any(k in (c.slug or "") for k in ["vs", "hire", "freelancer", "ajans", "company", "istanbul"])]
+        pool = hi or clusters
+
+    rnd.shuffle(pool)
+    pick = pool[:3]
+    if not pick:
+        return ""
+
+    heading = "İlgili Okumalar" if page.language == "tr" else "Related Reading"
+    items = "".join(
+        f"<li><a href=\"{html.escape(p.get_absolute_url())}\">{html.escape(p.title)}</a></li>" for p in pick
+    )
+    return f"<div class=\"related-reading\"><h2>{heading}</h2><ul>{items}</ul></div>"
+
+
+@register.simple_tag(takes_context=True)
+def render_internal_links(context, page: SeoPage) -> str:
+    """
+    Parses {{ link:/lang/.../ }} placeholders and replaces them with safe <a> tags.
+    Also appends a 3-item related reading block (same language/service).
+    """
+    src_html = page.content_html or ""
+    if not src_html:
+        return ""
+
+    request = context.get("request")
+    domain = _canonical_domain()
+
+    placeholders = list(_PLACEHOLDER_RE.finditer(src_html))
+    modes = _assign_anchor_modes(len(placeholders), seed=f"{page.language}:{page.id}:{page.page_type}")
+
+    out = []
+    last = 0
+    for i, m in enumerate(placeholders):
+        out.append(src_html[last : m.start()])
+        url = (m.group(1) or "").strip()
+
+        # Language isolation (hard rule)
+        if not _is_same_language(page, url):
+            out.append(html.escape(url))
+            last = m.end()
+            continue
+
+        target = _resolve_target_page(url)
+        if not target:
+            # no broken anchors: render url text if missing
+            out.append(html.escape(url))
+            last = m.end()
+            continue
+
+        mode = modes[i] if i < len(modes) else "semantic"
+        anchor = _choose_anchor(page, target, url, mode)
+        href = (domain + url) if (domain and url.startswith("/")) else (request.build_absolute_uri(url) if request else url)
+        out.append(f"<a href=\"{html.escape(href)}\">{html.escape(anchor)}</a>")
+        last = m.end()
+
+    out.append(src_html[last:])
+
+    related = _related_reading_html(page, seed=f"{page.language}:{page.id}:{page.page_type}")
+    if related:
+        out.append(related)
+
+    return mark_safe("".join(out))
 

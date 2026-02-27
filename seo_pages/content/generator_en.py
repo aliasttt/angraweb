@@ -1,0 +1,603 @@
+from __future__ import annotations
+
+import random
+from typing import Dict, List, Tuple
+
+from django.utils import timezone
+
+from ..models import SeoPage
+from ..silo_config import SERVICE_SILO_MAP
+from .utils import MetaPack, cta_box, faq, h2, h3, make_meta, p, ul, word_count_from_html
+
+
+def _service_name(page: SeoPage) -> str:
+    return page.service.en_name
+
+
+def _service_base(page: SeoPage) -> str:
+    return page.service.en_base_path
+
+
+def _pillar_url(page: SeoPage) -> str:
+    return f"/en/{_service_base(page)}/"
+
+
+def _pricing_url(page: SeoPage) -> str:
+    return f"/en/{_service_base(page)}/pricing/"
+
+
+def _guide_url(page: SeoPage) -> str:
+    return f"/en/{_service_base(page)}/guide/"
+
+
+def _quote_url(page: SeoPage) -> str:
+    return f"/en/{_service_base(page)}/get-quote/"
+
+
+def _cluster_urls_for_service(page: SeoPage) -> List[str]:
+    cfg = SERVICE_SILO_MAP.get(page.service.key, {}).get("en", {})
+    base = _service_base(page)
+    return [f"/en/{base}/{slug}/" for slug in cfg.get("clusters", [])]
+
+
+def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str], List[str]]:
+    mapping = {
+        "web-design-services": ("Web Design Services", ["Brand consistency", "Conversion-focused pages", "Performance and accessibility"], ["IA and page structure", "Design system", "Reusable components", "Technical SEO baseline"]),
+        "web-design-agency": ("Web Design Agency", ["Process transparency", "Delivery quality", "Long-term support"], ["Discovery workshop", "Sprint plan", "QA checklist"]),
+        "web-development-company": ("Web Development Company", ["Engineering depth", "Stakeholder communication", "Reliable delivery"], ["Architecture plan", "Implementation roadmap", "Release process"]),
+        "corporate-website-development": ("Corporate Website Development", ["Multiple stakeholders", "Content governance", "Security requirements"], ["Content model", "Roles/permissions", "Analytics foundation"]),
+        "custom-web-development": ("Custom Web Development", ["Integrations", "Scalability", "Non-standard workflows"], ["Custom modules", "API integrations", "Monitoring"]),
+        "django-web-development": ("Django Web Development", ["Secure foundations", "Maintainability", "Admin workflows"], ["App structure", "Permissions", "Admin CMS", "Deployment plan"]),
+        "hire-web-developer": ("Hire a Web Developer", ["Skill verification", "Speed vs quality balance"], ["Interview checklist", "Trial sprint plan"]),
+        "web-design-company-istanbul": ("Web Design Company in Istanbul", ["Local competition", "Fast communication"], ["Local-focused proposal", "Reference approach"]),
+        "what-is-web-design": ("What Is Web Design?", ["Foundations", "Common misconceptions"], ["Core concepts", "Practical examples"]),
+        "how-to-build-a-website": ("How to Build a Website", ["Scope clarity", "Content readiness"], ["Step-by-step workflow", "Risk checklist"]),
+        "custom-website-vs-template": ("Custom Website vs Template", ["Cost vs flexibility", "Time-to-market"], ["Decision matrix", "Scenario guidance"]),
+        "django-vs-php": ("Django vs PHP", ["Team skill set", "Security posture"], ["Comparison table", "Fit-by-project notes"]),
+        "react-native-app-development": ("React Native App Development", ["Single codebase strategy", "Release velocity"], ["MVP plan", "Store readiness", "Telemetry"]),
+        "android-app-development": ("Android App Development", ["Device fragmentation", "Performance"], ["Testing strategy", "Release plan"]),
+        "ios-app-development": ("iOS App Development", ["App Store compliance", "UX patterns"], ["Submission checklist", "Versioning"]),
+        "custom-mobile-app-development": ("Custom Mobile App Development", ["Business alignment", "Roadmap clarity"], ["Product roadmap", "Architecture"]),
+        "mobile-app-development-company": ("Mobile App Development Company", ["Cross-functional delivery", "Quality assurance"], ["Team composition", "Delivery milestones"]),
+        "what-is-mobile-app-development": ("What Is Mobile App Development?", ["Basic concepts", "Platform choices"], ["Definitions", "Examples"]),
+        "hire-mobile-app-developer": ("Hire a Mobile App Developer", ["Role fit", "Delivery reliability"], ["Interview rubric", "Pilot sprint"]),
+        "react-native-vs-native": ("React Native vs Native", ["Performance", "Cost", "Timeline"], ["Decision matrix", "Use-case mapping"]),
+        "cross-platform-vs-native": ("Cross-Platform vs Native", ["Long-term maintenance", "Team structure"], ["Trade-off analysis", "Recommendation guide"]),
+        "mobile-app-development-cost": ("Mobile App Development Cost", ["Scope creep risk", "Hidden complexity"], ["Cost drivers list", "Planning framework"]),
+        "custom-ecommerce-development": ("Custom Ecommerce Development", ["Complex catalog rules", "Integrations"], ["Custom checkout", "Inventory sync"]),
+        "ecommerce-development-company": ("Ecommerce Development Company", ["Delivery confidence", "Support model"], ["SLA approach", "Release cadence"]),
+        "ecommerce-platform-development": ("Ecommerce Platform Development", ["Scalability", "Operational tooling"], ["Admin workflows", "Analytics"]),
+        "b2b-ecommerce-development": ("B2B Ecommerce Development", ["Price lists", "Approvals"], ["Account features", "Approval flows"]),
+        "b2c-ecommerce-website": ("B2C Ecommerce Website", ["Conversion rate", "Mobile UX"], ["One-page checkout", "Promotion slots"]),
+        "what-is-ecommerce": ("What Is Ecommerce?", ["Getting started", "Key terms"], ["Concepts", "Starter checklist"]),
+        "ecommerce-website-guide": ("Ecommerce Website Guide", ["Step order", "Launch readiness"], ["Process map", "Launch checklist"]),
+        "ecommerce-website-cost": ("Ecommerce Website Cost", ["Cost drivers", "Scope clarity"], ["Budget framework", "Cost checklist"]),
+        "ecommerce-pricing": ("Ecommerce Pricing", ["Packaging approach", "Scope tiers"], ["Tier definitions", "Trade-offs"]),
+        "custom-vs-template-ecommerce": ("Custom vs Template Ecommerce", ["Speed vs flexibility", "Total cost"], ["Decision matrix", "Scenario fit"]),
+        "technical-seo-services": ("Technical SEO Services", ["Crawl efficiency", "Indexation health"], ["Fix list", "Monitoring plan"]),
+        "on-page-seo-services": ("On-Page SEO Services", ["Content structure", "Internal linking"], ["Template rules", "Content briefs"]),
+        "seo-consultancy": ("SEO Consultancy", ["Prioritization", "Reporting"], ["Roadmap", "Monthly reporting"]),
+        "seo-pricing": ("SEO Pricing", ["Scope tiers", "Retainer planning"], ["Package approach", "Scope framework"]),
+        "seo-cost": ("SEO Cost", ["Expectations", "Trade-offs"], ["Cost drivers", "Planning model"]),
+        "what-is-seo": ("What Is SEO?", ["Core concepts", "How it works"], ["Definitions", "Examples"]),
+        "how-seo-works": ("How SEO Works", ["Ranking factors", "Practical workflow"], ["Process outline", "Checklist"]),
+        "hire-seo-expert": ("Hire an SEO Expert", ["Skill verification", "Strategy fit"], ["Interview checklist", "Pilot plan"]),
+        "seo-audit": ("SEO Audit", ["Issue discovery", "Quick wins"], ["Audit report", "Priority list"]),
+        "seo-for-django-sites": ("SEO for Django Sites", ["Rendering and performance", "Routing and canonicals"], ["Technical checklist", "Implementation plan"]),
+        "web-hosting-services": ("Web Hosting Services", ["Reliability", "Security"], ["Backups", "Monitoring"]),
+        "vps-hosting": ("VPS Hosting", ["Resource sizing", "Ops overhead"], ["Setup plan", "Hardening"]),
+        "dedicated-server-hosting": ("Dedicated Server Hosting", ["Performance", "Cost control"], ["Sizing guide", "SLA"]),
+        "cloud-hosting": ("Cloud Hosting", ["Elastic scaling", "Resilience"], ["Automation", "Redundancy"]),
+        "django-hosting": ("Django Hosting", ["Deployment stability", "Security"], ["Release pipeline", "Ops checklist"]),
+        "domain-registration": ("Domain Registration", ["Right domain choice", "DNS management"], ["Registration steps", "DNS checklist"]),
+        "ssl-certificate": ("SSL Certificate", ["Browser trust", "TLS configuration"], ["Setup steps", "Renewal plan"]),
+        "linux-server-setup": ("Linux Server Setup", ["Hardening", "Performance"], ["Setup checklist", "Security baseline"]),
+        "web-hosting-pricing": ("Web Hosting Pricing", ["Plan comparison", "Hidden limits"], ["Pricing factors", "Selection guide"]),
+        "vps-hosting-cost": ("VPS Hosting Cost", ["Sizing accuracy", "Budget planning"], ["Cost drivers", "Example tiers"]),
+        "ui-ux-design-services": ("UI/UX Design Services", ["User clarity", "Design consistency"], ["Design system", "Prototype"]),
+        "user-experience-design": ("User Experience Design", ["Research", "Journey clarity"], ["User flows", "Testing plan"]),
+        "user-interface-design": ("User Interface Design", ["Component consistency", "Accessibility"], ["Component library", "Style guide"]),
+        "what-is-ui-ux": ("What Is UI/UX?", ["Basic definitions", "Common pitfalls"], ["Concepts", "Examples"]),
+        "figma-design": ("Figma Design", ["Collaboration", "Version control"], ["Component sets", "Documentation"]),
+        "wireframe-design": ("Wireframe Design", ["Fast validation", "IA clarity"], ["Wireframes", "Flow map"]),
+        "prototype-design": ("Prototype Design", ["Testability", "Stakeholder alignment"], ["Interactive prototype", "Handoff notes"]),
+        "mobile-app-ui-design": ("Mobile App UI Design", ["Platform patterns", "Usability"], ["Screen set", "Prototype"]),
+        "ui-ux-pricing": ("UI/UX Pricing", ["Scope tiers", "Deliverables"], ["Package tiers", "Scope checklist"]),
+        "ux-research": ("UX Research", ["Insights", "Decision support"], ["Interviews", "Analysis"]),
+    }
+    if slug in mapping:
+        return mapping[slug]
+    title = " ".join([w.capitalize() for w in (slug or "").replace("-", " ").split()])
+    return (title, ["Scope clarity", "Delivery reliability", "Quality control"], ["Plan", "Implementation", "Acceptance criteria"])
+
+
+def _pick_sibling_clusters(page: SeoPage, n: int = 2) -> List[str]:
+    cfg = SERVICE_SILO_MAP.get(page.service.key, {}).get("en", {})
+    slugs = list(cfg.get("clusters", []))
+    if page.slug not in slugs or len(slugs) < 2:
+        return []
+    idx = slugs.index(page.slug)
+    picks = []
+    for i in range(1, n + 1):
+        picks.append(slugs[(idx + i) % len(slugs)])
+    base = _service_base(page)
+    return [f"/en/{base}/{s}/" for s in picks]
+
+
+def _ensure_word_target(page: SeoPage, html: str, min_words: int, max_words: int, seed: str) -> str:
+    rnd = random.Random(seed + ":pad")
+    wc = word_count_from_html(html)
+    if wc >= min_words:
+        return html
+
+    def chunk_delivery() -> str:
+        return "\n".join(
+            [
+                h2("Delivery standards and acceptance criteria"),
+                p(
+                    "High-quality delivery starts with measurable acceptance criteria. When goals are translated into explicit checks—"
+                    "flows, performance, accessibility, and security—teams make faster decisions and reduce rework."
+                ),
+                p(
+                    "Acceptance criteria should guide implementation, not just final review. This keeps scope stable and makes timelines predictable."
+                ),
+                ul(
+                    [
+                        "Critical journeys: validated end-to-end",
+                        "Performance: baseline targets and optimization plan",
+                        "Content structure: consistent templates and hierarchy",
+                        "Security: permissions and basic hardening",
+                    ]
+                ),
+            ]
+        )
+
+    def chunk_ops() -> str:
+        return "\n".join(
+            [
+                h2("Operating rhythm: communication and reporting"),
+                p(
+                    "A reliable operating rhythm reduces surprises. Weekly summaries, clear priorities, and written decisions help stakeholders stay aligned."
+                ),
+                p(
+                    "We keep delivery transparent through milestones, a visible backlog, and explicit definitions of done."
+                ),
+                ul(
+                    [
+                        "Weekly update: shipped items and blockers",
+                        "Next steps: this week / next week priorities",
+                        "Risks: dependencies, content readiness, integration uncertainty",
+                        "Definition of done: agreed acceptance checks",
+                    ]
+                ),
+            ]
+        )
+
+    def chunk_ia() -> str:
+        return "\n".join(
+            [
+                h2("Information architecture and internal linking"),
+                p(
+                    "A strong structure improves both usability and search visibility. A clear hub page connected to focused topic pages"
+                    " creates a predictable path for users and crawlers."
+                ),
+                p(f"Use the overview at {{ link:{_pillar_url(page)} }} and the workflow at {{ link:{_guide_url(page)} }} to align the structure."),
+                ul(
+                    [
+                        "Pillar → all cluster pages",
+                        "Guide → 6–10 selected clusters",
+                        "Cluster → pillar + relevant pages + 1–2 sibling topics",
+                        "Quote → pillar + pricing",
+                    ]
+                ),
+            ]
+        )
+
+    def chunk_scope() -> str:
+        return "\n".join(
+            [
+                h2("Scope definition: a practical method"),
+                p(
+                    "Scope is not only a list of features—it’s a boundary. Clear boundaries make estimates reliable and prevent uncontrolled expansion."
+                ),
+                p(
+                    "A practical method is to split requirements into must-have, high-priority, and later-phase items, then attach acceptance checks to each."
+                ),
+                ul(
+                    [
+                        "Must-have: critical journeys and baseline functionality",
+                        "High-priority: conversion and operational improvements",
+                        "Later-phase: enhancements after validation",
+                        "Acceptance: measurable checks per item",
+                    ]
+                ),
+            ]
+        )
+
+    def chunk_release() -> str:
+        return "\n".join(
+            [
+                h2("Release plan and sustainability"),
+                p(
+                    "Launch is the start of iteration, not the finish line. A release checklist, monitoring, and a feedback loop reduce risk in the first 30 days."
+                ),
+                p(
+                    "Sustainability comes from operational basics: permissions, backups, performance monitoring, and a clear support path."
+                ),
+                ul(
+                    [
+                        "Checklist: critical flows, forms, redirects",
+                        "Monitoring: error tracking and baseline metrics",
+                        "Backups: schedule and rollback plan",
+                        "Iteration: targeted improvements after launch",
+                    ]
+                ),
+            ]
+        )
+
+    def chunk_pricing_only() -> str:
+        return "\n".join(
+            [
+                h2("Pricing transparency: what you’re paying for"),
+                p(
+                    "Healthy pricing is a function of scope clarity. When deliverables are visible, it’s easier to understand what increases cost"
+                    " and what can be deferred into later phases."
+                ),
+                p(
+                    "We typically recommend MVP-first budgeting, then expanding in phases. This reduces risk and keeps estimates realistic."
+                ),
+                ul(
+                    [
+                        "Scope: modules, pages/screens, admin needs",
+                        "Integrations: third-party APIs and data flows",
+                        "Design depth: custom system vs adaptation",
+                        "Quality work: QA depth, performance, security",
+                    ]
+                ),
+            ]
+        )
+
+    chunks = [chunk_delivery(), chunk_ops(), chunk_ia(), chunk_scope(), chunk_release()]
+    if page.page_type == SeoPage.TYPE_PRICING:
+        chunks.insert(0, chunk_pricing_only())
+    else:
+        chunks.append(
+            "\n".join(
+                [
+                    h2("Next step"),
+                    p(
+                        "To turn this into a practical plan, share a short brief with goals and priorities. We’ll propose a scoped approach and timeline."
+                    ),
+                    p(f"Start here: {{ link:{_quote_url(page)} }}"),
+                ]
+            )
+        )
+
+    blocks = [html]
+    rnd.shuffle(chunks)
+    i = 0
+    while wc < min_words and i < 80:
+        blocks.append(chunks[i % len(chunks)])
+        wc = word_count_from_html("\n".join(blocks))
+        i += 1
+    return "\n".join(blocks)
+
+
+def generate_en(page: SeoPage) -> Dict:
+    svc = _service_name(page)
+    seed = f"en:{page.service.key}:{page.page_type}:{page.slug}"
+
+    if page.page_type == SeoPage.TYPE_PILLAR:
+        title = svc
+        meta = make_meta(
+            title=title,
+            meta_title=f"{svc} | B2B Delivery Approach",
+            meta_description=f"{svc} for companies that need a clear process, measurable outcomes, and reliable delivery. Explore approach, deliverables, and next steps.",
+        )
+        body: List[str] = []
+        body.append(h2("How we structure delivery"))
+        body.append(
+            p(
+                "We treat delivery as a system: goals → scope → architecture → design → implementation → QA → release. "
+                "Clear milestones and acceptance criteria keep work predictable."
+            )
+        )
+        body.append(h2("What you get"))
+        body.append(
+            ul(
+                [
+                    "Discovery and scope definition",
+                    "Technical plan and delivery milestones",
+                    "Quality assurance and release checklist",
+                    "Optional support and iteration after launch",
+                ]
+            )
+        )
+        body.append(h2("Start here"))
+        body.append(
+            ul(
+                [
+                    f"Pricing details: {{ link:{_pricing_url(page)} }}",
+                    f"Implementation guide: {{ link:{_guide_url(page)} }}",
+                    f"Request a quote: {{ link:{_quote_url(page)} }}",
+                ]
+            )
+        )
+        cluster_urls = _cluster_urls_for_service(page)
+        if cluster_urls:
+            body.append(h3("Topics"))
+            body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
+
+        body.append(
+            cta_box(
+                "Plan the next step",
+                "Share your goals and constraints. We’ll propose a practical scope and timeline.",
+                _quote_url(page),
+                "Open the quote request page.",
+                strong=True,
+            )
+        )
+
+        content_html = "\n".join(body)
+        faq_json = faq(
+            [
+                (f"How does {svc} typically start?", "With discovery: goals, constraints, stakeholders, and scope. Then we align on milestones and acceptance criteria."),
+                ("What affects timeline most?", "Scope clarity, integration complexity, content readiness, and review/approval speed."),
+                ("Do you provide post-launch support?", "Yes. We can structure support as a monthly iteration plan with monitoring and improvements."),
+                ("How do you manage changes?", "We evaluate changes in writing, estimate impact, and align before implementation."),
+                ("What do you need for an initial quote?", "Goals, key pages/features, integrations, and a rough timeline target."),
+                ("Can you work with internal teams?", "Yes. We can integrate with your stakeholders and delivery workflow."),
+            ]
+        )
+        content_html = _ensure_word_target(page, content_html, 2000, 2500, seed)
+        return {
+            "title": meta.title,
+            "meta_title": meta.meta_title,
+            "meta_description": meta.meta_description,
+            "content_html": content_html,
+            "faq_json": faq_json[:8],
+            "published_at": timezone.now(),
+        }
+
+    if page.page_type == SeoPage.TYPE_PRICING:
+        title = f"{svc} Pricing"
+        meta = make_meta(
+            title=title,
+            meta_title=f"{svc} Pricing | Scope & Tiers",
+            meta_description=f"{svc} pricing depends on scope, integrations, design depth, and delivery timeline. Review cost drivers and how to plan a realistic budget.",
+        )
+        body: List[str] = []
+        body.append(h2("Pricing model"))
+        body.append(
+            p(
+                "Pricing is driven by scope and delivery requirements. This page focuses on cost drivers and budget planning—"
+                "not education or implementation details."
+            )
+        )
+        body.append(h2("Primary cost drivers"))
+        body.append(
+            ul(
+                [
+                    "Scope: pages/screens, modules, admin needs",
+                    "Integrations: payments, CRM/ERP, third-party APIs",
+                    "Design depth: template adaptation vs custom system",
+                    "Quality: QA depth, performance work, security hardening",
+                    "Support: monitoring and iteration after launch",
+                ]
+            )
+        )
+        body.append(h2("How to budget without overpaying"))
+        body.append(
+            p(
+                "Define an MVP scope first, then expand in phases. This approach reduces risk and helps you validate outcomes early."
+            )
+        )
+        body.append(h2("Request a scoped quote"))
+        body.append(
+            cta_box(
+                "Get a quote",
+                "Share your scope and priorities. We’ll come back with a clear plan and a realistic estimate.",
+                _quote_url(page),
+                "Open the quote request page.",
+                strong=True,
+            )
+        )
+        content_html = "\n".join(body)
+        faq_json = faq(
+            [
+                ("Do you offer fixed pricing?", "We can offer fixed pricing when scope and acceptance criteria are clearly defined."),
+                ("Is support included?", "Support can be included or offered as a separate monthly plan depending on needs."),
+                ("How do you handle changes?", "We estimate impact and align before proceeding, keeping scope controlled."),
+                ("Can you work within a budget cap?", "Yes. We can propose an MVP and phased roadmap to fit constraints."),
+                ("What’s the fastest way to get a quote?", "Send goals, must-have features, integrations, and timeline expectations."),
+                ("Do you provide tiered options?", "Yes. We can propose tiers based on scope depth and delivery speed."),
+            ]
+        )
+        content_html = _ensure_word_target(page, content_html, 1500, 2000, seed)
+        return {
+            "title": meta.title,
+            "meta_title": meta.meta_title,
+            "meta_description": meta.meta_description,
+            "content_html": content_html,
+            "faq_json": faq_json[:8],
+            "published_at": timezone.now(),
+        }
+
+    if page.page_type == SeoPage.TYPE_GUIDE:
+        title = f"{svc} Guide"
+        meta = make_meta(
+            title=title,
+            meta_title=f"{svc} Guide | Practical Workflow",
+            meta_description=f"A practical {svc.lower()} guide covering scope, architecture, design, implementation, QA, and launch. Use checklists to keep delivery on track.",
+        )
+        body: List[str] = []
+        body.append(h2("Who this guide is for"))
+        body.append(p("This guide is for teams that want a clean process, clear ownership, and measurable outcomes."))
+        body.append(h2("Step 1: Define outcomes and constraints"))
+        body.append(ul(["Business outcome", "Users and journeys", "Constraints and dependencies"]))
+        body.append(h2("Step 2: Architecture and content model"))
+        body.append(p("A good structure prevents rework. Start with hierarchy, template types, and conversion points."))
+        body.append(h2("Step 3: Design for clarity"))
+        body.append(ul(["Consistency via components", "Accessibility", "Mobile-first patterns", "Performance awareness"]))
+        body.append(h2("Step 4: Implement, QA, release"))
+        body.append(ul(["Acceptance criteria", "QA checklist", "Performance checks", "Release and rollback plan"]))
+        body.append(h2("Next step"))
+        body.append(
+            ul(
+                [
+                    f"Service overview: {{ link:{_pillar_url(page)} }}",
+                    f"Pricing details: {{ link:{_pricing_url(page)} }}",
+                    f"Request a quote: {{ link:{_quote_url(page)} }}",
+                ]
+            )
+        )
+        cluster_urls = _cluster_urls_for_service(page)[:10]
+        if cluster_urls:
+            body.append(h3("Recommended related topics"))
+            body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
+        body.append(
+            cta_box(
+                "Turn this into your roadmap",
+                "Share your current situation and goals. We’ll turn the guide into a scoped plan.",
+                _quote_url(page),
+                "Request a quote.",
+                strong=True,
+            )
+        )
+        content_html = "\n".join(body)
+        faq_json = faq(
+            [
+                ("How do I define scope?", "Start with an MVP and write acceptance criteria. Then add phase 2/3 items separately."),
+                ("When should content be prepared?", "As early as possible—before design is finalized, to avoid layout rework."),
+                ("How do I prevent timeline slip?", "Keep scope controlled, set review SLAs, and maintain clear milestones."),
+                ("Do I need a design system?", "For multi-page or evolving products, yes. It reduces inconsistency and rework."),
+                ("What should happen after launch?", "Monitoring, user feedback collection, and iterative improvements."),
+                ("Can you help scope the MVP?", "Yes—share goals and constraints and we’ll propose a practical MVP."),
+            ]
+        )
+        content_html = _ensure_word_target(page, content_html, 1800, 2200, seed)
+        return {
+            "title": meta.title,
+            "meta_title": meta.meta_title,
+            "meta_description": meta.meta_description,
+            "content_html": content_html,
+            "faq_json": faq_json[:8],
+            "published_at": timezone.now(),
+        }
+
+    if page.page_type == SeoPage.TYPE_QUOTE:
+        title = f"Get a Quote for {svc}"
+        meta = make_meta(
+            title=title,
+            meta_title=f"Get a Quote | {svc}",
+            meta_description=f"Request a scoped quote for {svc.lower()}. Share goals and priorities to receive a clear plan, timeline, and delivery milestones.",
+        )
+        body: List[str] = []
+        body.append(h2("What happens after you submit"))
+        body.append(
+            ul(
+                [
+                    "We review your brief and clarify key questions",
+                    "We propose scope, milestones, and assumptions",
+                    "You receive a structured quote with timeline options",
+                ]
+            )
+        )
+        body.append(h2("What to include in your brief"))
+        body.append(ul(["Outcome and target users", "Must-have features/pages", "Integrations", "Timeline constraints", "Reference examples"]))
+        body.append(h2("Helpful pages"))
+        body.append(ul([f"{{{{ link:{_pricing_url(page)} }}}}", f"{{{{ link:{_guide_url(page)} }}}}"]))
+        body.append(
+            cta_box(
+                "Request a quote",
+                "Share your brief. We’ll respond with a clear scope and next steps.",
+                _quote_url(page),
+                "Open the quote request page.",
+                strong=True,
+            )
+        )
+        content_html = "\n".join(body)
+        faq_json = faq(
+            [
+                ("How fast do you respond?", "Response time depends on brief completeness, but we aim to clarify scope quickly."),
+                ("Do you offer different delivery timelines?", "Yes. We can propose options based on priorities and constraints."),
+                ("Can you sign an NDA?", "Yes, NDAs and confidentiality terms can be arranged."),
+                ("How do you handle scope changes?", "We document changes, estimate impact, and align before proceeding."),
+                ("Do you support ongoing iteration?", "Yes. We can provide a monthly iteration and monitoring plan."),
+            ]
+        )
+        content_html = _ensure_word_target(page, content_html, 800, 1200, seed)
+        return {
+            "title": meta.title,
+            "meta_title": meta.meta_title,
+            "meta_description": meta.meta_description,
+            "content_html": content_html,
+            "faq_json": faq_json[:8],
+            "published_at": timezone.now(),
+        }
+
+    # CLUSTER
+    topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
+    title = topic_title
+    meta = make_meta(
+        title=title,
+        meta_title=f"{topic_title} | {svc}",
+        meta_description=f"An overview of {topic_title.lower()} covering scope, delivery approach, and expected deliverables. See next steps and request a scoped quote.",
+    )
+    body: List[str] = []
+    body.append(h2("Summary"))
+    body.append(
+        p(
+            f"{topic_title} works best when goals and acceptance criteria are explicit. "
+            f"For the full service structure, see {{ link:{_pillar_url(page)} }}."
+        )
+    )
+    body.append(h2("Common requirements"))
+    body.append(ul(pain_points))
+    body.append(h2("Delivery approach"))
+    body.append(
+        ul(
+            [
+                "Discovery and scope definition",
+                "Architecture and implementation plan",
+                "Build and QA with measurable criteria",
+                "Release, monitoring, and iteration",
+            ]
+        )
+    )
+    body.append(h2("Deliverables"))
+    body.append(ul(deliverables))
+    body.append(h2("Related pages"))
+    siblings = _pick_sibling_clusters(page, n=2)
+    links = [f"{{{{ link:{_guide_url(page)} }}}}", f"{{{{ link:{_pricing_url(page)} }}}}", f"{{{{ link:{_quote_url(page)} }}}}"]
+    links.extend([f"{{{{ link:{u} }}}}" for u in siblings])
+    body.append(ul(links))
+    body.append(
+        cta_box(
+            "Get a scoped quote",
+            "Share goals and constraints. We’ll propose scope, milestones, and timeline options.",
+            _quote_url(page),
+            "Request a quote.",
+            strong=True,
+        )
+    )
+    content_html = "\n".join(body)
+    faq_json = faq(
+        [
+            (f"What’s the first step for {topic_title.lower()}?", "Clarify outcomes, scope, and acceptance criteria before implementation."),
+            ("What affects delivery time?", "Scope size, integration complexity, and review cycles."),
+            ("Do you include pricing here?", "No. Pricing intent is handled only on pricing pages."),
+            ("How do I request a quote?", "Provide goals, must-haves, integrations, and timeline constraints."),
+            ("Can you work in phases?", "Yes. MVP-first and phased delivery is often the safest approach."),
+        ]
+    )
+    content_html = _ensure_word_target(page, content_html, 1200, 1800, seed)
+    return {
+        "title": meta.title,
+        "meta_title": meta.meta_title,
+        "meta_description": meta.meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json[:8],
+        "published_at": timezone.now(),
+    }
+

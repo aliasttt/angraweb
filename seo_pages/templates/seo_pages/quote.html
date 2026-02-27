@@ -1,4 +1,5 @@
 {% extends "seo_pages/base_lang.html" %}
+{% load seo_pages_tags %}
 
 {% block content %}
   <div class="grid">
@@ -6,7 +7,7 @@
       <h1>{{ page.title }}</h1>
       <div class="card">
         {% if page.content_html %}
-          {{ page.content_html|safe }}
+          {% render_internal_links page %}
         {% else %}
           <p class="muted">
             {% if language == "tr" %}
@@ -49,7 +50,6 @@
         </ul>
       </div>
 
-      {% include "seo_pages/_modules.html" %}
     </aside>
   </div>
 {% endblock %}

@@ -86,8 +86,9 @@ class SeoPage(models.Model):
     meta_title = models.CharField(max_length=300, blank=True)
     meta_description = models.TextField(blank=True)
 
-    # Auto: self-referential. Stored as path by default (e.g. /tr/web-tasarim/).
-    canonical_url = models.URLField(blank=True)
+    # Auto: self-referential (store as path, e.g. /tr/web-tasarim/).
+    # Stored as CharField because URLField rejects relative paths.
+    canonical_url = models.CharField(max_length=500, blank=True)
 
     og_title = models.CharField(max_length=300, blank=True)
     og_description = models.TextField(blank=True)
