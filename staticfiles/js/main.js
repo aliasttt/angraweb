@@ -4,7 +4,7 @@ const translations = {
         // Navigation
         portfolio: "Angraweb.com",
         home: "Ana Sayfa",
-        about: "Hakkımda",
+        about: "Hakkımızda",
         services: "Hizmetler",
         projects: "Projeler",
         resume: "Özgeçmiş",
@@ -38,9 +38,9 @@ const translations = {
         value_support_desc: "Proje sonrası da yanınızdayım, 7/24 teknik destek hizmeti",
         
         // About Section
-        about_me: "Hakkımda",
-        experienced_developer: "Profesyonel Web Tasarım Uzmanı",
-        about_description: "Marmara Üniversitesi Bilgisayar Programlama mezunu olarak profesyonel web tasarım çözümleri sunuyorum. 20'den fazla müşterim %100 memnuniyet ile hizmet aldı. İşletmeniz için modern, hızlı ve kullanıcı dostu web siteleri tasarlıyorum. E-ticaret sitesi, kurumsal web sitesi ve profesyonel web tasarım projelerinizi uygun fiyatlı çözümlerle hayata geçiriyorum.",
+        about_me: "Hakkımızda",
+        experienced_developer: "İstanbul'da Profesyonel Web Tasarım ve Geliştirme Ekibi",
+        about_description: "Angraweb olarak İstanbul merkezli bir web tasarım ve geliştirme ekibiyiz. En iyi üniversite ve programlama eğitim kurumlarından mezun, ön uç ve arka uç geliştirmede uzman kadromuzla işletmelerin dijital dünyada büyümesine yardımcı oluyoruz. 20'den fazla başarılı projemiz ve %100 müşteri memnuniyeti odağımızla e-ticaret siteleri, kurumsal web siteleri ve özel web uygulamaları sunuyoruz.",
         successful_projects: "Başarılı Proje",
         years_experience: "Yıl Deneyim",
         customer_satisfaction: "Müşteri Memnuniyeti",
@@ -237,8 +237,8 @@ const translations = {
         
         // Page specific translations
         packages_intro: "Profesyonel web sitesi paketlerimiz ile işletmenizi dijital dünyada büyütün. Modern tasarım, hızlı yükleme ve kullanıcı dostu arayüz ile müşterilerinize en iyi deneyimi sunun.",
-        about_intro_subtitle: "Profesyonel Web Tasarım ve Geliştirme Uzmanı",
-        about_intro_description: "Marmara Üniversitesi Bilgisayar Programlama mezunu olarak, 5 yılı aşkın süredir modern ve kullanıcı dostu web siteleri tasarlıyorum. İşletmenizin dijital dünyada öne çıkması için özel çözümler sunuyorum.",
+        about_intro_subtitle: "İstanbul'da Profesyonel Web Tasarım ve Geliştirme Ekibi",
+        about_intro_description: "Angraweb olarak İstanbul merkezli bir web tasarım ve geliştirme ekibiyiz. En iyi üniversite ve programlama eğitim kurumlarından mezun uzman kadromuzla, modern ve kullanıcı dostu web siteleri ve web uygulamaları geliştiriyoruz. İşletmenizin dijital dünyada büyümesine yardımcı olacak çözümler sunuyoruz.",
         services_intro_subtitle: "İşletmenizi Dijital Dünyada Büyüten Çözümler",
         services_intro_description: "Angraweb olarak, işletmenizin dijital varlığını güçlendirmek için kapsamlı web tasarım ve geliştirme hizmetleri sunuyoruz. Modern, hızlı ve kullanıcı dostu çözümlerle hedeflerinize ulaşın.",
         projects_subtitle: "Başarılı Web Tasarım Projeleri ve Video Demoları",
@@ -310,9 +310,9 @@ const translations = {
         value_support_desc: "I'm with you after the project too, 24/7 technical support service",
         
         // About Section
-        about_me: "About Me",
-        experienced_developer: "Experienced Web Developer",
-        about_description: "I am a professional web developer specialized in web programming areas. I develop SEO-friendly, mobile-friendly, and high-performance websites using modern technologies for my clients' digital success. I prioritize quality, speed, and user experience in every project, delivering solutions that will grow your business.",
+        about_me: "About Us",
+        experienced_developer: "Professional Web Design and Development Team in Istanbul",
+        about_description: "We are Angraweb, a web design and development team based in Istanbul. Our team brings together graduates and professionals from leading universities and programming schools, with strong expertise in frontend and backend development. With over 20 successful projects and 100% customer satisfaction focus, we deliver e-commerce sites, corporate websites and custom web applications.",
         successful_projects: "Successful Projects",
         years_experience: "Years Experience",
         customer_satisfaction: "Customer Satisfaction",
@@ -515,8 +515,8 @@ const translations = {
         
         // Page specific translations
         packages_intro: "Grow your business in the digital world with our professional website packages. Offer your customers the best experience with modern design, fast loading and user-friendly interface.",
-        about_intro_subtitle: "Professional Web Design and Development Expert",
-        about_intro_description: "As a Marmara University Computer Programming graduate, I have been designing modern and user-friendly websites for over 5 years. I offer custom solutions to make your business stand out in the digital world.",
+        about_intro_subtitle: "Professional Web Design and Development Team in Istanbul",
+        about_intro_description: "We are Angraweb, a web design and development team based in Istanbul. Our team brings together graduates and professionals from leading universities and programming schools. We develop modern, user-friendly websites and web applications to help your business grow in the digital world.",
         services_intro_subtitle: "Solutions That Grow Your Business in the Digital World",
         services_intro_description: "As Angraweb, we offer comprehensive web design and development services to strengthen your business's digital presence. Reach your goals with modern, fast and user-friendly solutions.",
         projects_subtitle: "Successful Web Design Projects and Video Demos",
@@ -1184,10 +1184,10 @@ function getPageTitles(pageName) {
             ar: "الباقات | باقات مواقع الويب وتطبيقات الجوال"
         },
         about: {
-            tr: "Hakkımda | Profesyonel Web Geliştirici ve Tasarımcı",
-            en: "About Me | Professional Web Developer & Designer",
-            fa: "درباره من | توسعه‌دهنده و طراح وب حرفه‌ای",
-            ar: "نبذة عني | مطور ومصمم ويب محترف"
+            tr: "Hakkımızda | İstanbul Web Tasarım ve Geliştirme Ekibi",
+            en: "About Us | Istanbul Web Design & Development Team",
+            fa: "درباره ما | تیم طراحی و توسعه وب استانبول",
+            ar: "نبذة عنا | فريق تصميم وتطوير الويب إسطنبول"
         },
         services: {
             tr: "Hizmetler | Web Tasarım ve Geliştirme Hizmetleri",
@@ -1741,10 +1741,10 @@ function updatePageMeta(lang) {
             ar: "باقات مواقع الويب وتطبيقات الجوال - حلول بأسعار معقولة"
         },
         about: {
-            tr: "Profesyonel web geliştirici ve tasarımcı hakkında bilgi edinin",
-            en: "Learn about professional web developer and designer",
-            fa: "درباره توسعه‌دهنده و طراح وب حرفه‌ای اطلاعات کسب کنید",
-            ar: "تعرف على مطور ومصمم الويب المحترف"
+            tr: "İstanbul merkezli Angraweb ekibi - Profesyonel web tasarım ve geliştirme, 20+ başarılı proje",
+            en: "Angraweb team in Istanbul - Professional web design and development, 20+ successful projects",
+            fa: "تیم آنگراوب در استانبول - طراحی و توسعه وب حرفه‌ای، بیش از ۲۰ پروژه موفق",
+            ar: "فريق أنجراوييب في إسطنبول - تصميم وتطوير الويب الاحترافي، أكثر من 20 مشروعاً ناجحاً"
         },
         services: {
             tr: "Web tasarım, e-ticaret, mobil uygulama ve SEO hizmetleri",

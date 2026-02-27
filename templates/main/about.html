@@ -3,23 +3,23 @@
 {% load i18n %}
 {% load main_extras %}
 
-{% block title %}{% trans "About Me - Professional Web Design Expert" %} | Angraweb.com{% endblock %}
+{% block title %}{% trans "About Us - Istanbul Web Design & Development Team" %} | Angraweb.com{% endblock %}
 
-{% block meta_description %}{% trans "About the professional behind Angraweb: Marmara University graduate, 20+ successful projects, 5+ years experience. Web design and development expert in Turkey." %}{% endblock %}
+{% block meta_description %}{% trans "Angraweb: Professional web design and development team in Istanbul. E-commerce, corporate websites, custom web apps. 20+ successful projects, expert team from top programming schools. Turkey." %}{% endblock %}
 
-{% block meta_keywords %}{% trans "about" %}, web designer, {% trans "web development" %}, portfolio, Turkey, Angraweb, {% trans "professional" %}{% endblock %}
+{% block meta_keywords %}{% trans "about" %}, web design team Istanbul, {% trans "web development" %}, Turkey, Angraweb, {% trans "professional" %}, web agency Istanbul{% endblock %}
 
-{% block og_title %}{% trans "About Me - Professional Web Design Expert" %} | Angraweb.com{% endblock %}
+{% block og_title %}{% trans "About Us - Istanbul Web Design & Development Team" %} | Angraweb.com{% endblock %}
 
-{% block og_description %}{% trans "Get to know me better. Professional web design solutions with 100% customer satisfaction." %}{% endblock %}
+{% block og_description %}{% trans "Get to know the Angraweb team. Professional web design and development in Istanbul. 20+ successful projects, 100% customer satisfaction." %}{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">{% trans "About Me" %}</span>
+            <span class="text-gradient">{% trans "About Us" %}</span>
         </h1>
-        <p class="hero-subtitle">{% trans "Get to know me better" %}</p>
+        <p class="hero-subtitle">{% trans "Get to know us better" %}</p>
     </div>
 </section>
 
@@ -29,17 +29,15 @@
         <div class="row align-items-center mb-5">
             <div class="col-12 col-lg-6">
                 <div class="about-content">
-                    <h3>{% trans "Professional Web Design Expert" %}</h3>
+                    <h3>{% trans "Professional Web Design and Development Team in Istanbul" %}</h3>
                     <p>
                         {% blocktrans %}
-                        As a graduate of Marmara University Computer Programming, I offer professional web design solutions. 
-                        More than 20 of my clients have received service with 100% satisfaction.
+                        We are Angraweb, a web design and development team based in Istanbul. Our team brings together graduates and professionals from leading universities and programming schools, with strong expertise in frontend and backend development. We help businesses grow in the digital world with modern, responsive websites and web applications.
                         {% endblocktrans %}
                     </p>
                     <p>
                         {% blocktrans %}
-                        I specialize in creating modern, responsive websites and web applications that help businesses grow online. 
-                        With expertise in both frontend and backend development, I deliver complete solutions from design to deployment.
+                        With over 20 successful projects and a focus on 100% customer satisfaction, we deliver e-commerce sites, corporate websites and custom web applications. We combine modern technologies with SEO-friendly, mobile-friendly solutions—from design to deployment. Whether you need a new website, an online store or a custom platform, our Istanbul-based team is here to support your goals.
                         {% endblocktrans %}
                     </p>
                 </div>
@@ -71,7 +69,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center mb-5">
-                    <span class="text-gradient">{% trans "My Skills & Expertise" %}</span>
+                    <span class="text-gradient">{% trans "Our Skills & Expertise" %}</span>
                 </h2>
             </div>
         </div>
@@ -118,7 +116,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center mb-5">
-                    <span class="text-gradient">{% trans "My Journey" %}</span>
+                    <span class="text-gradient">{% trans "Our Journey" %}</span>
                 </h2>
             </div>
         </div>
@@ -152,7 +150,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center mb-5">
-                    <span class="text-gradient">{% trans "Certifications & Education" %}</span>
+                    <span class="text-gradient">{% trans "Our Certifications & Education" %}</span>
                 </h2>
             </div>
         </div>
@@ -192,7 +190,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center mb-5">
-                    <span class="text-gradient">{% trans "What Clients Say About Me" %}</span>
+                    <span class="text-gradient">{% trans "What Our Clients Say About Us" %}</span>
                 </h2>
             </div>
         </div>
@@ -242,13 +240,13 @@
             <div class="col-12">
                 <div class="services-cta text-center">
                     <h3 class="mb-3">{% trans "Let's Work Together" %}</h3>
-                    <p class="mb-4">{% trans "Ready to start your project? Let's discuss how I can help you achieve your goals." %}</p>
+                    <p class="mb-4">{% trans "Ready to start your project? Let's discuss how we can help you achieve your goals." %}</p>
                     <div class="d-flex justify-content-center gap-3 flex-wrap">
                         <a href="{% url 'quote_request' %}" class="btn btn-primary btn-lg">
                             <i class="fas fa-paper-plane"></i> {% trans "Get Free Quote" %}
                         </a>
                         <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">
-                            <i class="fas fa-envelope"></i> {% trans "Contact Me" %}
+                            <i class="fas fa-envelope"></i> {% trans "Contact Us" %}
                         </a>
                     </div>
                 </div>

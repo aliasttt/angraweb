@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 16:14+0330\n"
+"POT-Creation-Date: 2026-02-27 11:46+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,49 +157,49 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
-#: .\main\views.py:332
+#: .\main\views.py:353
 msgid "Your message has been sent successfully. We will contact you soon."
 msgstr ""
 
-#: .\main\views.py:352
+#: .\main\views.py:373
 msgid "Your request has been submitted successfully. We will contact you soon."
 msgstr ""
 
-#: .\main\views.py:420
+#: .\main\views.py:441
 msgid "Registration completed successfully!"
 msgstr ""
 
-#: .\main\views.py:458
+#: .\main\views.py:479
 msgid "Invalid phone number or password."
 msgstr "Invalid phone number or password."
 
-#: .\main\views.py:502
+#: .\main\views.py:523
 msgid "Your profile has been updated successfully."
 msgstr ""
 
-#: .\main\views.py:519
+#: .\main\views.py:540
 msgid "You have been logged out successfully."
 msgstr ""
 
-#: .\main\views.py:546
+#: .\main\views.py:567
 msgid ""
 "Thank you! Your review has been submitted and will be published after "
 "approval."
 msgstr ""
 
-#: .\main\views.py:598
+#: .\main\views.py:619
 msgid "You are already subscribed to our newsletter."
 msgstr ""
 
-#: .\main\views.py:604
+#: .\main\views.py:625
 msgid "Welcome back! You have been resubscribed to our newsletter."
 msgstr ""
 
-#: .\main\views.py:607
+#: .\main\views.py:628
 msgid "Thank you for subscribing to our newsletter!"
 msgstr ""
 
-#: .\main\views.py:615
+#: .\main\views.py:636
 msgid "Please check your email address and try again."
 msgstr ""
 
@@ -222,8 +222,9 @@ msgid "Go Home"
 msgstr "Home"
 
 #: .\templates\404.html:20 .\templates\500.html:20
-#: .\templates\main\dashboard.html:301 .\templates\main\faq.html:112
-#: .\templates\main\guarantee.html:162 .\templates\main\how_it_works.html:128
+#: .\templates\main\about.html:249 .\templates\main\dashboard.html:301
+#: .\templates\main\faq.html:112 .\templates\main\guarantee.html:162
+#: .\templates\main\how_it_works.html:128
 #: .\templates\main\packages_compare.html:132
 #, fuzzy
 #| msgid "Contact"
@@ -244,7 +245,7 @@ msgid ""
 "contact us if the problem persists."
 msgstr ""
 
-#: .\templates\base.html:8 .\templates\base.html:26 .\templates\base.html:38
+#: .\templates\base.html:8 .\templates\base.html:27 .\templates\base.html:39
 #: .\templates\main\index.html:12
 #, fuzzy
 #| msgid "Professional Web Design and Development Expert"
@@ -268,7 +269,7 @@ msgstr ""
 msgid "web development"
 msgstr ""
 
-#: .\templates\base.html:27 .\templates\base.html:39 .\templates\base.html:52
+#: .\templates\base.html:28 .\templates\base.html:40 .\templates\base.html:53
 #: .\templates\main\index.html:14
 #, fuzzy
 #| msgid ""
@@ -281,152 +282,156 @@ msgstr ""
 "Professional web design and development services. Grow your business in the "
 "digital world with modern, fast and user-friendly websites."
 
-#: .\templates\base.html:136 .\templates\base.html:272
+#: .\templates\base.html:137 .\templates\base.html:273
+#: .\templates\insights\admin_dashboard.html:6
+#: .\templates\insights\seo_health_dashboard.html:6
 #: .\templates\main\blog_detail.html:47
-#: .\templates\main\case_study_detail.html:24 .\templates\main\sitemap.html:36
+#: .\templates\main\case_study_detail.html:24
+#: .\templates\main\project_detail.html:21 .\templates\main\sitemap.html:36
 msgid "Home"
 msgstr "Home"
 
-#: .\templates\base.html:139 .\templates\base.html:273
+#: .\templates\base.html:140 .\templates\base.html:274
 #: .\templates\main\sitemap.html:62
 msgid "Packages"
 msgstr "Packages"
 
-#: .\templates\base.html:142 .\templates\base.html:274
+#: .\templates\base.html:143 .\templates\base.html:275
 msgid "About"
 msgstr "About"
 
-#: .\templates\base.html:146 .\templates\base.html:275
+#: .\templates\base.html:147 .\templates\base.html:276
 #: .\templates\main\sitemap.html:46
 msgid "Services"
 msgstr "Services"
 
-#: .\templates\base.html:149 .\templates\main\sitemap.html:49
+#: .\templates\base.html:150 .\templates\main\sitemap.html:49
 #, fuzzy
 #| msgid "Services"
 msgid "All Services"
 msgstr "Services"
 
-#: .\templates\base.html:150 .\templates\main\sitemap.html:50
+#: .\templates\base.html:151 .\templates\main\sitemap.html:50
 #: .\templates\main\web_design.html:6
 #, fuzzy
 #| msgid "Get Design Quote"
 msgid "Web Design"
 msgstr "Get Design Quote"
 
-#: .\templates\base.html:151 .\templates\main\mobile_app.html:5
+#: .\templates\base.html:152 .\templates\main\mobile_app.html:5
 #: .\templates\main\mobile_app.html:11 .\templates\main\mobile_app.html:19
 #, fuzzy
 #| msgid "Mobile Responsive Design"
 msgid "Mobile App Design"
 msgstr "Mobile Responsive Design"
 
-#: .\templates\base.html:152 .\templates\main\calculator.html:57
+#: .\templates\base.html:153 .\templates\main\calculator.html:57
 #: .\templates\main\sitemap.html:52
 #, fuzzy
 #| msgid "E-commerce Website"
 msgid "E-commerce"
 msgstr "E-commerce Website"
 
-#: .\templates\base.html:153 .\templates\main\sitemap.html:53
+#: .\templates\base.html:154 .\templates\main\sitemap.html:53
 #, fuzzy
 #| msgid "Services"
 msgid "SEO Services"
 msgstr "Services"
 
-#: .\templates\base.html:154
+#: .\templates\base.html:155
 #, fuzzy
 #| msgid "My Services"
 msgid "Hosting Services"
 msgstr "My Services"
 
-#: .\templates\base.html:155 .\templates\main\sitemap.html:55
+#: .\templates\base.html:156 .\templates\main\sitemap.html:55
 #: .\templates\main\ui_ux.html:5 .\templates\main\ui_ux.html:11
 #: .\templates\main\ui_ux.html:19
 msgid "UI/UX Design"
 msgstr "UI/UX Design"
 
-#: .\templates\base.html:160 .\templates\base.html:276
-#: .\templates\main\projects.html:6 .\templates\main\projects.html:12
-#: .\templates\main\projects.html:20 .\templates\main\sitemap.html:73
+#: .\templates\base.html:161 .\templates\base.html:277
+#: .\templates\main\project_detail.html:22 .\templates\main\projects.html:6
+#: .\templates\main\projects.html:12 .\templates\main\projects.html:20
+#: .\templates\main\sitemap.html:73
 msgid "Projects"
 msgstr "Projects"
 
-#: .\templates\base.html:163 .\templates\main\sitemap.html:76
+#: .\templates\base.html:164 .\templates\main\sitemap.html:76
 #, fuzzy
 #| msgid "View Projects"
 msgid "All Projects"
 msgstr "View Projects"
 
-#: .\templates\base.html:167 .\templates\base.html:277
+#: .\templates\base.html:168 .\templates\base.html:278
 #: .\templates\main\sitemap.html:39
 msgid "Resume"
 msgstr "Resume"
 
-#: .\templates\base.html:171
+#: .\templates\base.html:172
 msgid "Tools"
 msgstr ""
 
-#: .\templates\base.html:174 .\templates\main\how_it_works.html:12
+#: .\templates\base.html:175 .\templates\main\how_it_works.html:12
 #: .\templates\main\how_it_works.html:23 .\templates\main\sitemap.html:96
 msgid "How It Works"
 msgstr ""
 
-#: .\templates\base.html:175 .\templates\main\sitemap.html:97
+#: .\templates\base.html:176 .\templates\main\sitemap.html:97
 msgid "Price Calculator"
 msgstr ""
 
-#: .\templates\base.html:176 .\templates\main\sitemap.html:98
+#: .\templates\base.html:177 .\templates\main\sitemap.html:98
 #: .\templates\main\technology_stack.html:11
 #: .\templates\main\technology_stack.html:22
 msgid "Technology Stack"
 msgstr ""
 
-#: .\templates\base.html:180 .\templates\base.html:278
+#: .\templates\base.html:181 .\templates\base.html:279
 #: .\templates\main\contact.html:5 .\templates\main\contact.html:11
 #: .\templates\main\sitemap.html:38
 msgid "Contact"
 msgstr "Contact"
 
-#: .\templates\base.html:188 .\templates\main\dashboard.html:5
+#: .\templates\base.html:189 .\templates\main\dashboard.html:5
 #: .\templates\main\dashboard.html:48
 msgid "Dashboard"
 msgstr "dashboard"
 
-#: .\templates\base.html:190
+#: .\templates\base.html:191
 msgid "Logout"
 msgstr "Logout"
 
-#: .\templates\base.html:195 .\templates\main\login.html:5
+#: .\templates\base.html:196 .\templates\main\login.html:5
 #: .\templates\main\login.html:15 .\templates\main\login.html:37
 #: .\templates\main\register.html:78 .\templates\main\sitemap.html:122
 msgid "Login"
 msgstr "Login"
 
-#: .\templates\base.html:198 .\templates\main\login.html:43
+#: .\templates\base.html:199 .\templates\main\login.html:43
 #: .\templates\main\register.html:5 .\templates\main\register.html:23
 #: .\templates\main\register.html:72 .\templates\main\sitemap.html:123
 msgid "Register"
 msgstr "Register"
 
-#: .\templates\base.html:209
+#: .\templates\base.html:210
 msgid "Language"
 msgstr ""
 
-#: .\templates\base.html:230 .\templates\base.html:327
+#: .\templates\base.html:231 .\templates\base.html:328
 msgid "Instagram"
 msgstr ""
 
-#: .\templates\base.html:231 .\templates\base.html:331
+#: .\templates\base.html:232 .\templates\base.html:332
 msgid "Telegram"
 msgstr ""
 
-#: .\templates\base.html:232 .\templates\base.html:335
+#: .\templates\base.html:233 .\templates\base.html:336
 #: .\templates\main\team.html:66
 msgid "GitHub"
 msgstr ""
 
-#: .\templates\base.html:265
+#: .\templates\base.html:266
 msgid ""
 "Professional web design and development services. Grow your business in the "
 "digital world with modern, fast and user-friendly websites."
@@ -434,52 +439,52 @@ msgstr ""
 "Professional web design and development services. Grow your business in the "
 "digital world with modern, fast and user-friendly websites."
 
-#: .\templates\base.html:270
+#: .\templates\base.html:271
 msgid "Quick Links"
 msgstr "Quick Links"
 
-#: .\templates\base.html:282
+#: .\templates\base.html:283
 msgid "More"
 msgstr ""
 
-#: .\templates\base.html:284 .\templates\main\sitemap.html:5
+#: .\templates\base.html:285 .\templates\main\sitemap.html:5
 #: .\templates\main\sitemap.html:11 .\templates\main\sitemap.html:19
 msgid "Sitemap"
 msgstr ""
 
-#: .\templates\base.html:285 .\templates\main\privacy_policy.html:5
+#: .\templates\base.html:286 .\templates\main\privacy_policy.html:5
 #: .\templates\main\privacy_policy.html:11
 #: .\templates\main\privacy_policy.html:19 .\templates\main\sitemap.html:110
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\templates\base.html:286 .\templates\main\sitemap.html:111
+#: .\templates\base.html:287 .\templates\main\sitemap.html:111
 #, fuzzy
 #| msgid "Purchase Terms and Conditions"
 msgid "Terms & Conditions"
 msgstr "Purchase Terms and Conditions"
 
-#: .\templates\base.html:287 .\templates\main\guarantee.html:5
+#: .\templates\base.html:288 .\templates\main\guarantee.html:5
 #: .\templates\main\guarantee.html:11 .\templates\main\guarantee.html:19
 #: .\templates\main\sitemap.html:112
 msgid "Our Guarantee"
 msgstr ""
 
-#: .\templates\base.html:288 .\templates\main\ecommerce.html:71
+#: .\templates\base.html:289 .\templates\main\ecommerce.html:71
 #: .\templates\main\hosting.html:76 .\templates\main\seo.html:70
 #: .\templates\main\sitemap.html:99 .\templates\main\ui_ux.html:77
 msgid "FAQ"
 msgstr "FAQ"
 
-#: .\templates\base.html:289 .\templates\main\sitemap.html:100
+#: .\templates\base.html:290 .\templates\main\sitemap.html:100
 msgid "Testimonials"
 msgstr ""
 
-#: .\templates\base.html:293
+#: .\templates\base.html:294
 msgid "Contact Information"
 msgstr "Contact Information"
 
-#: .\templates\base.html:305 .\templates\main\blog_detail.html:113
+#: .\templates\base.html:306 .\templates\main\blog_detail.html:113
 #: .\templates\main\contact.html:68 .\templates\main\contact.html:170
 #: .\templates\main\faq.html:115
 #, fuzzy
@@ -487,23 +492,23 @@ msgstr "Contact Information"
 msgid "WhatsApp"
 msgstr "Write on WhatsApp"
 
-#: .\templates\base.html:310
+#: .\templates\base.html:311
 msgid "Newsletter"
 msgstr ""
 
-#: .\templates\base.html:311
+#: .\templates\base.html:312
 msgid "Subscribe to our newsletter for updates and special offers."
 msgstr ""
 
-#: .\templates\base.html:343
+#: .\templates\base.html:344
 msgid "All rights reserved."
 msgstr "All rights reserved."
 
-#: .\templates\base.html:351
+#: .\templates\base.html:352
 msgid "Back to top"
 msgstr ""
 
-#: .\templates\base.html:358 .\templates\main\ecommerce.html:86
+#: .\templates\base.html:359 .\templates\main\ecommerce.html:86
 #: .\templates\main\ecommerce.html:88 .\templates\main\hosting.html:91
 #: .\templates\main\hosting.html:93 .\templates\main\index.html:147
 #: .\templates\main\mobile_app.html:62 .\templates\main\mobile_app.html:64
@@ -516,17 +521,16 @@ msgid "Get Quote"
 msgstr "Get Quote"
 
 #: .\templates\main\about.html:6 .\templates\main\about.html:12
-#, fuzzy
-#| msgid "Professional Web Design"
-msgid "About Me - Professional Web Design Expert"
-msgstr "Professional Web Design"
+msgid "About Us - Istanbul Web Design & Development Team"
+msgstr "About Us - Istanbul Web Design & Development Team"
 
 #: .\templates\main\about.html:8
 msgid ""
-"About the professional behind Angraweb: Marmara University graduate, 20+ "
-"successful projects, 5+ years experience. Web design and development expert "
-"in Turkey."
+"Angraweb: Professional web design and development team in Istanbul. E-"
+"commerce, corporate websites, custom web apps. 20+ successful projects, "
+"expert team from top programming schools. Turkey."
 msgstr ""
+"Angraweb: Professional web design and development team in Istanbul. E-commerce, corporate websites, custom web apps. 20+ successful projects, expert team from top programming schools. Turkey."
 
 #: .\templates\main\about.html:10
 #, fuzzy
@@ -543,132 +547,132 @@ msgstr "Professional Package"
 #: .\templates\main\about.html:14
 #, python-format
 msgid ""
-"Get to know me better. Professional web design solutions with 100%% customer "
-"satisfaction."
+"Get to know the Angraweb team. Professional web design and development in "
+"Istanbul. 20+ successful projects, 100%% customer satisfaction."
 msgstr ""
+"Get to know the Angraweb team. Professional web design and development in Istanbul. 20+ successful projects, 100%% customer satisfaction."
 
 #: .\templates\main\about.html:20 .\templates\main\index.html:212
-msgid "About Me"
-msgstr "About Me"
+#: .\templates\main\sitemap.html:37
+msgid "About Us"
+msgstr "About Us"
 
 #: .\templates\main\about.html:22
-msgid "Get to know me better"
-msgstr ""
+msgid "Get to know us better"
+msgstr "Get to know us better"
 
 #: .\templates\main\about.html:32 .\templates\main\index.html:219
-#, fuzzy
-#| msgid "Professional Web Design"
-msgid "Professional Web Design Expert"
-msgstr "Professional Web Design"
+msgid "Professional Web Design and Development Team in Istanbul"
+msgstr "Professional Web Design and Development Team in Istanbul"
 
 #: .\templates\main\about.html:34 .\templates\main\index.html:221
+msgid ""
+"\n"
+"                        We are Angraweb, a web design and development team "
+"based in Istanbul. Our team brings together graduates and professionals from "
+"leading universities and programming schools, with strong expertise in "
+"frontend and backend development. We help businesses grow in the digital "
+"world with modern, responsive websites and web applications.\n"
+"                        "
+msgstr ""
+"\n"
+"                        We are Angraweb, a web design and development team based in Istanbul. Our team brings together graduates and professionals from leading universities and programming schools, with strong expertise in frontend and backend development. We help businesses grow in the digital world with modern, responsive websites and web applications.\n"
+"                        "
+
+#: .\templates\main\about.html:39
 #, python-format
 msgid ""
 "\n"
-"                        As a graduate of Marmara University Computer "
-"Programming, I offer professional web design solutions. \n"
-"                        More than 20 of my clients have received service "
-"with 100%% satisfaction.\n"
+"                        With over 20 successful projects and a focus on "
+"100%% customer satisfaction, we deliver e-commerce sites, corporate websites "
+"and custom web applications. We combine modern technologies with SEO-"
+"friendly, mobile-friendly solutions—from design to deployment. Whether you "
+"need a new website, an online store or a custom platform, our Istanbul-based "
+"team is here to support your goals.\n"
 "                        "
 msgstr ""
 "\n"
-"                        As a graduate of Marmara University Computer "
-"Programming, I offer professional web design solutions. \n"
-"                        More than 20 of my clients have received service "
-"with 100%% satisfaction.\n"
+"                        With over 20 successful projects and a focus on 100%% customer satisfaction, we deliver e-commerce sites, corporate websites and custom web applications. We combine modern technologies with SEO-friendly, mobile-friendly solutions—from design to deployment. Whether you need a new website, an online store or a custom platform, our Istanbul-based team is here to support your goals.\n"
 "                        "
 
-#: .\templates\main\about.html:40
-msgid ""
-"\n"
-"                        I specialize in creating modern, responsive websites "
-"and web applications that help businesses grow online. \n"
-"                        With expertise in both frontend and backend "
-"development, I deliver complete solutions from design to deployment.\n"
-"                        "
-msgstr ""
-
-#: .\templates\main\about.html:51 .\templates\main\index.html:246
+#: .\templates\main\about.html:49 .\templates\main\index.html:245
 msgid "Successful Projects"
 msgstr "Successful Projects"
 
-#: .\templates\main\about.html:55 .\templates\main\index.html:250
+#: .\templates\main\about.html:53 .\templates\main\index.html:249
 #, fuzzy
 #| msgid "Years Experience"
 msgid "Years of Experience"
 msgstr "Years Experience"
 
-#: .\templates\main\about.html:59 .\templates\main\index.html:254
+#: .\templates\main\about.html:57 .\templates\main\index.html:253
 #, fuzzy
 #| msgid "Customer Satisfaction"
 msgid "Customer Satisfaction"
 msgstr "Customer Satisfaction"
 
-#: .\templates\main\about.html:74
-msgid "My Skills & Expertise"
-msgstr ""
+#: .\templates\main\about.html:72
+msgid "Our Skills & Expertise"
+msgstr "Our Skills & Expertise"
 
-#: .\templates\main\about.html:82
+#: .\templates\main\about.html:80
 #, fuzzy
 #| msgid "E-commerce Solutions"
 msgid "Frontend Development"
 msgstr "E-commerce Solutions"
 
-#: .\templates\main\about.html:83
+#: .\templates\main\about.html:81
 msgid "Backend Development"
 msgstr ""
 
-#: .\templates\main\about.html:84
+#: .\templates\main\about.html:82
 #, fuzzy
 #| msgid "Basic Database"
 msgid "Database"
 msgstr "Basic Database"
 
-#: .\templates\main\about.html:85
+#: .\templates\main\about.html:83
 #, fuzzy
 #| msgid "Technologies we use"
 msgid "Tools & Technologies"
 msgstr "Technologies we use"
 
-#: .\templates\main\about.html:86
+#: .\templates\main\about.html:84
 msgid "Other Skills"
 msgstr ""
 
-#: .\templates\main\about.html:121
-msgid "My Journey"
-msgstr ""
+#: .\templates\main\about.html:119
+msgid "Our Journey"
+msgstr "Our Journey"
 
-#: .\templates\main\about.html:155
-msgid "Certifications & Education"
-msgstr ""
+#: .\templates\main\about.html:153
+msgid "Our Certifications & Education"
+msgstr "Our Certifications & Education"
 
-#: .\templates\main\about.html:167 .\templates\main\web_design.html:96
+#: .\templates\main\about.html:165 .\templates\main\web_design.html:96
 msgid "View"
 msgstr "View"
 
-#: .\templates\main\about.html:195
-msgid "What Clients Say About Me"
-msgstr ""
+#: .\templates\main\about.html:193
+msgid "What Our Clients Say About Us"
+msgstr "What Our Clients Say About Us"
 
-#: .\templates\main\about.html:244
+#: .\templates\main\about.html:242
 msgid "Let's Work Together"
-msgstr ""
+msgstr "Let's Work Together"
 
-#: .\templates\main\about.html:245
+#: .\templates\main\about.html:243
 msgid ""
-"Ready to start your project? Let's discuss how I can help you achieve your "
+"Ready to start your project? Let's discuss how we can help you achieve your "
 "goals."
 msgstr ""
+"Ready to start your project? Let's discuss how we can help you achieve your goals."
 
-#: .\templates\main\about.html:248 .\templates\main\guarantee.html:159
+#: .\templates\main\about.html:246 .\templates\main\guarantee.html:159
 #: .\templates\main\how_it_works.html:125
 #: .\templates\main\packages_compare.html:129
 msgid "Get Free Quote"
 msgstr "Get Free Quote"
-
-#: .\templates\main\about.html:251 .\templates\main\contact.html:19
-msgid "Contact Me"
-msgstr "Contact Me"
 
 #: .\templates\main\blog.html:6 .\templates\main\blog.html:12
 msgid "Blog - Articles and News"
@@ -717,7 +721,7 @@ msgid "Search articles..."
 msgstr ""
 
 #: .\templates\main\blog.html:79 .\templates\main\blog_detail.html:148
-#: .\templates\main\case_study_detail.html:177 .\templates\main\index.html:446
+#: .\templates\main\case_study_detail.html:177 .\templates\main\index.html:445
 #, fuzzy
 #| msgid "Learn More"
 msgid "Read More"
@@ -774,8 +778,8 @@ msgstr "Projects"
 msgid "Website"
 msgstr "Visit Website"
 
-#: .\templates\main\calculator.html:66 .\templates\main\projects.html:121
-#: .\templates\main\services.html:146
+#: .\templates\main\calculator.html:66 .\templates\main\project_detail.html:113
+#: .\templates\main\projects.html:121 .\templates\main\services.html:146
 #, fuzzy
 #| msgid "Mobile Responsive Design"
 msgid "Mobile App"
@@ -928,7 +932,7 @@ msgid "Our Solution"
 msgstr ""
 
 #: .\templates\main\case_study_detail.html:103
-#: .\templates\main\projects.html:103
+#: .\templates\main\project_detail.html:96 .\templates\main\projects.html:103
 #, fuzzy
 #| msgid "Technologies we use"
 msgid "Technologies Used"
@@ -974,6 +978,10 @@ msgstr ""
 #| msgid "Contact Me Now for Free Quotes and Consultation"
 msgid "Contact us now for free quote and consultation."
 msgstr "Contact Me Now for Free Quotes and Consultation"
+
+#: .\templates\main\contact.html:19
+msgid "Contact Me"
+msgstr "Contact Me"
 
 #: .\templates\main\contact.html:22
 #, fuzzy
@@ -2164,68 +2172,70 @@ msgstr "Continuous Support"
 msgid "24/7 technical support service"
 msgstr "24/7 Technical Support"
 
-#: .\templates\main\index.html:237
+#: .\templates\main\index.html:236
 #, fuzzy
 #| msgid "View Projects"
 msgid "View All Technologies"
 msgstr "View Projects"
 
-#: .\templates\main\index.html:268 .\templates\main\packages.html:6
+#: .\templates\main\index.html:267 .\templates\main\packages.html:6
 #: .\templates\main\packages.html:12 .\templates\main\packages.html:20
 msgid "Our Packages"
 msgstr "Our Packages"
 
-#: .\templates\main\index.html:278 .\templates\main\packages.html:34
+#: .\templates\main\index.html:277 .\templates\main\packages.html:34
 #: .\templates\main\packages_compare.html:54
 msgid "Popular"
 msgstr "Popular"
 
-#: .\templates\main\index.html:315 .\templates\main\projects.html:31
+#: .\templates\main\index.html:314 .\templates\main\projects.html:31
 msgid "My Projects"
 msgstr "My Projects"
 
-#: .\templates\main\index.html:336 .\templates\main\projects.html:45
+#: .\templates\main\index.html:335 .\templates\main\project_detail.html:39
+#: .\templates\main\project_detail.html:68
+#: .\templates\main\project_detail.html:122 .\templates\main\projects.html:45
 #: .\templates\main\projects.html:73 .\templates\main\projects.html:130
 #, fuzzy
 #| msgid "Visit Website"
 msgid "Visit Website"
 msgstr "Visit Website"
 
-#: .\templates\main\index.html:347
+#: .\templates\main\index.html:346
 #, fuzzy
 #| msgid "View Projects"
 msgid "View All Projects"
 msgstr "View Projects"
 
-#: .\templates\main\index.html:412
+#: .\templates\main\index.html:411
 msgid "Latest Blog Posts"
 msgstr ""
 
-#: .\templates\main\index.html:456
+#: .\templates\main\index.html:455
 #, fuzzy
 #| msgid "View Projects"
 msgid "View All Blog Posts"
 msgstr "View Projects"
 
-#: .\templates\main\index.html:471
+#: .\templates\main\index.html:470
 msgid "What Our Clients Say"
 msgstr ""
 
-#: .\templates\main\index.html:516
+#: .\templates\main\index.html:515
 #, fuzzy
 #| msgid "View Projects"
 msgid "View All Testimonials"
 msgstr "View Projects"
 
-#: .\templates\main\index.html:530
+#: .\templates\main\index.html:529
 msgid "Want to Know How We Work?"
 msgstr ""
 
-#: .\templates\main\index.html:531
+#: .\templates\main\index.html:530
 msgid "Learn about our professional process from consultation to delivery."
 msgstr ""
 
-#: .\templates\main\index.html:533
+#: .\templates\main\index.html:532
 #, fuzzy
 #| msgid "Process"
 msgid "See Our Process"
@@ -2667,6 +2677,50 @@ msgid ""
 "                        "
 msgstr ""
 
+#: .\templates\main\project_detail.html:6
+#, fuzzy
+#| msgid "Projects"
+msgid "Project"
+msgstr "Projects"
+
+#: .\templates\main\project_detail.html:10
+#, fuzzy
+#| msgid "Projects"
+msgid "project"
+msgstr "Projects"
+
+#: .\templates\main\project_detail.html:109 .\templates\main\projects.html:117
+#, fuzzy
+#| msgid "Freelance Web Developer"
+msgid "Web Development"
+msgstr "Freelance Web Developer"
+
+#: .\templates\main\project_detail.html:111 .\templates\main\projects.html:119
+#, fuzzy
+#| msgid "E-commerce Website"
+msgid "E-Commerce"
+msgstr "E-commerce Website"
+
+#: .\templates\main\project_detail.html:115 .\templates\main\projects.html:123
+msgid "Platform"
+msgstr ""
+
+#: .\templates\main\project_detail.html:117 .\templates\main\projects.html:125
+msgid "Other"
+msgstr ""
+
+#: .\templates\main\project_detail.html:134
+#, fuzzy
+#| msgid "View Projects"
+msgid "Related Projects"
+msgstr "View Projects"
+
+#: .\templates\main\project_detail.html:151
+#, fuzzy
+#| msgid "View Projects"
+msgid "View Project"
+msgstr "View Projects"
+
 #: .\templates\main\projects.html:6 .\templates\main\projects.html:175
 msgid "Video Demos"
 msgstr "Video Demos"
@@ -2685,26 +2739,6 @@ msgstr ""
 
 #: .\templates\main\projects.html:14 .\templates\main\projects.html:22
 msgid "Explore our portfolio of successful projects"
-msgstr ""
-
-#: .\templates\main\projects.html:117
-#, fuzzy
-#| msgid "Freelance Web Developer"
-msgid "Web Development"
-msgstr "Freelance Web Developer"
-
-#: .\templates\main\projects.html:119
-#, fuzzy
-#| msgid "E-commerce Website"
-msgid "E-Commerce"
-msgstr "E-commerce Website"
-
-#: .\templates\main\projects.html:123
-msgid "Platform"
-msgstr ""
-
-#: .\templates\main\projects.html:125
-msgid "Other"
 msgstr ""
 
 #: .\templates\main\projects.html:141
@@ -3259,12 +3293,6 @@ msgstr ""
 #: .\templates\main\sitemap.html:33
 msgid "Main Pages"
 msgstr ""
-
-#: .\templates\main\sitemap.html:37
-#, fuzzy
-#| msgid "About"
-msgid "About Us"
-msgstr "About"
 
 #: .\templates\main\sitemap.html:51
 #, fuzzy
@@ -4104,551 +4132,3 @@ msgstr "maintenance & upgrades"
 #| msgid "My Services"
 msgid "Web Design Project Samples"
 msgstr "My Services"
-
-#, fuzzy
-#~| msgid "Professional Web Design and Development Expert"
-#~ msgid "Angraweb.com - Professional Web Design and E-commerce"
-#~ msgstr "Professional Web Design and Development Expert"
-
-#~ msgid "Follow Us"
-#~ msgstr "Follow Us"
-
-#~ msgid "Activity"
-#~ msgstr "Activities"
-
-#~ msgid "Your recent activity and requests will appear here."
-#~ msgstr "Your recent activity and requests will appear here."
-
-#~ msgid "Web and mobile app design | Custom developer and designer"
-#~ msgstr "Web and mobile app design | Custom developer and designer"
-
-#~ msgid "Computer Programming"
-#~ msgstr "Computer Programming"
-
-#, fuzzy
-#~| msgid "Marmara University - 2025"
-#~ msgid "Marmara University"
-#~ msgstr "Marmara University - 2025"
-
-#~ msgid "Experience"
-#~ msgstr "Experience"
-
-#, fuzzy
-#~| msgid "2019 - Present"
-#~ msgid "Present"
-#~ msgstr "2019 - Present"
-
-#~ msgid ""
-#~ "I am a professional web developer specialized in web programming areas. I "
-#~ "develop SEO-friendly, mobile-friendly, and high-performance websites "
-#~ "using modern technologies for my clients' digital success. I prioritize "
-#~ "quality, speed, and user experience in every project, delivering "
-#~ "solutions that will grow your business."
-#~ msgstr ""
-#~ "I am a professional web developer specialized in web programming areas. I "
-#~ "develop SEO-friendly, mobile-friendly, and high-performance websites "
-#~ "using modern technologies for my clients' digital success. I prioritize "
-#~ "quality, speed, and user experience in every project, delivering "
-#~ "solutions that will grow your business."
-
-#~ msgid ""
-#~ "As a Marmara University Computer Programming graduate, I have been "
-#~ "designing modern and user-friendly websites for over 5 years. I offer "
-#~ "custom solutions to make your business stand out in the digital world."
-#~ msgstr ""
-#~ "As a Marmara University Computer Programming graduate, I have been "
-#~ "designing modern and user-friendly websites for over 5 years. I offer "
-#~ "custom solutions to make your business stand out in the digital world."
-
-#~ msgid "Add your certificate images to the certificates folder"
-#~ msgstr "Add your certificate images to the certificates folder"
-
-#~ msgid ""
-#~ "Let's start bringing your project to life today! You can reach me via "
-#~ "WhatsApp, email or contact form. Contact me now for free consultation and "
-#~ "quotes."
-#~ msgstr ""
-#~ "Let's start bringing your project to life today! You can reach me via "
-#~ "WhatsApp, email or contact form. Contact me now for free consultation and "
-#~ "quotes."
-
-#~ msgid ""
-#~ "Contact us now for free consultation and quote. Grow your business with "
-#~ "affordable website solutions."
-#~ msgstr ""
-#~ "Contact us now for free consultation and quote. Grow your business with "
-#~ "affordable website solutions."
-
-#~ msgid "Get Hosting Package"
-#~ msgstr "Get Hosting Package"
-
-#~ msgid "Do SEO Analysis"
-#~ msgstr "Do SEO Analysis"
-
-#~ msgid "Start Now"
-#~ msgstr "Start Now"
-
-#~ msgid "Contact via WhatsApp for tailored pricing"
-#~ msgstr "Contact via WhatsApp for tailored pricing"
-
-#~ msgid "Or contact directly via email:"
-#~ msgstr "Or contact directly via email:"
-
-#~ msgid "20% Discount for First Design - Click"
-#~ msgstr "20% Discount for First Design - Click"
-
-#~ msgid "Django Framework"
-#~ msgstr "Django Framework"
-
-#~ msgid "Full-featured e-commerce website with Django and Bootstrap"
-#~ msgstr "Full-featured e-commerce website with Django and Bootstrap"
-
-#~ msgid ""
-#~ "Professional e-commerce site that will increase your sales. Secure "
-#~ "payment systems and user-friendly interface."
-#~ msgstr ""
-#~ "Professional e-commerce site that will increase your sales. Secure "
-#~ "payment systems and user-friendly interface."
-
-#~ msgid ""
-#~ "I graduated from Marmara University Computer Programming department. I "
-#~ "received comprehensive training in web development, software engineering "
-#~ "and database management."
-#~ msgstr ""
-#~ "I graduated from Marmara University Computer Programming department. I "
-#~ "received comprehensive training in web development, software engineering "
-#~ "and database management."
-
-#~ msgid ""
-#~ "I have been working as a freelance web developer for 5+ years. I have "
-#~ "completed 20+ successful projects. I specialize in e-commerce sites, "
-#~ "corporate websites and custom platform development."
-#~ msgstr ""
-#~ "I have been working as a freelance web developer for 5+ years. I have "
-#~ "completed 20+ successful projects. I specialize in e-commerce sites, "
-#~ "corporate websites and custom platform development."
-
-#~ msgid "Experienced Web Developer"
-#~ msgstr "Experienced Web Developer"
-
-#~ msgid "Abandoned Cart Reminder"
-#~ msgstr "Abandoned Cart Reminder"
-
-#~ msgid "Custom Admin Panel"
-#~ msgstr "Custom Admin Panel"
-
-#~ msgid "Advanced SEO"
-#~ msgstr "Advanced SEO"
-
-#~ msgid "Smart Product Recommendations (AI)"
-#~ msgstr "Smart Product Recommendations (AI)"
-
-#~ msgid "Analytics & Reporting"
-#~ msgstr "Analytics & Reporting"
-
-#~ msgid "Badges and Special Offers"
-#~ msgstr "Badges and Special Offers"
-
-#~ msgid "Badges and Special Offers (New, Bestseller, Discount)"
-#~ msgstr "Badges and Special Offers (New, Bestseller, Discount)"
-
-#~ msgid "Basic Admin Panel"
-#~ msgstr "Basic Admin Panel"
-
-#~ msgid "Basic SEO"
-#~ msgstr "Basic SEO"
-
-#~ msgid "Advanced Shopping Cart (Auto Tax & Shipping)"
-#~ msgstr "Advanced Shopping Cart (Auto Tax & Shipping)"
-
-#~ msgid "Live Chat and Chatbot"
-#~ msgstr "Live Chat and Chatbot"
-
-#~ msgid "Cloud-native and microservices architecture"
-#~ msgstr "Cloud-native and microservices architecture"
-
-#~ msgid "Coupon Codes and Loyalty Points"
-#~ msgstr "Coupon Codes and Loyalty Points"
-
-#~ msgid "Product Customization"
-#~ msgstr "Product Customization"
-
-#~ msgid "Dedicated development and support team"
-#~ msgstr "Dedicated development and support team"
-
-#~ msgid "First Purchase and Loyalty Discounts"
-#~ msgstr "First Purchase and Loyalty Discounts"
-
-#~ msgid "Full Online Sales"
-#~ msgstr "Full Online Sales"
-
-#~ msgid "Email Marketing"
-#~ msgstr "Email Marketing"
-
-#~ msgid "Advanced Product Filtering"
-#~ msgstr "Advanced Product Filtering"
-
-#~ msgid "Simple Product Filtering"
-#~ msgstr "Simple Product Filtering"
-
-#~ msgid "Time-Limited Campaigns (Flash Sale)"
-#~ msgstr "Time-Limited Campaigns (Flash Sale)"
-
-#~ msgid "Image Gallery with Zoom and 360°"
-#~ msgstr "Image Gallery with Zoom and 360°"
-
-#~ msgid "Simple Image Gallery"
-#~ msgstr "Simple Image Gallery"
-
-#~ msgid "Image Gallery with Zoom"
-#~ msgstr "Image Gallery with Zoom"
-
-#~ msgid "Warehouse and Inventory Management"
-#~ msgstr "Warehouse and Inventory Management"
-
-#~ msgid "Online and Downloadable Invoices"
-#~ msgstr "Online and Downloadable Invoices"
-
-#~ msgid "Simple Live Chat"
-#~ msgstr "Simple Live Chat"
-
-#~ msgid "Live Search (Real-time)"
-#~ msgstr "Live Search (Real-time)"
-
-#~ msgid "Multiple coordinated websites and portals"
-#~ msgstr "Multiple coordinated websites and portals"
-
-#~ msgid "Multi-language and Multi-currency"
-#~ msgstr "Multi-language and Multi-currency"
-
-#~ msgid "Multi-vendor Marketplace"
-#~ msgstr "Multi-vendor Marketplace"
-
-#~ msgid "No Online Sales"
-#~ msgstr "No Online Sales"
-
-#~ msgid "Order Notifications"
-#~ msgstr "Order Notifications"
-
-#~ msgid "Up to 5 Pages"
-#~ msgstr "Up to 5 Pages"
-
-#~ msgid "Up to 10 Pages"
-#~ msgstr "Up to 10 Pages"
-
-#~ msgid "Bespoke platform and network design"
-#~ msgstr "Bespoke platform and network design"
-
-#~ msgid "Premium SEO"
-#~ msgstr "Premium SEO"
-
-#~ msgid "Product Videos"
-#~ msgstr "Product Videos"
-
-#~ msgid "PWA Version"
-#~ msgstr "PWA Version"
-
-#~ msgid "Professional Reporting"
-#~ msgstr "Professional Reporting"
-
-#~ msgid "Product Returns and Online Return Requests"
-#~ msgstr "Product Returns and Online Return Requests"
-
-#~ msgid "High-performance scalable infrastructure"
-#~ msgstr "High-performance scalable infrastructure"
-
-#~ msgid "Simple Search"
-#~ msgstr "Simple Search"
-
-#~ msgid "Fraud Prevention and Secure Payment"
-#~ msgstr "Fraud Prevention and Secure Payment"
-
-#~ msgid "Advanced Shipping System"
-#~ msgstr "Advanced Shipping System"
-
-#~ msgid "Social Media Links"
-#~ msgstr "Social Media Links"
-
-#~ msgid "Social Media Sales Integration"
-#~ msgstr "Social Media Sales Integration"
-
-#~ msgid "SSL and HTTPS"
-#~ msgstr "SSL and HTTPS"
-
-#~ msgid "Unlimited Pages"
-#~ msgstr "Unlimited Pages"
-
-#~ msgid ""
-#~ "Make your business stand out in the digital world with modern, fast, and "
-#~ "user-friendly websites. I provide comprehensive web development services "
-#~ "for e-commerce sites, corporate websites, portfolio sites, and custom "
-#~ "projects. I bring your projects to life with expertise in Django, Python, "
-#~ "JavaScript, CSS, HTML, Bootstrap, and hosting services."
-#~ msgstr ""
-#~ "Make your business stand out in the digital world with modern, fast, and "
-#~ "user-friendly websites. I provide comprehensive web development services "
-#~ "for e-commerce sites, corporate websites, portfolio sites, and custom "
-#~ "projects. I bring your projects to life with expertise in Django, Python, "
-#~ "JavaScript, CSS, HTML, Bootstrap, and hosting services."
-
-#~ msgid "Programmer and Custom Website & Mobile App Designer"
-#~ msgstr "Programmer and Custom Website & Mobile App Designer"
-
-#~ msgid "Hosting and Publishing"
-#~ msgstr "Hosting and Publishing"
-
-#~ msgid ""
-#~ "I publish your website on secure servers. 24/7 technical support and "
-#~ "maintenance service."
-#~ msgstr ""
-#~ "I publish your website on secure servers. 24/7 technical support and "
-#~ "maintenance service."
-
-#~ msgid "JavaScript Advanced"
-#~ msgstr "JavaScript Advanced"
-
-#~ msgid "Management Application"
-#~ msgstr "Management Application"
-
-#~ msgid "Content management system with advanced admin panel"
-#~ msgstr "Content management system with advanced admin panel"
-
-#~ msgid ""
-#~ "I bring your website to the top ranks on Google. Fast loading and search "
-#~ "engine optimization."
-#~ msgstr ""
-#~ "I bring your website to the top ranks on Google. Fast loading and search "
-#~ "engine optimization."
-
-#~ msgid "Or Contact Directly"
-#~ msgstr "Or Contact Directly"
-
-#~ msgid ""
-#~ "Grow your business in the digital world with our professional website "
-#~ "packages. Offer your customers the best experience with modern design, "
-#~ "fast loading and user-friendly interface."
-#~ msgstr ""
-#~ "Grow your business in the digital world with our professional website "
-#~ "packages. Offer your customers the best experience with modern design, "
-#~ "fast loading and user-friendly interface."
-
-#~ msgid "Get to know me and trust me - Professional web developer at work"
-#~ msgstr "Get to know me and trust me - Professional web developer at work"
-
-#~ msgid "Personal Photos"
-#~ msgstr "Personal Photos"
-
-#~ msgid "Personal Portfolio"
-#~ msgstr "Personal Portfolio"
-
-#~ msgid "Call me for direct conversation"
-#~ msgstr "Call me for direct conversation"
-
-#~ msgid "Add your personal photos to the photos folder"
-#~ msgstr "Add your personal photos to the photos folder"
-
-#~ msgid "Angraweb.com"
-#~ msgstr "Angraweb.com"
-
-#~ msgid "Bonus and rewards platform - Berlin based service"
-#~ msgstr "Bonus and rewards platform - Berlin based service"
-
-#~ msgid "Personal portfolio website with advanced animations"
-#~ msgstr "Personal portfolio website with advanced animations"
-
-#~ msgid "Event ticket booking platform - concerts, festivals and live shows"
-#~ msgstr "Event ticket booking platform - concerts, festivals and live shows"
-
-#~ msgid "Online clothing sales website - modern e-commerce platform"
-#~ msgstr "Online clothing sales website - modern e-commerce platform"
-
-#~ msgid "Professional services platform - connecting customers with craftsmen"
-#~ msgstr ""
-#~ "Professional services platform - connecting customers with craftsmen"
-
-#~ msgid ""
-#~ "Professional driving school website - registration and training system"
-#~ msgstr ""
-#~ "Professional driving school website - registration and training system"
-
-#~ msgid "Legal services and consulting website - specialized platform"
-#~ msgstr "Legal services and consulting website - specialized platform"
-
-#~ msgid "Designed and active websites"
-#~ msgstr "Designed and active websites"
-
-#~ msgid "Professional Portfolio"
-#~ msgstr "Professional Portfolio"
-
-#~ msgid ""
-#~ "Professional driving school website - education and registration system"
-#~ msgstr ""
-#~ "Professional driving school website - education and registration system"
-
-#~ msgid "Hedef Driver Course"
-#~ msgstr "Hedef Driver Course"
-
-#~ msgid ""
-#~ "Personal portfolio website - professional presentation and communication"
-#~ msgstr ""
-#~ "Personal portfolio website - professional presentation and communication"
-
-#~ msgid "Ali Asadi Portfolio"
-#~ msgstr "Ali Asadi Portfolio"
-
-#~ msgid "E-commerce website operating in Germany - clothing sales"
-#~ msgstr "E-commerce website operating in Germany - clothing sales"
-
-#~ msgid "Firment Shirt DE"
-#~ msgstr "Firment Shirt DE"
-
-#~ msgid "International e-commerce platform - modern clothing store"
-#~ msgstr "International e-commerce platform - modern clothing store"
-
-#~ msgid "Firment Shirt Shop"
-#~ msgstr "Firment Shirt Shop"
-
-#~ msgid ""
-#~ "Contact me now for free consultation and quotes. I offer affordable "
-#~ "solutions for similar projects."
-#~ msgstr ""
-#~ "Contact me now for free consultation and quotes. I offer affordable "
-#~ "solutions for similar projects."
-
-#~ msgid ""
-#~ "All my projects are developed using modern technologies and best "
-#~ "practices. Contact me via WhatsApp for detailed information and custom "
-#~ "project quotes."
-#~ msgstr ""
-#~ "All my projects are developed using modern technologies and best "
-#~ "practices. Contact me via WhatsApp for detailed information and custom "
-#~ "project quotes."
-
-#~ msgid "About Projects"
-#~ msgstr "About Projects"
-
-#~ msgid ""
-#~ "Discover my professional web design projects and live demo videos. Learn "
-#~ "more about my e-commerce sites, corporate websites and custom platform "
-#~ "solutions."
-#~ msgstr ""
-#~ "Discover my professional web design projects and live demo videos. Learn "
-#~ "more about my e-commerce sites, corporate websites and custom platform "
-#~ "solutions."
-
-#~ msgid "Successful Web Design Projects and Video Demos"
-#~ msgstr "Successful Web Design Projects and Video Demos"
-
-#~ msgid "Python Developer"
-#~ msgstr "Python Developer"
-
-#~ msgid ""
-#~ "Websites that look perfect on all devices. Optimized experience on phone, "
-#~ "tablet and computer."
-#~ msgstr ""
-#~ "Websites that look perfect on all devices. Optimized experience on phone, "
-#~ "tablet and computer."
-
-#~ msgid ""
-#~ "Contact me via WhatsApp for free consultation and project quotes. My "
-#~ "experience and certificates are ready to use for your project."
-#~ msgstr ""
-#~ "Contact me via WhatsApp for free consultation and project quotes. My "
-#~ "experience and certificates are ready to use for your project."
-
-#~ msgid "Contact Me for Professional Services!"
-#~ msgstr "Contact Me for Professional Services!"
-
-#~ msgid ""
-#~ "As a Marmara University Computer Programming graduate, I have specialized "
-#~ "in web design and development with my professional certificates and 5+ "
-#~ "years of experience."
-#~ msgstr ""
-#~ "As a Marmara University Computer Programming graduate, I have specialized "
-#~ "in web design and development with my professional certificates and 5+ "
-#~ "years of experience."
-
-#~ msgid "Education, Experience and Professional Certificates"
-#~ msgstr "Education, Experience and Professional Certificates"
-
-#~ msgid ""
-#~ "As Angraweb, we offer comprehensive web design and development services "
-#~ "to strengthen your business's digital presence. Reach your goals with "
-#~ "modern, fast and user-friendly solutions."
-#~ msgstr ""
-#~ "As Angraweb, we offer comprehensive web design and development services "
-#~ "to strengthen your business's digital presence. Reach your goals with "
-#~ "modern, fast and user-friendly solutions."
-
-#~ msgid "Technical Skills"
-#~ msgstr "Technical Skills"
-
-#~ msgid "Secure and Fast Solutions"
-#~ msgstr "Secure and Fast Solutions"
-
-#~ msgid "User Experience Design"
-#~ msgstr "User Experience Design"
-
-#~ msgid ""
-#~ "Beautiful and functional interface designs that will impress your "
-#~ "customers. Increase your conversion rates."
-#~ msgstr ""
-#~ "Beautiful and functional interface designs that will impress your "
-#~ "customers. Increase your conversion rates."
-
-#~ msgid ""
-#~ "I offer quality service at reasonable prices, solutions that fit your "
-#~ "budget"
-#~ msgstr ""
-#~ "I offer quality service at reasonable prices, solutions that fit your "
-#~ "budget"
-
-#~ msgid "I'm with you after the project too, 24/7 technical support service"
-#~ msgstr "I'm with you after the project too, 24/7 technical support service"
-
-#~ msgid "Save Time"
-#~ msgstr "Save Time"
-
-#~ msgid "First project demo video"
-#~ msgstr "First project demo video"
-
-#~ msgid "Project Demo 1"
-#~ msgstr "Project Demo 1"
-
-#~ msgid "Second project demo video"
-#~ msgstr "Second project demo video"
-
-#~ msgid "Project Demo 2"
-#~ msgstr "Project Demo 2"
-
-#~ msgid "Third project demo video"
-#~ msgstr "Third project demo video"
-
-#~ msgid "Project Demo 3"
-#~ msgstr "Project Demo 3"
-
-#~ msgid "Fourth project demo video"
-#~ msgstr "Fourth project demo video"
-
-#~ msgid "Project Demo 4"
-#~ msgstr "Project Demo 4"
-
-#~ msgid ""
-#~ "Discover functionality and design details by watching live demo videos of "
-#~ "my projects."
-#~ msgstr ""
-#~ "Discover functionality and design details by watching live demo videos of "
-#~ "my projects."
-
-#~ msgid "Watch Demo"
-#~ msgstr "Watch Demo"
-
-#~ msgid ""
-#~ "I design modern and fast websites that will grow your business. "
-#~ "Strengthen your brand with corporate website solutions."
-#~ msgstr ""
-#~ "I design modern and fast websites that will grow your business. "
-#~ "Strengthen your brand with corporate website solutions."
-
-#~ msgid "Send a message via WhatsApp for quick response"
-#~ msgstr "Send a message via WhatsApp for quick response"
