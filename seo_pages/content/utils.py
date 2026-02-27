@@ -45,12 +45,13 @@ def ul(items: Sequence[str]) -> str:
 
 
 def cta_box(title: str, body: str, link_placeholder: str, cta_text: str, strong: bool = False) -> str:
-    cls = "cta-strong" if strong else "cta-soft"
+    cls = "seo-cta seo-cta--strong" if strong else "seo-cta seo-cta--soft"
     return (
         f'<div class="{cls}">'
         f"<h3>{title}</h3>"
         f"<p>{body}</p>"
-        f"<p>{{{{ link:{link_placeholder} }}}} — {cta_text}</p>"
+        f"<div class=\"seo-cta__action\">{{{{ link:{link_placeholder} }}}}</div>"
+        f"<p class=\"seo-cta__hint\">{cta_text}</p>"
         f"</div>"
     )
 

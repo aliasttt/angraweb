@@ -5927,6 +5927,98 @@ img.lazy-loaded {
     }
 }
 
+/* ------------------------------------------------------------
+   SEO Silo content styling (scoped)
+------------------------------------------------------------ */
+.seo-silo .card {
+    background: rgba(15, 18, 35, 0.75) !important;
+    border: 1px solid rgba(116, 185, 255, 0.18) !important;
+    backdrop-filter: blur(10px);
+}
+
+.seo-silo h2, .seo-silo h3 {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.seo-silo p, .seo-silo li, .seo-silo .accordion-body {
+    color: #dfe6e9 !important;
+    line-height: 1.9;
+}
+
+.seo-silo ul {
+    padding-left: 1.1rem;
+}
+
+.seo-silo .seo-link {
+    color: #74b9ff !important;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(116, 185, 255, 0.45);
+    padding-bottom: 1px;
+}
+
+.seo-silo .seo-link:hover {
+    color: #a8d5ff !important;
+    border-bottom-color: rgba(168, 213, 255, 0.9);
+}
+
+.seo-silo .seo-cta {
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    border-radius: 14px;
+    border: 1px solid rgba(116, 185, 255, 0.22);
+    background: rgba(116, 185, 255, 0.08);
+}
+
+.seo-silo .seo-cta--strong {
+    border-color: rgba(0, 184, 148, 0.35);
+    background: rgba(0, 184, 148, 0.10);
+}
+
+.seo-silo .seo-cta__action {
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.seo-silo .seo-cta__action .seo-link {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(116, 185, 255, 0.25);
+    background: rgba(116, 185, 255, 0.10);
+    text-decoration: none;
+}
+
+.seo-silo .seo-cta--strong .seo-cta__action .seo-link {
+    border-color: rgba(0, 184, 148, 0.35);
+    background: rgba(0, 184, 148, 0.14);
+    color: #b9ffe9 !important;
+}
+
+.seo-silo .seo-cta__hint {
+    margin: 0;
+    color: #b2bec3 !important;
+}
+
+.seo-silo .accordion-item {
+    background: transparent !important;
+    border: 1px solid rgba(116, 185, 255, 0.18) !important;
+}
+
+.seo-silo .accordion-button {
+    background: rgba(15, 18, 35, 0.55) !important;
+    color: #ffffff !important;
+}
+
+.seo-silo .accordion-button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(116, 185, 255, 0.15) !important;
+}
+
+@media (max-width: 768px) {
+    .seo-silo .card { padding: 1rem !important; }
+    .seo-silo h1 { font-size: 1.6rem; }
+}
+
 /* Contact Page Improvements */
 .contact-info-text {
     color: #b2bec3;

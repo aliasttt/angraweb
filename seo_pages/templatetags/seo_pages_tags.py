@@ -341,9 +341,15 @@ def _related_reading_html(page: SeoPage, seed: str) -> str:
 
     heading = "İlgili Okumalar" if page.language == "tr" else "Related Reading"
     items = "".join(
-        f"<li><a href=\"{html.escape(p.get_absolute_url())}\">{html.escape(p.title)}</a></li>" for p in pick
+        f"<li><a class=\"seo-link\" href=\"{html.escape(p.get_absolute_url())}\">{html.escape(p.title)}</a></li>"
+        for p in pick
     )
-    return f"<div class=\"related-reading\"><h2>{heading}</h2><ul>{items}</ul></div>"
+    return (
+        "<div class=\"card p-4 mt-4 seo-related-reading\">"
+        f"<h2 class=\"h5 mb-3\">{html.escape(heading)}</h2>"
+        f"<ul class=\"mb-0\">{items}</ul>"
+        "</div>"
+    )
 
 
 @register.simple_tag(takes_context=True)
@@ -383,8 +389,8 @@ def render_internal_links(context, page: SeoPage) -> str:
 
         mode = modes[i] if i < len(modes) else "semantic"
         anchor = _choose_anchor(page, target, url, mode)
-        href = (domain + url) if (domain and url.startswith("/")) else (request.build_absolute_uri(url) if request else url)
-        out.append(f"<a href=\"{html.escape(href)}\">{html.escape(anchor)}</a>")
+        href = url if url.startswith("/") else ((domain + url) if domain else (request.build_absolute_uri(url) if request else url))
+        out.append(f"<a class=\"seo-link\" href=\"{html.escape(href)}\">{html.escape(anchor)}</a>")
         last = m.end()
 
     out.append(src_html[last:])
