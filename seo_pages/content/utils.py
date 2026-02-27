@@ -19,8 +19,9 @@ def clamp_text(s: str, max_len: int) -> str:
 
 
 def word_count_from_html(html: str) -> int:
+    from seo_pages.link_placeholder import PLACEHOLDER_PATTERN
     text = re.sub(r"<[^>]+>", " ", html or "")
-    text = re.sub(r"\{\{\s*link:[^}]+\}\}", " ", text)
+    text = PLACEHOLDER_PATTERN.sub(" ", text)
     text = normalize_space(text)
     if not text:
         return 0

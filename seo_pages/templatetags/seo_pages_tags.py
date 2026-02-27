@@ -12,6 +12,7 @@ from django.db.models import Q
 from django.utils.safestring import mark_safe
 
 from ..models import SeoPage
+from ..link_placeholder import PLACEHOLDER_PATTERN as _PLACEHOLDER_RE
 from ..silo_config import SERVICE_SILO_MAP
 
 register = template.Library()
@@ -201,9 +202,6 @@ def silo_pillar_for_service_type(language: str, service_type: str) -> str:
     return silo_url(language, key, "pillar")
 
 
-_PLACEHOLDER_RE = re.compile(r"\{\{\s*link:([^\}]+)\s*\}\}")
-
-
 def _is_same_language(page: SeoPage, url: str) -> bool:
     return url.startswith(f"/{page.language}/")
 
@@ -341,7 +339,7 @@ def _related_reading_html(page: SeoPage, seed: str) -> str:
 
     heading = "İlgili Okumalar" if page.language == "tr" else "Related Reading"
     items = "".join(
-        f"<li><a class=\"seo-link\" href=\"{html.escape(p.get_absolute_url())}\">{html.escape(p.title)}</a></li>"
+        f"<li><a class=\"inline-link\" href=\"{html.escape(p.get_absolute_url())}\">{html.escape(p.title)}</a></li>"
         for p in pick
     )
     return (
@@ -352,19 +350,14 @@ def _related_reading_html(page: SeoPage, seed: str) -> str:
     )
 
 
-@register.simple_tag(takes_context=True)
-def render_internal_links(context, page: SeoPage) -> str:
-    """
-    Parses {{ link:/lang/.../ }} placeholders and replaces them with safe <a> tags.
-    Also appends a 3-item related reading block (same language/service).
-    """
+def _render_content_placeholders(context: dict, page: SeoPage) -> str:
+    """Replace link placeholders in page.content_html with <a class=\"inline-link\">. Returns raw string."""
     src_html = page.content_html or ""
     if not src_html:
         return ""
 
     request = context.get("request")
     domain = _canonical_domain()
-
     placeholders = list(_PLACEHOLDER_RE.finditer(src_html))
     modes = _assign_anchor_modes(len(placeholders), seed=f"{page.language}:{page.id}:{page.page_type}")
 
@@ -374,7 +367,6 @@ def render_internal_links(context, page: SeoPage) -> str:
         out.append(src_html[last : m.start()])
         url = (m.group(1) or "").strip()
 
-        # Language isolation (hard rule)
         if not _is_same_language(page, url):
             out.append(html.escape(url))
             last = m.end()
@@ -382,7 +374,6 @@ def render_internal_links(context, page: SeoPage) -> str:
 
         target = _resolve_target_page(url)
         if not target:
-            # no broken anchors: render url text if missing
             out.append(html.escape(url))
             last = m.end()
             continue
@@ -390,14 +381,33 @@ def render_internal_links(context, page: SeoPage) -> str:
         mode = modes[i] if i < len(modes) else "semantic"
         anchor = _choose_anchor(page, target, url, mode)
         href = url if url.startswith("/") else ((domain + url) if domain else (request.build_absolute_uri(url) if request else url))
-        out.append(f"<a class=\"seo-link\" href=\"{html.escape(href)}\">{html.escape(anchor)}</a>")
+        out.append(f"<a class=\"inline-link\" href=\"{html.escape(href)}\">{html.escape(anchor)}</a>")
         last = m.end()
 
     out.append(src_html[last:])
+    return "".join(out)
 
+
+@register.simple_tag(takes_context=True)
+def render_internal_links(context, page: SeoPage) -> str:
+    """
+    Parses link placeholders (e.g. {{ link:/tr/.../ }}, { link:/en/.../ }) and replaces
+    them with safe <a class="inline-link"> tags. Also appends a related reading block.
+    """
+    html_part = _render_content_placeholders(context, page)
+    if not html_part:
+        return ""
     related = _related_reading_html(page, seed=f"{page.language}:{page.id}:{page.page_type}")
     if related:
-        out.append(related)
+        html_part += related
+    return mark_safe(html_part)
 
-    return mark_safe("".join(out))
+
+@register.simple_tag(takes_context=True)
+def render_content(context, page: SeoPage) -> str:
+    """
+    Returns safe HTML with link placeholders replaced by <a class="inline-link"> anchors.
+    Use this when you only need the main content without the related reading block.
+    """
+    return mark_safe(_render_content_placeholders(context, page))
 

@@ -7,6 +7,7 @@ from django.utils import timezone
 from .models import InternalLinkRule, SeoPage, Service
 from .content.generator_en import generate_en
 from .content.generator_tr import generate_tr
+from .link_placeholder import has_placeholder_syntax
 
 
 @admin.register(Service)
@@ -42,6 +43,8 @@ class SeoPageAdmin(admin.ModelAdmin):
     actions = ["generate_missing_content", "regenerate_content_force"]
 
     def _apply_generated(self, page: SeoPage, data: dict):
+        from .templatetags.seo_pages_tags import _render_content_placeholders
+
         page.title = data["title"]
         page.meta_title = data["meta_title"]
         page.meta_description = data["meta_description"]
@@ -50,6 +53,8 @@ class SeoPageAdmin(admin.ModelAdmin):
         page.published_at = data.get("published_at") or timezone.now()
         page.is_indexable = True
         page.canonical_url = page.get_absolute_url()
+        if has_placeholder_syntax(page.content_html):
+            page.content_html = _render_content_placeholders({"request": None}, page)
         page.full_clean()
         page.save()
 

@@ -28,7 +28,7 @@
       <div class="col-12 col-lg-8">
         <div class="card p-4">
           {% if page.content_html %}
-            {% render_internal_links page %}
+            {% render_content page %}
           {% else %}
             <p style="color:#b2bec3;">{% if language == "tr" %}İçerik yakında eklenecek.{% else %}Content will be added soon.{% endif %}</p>
           {% endif %}

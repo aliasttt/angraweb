@@ -6,6 +6,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 
+from .link_placeholder import has_placeholder_syntax
+
 
 class Service(models.Model):
     """
@@ -182,6 +184,37 @@ class SeoPage(models.Model):
             for i, item in enumerate(self.faq_json):
                 if not isinstance(item, dict) or "question" not in item or "answer" not in item:
                     raise ValidationError({"faq_json": f"Invalid FAQ item at index {i}."})
+
+        # Unreplaced link placeholders must not be saved (run seo_pages_cleanup_and_upgrade to replace with HTML).
+        if html and has_placeholder_syntax(html):
+            raise ValidationError(
+                {"content_html": "Content contains link placeholders (e.g. { link:... }). Run management command seo_pages_cleanup_and_upgrade to replace with HTML, or replace manually."}
+            )
+
+        # Pricing intent: non-pricing pages should not contain pricing-heavy language.
+        if self.page_type != self.TYPE_PRICING and html:
+            # Ignore text inside <a>...</a> (anchor text) to avoid flagging link text like "fiyatlar"
+            body_only = re.sub(r"<a\b[^>]*>.*?</a>", " ", html, flags=re.DOTALL | re.IGNORECASE)
+            text_lower = re.sub(r"<[^>]+>", " ", body_only).lower()
+            tr_triggers = ["fiyat", "ücret", "maliyet", "paket"]
+            en_triggers = ["price", "pricing", "cost", "package"]
+            triggers = en_triggers if self.language == "en" else tr_triggers
+            if any(t in text_lower for t in triggers):
+                raise ValidationError(
+                    {"content_html": "Pricing intent detected outside pricing page. Move pricing language to the pricing page and link to it."}
+                )
+
+        # Duplicate content: same service+language with identical body.
+        if html and self.service_id:
+            dup = SeoPage.objects.filter(
+                service_id=self.service_id,
+                language=self.language,
+                content_html=html,
+            ).exclude(pk=self.pk).exists()
+            if dup:
+                raise ValidationError(
+                    {"content_html": "Another page in this service and language has identical content. Ensure unique content per URL."}
+                )
 
     def save(self, *args, **kwargs):
         # Keep canonical_url self-referential by default (path). Templates will render absolute canonical.
