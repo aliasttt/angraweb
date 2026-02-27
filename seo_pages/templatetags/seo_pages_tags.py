@@ -12,6 +12,7 @@ from django.db.models import Q
 from django.utils.safestring import mark_safe
 
 from ..models import SeoPage
+from ..silo_config import SERVICE_SILO_MAP
 
 register = template.Library()
 
@@ -151,6 +152,53 @@ def jsonld_faq(page: SeoPage) -> str:
         return ""
     data = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": main_entity}
     return _jsonld(data)
+
+
+@register.simple_tag
+def silo_url(language: str, service_key: str, page_type: str = "pillar", slug: str = "") -> str:
+    """
+    Return language-safe service silo URL paths.
+    - language: tr|en
+    - service_key: one of SERVICE_SILO_MAP keys (e.g. web-design)
+    - page_type: pillar|pricing|guide|quote|cluster
+    - slug: cluster slug if page_type=cluster
+    """
+    if language not in ("tr", "en"):
+        language = "tr"
+    cfg = SERVICE_SILO_MAP.get(service_key, {}).get(language)
+    if not cfg:
+        return f"/{language}/"
+    base = cfg["base_path"]
+    if page_type == "pillar":
+        return f"/{language}/{base}/"
+    if page_type == "pricing":
+        return f"/{language}/{base}/{'fiyatlar' if language=='tr' else 'pricing'}/"
+    if page_type == "guide":
+        return f"/{language}/{base}/{'rehber' if language=='tr' else 'guide'}/"
+    if page_type == "quote":
+        return f"/{language}/{base}/{'teklif-al' if language=='tr' else 'get-quote'}/"
+    if page_type == "cluster" and slug:
+        return f"/{language}/{base}/{slug}/"
+    return f"/{language}/{base}/"
+
+
+@register.simple_tag
+def silo_pillar_for_service_type(language: str, service_type: str) -> str:
+    """
+    Map `main.Service.service_type` to the new silo pillar URLs.
+    """
+    mapping = {
+        "web_design": "web-design",
+        "mobile_app": "mobile-app-development",
+        "ecommerce": "ecommerce-development",
+        "seo": "seo-services",
+        "hosting": "hosting-domain",
+        "ui_ux": "ui-ux-design",
+    }
+    key = mapping.get(service_type or "")
+    if not key:
+        return f"/{language or 'tr'}/"
+    return silo_url(language, key, "pillar")
 
 
 _PLACEHOLDER_RE = re.compile(r"\{\{\s*link:([^\}]+)\s*\}\}")

@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load seo_pages_tags %}
 <!DOCTYPE html>
 <html lang="{{ request.LANGUAGE_CODE|default:'tr' }}" dir="ltr">
 <head>
@@ -175,12 +176,13 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{% url 'services_list' %}">{% trans "All Services" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'web_design' %}">{% trans "Web Design" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'mobile_app' %}">{% trans "Mobile App Design" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ecommerce' %}">{% trans "E-commerce" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'seo_services' %}">{% trans "SEO Services" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'hosting_services' %}">{% trans "Hosting Services" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ui_ux_design' %}">{% trans "UI/UX Design" %}</a></li>
+                            {% get_current_language as CURRENT_LANGUAGE %}
+                            <li><a class="dropdown-item" href="{% silo_url CURRENT_LANGUAGE 'web-design' 'pillar' %}">{% trans "Web Design" %}</a></li>
+                            <li><a class="dropdown-item" href="{% silo_url CURRENT_LANGUAGE 'mobile-app-development' 'pillar' %}">{% trans "Mobile App Design" %}</a></li>
+                            <li><a class="dropdown-item" href="{% silo_url CURRENT_LANGUAGE 'ecommerce-development' 'pillar' %}">{% trans "E-commerce" %}</a></li>
+                            <li><a class="dropdown-item" href="{% silo_url CURRENT_LANGUAGE 'seo-services' 'pillar' %}">{% trans "SEO Services" %}</a></li>
+                            <li><a class="dropdown-item" href="{% silo_url CURRENT_LANGUAGE 'hosting-domain' 'pillar' %}">{% trans "Hosting Services" %}</a></li>
+                            <li><a class="dropdown-item" href="{% silo_url CURRENT_LANGUAGE 'ui-ux-design' 'pillar' %}">{% trans "UI/UX Design" %}</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

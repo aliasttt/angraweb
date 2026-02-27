@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load main_extras %}
+{% load seo_pages_tags %}
 
 {% block title %}{% trans "Our Services" %} - {% trans "Professional Web Design Services" %} | Angraweb.com{% endblock %}
 
@@ -42,7 +43,7 @@
                     <h3>{% localized service 'title' current_lang %}</h3>
                     <p style="color:#b2bec3; line-height:1.8;">{% localized_truncate service 'description' current_lang 30 %}</p>
                     <div class="service-cta">
-                        <a href="{% url 'service_detail' service.slug %}" class="btn btn-sm btn-outline-primary">
+                        <a href="{% silo_pillar_for_service_type current_lang service.service_type %}" class="btn btn-sm btn-outline-primary">
                             {% trans "Learn More" %}
                         </a>
                     </div>
@@ -180,7 +181,7 @@
                                     <td class="feature-column"></td>
                                     {% for service in services %}
                                     <td class="service-cta-compare">
-                                        <a href="{% url 'service_detail' service.slug %}" class="btn btn-sm btn-primary w-100">
+                                        <a href="{% silo_pillar_for_service_type current_lang service.service_type %}" class="btn btn-sm btn-primary w-100">
                                             {% trans "Learn More" %}
                                         </a>
                                     </td>
