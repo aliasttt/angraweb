@@ -2615,12 +2615,16 @@ img.lazy-loaded {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(116, 185, 255, 0.1), rgba(26, 26, 46, 0.3));
+    background: #111827;
+    overflow: hidden;
 }
 
-.pdf-file-icon {
-    font-size: 3rem;
-    color: #ff7675;
+.pdf-embed {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #ffffff;
 }
 
 .pdf-preview {

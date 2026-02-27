@@ -1994,10 +1994,12 @@ function initCertificateGallery() {
         const assetUrl = (window.STATIC_URL || '/static/') + 'certificates/' + imageName;
 
         if (isPDF) {
-            // For PDF files, show a simple PDF icon (no fake banner)
+            // For PDF files, show an inline preview of the first page
             certificateItem.innerHTML = `
                 <div class="certificate-image-container pdf-container">
-                    <i class="fas fa-file-pdf pdf-file-icon"></i>
+                    <embed src="${assetUrl}#page=1&view=FitH" 
+                           type="application/pdf" 
+                           class="pdf-embed" />
                     <div class="certificate-overlay">
                         <button class="btn btn-sm btn-light certificate-view-btn" 
                                 onclick="viewCertificate('${assetUrl}')">
