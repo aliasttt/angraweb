@@ -128,9 +128,36 @@
             <a class="navbar-brand" href="{% url 'index' %}">
                 <i class="fas fa-rocket"></i> Angraweb.com
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="d-flex align-items-center ms-auto">
+                <!-- Mobile language switcher (always visible on small screens) -->
+                <div class="dropdown d-lg-none me-2">
+                    <a class="btn btn-sm btn-outline-light dropdown-toggle" href="#" id="mobileLanguageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% get_current_language as CURRENT_LANGUAGE %}
+                        {% if CURRENT_LANGUAGE == 'tr' or not CURRENT_LANGUAGE %}
+                            <span class="fi fi-tr me-1"></span> TR
+                        {% elif CURRENT_LANGUAGE == 'en' %}
+                            <span class="fi fi-gb me-1"></span> EN
+                        {% else %}
+                            <i class="fas fa-globe me-1"></i>
+                        {% endif %}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="mobileLanguageDropdown">
+                        <li>
+                            <a class="dropdown-item {% if CURRENT_LANGUAGE == 'tr' or not CURRENT_LANGUAGE %}active{% endif %}" href="{% url 'switch_lang' 'tr' %}?next={{ request.get_full_path|urlencode }}">
+                                <span class="fi fi-tr me-2"></span> Türkçe
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}" href="{% url 'switch_lang' 'en' %}?next={{ request.get_full_path|urlencode }}">
+                                <span class="fi fi-gb me-2"></span> English
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -142,7 +169,7 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">{% trans "About" %}</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown d-none d-lg-block">
                         <a class="nav-link dropdown-toggle {% if 'service' in request.resolver_match.url_name or 'web_design' in request.resolver_match.url_name or 'mobile_app' in request.resolver_match.url_name or 'ecommerce' in request.resolver_match.url_name %}active{% endif %}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
                             {% trans "Services" %}
                         </a>

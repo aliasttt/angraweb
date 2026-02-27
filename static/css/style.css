@@ -733,6 +733,12 @@ body[dir="rtl"] .language-switcher {
     line-height: 1.8;
 }
 
+.hero-tagline {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-top: 0.25rem;
+}
+
 .text-gradient {
     color: #ffffff;
     background: none;

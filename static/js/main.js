@@ -40,7 +40,7 @@ const translations = {
         // About Section
         about_me: "Hakkımızda",
         experienced_developer: "İstanbul'da Profesyonel Web Tasarım ve Geliştirme Ekibi",
-        about_description: "Angraweb olarak İstanbul merkezli bir web tasarım ve geliştirme ekibiyiz. En iyi üniversite ve programlama eğitim kurumlarından mezun, ön uç ve arka uç geliştirmede uzman kadromuzla işletmelerin dijital dünyada büyümesine yardımcı oluyoruz. 20'den fazla başarılı projemiz ve %100 müşteri memnuniyeti odağımızla e-ticaret siteleri, kurumsal web siteleri ve özel web uygulamaları sunuyoruz.",
+        about_description: "Angraweb olarak İstanbul merkezli bir yazılım mühendisliği ve geliştirme ekibiyiz. Web, mobil ve diğer platformlar için uygulamalar tasarlıyor ve geliştiriyoruz. Önde gelen üniversite ve programlama okullarından mezun mühendislerimiz; frontend, backend ve bulut mimarilerinde uzman olup, işletmelerin dijital dünyada modern ve ölçeklenebilir çözümlerle büyümesine yardımcı oluyor.",
         successful_projects: "Başarılı Proje",
         years_experience: "Yıl Deneyim",
         customer_satisfaction: "Müşteri Memnuniyeti",
@@ -238,7 +238,7 @@ const translations = {
         // Page specific translations
         packages_intro: "Profesyonel web sitesi paketlerimiz ile işletmenizi dijital dünyada büyütün. Modern tasarım, hızlı yükleme ve kullanıcı dostu arayüz ile müşterilerinize en iyi deneyimi sunun.",
         about_intro_subtitle: "İstanbul'da Profesyonel Web Tasarım ve Geliştirme Ekibi",
-        about_intro_description: "Angraweb olarak İstanbul merkezli bir web tasarım ve geliştirme ekibiyiz. En iyi üniversite ve programlama eğitim kurumlarından mezun uzman kadromuzla, modern ve kullanıcı dostu web siteleri ve web uygulamaları geliştiriyoruz. İşletmenizin dijital dünyada büyümesine yardımcı olacak çözümler sunuyoruz.",
+        about_intro_description: "Angraweb olarak İstanbul merkezli bir yazılım mühendisliği ve geliştirme ekibiyiz. Web, mobil ve diğer platformlar için modern ve kullanıcı dostu uygulamalar geliştiriyoruz. Analizden tasarıma, geliştirmeden yayına kadar tüm süreçte, işletmenizin dijital dünyada güçlü bir yazılım altyapısına sahip olmasını sağlıyoruz.",
         services_intro_subtitle: "İşletmenizi Dijital Dünyada Büyüten Çözümler",
         services_intro_description: "Angraweb olarak, işletmenizin dijital varlığını güçlendirmek için kapsamlı web tasarım ve geliştirme hizmetleri sunuyoruz. Modern, hızlı ve kullanıcı dostu çözümlerle hedeflerinize ulaşın.",
         projects_subtitle: "Başarılı Web Tasarım Projeleri ve Video Demoları",
