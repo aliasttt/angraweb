@@ -1,0 +1,54 @@
+{% extends "seo_pages/base_lang.html" %}
+
+{% block content %}
+  <div class="grid">
+    <section>
+      <h1>{{ page.title }}</h1>
+
+      <div class="card">
+        {% if page.content_html %}
+          {{ page.content_html|safe }}
+        {% else %}
+          <p class="muted">{% if language == "tr" %}İçerik yakında eklenecek.{% else %}Content will be added soon.{% endif %}</p>
+        {% endif %}
+      </div>
+
+      <div class="card cta" style="margin-top:16px;">
+        <h2 style="margin:0 0 8px; font-size:18px;">{% if language == "tr" %}Projeniz için teklif alın{% else %}Get a quote for your project{% endif %}</h2>
+        <p class="muted" style="margin:0 0 12px;">
+          {% if language == "tr" %}Hedeflerinizi paylaşın, en doğru kapsamı birlikte çıkaralım.{% else %}Share your goals and we’ll define the right scope.{% endif %}
+        </p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          {% if quote %}<a class="btn" href="{{ quote.get_absolute_url }}">{% if language == "tr" %}Teklif Al{% else %}Get a quote{% endif %}</a>{% endif %}
+          {% if pricing %}<a class="btn secondary" href="{{ pricing.get_absolute_url }}">{% if language == "tr" %}Fiyatları Gör{% else %}See pricing{% endif %}</a>{% endif %}
+        </div>
+      </div>
+
+      {% if page.faq_json %}
+        <div class="card faq" style="margin-top:16px;">
+          <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}SSS{% else %}FAQs{% endif %}</h2>
+          {% for item in page.faq_json %}
+            <details>
+              <summary>{{ item.question }}</summary>
+              <div style="margin-top:8px;">{{ item.answer|safe }}</div>
+            </details>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </section>
+
+    <aside>
+      <div class="card">
+        <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}Hiyerarşi{% else %}Hierarchy{% endif %}</h2>
+        <ul style="margin:0; padding-left:18px;">
+          {% if pillar %}<li><a href="{{ pillar.get_absolute_url }}">{% if language == "tr" %}Pillar{% else %}Pillar{% endif %}</a></li>{% endif %}
+          {% if guide %}<li><a href="{{ guide.get_absolute_url }}">{% if language == "tr" %}Rehber{% else %}Guide{% endif %}</a></li>{% endif %}
+          {% if pricing %}<li><a href="{{ pricing.get_absolute_url }}">{% if language == "tr" %}Fiyatlar{% else %}Pricing{% endif %}</a></li>{% endif %}
+        </ul>
+      </div>
+
+      {% include "seo_pages/_modules.html" %}
+    </aside>
+  </div>
+{% endblock %}
+

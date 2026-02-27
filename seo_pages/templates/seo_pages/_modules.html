@@ -1,0 +1,15 @@
+{% load seo_pages_tags %}
+
+{% comment %}Shared modules for SEO silo pages (language-safe links only).{% endcomment %}
+
+{% if related_reading %}
+  <div class="card">
+    <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}İlgili Okumalar{% else %}Related reading{% endif %}</h2>
+    <ul style="margin:0; padding-left:18px;">
+      {% for p in related_reading %}
+        <li><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+

@@ -129,3 +129,36 @@ class SessionExpiryMiddleware:
         
         response = self.get_response(request)
         return response
+
+
+class XRobotsTagMiddleware:
+    """
+    Add X-Robots-Tag headers to prevent indexing of admin/utility/search URLs.
+
+    This complements robots.txt (Disallow) and protects against parameterized internal search URLs.
+    """
+
+    NOINDEX_PREFIXES = (
+        "/admin/",
+        "/i18n/",
+        "/lang/",
+        "/insights/",
+    )
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+
+        path = request.path or "/"
+        if any(path.startswith(p) for p in self.NOINDEX_PREFIXES):
+            response.headers["X-Robots-Tag"] = "noindex, nofollow"
+            return response
+
+        # Internal on-site search results should not be indexed.
+        if "search" in request.GET:
+            response.headers["X-Robots-Tag"] = "noindex, follow"
+            return response
+
+        return response

@@ -52,8 +52,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'main',
     'insights',
+    'seo_pages',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +63,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'main.middleware.XRobotsTagMiddleware',  # noindex for admin/search/utility URLs
     'django.middleware.locale.LocaleMiddleware',
     'main.middleware.LanguageActivationMiddleware',  # اطمینان از activate شدن زبان از session/cookie و لود ترجمه‌ها
     'django.middleware.csrf.CsrfViewMiddleware',

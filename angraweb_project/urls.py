@@ -9,9 +9,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
-from main.views import set_language, redirect_to_default_language, sitemap_xml, robots_txt
+from django.contrib.sitemaps import views as sitemap_views
+from main.views import set_language, redirect_to_default_language, robots_txt
 from insights.views_admin import admin_dashboard as admin_dashboard_view
 from insights.views_admin import seo_health_dashboard as seo_health_dashboard_view
+from seo_pages.sitemap import sitemaps as seo_sitemaps
 
 # Non-prefixed URLs
 urlpatterns = [
@@ -21,7 +23,12 @@ urlpatterns = [
     path('admin/insights/', admin_dashboard_view),
     path('admin/', admin.site.urls),
     path('insights/', include('insights.urls')),
-    path('sitemap.xml', sitemap_xml),
+    # Explicit language hubs for service silos (avoid mixed-slug routes under i18n_patterns)
+    path('tr/', include('seo_pages.urls_tr')),
+    path('en/', include('seo_pages.urls_en')),
+    # SEO-first sitemap index + per-language sitemaps (TR/EN are separate graphs)
+    path('sitemap.xml', sitemap_views.index, {"sitemaps": seo_sitemaps, "sitemap_url_name": "sitemap-section"}),
+    path('sitemap-<section>.xml', sitemap_views.sitemap, {"sitemaps": seo_sitemaps}, name="sitemap-section"),
     path('robots.txt', robots_txt),
     path('', redirect_to_default_language),
 ]

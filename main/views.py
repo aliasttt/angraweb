@@ -797,7 +797,15 @@ def robots_txt(request):
     if not canonical:
         canonical = f"{request.scheme}://{request.get_host()}"
     sitemap_url = f"{canonical}/sitemap.xml"
-    body = f"User-agent: *\nAllow: /\n\nSitemap: {sitemap_url}\n"
+    body = (
+        "User-agent: *\n"
+        "Allow: /\n\n"
+        "Disallow: /admin/\n"
+        "Disallow: /i18n/\n"
+        "Disallow: /lang/\n"
+        "Disallow: /insights/\n\n"
+        f"Sitemap: {sitemap_url}\n"
+    )
     return HttpResponse(body, content_type='text/plain')
 
 

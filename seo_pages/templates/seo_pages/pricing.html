@@ -1,0 +1,49 @@
+{% extends "seo_pages/base_lang.html" %}
+
+{% block content %}
+  <div class="grid">
+    <section>
+      <h1>{{ page.title }}</h1>
+      <div class="card">
+        {% if page.content_html %}
+          {{ page.content_html|safe }}
+        {% else %}
+          <p class="muted">{% if language == "tr" %}Fiyatlandırma içeriği yakında eklenecek.{% else %}Pricing content will be added soon.{% endif %}</p>
+        {% endif %}
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}Sonraki Adım{% else %}Next step{% endif %}</h2>
+        <p class="muted" style="margin:0 0 12px;">
+          {% if language == "tr" %}Paket/ kapsam netleşince hızlı bir teklif sunabiliriz.{% else %}Once scope is clear, we can prepare a fast quote.{% endif %}
+        </p>
+        {% if quote %}<a class="btn" href="{{ quote.get_absolute_url }}">{% if language == "tr" %}Teklif Al{% else %}Get a quote{% endif %}</a>{% endif %}
+      </div>
+
+      {% if page.faq_json %}
+        <div class="card faq" style="margin-top:16px;">
+          <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}Fiyat SSS{% else %}Pricing FAQs{% endif %}</h2>
+          {% for item in page.faq_json %}
+            <details>
+              <summary>{{ item.question }}</summary>
+              <div style="margin-top:8px;">{{ item.answer|safe }}</div>
+            </details>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </section>
+
+    <aside>
+      <div class="card">
+        <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}Hızlı Bağlantılar{% else %}Quick links{% endif %}</h2>
+        <ul style="margin:0; padding-left:18px;">
+          {% if pillar %}<li><a href="{{ pillar.get_absolute_url }}">{% if language == "tr" %}Hizmet Sayfası{% else %}Service overview{% endif %}</a></li>{% endif %}
+          {% if guide %}<li><a href="{{ guide.get_absolute_url }}">{% if language == "tr" %}Rehber{% else %}Guide{% endif %}</a></li>{% endif %}
+        </ul>
+      </div>
+
+      {% include "seo_pages/_modules.html" %}
+    </aside>
+  </div>
+{% endblock %}
+

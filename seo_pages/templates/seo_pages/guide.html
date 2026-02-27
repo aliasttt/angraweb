@@ -1,0 +1,49 @@
+{% extends "seo_pages/base_lang.html" %}
+
+{% block content %}
+  <div class="grid">
+    <section>
+      <h1>{{ page.title }}</h1>
+      <div class="card">
+        {% if page.content_html %}
+          {{ page.content_html|safe }}
+        {% else %}
+          <p class="muted">{% if language == "tr" %}Rehber içeriği yakında eklenecek.{% else %}Guide content will be added soon.{% endif %}</p>
+        {% endif %}
+      </div>
+
+      {% if page.faq_json %}
+        <div class="card faq" style="margin-top:16px;">
+          <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}SSS{% else %}FAQs{% endif %}</h2>
+          {% for item in page.faq_json %}
+            <details>
+              <summary>{{ item.question }}</summary>
+              <div style="margin-top:8px;">{{ item.answer|safe }}</div>
+            </details>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </section>
+
+    <aside>
+      <div class="card cta">
+        <h2 style="margin:0 0 8px; font-size:18px;">{% if language == "tr" %}Teklif İster misiniz?{% else %}Want a quote?{% endif %}</h2>
+        <p class="muted" style="margin:0 0 12px;">
+          {% if language == "tr" %}Rehberden sonra kapsamı birlikte netleştirebiliriz.{% else %}After the guide, we can clarify scope together.{% endif %}
+        </p>
+        {% if quote %}<a class="btn" href="{{ quote.get_absolute_url }}">{% if language == "tr" %}Teklif Al{% else %}Get a quote{% endif %}</a>{% endif %}
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}Hızlı Bağlantılar{% else %}Quick links{% endif %}</h2>
+        <ul style="margin:0; padding-left:18px;">
+          {% if pillar %}<li><a href="{{ pillar.get_absolute_url }}">{% if language == "tr" %}Hizmet Sayfası{% else %}Service overview{% endif %}</a></li>{% endif %}
+          {% if pricing %}<li><a href="{{ pricing.get_absolute_url }}">{% if language == "tr" %}Fiyatlar{% else %}Pricing{% endif %}</a></li>{% endif %}
+        </ul>
+      </div>
+
+      {% include "seo_pages/_modules.html" %}
+    </aside>
+  </div>
+{% endblock %}
+
