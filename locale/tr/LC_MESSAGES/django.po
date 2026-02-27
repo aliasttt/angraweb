@@ -595,10 +595,8 @@ msgid "Successful Projects"
 msgstr "Başarılı Proje"
 
 #: .\templates\main\about.html:53 .\templates\main\index.html:249
-#, fuzzy
-#| msgid "Years Experience"
 msgid "Years of Experience"
-msgstr "Yıl Deneyim"
+msgstr "Yıllık Deneyim"
 
 #: .\templates\main\about.html:57 .\templates\main\index.html:253
 msgid "Customer Satisfaction"
