@@ -2618,6 +2618,11 @@ img.lazy-loaded {
     background: linear-gradient(135deg, rgba(116, 185, 255, 0.1), rgba(26, 26, 46, 0.3));
 }
 
+.pdf-file-icon {
+    font-size: 3rem;
+    color: #ff7675;
+}
+
 .pdf-preview {
     width: 100%;
     height: 100%;

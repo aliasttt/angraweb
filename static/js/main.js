@@ -1990,34 +1990,14 @@ function initCertificateGallery() {
         const certificateItem = document.createElement('div');
         certificateItem.className = 'certificate-item';
         
-        // Check if it's a PDF file
         const isPDF = imageName.toLowerCase().endsWith('.pdf');
-        
         const assetUrl = (window.STATIC_URL || '/static/') + 'certificates/' + imageName;
 
         if (isPDF) {
-            // For PDF files, create a preview container
+            // For PDF files, show a simple PDF icon (no fake banner)
             certificateItem.innerHTML = `
                 <div class="certificate-image-container pdf-container">
-                    <div class="pdf-preview">
-                        <div class="pdf-preview-content">
-                            <div class="pdf-header">
-                                <div class="pdf-logo">
-                                    <i class="fas fa-university"></i>
-                                </div>
-                                <div class="pdf-title">Marmara Üniversitesi</div>
-                            </div>
-                            <div class="pdf-body">
-                                <div class="pdf-certificate-title">Sertifika</div>
-                                <div class="pdf-recipient">Ali Asadi</div>
-                                <div class="pdf-description">Bilgisayar Programlama</div>
-                            </div>
-                            <div class="pdf-footer">
-                                <i class="fas fa-file-pdf"></i>
-                                <span>PDF Belgesi</span>
-                            </div>
-                        </div>
-                    </div>
+                    <i class="fas fa-file-pdf pdf-file-icon"></i>
                     <div class="certificate-overlay">
                         <button class="btn btn-sm btn-light certificate-view-btn" 
                                 onclick="viewCertificate('${assetUrl}')">
