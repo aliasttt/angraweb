@@ -1972,7 +1972,9 @@ function initCertificateGallery() {
         'google_ads_search.jpg',
         'google_analytics.jpg',
         'marmara_sertification.pdf',
-        'marmara_turkish_sertif.jpg'
+        'marmara_turkish_sertif.jpg',
+        'Mahsun-kaya-1404.2.10.pdf',
+        'Resume - Remote Full-Stack Engineer - Python-Django (Healthcare SaaS) (1) (1).pdf'
     ];
     
     // If no certificates are specified, show placeholder
