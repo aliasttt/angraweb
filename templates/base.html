@@ -14,12 +14,14 @@
     <meta name="keywords" content="{% block meta_keywords %}web design, ecommerce, mobile app, SEO, hosting, UI/UX design, {% trans 'web development' %}{% endblock %}">
     <meta name="author" content="Angraweb.com">
     <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
-    <link rel="canonical" href="{{ canonical_url }}">
-    {% if hreflang_urls %}
-    {% for code, url in hreflang_urls %}
-    <link rel="alternate" hreflang="{{ code }}" href="{{ url }}">
-    {% endfor %}
-    {% endif %}
+    {% block canonical_link %}<link rel="canonical" href="{{ canonical_url }}">{% endblock %}
+    {% block hreflang_links %}
+      {% if hreflang_urls %}
+        {% for code, url in hreflang_urls %}
+          <link rel="alternate" hreflang="{{ code }}" href="{{ url }}">
+        {% endfor %}
+      {% endif %}
+    {% endblock %}
     <meta name="theme-color" content="#0a0e27">
     
     <!-- Open Graph / Facebook -->
@@ -144,12 +146,12 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="mobileLanguageDropdown">
                         <li>
-                            <a class="dropdown-item {% if CURRENT_LANGUAGE == 'tr' or not CURRENT_LANGUAGE %}active{% endif %}" href="{% url 'switch_lang' 'tr' %}?next={{ request.get_full_path|urlencode }}">
+                            <a class="dropdown-item {% if CURRENT_LANGUAGE == 'tr' or not CURRENT_LANGUAGE %}active{% endif %}" href="{% if seo_switch_tr_url %}{{ seo_switch_tr_url }}{% else %}{% url 'switch_lang' 'tr' %}?next={{ request.get_full_path|urlencode }}{% endif %}">
                                 <span class="fi fi-tr me-2"></span> Türkçe
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}" href="{% url 'switch_lang' 'en' %}?next={{ request.get_full_path|urlencode }}">
+                            <a class="dropdown-item {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}" href="{% if seo_switch_en_url %}{{ seo_switch_en_url }}{% else %}{% url 'switch_lang' 'en' %}?next={{ request.get_full_path|urlencode }}{% endif %}">
                                 <span class="fi fi-gb me-2"></span> English
                             </a>
                         </li>
@@ -241,12 +243,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item {% if CURRENT_LANGUAGE == 'tr' or not CURRENT_LANGUAGE %}active{% endif %}" href="{% url 'switch_lang' 'tr' %}?next={{ request.get_full_path|urlencode }}">
+                                <a class="dropdown-item {% if CURRENT_LANGUAGE == 'tr' or not CURRENT_LANGUAGE %}active{% endif %}" href="{% if seo_switch_tr_url %}{{ seo_switch_tr_url }}{% else %}{% url 'switch_lang' 'tr' %}?next={{ request.get_full_path|urlencode }}{% endif %}">
                                     <span class="fi fi-tr me-2"></span> Türkçe
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}" href="{% url 'switch_lang' 'en' %}?next={{ request.get_full_path|urlencode }}">
+                                <a class="dropdown-item {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}" href="{% if seo_switch_en_url %}{{ seo_switch_en_url }}{% else %}{% url 'switch_lang' 'en' %}?next={{ request.get_full_path|urlencode }}{% endif %}">
                                     <span class="fi fi-gb me-2"></span> English
                                 </a>
                             </li>

@@ -1,49 +1,74 @@
 {% extends "seo_pages/base_lang.html" %}
 {% load seo_pages_tags %}
 
-{% block content %}
-  <div class="grid">
-    <section>
-      <h1>{{ page.title }}</h1>
-      <div class="card">
-        {% if page.content_html %}
-          {% render_internal_links page %}
-        {% else %}
-          <p class="muted">{% if language == "tr" %}Rehber içeriği yakında eklenecek.{% else %}Guide content will be added soon.{% endif %}</p>
+{% block silo_content %}
+<section class="section" style="padding-top: 120px;">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h1 class="mb-2" style="color:#fff;">{{ page.title }}</h1>
+        <div style="color:#b2bec3;">
+          <a href="/{{ language }}/" style="color:#b2bec3;">Home</a>
+          <span> / </span>
+          <a href="/{{ language }}/{{ service_base_path }}/" style="color:#b2bec3;">{{ service_name }}</a>
+          <span> / </span>
+          <span>{{ page.title }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-lg-8">
+        <div class="card p-4">
+          {% if page.content_html %}
+            {% render_internal_links page %}
+          {% else %}
+            <p style="color:#b2bec3;">{% if language == "tr" %}Rehber içeriği yakında eklenecek.{% else %}Guide content will be added soon.{% endif %}</p>
+          {% endif %}
+        </div>
+
+        {% if page.faq_json %}
+          <div class="card p-4 mt-4">
+            <h2 class="mb-3">{% if language == "tr" %}SSS{% else %}FAQs{% endif %}</h2>
+            <div class="accordion" id="faqAccordion">
+              {% for item in page.faq_json %}
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="h{{ forloop.counter }}">
+                    <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#c{{ forloop.counter }}">
+                      {{ item.question }}
+                    </button>
+                  </h3>
+                  <div id="c{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                      {{ item.answer|safe }}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
         {% endif %}
       </div>
 
-      {% if page.faq_json %}
-        <div class="card faq" style="margin-top:16px;">
-          <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}SSS{% else %}FAQs{% endif %}</h2>
-          {% for item in page.faq_json %}
-            <details>
-              <summary>{{ item.question }}</summary>
-              <div style="margin-top:8px;">{{ item.answer|safe }}</div>
-            </details>
-          {% endfor %}
+      <div class="col-12 col-lg-4">
+        <div class="card p-4">
+          <h2 class="h5 mb-3">{% if language == "tr" %}Teklif İster misiniz?{% else %}Want a quote?{% endif %}</h2>
+          <p style="color:#b2bec3;">
+            {% if language == "tr" %}Rehberden sonra kapsamı birlikte netleştirebiliriz.{% else %}After the guide, we can clarify scope together.{% endif %}
+          </p>
+          {% if quote %}<a class="btn btn-success w-100" href="{{ quote.get_absolute_url }}">{% if language == "tr" %}Teklif Al{% else %}Get a Quote{% endif %}</a>{% endif %}
         </div>
-      {% endif %}
-    </section>
 
-    <aside>
-      <div class="card cta">
-        <h2 style="margin:0 0 8px; font-size:18px;">{% if language == "tr" %}Teklif İster misiniz?{% else %}Want a quote?{% endif %}</h2>
-        <p class="muted" style="margin:0 0 12px;">
-          {% if language == "tr" %}Rehberden sonra kapsamı birlikte netleştirebiliriz.{% else %}After the guide, we can clarify scope together.{% endif %}
-        </p>
-        {% if quote %}<a class="btn" href="{{ quote.get_absolute_url }}">{% if language == "tr" %}Teklif Al{% else %}Get a quote{% endif %}</a>{% endif %}
+        <div class="card p-4 mt-4">
+          <h2 class="h5 mb-3">{% if language == "tr" %}Hızlı Bağlantılar{% else %}Quick links{% endif %}</h2>
+          <ul class="mb-0">
+            {% if pillar %}<li><a href="{{ pillar.get_absolute_url }}">{% if language == "tr" %}Hizmet Sayfası{% else %}Service overview{% endif %}</a></li>{% endif %}
+            {% if pricing %}<li><a href="{{ pricing.get_absolute_url }}">{% if language == "tr" %}Fiyatlar{% else %}Pricing{% endif %}</a></li>{% endif %}
+          </ul>
+        </div>
       </div>
-
-      <div class="card" style="margin-top:16px;">
-        <h2 style="margin:0 0 10px; font-size:18px;">{% if language == "tr" %}Hızlı Bağlantılar{% else %}Quick links{% endif %}</h2>
-        <ul style="margin:0; padding-left:18px;">
-          {% if pillar %}<li><a href="{{ pillar.get_absolute_url }}">{% if language == "tr" %}Hizmet Sayfası{% else %}Service overview{% endif %}</a></li>{% endif %}
-          {% if pricing %}<li><a href="{{ pricing.get_absolute_url }}">{% if language == "tr" %}Fiyatlar{% else %}Pricing{% endif %}</a></li>{% endif %}
-        </ul>
-      </div>
-
-    </aside>
+    </div>
   </div>
+</section>
 {% endblock %}
 

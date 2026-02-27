@@ -1,113 +1,29 @@
+{% extends "base.html" %}
 {% load seo_pages_tags %}
-<!doctype html>
-<html lang="{{ language }}">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{% if page.meta_title %}{{ page.meta_title }}{% else %}{{ page.title }}{% endif %}</title>
-    {% if page.meta_description %}<meta name="description" content="{{ page.meta_description }}"/>{% endif %}
+{% block title %}{% if page.meta_title %}{{ page.meta_title }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block meta_description %}{{ page.meta_description }}{% endblock %}
+{% block og_title %}{% if page.og_title %}{{ page.og_title }}{% else %}{% if page.meta_title %}{{ page.meta_title }}{% else %}{{ page.title }}{% endif %}{% endif %}{% endblock %}
+{% block og_description %}{% if page.og_description %}{{ page.og_description }}{% else %}{{ page.meta_description }}{% endif %}{% endblock %}
+{% block meta_robots %}{% if not page.is_indexable %}noindex, follow{% else %}index, follow{% endif %}{% endblock %}
 
-    {% if not page.is_indexable %}
-      <meta name="robots" content="noindex,follow" />
-    {% endif %}
+{% block canonical_link %}<link rel="canonical" href="{% absolute_url page.get_absolute_url %}">{% endblock %}
+{% block hreflang_links %}
+  {% if page.is_indexable %}
+    {% hreflang_alternates page mirror_page as alts %}
+    {% for alt in alts %}
+      <link rel="alternate" hreflang="{{ alt.lang }}" href="{{ alt.url }}">
+    {% endfor %}
+  {% endif %}
+{% endblock %}
 
-    <link rel="canonical" href="{% absolute_url page.get_absolute_url %}" />
+{% block extra_ld_json %}
+  <script type="application/ld+json">{% jsonld_breadcrumbs page %}</script>
+  <script type="application/ld+json">{% jsonld_primary page %}</script>
+  {% if page.faq_json %}
+    <script type="application/ld+json">{% jsonld_faq page %}</script>
+  {% endif %}
+{% endblock %}
 
-    {% if page.is_indexable %}
-      {% hreflang_alternates page mirror_page as alts %}
-      {% for alt in alts %}
-        <link rel="alternate" hreflang="{{ alt.lang }}" href="{{ alt.url }}" />
-      {% endfor %}
-    {% endif %}
-
-    {% if page.og_title %}<meta property="og:title" content="{{ page.og_title }}"/>{% endif %}
-    {% if page.og_description %}<meta property="og:description" content="{{ page.og_description }}"/>{% endif %}
-
-    <script type="application/ld+json">{% jsonld_breadcrumbs page %}</script>
-    <script type="application/ld+json">{% jsonld_primary page %}</script>
-    {% if page.faq_json %}
-      <script type="application/ld+json">{% jsonld_faq page %}</script>
-    {% endif %}
-
-    <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; color: #111; }
-      a { color: #0b5fff; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      header { border-bottom: 1px solid #e5e7eb; background: #fff; }
-      .wrap { max-width: 1100px; margin: 0 auto; padding: 16px; }
-      .topbar { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-      nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 12px; flex-wrap: wrap; }
-      .switcher { display: flex; gap: 10px; align-items: center; }
-      .crumbs { font-size: 14px; color: #374151; margin: 12px 0 0; }
-      .crumbs a { color: #374151; }
-      main { padding: 24px 0 48px; }
-      h1 { margin: 0 0 12px; font-size: 34px; line-height: 1.15; }
-      .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 22px; }
-      .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; }
-      .cta { border: 1px solid #dbeafe; background: #eff6ff; }
-      .btn { display: inline-block; padding: 10px 14px; border-radius: 10px; background: #0b5fff; color: #fff; font-weight: 600; }
-      .btn.secondary { background: #111827; }
-      .muted { color: #6b7280; }
-      .faq details { border-top: 1px solid #e5e7eb; padding: 10px 0; }
-      .faq summary { cursor: pointer; font-weight: 600; }
-      footer { border-top: 1px solid #e5e7eb; padding: 20px 0; color: #6b7280; font-size: 14px; }
-      @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="wrap">
-        <div class="topbar">
-          <div>
-            <a href="/{{ language }}/"><strong>Angraweb</strong></a>
-            <div class="muted" style="font-size: 13px;">{{ service_name }}</div>
-          </div>
-          <nav aria-label="Services">
-            <ul>
-              {% for s in nav_services %}
-                {% if language == "tr" %}
-                  <li><a href="/tr/{{ s.tr_base_path }}/">{{ s.tr_name }}</a></li>
-                {% else %}
-                  <li><a href="/en/{{ s.en_base_path }}/">{{ s.en_name }}</a></li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </nav>
-          <div class="switcher" aria-label="Language switcher">
-            {% if mirror_page %}
-              {% if language == "tr" %}
-                <strong>Türkçe</strong> <a href="{{ mirror_page.get_absolute_url }}">English</a>
-              {% else %}
-                <a href="{{ mirror_page.get_absolute_url }}">Türkçe</a> <strong>English</strong>
-              {% endif %}
-            {% else %}
-              {% if language == "tr" %}<strong>Türkçe</strong> <span class="muted">English</span>{% endif %}
-              {% if language == "en" %}<span class="muted">Türkçe</span> <strong>English</strong>{% endif %}
-            {% endif %}
-          </div>
-        </div>
-
-        <div class="crumbs" aria-label="Breadcrumbs">
-          <a href="/{{ language }}/">Home</a>
-          &nbsp;/&nbsp;
-          <a href="/{{ language }}/{{ service_base_path }}/">{{ service_name }}</a>
-          {% if page.page_type != "pillar" %}
-            &nbsp;/&nbsp; <span>{{ page.title }}</span>
-          {% endif %}
-        </div>
-      </div>
-    </header>
-
-    <main class="wrap">
-      {% block content %}{% endblock %}
-    </main>
-
-    <footer>
-      <div class="wrap">
-        © {% now "Y" %} Angraweb — {{ language|upper }} service silo
-      </div>
-    </footer>
-  </body>
-</html>
+{% block content %}{% block silo_content %}{% endblock %}{% endblock %}
 

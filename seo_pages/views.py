@@ -78,6 +78,10 @@ def seo_page_view(request, language: str, service_base: str, page_type: str, slu
     if mirror_slug is not None:
         mirror_page = _get_page(other_lang, service, page.page_type, mirror_slug)
 
+    # Override language switcher URLs for silo pages (base.html switcher otherwise swaps prefix only).
+    seo_switch_tr_url = page.get_absolute_url() if language == "tr" else (mirror_page.get_absolute_url() if mirror_page else "/tr/")
+    seo_switch_en_url = page.get_absolute_url() if language == "en" else (mirror_page.get_absolute_url() if mirror_page else "/en/")
+
     nav_services = list(Service.objects.order_by("key").only("id", "key", "tr_name", "en_name", "tr_base_path", "en_base_path"))
     current_service_bases = get_service_bases(language)
 
@@ -98,6 +102,8 @@ def seo_page_view(request, language: str, service_base: str, page_type: str, slu
         "mirror_page": mirror_page,
         "mirror_language": other_lang,
         "mirror_service_base": mirror_service_base,
+        "seo_switch_tr_url": seo_switch_tr_url,
+        "seo_switch_en_url": seo_switch_en_url,
     }
 
     template_map = {
