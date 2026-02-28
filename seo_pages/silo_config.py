@@ -33,9 +33,9 @@ SERVICE_SILO_MAP: Dict[str, dict] = {
             "base_path": "web-design",
             "clusters": [
                 "web-design-services",
+                "corporate-website-development",
                 "web-design-agency",
                 "web-development-company",
-                "corporate-website-development",
                 "custom-web-development",
                 "django-web-development",
                 "hire-web-developer",
