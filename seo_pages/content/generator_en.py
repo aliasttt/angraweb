@@ -608,6 +608,174 @@ def _cluster_custom_web_development_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_custom_website_vs_template_en(page: SeoPage) -> Dict:
+    """Custom cluster: Custom vs Template — comparison, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Introduction"))
+    body.append(
+        p(
+            "One of the most common questions in web development: Should I choose a template-based website or invest in custom development? "
+            "This decision directly impacts: SEO performance, page speed, security, scalability, long-term digital growth."
+        )
+    )
+    body.append(
+        p(
+            f"We compare both approaches strategically. Full framework: {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("What Is a Template Website?"))
+    body.append(
+        p(
+            "Template websites are built using platforms like WordPress, Wix, Shopify, or pre-built themes."
+        )
+    )
+    body.append(p("Advantages:"))
+    body.append(
+        ul(
+            [
+                "Fast setup",
+                "Lower upfront investment",
+                "Minimal technical complexity",
+                "Suitable for small projects",
+            ]
+        )
+    )
+    body.append(p("Limitations:"))
+    body.append(
+        ul(
+            [
+                "Restricted customization",
+                "Plugin dependency",
+                "Performance overhead",
+                "Limited technical SEO flexibility",
+            ]
+        )
+    )
+    body.append(p("Templates are ideal for simple use cases."))
+
+    body.append(h2("What Is Custom Web Development?"))
+    body.append(
+        p(
+            "Custom web development involves building the platform from scratch using frameworks like Django, Laravel, Node.js, or custom backend architecture."
+        )
+    )
+    body.append(p("Advantages:"))
+    body.append(
+        ul(
+            [
+                "Full architectural control",
+                "Optimized performance",
+                "Advanced SEO structure",
+                "Integration flexibility",
+                "Long-term scalability",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"It is engineered to grow with the business. Details: {{{{ link:/en/web-design/custom-web-development/ }}}}."
+        )
+    )
+
+    body.append(h2("SEO Comparison"))
+    body.append(
+        p(
+            "Template websites: Limited URL structure control; plugin-heavy architecture; potential Core Web Vitals issues; constrained technical SEO adjustments."
+        )
+    )
+    body.append(
+        p(
+            "Custom development: Structured internal linking; clean URL hierarchy; full schema markup control; optimized crawl efficiency; performance engineering. For competitive SEO, custom development provides stronger control."
+        )
+    )
+
+    body.append(h2("Performance & Speed"))
+    body.append(
+        p(
+            "Search engines prioritize: page speed, mobile responsiveness, Core Web Vitals, server response time. Template systems may include: excessive scripts, unused CSS/JS, shared hosting bottlenecks. Custom-built platforms allow precise optimization."
+        )
+    )
+
+    body.append(h2("Security"))
+    body.append(
+        p(
+            "Template ecosystems can face: plugin vulnerabilities, update conflicts, exploitable extensions. Custom systems allow: role-based access control, secure authentication flows, backend hardening, controlled attack surface. Security becomes part of the architecture."
+        )
+    )
+
+    body.append(h2("Scalability"))
+    body.append(
+        p(
+            "If your roadmap includes: multi-user dashboards, CRM integration, payment systems, API architecture, SaaS features — custom development is usually the sustainable path."
+        )
+    )
+
+    body.append(h2("Strategic Perspective"))
+    body.append(
+        p(
+            "Templates solve \"today's problem.\" Custom development builds \"tomorrow's infrastructure.\" Your decision should align with long-term growth goals."
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "There is no universal winner. But for businesses prioritizing SEO performance, scalability, and technical control, custom web development often delivers stronger long-term value."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/custom-web-development/ }}}}",
+                f"{{{{ link:/en/web-design/django-web-development/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Decide together whether template or custom fits your goals; we'll propose the right scope.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What is a template website?", "Built on WordPress, Wix, Shopify or themes; fast setup, limited customization and technical SEO."),
+        ("What is custom web development?", "Platform built from scratch with full control; scalable, SEO-optimized, integration-ready."),
+        ("SEO: template vs custom?", "Custom allows full URL, schema, internal linking and performance control; templates are more constrained."),
+        ("When is a template a good fit?", "Small business, simple brochure site, short-term need, no technical integrations."),
+        ("When is custom development better?", "Growth goals, SEO priority, performance critical, integrations or system infrastructure planned."),
+        ("How do I decide?", "Clarify goals and vision; use the quote form to get a scoped recommendation."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Custom Website vs Template Website | Which Is Better?"
+    meta_description = (
+        "Custom development or template website? Compare SEO, performance, scalability, security, and long-term growth potential."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Custom Website vs Template Website — How to Choose the Right Approach",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_design_company_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Design Company — professional, SEO-focused, scalable. No pricing triggers."""
     body: List[str] = []
@@ -1743,6 +1911,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "django-web-development":
         return _cluster_django_web_development_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Custom Website vs Template (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "custom-website-vs-template":
+        return _cluster_custom_website_vs_template_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

@@ -533,6 +533,178 @@ def _cluster_kurumsal_web_sitesi_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ozel_yazilim_vs_hazir_site_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Özel Yazılım mı Hazır Site mi? — comparison, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Giriş"))
+    body.append(
+        p(
+            "Web sitesi yaptırmak isteyen işletmelerin en büyük sorusu: Hazır site mi kullanmalıyım, yoksa özel yazılım mı yaptırmalıyım? "
+            "Bu karar sadece tasarım tercihi değildir. SEO performansı, ölçeklenebilirlik, güvenlik, entegrasyon ve uzun vadeli büyüme potansiyelini doğrudan etkiler."
+        )
+    )
+    body.append(
+        p(
+            f"Bu sayfada iki yaklaşımı teknik ve stratejik açıdan karşılaştırıyoruz. Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Hazır Site Nedir?"))
+    body.append(
+        p(
+            "Hazır site; genellikle WordPress, Wix, Shopify gibi sistemler veya hazır temalar üzerinden kurulan web siteleridir."
+        )
+    )
+    body.append(p("Avantajları:"))
+    body.append(
+        ul(
+            [
+                "Hızlı kurulum",
+                "Düşük başlangıç bütçesi",
+                "Teknik bilgi gerektirmemesi",
+                "Basit projeler için yeterli olması",
+            ]
+        )
+    )
+    body.append(p("Dezavantajları:"))
+    body.append(
+        ul(
+            [
+                "Sınırlı özelleştirme",
+                "Fazla eklenti kullanımı → performans düşüşü",
+                "Güvenlik riskleri",
+                "Teknik SEO kontrolünün kısıtlı olması",
+            ]
+        )
+    )
+    body.append(p("Hazır sistemler küçük ve başlangıç aşamasındaki projeler için mantıklıdır."))
+
+    body.append(h2("Özel Yazılım Web Sitesi Nedir?"))
+    body.append(
+        p(
+            "Özel yazılım web sitesi; işletmenin ihtiyaçlarına göre sıfırdan geliştirilen, esnek ve ölçeklenebilir çözümdür. Genellikle Django, Laravel, Node.js veya özel backend mimarileri kullanılarak geliştirilir."
+        )
+    )
+    body.append(p("Avantajları:"))
+    body.append(
+        ul(
+            [
+                "Tam kontrol",
+                "Performans optimizasyonu",
+                "Gelişmiş SEO altyapısı",
+                "Entegrasyon özgürlüğü",
+                "Uzun vadeli büyüme potansiyeli",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"Özel yazılım, sistem gerektiren projelerde güçlüdür. Detay: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("SEO Açısından Karşılaştırma"))
+    body.append(p("Hazır site: URL yapısı sınırlı olabilir; fazla eklenti site hızını düşürebilir; Core Web Vitals optimizasyonu zor olabilir; teknik SEO müdahalesi kısıtlıdır."))
+    body.append(
+        p(
+            "Özel yazılım: SEO uyumlu mimari sıfırdan planlanır; schema markup tam kontrol edilir; iç link yapısı stratejik kurulur; crawl bütçesi optimize edilir; sayfa hızı mühendislik seviyesinde optimize edilir. SEO öncelikliyse, özel yazılım genellikle daha avantajlıdır."
+        )
+    )
+
+    body.append(h2("Performans ve Hız"))
+    body.append(
+        p(
+            "Google sıralaması için: mobil uyumluluk, sayfa yüklenme süresi, Core Web Vitals, sunucu yanıt süresi kritik faktörlerdir. Hazır sistemler genellikle fazla script yükü, gereksiz CSS/JS, ortak hosting kısıtları barındırabilir. Özel geliştirme ise temiz kod ve optimize sorgular ile daha yüksek performans sunar."
+        )
+    )
+
+    body.append(h2("Güvenlik"))
+    body.append(
+        p(
+            "Hazır sistemlerde: eklenti açıkları, güncelleme sorunları, bot saldırı riskleri daha sık görülür. Özel yazılımda: rol bazlı yetkilendirme, güvenli authentication, backend sertleştirme, veri kontrolü daha kontrollü şekilde uygulanır."
+        )
+    )
+
+    body.append(h2("Ölçeklenebilirlik"))
+    body.append(
+        p(
+            "Başlangıçta küçük görünen projeler büyüyebilir. Çoklu kullanıcı sistemi, CRM entegrasyonu, ödeme altyapısı, dashboard, API bağlantıları planlıyorsanız, özel yazılım daha sürdürülebilir bir çözümdür."
+        )
+    )
+
+    body.append(h2("Hangi Durumda Hangisi Mantıklı?"))
+    body.append(p("Hazır site mantıklıysa: küçük işletme, sadece tanıtım sitesi, kısa vadeli çözüm, teknik entegrasyon yok."))
+    body.append(
+        p(
+            "Özel yazılım mantıklıysa: büyüme hedefi varsa, SEO öncelikliyse, performans kritikse, entegrasyon gerekiyorsa, sistem altyapısı planlanıyorsa."
+        )
+    )
+
+    body.append(h2("Stratejik Bakış"))
+    body.append(
+        p(
+            "Hazır site \"başlangıç çözümü\" olabilir. Özel yazılım \"altyapı yatırımıdır.\" Doğru seçim, projenin vizyonuna bağlıdır."
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Özel yazılım mı hazır site mi sorusunun tek bir doğru cevabı yoktur. Ancak uzun vadeli SEO başarısı, performans, güvenlik ve ölçeklenebilirlik hedefleniyorsa; özel yazılım genellikle daha güçlü bir temel sunar."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/django-web-gelistirme/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Hazır mı özel mi kararını hedeflerinize göre birlikte netleştirelim; size uygun kapsamı çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Hazır site nedir?", "WordPress, Wix, Shopify gibi sistemler veya hazır temalar üzerinden kurulan siteler; hızlı kurulum, sınırlı özelleştirme."),
+        ("Özel yazılım web sitesi nedir?", "İşletmenin ihtiyaçlarına göre sıfırdan geliştirilen, esnek ve ölçeklenebilir çözüm; tam kontrol ve SEO avantajı."),
+        ("SEO açısından fark nedir?", "Özel yazılımda URL, schema, iç link ve performans tam kontrol edilir; hazırda teknik SEO kısıtlı olabilir."),
+        ("Hangi durumda hazır site?", "Küçük işletme, sadece tanıtım, kısa vadeli çözüm, teknik entegrasyon yoksa."),
+        ("Hangi durumda özel yazılım?", "Büyüme hedefi, SEO önceliği, performans kritik, entegrasyon veya sistem altyapısı planlanıyorsa."),
+        ("Karar için ne yapmalı?", "Hedef ve vizyonu netleştirin; kapsamı birlikte çıkarmak için teklif formunu doldurun."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Özel Yazılım mı Hazır Site mi? | Hangisi Daha Doğru Seçim?"
+    meta_description = (
+        "Hazır site mi yoksa özel yazılım web sitesi mi? SEO, performans, ölçeklenebilirlik ve güvenlik açısından detaylı karşılaştırma."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Özel Yazılım mı Hazır Site mi? — Doğru Kararı Nasıl Verirsiniz?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_ajans_mi_freelancer_mi_tr(page: SeoPage) -> Dict:
     """Custom cluster: Ajans mı Freelancer mı? — long-form SEO, 1100+ words. No pricing triggers in body."""
     body: List[str] = []
@@ -2333,6 +2505,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-tasarim-sirketi":
         return _cluster_web_tasarim_sirketi_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Özel Yazılım mı Hazır Site mi? (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "ozel-yazilim-vs-hazir-site":
+        return _cluster_ozel_yazilim_vs_hazir_site_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Ajans mı Freelancer mı? (TR)
