@@ -1094,6 +1094,183 @@ def _cluster_django_web_gelistirme_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_kurumsal_web_sitesi_yaptirmak_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Kurumsal Web Sitesi Yaptırmak — high-intent, decision-stage, planning guide. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kurumsal Web Sitesi Neden Sadece \"Bir Web Sitesi\" Değildir?"))
+    body.append(
+        p(
+            "Birçok işletme kurumsal web sitesi yaptırmayı yalnızca dijital bir kartvizit olarak görür. "
+            "Oysa gerçek şu: Kurumsal web sitesi; markanın güvenilirliğini, dijital görünürlüğünü ve dönüşüm potansiyelini belirleyen temel altyapıdır."
+        )
+    )
+    body.append(
+        p(
+            "Yanlış planlanan bir site: Google'da görünmez, güven oluşturmaz, ölçeklenemez, teknik borç üretir. "
+            "Doğru planlanan bir site ise: organik trafik üretir, marka algısını güçlendirir, satış sürecini hızlandırır, uzun vadeli dijital büyümeyi destekler."
+        )
+    )
+    body.append(
+        p(
+            f"Genel çerçeve için {{{{ link:{_pillar_url(page)} }}}} sayfasına bakabilirsiniz."
+        )
+    )
+
+    body.append(h2("Kurumsal Web Sitesi Yaptırmadan Önce Sorulması Gereken Sorular"))
+    body.append(
+        p("Amaç nedir? Lead toplamak mı? Kurumsal itibar mı? Uluslararası görünürlük mü? Yatırımcı sunumu mu? Amaç net değilse mimari yanlış kurulur.")
+    )
+    body.append(
+        p(
+            "Hedef kitle kim? B2B mi? Son kullanıcı mı? Teknik uzman mı? Yönetici mi? "
+            "Dil, içerik hiyerarşisi ve CTA yerleşimi hedef kitleye göre değişir."
+        )
+    )
+    body.append(
+        p(
+            "SEO altyapısı planlandı mı? Kurumsal sitelerde en sık yapılan hata: tasarım bittikten sonra SEO düşünmek. "
+            "Oysa teknik SEO şu aşamada planlanmalıdır: URL yapısı, iç link mimarisi, sayfa hiyerarşisi, schema markup, Core Web Vitals. SEO sonradan eklenmez. Başlangıçta inşa edilir."
+        )
+    )
+
+    body.append(h2("Kurumsal Web Sitesinde Olması Gereken Teknik Temeller"))
+    body.append(
+        ul(
+            [
+                "Temiz URL yapısı: hiyerarşik ve anahtar kelime uyumlu.",
+                "Core Web Vitals performansı: hızlı açılış, mobil uyum, stabil layout.",
+                "İç bağlantı stratejisi: pillar + cluster yapısı.",
+                "Structured data (schema): Organization, FAQ, Breadcrumb.",
+                "Güvenlik: HTTPS, güvenli form yapısı, rol yönetimi.",
+            ]
+        )
+    )
+
+    body.append(h2("İstanbul'da Kurumsal Web Sitesi Yaptırmak"))
+    body.append(
+        p(
+            "İstanbul gibi rekabetçi bir pazarda: aynı sektörde yüzlerce firma olabilir, organik sıralama rekabeti yüksektir, mobil kullanıcı oranı çok yüksektir. "
+            "Bu nedenle kurumsal web tasarım yalnızca estetik değil; teknik rekabet stratejisidir."
+        )
+    )
+    body.append(
+        p(
+            f"Yerel hizmet: {{{{ link:/tr/web-tasarim/istanbul/ }}}}. "
+            f"Kurumsal site genel bakış: {{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Hazır Sistem mi Özel Yazılım mı?"))
+    body.append(
+        p(
+            "Hazır altyapılar hızlı başlangıç sunar ancak: URL kontrolü sınırlı olabilir, SEO esnekliği kısıtlıdır, performans optimizasyonu zorlaşabilir. "
+            "Özel yazılım ise: tam teknik kontrol, modüler mimari, uzun vadeli sürdürülebilirlik sunabilir. Karar, kısa vadeli değil uzun vadeli düşünülmelidir."
+        )
+    )
+    body.append(
+        p(
+            f"Özel yazılım web sitesi: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Kurumsal Web Sitesi Süreci Nasıl Olmalı?"))
+    body.append(
+        ul(
+            [
+                "Keşif ve hedef belirleme",
+                "Rakip ve sektör analizi",
+                "Bilgi mimarisi oluşturma",
+                "UI/UX tasarım",
+                "Backend geliştirme",
+                "Performans optimizasyonu",
+                "Test ve yayın",
+                "İlk 30 gün veri analizi",
+            ]
+        )
+    )
+    body.append(p("Süreç net değilse proje dağılır."))
+
+    body.append(h2("En Sık Yapılan Hatalar"))
+    body.append(
+        ul(
+            [
+                "SEO'yu sona bırakmak",
+                "İçerik stratejisini planlamamak",
+                "Performansı test etmemek",
+                "Güvenliği ihmal etmek",
+                "Sadece tasarıma odaklanmak",
+            ]
+        )
+    )
+
+    body.append(h2("Uzun Vadeli Değer"))
+    body.append(
+        p(
+            "Kurumsal web sitesi; bir kerelik proje değildir. Düzenli güncelleme, içerik üretimi ve teknik bakım gerektirir. "
+            "Gerçek değer: organik trafik artışı, marka güveni, lead kalitesi, ölçeklenebilir altyapı ile ölçülür."
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Kurumsal web sitesi yaptırmak; teknik, stratejik ve uzun vadeli düşünülmesi gereken bir karardır. "
+            "Başlangıçta doğru planlanan mimari; yıllarca sürdürülebilir büyüme sağlar."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/istanbul/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Kurumsal web sitenizi doğru planlamak için hedeflerinizi ve hedef kitlenizi paylaşın; size uygun yol haritasını çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Kurumsal web sitesi yaptırmadan önce ne planlanmalı?", "Amaç, hedef kitle, teknik SEO altyapısı ve süreç adımları baştan netleştirilmelidir."),
+        ("SEO neden başlangıçta planlanmalı?", "URL yapısı, iç link mimarisi ve schema baştan kurulmalı; sonradan eklemek teknik borç ve kayıp görünürlük demektir."),
+        ("Hazır sistem mi özel yazılım mı seçilmeli?", "Kısa vadeli hız hazır sistemde; uzun vadeli kontrol ve SEO esnekliği özel yazılımda daha güçlüdür."),
+        ("İstanbul'da kurumsal site neden farklı?", "Rekabet ve mobil kullanım yüksek; teknik SEO ve performans stratejik rekabet unsuru olur."),
+        ("En sık yapılan hatalar neler?", "SEO'yu sona bırakmak, içerik stratejisini planlamamak, performans ve güvenliği ihmal etmek."),
+        ("Teklif almak için ne gerekli?", "Hedef, hedef kitle, örnek referanslar ve öncelikler yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Kurumsal Web Sitesi Yaptırmak | Doğru Planlama Rehberi"
+    meta_description = (
+        "Kurumsal web sitesi yaptırmadan önce bilmeniz gerekenler. SEO, performans, güvenlik ve uzun vadeli sürdürülebilirlik rehberi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Kurumsal Web Sitesi Yaptırmak — Stratejik Bir Yatırım Rehberi",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/tr/{_service_base(page)}/fiyatlar/"
 
@@ -1639,6 +1816,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "kurumsal-web-sitesi":
         return _cluster_kurumsal_web_sitesi_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Kurumsal Web Sitesi Yaptırmak (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "kurumsal-web-sitesi-yaptirmak":
+        return _cluster_kurumsal_web_sitesi_yaptirmak_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Ajans mı Freelancer mı? (TR)

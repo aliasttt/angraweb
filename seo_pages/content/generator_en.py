@@ -189,15 +189,19 @@ def _web_design_pillar_en(page: SeoPage) -> Dict:
 
 
 def _cluster_corporate_website_en(page: SeoPage) -> Dict:
-    """Custom cluster: Corporate Website Development — commercial investigation + service authority. 900–1200 words."""
+    """Custom cluster: Corporate Website Development — strategic planning guide, decision-stage. No pricing triggers."""
     body: List[str] = []
 
-    body.append(h2("What Is a Corporate Website?"))
+    body.append(h2("Why a Corporate Website Is Not Just a Website"))
     body.append(
         p(
-            "A corporate website is your business’s digital front door: it builds trust, reinforces authority, and supports brand positioning. "
-            "It goes beyond static information—a professional, responsive corporate site turns visitors into leads and supports both local and international reach. "
-            "For B2B firms, agencies, and growing companies, it is the foundation of a credible online presence."
+            "Many companies treat corporate website development as a design project. In reality, it is infrastructure."
+        )
+    )
+    body.append(
+        p(
+            "A poorly structured website: fails to rank, fails to convert, fails to scale, creates technical debt. "
+            "A properly engineered website: builds authority, generates organic traffic, improves lead quality, supports long-term growth."
         )
     )
     body.append(
@@ -205,113 +209,71 @@ def _cluster_corporate_website_en(page: SeoPage) -> Dict:
             f"For the full service framework, see {{{{ link:{_pillar_url(page)} }}}}."
         )
     )
+
+    body.append(h2("Critical Questions Before Development"))
     body.append(
         p(
-            "When structured correctly, the site delivers both reputation and measurable outcomes: form submissions, contact requests, and core analytics in one place."
+            "What is the primary goal? Lead generation? Brand positioning? International visibility? Investor credibility? Strategy defines structure."
+        )
+    )
+    body.append(
+        p(
+            "Who is the target audience? B2B decision makers? End users? Technical teams? "
+            "User intent shapes content hierarchy and conversion flow."
+        )
+    )
+    body.append(
+        p(
+            "SEO must be engineered from the beginning. SEO is not an add-on. It requires: structured URL hierarchy, internal linking architecture, "
+            "schema implementation, Core Web Vitals optimization, clean semantic markup. Technical decisions determine long-term visibility."
         )
     )
 
-    body.append(h2("Why SEO-Friendly Corporate Web Design Matters"))
-    body.append(
-        p(
-            "SEO-friendly corporate web design combines visibility with usability. Technical SEO (meta structure, sitemaps, canonicals), Core Web Vitals for fast loading, "
-            "responsive design, and clear user experience directly affect search rankings and conversion. Structured data (Schema) enables rich snippets in search results."
-        )
-    )
-    body.append(
-        p(
-            "Search engines use page speed, mobile fit, and content structure as ranking signals. "
-            "A solid technical foundation is therefore essential for long-term organic traffic."
-        )
-    )
+    body.append(h2("Must-Have Technical Foundations"))
     body.append(
         ul(
             [
-                "Technical SEO: heading hierarchy, internal linking, indexability",
-                "Core Web Vitals: LCP, FID, CLS-focused performance",
-                "Structured data: Organization, FAQ, Breadcrumb markup",
-                "Responsive design: consistent experience across devices",
-                "User experience: readability, CTA placement, form flows",
+                "SEO-friendly architecture",
+                "Server-side rendering",
+                "Mobile-first responsiveness",
+                "Structured data",
+                "Secure backend",
+                "Optimized loading speed",
             ]
         )
     )
 
-    body.append(h2("Corporate Website Development in Istanbul"))
+    body.append(h2("Custom Development vs Template Systems"))
     body.append(
         p(
-            "We are an Istanbul-based team serving both local and international clients. Our corporate website projects range from Turkey-focused businesses to European and global brands. "
-            "Communication and delivery are remote-friendly; on-site discovery workshops in Istanbul can be arranged when needed."
+            "Template systems offer speed. Custom development offers control. Control means: clean architecture, flexible data modeling, "
+            "scalable systems, full SEO optimization. For long-term digital growth, backend flexibility becomes critical."
         )
     )
     body.append(
         p(
-            "For businesses looking for \"Istanbul web design company\" or local SEO, we keep site structure and contact details consistent and easy to find. "
-            f"Local presence and approach: {{{{ link:/en/web-design/web-design-company-istanbul/ }}}}"
+            f"For deeper control and scalability: {{{{ link:/en/web-design/custom-web-development/ }}}}."
         )
     )
 
-    body.append(h2("Our Development Process"))
-    body.append(
-        p(
-            "Delivery follows a clear sequence: strategy and discovery, information architecture and page plan, UI/UX design (mobile-first), "
-            "custom development (Django when scalability or security is a priority), then QA and launch. Each phase has defined deliverables and acceptance criteria."
-        )
-    )
+    body.append(h2("Common Mistakes in Corporate Website Projects"))
     body.append(
         ul(
             [
-                "Strategy: target audience, competitors, conversion points",
-                "Information architecture: page hierarchy, navigation, content plan",
-                "UI/UX design: component library, responsive layouts",
-                "Custom development: performance, technical SEO, HTTPS; Django for scalable backends when required",
-                "QA and launch: Core Web Vitals, form and link checks",
-            ]
-        )
-    )
-    body.append(
-        p(
-            f"For deeper integrations or custom modules, {{{{ link:/en/web-design/custom-web-development/ }}}} is a better fit."
-        )
-    )
-    body.append(
-        p(
-            "Custom modules, CRM integration, multi-language or role-based access often require a dedicated development approach rather than a fixed page set."
-        )
-    )
-
-    body.append(h2("Who Needs a Corporate Website?"))
-    body.append(
-        p(
-            "Corporate website development suits B2B companies, agencies, consultants, and growing businesses that want to strengthen brand perception, generate leads, "
-            "and present a single, professional digital presence."
-        )
-    )
-    body.append(
-        ul(
-            [
-                "SMEs and companies targeting local or national markets",
-                "B2B sales and corporate communications",
-                "Agencies and consulting firms",
-                "Scale-ups and growth-stage ventures",
+                "Treating it as a visual project only",
+                "Ignoring technical SEO",
+                "Not planning internal structure",
+                "Neglecting performance metrics",
+                "Underestimating security",
             ]
         )
     )
 
-    body.append(h2("Business Impact"))
+    body.append(h2("Long-Term Value"))
     body.append(
         p(
-            "Return on investment becomes measurable through trust, lead generation, and brand positioning. "
-            "Analytics and conversion tracking clarify which pages and CTAs drive results."
-        )
-    )
-    body.append(
-        ul(
-            [
-                "Authority: consistent brand voice and secure (HTTPS) infrastructure",
-                "Lead generation: forms, WhatsApp, and CTA-driven conversion points",
-                "Scalability: structure that supports content and feature growth",
-                "Analytics-driven optimization: data to improve performance and conversions",
-            ]
+            "Corporate website development is not a short-term task. It is the digital backbone of the organization. "
+            "Strategic architecture determines whether your platform scales or stagnates."
         )
     )
 
@@ -320,37 +282,17 @@ def _cluster_corporate_website_en(page: SeoPage) -> Dict:
         ul(
             [
                 f"{{{{ link:{_pillar_url(page)} }}}}",
-                f"{{{{ link:{_pricing_url(page)} }}}}",
                 f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
                 f"{{{{ link:/en/web-design/custom-web-development/ }}}}",
                 f"{{{{ link:/en/web-design/web-design-company-istanbul/ }}}}",
             ]
         )
     )
-
-    body.append(h2("Must-haves for a corporate website"))
-    body.append(
-        p(
-            "A professional corporate site is built on fast loading, responsive layout, clear contact paths, and at least one conversion form or call-to-action. "
-            "HTTPS for security, basic contrast and font choices for accessibility, and a small set of clear CTAs support trust and conversion."
-        )
-    )
-    body.append(
-        ul(
-            [
-                "Speed and Core Web Vitals compliance",
-                "Responsive pages across devices",
-                "Contact form and/or WhatsApp / click-to-call",
-                "HTTPS and up-to-date security",
-                "Basic analytics and conversion tracking",
-            ]
-        )
-    )
-
     body.append(
         cta_box(
             "Get a Quote",
-            "Share your goals for a corporate website; we’ll propose a scoped plan and next steps.",
+            "Share your goals and target audience; we'll propose a strategic plan and next steps.",
             _quote_url(page),
             "Open the quote request page.",
             strong=True,
@@ -358,45 +300,25 @@ def _cluster_corporate_website_en(page: SeoPage) -> Dict:
     )
 
     content_html = "\n".join(body)
-
     faq_pairs = [
-        (
-            "How long does corporate website delivery take?",
-            "It depends on scope (number of pages, content, integrations) and approval speed. Clear acceptance criteria make timelines predictable.",
-        ),
-        (
-            "What does SEO-friendly corporate website mean?",
-            "Technical SEO (meta, sitemap, schema, speed), mobile responsiveness, and content architecture so the site is visible in search and user-focused.",
-        ),
-        (
-            "Do you work with clients outside Istanbul?",
-            "Yes. We work with international clients; communication and delivery are remote-friendly. On-site workshops in Istanbul can be arranged when useful.",
-        ),
-        (
-            "What’s the difference between a corporate site and custom development?",
-            "A corporate site usually has a fixed set of pages and basic forms/lead flows. For CRM/ERP integration, custom modules, or multi-language/multi-branch needs, custom web development is more appropriate.",
-        ),
-        (
-            "Do you offer maintenance after launch?",
-            "Yes. We offer maintenance and support for updates, security, and performance improvements.",
-        ),
-        (
-            "What do you need to provide a quote?",
-            "Goals, target audience, reference sites, and desired pages/flows are enough. We respond quickly to a short brief.",
-        ),
+        ("What should I plan before corporate website development?", "Goals, target audience, technical SEO foundations, and process steps should be clear from the start."),
+        ("Why plan SEO from the beginning?", "URL structure, internal linking, and schema must be built in from day one; adding later creates technical debt and lost visibility."),
+        ("Template or custom development?", "Templates offer speed; custom offers control, scalability, and full SEO flexibility for long-term growth."),
+        ("What are common mistakes?", "Treating it as design-only, ignoring technical SEO, skipping performance and security planning."),
+        ("How is long-term value measured?", "Organic traffic, authority, lead quality, and scalable architecture define real value."),
+        ("What do you need to provide a quote?", "Goals, target audience, reference sites, and priorities are enough."),
     ]
     faq_json = faq(faq_pairs)
 
-    meta_title = "Corporate Website Development | Professional & SEO-Ready"
+    meta_title = "Corporate Website Development | Strategic Planning Guide"
     meta_description = (
-        "Istanbul-based corporate web design: SEO-friendly, responsive, conversion-focused. "
-        "Professional business websites and local presence."
+        "Planning a corporate website? Learn what truly matters: SEO architecture, performance, scalability and long-term digital growth."
     )
     meta_title = clamp_text(meta_title, 60)
     meta_description = clamp_text(meta_description, 160)
 
     return {
-        "title": "Corporate Website Development — Professional & SEO-Ready Solutions",
+        "title": "Corporate Website Development — A Strategic Investment",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
