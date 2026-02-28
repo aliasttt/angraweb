@@ -431,7 +431,7 @@ def _cluster_web_design_istanbul_en(page: SeoPage) -> Dict:
 
     content_html = "\n".join(body)
     faq_pairs = [
-        ("Why is web design in Istanbul different?", "Local competition is intense; technical errors and slow sites quickly cost rankings. Strategic planning and technical SEO are essential."),
+        ("Why is web design in Istanbul different?", "Local competition is intense; technical errors and slow sites quickly hurt rankings. Strategic planning and technical SEO are essential."),
         ("What does local SEO require?", "Location-structured URLs, topic clusters, mobile performance, structured data, and internal linking must be planned from the start."),
         ("What are common mistakes?", "Focusing on design and leaving SEO for later, not testing performance, underestimating technical infrastructure."),
         ("Why is performance critical?", "Mobile usage is high in Istanbul; slow sites lose conversions and drop in rankings."),
@@ -485,7 +485,7 @@ def _cluster_web_design_company_en(page: SeoPage) -> Dict:
             [
                 "Technical SEO architecture: clean URL hierarchy, internal linking strategy, structured data implementation, canonical management, crawl optimization. SEO must be engineered from the start.",
                 "Performance optimization: Core Web Vitals, asset loading, database queries, backend efficiency, mobile responsiveness. Performance impacts both ranking and conversions.",
-                "Scalable architecture: API integrations, CRM systems, custom modules, multi-language support, flexible backend systems. Scalable development prevents costly rebuilds.",
+                "Scalable architecture: API integrations, CRM systems, custom modules, multi-language support, flexible backend systems. Scalable development reduces the need for rebuilds.",
             ]
         )
     )
