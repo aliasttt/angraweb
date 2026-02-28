@@ -776,6 +776,159 @@ def _cluster_custom_website_vs_template_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_hire_web_developer_en(page: SeoPage) -> Dict:
+    """Custom cluster: Working with a Freelancer — advantages, risks, when to choose. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("What Does Working with a Freelancer Mean?"))
+    body.append(
+        p(
+            "Hiring a freelance web developer means collaborating with an independent professional on a project basis. Common benefits include: flexible communication, lower initial investment, faster project start."
+        )
+    )
+    body.append(
+        p(
+            "However, modern web development requires more than design. It involves SEO structure, performance optimization, scalability, and long-term maintenance."
+        )
+    )
+    body.append(
+        p(
+            f"Full framework: {{{{ link:{_pillar_url(page)} }}}}. Agency comparison: {{{{ link:/en/web-design/web-design-agency/ }}}}."
+        )
+    )
+
+    body.append(h2("Advantages of Hiring a Freelancer"))
+    body.append(
+        ul(
+            [
+                "Flexibility: Decision-making can be faster.",
+                "Lower entry budget: Suitable for small or early-stage projects.",
+                "Direct communication: You work directly with the developer.",
+            ]
+        )
+    )
+    body.append(
+        p("For simple landing pages or MVP projects, freelancers can be effective.")
+    )
+
+    body.append(h2("Risks of Working with a Freelancer"))
+    body.append(
+        ul(
+            [
+                "Scalability issues: As your business grows, project complexity may exceed individual capacity.",
+                "Technical SEO limitations: Not all freelancers specialize in technical SEO architecture.",
+                "Performance optimization: Core Web Vitals and backend performance tuning may be overlooked.",
+                "Long-term support: Ongoing maintenance and structured support may be limited.",
+            ]
+        )
+    )
+
+    body.append(h2("Freelancer vs Agency — How to Decide?"))
+    body.append(
+        p(
+            "Consider: Is your project long-term? Do you need integrations or custom development? Is SEO a core growth strategy? Do you require ongoing support? Strategic digital investments usually require structured development processes."
+        )
+    )
+    body.append(
+        p(
+            f"Detailed comparison: {{{{ link:/en/web-design/web-design-agency/ }}}}."
+        )
+    )
+
+    body.append(h2("SEO & Technical Infrastructure Perspective"))
+    body.append(
+        p(
+            "A professionally built website includes: structured data (schema markup), clean internal linking architecture, Core Web Vitals optimization, secure hosting configuration, long-term scalability planning. Make sure these elements are clearly defined before hiring."
+        )
+    )
+
+    body.append(h2("When Is a Freelancer the Right Choice?"))
+    body.append(
+        ul(
+            [
+                "Simple landing pages",
+                "Personal portfolio sites",
+                "Small informational websites",
+                "Early-stage MVPs",
+            ]
+        )
+    )
+
+    body.append(h2("When Should You Choose a Structured Team?"))
+    body.append(
+        ul(
+            [
+                "Corporate websites",
+                "E-commerce platforms",
+                "Custom web applications",
+                "Competitive SEO-driven industries",
+                "Long-term digital growth strategies",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"Custom development: {{{{ link:/en/web-design/custom-web-development/ }}}}."
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "Hiring a freelancer is not wrong. Choosing the wrong structure for your project is. Web development is a strategic investment. The right decision depends on your growth goals."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/web-design-agency/ }}}}",
+                f"{{{{ link:/en/web-design/custom-web-development/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Decide together whether freelancer or agency fits your goals; we'll recommend the right model.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What does working with a freelancer mean?", "Collaborating with an independent developer on a project basis; flexible communication, lower entry budget, faster start."),
+        ("What are the advantages?", "Flexibility, lower entry budget, direct communication; suitable for landing pages, portfolios, MVPs."),
+        ("What are the risks?", "Scalability, technical SEO gaps, performance optimization and long-term support may be limited."),
+        ("Freelancer or agency?", "Long-term, integration-heavy, SEO-driven projects favor agency; simple short-term projects may suit a freelancer."),
+        ("When is a freelancer enough?", "Landing pages, portfolio sites, small brochure sites, early-stage MVPs."),
+        ("What do you need for a quote?", "Goals, scope, and preference (freelancer or agency) are enough."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Working with a Freelancer | Web Development Pros & Cons"
+    meta_description = (
+        "Should you hire a freelance web developer? Advantages, risks, scalability, and SEO considerations explained for modern businesses."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Working with a Freelancer — Advantages and Risks in Web Development",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_design_company_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Design Company — professional, SEO-focused, scalable. No pricing triggers."""
     body: List[str] = []
@@ -1917,6 +2070,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "custom-website-vs-template":
         return _cluster_custom_website_vs_template_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Working with a Freelancer (EN) — slug: hire-web-developer
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "hire-web-developer":
+        return _cluster_hire_web_developer_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

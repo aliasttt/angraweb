@@ -705,6 +705,162 @@ def _cluster_ozel_yazilim_vs_hazir_site_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_web_tasarim_freelancer_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Freelancer ile Çalışma — advantages, risks, when to choose. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Freelancer ile Web Tasarım Nedir?"))
+    body.append(
+        p(
+            "Freelancer ile çalışma; bağımsız bir web geliştirici veya tasarımcı ile proje bazlı iş yapmaktır. Genellikle: daha esnek iletişim, daha düşük başlangıç bütçesi, daha hızlı başlangıç süreci gibi avantajlar sunar."
+        )
+    )
+    body.append(
+        p(
+            "Ancak web tasarım ve yazılım projeleri sadece tasarım üretmekten ibaret değildir. SEO, performans, güvenlik ve ölçeklenebilirlik gibi teknik konular da işin parçasıdır."
+        )
+    )
+    body.append(
+        p(
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Ajans ile karşılaştırma: {{{{ link:/tr/web-tasarim/ajans-mi-freelancer-mi/ }}}}."
+        )
+    )
+
+    body.append(h2("Freelancer ile Çalışmanın Avantajları"))
+    body.append(
+        ul(
+            [
+                "Esneklik: Karar süreçleri daha hızlı ilerleyebilir.",
+                "Daha düşük başlangıç bütçesi: Küçük projeler için uygun olabilir.",
+                "Direkt iletişim: Karar veren kişi ile doğrudan iletişim kurulabilir.",
+            ]
+        )
+    )
+    body.append(
+        p("Özellikle tek sayfalık siteler, portföy siteleri veya MVP projelerde freelancer mantıklı olabilir.")
+    )
+
+    body.append(h2("Freelancer ile Çalışmanın Riskleri"))
+    body.append(
+        p("Profesyonel projelerde en sık karşılaşılan sorunlar:")
+    )
+    body.append(
+        ul(
+            [
+                "Ölçeklenebilirlik: Proje büyüdüğünde destek ve bakım süreci zorlaşabilir.",
+                "Teknik SEO eksikliği: Çoğu freelancer tasarım odaklıdır; teknik SEO altyapısı her zaman güçlü olmayabilir.",
+                "Performans optimizasyonu: Core Web Vitals, cache stratejileri, server-side optimizasyon her zaman planlanmaz.",
+                "Süreklilik: Freelancer projeyi teslim ettikten sonra uzun vadeli destek garantisi olmayabilir.",
+            ]
+        )
+    )
+
+    body.append(h2("Freelancer mı Ajans mı? Karar Nasıl Verilir?"))
+    body.append(
+        p(
+            "Şu sorular kritik: Proje uzun vadeli mi? Entegrasyon veya özel yazılım ihtiyacı var mı? SEO hedefi güçlü mü? Güvenlik kritik mi? Bakım ve destek gerekecek mi? Eğer proje stratejik bir yatırım ise; teknik ekipli, süreç yönetimi olan bir yapı daha güvenli olur."
+        )
+    )
+    body.append(
+        p(
+            f"Detaylı karşılaştırma: {{{{ link:/tr/web-tasarim/ajans-mi-freelancer-mi/ }}}}."
+        )
+    )
+
+    body.append(h2("SEO ve Teknik Altyapı Açısından Değerlendirme"))
+    body.append(
+        p(
+            "Profesyonel bir web sitesi: schema markup içerir, teknik SEO kontrolüne sahiptir, iç link mimarisi planlıdır, performans testlerinden geçmiştir, güvenli sunucu yapılandırmasına sahiptir. Freelancer ile çalışırken bu kriterlerin açıkça konuşulması gerekir."
+        )
+    )
+
+    body.append(h2("Hangi Projelerde Freelancer Mantıklıdır?"))
+    body.append(
+        ul(
+            [
+                "Basit landing page",
+                "Portföy sitesi",
+                "Küçük çaplı kurumsal tanıtım sitesi",
+                "MVP başlangıç projeleri",
+            ]
+        )
+    )
+
+    body.append(h2("Hangi Projelerde Profesyonel Ekip Gerekir?"))
+    body.append(
+        ul(
+            [
+                "Kurumsal web sitesi",
+                "E-ticaret projeleri",
+                "Özel yazılım gerektiren sistemler",
+                "SEO odaklı rekabetçi sektörler",
+                "Çoklu entegrasyonlu platformlar",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"Özel yazılım: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Freelancer ile çalışma yanlış değildir. Yanlış olan; projenin büyüklüğüne uygun olmayan seçim yapmaktır. Web tasarım, sadece tasarım değil; teknik mimari ve uzun vadeli dijital stratejidir. Doğru seçim, hedeflerinize göre yapılmalıdır."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/ajans-mi-freelancer-mi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Freelancer mı ajans mı kararını hedeflerinize göre birlikte netleştirelim; size uygun modeli önerelim.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Freelancer ile çalışma nedir?", "Bağımsız geliştirici veya tasarımcı ile proje bazlı çalışma; esnek iletişim, düşük başlangıç bütçesi, hızlı başlangıç avantajı sunar."),
+        ("Avantajları neler?", "Esneklik, düşük başlangıç bütçesi, direkt iletişim; tek sayfa, portföy veya MVP için mantıklı olabilir."),
+        ("Riskleri neler?", "Ölçeklenebilirlik, teknik SEO eksikliği, performans optimizasyonu ve uzun vadeli destek sınırlı olabilir."),
+        ("Freelancer mı ajans mı?", "Uzun vadeli, entegrasyonlu, SEO odaklı projelerde ajans; basit ve kısa vadeli projelerde freelancer düşünülebilir."),
+        ("Hangi projelerde freelancer yeterli?", "Landing page, portföy, küçük tanıtım sitesi, MVP."),
+        ("Teklif için ne gerekli?", "Hedef, kapsam ve tercih (freelancer / ajans) paylaşmanız yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Freelancer ile Çalışma | Web Tasarımda Doğru Karar"
+    meta_description = (
+        "Freelancer ile web tasarım süreci nasıl işler? Avantajlar, riskler ve profesyonel yaklaşım farkı. SEO uyumlu ve ölçeklenebilir çözüm rehberi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Freelancer ile Çalışma — Web Tasarımda Avantajlar ve Riskler",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_ajans_mi_freelancer_mi_tr(page: SeoPage) -> Dict:
     """Custom cluster: Ajans mı Freelancer mı? — long-form SEO, 1100+ words. No pricing triggers in body."""
     body: List[str] = []
@@ -2511,6 +2667,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "ozel-yazilim-vs-hazir-site":
         return _cluster_ozel_yazilim_vs_hazir_site_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Freelancer ile Çalışma (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-tasarim-freelancer":
+        return _cluster_web_tasarim_freelancer_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Ajans mı Freelancer mı? (TR)
