@@ -1271,6 +1271,168 @@ def _cluster_kurumsal_web_sitesi_yaptirmak_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_istanbul_tr(page: SeoPage) -> Dict:
+    """Custom cluster: İstanbul'da Hizmet — local SEO, market insight, technical depth. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("İstanbul'da Dijital Rekabet Gerçekten Farklıdır"))
+    body.append(
+        p(
+            "İstanbul, Türkiye'nin en yoğun ticari ve dijital rekabetine sahip şehridir. Aynı sektörde yüzlerce firma olabilir. Aynı anahtar kelimede onlarca rakip sıralanır."
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle İstanbul'da web tasarım yaptırmak, yalnızca bir site yaptırmak değildir. Bu bir rekabet stratejisidir. "
+            "Çünkü burada: küçük teknik hatalar sıralama kaybettirir, yavaş siteler mobilde elenir, SEO altyapısı zayıf olan siteler görünmez olur, içerik mimarisi zayıf olan markalar güven oluşturamaz. İstanbul pazarı hata kaldırmaz."
+        )
+    )
+    body.append(
+        p(
+            f"Genel çerçeve için {{{{ link:{_pillar_url(page)} }}}} sayfasına bakabilirsiniz."
+        )
+    )
+
+    body.append(h2("İstanbul'da Web Tasarım Neden Stratejik Planlanmalıdır?"))
+    body.append(
+        p(
+            "Yerel rekabet, ulusal rekabetten daha serttir. Google'da \"web tasarım İstanbul\", \"kurumsal web tasarım İstanbul\", \"yazılım firması İstanbul\" gibi aramalarda: domain otoritesi yüksek firmalar, yıllardır içerik üreten ajanslar, güçlü backlink ağı olan şirketler ile yarışılır. Bu yüzden teknik altyapı başlangıçtan itibaren doğru kurulmalıdır."
+        )
+    )
+
+    body.append(h2("İstanbul Odaklı SEO Yaklaşımı"))
+    body.append(
+        p(
+            "Yerel görünürlük için yalnızca anahtar kelime eklemek yeterli değildir. Gerçek İstanbul SEO yaklaşımı şunları içerir: lokasyon odaklı URL yapısı, yerel içerik kümeleri (topic cluster), İstanbul sektörel rekabet analizi, mobil performans önceliği, harita ve konum sinyalleri, iç bağlantı hiyerarşisi. Yerel arama sonuçlarında görünürlük; teknik disiplin + doğru içerik planlaması ile mümkündür."
+        )
+    )
+
+    body.append(h2("İstanbul'daki İşletmelerin En Büyük Dijital Hataları"))
+    body.append(
+        ul(
+            [
+                "Tasarımı öncelik sanmak: Estetik önemlidir, ancak Google tasarımı değil; performansı ve yapıyı değerlendirir.",
+                "SEO'yu sonradan eklemek: SEO sonradan eklenmez. URL yapısı ve içerik hiyerarşisi baştan planlanmalıdır.",
+                "Performansı test etmemek: Mobil kullanıcı oranı İstanbul'da çok yüksektir. Yavaş site = kaybedilen müşteri.",
+                "Teknik altyapıyı hafife almak: Hazır sistemler kısa vadede hızlı olabilir. Ancak rekabetçi pazarda teknik sınırlar sorun yaratır.",
+            ]
+        )
+    )
+
+    body.append(h2("İstanbul'da Kurumsal Web Sitesi Yaklaşımı"))
+    body.append(
+        p(
+            "Kurumsal firmalar için: güven veren tasarım, net mesaj, dönüşüm odaklı CTA, SEO temeli güçlü mimari, ölçeklenebilir altyapı kritiktir. İstanbul'daki B2B firmalar için özellikle teknik SEO ve içerik stratejisi belirleyicidir."
+        )
+    )
+    body.append(
+        p(
+            f"Kurumsal site planlama: {{{{ link:/tr/web-tasarim/kurumsal-web-sitesi-yaptirmak/ }}}}. "
+            f"Kurumsal site genel bakış: {{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Performans Neden İstanbul'da Daha Kritik?"))
+    body.append(
+        p(
+            "İstanbul'daki kullanıcı davranışı: hızlı karar verme, mobil öncelik, alternatiflere hızlı geçiş şeklindedir. Yavaş yüklenen site, potansiyel müşteriyi rakibe yönlendirir. Core Web Vitals performansı; yalnızca sıralama değil, dönüşüm oranını da etkiler."
+        )
+    )
+
+    body.append(h2("Teknik Altyapı: Yerel Rekabette Fark Yaratan Unsur"))
+    body.append(
+        ul(
+            [
+                "SEO uyumlu URL yapısı",
+                "Structured data",
+                "Dinamik sitemap",
+                "Temiz semantik HTML",
+                "Güvenli backend",
+                "Ölçeklenebilir veri modeli",
+            ]
+        )
+    )
+    body.append(
+        p("Teknik borç üreten projeler, 1–2 yıl içinde yeniden yapılmak zorunda kalır.")
+    )
+
+    body.append(h2("İstanbul'da Yazılım Hizmeti ve Ölçeklenebilirlik"))
+    body.append(
+        p(
+            "Birçok firma başlangıçta küçük başlar, sonra büyür. Eğer altyapı: entegrasyona kapalıysa, veri modeli esnek değilse, API desteği yoksa, çoklu dil yapısı düşünülmemişse büyüme sınırlanır. İstanbul pazarında hızlı ölçeklenemeyen firmalar rekabette geri kalır."
+        )
+    )
+    body.append(
+        p(
+            f"Özel yazılım web sitesi: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Yerel Uzmanlık Ne Sağlar?"))
+    body.append(
+        p(
+            "İstanbul'un sektörel dağılımını bilmek: rekabet analizini doğru yapmayı, içerik tonunu doğru kurmayı, hedef kitle psikolojisini anlamayı kolaylaştırır. Yerel dinamikleri anlamayan bir yaklaşım, yüzeysel kalır."
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "İstanbul'da web tasarım ve yazılım hizmeti; yalnızca teknik üretim değil, stratejik planlama gerektirir. Yerel rekabeti anlayan, teknik SEO'yu doğru kuran ve ölçeklenebilir altyapı planlayan projeler uzun vadede kazanır."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/kurumsal-web-sitesi-yaptirmak/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "İstanbul pazarında rekabetçi bir site için hedeflerinizi ve sektörünüzü paylaşın; size uygun strateji ve kapsamı çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("İstanbul'da web tasarım neden farklı?", "Yerel rekabet çok yoğun; teknik hatalar ve yavaş siteler hızla sıralama kaybettirir. Stratejik planlama ve teknik SEO şarttır."),
+        ("Yerel SEO için neler gerekli?", "Lokasyon odaklı URL, topic cluster, mobil performans, structured data ve iç bağlantı hiyerarşisi baştan planlanmalıdır."),
+        ("En sık yapılan hatalar neler?", "Tasarıma odaklanıp SEO'yu sonraya bırakmak, performansı test etmemek, teknik altyapıyı hafife almak."),
+        ("Performans neden kritik?", "İstanbul'da mobil kullanıcı oranı yüksek; yavaş site dönüşüm kaybettirir ve sıralamayı düşürür."),
+        ("Ölçeklenebilirlik neden önemli?", "Firma büyüdükçe entegrasyon, API ve çoklu dil ihtiyacı doğar; altyapı buna göre planlanmalıdır."),
+        ("Teklif almak için ne gerekli?", "Hedef, hedef kitle, sektör ve rakip örnekleri yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "İstanbul'da Web Tasarım ve Yazılım Hizmeti | Rekabet Odaklı Çözümler"
+    meta_description = (
+        "İstanbul'da SEO uyumlu, performans odaklı ve ölçeklenebilir web tasarım ve yazılım hizmeti. Yerel rekabet için stratejik yaklaşım."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "İstanbul'da Web Tasarım ve Yazılım Hizmeti — Rekabeti Anlayan Yaklaşım",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/tr/{_service_base(page)}/fiyatlar/"
 
@@ -1822,6 +1984,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "kurumsal-web-sitesi-yaptirmak":
         return _cluster_kurumsal_web_sitesi_yaptirmak_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: İstanbul'da Hizmet (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "istanbul":
+        return _cluster_istanbul_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Ajans mı Freelancer mı? (TR)

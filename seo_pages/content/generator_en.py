@@ -327,6 +327,136 @@ def _cluster_corporate_website_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_web_design_istanbul_en(page: SeoPage) -> Dict:
+    """Custom cluster: Web Design in Istanbul — local SEO, competitive market, technical depth. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Competing in Istanbul's Digital Landscape"))
+    body.append(
+        p(
+            "Istanbul is one of the most competitive digital markets in the region. Businesses targeting the same keywords compete aggressively for visibility."
+        )
+    )
+    body.append(
+        p(
+            "In this environment: weak technical SEO fails, slow websites lose traffic, poor structure reduces authority, generic design does not convert. "
+            "Web design in Istanbul is not just about building a website — it is about engineering competitive advantage."
+        )
+    )
+    body.append(
+        p(
+            f"For the full service framework, see {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Why Strategy Matters More in Istanbul"))
+    body.append(
+        p(
+            "Local competition includes: established agencies, high-authority domains, businesses investing in content marketing, companies optimizing performance aggressively. "
+            "Without structured architecture, ranking becomes extremely difficult."
+        )
+    )
+
+    body.append(h2("Local SEO Beyond Keywords"))
+    body.append(
+        p(
+            "Ranking in Istanbul requires: location-structured URL hierarchy, internal linking architecture, technical crawl efficiency, mobile performance optimization, structured data implementation. "
+            "Local visibility depends on technical clarity."
+        )
+    )
+
+    body.append(h2("Common Mistakes in Istanbul-Based Projects"))
+    body.append(
+        ul(
+            [
+                "Treating the website as a visual asset only",
+                "Ignoring backend scalability",
+                "Not planning internal content structure",
+                "Overlooking performance metrics",
+                "Underestimating competition",
+            ]
+        )
+    )
+
+    body.append(h2("Performance as a Competitive Advantage"))
+    body.append(
+        p(
+            "Mobile traffic dominates in urban markets like Istanbul. Fast loading speed and clean backend architecture directly influence: bounce rate, engagement, search ranking, conversion performance."
+        )
+    )
+
+    body.append(h2("Scalable Development for Growing Businesses"))
+    body.append(
+        p(
+            "Businesses in Istanbul evolve quickly. Your infrastructure must support: API integrations, CRM connections, multi-language content, structured growth, high-traffic capacity. "
+            "Scalable backend architecture ensures long-term stability."
+        )
+    )
+    body.append(
+        p(
+            f"Custom web development: {{{{ link:/en/web-design/custom-web-development/ }}}}. "
+            f"Corporate website planning: {{{{ link:/en/web-design/corporate-website-development/ }}}}."
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "Web design in Istanbul requires more than aesthetics. It requires strategic planning, technical SEO discipline, and scalable architecture built for competition. "
+            "In high-density markets, precision matters."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/corporate-website-development/ }}}}",
+                f"{{{{ link:/en/web-design/custom-web-development/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your goals and market; we'll propose a strategy and scope built for Istanbul's competitive landscape.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Why is web design in Istanbul different?", "Local competition is intense; technical errors and slow sites quickly cost rankings. Strategic planning and technical SEO are essential."),
+        ("What does local SEO require?", "Location-structured URLs, topic clusters, mobile performance, structured data, and internal linking must be planned from the start."),
+        ("What are common mistakes?", "Focusing on design and leaving SEO for later, not testing performance, underestimating technical infrastructure."),
+        ("Why is performance critical?", "Mobile usage is high in Istanbul; slow sites lose conversions and drop in rankings."),
+        ("Why does scalability matter?", "As the business grows, integration, API, and multi-language needs arise; infrastructure must be planned accordingly."),
+        ("What do you need for a quote?", "Goals, target audience, sector, and competitor examples are enough."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Web Design in Istanbul | Competing in a High-Competition Market"
+    meta_description = (
+        "Professional web design and development services in Istanbul. SEO-focused, performance-driven and built for competitive markets."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Design & Development in Istanbul — Built for Competitive Markets",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_agency_vs_freelancer_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Design Agency vs Freelancer — long-form SEO. No pricing triggers in body."""
     body: List[str] = []
@@ -1313,6 +1443,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "corporate-website-development":
         return _cluster_corporate_website_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Web Design in Istanbul (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-design-company-istanbul":
+        return _cluster_web_design_istanbul_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Agency vs Freelancer (EN)

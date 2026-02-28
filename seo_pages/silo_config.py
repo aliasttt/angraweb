@@ -34,12 +34,12 @@ SERVICE_SILO_MAP: Dict[str, dict] = {
             "clusters": [
                 "web-design-services",
                 "corporate-website-development",
+                "web-design-company-istanbul",
                 "web-design-agency",
                 "web-development-company",
                 "custom-web-development",
                 "django-web-development",
                 "hire-web-developer",
-                "web-design-company-istanbul",
                 "what-is-web-design",
                 "how-to-build-a-website",
                 "custom-website-vs-template",
