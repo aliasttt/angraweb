@@ -1433,6 +1433,170 @@ def _cluster_istanbul_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_web_tasarim_sirketi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Web Tasarım Şirketi — professional, SEO-focused, scalable. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Web Tasarım Şirketi Seçmek Neden Kritik Bir Karardır?"))
+    body.append(
+        p(
+            "Bir web tasarım şirketi seçmek; yalnızca bir hizmet almak değildir. "
+            "Bu karar, markanızın dijital görünürlüğünü, güvenilirliğini ve uzun vadeli büyümesini doğrudan etkiler."
+        )
+    )
+    body.append(
+        p(
+            "Yanlış seçilen bir web tasarım firması: SEO altyapısını zayıf kurar, performans optimizasyonunu ihmal eder, teknik borç üretir, ölçeklenebilirlik planlamaz. "
+            "Doğru bir profesyonel web tasarım şirketi ise: stratejik planlama yapar, teknik SEO'yu başlangıçta kurar, performansı optimize eder, uzun vadeli sürdürülebilirlik sağlar."
+        )
+    )
+    body.append(
+        p(
+            f"Genel çerçeve için {{{{ link:{_pillar_url(page)} }}}} sayfasına bakabilirsiniz."
+        )
+    )
+
+    body.append(h2("Profesyonel Web Tasarım Şirketi Neyi Farklı Yapar?"))
+    body.append(
+        p(
+            "Birçok firma \"web sitesi yapıyoruz\" der. Gerçek profesyonel yaklaşım şunları içerir:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Teknik SEO temeli: SEO uyumlu URL yapısı, iç bağlantı mimarisi, schema markup, canonical ve hreflang kontrolü, crawl optimizasyonu. SEO sonradan eklenen bir özellik değildir; mimarinin parçasıdır.",
+                "Performans mühendisliği: Core Web Vitals optimizasyonu, görsel optimizasyonu, gereksiz script azaltımı, backend sorgu iyileştirmesi. Yavaş site yalnızca sıralama değil, dönüşüm de kaybettirir.",
+                "Ölçeklenebilir mimari: Çoklu dil desteği, API entegrasyonları, CRM bağlantıları, özel yazılım modülleri planlanmadan yapılan projeler kısa sürede sınırlara takılır.",
+            ]
+        )
+    )
+
+    body.append(h2("İstanbul'da Web Tasarım Şirketi Seçerken Nelere Dikkat Edilmeli?"))
+    body.append(
+        p(
+            "İstanbul'daki dijital rekabet yüksektir. Bu nedenle: referans projeler, teknik yaklaşım, SEO stratejisi, süreç şeffaflığı, performans testleri dikkatle incelenmelidir. Yerel pazarı anlamayan bir yaklaşım yüzeysel kalır."
+        )
+    )
+    body.append(
+        p(
+            f"Yerel hizmet detayları: {{{{ link:/tr/web-tasarim/istanbul/ }}}}."
+        )
+    )
+
+    body.append(h2("Web Tasarım Firması ile Çalışma Süreci"))
+    body.append(
+        ul(
+            [
+                "Keşif ve hedef analizi",
+                "Rakip araştırması",
+                "Bilgi mimarisi planı",
+                "UI/UX tasarım",
+                "Geliştirme",
+                "Test ve performans analizi",
+                "Yayın ve izleme",
+            ]
+        )
+    )
+    body.append(p("Net süreç = net sonuç."))
+
+    body.append(h2("Kurumsal Web Tasarım ve Güven"))
+    body.append(
+        p(
+            "Kurumsal web sitesi; markanın dijital yüzüdür. Güven oluşturan unsurlar: temiz tasarım, net mesaj, hızlı yükleme, güvenli altyapı, profesyonel içerik yapısı."
+        )
+    )
+    body.append(
+        p(
+            f"Kurumsal site: {{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Hazır Sistem mi, Özel Geliştirme mi?"))
+    body.append(
+        p(
+            "Hazır sistemler hızlı başlangıç sunar. Ancak uzun vadeli SEO kontrolü ve teknik esneklik sınırlı olabilir. Özel geliştirme ise: tam kontrol, ölçeklenebilir mimari, esnek veri modeli sunabilir. Karar, hedeflere göre verilmelidir."
+        )
+    )
+    body.append(
+        p(
+            f"Özel yazılım: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("En Sık Yapılan Hatalar"))
+    body.append(
+        ul(
+            [
+                "En düşük teklif üzerinden karar vermek",
+                "SEO planını sormamak",
+                "Performans testini incelememek",
+                "İçerik stratejisini planlamamak",
+            ]
+        )
+    )
+    body.append(
+        p("Web tasarım şirketi seçimi; strateji ve teknik yaklaşım temellidir.")
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Doğru web tasarım şirketi; yalnızca site üretmez, dijital altyapı kurar. SEO uyumlu, performans odaklı ve ölçeklenebilir mimari; uzun vadeli başarının temelidir."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/istanbul/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Profesyonel web tasarım şirketi seçiminde hedeflerinizi ve teknik beklentilerinizi paylaşın; size uygun öneriyi sunalım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Web tasarım şirketi seçerken nelere dikkat edilmeli?", "Referans projeler, teknik yaklaşım, SEO stratejisi, süreç şeffaflığı ve performans testleri değerlendirilmelidir."),
+        ("Profesyonel şirket neyi farklı yapar?", "Teknik SEO temeli, performans mühendisliği ve ölçeklenebilir mimariyi baştan planlar; SEO sonradan eklenmez."),
+        ("Hazır sistem mi özel geliştirme mi?", "Hedef ve ölçeklenebilirlik ihtiyacına göre; uzun vadeli kontrol için özel geliştirme daha esnektir."),
+        ("İstanbul'da seçim neden daha kritik?", "Yerel rekabet yüksek; teknik hata ve yavaş site hızla sıralama ve dönüşüm kaybettirir."),
+        ("En sık yapılan hatalar neler?", "Teklif odaklı karar, SEO planını sormamak, performans testini incelememek, içerik stratejisini planlamamak."),
+        ("Teklif almak için ne gerekli?", "Hedef, hedef kitle, referans projeler ve teknik beklentiler yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Web Tasarım Şirketi | Profesyonel ve SEO Odaklı Çözümler"
+    meta_description = (
+        "İstanbul merkezli profesyonel web tasarım şirketi. SEO uyumlu, performans odaklı ve ölçeklenebilir web geliştirme hizmetleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Tasarım Şirketi — Profesyonel ve Ölçeklenebilir Çözümler",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/tr/{_service_base(page)}/fiyatlar/"
 
@@ -1990,6 +2154,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "istanbul":
         return _cluster_istanbul_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Web Tasarım Şirketi (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-tasarim-sirketi":
+        return _cluster_web_tasarim_sirketi_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Ajans mı Freelancer mı? (TR)

@@ -457,6 +457,119 @@ def _cluster_web_design_istanbul_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_web_design_company_en(page: SeoPage) -> Dict:
+    """Custom cluster: Web Design Company — professional, SEO-focused, scalable. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Choosing the Right Web Design Company Matters"))
+    body.append(
+        p(
+            "Selecting a web design company is not a cosmetic decision. It determines: search visibility, technical performance, scalability, security stability, long-term digital growth."
+        )
+    )
+    body.append(
+        p(
+            "A poorly structured project creates technical debt. A well-engineered website builds digital authority. "
+            f"For the full service framework, see {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("What Defines a Professional Web Development Company?"))
+    body.append(
+        p(
+            "A professional web development company focuses on:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Technical SEO architecture: clean URL hierarchy, internal linking strategy, structured data implementation, canonical management, crawl optimization. SEO must be engineered from the start.",
+                "Performance optimization: Core Web Vitals, asset loading, database queries, backend efficiency, mobile responsiveness. Performance impacts both ranking and conversions.",
+                "Scalable architecture: API integrations, CRM systems, custom modules, multi-language support, flexible backend systems. Scalable development prevents costly rebuilds.",
+            ]
+        )
+    )
+
+    body.append(h2("Web Design Company vs Freelancer"))
+    body.append(
+        p(
+            "A structured company typically provides: team-based expertise, process transparency, technical specialization, strategic planning. Scalability and long-term support become easier."
+        )
+    )
+    body.append(
+        p(
+            f"Details: {{{{ link:/en/web-design/web-design-agency/ }}}}."
+        )
+    )
+
+    body.append(h2("Custom Development vs Template Systems"))
+    body.append(
+        p(
+            "Template systems offer speed. Custom development offers control. Control enables: advanced SEO customization, structured architecture, data modeling flexibility, performance tuning. For competitive markets, control becomes a strategic asset."
+        )
+    )
+    body.append(
+        p(
+            f"Custom web development: {{{{ link:/en/web-design/custom-web-development/ }}}}."
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "A web design company should not just build websites. It should engineer scalable, secure, and SEO-ready digital platforms that support long-term growth."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/corporate-website-development/ }}}}",
+                f"{{{{ link:/en/web-design/custom-web-development/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your goals and technical expectations; we'll propose a scoped approach and next steps.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What should I look for in a web design company?", "Reference projects, technical approach, SEO strategy, process transparency, and performance testing."),
+        ("What makes a professional company different?", "They plan technical SEO, performance, and scalable architecture from the start; SEO is not an add-on."),
+        ("Template or custom development?", "Depends on goals and scalability needs; custom development offers more long-term control."),
+        ("Why does company structure matter?", "Team expertise, process, and strategic planning make scalability and long-term support easier."),
+        ("What do you need for a quote?", "Goals, target audience, reference projects, and technical expectations are enough."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Web Design Company | Professional & SEO-Focused Development"
+    meta_description = (
+        "Professional web design company delivering scalable, SEO-optimized and performance-driven web solutions."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Design Company — Engineering Performance & Digital Growth",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_agency_vs_freelancer_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Design Agency vs Freelancer — long-form SEO. No pricing triggers in body."""
     body: List[str] = []
@@ -1449,6 +1562,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-design-company-istanbul":
         return _cluster_web_design_istanbul_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Web Design Company (EN) — slug: web-development-company
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-development-company":
+        return _cluster_web_design_company_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Agency vs Freelancer (EN)
