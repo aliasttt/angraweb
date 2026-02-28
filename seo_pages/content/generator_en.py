@@ -554,6 +554,155 @@ def _cluster_agency_vs_freelancer_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_django_vs_php_en(page: SeoPage) -> Dict:
+    """Custom cluster: Django vs PHP — technical comparison + authority. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "When choosing a backend technology for web development, Django and PHP are often compared. "
+            "Both are powerful, but their architectural philosophy, security model, and SEO control differ significantly."
+        )
+    )
+    body.append(
+        p(
+            f"For the full service structure, see {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("What Is Django?"))
+    body.append(
+        p(
+            "Django is a Python-based web framework designed for scalability, security, and clean architecture."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Structured project architecture",
+                "Built-in admin system",
+                "ORM for database abstraction",
+                "Built-in security protections",
+                "Clean URL routing",
+                "Modular application design",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Django is commonly used for custom web development and scalable web applications."
+        )
+    )
+
+    body.append(h2("What Is PHP?"))
+    body.append(
+        p(
+            "PHP is a server-side scripting language widely used in web development. "
+            "It powers many CMS platforms and frameworks."
+        )
+    )
+    body.append(
+        p(
+            "Advantages: large ecosystem, flexible hosting options, easy for small projects. "
+            "However, without structured frameworks, maintainability may vary."
+        )
+    )
+
+    body.append(h2("Architecture Comparison"))
+    body.append(
+        p(
+            "Django enforces: organized app structure, clear separation of concerns, reusable modules. "
+            "PHP structure depends heavily on the chosen framework or developer discipline."
+        )
+    )
+
+    body.append(h2("Security"))
+    body.append(
+        p(
+            "Django includes built-in protection for: CSRF, XSS, SQL injection, secure session handling. "
+            "Security is critical for SEO because compromised websites lose search trust."
+        )
+    )
+
+    body.append(h2("SEO Infrastructure"))
+    body.append(
+        p(
+            "Django allows: full URL control, dynamic sitemap generation, canonical management, structured data implementation, clean semantic templates. "
+            "For SEO-driven websites, backend control matters."
+        )
+    )
+
+    body.append(h2("Scalability"))
+    body.append(
+        p(
+            "Django is highly suitable for: custom web applications, corporate websites, multi-language platforms, API integrations, high-traffic projects."
+        )
+    )
+    body.append(
+        p(
+            f"Custom web development with Django: {{{{ link:/en/web-design/custom-web-development/ }}}}. "
+            f"Django web development overview: {{{{ link:/en/web-design/django-web-development/ }}}}."
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "Django provides a structured, secure, and scalable foundation for modern web development. "
+            "For projects requiring long-term growth, technical SEO flexibility, and modular architecture, Django offers a strong advantage."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/django-web-development/ }}}}",
+                f"{{{{ link:/en/web-design/custom-web-development/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your goals and scope; we'll help you choose between Django and PHP and propose a scoped plan.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What's the main difference between Django and PHP?", "Django is a structured framework with built-in security and architecture; PHP is a language whose structure depends on the framework or project."),
+        ("Which is better for SEO?", "Django offers direct control over URLs, sitemaps, and structured data. With PHP, the CMS or framework in use determines SEO capabilities."),
+        ("When should I choose Django?", "For corporate sites, custom applications, multi-language setups, high traffic, and API-heavy projects, Django is a strong fit."),
+        ("When is PHP enough?", "For simple content sites, small-scale projects, and quick launches, PHP is widely used."),
+        ("Is there a security difference?", "Django ships with CSRF, XSS, and SQL injection protections. In PHP, security depends on developer practice and the framework used."),
+        ("What do I need to provide for a quote?", "Goals, scope (pages/features), technical constraints, and preference (Django / PHP / undecided) are enough."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Django vs PHP | Technical Comparison for Web Development"
+    meta_description = (
+        "Django vs PHP comparison focusing on security, scalability, SEO structure and performance architecture."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Django vs PHP — Which Framework Is More Scalable?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/en/{_service_base(page)}/pricing/"
 
@@ -1081,6 +1230,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-design-agency":
         return _cluster_agency_vs_freelancer_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Django vs PHP (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "django-vs-php":
+        return _cluster_django_vs_php_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

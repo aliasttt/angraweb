@@ -747,6 +747,195 @@ def _cluster_ajans_mi_freelancer_mi_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_django_vs_php_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Django ve PHP Karşılaştırması — comparison + technical authority. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "Web geliştirme projelerinde en sık karşılaştırılan iki teknoloji: Django ve PHP. "
+            "Her ikisi de güçlüdür; ancak mimari yaklaşım, güvenlik modeli, performans yönetimi ve SEO altyapısı açısından ciddi farklar bulunur."
+        )
+    )
+    body.append(
+        p(
+            "Bu rehberde Django ve PHP'yi teknik düzeyde karşılaştırıyoruz. "
+            f"Genel web tasarım çerçevesi için {{{{ link:{_pillar_url(page)} }}}} sayfasına bakabilirsiniz."
+        )
+    )
+
+    body.append(h2("Django Nedir?"))
+    body.append(
+        p(
+            "Django; Python tabanlı, yüksek güvenlikli ve modüler yapıya sahip bir web framework'üdür. "
+            "Büyük ölçekli projelerde tercih edilir ve özellikle özel yazılım web sitesi projelerinde güçlü altyapı sunar."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "MVC benzeri MVT mimarisi",
+                "Dahili admin panel",
+                "ORM (veritabanı soyutlama)",
+                "Güçlü güvenlik mekanizmaları",
+                "Modüler uygulama yapısı",
+                "SEO dostu URL kontrolü",
+            ]
+        )
+    )
+
+    body.append(h2("PHP Nedir?"))
+    body.append(
+        p(
+            "PHP; web geliştirme dünyasında uzun yıllardır kullanılan sunucu taraflı programlama dilidir. "
+            "Birçok hazır altyapı ve CMS sistemi PHP üzerine kuruludur."
+        )
+    )
+    body.append(
+        p(
+            "Avantajları: geniş ekosistem, çok sayıda hazır sistem, hızlı başlangıç. "
+            "Ancak framework kullanılmadan yazılan PHP projelerde kod standardı ve güvenlik kişisel deneyime bağlıdır."
+        )
+    )
+
+    body.append(h2("Mimari Karşılaştırma"))
+    body.append(
+        p(
+            "Django: standart proje yapısı, temiz uygulama modülleri, ayrılmış katman mimarisi, test yazımı kolay. "
+            "PHP: framework kullanılmazsa düzensiz yapı oluşabilir; kod organizasyonu geliştiriciye bağlı."
+        )
+    )
+    body.append(
+        p(
+            "Kurumsal projelerde sürdürülebilirlik açısından mimari disiplin önemlidir. "
+            f"Django ile web geliştirme detayları: {{{{ link:/tr/web-tasarim/django-web-gelistirme/ }}}}."
+        )
+    )
+
+    body.append(h2("Güvenlik"))
+    body.append(
+        p(
+            "Django: CSRF koruması dahili, XSS koruma mekanizması, SQL injection koruması, güvenli session yönetimi. "
+            "PHP: güvenlik büyük ölçüde geliştirici pratiğine bağlıdır; framework kullanılmazsa manuel koruma gerekir."
+        )
+    )
+    body.append(
+        p(
+            "Güvenlik özellikle SEO açısından önemlidir çünkü hacklenen siteler arama motorları tarafından cezalandırılabilir."
+        )
+    )
+
+    body.append(h2("SEO Altyapısı"))
+    body.append(
+        p(
+            "Django: URL yapısı tam kontrol edilebilir, dinamik sitemap üretilebilir, canonical ve hreflang yönetimi kolay, schema markup entegrasyonu rahat. "
+            "PHP projelerde SEO altyapısı kullanılan framework veya CMS'e göre değişir."
+        )
+    )
+    body.append(
+        p("Teknik SEO gereksinimi yüksek projelerde Django avantaj sağlar.")
+    )
+
+    body.append(h2("Performans ve Ölçeklenebilirlik"))
+    body.append(
+        p(
+            "Django: cache sistemleri, ORM optimizasyonu, modüler ölçekleme, API-first mimari. "
+            "Yüksek trafikli projelerde daha stabil yapı sunar."
+        )
+    )
+
+    body.append(h2("Hangi Projelerde Django Mantıklı?"))
+    body.append(
+        ul(
+            [
+                "Özel yazılım projeleri",
+                "Kurumsal web siteleri",
+                "Çoklu dil yapıları",
+                "SEO odaklı içerik siteleri",
+                "API entegrasyonlu platformlar",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"Özel yazılım web sitesi yaklaşımı: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Hangi Projelerde PHP Yeterli?"))
+    body.append(
+        ul(
+            [
+                "Basit içerik siteleri",
+                "Küçük ölçekli projeler",
+                "Hızlı başlangıç gerektiren işler",
+            ]
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Django; güvenlik, mimari disiplin ve SEO kontrolü açısından daha yapılandırılmış bir framework'tür. "
+            "PHP ise geniş ekosistemi sayesinde farklı kullanım alanları sunar."
+        )
+    )
+    body.append(
+        p(
+            "Özellikle teknik SEO ve ölçeklenebilir özel yazılım projelerinde Django daha sürdürülebilir bir temel sağlar."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/django-web-gelistirme/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Projeniz için Django mu PHP mi uygun, birlikte netleştirelim. Hedef ve kapsamı paylaşın; size uygun öneriyi sunalım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Django ve PHP arasındaki temel fark nedir?", "Django yapılandırılmış bir framework'tür; güvenlik ve mimari varsayılan gelir. PHP dil olarak esnektir; yapı proje veya framework'e bağlıdır."),
+        ("SEO için Django mu PHP mi?", "Teknik SEO kontrolü (URL, sitemap, schema) Django'da daha doğrudan yönetilebilir. PHP'de kullanılan CMS veya framework belirleyicidir."),
+        ("Hangi projelerde Django tercih edilmeli?", "Kurumsal site, özel yazılım, çoklu dil, yüksek trafik ve API entegrasyonu gereken projelerde Django güçlü bir seçenektir."),
+        ("PHP ne zaman yeterli olur?", "Basit içerik siteleri, küçük ölçekli projeler ve hızlı başlangıç gerektiren işlerde PHP yaygın kullanılır."),
+        ("Güvenlik açısından fark var mı?", "Django CSRF, XSS, SQL injection korumasını varsayılan sunar. PHP'de güvenlik geliştirici pratiğine ve kullanılan framework'e bağlıdır."),
+        ("Teklif almak için ne paylaşmalıyım?", "Hedef, kapsam (sayfa/özellik), teknik kısıtlar ve tercih (Django / PHP / kararsız) yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Django ve PHP Karşılaştırması | Hangisi Daha Güçlü?"
+    meta_description = (
+        "Django ve PHP karşılaştırması: performans, güvenlik, SEO altyapısı ve ölçeklenebilirlik açısından detaylı teknik analiz."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Django ve PHP Karşılaştırması — Hangi Teknoloji Daha Güçlü?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/tr/{_service_base(page)}/fiyatlar/"
 
@@ -1298,6 +1487,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "ajans-mi-freelancer-mi":
         return _cluster_ajans_mi_freelancer_mi_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Django ve PHP Karşılaştırması (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "django-vs-php":
+        return _cluster_django_vs_php_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
