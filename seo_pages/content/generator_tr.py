@@ -531,6 +531,220 @@ def _cluster_kurumsal_web_sitesi_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ajans_mi_freelancer_mi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Ajans mı Freelancer mı? — long-form SEO, 1100+ words. No pricing triggers in body."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "Web tasarım yaptırmak isteyen işletmelerin en sık sorduğu soru: ajans mı freelancer mı? "
+            "Bu karar sadece bütçeyle ilgili değildir. SEO uyumluluk, teknik performans, süreç yönetimi ve uzun vadeli ölçeklenebilirlik açısından ciddi farklar vardır."
+        )
+    )
+    body.append(
+        p(
+            "Google'da rekabetin arttığı bir dönemde; web tasarım ajansı ile freelancer web tasarımcı arasında seçim yaparken teknik SEO, Core Web Vitals, "
+            "mobil uyumluluk ve dönüşüm optimizasyonu gibi kriterler dikkate alınmalıdır. "
+            f"Genel çerçeve için {{{{ link:{_pillar_url(page)} }}}} sayfasına bakabilirsiniz."
+        )
+    )
+
+    body.append(h2("Web Tasarım Ajansı Nedir?"))
+    body.append(
+        p(
+            "Web tasarım ajansı; tasarımcı, geliştirici, SEO uzmanı ve proje yöneticisinden oluşan ekip yapısıyla çalışır. "
+            "Profesyonel web tasarım projelerinde süreç planlı ilerler."
+        )
+    )
+    body.append(h3("Avantajları"))
+    body.append(
+        ul(
+            [
+                "Teknik SEO uzmanlığı",
+                "Core Web Vitals optimizasyonu",
+                "İç bağlantı stratejisi (topic cluster)",
+                "Ölçeklenebilir altyapı",
+                "Entegrasyon yönetimi",
+                "Süreç ve raporlama disiplini",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "İstanbul web tasarım ajansları özellikle rekabetin yüksek olduğu sektörlerde SEO uyumlu web sitesi geliştirme konusunda avantaj sağlar."
+        )
+    )
+
+    body.append(h2("Freelancer Web Tasarımcı Nedir?"))
+    body.append(
+        p(
+            "Freelancer web tasarımcı; projeyi tek başına yöneten bağımsız uzmandır."
+        )
+    )
+    body.append(h3("Avantajları"))
+    body.append(
+        ul(
+            [
+                "Esnek iletişim",
+                "Küçük projelerde hızlı başlangıç",
+                "Basit kurumsal web sitelerinde yeterli çözüm",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Ancak teknik SEO, güvenlik sertleştirme, performans optimizasyonu ve uzun vadeli geliştirme gereksinimlerinde tek kişinin uzmanlığı sınırlı olabilir. "
+            f"Freelancer ile çalışma detayları: {{{{ link:/tr/web-tasarim/web-tasarim-freelancer/ }}}}."
+        )
+    )
+
+    body.append(h2("SEO Açısından Ajans mı Freelancer mı?"))
+    body.append(
+        p(
+            "SEO uyumlu web sitesi yalnızca meta tag eklemek değildir. Gerçek SEO şunları içerir: teknik SEO altyapısı, schema markup, site mimarisi (pillar + cluster), "
+            "iç link stratejisi, mobil-first tasarım, Core Web Vitals optimizasyonu, crawl budget yönetimi."
+        )
+    )
+    body.append(
+        p(
+            "Ajans modelinde bu alanlar ekip çalışmasıyla yürütülür. Freelancer modelinde ise tüm sorumluluk tek kişidedir. "
+            "Rekabetin yoğun olduğu İstanbul gibi pazarlarda SEO stratejik yaklaşım gerektirir."
+        )
+    )
+
+    body.append(h2("Performans ve Core Web Vitals"))
+    body.append(
+        p(
+            "Google sıralamalarında hız kritik faktördür. Önemli metrikler: LCP (Largest Contentful Paint), CLS (Cumulative Layout Shift), INP / Interaction latency, mobil performans."
+        )
+    )
+    body.append(
+        p(
+            "Ajans projelerinde genellikle görsel optimizasyon, cache stratejileri, minimal JS kullanımı, backend sorgu optimizasyonu, CDN yapılandırması planlı yapılır. "
+            "Freelancer projelerinde bu optimizasyon seviyesi kişisel bilgiye bağlıdır."
+        )
+    )
+
+    body.append(h2("Ölçeklenebilirlik"))
+    body.append(
+        p(
+            "Proje büyüdüğünde ihtiyaçlar değişir: çoklu dil, çoklu şube, CRM entegrasyonu, özel yazılım modülleri, API bağlantıları. "
+            "Bu noktada modüler mimari gerekir. "
+            f"Özel yazılım web sitesi projelerinde ajans yapısı genellikle daha sürdürülebilir olur: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Süreç Yönetimi ve Risk Kontrolü"))
+    body.append(
+        p(
+            "Profesyonel web tasarım projelerinde süreç şunları içerir: keşif ve brief, bilgi mimarisi, UI/UX tasarım, geliştirme, test ve yayın, ölçümleme. "
+            "Ajans yapısında bu adımlar dokümante edilir. Freelancer projelerinde süreç daha esnek ilerler."
+        )
+    )
+    body.append(
+        p(
+            f"Adım adım yaklaşım için {{{{ link:{_guide_url(page)} }}}} rehberini inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("Hangi Durumda Freelancer Mantıklı?"))
+    body.append(
+        ul(
+            [
+                "Tek sayfa landing page",
+                "Basit kurumsal site",
+                "Kısa süreli proje",
+                "Düşük entegrasyon ihtiyacı",
+            ]
+        )
+    )
+
+    body.append(h2("Hangi Durumda Ajans Daha Doğru?"))
+    body.append(
+        ul(
+            [
+                "SEO odaklı büyüme hedefi",
+                "Kurumsal web sitesi",
+                "E-ticaret projesi",
+                "Özel yazılım geliştirme",
+                "Uzun vadeli dijital strateji",
+            ]
+        )
+    )
+
+    body.append(h2("İstanbul'da Web Tasarım Seçimi"))
+    body.append(
+        p(
+            "İstanbul web tasarım rekabeti yüksektir. Google'da görünür olmak için teknik SEO, içerik stratejisi ve performans birlikte çalışmalıdır. "
+            "Bu nedenle seçim yaparken: uzmanlık alanı, süreç şeffaflığı, SEO yaklaşımı, ölçeklenebilirlik planı değerlendirilmelidir."
+        )
+    )
+    body.append(
+        p(
+            f"Yerel hizmet: {{{{ link:/tr/web-tasarim/istanbul/ }}}}. "
+            f"Kurumsal site karşılaştırması: {{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Freelancer esneklik sunar. Ajans sistem ve ölçek sunar. SEO, teknik yapı ve uzun vadeli büyüme hedefleniyorsa; planlı ve performans odaklı yaklaşım daha güvenlidir."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/web-tasarim-freelancer/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/web-tasarim-sirketi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/istanbul/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Ajans veya freelancer kararını birlikte netleştirmek için hedeflerinizi paylaşın; size uygun modeli önerelim.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+
+    faq_pairs = [
+        ("Ajans ile freelancer arasındaki temel fark nedir?", "Ajans ekip yapısı, süreç ve raporlama sunar; freelancer tek kişiyle esnek iletişim sağlar. SEO ve ölçek ihtiyacı yüksekse ajans genelde daha uygundur."),
+        ("SEO için ajans mı freelancer mı tercih edilmeli?", "Teknik SEO, Core Web Vitals ve iç bağlantı stratejisi ekip bilgisi gerektirir. Rekabetçi anahtar kelimelerde ajans yaklaşımı daha güvenlidir."),
+        ("Freelancer ne zaman yeterli olur?", "Tek sayfa, basit kurumsal site veya düşük entegrasyon ihtiyacında freelancer mantıklı olabilir."),
+        ("İstanbul'da ajans seçerken nelere dikkat etmeli?", "Uzmanlık alanı, süreç şeffaflığı, SEO yaklaşımı ve ölçeklenebilirlik planı değerlendirilmeli."),
+        ("Ölçek büyüdüğünde ne yapılmalı?", "Çoklu dil, CRM veya özel modül ihtiyacı doğarsa modüler altyapı ve ajans/ekip modeli daha sürdürülebilirdir."),
+        ("Teklif almak için hangi bilgiler gerekli?", "Hedef, kapsam ve tercih (ajans / freelancer / kararsız) paylaşmanız yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Ajans mı Freelancer mı? Web Tasarım İçin Hangisi Daha Doğru?"
+    meta_description = (
+        "Web tasarım ajansı mı freelancer mı? SEO, performans, süreç yönetimi ve ölçeklenebilirlik açısından detaylı karşılaştırma rehberi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Ajans mı Freelancer mı? Web Tasarım İçin Doğru Seçim",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/tr/{_service_base(page)}/fiyatlar/"
 
@@ -1076,6 +1290,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "kurumsal-web-sitesi":
         return _cluster_kurumsal_web_sitesi_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Ajans mı Freelancer mı? (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "ajans-mi-freelancer-mi":
+        return _cluster_ajans_mi_freelancer_mi_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

@@ -403,6 +403,155 @@ def _cluster_corporate_website_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_agency_vs_freelancer_en(page: SeoPage) -> Dict:
+    """Custom cluster: Web Design Agency vs Freelancer — long-form SEO. No pricing triggers in body."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "When building a professional website, one of the most common questions is: should you hire a web design agency or a freelancer? "
+            "The decision impacts SEO performance, scalability, technical structure, and long-term growth."
+        )
+    )
+    body.append(
+        p(
+            "In competitive markets, an SEO-optimized website requires more than visual design. It requires: technical SEO setup, structured data (schema markup), "
+            "internal linking architecture, Core Web Vitals optimization, responsive web design, and scalable backend development. "
+            f"For the full framework, see {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("What Is a Web Design Agency?"))
+    body.append(
+        p(
+            "A web design agency operates with a team structure: UI/UX designers, developers, SEO specialists, project managers. "
+            "This structure allows: strategic planning, technical performance optimization, SEO-driven architecture, and scalable systems."
+        )
+    )
+
+    body.append(h2("What Is a Freelancer?"))
+    body.append(
+        p(
+            "A freelance web developer handles the project independently. Freelancers are often suitable for: small business websites, landing pages, limited-scope projects. "
+            "However, advanced technical SEO and scalability may depend entirely on individual expertise."
+        )
+    )
+    body.append(
+        p(
+            f"Details on working with a freelancer: {{{{ link:/en/web-design/hire-web-developer/ }}}}."
+        )
+    )
+
+    body.append(h2("SEO Perspective: Agency vs Freelancer"))
+    body.append(
+        p(
+            "Search engines rank websites based on: page speed, Core Web Vitals, structured content, clean semantic HTML, internal linking structure, mobile usability. "
+            "Agencies often implement full technical SEO frameworks. Freelancers may or may not specialize in advanced SEO infrastructure."
+        )
+    )
+
+    body.append(h2("Performance & Core Web Vitals"))
+    body.append(
+        p(
+            "Performance metrics matter: Largest Contentful Paint, Interaction latency, Layout stability, Mobile responsiveness. "
+            "Agencies typically optimize: image compression, caching strategy, server configuration, database queries, asset management. "
+            "Freelancer projects may vary by individual expertise."
+        )
+    )
+
+    body.append(h2("Scalability & Custom Development"))
+    body.append(
+        p(
+            "If your business plans to grow, you may require: API integrations, CRM systems, custom modules, multi-language support, advanced analytics. "
+            f"Custom web development using frameworks like Django allows full control over technical structure and SEO flexibility: {{{{ link:/en/web-design/custom-web-development/ }}}}."
+        )
+    )
+
+    body.append(h2("When to Choose a Freelancer"))
+    body.append(
+        ul(
+            [
+                "Small websites",
+                "Limited functionality",
+                "Quick launch",
+                "Low technical complexity",
+            ]
+        )
+    )
+
+    body.append(h2("When to Choose an Agency"))
+    body.append(
+        ul(
+            [
+                "SEO-focused growth",
+                "Corporate websites",
+                "E-commerce platforms",
+                "Custom web applications",
+                "Long-term digital strategy",
+            ]
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "A freelancer offers flexibility. An agency offers structure, scalability, and integrated expertise. "
+            "If your goal is search visibility, performance, and long-term digital growth, a structured and SEO-driven approach is critical."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/hire-web-developer/ }}}}",
+                f"{{{{ link:/en/web-design/web-development-company/ }}}}",
+                f"{{{{ link:/en/web-design/web-design-company-istanbul/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your goals; we'll help you choose between an agency or freelancer approach and propose a scoped plan.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+
+    faq_pairs = [
+        ("What's the main difference between an agency and a freelancer?", "An agency provides team structure, process, and reporting; a freelancer offers single-point, flexible communication. For strong SEO and scale, an agency is often a better fit."),
+        ("For SEO, should I choose an agency or a freelancer?", "Technical SEO, Core Web Vitals, and internal linking strategy benefit from team expertise. In competitive markets, an agency approach is usually safer."),
+        ("When is a freelancer enough?", "For a single landing page, a simple corporate site, or low integration needs, a freelancer can be sufficient."),
+        ("What should I look for when choosing an agency in Istanbul?", "Evaluate expertise, process transparency, SEO approach, and scalability plan."),
+        ("What if my project grows later?", "If you need multi-language, CRM, or custom modules, a modular architecture and agency or team model are more sustainable."),
+        ("What do you need to provide a quote?", "Share your goals, scope, and preference (agency / freelancer / undecided); we'll respond with a clear proposal."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Web Design Agency vs Freelancer | Which Is Better for SEO?"
+    meta_description = (
+        "Web design agency vs freelancer comparison. Technical SEO, performance, scalability and long-term digital growth explained."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Design Agency vs Freelancer: Which Is the Right Choice?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/en/{_service_base(page)}/pricing/"
 
@@ -924,6 +1073,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "corporate-website-development":
         return _cluster_corporate_website_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Agency vs Freelancer (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-design-agency":
+        return _cluster_agency_vs_freelancer_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
