@@ -321,6 +321,216 @@ def _web_design_pillar_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_kurumsal_web_sitesi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Kurumsal Web Sitesi — commercial investigation + service authority. 900–1200 words."""
+    body: List[str] = []
+
+    body.append(h2("Kurumsal Web Sitesi Nedir?"))
+    body.append(
+        p(
+            "Kurumsal web sitesi, işletmenizin dijital yüzü olarak marka otoritesini, güveni ve dönüşüm hedeflerini tek bir çatı altında toplar. "
+            "Yalnızca bilgi vermekle kalmaz; ziyaretçiyi lead veya satışa yönlendiren, mobil uyumlu ve arama motorlarında görünür bir profesyonel web sitesi, "
+            "özellikle KOBİ ve B2B firmaları için rekabet avantajı sağlar."
+        )
+    )
+    body.append(
+        p(
+            "Doğru kurgulandığında kurumsal site, hem itibar hem de ölçülebilir sonuçlar üretir: form doldurma, iletişim talepleri ve temel analitik verileri "
+            "tek bir platformda toplanır. Genel çerçeve için {{{{ link:{_pillar_url(page)} }}}} sayfasına bakabilirsiniz."
+        )
+    )
+
+    body.append(h2("Neden SEO Uyumlu Kurumsal Web Tasarım Önemlidir?"))
+    body.append(
+        p(
+            "SEO uyumlu kurumsal web tasarım, görünürlük ve kullanılabilirliği bir araya getirir. "
+            "Teknik SEO (meta yapısı, sitemap, canonical), Core Web Vitals ile hızlı açılış, mobil uyumlu (responsive) yapı ve net kullanıcı deneyimi; "
+            "arama sıralaması ve dönüşüm oranını doğrudan etkiler. Schema markup (Organization, FAQ, Breadcrumb) ile arama sonuçlarında zengin snippet desteği sağlanır."
+        )
+    )
+    body.append(
+        p(
+            "Google ve diğer arama motorları, sayfa hızı, mobil uyum ve içerik yapısını sıralama sinyali olarak kullanır. "
+            "Bu nedenle kurumsal site yaptırmak isteyen işletmeler için teknik temel, uzun vadeli organik trafik için belirleyicidir."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Teknik SEO: başlık hiyerarşisi, iç bağlantı, indekslenebilirlik",
+                "Core Web Vitals: LCP, FID, CLS odaklı performans",
+                "Mobil uyum: tüm cihazlarda tutarlı deneyim",
+                "Kullanıcı deneyimi: okunabilirlik, CTA yerleşimi, form akışları",
+                "Schema markup: yapılandırılmış veri ile görünürlük",
+            ]
+        )
+    )
+
+    body.append(h2("İstanbul'da Kurumsal Web Sitesi Yaptırmak"))
+    body.append(
+        p(
+            "İstanbul merkezli hizmet veren işletmeler için kurumsal web sitesi, hem yerel hem ulusal hedef kitleye ulaşmanın temelidir. "
+            "İstanbul Avrupa Yakası ve Anadolu Yakası’ndaki firmalarla yüz yüze keşif görüşmeleri mümkündür; Türkiye genelinde ise uzaktan süreç yönetimi ile aynı kalite sunulur."
+        )
+    )
+    body.append(
+        p(
+            "Yerel arama (yerel SEO) ve \"İstanbul kurumsal web tasarım\" arayan işletmeler için site yapısı ve iletişim bilgileri tutarlı biçimde sunulur. "
+            f"Yerel hizmet detayları için {{{{ link:/tr/web-tasarim/istanbul/ }}}} sayfasını inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("Kurumsal Web Sitesi Süreci"))
+    body.append(
+        p(
+            "Standart teslimat akışı: keşif ve hedef netleştirme, bilgi mimarisi ve sayfa planı, UI/UX tasarım (mobil öncelikli), "
+            "geliştirme (gerektiğinde Django tabanlı altyapı), test ve yayın. Her aşamada teslim çıktıları ve kabul kriterleri yazılıdır."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Keşif: hedef kitle, rakipler, dönüşüm noktaları",
+                "Bilgi mimarisi: sayfa hiyerarşisi, menü, içerik planı",
+                "UI/UX tasarım: bileşen kütüphanesi, responsive ekranlar",
+                "Geliştirme: performans, teknik SEO, güvenlik (HTTPS); gerekiyorsa Django ile ölçeklenebilir yapı",
+                "Test ve yayın: Core Web Vitals, form ve link kontrolleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Daha karmaşık entegrasyon veya özel modüller (CRM, çoklu dil, rol bazlı yetkiler) gerekiyorsa "
+            f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}} yaklaşımı uygundur."
+        )
+    )
+
+    body.append(h2("Hangi İşletmeler İçin Uygundur?"))
+    body.append(
+        p(
+            "Kurumsal web sitesi çözümü; KOBİ’ler, B2B firmaları, ajanslar, danışmanlar ve büyümekte olan şirketler için uygundur. "
+            "Temel ihtiyaç: marka algısını güçlendirmek, lead toplamak ve dijital varlığı tek bir adreste profesyonelce sunmaktır."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "KOBİ’ler ve yerel/ulusal hedefli firmalar",
+                "B2B satış ve kurumsal iletişim odaklı şirketler",
+                "Ajanslar ve danışmanlık ofisleri",
+                "Büyüme aşamasındaki girişimler",
+            ]
+        )
+    )
+
+    body.append(h2("Kurumsal Web Sitesi ile Neler Kazanırsınız?"))
+    body.append(
+        p(
+            "Yatırımın geri dönüşü; güven, lead artışı ve marka konumlandırma ile ölçülebilir hale gelir. "
+            "Analitik ve dönüşüm takibi sayesinde hangi sayfaların ve CTA'ların işe yaradığı netleşir."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Güven: tutarlı marka dili ve güvenli (HTTPS) altyapı",
+                "Lead artışı: form, WhatsApp ve CTA odaklı dönüşüm noktaları",
+                "Marka konumlandırma: rakiplerden ayrışan profesyonel görünüm",
+                "Ölçülebilir performans: analitik ve Core Web Vitals ile iyileştirme imkânı",
+            ]
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/istanbul/ }}}}",
+            ]
+        )
+    )
+
+    body.append(h2("Kurumsal sitede olmazsa olmazlar"))
+    body.append(
+        p(
+            "Profesyonel kurumsal web sitesi; hızlı yüklenme, mobil uyumluluk, net iletişim ve teklif/iletişim formu ile tamamlanır. "
+            "Güvenlik için HTTPS, erişilebilirlik için temel kontrast ve font seçimi, dönüşüm için ise az sayıda ancak net CTA önerilir."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Hız ve Core Web Vitals uyumu",
+                "Mobil uyumlu (responsive) tüm sayfalar",
+                "İletişim formu ve/veya WhatsApp / arama butonu",
+                "HTTPS ve güncel güvenlik ayarları",
+                "Temel analitik ve dönüşüm takibi",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Kurumsal web sitenizin kapsamını netleştirmek için hedeflerinizi paylaşın; size uygun planı birlikte çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+
+    faq_pairs = [
+        (
+            "Kurumsal web sitesi ne kadar sürede teslim edilir?",
+            "Kapsam (sayfa sayısı, içerik, entegrasyon) ve onay hızına göre değişir. Net teslim kriterleri ile süre öngörülebilir hale gelir.",
+        ),
+        (
+            "SEO uyumlu kurumsal web sitesi ne demek?",
+            "Teknik SEO altyapısı (meta, sitemap, schema, hız), mobil uyum ve içerik mimarisi ile arama motorlarında görünür, kullanıcı odaklı site demektir.",
+        ),
+        (
+            "İstanbul dışından da hizmet alınabilir mi?",
+            "Evet. Türkiye genelinde uzaktan süreç yönetimi ile çalışıyoruz; İstanbul içi gerektiğinde yüz yüze keşif yapılabilir.",
+        ),
+        (
+            "Kurumsal site ile özel yazılım arasındaki fark nedir?",
+            "Kurumsal site genelde sabit sayfa seti ve temel form/lead akışı içerir. CRM/ERP entegrasyonu, özel modüller veya çoklu dil/şube gerekiyorsa özel yazılım yaklaşımı uygundur.",
+        ),
+        (
+            "Yayından sonra bakım sunuluyor mu?",
+            "Evet. Güncelleme, güvenlik ve performans iyileştirmeleri için bakım ve destek modeli sunulur.",
+        ),
+        (
+            "Hangi bilgilerle teklif alabilirim?",
+            "Hedef, hedef kitle, örnek referans siteler ve istenen sayfalar/akışlar yeterlidir. Kısa brif ile hızlıca yanıt verilir.",
+        ),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Kurumsal Web Sitesi | SEO Uyumlu, Mobil Uyumlu — İstanbul"
+    meta_description = (
+        "İstanbul merkezli kurumsal web tasarım: SEO uyumlu, mobil uyumlu, dönüşüm odaklı kurumsal site. "
+        "Profesyonel çözümler ve yerel hizmet."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Kurumsal Web Sitesi — Profesyonel ve SEO Uyumlu Çözümler",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/tr/{_service_base(page)}/fiyatlar/"
 
@@ -860,6 +1070,12 @@ def generate_tr(page: SeoPage) -> Dict:
             "faq_json": faq_json[:8],
             "published_at": timezone.now(),
         }
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Kurumsal Web Sitesi (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "kurumsal-web-sitesi":
+        return _cluster_kurumsal_web_sitesi_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

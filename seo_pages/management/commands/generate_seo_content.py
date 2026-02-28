@@ -30,6 +30,7 @@ class Command(BaseCommand):
         parser.add_argument("--force", action="store_true", help="Regenerate even if content_html is not empty.")
         parser.add_argument("--service", type=str, default=None, help="Only regenerate pages for this service key (e.g. web-design).")
         parser.add_argument("--page-type", type=str, default=None, help="Only regenerate this page type (e.g. pillar).")
+        parser.add_argument("--slug", type=str, default=None, help="Only regenerate pages with this slug (e.g. kurumsal-web-sitesi).")
 
     @transaction.atomic
     def handle(self, *args, **options):
@@ -37,6 +38,7 @@ class Command(BaseCommand):
         force = options["force"]
         service_key = options.get("service")
         page_type = options.get("page_type")
+        slug_filter = options.get("slug")
 
         qs = SeoPage.objects.select_related("service").order_by("language", "service__key", "page_type", "slug")
         if lang in ("tr", "en"):
@@ -45,6 +47,8 @@ class Command(BaseCommand):
             qs = qs.filter(service__key=service_key)
         if page_type:
             qs = qs.filter(page_type=page_type)
+        if slug_filter is not None:
+            qs = qs.filter(slug=slug_filter)
         if not force:
             qs = qs.filter(content_html="")
 

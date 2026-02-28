@@ -186,6 +186,223 @@ def _web_design_pillar_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_corporate_website_en(page: SeoPage) -> Dict:
+    """Custom cluster: Corporate Website Development — commercial investigation + service authority. 900–1200 words."""
+    body: List[str] = []
+
+    body.append(h2("What Is a Corporate Website?"))
+    body.append(
+        p(
+            "A corporate website is your business’s digital front door: it builds trust, reinforces authority, and supports brand positioning. "
+            "It goes beyond static information—a professional, responsive corporate site turns visitors into leads and supports both local and international reach. "
+            "For B2B firms, agencies, and growing companies, it is the foundation of a credible online presence."
+        )
+    )
+    body.append(
+        p(
+            f"For the full service framework, see {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+    body.append(
+        p(
+            "When structured correctly, the site delivers both reputation and measurable outcomes: form submissions, contact requests, and core analytics in one place."
+        )
+    )
+
+    body.append(h2("Why SEO-Friendly Corporate Web Design Matters"))
+    body.append(
+        p(
+            "SEO-friendly corporate web design combines visibility with usability. Technical SEO (meta structure, sitemaps, canonicals), Core Web Vitals for fast loading, "
+            "responsive design, and clear user experience directly affect search rankings and conversion. Structured data (Schema) enables rich snippets in search results."
+        )
+    )
+    body.append(
+        p(
+            "Search engines use page speed, mobile fit, and content structure as ranking signals. "
+            "A solid technical foundation is therefore essential for long-term organic traffic."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Technical SEO: heading hierarchy, internal linking, indexability",
+                "Core Web Vitals: LCP, FID, CLS-focused performance",
+                "Structured data: Organization, FAQ, Breadcrumb markup",
+                "Responsive design: consistent experience across devices",
+                "User experience: readability, CTA placement, form flows",
+            ]
+        )
+    )
+
+    body.append(h2("Corporate Website Development in Istanbul"))
+    body.append(
+        p(
+            "We are an Istanbul-based team serving both local and international clients. Our corporate website projects range from Turkey-focused businesses to European and global brands. "
+            "Communication and delivery are remote-friendly; on-site discovery workshops in Istanbul can be arranged when needed."
+        )
+    )
+    body.append(
+        p(
+            "For businesses looking for \"Istanbul web design company\" or local SEO, we keep site structure and contact details consistent and easy to find. "
+            f"Local presence and approach: {{{{ link:/en/web-design/web-design-company-istanbul/ }}}}"
+        )
+    )
+
+    body.append(h2("Our Development Process"))
+    body.append(
+        p(
+            "Delivery follows a clear sequence: strategy and discovery, information architecture and page plan, UI/UX design (mobile-first), "
+            "custom development (Django when scalability or security is a priority), then QA and launch. Each phase has defined deliverables and acceptance criteria."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Strategy: target audience, competitors, conversion points",
+                "Information architecture: page hierarchy, navigation, content plan",
+                "UI/UX design: component library, responsive layouts",
+                "Custom development: performance, technical SEO, HTTPS; Django for scalable backends when required",
+                "QA and launch: Core Web Vitals, form and link checks",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"For deeper integrations or custom modules, {{{{ link:/en/web-design/custom-web-development/ }}}} is a better fit."
+        )
+    )
+    body.append(
+        p(
+            "Custom modules, CRM integration, multi-language or role-based access often require a dedicated development approach rather than a fixed page set."
+        )
+    )
+
+    body.append(h2("Who Needs a Corporate Website?"))
+    body.append(
+        p(
+            "Corporate website development suits B2B companies, agencies, consultants, and growing businesses that want to strengthen brand perception, generate leads, "
+            "and present a single, professional digital presence."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SMEs and companies targeting local or national markets",
+                "B2B sales and corporate communications",
+                "Agencies and consulting firms",
+                "Scale-ups and growth-stage ventures",
+            ]
+        )
+    )
+
+    body.append(h2("Business Impact"))
+    body.append(
+        p(
+            "Return on investment becomes measurable through trust, lead generation, and brand positioning. "
+            "Analytics and conversion tracking clarify which pages and CTAs drive results."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Authority: consistent brand voice and secure (HTTPS) infrastructure",
+                "Lead generation: forms, WhatsApp, and CTA-driven conversion points",
+                "Scalability: structure that supports content and feature growth",
+                "Analytics-driven optimization: data to improve performance and conversions",
+            ]
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/custom-web-development/ }}}}",
+                f"{{{{ link:/en/web-design/web-design-company-istanbul/ }}}}",
+            ]
+        )
+    )
+
+    body.append(h2("Must-haves for a corporate website"))
+    body.append(
+        p(
+            "A professional corporate site is built on fast loading, responsive layout, clear contact paths, and at least one conversion form or call-to-action. "
+            "HTTPS for security, basic contrast and font choices for accessibility, and a small set of clear CTAs support trust and conversion."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Speed and Core Web Vitals compliance",
+                "Responsive pages across devices",
+                "Contact form and/or WhatsApp / click-to-call",
+                "HTTPS and up-to-date security",
+                "Basic analytics and conversion tracking",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your goals for a corporate website; we’ll propose a scoped plan and next steps.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+
+    faq_pairs = [
+        (
+            "How long does corporate website delivery take?",
+            "It depends on scope (number of pages, content, integrations) and approval speed. Clear acceptance criteria make timelines predictable.",
+        ),
+        (
+            "What does SEO-friendly corporate website mean?",
+            "Technical SEO (meta, sitemap, schema, speed), mobile responsiveness, and content architecture so the site is visible in search and user-focused.",
+        ),
+        (
+            "Do you work with clients outside Istanbul?",
+            "Yes. We work with international clients; communication and delivery are remote-friendly. On-site workshops in Istanbul can be arranged when useful.",
+        ),
+        (
+            "What’s the difference between a corporate site and custom development?",
+            "A corporate site usually has a fixed set of pages and basic forms/lead flows. For CRM/ERP integration, custom modules, or multi-language/multi-branch needs, custom web development is more appropriate.",
+        ),
+        (
+            "Do you offer maintenance after launch?",
+            "Yes. We offer maintenance and support for updates, security, and performance improvements.",
+        ),
+        (
+            "What do you need to provide a quote?",
+            "Goals, target audience, reference sites, and desired pages/flows are enough. We respond quickly to a short brief.",
+        ),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Corporate Website Development | Professional & SEO-Ready"
+    meta_description = (
+        "Istanbul-based corporate web design: SEO-friendly, responsive, conversion-focused. "
+        "Professional business websites and local presence."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Corporate Website Development — Professional & SEO-Ready Solutions",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/en/{_service_base(page)}/pricing/"
 
@@ -701,6 +918,12 @@ def generate_en(page: SeoPage) -> Dict:
             "faq_json": faq_json[:8],
             "published_at": timezone.now(),
         }
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Corporate Website Development (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "corporate-website-development":
+        return _cluster_corporate_website_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
