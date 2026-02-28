@@ -1433,6 +1433,173 @@ def _cluster_istanbul_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ozel_yazilim_web_sitesi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Özel Yazılım Web Sitesi — scalable, SEO-ready, professional. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Özel Yazılım Web Sitesi Nedir?"))
+    body.append(
+        p(
+            "Özel yazılım web sitesi; hazır tema veya şablon yerine, işletmenin ihtiyaçlarına göre sıfırdan geliştirilen, esnek ve ölçeklenebilir web çözümüdür."
+        )
+    )
+    body.append(
+        p(
+            "Bu yaklaşımda: veri modeli size göre kurulur, mimari iş hedeflerine göre planlanır, SEO altyapısı başlangıçtan itibaren optimize edilir, performans ve güvenlik kontrol altında olur. "
+            "Hazır sistemler hızlı başlangıç sağlar. Özel yazılım ise uzun vadeli kontrol sağlar."
+        )
+    )
+    body.append(
+        p(
+            f"Genel çerçeve için {{{{ link:{_pillar_url(page)} }}}} sayfasına bakabilirsiniz."
+        )
+    )
+
+    body.append(h2("Neden Özel Yazılım Tercih Edilir?"))
+    body.append(h2("Ölçeklenebilirlik"))
+    body.append(
+        p(
+            "Büyüyen işletmeler için: çoklu kullanıcı rolleri, CRM / ERP entegrasyonu, API bağlantıları, özel modüller, çoklu dil desteği gibi ihtiyaçlar ortaya çıkar. "
+            "Hazır altyapılar burada sınıra dayanabilir. Özel yazılım ise esnektir."
+        )
+    )
+    body.append(h2("Teknik SEO Kontrolü"))
+    body.append(
+        p(
+            "Özel geliştirme ile: URL yapısı tamamen kontrol edilir, iç link mimarisi planlanır, schema markup detaylı uygulanır, crawl bütçesi optimize edilir, sayfa hızı mühendislik seviyesinde iyileştirilir. "
+            "SEO uyumlu web sitesi sonradan değil, mimari aşamada kurulur."
+        )
+    )
+    body.append(h2("Performans ve Core Web Vitals"))
+    body.append(
+        p(
+            "Google sıralamasında performans belirleyicidir. Özel yazılım projelerinde: gereksiz script yükü olmaz, backend sorguları optimize edilir, cache stratejileri planlanır, mobil-first yaklaşım uygulanır. Bu da hem SEO hem dönüşüm oranlarını artırır."
+        )
+    )
+
+    body.append(h2("Hangi Projeler İçin Özel Yazılım Mantıklıdır?"))
+    body.append(
+        ul(
+            [
+                "Kurumsal web siteleri (ileri düzey yapı)",
+                "B2B platformlar",
+                "SaaS projeleri",
+                "Rezervasyon / randevu sistemleri",
+                "Dashboard ve yönetim panelleri",
+                "Çoklu entegrasyon gerektiren sistemler",
+            ]
+        )
+    )
+    body.append(
+        p("Standart web sitesi değil; sistem altyapısı gerektiren projeler için uygundur.")
+    )
+
+    body.append(h2("Özel Yazılım Web Sitesi Geliştirme Süreci"))
+    body.append(
+        ul(
+            [
+                "Keşif ve teknik analiz",
+                "Bilgi mimarisi planlama",
+                "UI/UX tasarım",
+                "Backend geliştirme (örneğin Django tabanlı mimari)",
+                "API ve entegrasyonlar",
+                "Performans optimizasyonu",
+                "Test ve yayın",
+            ]
+        )
+    )
+    body.append(p("Süreç odaklı yaklaşım, teknik borcu azaltır."))
+
+    body.append(h2("Güvenlik ve Veri Koruma"))
+    body.append(
+        p(
+            "Özel yazılım projelerinde: rol bazlı yetkilendirme, HTTPS zorunluluğu, güvenli form akışları, sunucu sertleştirme, temel veri koruma prensipleri planlı şekilde uygulanır. Güvenlik, sonradan eklenen bir özellik değildir."
+        )
+    )
+
+    body.append(h2("Özel Yazılım mı Hazır Sistem mi?"))
+    body.append(
+        p(
+            "Hazır sistemler: hızlı başlangıç, düşük teknik giriş seviyesi. Özel yazılım: tam kontrol, uzun vadeli esneklik, performans avantajı, SEO derinliği. Hedef büyüme ise; özel yazılım genellikle daha sürdürülebilir çözümdür."
+        )
+    )
+    body.append(
+        p(
+            f"Karşılaştırma: {{{{ link:/tr/web-tasarim/ozel-yazilim-vs-hazir-site/ }}}}."
+        )
+    )
+
+    body.append(h2("Özel Yazılım Web Sitesi ile Neler Kazanırsınız?"))
+    body.append(
+        ul(
+            [
+                "Ölçeklenebilir altyapı",
+                "SEO uyumlu mimari",
+                "Yüksek performans",
+                "Güvenli backend sistemi",
+                "Entegrasyona açık yapı",
+            ]
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Özel yazılım web sitesi; sadece bir web tasarım tercihi değil, stratejik bir dijital altyapı yatırımıdır. Uzun vadeli büyüme, teknik esneklik ve SEO kontrolü için güçlü bir temel sunar."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/django-web-gelistirme/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-vs-hazir-site/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Özel yazılım web sitesi için hedeflerinizi ve teknik ihtiyaçlarınızı paylaşın; size uygun kapsamı çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Özel yazılım web sitesi nedir?", "İşletmenin ihtiyaçlarına göre sıfırdan geliştirilen, esnek ve ölçeklenebilir web çözümüdür; hazır tema kullanılmaz."),
+        ("Neden özel yazılım tercih edilir?", "Ölçeklenebilirlik, teknik SEO kontrolü, performans ve güvenlik avantajı; uzun vadeli esneklik sağlar."),
+        ("Hangi projeler için uygundur?", "Kurumsal ileri düzey siteler, B2B, SaaS, rezervasyon sistemleri, dashboard ve çoklu entegrasyon gerektiren projeler."),
+        ("Geliştirme süreci nasıl ilerler?", "Keşif, bilgi mimarisi, UI/UX, backend geliştirme, API ve entegrasyonlar, performans, test ve yayın."),
+        ("Güvenlik nasıl sağlanır?", "Rol bazlı yetkilendirme, HTTPS, güvenli form akışları, sunucu sertleştirme mimari aşamada planlanır."),
+        ("Hazır sistem mi özel yazılım mı?", "Hızlı başlangıç için hazır; uzun vadeli kontrol ve büyüme için özel yazılım daha sürdürülebilirdir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Özel Yazılım Web Sitesi | Ölçeklenebilir ve SEO Uyumlu Çözümler"
+    meta_description = (
+        "SEO uyumlu, ölçeklenebilir ve güvenli özel yazılım web sitesi çözümleri. Performans odaklı mimari ve profesyonel geliştirme yaklaşımı."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Özel Yazılım Web Sitesi — Ölçeklenebilir ve Profesyonel Geliştirme",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_tasarim_sirketi_tr(page: SeoPage) -> Dict:
     """Custom cluster: Web Tasarım Şirketi — professional, SEO-focused, scalable. No pricing triggers."""
     body: List[str] = []
@@ -2154,6 +2321,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "istanbul":
         return _cluster_istanbul_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Özel Yazılım Web Sitesi (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "ozel-yazilim-web-sitesi":
+        return _cluster_ozel_yazilim_web_sitesi_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Web Tasarım Şirketi (TR)

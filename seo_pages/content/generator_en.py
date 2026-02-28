@@ -457,6 +457,157 @@ def _cluster_web_design_istanbul_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_custom_web_development_en(page: SeoPage) -> Dict:
+    """Custom cluster: Custom Web Development — scalable, SEO-ready, performance-driven. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("What Is Custom Web Development?"))
+    body.append(
+        p(
+            "Custom web development refers to building a website or web application from the ground up, tailored specifically to business goals, workflows, and scalability needs."
+        )
+    )
+    body.append(
+        p(
+            "Unlike template-based systems, custom development offers: full architectural control, flexible data modeling, advanced SEO configuration, high performance optimization, integration freedom. It is engineered, not assembled."
+        )
+    )
+    body.append(
+        p(
+            f"For the full service framework, see {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Why Businesses Choose Custom Development"))
+    body.append(h2("Scalability"))
+    body.append(
+        p(
+            "Growing companies require: multi-user role management, CRM integrations, API connections, custom modules, multi-language support. Template systems often limit scalability. Custom architecture supports growth."
+        )
+    )
+    body.append(h2("Technical SEO Advantage"))
+    body.append(
+        p(
+            "Custom web development allows: structured URL hierarchy, advanced internal linking, detailed schema markup, crawl optimization, speed engineering. SEO becomes part of the infrastructure."
+        )
+    )
+    body.append(h2("Performance Optimization"))
+    body.append(
+        p(
+            "Search engines reward speed. Custom-built platforms enable: optimized backend logic, efficient database queries, clean asset loading, Core Web Vitals improvement, mobile-first performance. Performance impacts both ranking and conversions."
+        )
+    )
+
+    body.append(h2("Projects That Benefit from Custom Web Development"))
+    body.append(
+        ul(
+            [
+                "Corporate platforms",
+                "SaaS applications",
+                "Booking systems",
+                "Dashboards",
+                "B2B systems",
+                "Integration-heavy platforms",
+            ]
+        )
+    )
+    body.append(
+        p("When complexity increases, custom architecture becomes necessary.")
+    )
+
+    body.append(h2("Development Process"))
+    body.append(
+        ul(
+            [
+                "Strategy and technical analysis",
+                "Information architecture planning",
+                "UI/UX design",
+                "Backend development (e.g., Django-based systems)",
+                "API and integration setup",
+                "Performance optimization",
+                "QA and launch",
+            ]
+        )
+    )
+    body.append(p("Structured process reduces technical debt."))
+
+    body.append(h2("Security & Data Protection"))
+    body.append(
+        p(
+            "Custom platforms enable: role-based access control, secure authentication flows, HTTPS enforcement, backend hardening, structured data protection. Security is designed into the system."
+        )
+    )
+
+    body.append(h2("Custom Development vs Templates"))
+    body.append(
+        p(
+            "Templates offer speed. Custom development offers control. Control provides: SEO flexibility, performance tuning, integration scalability, long-term adaptability. For competitive industries, control becomes a strategic advantage."
+        )
+    )
+    body.append(
+        p(
+            f"Comparison: {{{{ link:/en/web-design/custom-website-vs-template/ }}}}."
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "Custom web development is not just about building a website. It is about engineering a scalable, secure and SEO-ready digital infrastructure designed for long-term growth."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/corporate-website-development/ }}}}",
+                f"{{{{ link:/en/web-design/django-web-development/ }}}}",
+                f"{{{{ link:/en/web-design/custom-website-vs-template/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your goals and technical requirements; we'll propose a scoped approach for your custom project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What is custom web development?", "Building a website or web application from the ground up, tailored to business goals and scalability needs; not template-based."),
+        ("Why choose custom development?", "Scalability, technical SEO control, performance, and security; long-term flexibility and growth."),
+        ("Which projects benefit?", "Corporate platforms, SaaS, booking systems, dashboards, B2B systems, integration-heavy platforms."),
+        ("How does the process work?", "Strategy, information architecture, UI/UX, backend development, API and integrations, performance, QA and launch."),
+        ("How is security handled?", "Role-based access, secure auth, HTTPS, backend hardening are designed into the architecture."),
+        ("Custom vs templates?", "Templates for speed; custom for control, SEO depth, and long-term adaptability."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Custom Web Development | Scalable & SEO-Ready Solutions"
+    meta_description = (
+        "Scalable, secure and SEO-optimized custom web development tailored for growing businesses and advanced digital platforms."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Custom Web Development — Scalable, Secure & Performance-Driven",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_design_company_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Design Company — professional, SEO-focused, scalable. No pricing triggers."""
     body: List[str] = []
@@ -1562,6 +1713,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-design-company-istanbul":
         return _cluster_web_design_istanbul_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Custom Web Development (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "custom-web-development":
+        return _cluster_custom_web_development_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Web Design Company (EN) — slug: web-development-company
