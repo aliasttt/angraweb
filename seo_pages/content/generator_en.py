@@ -7,7 +7,7 @@ from django.utils import timezone
 
 from ..models import SeoPage
 from ..silo_config import SERVICE_SILO_MAP
-from .utils import MetaPack, cta_box, faq, h2, h3, make_meta, p, ul, word_count_from_html
+from .utils import MetaPack, cta_box, faq, h2, h3, make_meta, p, ul, word_count_from_html, clamp_text
 
 
 def _service_name(page: SeoPage) -> str:
@@ -20,6 +20,170 @@ def _service_base(page: SeoPage) -> str:
 
 def _pillar_url(page: SeoPage) -> str:
     return f"/en/{_service_base(page)}/"
+
+
+def _web_design_pillar_en(page: SeoPage) -> Dict:
+    """Custom SEO pillar content for Web Design (EN) — professional, Istanbul-based, conversion-focused."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "A website today is not just about design. It must be fast, SEO optimized, mobile responsive, and built for conversions. "
+            "At Angraweb, we develop scalable, high-performance websites and custom web applications tailored for modern businesses."
+        )
+    )
+
+    body.append(h2("Why Professional Web Design Matters"))
+    body.append(
+        ul(
+            [
+                "SEO optimized website structure",
+                "Responsive web design",
+                "Core Web Vitals optimization",
+                "Conversion-focused UX design",
+                "Scalable backend architecture",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Google ranks performance, usability, and technical structure — not just visuals."
+        )
+    )
+
+    body.append(h2("Our Web Development Process"))
+    body.append(h3("Strategy & Planning"))
+    body.append(p("Market research, competitor analysis, and conversion mapping."))
+    body.append(h3("UI/UX Design"))
+    body.append(p("User-centered design, intuitive navigation, and brand consistency."))
+    body.append(h3("Custom Web Development"))
+    body.append(
+        ul(
+            [
+                f"Django web development — {{{{ link:/en/web-design/django-web-development/ }}}}",
+                "Secure backend systems",
+                "API integrations",
+                "Custom modules",
+            ]
+        )
+    )
+    body.append(h3("SEO & Performance Optimization"))
+    body.append(
+        ul(
+            [
+                "Technical SEO setup",
+                "Structured data (Schema)",
+                "Speed optimization",
+                "Core Web Vitals improvement",
+            ]
+        )
+    )
+
+    body.append(h2("Types of Websites We Build"))
+    body.append(
+        ul(
+            [
+                "Corporate websites",
+                "E-commerce platforms",
+                "Custom web applications",
+                "Landing pages",
+                "SaaS platforms",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Every successful project starts with defining scope and business goals. "
+            f"See {{{{ link:{_guide_url(page)} }}}} for a practical workflow."
+        )
+    )
+
+    body.append(h2("Istanbul-Based, Globally Focused"))
+    body.append(
+        p(
+            "We are based in Istanbul and work with international clients across Europe and beyond. "
+            "Our focus is performance-driven, SEO-ready web solutions."
+        )
+    )
+    body.append(
+        p(
+            f"Local presence: {{{{ link:/en/web-design/web-design-company-istanbul/ }}}}"
+        )
+    )
+
+    body.append(h2("What Affects Website Development Budget?"))
+    body.append(
+        ul(
+            [
+                "Project scope",
+                "Custom features",
+                "Integration complexity",
+                "SEO requirements",
+                "Timeline",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Request a consultation to get a tailored proposal. "
+            f"Rates: {{{{ link:{_pricing_url(page)} }}}} · {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+
+    body.append(h2("Quick links"))
+    body.append(
+        ul(
+            [
+                f"Rates & scope: {{{{ link:{_pricing_url(page)} }}}}",
+                f"Workflow: {{{{ link:{_guide_url(page)} }}}}",
+                f"Request a quote: {{{{ link:{_quote_url(page)} }}}}",
+            ]
+        )
+    )
+
+    cluster_urls = _cluster_urls_for_service(page)
+    if cluster_urls:
+        body.append(h3("Topics"))
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
+
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Ready to scale your business online? Let's build a high-performance website that converts.",
+            _quote_url(page),
+            "Request a scoped quote.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+
+    faq_pairs = [
+        ("How does the web design process work?", "Discovery, strategy, design, development, QA, and launch — with clear deliverables at each step."),
+        ("What affects delivery timeline?", "Scope, integrations, content readiness, and approval speed. A clear scope keeps timelines predictable."),
+        ("Do you provide post-launch support?", "Yes. We offer maintenance, monitoring, and iterative improvements."),
+        ("What do I need for an initial quote?", "Goals, key pages/features, integrations, and a rough timeline target."),
+        ("Do you work with clients outside Turkey?", "Yes. We work with international clients; communication and delivery are remote-friendly."),
+        ("Why choose Django for web development?", "Django suits projects that need custom modules, roles, integrations, and scale. Secure and maintainable."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Professional Web Design & Custom Development | Istanbul"
+    meta_description = (
+        "Istanbul-based web design and development: fast, SEO-optimized, mobile-responsive sites. "
+        "Core Web Vitals, technical SEO, and conversion-focused UX."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Professional Web Design & Custom Development",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
 
 
 def _pricing_url(page: SeoPage) -> str:
@@ -288,6 +452,8 @@ def generate_en(page: SeoPage) -> Dict:
     seed = f"en:{page.service.key}:{page.page_type}:{page.slug}"
 
     if page.page_type == SeoPage.TYPE_PILLAR:
+        if page.service.key == "web-design":
+            return _web_design_pillar_en(page)
         title = svc
         meta = make_meta(
             title=title,

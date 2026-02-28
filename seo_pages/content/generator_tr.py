@@ -7,7 +7,7 @@ from django.utils import timezone
 
 from ..models import SeoPage
 from ..silo_config import SERVICE_SILO_MAP
-from .utils import MetaPack, cta_box, faq, h2, h3, make_meta, p, ul, word_count_from_html
+from .utils import MetaPack, cta_box, faq, h2, h3, make_meta, p, ul, word_count_from_html, clamp_text
 
 
 def _service_name(page: SeoPage) -> str:
@@ -20,6 +20,305 @@ def _service_base(page: SeoPage) -> str:
 
 def _pillar_url(page: SeoPage) -> str:
     return f"/tr/{_service_base(page)}/"
+
+
+def _web_design_pillar_tr(page: SeoPage) -> Dict:
+    """Custom SEO pillar content for Web Tasarım (TR) — topical authority, internal links, FAQ."""
+    body: List[str] = []
+
+    # H1 is shown in template as page.title
+    body.append(
+        p(
+            "Web tasarım yalnızca \"güzel görünüm\" değildir; performans (Core Web Vitals), teknik SEO, UI/UX, güvenlik ve dönüşüm odaklı yapı "
+            "birlikte çalıştığında gerçek sonuç verir. Angraweb olarak İstanbul'da işletmeler için mobil uyumlu, hızlı ve ölçülebilir web siteleri geliştiriyoruz."
+        )
+    )
+
+    body.append(h2("Genel bakış"))
+    body.append(
+        p(
+            "Bu sayfa, web tasarım hizmetlerimizin kapsamını ve çalışma yaklaşımımızı net bir çerçeveyle sunar. "
+            "Buradaki amaç: doğru beklentiyi kurmak ve projenizi sürpriz revizyonlar yerine ölçülebilir teslim kriterleri ile ilerletmektir."
+        )
+    )
+    body.append(p("Bu sayfadan:"))
+    body.append(
+        ul(
+            [
+                "Hangi yaklaşımın size uygun olduğunu,",
+                "Proje süreci ve teslimatların nasıl planlandığını,",
+                "SEO + performans + UX + güvenlik standartlarını,",
+                "Kapsam ve teklifin nasıl netleştiğini görebilirsiniz.",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Hızlı ilerlemek isterseniz: "
+            f"{{{{ link:{_quote_url(page)} }}}}, "
+            f"{{{{ link:{_pricing_url(page)} }}}} ve "
+            f"{{{{ link:{_guide_url(page)} }}}} bölümlerini kullanın."
+        )
+    )
+
+    body.append(h2("Hangi ihtiyaca hangi yaklaşım uygundur?"))
+    body.append(
+        p(
+            "Başarılı projeler genellikle aynı sırayı takip eder: hedef → kullanıcı → içerik/mimari → tasarım → geliştirme → test → yayın → ölçümleme. "
+            "Aşağıdaki 3 senaryo doğru yaklaşımı seçmenize yardımcı olur."
+        )
+    )
+
+    body.append(h3("1) Kurumsal görünürlük + güven (Kurumsal site)"))
+    body.append(
+        p(
+            "Marka algısı, itibar ve temel lead toplama hedefleniyorsa "
+            f"{{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}} yaklaşımı uygundur. "
+            "Özellikle İstanbul'da hizmet veren işletmelerde; hızlı yüklenen sayfalar, net CTA'lar ve teknik SEO temel fark yaratır. "
+            f"İlgili: {{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}, {{{{ link:/tr/web-tasarim/kurumsal-web-sitesi-yaptirmak/ }}}}"
+        )
+    )
+
+    body.append(h3("2) Ölçek + entegrasyon + özel ihtiyaç (Özel yazılım)"))
+    body.append(
+        p(
+            "CRM/ERP entegrasyonu, özel modüller, rol bazlı yetki, çoklu dil/çoklu şube gibi ihtiyaçlar varsa "
+            f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}} gerekir. "
+            "Bu durumda hazır tema sınırları yerine modüler mimari, API entegrasyonları, güvenlik sertleştirmesi ve sürdürülebilir bakım planı önemlidir. "
+            f"İlgili: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}, {{{{ link:/tr/web-tasarim/django-web-gelistirme/ }}}}"
+        )
+    )
+
+    body.append(h3("3) Bütçe/süre baskısı (Hazır altyapı vs özel geliştirme)"))
+    body.append(
+        p(
+            "Hızlı yayın ve düşük başlangıç bütçesi öncelikse hazır altyapılar mantıklı olabilir; ancak ölçek büyüdükçe sınırlara takılabilirsiniz. "
+            "Bu yüzden karar verirken \"bugün\" değil, 6–12 ay sonraki ihtiyaçları da düşünün."
+        )
+    )
+    body.append(p(f"İlgili: {{{{ link:/tr/web-tasarim/ozel-yazilim-vs-hazir-site/ }}}}"))
+
+    body.append(h2("Süreç ve teslimatlar"))
+    body.append(p("Şeffaf süreç, teslim kalitesini artırır. Bizim standart akışımız:"))
+
+    body.append(h3("1) Keşif & Brief (1–3 gün)"))
+    body.append(
+        ul(
+            [
+                "Hedefler: satış/lead, marka, operasyonel verimlilik",
+                "Kullanıcı profili ve kritik akışlar",
+                "Rakip & referans inceleme",
+                "Kapsam taslağı ve öncelikler",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> Brief özeti + ilk kapsam taslağı"))
+
+    body.append(h3("2) Bilgi mimarisi & içerik planı (3–7 gün)"))
+    body.append(
+        ul(
+            [
+                "Sayfa hiyerarşisi (pillar/cluster)",
+                "Menü, iç bağlantı planı, içerik şablonları",
+                "SEO başlık yapısı (H1/H2), schema planı",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> Sayfa mimarisi + içerik şablonları"))
+
+    body.append(h3("3) UI/UX & Tasarım sistemi (1–2 hafta)"))
+    body.append(
+        ul(
+            [
+                "Responsive tasarım (mobil-first)",
+                "Bileşen kütüphanesi (butonlar, kartlar, formlar)",
+                "Kullanıcı deneyimi: okunabilirlik, görsel hiyerarşi, CTA yerleşimi",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> Tasarım sistemi + ana ekran tasarımları"))
+
+    body.append(h3("4) Geliştirme (1–3 hafta)"))
+    body.append(
+        ul(
+            [
+                "Performans optimizasyonu, görsel optimizasyon, cache stratejileri",
+                "Teknik SEO: meta, canonical, robots, sitemap, schema markup",
+                "Güvenlik: HTTPS, temel sertleştirme, yetkiler",
+                "Formlar: lead toplama, spam koruması",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> Çalışan site + yönetim alanı (gerekiyorsa)"))
+
+    body.append(h3("5) Test & Yayın (2–5 gün)"))
+    body.append(
+        ul(
+            [
+                "Core Web Vitals kontrolü",
+                "Kırık link, yönlendirme, form testleri",
+                "Analytics/etiketleme kontrolü",
+                "Yayın checklist + geri dönüş planı",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> Yayın raporu + kontrol listesi"))
+
+    body.append(h2("Kalite standartları"))
+    body.append(
+        p("Kaliteyi \"hissiyat\" değil, ölçülebilir hedeflerle yönetiyoruz:")
+    )
+    body.append(h3("Performans (Core Web Vitals)"))
+    body.append(p("Hızlı açılış, optimize görseller, doğru cache. Mobilde gerçek kullanıcı deneyimine odak."))
+    body.append(h3("Teknik SEO + Schema"))
+    body.append(
+        p(
+            "SEO uyumlu başlık hiyerarşisi, schema markup (Organization, FAQ, Breadcrumb vb.), iç bağlantı stratejisi (topic cluster)."
+        )
+    )
+    body.append(h3("UI/UX + Erişilebilirlik"))
+    body.append(
+        p(
+            "Mobil uyumlu (responsive). Kontrast, font, buton boyutları. Temel WCAG prensiplerine uyum."
+        )
+    )
+    body.append(h3("Güvenlik + KVKK (genel)"))
+    body.append(
+        p(
+            "HTTPS, güvenli form akışları. Rol/yetki yaklaşımı (varsa yönetim panelinde). Gizlilik politikası & çerez yaklaşımı."
+        )
+    )
+    body.append(h3("Ölçümleme (Analytics)"))
+    body.append(
+        p(
+            "Lead form dönüşümleri, temel event tracking (tıklamalar, CTA). İlk 30 gün iyileştirme listesi."
+        )
+    )
+
+    body.append(h2("Bilgi mimarisi ve iç bağlantı yaklaşımı (Pillar/Cluster)"))
+    body.append(
+        p(
+            "Arama motorları ve kullanıcılar, konuları ilişkilendiren siteleri daha iyi anlar. Bu yüzden: "
+            "<strong>Pillar:</strong> Web tasarım ana çerçevesi (bu sayfa). "
+            "<strong>Cluster:</strong> tek bir soruyu derinlemesine çözen sayfalar. "
+            "Planlı iç link: cluster → pillar, pillar → cluster."
+        )
+    )
+    body.append(p("İlgili konular:"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/web-tasarim/ajans-mi-freelancer-mi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/web-tasarim-freelancer/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/web-tasarim-sirketi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/profesyonel-web-tasarim/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/web-developer-istanbul/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/istanbul/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/django-vs-php/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/django-web-gelistirme/ }}}}",
+            ]
+        )
+    )
+
+    body.append(h2("Teklif & kapsam nasıl netleşir?"))
+    body.append(p("Teklifin doğru çıkması için 1 sayfalık kısa brif yeter:"))
+    body.append(h3("Zorunlu bilgiler"))
+    body.append(
+        ul(
+            [
+                "İş hedefi (lead/satış/marka)",
+                "Hedef kitle ve hizmet bölgesi (İstanbul / Türkiye)",
+                "İstenen sayfalar + kritik akışlar (form, WhatsApp, arama vb.)",
+                "Dil(ler) ve içerik durumu",
+                "Örnek alınan 2–3 referans site",
+            ]
+        )
+    )
+    body.append(h3("Opsiyonel"))
+    body.append(
+        ul(
+            [
+                "Entegrasyon (CRM, ödeme, randevu)",
+                "Blog/rehber planı",
+                "Bakım & destek ihtiyacı",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Hedefinizi 2–3 cümleyle paylaşın; size uygun kapsamı ve planı hızlıca çıkaralım.",
+            _quote_url(page),
+            "Teklif almak için formu doldurun.",
+            strong=True,
+        )
+    )
+    body.append(h3("Neler kazanırsınız"))
+    body.append(
+        ul(
+            [
+                "Mobil uyumlu, hızlı web sitesi (Core Web Vitals odaklı)",
+                "Teknik SEO temeli + schema markup",
+                "Dönüşüm odaklı yapı (CTA + lead toplama)",
+                "Sürdürülebilir bakım yaklaşımı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"İlgili: {{{{ link:{_quote_url(page)} }}}}, "
+            f"{{{{ link:{_pricing_url(page)} }}}}, "
+            f"{{{{ link:{_guide_url(page)} }}}}"
+        )
+    )
+
+    content_html = "\n".join(body)
+
+    faq_pairs = [
+        (
+            "Web tasarım süresi neye göre değişir?",
+            "Kapsam (sayfa sayısı, içerik, entegrasyon) ve onay hızına göre değişir. Net teslim kriterleri süreyi öngörülebilir yapar.",
+        ),
+        (
+            "SEO uyumlu web sitesi tam olarak ne demek?",
+            "Teknik SEO altyapısı (meta, sitemap, schema, hız), doğru içerik mimarisi ve iç link planı demektir.",
+        ),
+        (
+            "Hazır site mi özel yazılım mı seçmeliyim?",
+            "Bütçe/süre kısa ise hazır altyapı; entegrasyon ve ölçek hedefiniz varsa özel yazılım daha uygundur.",
+        ),
+        (
+            "İstanbul'da yerinde görüşme yapıyor musunuz?",
+            "İstanbul içi uygun durumlarda kısa keşif görüşmesi yapılabilir; süreç uzaktan da yönetilebilir.",
+        ),
+        (
+            "Django ile web geliştirme hangi projelerde mantıklı?",
+            "Özel modül, kullanıcı rolleri, entegrasyon ve ölçek ihtiyacı olan projelerde güçlü bir seçenektir.",
+        ),
+        (
+            "Yayından sonra bakım ve destek var mı?",
+            "Evet. Güncelleme, güvenlik, performans ve küçük iyileştirmeler için bakım modeli sunulur.",
+        ),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Web Tasarım (İstanbul) | SEO Uyumlu, Hızlı ve Dönüşüm Odaklı"
+    meta_description = (
+        "İstanbul merkezli web tasarım ve geliştirme: mobil uyumlu, Core Web Vitals odaklı, "
+        "teknik SEO + UI/UX ile dönüşüm getiren web siteleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Tasarım — Genel Bakış",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
 
 
 def _pricing_url(page: SeoPage) -> str:
@@ -270,6 +569,8 @@ def generate_tr(page: SeoPage) -> Dict:
     seed = f"tr:{page.service.key}:{page.page_type}:{page.slug}"
 
     if page.page_type == SeoPage.TYPE_PILLAR:
+        if page.service.key == "web-design":
+            return _web_design_pillar_tr(page)
         title = f"{svc}"
         meta = make_meta(
             title=title,

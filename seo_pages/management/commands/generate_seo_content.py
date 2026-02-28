@@ -12,6 +12,7 @@ from ...content.generator_en import generate_en
 from ...content.generator_tr import generate_tr
 from ...content.utils import word_count_from_html
 from ...models import SeoPage
+from ...templatetags.seo_pages_tags import _render_content_placeholders
 
 
 PLACEHOLDER_RE = re.compile(r"\{\{\s*link:([^\}]+)\s*\}\}")
@@ -27,15 +28,23 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument("--language", choices=["tr", "en", "all"], default="all")
         parser.add_argument("--force", action="store_true", help="Regenerate even if content_html is not empty.")
+        parser.add_argument("--service", type=str, default=None, help="Only regenerate pages for this service key (e.g. web-design).")
+        parser.add_argument("--page-type", type=str, default=None, help="Only regenerate this page type (e.g. pillar).")
 
     @transaction.atomic
     def handle(self, *args, **options):
         lang = options["language"]
         force = options["force"]
+        service_key = options.get("service")
+        page_type = options.get("page_type")
 
         qs = SeoPage.objects.select_related("service").order_by("language", "service__key", "page_type", "slug")
         if lang in ("tr", "en"):
             qs = qs.filter(language=lang)
+        if service_key:
+            qs = qs.filter(service__key=service_key)
+        if page_type:
+            qs = qs.filter(page_type=page_type)
         if not force:
             qs = qs.filter(content_html="")
 
@@ -64,7 +73,12 @@ class Command(BaseCommand):
             page.title = data["title"]
             page.meta_title = data["meta_title"]
             page.meta_description = data["meta_description"]
-            page.content_html = data["content_html"]
+            content_html = data["content_html"]
+            # Replace link placeholders with <a> tags so validation (no placeholders in DB) passes
+            if PLACEHOLDER_RE.search(content_html):
+                page.content_html = content_html
+                content_html = _render_content_placeholders({"request": None}, page)
+            page.content_html = content_html
             page.faq_json = data["faq_json"]
             page.published_at = data.get("published_at") or now
             page.is_indexable = True
@@ -76,7 +90,8 @@ class Command(BaseCommand):
             wc = word_count_from_html(page.content_html)
             wc_by_lang_type[(page.language, page.page_type)].append(wc)
 
-            outs = _extract_placeholders(page.content_html)
+            # Count placeholders from original generated content (before replacement)
+            outs = _extract_placeholders(data["content_html"])
             placeholder_out_counts[(page.language, page.page_type)] += len(outs)
             for u in outs:
                 inbound_counts[u] += 1
