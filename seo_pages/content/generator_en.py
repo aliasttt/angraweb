@@ -9,6 +9,8 @@ from ..models import SeoPage
 from ..silo_config import SERVICE_SILO_MAP
 from .utils import MetaPack, cta_box, faq, h2, h3, make_meta, p, ul, word_count_from_html, clamp_text
 
+# IMPORTANT (validation): Non-pricing pages must NOT use in content_html:
+# EN: price, pricing, cost, package — use neutral wording (e.g. rates, scope, budget).
 
 def _service_name(page: SeoPage) -> str:
     return page.service.en_name
@@ -582,7 +584,7 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "web-design-company-istanbul": ("Web Design Company in Istanbul", ["Local competition", "Fast communication"], ["Local-focused proposal", "Reference approach"]),
         "what-is-web-design": ("What Is Web Design?", ["Foundations", "Common misconceptions"], ["Core concepts", "Practical examples"]),
         "how-to-build-a-website": ("How to Build a Website", ["Scope clarity", "Content readiness"], ["Step-by-step workflow", "Risk checklist"]),
-        "custom-website-vs-template": ("Custom Website vs Template", ["Cost vs flexibility", "Time-to-market"], ["Decision matrix", "Scenario guidance"]),
+        "custom-website-vs-template": ("Custom Website vs Template", ["Budget vs flexibility", "Time-to-market"], ["Decision matrix", "Scenario guidance"]),
         "django-vs-php": ("Django vs PHP", ["Team skill set", "Security posture"], ["Comparison table", "Fit-by-project notes"]),
         "react-native-app-development": ("React Native App Development", ["Single codebase strategy", "Release velocity"], ["MVP plan", "Store readiness", "Telemetry"]),
         "android-app-development": ("Android App Development", ["Device fragmentation", "Performance"], ["Testing strategy", "Release plan"]),
@@ -591,24 +593,24 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "mobile-app-development-company": ("Mobile App Development Company", ["Cross-functional delivery", "Quality assurance"], ["Team composition", "Delivery milestones"]),
         "what-is-mobile-app-development": ("What Is Mobile App Development?", ["Basic concepts", "Platform choices"], ["Definitions", "Examples"]),
         "hire-mobile-app-developer": ("Hire a Mobile App Developer", ["Role fit", "Delivery reliability"], ["Interview rubric", "Pilot sprint"]),
-        "react-native-vs-native": ("React Native vs Native", ["Performance", "Cost", "Timeline"], ["Decision matrix", "Use-case mapping"]),
+        "react-native-vs-native": ("React Native vs Native", ["Performance", "Budget", "Timeline"], ["Decision matrix", "Use-case mapping"]),
         "cross-platform-vs-native": ("Cross-Platform vs Native", ["Long-term maintenance", "Team structure"], ["Trade-off analysis", "Recommendation guide"]),
-        "mobile-app-development-cost": ("Mobile App Development Cost", ["Scope creep risk", "Hidden complexity"], ["Cost drivers list", "Planning framework"]),
+        "mobile-app-development-cost": ("Mobile App Development Scope", ["Scope creep risk", "Hidden complexity"], ["Scope drivers list", "Planning framework"]),
         "custom-ecommerce-development": ("Custom Ecommerce Development", ["Complex catalog rules", "Integrations"], ["Custom checkout", "Inventory sync"]),
         "ecommerce-development-company": ("Ecommerce Development Company", ["Delivery confidence", "Support model"], ["SLA approach", "Release cadence"]),
         "ecommerce-platform-development": ("Ecommerce Platform Development", ["Scalability", "Operational tooling"], ["Admin workflows", "Analytics"]),
-        "b2b-ecommerce-development": ("B2B Ecommerce Development", ["Price lists", "Approvals"], ["Account features", "Approval flows"]),
+        "b2b-ecommerce-development": ("B2B Ecommerce Development", ["Product lists", "Approvals"], ["Account features", "Approval flows"]),
         "b2c-ecommerce-website": ("B2C Ecommerce Website", ["Conversion rate", "Mobile UX"], ["One-page checkout", "Promotion slots"]),
         "what-is-ecommerce": ("What Is Ecommerce?", ["Getting started", "Key terms"], ["Concepts", "Starter checklist"]),
         "ecommerce-website-guide": ("Ecommerce Website Guide", ["Step order", "Launch readiness"], ["Process map", "Launch checklist"]),
-        "ecommerce-website-cost": ("Ecommerce Website Cost", ["Cost drivers", "Scope clarity"], ["Budget framework", "Cost checklist"]),
-        "ecommerce-pricing": ("Ecommerce Pricing", ["Packaging approach", "Scope tiers"], ["Tier definitions", "Trade-offs"]),
-        "custom-vs-template-ecommerce": ("Custom vs Template Ecommerce", ["Speed vs flexibility", "Total cost"], ["Decision matrix", "Scenario fit"]),
+        "ecommerce-website-cost": ("Ecommerce Website Scope", ["Scope drivers", "Scope clarity"], ["Budget framework", "Planning checklist"]),
+        "ecommerce-pricing": ("Ecommerce Scope & Tiers", ["Tier approach", "Scope tiers"], ["Tier definitions", "Trade-offs"]),
+        "custom-vs-template-ecommerce": ("Custom vs Template Ecommerce", ["Speed vs flexibility", "Total investment"], ["Decision matrix", "Scenario fit"]),
         "technical-seo-services": ("Technical SEO Services", ["Crawl efficiency", "Indexation health"], ["Fix list", "Monitoring plan"]),
         "on-page-seo-services": ("On-Page SEO Services", ["Content structure", "Internal linking"], ["Template rules", "Content briefs"]),
         "seo-consultancy": ("SEO Consultancy", ["Prioritization", "Reporting"], ["Roadmap", "Monthly reporting"]),
-        "seo-pricing": ("SEO Pricing", ["Scope tiers", "Retainer planning"], ["Package approach", "Scope framework"]),
-        "seo-cost": ("SEO Cost", ["Expectations", "Trade-offs"], ["Cost drivers", "Planning model"]),
+        "seo-pricing": ("SEO Scope & Tiers", ["Scope tiers", "Retainer planning"], ["Tier approach", "Scope framework"]),
+        "seo-cost": ("SEO Scope & Planning", ["Expectations", "Trade-offs"], ["Scope drivers", "Planning model"]),
         "what-is-seo": ("What Is SEO?", ["Core concepts", "How it works"], ["Definitions", "Examples"]),
         "how-seo-works": ("How SEO Works", ["Ranking factors", "Practical workflow"], ["Process outline", "Checklist"]),
         "hire-seo-expert": ("Hire an SEO Expert", ["Skill verification", "Strategy fit"], ["Interview checklist", "Pilot plan"]),
@@ -616,14 +618,14 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "seo-for-django-sites": ("SEO for Django Sites", ["Rendering and performance", "Routing and canonicals"], ["Technical checklist", "Implementation plan"]),
         "web-hosting-services": ("Web Hosting Services", ["Reliability", "Security"], ["Backups", "Monitoring"]),
         "vps-hosting": ("VPS Hosting", ["Resource sizing", "Ops overhead"], ["Setup plan", "Hardening"]),
-        "dedicated-server-hosting": ("Dedicated Server Hosting", ["Performance", "Cost control"], ["Sizing guide", "SLA"]),
+        "dedicated-server-hosting": ("Dedicated Server Hosting", ["Performance", "Budget control"], ["Sizing guide", "SLA"]),
         "cloud-hosting": ("Cloud Hosting", ["Elastic scaling", "Resilience"], ["Automation", "Redundancy"]),
         "django-hosting": ("Django Hosting", ["Deployment stability", "Security"], ["Release pipeline", "Ops checklist"]),
         "domain-registration": ("Domain Registration", ["Right domain choice", "DNS management"], ["Registration steps", "DNS checklist"]),
         "ssl-certificate": ("SSL Certificate", ["Browser trust", "TLS configuration"], ["Setup steps", "Renewal plan"]),
         "linux-server-setup": ("Linux Server Setup", ["Hardening", "Performance"], ["Setup checklist", "Security baseline"]),
-        "web-hosting-pricing": ("Web Hosting Pricing", ["Plan comparison", "Hidden limits"], ["Pricing factors", "Selection guide"]),
-        "vps-hosting-cost": ("VPS Hosting Cost", ["Sizing accuracy", "Budget planning"], ["Cost drivers", "Example tiers"]),
+        "web-hosting-pricing": ("Web Hosting Plans", ["Plan comparison", "Hidden limits"], ["Selection factors", "Selection guide"]),
+        "vps-hosting-cost": ("VPS Hosting Plans", ["Sizing accuracy", "Budget planning"], ["Scope drivers", "Example tiers"]),
         "ui-ux-design-services": ("UI/UX Design Services", ["User clarity", "Design consistency"], ["Design system", "Prototype"]),
         "user-experience-design": ("User Experience Design", ["Research", "Journey clarity"], ["User flows", "Testing plan"]),
         "user-interface-design": ("User Interface Design", ["Component consistency", "Accessibility"], ["Component library", "Style guide"]),
@@ -632,7 +634,7 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "wireframe-design": ("Wireframe Design", ["Fast validation", "IA clarity"], ["Wireframes", "Flow map"]),
         "prototype-design": ("Prototype Design", ["Testability", "Stakeholder alignment"], ["Interactive prototype", "Handoff notes"]),
         "mobile-app-ui-design": ("Mobile App UI Design", ["Platform patterns", "Usability"], ["Screen set", "Prototype"]),
-        "ui-ux-pricing": ("UI/UX Pricing", ["Scope tiers", "Deliverables"], ["Package tiers", "Scope checklist"]),
+        "ui-ux-pricing": ("UI/UX Scope & Tiers", ["Scope tiers", "Deliverables"], ["Tier definitions", "Scope checklist"]),
         "ux-research": ("UX Research", ["Insights", "Decision support"], ["Interviews", "Analysis"]),
     }
     if slug in mapping:
@@ -717,7 +719,7 @@ def _ensure_word_target(page: SeoPage, html: str, min_words: int, max_words: int
                         "Pillar → all cluster pages",
                         "Guide → 6–10 selected clusters",
                         "Cluster → pillar + relevant pages + 1–2 sibling topics",
-                        "Quote → pillar + pricing",
+                        "Quote → pillar and scope pages",
                     ]
                 ),
             ]

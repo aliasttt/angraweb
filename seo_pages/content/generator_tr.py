@@ -9,6 +9,8 @@ from ..models import SeoPage
 from ..silo_config import SERVICE_SILO_MAP
 from .utils import MetaPack, cta_box, faq, h2, h3, make_meta, p, ul, word_count_from_html, clamp_text
 
+# IMPORTANT (validation): Non-pricing pages must NOT use in content_html:
+# TR: fiyat, maliyet, ücret, paket — use neutral wording (e.g. bütçe, kapsam, tarife sayfası → kapsam sayfası).
 
 def _service_name(page: SeoPage) -> str:
     return page.service.tr_name
@@ -779,7 +781,7 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "web-tasarim-sirketi": ("Web Tasarım Şirketi", ["Süreç şeffaflığı", "İletişim", "Kalite güvencesi"], ["SLA yaklaşımı", "Sprint planı", "Dokümantasyon"]),
         "web-tasarim-freelancer": ("Freelancer ile Çalışma", ["Tek kişiye bağımlılık", "Teslim süreleri", "Bakım riski"], ["Risk azaltma kontrol listesi", "Sözleşme kalemleri"]),
         "web-developer-istanbul": ("İstanbul Web Geliştirici", ["Teknik yetkinlik doğrulama", "Referans değerlendirme"], ["Değerlendirme kriterleri", "Örnek teslim süreçleri"]),
-        "ozel-yazilim-vs-hazir-site": ("Özel Yazılım mı Hazır Site mi?", ["Maliyet/kapsam dengesi", "Ölçek", "Özelleştirme"], ["Karar matrisi", "Kullanım senaryoları"]),
+        "ozel-yazilim-vs-hazir-site": ("Özel Yazılım mı Hazır Site mi?", ["Bütçe/kapsam dengesi", "Ölçek", "Özelleştirme"], ["Karar matrisi", "Kullanım senaryoları"]),
         "django-vs-php": ("Django ve PHP Karşılaştırması", ["Ekip yetkinliği", "Güvenlik yaklaşımı", "Geliştirme hızı"], ["Karşılaştırma tablosu", "Proje türüne göre öneri"]),
         "ajans-mi-freelancer-mi": ("Ajans mı Freelancer mı?", ["Süreklilik", "Uzmanlık çeşitliliği", "Bütçe"], ["Seçim kriterleri", "Sözleşme kontrol listesi"]),
         # mobile
@@ -796,13 +798,13 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "e-ticaret-sitesi": ("E‑Ticaret Sitesi", ["Dönüşüm oranı", "Sepet terk", "Ödeme güveni"], ["Katalog yapısı", "Ödeme entegrasyonu", "Kargo akışı"]),
         "e-ticaret-yazilimi": ("E‑Ticaret Yazılımı", ["Altyapı seçimi", "Entegrasyonlar"], ["ERP/CRM entegrasyonu", "Stok/sipariş yönetimi"]),
         "ozel-e-ticaret-yazilimi": ("Özel E‑Ticaret Yazılımı", ["Ölçek", "Özel kurallar"], ["Özel kampanya motoru", "B2B özellikleri"]),
-        "b2b": ("B2B E‑Ticaret", ["Fiyat listeleri", "Teklif akışı"], ["Cari hesap", "Onay akışları"]),
+        "b2b": ("B2B E‑Ticaret", ["Teklif listeleri", "Teklif akışı"], ["Cari hesap", "Onay akışları"]),
         "b2c": ("B2C E‑Ticaret", ["Hızlı ödeme", "Mobil deneyim"], ["Tek sayfa ödeme", "Kampanya alanları"]),
         "e-ticaret-yazilim-firmasi": ("E‑Ticaret Yazılım Firması", ["Süreç", "Destek"], ["SLA", "Bakım planı"]),
         "e-ticaret-sitesi-yaptirmak": ("E‑Ticaret Sitesi Yaptırmak", ["Kapsam", "Bütçe"], ["Planlama şablonu", "Teslim kriterleri"]),
         "e-ticaret-nedir": ("E‑Ticaret Nedir?", ["Başlangıç adımları"], ["Kavramlar", "Başlangıç kontrol listesi"]),
         "e-ticaret-sitesi-nasil-kurulur": ("E‑Ticaret Sitesi Nasıl Kurulur?", ["Doğru adımlar", "Yayın öncesi kontroller"], ["Kurulum rehberi", "Örnek yol haritası"]),
-        "ozel-yazilim-vs-hazir-altyapi": ("Özel Yazılım mı Hazır Altyapı mı?", ["Maliyet", "Esneklik"], ["Karar matrisi", "Senaryolar"]),
+        "ozel-yazilim-vs-hazir-altyapi": ("Özel Yazılım mı Hazır Altyapı mı?", ["Bütçe", "Esneklik"], ["Karar matrisi", "Senaryolar"]),
         # seo
         "seo-danismanligi": ("SEO Danışmanlığı", ["Önceliklendirme", "Takip ve raporlama"], ["Yol haritası", "Aylık rapor"]),
         "teknik-seo": ("Teknik SEO", ["Tarama ve dizine ekleme", "Performans"], ["Logik düzeltmeler", "CWV iyileştirme"]),
@@ -816,14 +818,14 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         # hosting
         "hosting-hizmeti": ("Hosting Hizmeti", ["Kesintisizlik", "Güvenlik"], ["Yedekleme", "İzleme"]),
         "vps-hosting": ("VPS Hosting", ["Kaynak planlama", "Yönetim"], ["Kurulum", "Güvenlik sertleştirme"]),
-        "ozel-sunucu-kiralama": ("Özel Sunucu Kiralama", ["Performans", "Maliyet"], ["Donanım seçimi", "SLA"]),
+        "ozel-sunucu-kiralama": ("Özel Sunucu Kiralama", ["Performans", "Bütçe"], ["Donanım seçimi", "SLA"]),
         "bulut-sunucu": ("Bulut Sunucu", ["Ölçeklenebilirlik"], ["Otomasyon", "Yedeklilik"]),
         "django-deployment": ("Django Yayınlama", ["Sürümleme", "Güvenlik"], ["CI/CD", "Nginx/WSGI ayarları"]),
         "domain-satin-al": ("Domain Satın Alma", ["Doğru alan adı", "Yönetim"], ["Kayıt ve yönlendirme"]),
         "ssl-sertifikasi": ("SSL Sertifikası", ["Güven", "Tarayıcı uyumu"], ["Kurulum", "Yenileme planı"]),
         "linux-sunucu-kurulumu": ("Linux Sunucu Kurulumu", ["Güvenlik", "Performans"], ["Kurulum adımları", "Sertleştirme"]),
-        "web-hosting-fiyatlari": ("Web Hosting Fiyatları", ["Kaynak/performans dengesi"], ["Paket karşılaştırması"]),
-        "vps-fiyatlari": ("VPS Fiyatları", ["Kaynak seçimi"], ["Örnek planlar"]),
+        "web-hosting-fiyatlari": ("Web Hosting Planları", ["Kaynak/performans dengesi"], ["Plan karşılaştırması"]),
+        "vps-fiyatlari": ("VPS Planları", ["Kaynak seçimi"], ["Örnek planlar"]),
         # ui/ux
         "ui-ux-nedir": ("UI/UX Nedir?", ["Temel kavramlar"], ["Kısa rehber", "Örnekler"]),
         "kullanici-deneyimi-tasarimi": ("Kullanıcı Deneyimi Tasarımı", ["Araştırma", "Akışlar"], ["Kullanıcı akışları", "Test planı"]),
@@ -834,7 +836,7 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "figma-tasarim": ("Figma Tasarım", ["Ortak çalışma"], ["Bileşen kütüphanesi"]),
         "wireframe-tasarimi": ("Wireframe Tasarımı", ["Hızlı doğrulama"], ["Akış ve iskelet"]),
         "prototype-tasarimi": ("Prototip Tasarımı", ["Test edilebilirlik"], ["Etkileşimli prototip"]),
-        "ui-ux-tasarim-fiyatlari": ("UI/UX Tasarım Fiyatları", ["Kapsam", "Teslimatlar"], ["Paket yaklaşımı"]),
+        "ui-ux-tasarim-fiyatlari": ("UI/UX Tasarım Kapsamı", ["Kapsam", "Teslimatlar"], ["Plan yaklaşımı"]),
     }
 
     if slug in mapping:
@@ -880,7 +882,7 @@ def _base_sections_tr(page: SeoPage, seed: str) -> List[str]:
     blocks.append(
         p(
             "Başarılı projeler genellikle aynı çerçeveyi takip eder: hedef → kullanıcı → içerik/mimari → tasarım → geliştirme → test → yayın. "
-            "Bu sırayı korumak, maliyet ve süre yönetimini de doğrudan kolaylaştırır."
+            "Bu sırayı korumak, bütçe ve süre yönetimini de doğrudan kolaylaştırır."
         )
     )
     blocks.append(
@@ -1454,7 +1456,7 @@ def _ensure_word_target(page: SeoPage, html: str, min_words: int, max_words: int
                         "Pillar → tüm cluster sayfaları",
                         "Guide → seçili 6–10 cluster",
                         "Cluster → pillar + ilgili sayfalar + 1–2 kardeş konu",
-                        "Quote → pillar + fiyat sayfası",
+                        "Quote → pillar ve kapsam sayfaları",
                     ]
                 ),
             ]
@@ -1493,7 +1495,7 @@ def _ensure_word_target(page: SeoPage, html: str, min_words: int, max_words: int
                 ),
                 p(
                     "Sürdürülebilirlik için; erişim yetkileri, yedekleme yaklaşımı, performans ölçümü ve düzenli bakım adımları belirlenmelidir. "
-                    "Bu yaklaşım ileride oluşabilecek maliyetli acil durumları azaltır."
+                    "Bu yaklaşım ileride oluşabilecek zorlu acil durumları azaltır."
                 ),
                 ul(
                     [
