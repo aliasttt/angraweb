@@ -936,6 +936,164 @@ def _cluster_django_vs_php_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_django_web_gelistirme_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Django ile Web Geliştirme — technical authority, SEO-focused. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Giriş: Backend Mimarisi Neden Kritik?"))
+    body.append(
+        p(
+            "Modern web projelerinde yalnızca tasarım yeterli değildir. "
+            "Google'ın değerlendirdiği kriterler: URL yapısı, crawl verimliliği, sunucu yanıt süresi, Core Web Vitals, iç bağlantı yapısı, schema bütünlüğü. "
+            "Bu kriterlerin büyük bölümü backend mimarisi ile ilgilidir."
+        )
+    )
+    body.append(
+        p(
+            "Django ile web geliştirme; teknik SEO ve performans gereksinimlerini karşılamak için güçlü bir temel sunar. "
+            f"Genel çerçeve için {{{{ link:{_pillar_url(page)} }}}} sayfasına bakabilirsiniz."
+        )
+    )
+
+    body.append(h2("Django Neyi Farklı Yapıyor?"))
+    body.append(
+        p(
+            "Django, Python tabanlı ve katmanlı mimariyi zorunlu kılan bir framework'tür."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Modüler uygulama yapısı",
+                "ORM ile optimize veritabanı sorguları",
+                "Net URL routing kontrolü",
+                "Dahili admin panel",
+                "Middleware tabanlı istek yönetimi",
+                "Güvenli kimlik doğrulama sistemi",
+            ]
+        )
+    )
+    body.append(
+        p("Bu yapı, düzensiz kod ve teknik borç oluşumunu azaltır.")
+    )
+
+    body.append(h2("Teknik SEO Açısından Django"))
+    body.append(
+        p("Çoğu web sitesi SEO'da mimari hatalar nedeniyle kaybeder. Django ile:")
+    )
+    body.append(
+        ul(
+            [
+                "SEO uyumlu URL yapısı: anahtar kelime odaklı ve hiyerarşik URL kontrolü mümkündür.",
+                "Crawl budget optimizasyonu: verimli sorgular ve temiz routing ile gereksiz crawl yükü azaltılır.",
+                "Dinamik sitemap yönetimi: binlerce URL içeren projelerde ölçeklenebilir sitemap üretilebilir.",
+                "Canonical ve hreflang kontrolü: çok dilli projelerde hassas SEO yönetimi sağlanır.",
+                "Server-side rendering avantajı: içerik arama motorları tarafından tam olarak algılanır.",
+                "Schema markup otomasyonu: içerik modeline göre dinamik yapılandırılmış veri üretilebilir.",
+            ]
+        )
+    )
+
+    body.append(h2("Performans ve Core Web Vitals"))
+    body.append(
+        p(
+            "Google sıralamasında hız kritik rol oynar. Django projelerinde: sorgu optimizasyonu, cache stratejileri, minimal template yapısı, backend seviyesinde performans ayarı yapılabilir. "
+            "Performans sorunları daha hızlı tespit edilir ve çözülür."
+        )
+    )
+
+    body.append(h2("Güvenlik ve Uzun Vadeli SEO"))
+    body.append(
+        p(
+            "Güvenlik açıkları SEO'yu doğrudan etkiler. Django: CSRF koruması, XSS önleme, SQL injection koruma, güvenli oturum yönetimi gibi mekanizmaları varsayılan olarak sunar. "
+            "Bu da domain otoritesinin korunmasına katkı sağlar."
+        )
+    )
+
+    body.append(h2("Ölçeklenebilirlik"))
+    body.append(
+        p(
+            "Django: API-first mimari, çoklu dil sistemleri, rol bazlı yetkilendirme, CRM/ERP entegrasyonu, mikroservis genişletilebilirliği gibi büyüme senaryolarına uygundur."
+        )
+    )
+
+    body.append(h2("Hangi Projelerde Django Mantıklı?"))
+    body.append(
+        ul(
+            [
+                "Kurumsal web siteleri",
+                "SEO odaklı içerik platformları",
+                "Özel yazılım projeleri",
+                "SaaS sistemleri",
+                "Entegrasyon gerektiren platformlar",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"Özel yazılım web sitesi: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}. "
+            f"Django ve PHP karşılaştırması: {{{{ link:/tr/web-tasarim/django-vs-php/ }}}}."
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Django ile web geliştirme; performans, güvenlik ve teknik SEO kontrolü açısından güçlü bir altyapı sunar. "
+            "Uzun vadeli dijital büyüme hedefleyen işletmeler için backend mimarisi stratejik bir karardır."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/django-vs-php/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Django ile projenizin kapsamını netleştirmek için hedeflerinizi paylaşın; size uygun mimari önerisini sunalım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Django ile web geliştirme ne zaman tercih edilmeli?", "Teknik SEO, ölçeklenebilirlik, özel mantık ve güvenlik öncelikli projelerde Django güçlü bir seçenektir."),
+        ("Django SEO açısından avantaj sağlar mı?", "Evet. URL kontrolü, sitemap, canonical/hreflang ve schema markup backend seviyesinde yönetilebilir."),
+        ("Performans için Django nasıl kullanılır?", "Sorgu optimizasyonu, cache stratejileri ve backend ayarları ile Core Web Vitals hedeflenebilir."),
+        ("Güvenlik Django'da nasıl?", "CSRF, XSS, SQL injection ve oturum güvenliği varsayılan mekanizmalarla sunulur."),
+        ("Hangi projeler Django'ya uygun?", "Kurumsal site, içerik platformu, SaaS, entegrasyon ağırlıklı projeler Django ile uyumludur."),
+        ("Teklif almak için ne gerekli?", "Hedef, kapsam ve teknik gereksinimlerinizi paylaşmanız yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Django ile Web Geliştirme | Ölçeklenebilir ve SEO Uyumlu Sistemler"
+    meta_description = (
+        "Django ile web geliştirme: teknik SEO altyapısı, performans optimizasyonu ve güvenli mimari ile sürdürülebilir dijital büyüme."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Django ile Web Geliştirme — Ölçeklenebilir ve SEO Odaklı Mimari",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _pricing_url(page: SeoPage) -> str:
     return f"/tr/{_service_base(page)}/fiyatlar/"
 
@@ -1493,6 +1651,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "django-vs-php":
         return _cluster_django_vs_php_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Django ile Web Geliştirme (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "django-web-gelistirme":
+        return _cluster_django_web_gelistirme_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
