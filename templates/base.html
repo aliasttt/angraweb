@@ -177,7 +177,6 @@
                             {% trans "Services" %}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{% url 'services_list' %}">{% trans "All Services" %}</a></li>
                             {% get_current_language as CURRENT_LANGUAGE %}
                             <li><a class="dropdown-item" href="{% silo_url CURRENT_LANGUAGE 'web-design' 'pillar' %}">{% trans "Web Design" %}</a></li>
                             <li><a class="dropdown-item" href="{% silo_url CURRENT_LANGUAGE 'mobile-app-development' 'pillar' %}">{% trans "Mobile App Design" %}</a></li>
@@ -304,7 +303,7 @@
                         <li><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
                         <li><a href="{% url 'packages_list' %}">{% trans "Packages" %}</a></li>
                         <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>
-                        <li><a href="{% url 'services_list' %}">{% trans "Services" %}</a></li>
+                        <li><a href="{% url 'web_design' %}">{% trans "Services" %}</a></li>
                         <li><a href="{% url 'projects_list' %}">{% trans "Projects" %}</a></li>
                         <li><a href="{% url 'resume' %}">{% trans "Resume" %}</a></li>
                         <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>

@@ -71,7 +71,6 @@ class Command(BaseCommand):
             base + '/packages/',
             base + '/contact/',
             base + '/about/',
-            base + '/services/',
             base + '/web-design/',
             base + '/quote/',
         ]
@@ -118,7 +117,7 @@ class Command(BaseCommand):
                 referrer='https://www.google.com/' if i % 2 else '',
                 consent=True,
             )
-            urls = [base + p for p in ['/', '/packages/', '/contact/', '/about/', '/services/']]
+            urls = [base + p for p in ['/', '/packages/', '/contact/', '/about/']]
             for u in urls[: random.randint(2, 5)]:
                 occurred = timezone.now() - timedelta(hours=random.randint(0, 48))
                 InsightEvent.objects.create(

@@ -90,16 +90,6 @@ def index(request):
     return render(request, 'main/index.html', context)
 
 
-def services_list(request):
-    """لیست خدمات"""
-    services = Service.objects.filter(active=True).order_by('order')
-    context = {
-        'services': services,
-    }
-    context.update(get_language_context(request))
-    return render(request, 'main/services.html', context)
-
-
 def service_detail(request, slug):
     """جزئیات یک خدمت"""
     service = get_object_or_404(Service, slug=slug, active=True)
@@ -749,7 +739,6 @@ def sitemap_xml(request):
         ('/about/', 'monthly', '0.9'),
         ('/contact/', 'monthly', '0.9'),
         ('/resume/', 'monthly', '0.8'),
-        ('/services/', 'weekly', '0.9'),
         ('/packages/', 'weekly', '0.9'),
         ('/packages/compare/', 'monthly', '0.7'),
         ('/projects/', 'weekly', '0.9'),

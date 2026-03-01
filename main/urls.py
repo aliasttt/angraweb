@@ -7,7 +7,6 @@ urlpatterns = [
     path('index.html', partial(views._redirect_to_name, view_name='index')),
     path('about.html', partial(views._redirect_to_name, view_name='about')),
     path('contact.html', partial(views._redirect_to_name, view_name='contact')),
-    path('services.html', partial(views._redirect_to_name, view_name='services_list')),
     path('packages.html', partial(views._redirect_to_name, view_name='packages_list')),
     path('projects.html', partial(views._redirect_to_name, view_name='projects_list')),
     path('resume.html', partial(views._redirect_to_name, view_name='resume')),
@@ -17,8 +16,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('resume/', views.resume, name='resume'),
     
-    # Services
-    path('services/', views.services_list, name='services_list'),
+    # Services (individual pages only; "All Services" page removed)
     path('service/<slug:slug>/', views.service_detail, name='service_detail'),
     path('web-design/', views.web_design, name='web_design'),
     path('mobile-app/', views.mobile_app, name='mobile_app'),

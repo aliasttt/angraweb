@@ -74,9 +74,9 @@ class LanguageSwitchTest(TestCase):
         self.assertTrue(response['Location'].endswith('/tr/contact/'), msg=response['Location'])
 
     def test_switch_with_path_only_next(self):
-        response = self.client.get('/lang/en/', {'next': '/tr/services/'}, follow=False)
+        response = self.client.get('/lang/en/', {'next': '/tr/packages/'}, follow=False)
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(response['Location'].endswith('/en/services/'), msg=response['Location'])
+        self.assertTrue(response['Location'].endswith('/en/packages/'), msg=response['Location'])
 
     def test_invalid_lang_redirects_to_root(self):
         response = self.client.get('/lang/xx/', follow=False)
@@ -88,16 +88,16 @@ class I18nSEOTest(TestCase):
     """Verify canonical, hreflang, sitemap and that admin is not broken."""
 
     def test_tr_page_has_canonical_pointing_to_tr(self):
-        response = self.client.get('/tr/services/')
+        response = self.client.get('/tr/packages/')
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'rel="canonical"')
-        self.assertContains(response, '/tr/services/')
+        self.assertContains(response, '/tr/packages/')
 
     def test_en_page_has_canonical_pointing_to_en(self):
-        response = self.client.get('/en/services/')
+        response = self.client.get('/en/packages/')
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'rel="canonical"')
-        self.assertContains(response, '/en/services/')
+        self.assertContains(response, '/en/packages/')
 
     def test_tr_page_has_hreflang_tr_en_xdefault(self):
         response = self.client.get('/tr/about/')
