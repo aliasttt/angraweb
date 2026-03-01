@@ -929,6 +929,215 @@ def _cluster_hire_web_developer_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_professional_web_design_en(page: SeoPage) -> Dict:
+    """Custom cluster: Professional Web Design — SEO, performance, conversion. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("What Is Professional Web Design?"))
+    body.append(
+        p(
+            "Professional web design is more than visual design. It integrates: technical SEO, performance optimization, responsive architecture, security, conversion strategy. A modern website must be engineered for search visibility and business growth."
+        )
+    )
+    body.append(
+        p(
+            f"Full framework: {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Why It Matters"))
+    body.append(
+        p(
+            "Search engines evaluate: Core Web Vitals, page speed, mobile responsiveness, internal linking structure, technical SEO foundation. Without professional architecture, competitive rankings are difficult."
+        )
+    )
+
+    body.append(h2("SEO-Optimized Architecture"))
+    body.append(
+        ul(
+            [
+                "Structured heading hierarchy",
+                "Clean URL structure",
+                "Schema markup integration",
+                "Crawl efficiency",
+                "Canonical and indexing control",
+            ]
+        )
+    )
+    body.append(p("SEO should be foundational, not reactive."))
+
+    body.append(h2("Performance & Scalability"))
+    body.append(
+        p(
+            "High-performance web design ensures: optimized media, efficient backend architecture, fast server response, mobile-first implementation. Speed directly affects ranking and conversions."
+        )
+    )
+
+    body.append(h2("Conversion-Focused UX"))
+    body.append(
+        p(
+            "Professional design aligns with business goals: clear call-to-actions, logical navigation, trust-building layout, strategic lead capture. The objective is measurable growth."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/corporate-website-development/ }}}}",
+                f"{{{{ link:/en/web-design/custom-web-development/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your goals for a professional web design; we'll propose the right scope.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What is professional web design?", "Integration of technical SEO, performance, responsive architecture, security and conversion strategy — engineered for visibility and growth."),
+        ("Why does it matter?", "Search engines rank on Core Web Vitals, speed, mobile experience and technical SEO; amateur setups don't scale in competitive sectors."),
+        ("How is SEO planned?", "Heading hierarchy, schema, URL structure, crawl efficiency and canonical control are set from the start."),
+        ("Why is performance critical?", "Speed affects both ranking and conversion; optimized assets and backend are essential."),
+        ("Who is it for?", "Corporate, e-commerce, consulting, agencies, SaaS and competitive industries."),
+        ("What do you need for a quote?", "Goals, target audience and sector are enough."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Professional Web Design | SEO-Optimized & High-Performance"
+    meta_description = (
+        "Professional web design services focused on SEO, performance, responsiveness, and conversion optimization for scalable digital growth."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Professional Web Design — SEO & Performance-Driven Solutions",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_web_developer_istanbul_en(page: SeoPage) -> Dict:
+    """Custom cluster: Web Developer in Istanbul — local + hiring intent. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Choosing the Right Web Developer in Istanbul"))
+    body.append(
+        p(
+            "Selecting a web developer requires evaluating: technical SEO expertise, performance optimization, backend architecture, security implementation, long-term support. In competitive markets, technical quality defines success."
+        )
+    )
+    body.append(
+        p(
+            f"Full framework: {{{{ link:{_pillar_url(page)} }}}}. Local presence: {{{{ link:/en/web-design/web-design-company-istanbul/ }}}}."
+        )
+    )
+
+    body.append(h2("Why Professional Development Matters"))
+    body.append(
+        p(
+            "A skilled web developer ensures: SEO-friendly coding standards, Core Web Vitals optimization, secure infrastructure, clean internal linking, scalable system design."
+        )
+    )
+
+    body.append(h2("Freelancer or Structured Team?"))
+    body.append(
+        p(
+            "Freelancers may suit small projects. Growth-oriented businesses benefit from structured development processes."
+        )
+    )
+    body.append(
+        p(
+            f"Comparison: {{{{ link:/en/web-design/web-design-agency/ }}}}, {{{{ link:/en/web-design/hire-web-developer/ }}}}."
+        )
+    )
+
+    body.append(h2("Suitable For"))
+    body.append(
+        ul(
+            [
+                "Corporate websites",
+                "Custom web applications",
+                "E-commerce platforms",
+                "SEO-driven industries",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"Custom development: {{{{ link:/en/web-design/custom-web-development/ }}}}."
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "When choosing a web developer in Istanbul, evaluate technical foundation, SEO alignment and scalability together. The right choice supports long-term digital success."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/en/web-design/web-design-company-istanbul/ }}}}",
+                f"{{{{ link:/en/web-design/custom-web-development/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your goals for a web developer in Istanbul; we'll propose the right scope.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What to look for when choosing a web developer in Istanbul?", "Technical SEO, performance, backend architecture, security and long-term support."),
+        ("Why choose a professional developer?", "SEO-friendly code, Core Web Vitals, scalable architecture and secure infrastructure."),
+        ("Freelancer or team?", "Freelancers for small projects; structured teams for growth-oriented and corporate projects."),
+        ("Suitable for which projects?", "Corporate sites, custom apps, e-commerce, SEO-driven and integration-heavy platforms."),
+        ("What do you need for a quote?", "Goals, scope and technical requirements are enough."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Web Developer in Istanbul | SEO & Scalable Solutions"
+    meta_description = (
+        "Looking for a web developer in Istanbul? SEO-ready, high-performance, and scalable web development for modern businesses."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Developer in Istanbul — Professional & Scalable Web Solutions",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_design_company_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Design Company — professional, SEO-focused, scalable. No pricing triggers."""
     body: List[str] = []
@@ -1533,6 +1742,8 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "corporate-website-development": ("Corporate Website Development", ["Multiple stakeholders", "Content governance", "Security requirements"], ["Content model", "Roles/permissions", "Analytics foundation"]),
         "custom-web-development": ("Custom Web Development", ["Integrations", "Scalability", "Non-standard workflows"], ["Custom modules", "API integrations", "Monitoring"]),
         "django-web-development": ("Django Web Development", ["Secure foundations", "Maintainability", "Admin workflows"], ["App structure", "Permissions", "Admin CMS", "Deployment plan"]),
+        "professional-web-design": ("Professional Web Design", ["Brand consistency", "Usability", "Performance"], ["Design system", "Component library", "Performance optimization"]),
+        "web-developer-istanbul": ("Web Developer in Istanbul", ["Technical verification", "Reference evaluation"], ["Evaluation criteria", "Sample delivery process"]),
         "hire-web-developer": ("Hire a Web Developer", ["Skill verification", "Speed vs quality balance"], ["Interview checklist", "Trial sprint plan"]),
         "web-design-company-istanbul": ("Web Design Company in Istanbul", ["Local competition", "Fast communication"], ["Local-focused proposal", "Reference approach"]),
         "what-is-web-design": ("What Is Web Design?", ["Foundations", "Common misconceptions"], ["Core concepts", "Practical examples"]),
@@ -2036,6 +2247,12 @@ def generate_en(page: SeoPage) -> Dict:
         return _cluster_web_design_istanbul_en(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Professional Web Design (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "professional-web-design":
+        return _cluster_professional_web_design_en(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: Custom Web Development (EN)
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "custom-web-development":
@@ -2046,6 +2263,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-development-company":
         return _cluster_web_design_company_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Web Developer in Istanbul (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-developer-istanbul":
+        return _cluster_web_developer_istanbul_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Agency vs Freelancer (EN)

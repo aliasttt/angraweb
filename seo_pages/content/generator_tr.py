@@ -1761,6 +1761,134 @@ def _cluster_istanbul_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_profesyonel_web_tasarim_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Profesyonel Web Tasarım — SEO, performance, conversion. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Profesyonel Web Tasarım Nedir?"))
+    body.append(
+        p(
+            "Profesyonel web tasarım; yalnızca görsel tasarım değil, teknik altyapı, SEO mimarisi, performans optimizasyonu ve kullanıcı deneyiminin birlikte planlandığı stratejik bir süreçtir."
+        )
+    )
+    body.append(
+        p(
+            "Modern bir web sitesi: SEO uyumlu olmalı, mobil uyumlu (responsive) olmalı, Core Web Vitals metriklerinde güçlü olmalı, hızlı yüklenmeli, güvenli (HTTPS) altyapıya sahip olmalı, dönüşüm odaklı CTA yapısına sahip olmalı. Profesyonellik; tasarımın arkasındaki mühendisliktir."
+        )
+    )
+    body.append(
+        p(
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Neden Profesyonel Web Tasarım Gereklidir?"))
+    body.append(
+        p(
+            "Google sıralamalarını belirleyen faktörler: sayfa hızı, mobil performans, teknik SEO, iç bağlantı mimarisi, kullanıcı deneyimi, güvenlik. Rekabetin yoğun olduğu sektörlerde amatör altyapılar sürdürülebilir değildir."
+        )
+    )
+
+    body.append(h2("SEO Uyumlu Profesyonel Web Tasarım"))
+    body.append(
+        ul(
+            [
+                "Doğru başlık hiyerarşisi (H1–H2–H3)",
+                "Schema markup (Organization, FAQ, Breadcrumb)",
+                "Optimize edilmiş URL yapısı",
+                "Canonical ve index kontrolü",
+                "İç link stratejisi (pillar-cluster modeli)",
+                "Crawl bütçesi optimizasyonu",
+            ]
+        )
+    )
+    body.append(p("SEO sonradan eklenmez; baştan planlanır."))
+
+    body.append(h2("Performans ve Core Web Vitals"))
+    body.append(
+        p(
+            "Profesyonel web tasarım: optimize görseller, lazy loading, minimal JS kullanımı, sunucu yanıt süresi optimizasyonu, cache stratejisi. Performans, hem SEO hem dönüşüm oranlarını doğrudan etkiler."
+        )
+    )
+
+    body.append(h2("UX ve Dönüşüm Optimizasyonu"))
+    body.append(
+        p(
+            "Güzel tasarım yeterli değildir. Profesyonel yaklaşım: net CTA yerleşimi, kullanıcı akış optimizasyonu, güven unsurları, stratejik form konumlandırma, okunabilir tipografi. Amaç ziyaret değil, dönüşümdür."
+        )
+    )
+
+    body.append(h2("Kimler İçin Uygundur?"))
+    body.append(
+        ul(
+            [
+                "Kurumsal firmalar",
+                "E-ticaret projeleri",
+                "Danışmanlık şirketleri",
+                "Ajanslar",
+                "SaaS girişimleri",
+                "Rekabetçi sektörler",
+            ]
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Profesyonel web tasarım; markanızın dijital altyapısını oluşturur. SEO, performans ve kullanıcı deneyimi birlikte planlandığında uzun vadeli başarı sağlar."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/kurumsal-web-sitesi/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Profesyonel web tasarım için hedeflerinizi paylaşın; size uygun kapsamı çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Profesyonel web tasarım nedir?", "Görsel tasarımın yanı sıra teknik altyapı, SEO mimarisi, performans ve UX'in birlikte planlandığı stratejik süreçtir."),
+        ("Neden profesyonel yaklaşım gerekli?", "Google sayfa hızı, mobil performans, teknik SEO ve güvenliği değerlendirir; rekabetçi sektörlerde amatör altyapı sürdürülemez."),
+        ("SEO nasıl planlanır?", "Başlık hiyerarşisi, schema markup, URL yapısı, iç link ve crawl optimizasyonu baştan kurulmalıdır."),
+        ("Performans neden kritik?", "Core Web Vitals hem sıralamayı hem dönüşüm oranını etkiler; optimize görsel ve cache şarttır."),
+        ("Kimler için uygundur?", "Kurumsal firmalar, e-ticaret, danışmanlık, ajanslar, SaaS ve rekabetçi sektörler."),
+        ("Teklif için ne gerekli?", "Hedef, hedef kitle ve sektör bilgisi yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Profesyonel Web Tasarım | SEO Uyumlu & Performans Odaklı"
+    meta_description = (
+        "Profesyonel web tasarım hizmeti. SEO uyumlu, mobil uyumlu, hızlı ve dönüşüm odaklı modern web siteleri ile markanızı dijitalde güçlendirin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Profesyonel Web Tasarım — SEO, Performans ve Dönüşüm Odaklı Yaklaşım",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_ozel_yazilim_web_sitesi_tr(page: SeoPage) -> Dict:
     """Custom cluster: Özel Yazılım Web Sitesi — scalable, SEO-ready, professional. No pricing triggers."""
     body: List[str] = []
@@ -1920,6 +2048,119 @@ def _cluster_ozel_yazilim_web_sitesi_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Özel Yazılım Web Sitesi — Ölçeklenebilir ve Profesyonel Geliştirme",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_web_developer_istanbul_tr(page: SeoPage) -> Dict:
+    """Custom cluster: İstanbul Web Geliştirici — local + hiring intent. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("İstanbul'da Web Geliştirici Seçerken Nelere Dikkat Edilmeli?"))
+    body.append(
+        p(
+            "Web geliştirici seçimi yalnızca tasarım kalitesiyle ilgili değildir. Değerlendirilmesi gereken kriterler: teknik SEO bilgisi, performans optimizasyonu, backend mimarisi, güvenlik yaklaşımı, uzun vadeli destek."
+        )
+    )
+    body.append(
+        p(
+            "İstanbul gibi rekabetçi pazarda doğru teknik altyapı kritik önem taşır."
+        )
+    )
+    body.append(
+        p(
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Yerel hizmet: {{{{ link:/tr/web-tasarim/istanbul/ }}}}."
+        )
+    )
+
+    body.append(h2("Neden Profesyonel Bir Web Geliştirici?"))
+    body.append(
+        p(
+            "Profesyonel geliştirici: SEO uyumlu kod yazar, Core Web Vitals optimizasyonu yapar, ölçeklenebilir mimari kurar, güvenli sunucu yapılandırması sağlar, entegrasyon süreçlerini planlar."
+        )
+    )
+
+    body.append(h2("Freelancer mı, Ekip mi?"))
+    body.append(
+        p(
+            "Basit projelerde freelancer yeterli olabilir. Ancak kurumsal ve büyüme hedefli projelerde ekip yapısı avantaj sağlar."
+        )
+    )
+    body.append(
+        p(
+            f"Karşılaştırma: {{{{ link:/tr/web-tasarim/ajans-mi-freelancer-mi/ }}}}, {{{{ link:/tr/web-tasarim/web-tasarim-freelancer/ }}}}."
+        )
+    )
+
+    body.append(h2("Hangi Projeler İçin Uygundur?"))
+    body.append(
+        ul(
+            [
+                "Kurumsal web sitesi",
+                "Özel yazılım projeleri",
+                "E-ticaret altyapısı",
+                "Çoklu entegrasyon gerektiren sistemler",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"Özel yazılım: {{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}."
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "İstanbul'da web geliştirici seçerken teknik altyapı, SEO uyumu ve ölçeklenebilirlik birlikte değerlendirilmelidir. Doğru seçim uzun vadeli dijital başarı sağlar."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+                f"{{{{ link:/tr/web-tasarim/istanbul/ }}}}",
+                f"{{{{ link:/tr/web-tasarim/ozel-yazilim-web-sitesi/ }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "İstanbul'da web geliştirici ihtiyacınız için hedeflerinizi paylaşın; size uygun kapsamı çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("İstanbul'da web geliştirici seçerken nelere dikkat edilmeli?", "Teknik SEO, performans, backend mimarisi, güvenlik ve uzun vadeli destek kriterleri değerlendirilmelidir."),
+        ("Neden profesyonel geliştirici?", "SEO uyumlu kod, Core Web Vitals, ölçeklenebilir mimari ve güvenli altyapı sağlar."),
+        ("Freelancer mı ekip mi?", "Basit projelerde freelancer; kurumsal ve büyüme hedefli projelerde ekip yapısı daha uygundur."),
+        ("Hangi projeler için uygundur?", "Kurumsal site, özel yazılım, e-ticaret, çoklu entegrasyon gerektiren sistemler."),
+        ("Teklif için ne gerekli?", "Hedef, kapsam ve teknik ihtiyaçlarınızı paylaşmanız yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "İstanbul Web Geliştirici | Profesyonel ve SEO Odaklı"
+    meta_description = (
+        "İstanbul web geliştirici arayanlar için SEO uyumlu, mobil uyumlu ve ölçeklenebilir web geliştirme çözümleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "İstanbul Web Geliştirici — Profesyonel ve Ölçeklenebilir Çözümler",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
@@ -2129,6 +2370,8 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "ozel-yazilim-vs-hazir-site": ("Özel Yazılım mı Hazır Site mi?", ["Bütçe/kapsam dengesi", "Ölçek", "Özelleştirme"], ["Karar matrisi", "Kullanım senaryoları"]),
         "django-vs-php": ("Django ve PHP Karşılaştırması", ["Ekip yetkinliği", "Güvenlik yaklaşımı", "Geliştirme hızı"], ["Karşılaştırma tablosu", "Proje türüne göre öneri"]),
         "ajans-mi-freelancer-mi": ("Ajans mı Freelancer mı?", ["Süreklilik", "Uzmanlık çeşitliliği", "Bütçe"], ["Seçim kriterleri", "Sözleşme kontrol listesi"]),
+        "web-tasarim-nedir": ("Web Tasarım Nedir?", ["Temel kavramlar", "Yaygın yanılgılar"], ["Çekirdek kavramlar", "Pratik örnekler"]),
+        "web-sitesi-nasil-yapilir": ("Web Sitesi Nasıl Yapılır?", ["Kapsam netliği", "İçerik hazırlığı"], ["Adım adım süreç", "Risk kontrol listesi"]),
         # mobile
         "react-native": ("React Native Uygulama", ["Tek kod tabanı", "Performans beklentisi", "Yayın süreci"], ["MVP planı", "Mağaza hazırlığı", "Analitik ve ölçümleme"]),
         "android": ("Android Uygulama", ["Cihaz çeşitliliği", "Performans", "Güvenlik"], ["Sürüm planı", "Test stratejisi"]),
@@ -2657,6 +2900,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_ozel_yazilim_web_sitesi_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Profesyonel Web Tasarım (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "profesyonel-web-tasarim":
+        return _cluster_profesyonel_web_tasarim_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: Web Tasarım Şirketi (TR)
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-tasarim-sirketi":
@@ -2673,6 +2922,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-tasarim-freelancer":
         return _cluster_web_tasarim_freelancer_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: İstanbul Web Geliştirici (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-developer-istanbul":
+        return _cluster_web_developer_istanbul_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Ajans mı Freelancer mı? (TR)
