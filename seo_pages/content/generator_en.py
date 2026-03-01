@@ -539,6 +539,171 @@ def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_android_or_ios_en(page: SeoPage) -> Dict:
+    """Custom cluster: Android or iOS? — platform selection guide. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "\"Android vs iOS\" is not a tech debate — it's a product strategy decision. The right choice depends on your audience, launch plan, core user flows, and how you plan to iterate after release."
+        )
+    )
+    body.append(
+        p(
+            "This page gives you a practical framework to decide with clear criteria, not guesses. "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("The Most Common Decision Drivers"))
+    body.append(h3("1) Audience & Usage Behavior"))
+    body.append(
+        p(
+            "Platform choice starts with your users: are they mass-market or niche? is this a daily habit product or an occasional utility? do you expect usage on many device types (Android diversity) or a more controlled ecosystem (iOS)? Key question: What device profile dominates your target segment?"
+        )
+    )
+    body.append(h3("2) Time-to-Market & Learning Loop"))
+    body.append(
+        p(
+            "If the goal is fast validation, starting with one platform often makes sense: MVP → measure real behavior → iterate; phased roadmap (v1 single platform, v2 second platform); priorities evolve based on data, not assumptions. Key question: What is the one behavior you want to validate first?"
+        )
+    )
+    body.append(h3("3) Product Complexity & Technical Risk"))
+    body.append(
+        p(
+            "Some features introduce different levels of complexity across platforms: real-time flows, heavy media, offline scenarios; background tasks, notifications; hardware-related features (camera, location, sensors). Key question: Does your core flow require equal stability across both platforms from day one?"
+        )
+    )
+
+    body.append(h2("Practical Differences That Actually Matter"))
+    body.append(h3("Android: Strengths"))
+    body.append(
+        ul(
+            [
+                "broad ecosystem → strong reach potential",
+                "flexible UI and device support",
+                "scalable with the right architecture",
+            ]
+        )
+    )
+    body.append(p("Trade-off: device diversity requires a serious testing and performance plan."))
+    body.append(h3("iOS: Strengths"))
+    body.append(
+        ul(
+            [
+                "controlled hardware/OS landscape → stability is easier to manage",
+                "consistent UX expectations",
+                "often a clean iteration loop for certain products",
+            ]
+        )
+    )
+    body.append(p("Trade-off: audience alignment matters; reach expectations must be realistic."))
+
+    body.append(h2("Recommended Process for Platform Decision"))
+    body.append(h3("1) Discovery & Goals"))
+    body.append(
+        ul(
+            [
+                "define the user and the problem",
+                "map critical flows (signup, booking, checkout, messaging)",
+                "choose measurable metrics (activation, retention, conversion steps)",
+            ]
+        )
+    )
+    body.append(p("<strong>Output:</strong> decision criteria + MVP goal"))
+    body.append(h3("2) Planning: Priorities & Delivery Criteria"))
+    body.append(
+        ul(
+            [
+                "single platform or dual platform?",
+                "phased roadmap (v1, v1.1, v2)",
+                "analytics event plan (what to track and why)",
+            ]
+        )
+    )
+    body.append(p("<strong>Output:</strong> roadmap + scope boundaries"))
+    body.append(h3("3) Design & Development"))
+    body.append(
+        ul(
+            [
+                "mobile-first UX with clear CTAs",
+                "performance-driven data flow",
+                "security baseline (auth/token, data protection)",
+            ]
+        )
+    )
+    body.append(p("<strong>Output:</strong> testable build"))
+    body.append(h3("4) Testing & Launch"))
+    body.append(
+        p(
+            "device/OS coverage strategy, crash monitoring setup + release checklist, post-launch iteration loop."
+        )
+    )
+    body.append(p("<strong>Output:</strong> monitoring plan + improvement backlog"))
+
+    body.append(h2("Deliverables"))
+    body.append(
+        p(
+            "A real \"platform selection guide\" should produce tangible outputs: platform decision document (why, assumptions, risk plan), MVP scope + phased roadmap, testing strategy (Android device matrix / iOS OS coverage), measurement plan (events + conversion steps)."
+        )
+    )
+
+    body.append(h2("When This Approach Is the Right Fit"))
+    body.append(
+        p(
+            "Use this framework when:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "your goals are measurable",
+                "you want scope discipline",
+                "you plan to grow through iteration after launch",
+                "you want visibility into risks early",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Share your audience and product goal",
+            "We'll clarify the platform decision and turn it into a practical delivery plan. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What's the first step to choose between Android and iOS?", "Define the audience and the core user flow, then set measurable goals."),
+        ("Is starting with one platform a good idea?", "Yes — especially for MVPs where you want faster learning and iteration."),
+        ("What's the biggest Android risk?", "Underestimating device diversity, testing scope, and performance optimization."),
+        ("Why can iOS be more predictable?", "The ecosystem is more controlled, which often improves stability and test planning."),
+        ("Does platform choice affect organic growth directly?", "Not directly — but performance, UX, and measurement strongly affect retention and growth."),
+        ("What should you focus on after launch?", "Crash rate, activation steps, retention, and performance of critical flows."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Android or iOS? | Platform Selection Guide for Mobile Apps"
+    meta_description = (
+        "Android or iOS? Choose the right platform based on audience, product goals, performance constraints, launch strategy, and sustainable development."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Android or iOS? — Choose the Right Platform Based on Your Goal",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_corporate_website_en(page: SeoPage) -> Dict:
     """Custom cluster: Corporate Website Development — strategic planning guide, decision-stage. No pricing triggers."""
     body: List[str] = []
@@ -2890,6 +3055,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android-app-development":
         return _cluster_android_app_development_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Android or iOS? (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android-or-ios":
+        return _cluster_android_or_ios_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

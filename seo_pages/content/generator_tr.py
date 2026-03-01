@@ -718,6 +718,171 @@ def _cluster_android_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_android_vs_ios_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Android mi iOS mu? — platform selection guide. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "\"Android mi iOS mu?\" sorusu aslında teknoloji sorusu değil, ürün ve büyüme stratejisi sorusudur. Doğru platform seçimi; hedef kitlenizi, pazara çıkış planınızı, ürününüzün kullanım senaryolarını ve sürdürülebilir geliştirmeyi aynı çerçevede ele aldığınızda netleşir."
+        )
+    )
+    body.append(
+        p(
+            "Bu sayfa, platform kararını \"tahminle\" değil ölçülebilir kriterlerle vermeniz için hazırlanmıştır. "
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("En Sık Karşılaşılan İhtiyaçlar"))
+    body.append(h3("1) Hedef Kitle ve Kullanım Alışkanlığı"))
+    body.append(
+        p(
+            "Platform seçimi, kullanıcı profilinizle başlar: Türkiye/İstanbul odağı (hedef segmentin cihaz tercihleri), kurumsal/B2B kullanım (cihaz standardizasyonu), geniş kitle / farklı cihazlar (Android'de cihaz çeşitliliği test ve optimizasyon planını büyütür). Kritik soru: Kullanıcılarınız uygulamayı \"günlük alışkanlık\" olarak mı kullanacak, yoksa \"ihtiyaç anında\" mı açacak?"
+        )
+    )
+    body.append(h3("2) Zaman ve Pazara Çıkış (Go-to-Market)"))
+    body.append(
+        p(
+            "Hedef \"hızlı öğrenme\" ise tek platformla başlayıp doğrulama yapmak mantıklı olabilir: önce MVP → kullanıcı davranışı ölçümü → iterasyon; fazlı plan (v1 tek platform, v2 ikinci platform); yayın sonrası veriye göre öncelik güncelleme. Kritik soru: İlk sürümde ölçmek istediğiniz \"tek\" davranış nedir?"
+        )
+    )
+    body.append(h3("3) Ürün Karmaşıklığı ve Teknik Risk"))
+    body.append(
+        p(
+            "Bazı ürünler iki platformda aynı zorlukta değildir: gerçek zamanlı özellikler, yoğun medya kullanımı, offline senaryolar; push bildirimleri ve arka plan görevleri; cihaz donanımlarını kullanan özellikler (kamera, konum, sensörler). Kritik soru: Ürününüzün \"en kritik akışı\" platformlar arasında aynı stabiliteyle çalışmak zorunda mı?"
+        )
+    )
+
+    body.append(h2("Android ve iOS Arasındaki Pratik Farklar (Karar İçin)"))
+    body.append(h3("Android: Güçlü Yanlar"))
+    body.append(
+        ul(
+            [
+                "geniş cihaz ekosistemi → geniş erişim potansiyeli",
+                "farklı ekran ve donanım senaryolarına uygun esnek yapı",
+                "doğru mimariyle yüksek ölçeklenebilirlik",
+            ]
+        )
+    )
+    body.append(p("Dikkat edilmesi gereken: cihaz çeşitliliği → test matrisi ve performans optimizasyonu şart."))
+    body.append(h3("iOS: Güçlü Yanlar"))
+    body.append(
+        ul(
+            [
+                "cihaz/OS çeşitliliği daha kontrollü → stabilite yönetimi daha kolay",
+                "kullanıcı deneyim standardı daha tutarlı",
+                "bazı ürünlerde hızlı ve net iterasyon döngüsü avantajı",
+            ]
+        )
+    )
+    body.append(p("Dikkat edilmesi gereken: ürünün hedef kitlesi iOS ağırlıklı değilse, erişim beklentisi doğru kurulmalı."))
+
+    body.append(h2("Önerilen Süreç: Platform Seçimini Netleştiren Akış"))
+    body.append(h3("1) Keşif ve Hedefler"))
+    body.append(
+        ul(
+            [
+                "hedef kullanıcı kim? hangi problem çözülüyor?",
+                "kritik akışlar neler? (kayıt, ödeme, rezervasyon, mesajlaşma vb.)",
+                "ölçüm metrikleri: retention, aktivasyon, dönüşüm adımları",
+            ]
+        )
+    )
+    body.append(p("<strong>Çıktı:</strong> karar kriterleri + MVP hedefi"))
+    body.append(h3("2) Plan: Teslim Kriterleri ve Öncelikler"))
+    body.append(
+        ul(
+            [
+                "tek platform mu çift platform mu?",
+                "fazlara bölme: v1, v1.1, v2",
+                "analitik event planı (hangi aksiyonlar ölçülecek?)",
+            ]
+        )
+    )
+    body.append(p("<strong>Çıktı:</strong> yol haritası + kapsam sınırları"))
+    body.append(h3("3) Uygulama: Tasarım/Geliştirme"))
+    body.append(
+        ul(
+            [
+                "mobil-first UX, net CTA",
+                "performans odaklı veri yönetimi",
+                "güvenlik temeli: auth/token, veri koruma",
+            ]
+        )
+    )
+    body.append(p("<strong>Çıktı:</strong> test edilebilir sürüm"))
+    body.append(h3("4) Test ve Yayın"))
+    body.append(
+        p(
+            "cihaz/sürüm kapsaması, crash takibi ve yayın checklist, yayın sonrası ilk iyileştirme döngüsü."
+        )
+    )
+    body.append(p("<strong>Çıktı:</strong> izleme planı + iterasyon listesi"))
+
+    body.append(h2("Teslimatlar"))
+    body.append(
+        p(
+            "Bu sayfada \"platform seçimi rehberi\" teslimi şu somut çıktılara dönüşür: platform karar dokümanı (neden/varsayımlar/riske karşı plan), MVP kapsamı ve faz planı, test stratejisi (Android için cihaz matrisi; iOS için sürüm kapsaması), ölçümleme planı (event tracking, dönüşüm adımları)."
+        )
+    )
+
+    body.append(h2("Ne Zaman Bu Yaklaşımı Seçmelisiniz?"))
+    body.append(
+        p(
+            "Bu yaklaşım, \"hangisi daha iyi?\" tartışmasını bitirir ve iş hedefi üzerinden karar verdirir. Şu durumlarda ideal:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "hedefleriniz ölçülebilir ve netse",
+                "kapsamı yazılı yönetmek istiyorsanız",
+                "yayın sonrası iterasyonla büyümeyi planlıyorsanız",
+                "teknik riskleri baştan görmek istiyorsanız",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Hedefinizi ve kullanıcı kitlenizi yazın",
+            "Platform kararını birlikte netleştirip uygulanabilir bir plan çıkaralım. Teklif sayfasına gidin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Android mi iOS mu seçerken ilk adım nedir?", "Hedef kullanıcıyı ve kritik akışı netleştirmek; ardından ölçülebilir hedef belirlemektir."),
+        ("Tek platformla başlamak mantıklı mı?", "Evet. Özellikle MVP'de, veri toplayıp öğrenmek için tek platformla başlamak çoğu zaman daha kontrollüdür."),
+        ("Android'de en büyük risk nedir?", "Cihaz çeşitliliği nedeniyle test ve performans optimizasyonunun iyi planlanmaması."),
+        ("iOS neden bazı projelerde daha hızlı ilerler?", "Cihaz/OS ekosistemi daha kontrollü olduğu için stabilite ve test yönetimi daha öngörülebilir olabilir."),
+        ("Platform seçimi SEO gibi organik büyümeyi etkiler mi?", "Doğrudan değil; fakat ölçümleme, performans ve kullanıcı deneyimi büyümeyi doğrudan etkiler."),
+        ("Yayından sonra neye odaklanılmalı?", "Crash oranı, aktivasyon adımları, retention ve kritik akışların performansı."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Android mi iOS mu? | Doğru Platform Seçimi Rehberi"
+    meta_description = (
+        "Android mi iOS mu seçmelisiniz? Hedef kitle, ürün stratejisi, performans, yayın süreci ve sürdürülebilir geliştirme açısından doğru platform kararını netleştirin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Android mi iOS mu? — Hedefe Göre Doğru Platformu Seçin",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_kurumsal_web_sitesi_tr(page: SeoPage) -> Dict:
     """Custom cluster: Kurumsal Web Sitesi — commercial investigation + service authority. 900–1200 words."""
     body: List[str] = []
@@ -3581,6 +3746,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android":
         return _cluster_android_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Android mi iOS mu? (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android-vs-ios":
+        return _cluster_android_vs_ios_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

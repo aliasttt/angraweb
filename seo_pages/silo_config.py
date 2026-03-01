@@ -84,6 +84,7 @@ SERVICE_SILO_MAP: Dict[str, dict] = {
                 "hire-mobile-app-developer",
                 "react-native-vs-native",
                 "cross-platform-vs-native",
+                "android-or-ios",
                 "mobile-app-development-cost",
             ],
         },
