@@ -833,6 +833,19 @@ def robots_txt(request):
     return HttpResponse(body, content_type='text/plain')
 
 
+def yandex_verification(request):
+    """Serve Yandex Webmaster verification file at /yandex_cdb21588d18ce4cc.html"""
+    html = (
+        '<html>\n'
+        '    <head>\n'
+        '        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n'
+        '    </head>\n'
+        '    <body>Verification: cdb21588d18ce4cc</body>\n'
+        '</html>\n'
+    )
+    return HttpResponse(html, content_type='text/html; charset=utf-8')
+
+
 def set_language(request, lang_code):
     """Switch language: redirect to same path with new prefix (/tr/... or /en/...)."""
     from django.conf import settings
