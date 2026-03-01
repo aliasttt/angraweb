@@ -1,5 +1,6 @@
 {% extends "seo_pages/base_lang.html" %}
 {% load seo_pages_tags %}
+{% load i18n %}
 
 {% block silo_content %}
 <div class="seo-silo">
@@ -59,13 +60,23 @@
 
       <div class="col-12 col-lg-4">
         <div class="card p-4">
+          <h2 class="h5 mb-3">{% if language == "tr" %}Tipik fiyat aralıkları{% else %}Typical price ranges{% endif %}</h2>
+          <ul class="mb-3" style="color:#b2bec3; line-height:1.8;">
+            <li><strong>{% if language == "tr" %}Kurumsal web sitesi{% else %}Corporate website{% endif %}:</strong> 8,000–25,000 TL</li>
+            <li><strong>{% if language == "tr" %}E-ticaret{% else %}E‑commerce{% endif %}:</strong> 25,000–120,000 TL</li>
+            <li><strong>{% if language == "tr" %}Mobil uygulama{% else %}Mobile app{% endif %}:</strong> 60,000–350,000 TL</li>
+            <li><strong>{% if language == "tr" %}Özel yazılım / platform{% else %}Custom software / platform{% endif %}:</strong> 80,000 TL+</li>
+          </ul>
+          <p class="mb-0 small" style="color:#b2bec3;">{% if language == "tr" %}Nihai fiyatlandırma kapsam, entegrasyonlar, içerik ve teslimat süresine bağlıdır.{% else %}Final pricing depends on scope, integrations, content and delivery time.{% endif %}</p>
+        </div>
+        <div class="card p-4 mt-4">
           <h2 class="h5 mb-3">{% if language == "tr" %}Teklif Süreci{% else %}Quote process{% endif %}</h2>
           <ol class="mb-3" style="color:#b2bec3;">
             <li>{% if language == "tr" %}İhtiyaç analizi{% else %}Requirements discovery{% endif %}</li>
             <li>{% if language == "tr" %}Kapsam & zaman planı{% else %}Scope & timeline{% endif %}</li>
             <li>{% if language == "tr" %}Teklif ve başlangıç{% else %}Proposal and kickoff{% endif %}</li>
           </ol>
-          {% if quote %}<a class="btn btn-success w-100" href="{{ quote.get_absolute_url }}">{% if language == "tr" %}Teklif Al{% else %}Get a Quote{% endif %}</a>{% endif %}
+          <a class="btn btn-success w-100" href="#quote-form">{% if language == "tr" %}Teklif Al{% else %}Get a Quote{% endif %}</a>
         </div>
 
         <div class="card p-4 mt-4">
@@ -74,6 +85,69 @@
             {% if pillar %}<li><a href="{{ pillar.get_absolute_url }}">{% if language == "tr" %}Hizmet Sayfası{% else %}Service overview{% endif %}</a></li>{% endif %}
             {% if pricing %}<li><a href="{{ pricing.get_absolute_url }}">{% if language == "tr" %}Fiyatlar{% else %}Pricing{% endif %}</a></li>{% endif %}
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-2" id="quote-form">
+      <div class="col-12">
+        <div class="card p-4">
+          <h2 class="h4 mb-4">{% if language == "tr" %}Teklif Formu{% else %}Quote request form{% endif %}</h2>
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-success mb-3">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+          {% if quote_form %}
+          <form method="post" action="">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">{% if language == "tr" %}Ad Soyad{% else %}Name{% endif %}</label>
+                {{ quote_form.name }}
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">E-posta</label>
+                {{ quote_form.email }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">{% if language == "tr" %}Telefon{% else %}Phone{% endif %}</label>
+                {{ quote_form.phone }}
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">{% if language == "tr" %}Şirket (isteğe bağlı){% else %}Company (optional){% endif %}</label>
+                {{ quote_form.company }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">{% if language == "tr" %}Hizmet türü{% else %}Service type{% endif %}</label>
+                {{ quote_form.service_type }}
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">{% if language == "tr" %}Paket (isteğe bağlı){% else %}Package (optional){% endif %}</label>
+                {{ quote_form.package_type }}
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">{% if language == "tr" %}Proje detayları{% else %}Project details{% endif %}</label>
+              {{ quote_form.description }}
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">{% if language == "tr" %}Bütçe (isteğe bağlı){% else %}Budget (optional){% endif %}</label>
+                {{ quote_form.budget }}
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">{% if language == "tr" %}Teslim tarihi (isteğe bağlı){% else %}Deadline (optional){% endif %}</label>
+                {{ quote_form.deadline }}
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">{% if language == "tr" %}Talebi gönder{% else %}Submit request{% endif %}</button>
+          </form>
+          {% endif %}
         </div>
       </div>
     </div>

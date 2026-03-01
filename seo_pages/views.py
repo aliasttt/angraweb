@@ -106,6 +106,27 @@ def seo_page_view(request, language: str, service_base: str, page_type: str, slu
         "seo_switch_en_url": seo_switch_en_url,
     }
 
+    # On quote (teklif-al / get-quote) page: add form + packages for inline form and price ranges
+    if page.page_type == SeoPage.TYPE_QUOTE:
+        from django.contrib import messages
+        from main.forms import QuoteRequestForm
+        from main.models import Package
+        if request.method == "POST":
+            form = QuoteRequestForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(
+                    request,
+                    "Talebiniz alındı. En kısa sürede size dönüş yapacağız." if language == "tr" else "Your request has been received. We will get back to you shortly."
+                )
+                from django.shortcuts import redirect
+                return redirect(request.path)
+        else:
+            form = QuoteRequestForm()
+        packages = Package.objects.filter(active=True).order_by("order")
+        context["quote_form"] = form
+        context["packages"] = packages
+
     template_map = {
         SeoPage.TYPE_PILLAR: "seo_pages/pillar.html",
         SeoPage.TYPE_PRICING: "seo_pages/pricing.html",
