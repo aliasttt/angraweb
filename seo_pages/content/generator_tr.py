@@ -3036,7 +3036,7 @@ def generate_tr(page: SeoPage) -> Dict:
         body.append(
             ul(
                 [
-                    f"Fiyatlandırma: {{ link:{_pricing_url(page)} }}",
+                    f"Kapsam ve bütçe: {{ link:{_pricing_url(page)} }}",
                     f"Rehber: {{ link:{_guide_url(page)} }}",
                     f"Teklif: {{ link:{_quote_url(page)} }}",
                 ]

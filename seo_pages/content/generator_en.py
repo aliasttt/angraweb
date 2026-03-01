@@ -2402,7 +2402,7 @@ def generate_en(page: SeoPage) -> Dict:
         body.append(
             ul(
                 [
-                    f"Pricing details: {{ link:{_pricing_url(page)} }}",
+                    f"Rates & scope: {{ link:{_pricing_url(page)} }}",
                     f"Implementation guide: {{ link:{_guide_url(page)} }}",
                     f"Request a quote: {{ link:{_quote_url(page)} }}",
                 ]
@@ -2531,7 +2531,7 @@ def generate_en(page: SeoPage) -> Dict:
             ul(
                 [
                     f"Service overview: {{ link:{_pillar_url(page)} }}",
-                    f"Pricing details: {{ link:{_pricing_url(page)} }}",
+                    f"Rates & scope: {{ link:{_pricing_url(page)} }}",
                     f"Request a quote: {{ link:{_quote_url(page)} }}",
                 ]
             )
@@ -2749,7 +2749,7 @@ def generate_en(page: SeoPage) -> Dict:
         [
             (f"What’s the first step for {topic_title.lower()}?", "Clarify outcomes, scope, and acceptance criteria before implementation."),
             ("What affects delivery time?", "Scope size, integration complexity, and review cycles."),
-            ("Do you include pricing here?", "No. Pricing intent is handled only on pricing pages."),
+            ("Do you include rates here?", "No. Rates and scope are handled only on the rates & scope page."),
             ("How do I request a quote?", "Provide goals, must-haves, integrations, and timeline constraints."),
             ("Can you work in phases?", "Yes. MVP-first and phased delivery is often the safest approach."),
         ]
