@@ -929,6 +929,226 @@ def _cluster_hire_web_developer_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_what_is_web_design_en(page: SeoPage) -> Dict:
+    """Custom cluster: What Is Web Design? — high-value, trend keywords. No new page links, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("What Is Web Design?"))
+    body.append(
+        p(
+            "Web design is the process of planning and implementing the visual layout, user interface (UI), user experience (UX), and technical foundation of a website. It is not only visual mockups; it is the combination of text, imagery, navigation, and interaction elements aligned with business goals and the target audience."
+        )
+    )
+    body.append(
+        p(
+            "Modern web design includes desktop and mobile compatibility (responsive design), accessibility, page speed, and search engine alignment (SEO). Professional web design covers all of these."
+        )
+    )
+    body.append(
+        p(
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Process guide: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("What Does Web Design Include?"))
+    body.append(
+        ul(
+            [
+                "Information architecture and page hierarchy",
+                "Visual design and typography",
+                "User flows and conversion-focused layout (CTAs)",
+                "Mobile-responsive structure",
+                "Technical SEO foundation (URLs, headings, meta)",
+                "Performance and speed optimization",
+            ]
+        )
+    )
+
+    body.append(h2("Why Does Web Design Matter?"))
+    body.append(
+        p(
+            "Your website is your brand's digital face. Visitors react to page speed, structure, and trust within seconds. Poor design or slow pages increase bounce rate; good design strengthens conversion and brand perception."
+        )
+    )
+    body.append(
+        p(
+            "Search engines also evaluate user experience and technical structure. Clean code, fast loading, and logical content hierarchy affect ranking."
+        )
+    )
+
+    body.append(h2("Web Design and SEO"))
+    body.append(
+        p(
+            "SEO-friendly web design means planning heading hierarchy (H1–H2–H3), meaningful URL structure, mobile compatibility, and Core Web Vitals from the start. Technical requirements should be considered during the design phase, not added afterward."
+        )
+    )
+
+    body.append(h2("Who Is It For?"))
+    body.append(
+        p(
+            "Corporate sites, e-commerce, consulting and agencies, portfolio sites, landing pages, and SaaS products all rely on web design. Scope varies by audience and business model."
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "What is web design? It is a strategic and technical whole, not only visuals. With the right planning, both user experience and search visibility are strengthened."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your goals for web design; we'll propose the right scope.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What is web design?", "The process of planning and implementing a site's visual layout, UI/UX, and technical foundation aligned with business goals."),
+        ("What does it include?", "Information architecture, visual design, user flows, responsive layout, technical SEO, and performance optimization."),
+        ("Why does it matter?", "Your site is your digital face; speed, structure, and trust drive both users and search engines."),
+        ("How does it relate to SEO?", "Heading hierarchy, URL structure, mobile fit, and Core Web Vitals should be planned in the design phase."),
+        ("Who is it for?", "Corporate, e-commerce, consulting, agencies, portfolios, landing pages, and SaaS."),
+        ("What do you need for a quote?", "Goals, target audience, and project scope are enough."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "What Is Web Design? | Professional Web Design Guide"
+    meta_description = (
+        "What is web design? UI, UX, responsive design, and SEO-friendly websites explained. Modern web design guide."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "What Is Web Design? — Definition, Scope & Modern Approach",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_how_to_build_a_website_en(page: SeoPage) -> Dict:
+    """Custom cluster: How to Build a Website — step-by-step, high-value. No new page links, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("How to Build a Website?"))
+    body.append(
+        p(
+            "Building a website is a structured process: goal setting, planning, design, development, testing, and launch. The right steps reduce technical debt and strengthen both user experience and search engine alignment."
+        )
+    )
+    body.append(
+        p(
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Step-by-step guide: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Step-by-Step Website Building Process"))
+    body.append(
+        ul(
+            [
+                "Discovery and goal analysis: Define purpose, target audience, and competitors.",
+                "Information architecture: Plan page structure, navigation, and content hierarchy.",
+                "UI/UX design: Wireframes and design sign-off; mobile compatibility.",
+                "Development: Coding, integrations, technical SEO foundation.",
+                "Test and performance: Speed, security, and cross-browser checks.",
+                "Launch and monitoring: Go live, sitemap, analytics, and maintenance plan.",
+            ]
+        )
+    )
+
+    body.append(h2("Common Mistakes"))
+    body.append(
+        p(
+            "Starting without clear goals, leaving SEO for later, neglecting mobile experience, and separating content plan from development are common. A process-driven approach reduces these risks."
+        )
+    )
+
+    body.append(h2("What to Prepare Before Starting"))
+    body.append(
+        ul(
+            [
+                "Clear business goal and target audience definition",
+                "Basic content outline (copy, imagery needs)",
+                "Competitor and reference site examples",
+                "Domain and hosting preference (if any)",
+            ]
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "How to build a website? Through a planned process and the right steps. Once discovery, design, development, and test are complete, you have a solid foundation for both users and search engines."
+        )
+    )
+
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your website project goals; we'll outline the right steps and scope.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("How to build a website?", "A planned process: goal analysis, information architecture, design, development, test, and launch."),
+        ("What is the first step?", "Discovery and goal analysis; define purpose, audience, and competitors."),
+        ("What are common mistakes?", "Starting without clear goals, leaving SEO for later, neglecting mobile experience."),
+        ("What to prepare before starting?", "Business goal, target audience, content outline, reference examples, domain/hosting preference."),
+        ("How long does the process take?", "Depends on scope; clear scope and approval cycles define the timeline."),
+        ("What do you need for a quote?", "Goals, scope, and content needs are enough."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "How to Build a Website? | Step-by-Step Guide"
+    meta_description = (
+        "How to build a website? Discovery, design, development, test, and launch. Professional website building guide."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "How to Build a Website? — Step-by-Step Guide",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_professional_web_design_en(page: SeoPage) -> Dict:
     """Custom cluster: Professional Web Design — SEO, performance, conversion. No pricing triggers."""
     body: List[str] = []
@@ -2299,6 +2519,18 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "hire-web-developer":
         return _cluster_hire_web_developer_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: What Is Web Design? (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "what-is-web-design":
+        return _cluster_what_is_web_design_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: How to Build a Website (EN)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "how-to-build-a-website":
+        return _cluster_how_to_build_a_website_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

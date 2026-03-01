@@ -2160,7 +2160,228 @@ def _cluster_web_developer_istanbul_tr(page: SeoPage) -> Dict:
     meta_description = clamp_text(meta_description, 160)
 
     return {
+    return {
         "title": "İstanbul Web Geliştirici — Profesyonel ve Ölçeklenebilir Çözümler",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_web_tasarim_nedir_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Web Tasarım Nedir? — high-value, trend keywords. No new page links, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Web Tasarım Nedir?"))
+    body.append(
+        p(
+            "Web tasarım; bir web sitesinin görsel düzeni, kullanıcı arayüzü (UI), kullanıcı deneyimi (UX) ve teknik altyapısının birlikte planlanıp uygulanması sürecidir. Yalnızca görsel çizim değil; metin, görsel, navigasyon ve etkileşim öğelerinin iş hedeflerine ve hedef kitleye uygun biçimde bir araya getirilmesidir."
+        )
+    )
+    body.append(
+        p(
+            "Modern web tasarım kavramı; masaüstü ve mobil uyumluluk (responsive tasarım), erişilebilirlik, sayfa hızı ve arama motoru uyumluluğu (SEO) ile birlikte düşünülür. Profesyonel web tasarımı bu unsurların tamamını kapsar."
+        )
+    )
+    body.append(
+        p(
+            f"Genel hizmet çerçevesi: {{{{ link:{_pillar_url(page)} }}}}. Süreç rehberi: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Web Tasarımı Neleri Kapsar?"))
+    body.append(
+        ul(
+            [
+                "Bilgi mimarisi ve sayfa hiyerarşisi",
+                "Görsel tasarım ve tipografi",
+                "Kullanıcı akışları ve dönüşüm odaklı yerleşim (CTA)",
+                "Mobil uyumlu (responsive) yapı",
+                "Teknik SEO temeli (URL, başlıklar, meta yapı)",
+                "Performans ve hız optimizasyonu",
+            ]
+        )
+    )
+
+    body.append(h2("Neden Web Tasarımı Önemlidir?"))
+    body.append(
+        p(
+            "Web siteniz; markanızın dijital yüzüdür. Ziyaretçiler ilk saniyelerde sayfa hızına, düzene ve güvene tepki verir. Kötü tasarım veya yavaş açılan sayfalar, hemen çıkış oranını artırır; iyi tasarım ise dönüşüm ve marka algısını güçlendirir."
+        )
+    )
+    body.append(
+        p(
+            "Arama motorları da kullanıcı deneyimini ve teknik yapıyı değerlendirir. Temiz kod, hızlı yükleme ve mantıklı içerik hiyerarşisi sıralamayı etkiler."
+        )
+    )
+
+    body.append(h2("Web Tasarım ve SEO İlişkisi"))
+    body.append(
+        p(
+            "SEO uyumlu web tasarım; başlık hiyerarşisi (H1–H2–H3), anlamlı URL yapısı, mobil uyumluluk ve Core Web Vitals gibi metriklerin baştan planlanması demektir. Tasarım bittikten sonra SEO eklemek yerine, tasarım aşamasında teknik gereksinimler düşünülmelidir."
+        )
+    )
+
+    body.append(h2("Kimler İçin Geçerlidir?"))
+    body.append(
+        p(
+            "Kurumsal firmalar, e-ticaret siteleri, danışmanlık ve ajanslar, portföy siteleri, landing sayfaları ve SaaS ürünleri için web tasarımı temel ihtiyaçtır. Hedef kitle ve iş modeline göre kapsam değişir."
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Web tasarım nedir sorusunun cevabı; yalnızca görsel değil, stratejik ve teknik bir bütündür. Doğru planlama ile hem kullanıcı deneyimi hem arama görünürlüğü güçlendirilir."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Web tasarım ihtiyacınız için hedeflerinizi paylaşın; size uygun kapsamı çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Web tasarım nedir?", "Web sitesinin görsel düzeni, UI/UX ve teknik altyapısının iş hedeflerine göre planlanıp uygulanması sürecidir."),
+        ("Web tasarımı neler kapsar?", "Bilgi mimarisi, görsel tasarım, kullanıcı akışları, mobil uyumluluk, teknik SEO ve performans optimizasyonu."),
+        ("Neden önemlidir?", "Siteniz markanızın dijital yüzüdür; hız, düzen ve güven hem kullanıcı hem arama motoru için belirleyicidir."),
+        ("SEO ile ilişkisi nasıl?", "Başlık hiyerarşisi, URL yapısı, mobil uyum ve Core Web Vitals tasarım aşamasında planlanmalıdır."),
+        ("Kimler için uygundur?", "Kurumsal, e-ticaret, ajans, portföy, landing ve SaaS projeleri için temel ihtiyaçtır."),
+        ("Teklif için ne gerekli?", "Hedef, hedef kitle ve proje kapsamı paylaşmanız yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Web Tasarım Nedir? | Profesyonel Web Tasarım Rehberi"
+    meta_description = (
+        "Web tasarım nedir? UI, UX, responsive tasarım ve SEO uyumlu web sitesi kavramları. Modern web tasarımı rehberi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Tasarım Nedir? — Tanım, Kapsam ve Modern Yaklaşım",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_web_sitesi_nasil_yapilir_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Web Sitesi Nasıl Yapılır? — step-by-step, high-value. No new page links, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Web Sitesi Nasıl Yapılır?"))
+    body.append(
+        p(
+            "Web sitesi yapmak; hedef belirleme, planlama, tasarım, geliştirme, test ve yayın aşamalarından oluşan yapılandırılmış bir süreçtir. Doğru adımlar teknik borcu azaltır ve hem kullanıcı deneyimini hem arama motoru uyumluluğunu güçlendirir."
+        )
+    )
+    body.append(
+        p(
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Adım adım rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Adım Adım Web Sitesi Yapım Süreci"))
+    body.append(
+        ul(
+            [
+                "Keşif ve hedef analizi: Amaç, hedef kitle ve rakiplerin netleştirilmesi.",
+                "Bilgi mimarisi: Sayfa yapısı, navigasyon ve içerik hiyerarşisinin planlanması.",
+                "UI/UX tasarım: Wireframe ve tasarım onayı; mobil uyumluluk.",
+                "Geliştirme: Kodlama, entegrasyonlar, teknik SEO altyapısı.",
+                "Test ve performans: Hız, güvenlik ve tarayıcı uyumluluğu kontrolü.",
+                "Yayın ve izleme: Canlıya alma, sitemap, analitik ve bakım planı.",
+            ]
+        )
+    )
+
+    body.append(h2("Sık Yapılan Hatalar"))
+    body.append(
+        p(
+            "Hedefi netleştirmeden başlamak, SEO'yu sonraya bırakmak, mobil deneyimi ihmal etmek ve içerik planını yazılımdan ayırmak sık görülen hatalardır. Süreç odaklı ilerlemek bu riskleri azaltır."
+        )
+    )
+
+    body.append(h2("Başlamadan Önce Hazırlanması Gerekenler"))
+    body.append(
+        ul(
+            [
+                "Net iş hedefi ve hedef kitle tanımı",
+                "Temel içerik taslağı (metin, görsel ihtiyacı)",
+                "Rakip ve referans site örnekleri",
+                "Domain ve hosting tercihi (varsa)",
+            ]
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Web sitesi nasıl yapılır sorusunun cevabı; planlı bir süreç ve doğru adımlardan geçer. Keşif, tasarım, geliştirme ve test aşamaları tamamlandığında hem kullanıcı hem arama motoru için sağlam bir altyapı elde edilir."
+        )
+    )
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+            ]
+        )
+    )
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Web sitesi projeniz için hedeflerinizi paylaşın; size uygun adımları ve kapsamı çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Web sitesi nasıl yapılır?", "Hedef analizi, bilgi mimarisi, tasarım, geliştirme, test ve yayın aşamalarından oluşan planlı bir süreçtir."),
+        ("İlk adım ne olmalı?", "Keşif ve hedef analizi; amaç, hedef kitle ve rakiplerin netleştirilmesi."),
+        ("Sık yapılan hatalar neler?", "Hedefi netleştirmeden başlamak, SEO'yu sonraya bırakmak, mobil deneyimi ihmal etmek."),
+        ("Başlamadan ne hazırlanmalı?", "İş hedefi, hedef kitle, içerik taslağı, referans örnekleri ve domain/hosting tercihi."),
+        ("Süreç ne kadar sürer?", "Kapsama göre değişir; net kapsam ve onay döngüleri süreyi belirler."),
+        ("Teklif almak için ne gerekli?", "Hedef, kapsam ve içerik ihtiyacınızı paylaşmanız yeterlidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Web Sitesi Nasıl Yapılır? | Adım Adım Rehber"
+    meta_description = (
+        "Web sitesi nasıl yapılır? Keşif, tasarım, geliştirme, test ve yayın adımları. Profesyonel web sitesi yapım rehberi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Sitesi Nasıl Yapılır? — Adım Adım Rehber",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
@@ -2946,6 +3167,18 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "django-web-gelistirme":
         return _cluster_django_web_gelistirme_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Web Tasarım Nedir? (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-tasarim-nedir":
+        return _cluster_web_tasarim_nedir_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Web Sitesi Nasıl Yapılır? (TR)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-sitesi-nasil-yapilir":
+        return _cluster_web_sitesi_nasil_yapilir_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
