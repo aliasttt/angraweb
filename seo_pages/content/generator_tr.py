@@ -323,6 +323,220 @@ def _web_design_pillar_tr(page: SeoPage) -> Dict:
     }
 
 
+def _mobile_app_pillar_tr(page: SeoPage) -> Dict:
+    """Custom SEO pillar for Mobil Uygulama Geliştirme (TR) — high-value, trend keywords, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Mobil Uygulama Geliştirme Nedir?"))
+    body.append(
+        p(
+            "Mobil uygulama geliştirme; yalnızca bir uygulama yazmak değil, kullanıcı deneyimi, performans, güvenlik ve sürdürülebilir mimariyi birlikte planlamaktır."
+        )
+    )
+    body.append(
+        p(
+            "Başarılı bir mobil uygulama: hızlı çalışır, kullanıcı dostudur, güvenlidir, ölçeklenebilir altyapıya sahiptir, App Store ve Google Play kurallarına uygundur, iş hedefleriyle uyumludur. Mobil uygulama; markanızın cebinizdeki dijital temsilcisidir."
+        )
+    )
+    body.append(
+        p(
+            f"Rehber: {{{{ link:{_guide_url(page)} }}}}. Teklif: {{{{ link:{_quote_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Neden Profesyonel Mobil Uygulama Geliştirme Önemlidir?"))
+    body.append(
+        p(
+            "Rekabet yüksek. Kullanıcı sabırsız. Eğer uygulama: yavaş açılıyorsa, çöküyorsa, karmaşık navigasyona sahipse, güven vermiyorsa — kullanıcı 5 saniye içinde siler. Profesyonel geliştirme; teknik kalite + UX tasarım + performans optimizasyonu demektir."
+        )
+    )
+
+    body.append(h2("Android ve iOS Uygulama Geliştirme"))
+    body.append(
+        p(
+            "Mobil projeler genellikle üç şekilde planlanır:"
+        )
+    )
+    body.append(h3("Native Development"))
+    body.append(
+        p(
+            "Android (Kotlin / Java), iOS (Swift). En yüksek performans, platforma özel deneyim."
+        )
+    )
+    body.append(h3("Cross-Platform Development"))
+    body.append(
+        p(
+            "Flutter, React Native. Daha hızlı geliştirme süresi, tek kod tabanı."
+        )
+    )
+    body.append(h3("Backend Entegrasyonu"))
+    body.append(
+        ul(
+            [
+                "API mimarisi",
+                "Kullanıcı yönetimi",
+                "Push notification",
+                "Ödeme sistemleri",
+                "Analitik entegrasyonu",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Mobil uygulama yalnızca frontend değildir; sağlam backend gerektirir."
+        )
+    )
+
+    body.append(h2("Mobil Uygulama Geliştirme Süreci"))
+    body.append(h3("1) Keşif ve Strateji"))
+    body.append(
+        ul(
+            [
+                "Hedef kitle analizi",
+                "Rakip analizi",
+                "İş modeli belirleme",
+                "Monetizasyon planı",
+            ]
+        )
+    )
+    body.append(h3("2) UX/UI Tasarım"))
+    body.append(
+        ul(
+            [
+                "Wireframe",
+                "Prototip",
+                "Kullanıcı akışı",
+                "Mobil-first tasarım prensibi",
+            ]
+        )
+    )
+    body.append(h3("3) Geliştirme"))
+    body.append(
+        ul(
+            [
+                "Frontend (Android/iOS)",
+                "Backend API",
+                "Güvenlik",
+                "Performans optimizasyonu",
+            ]
+        )
+    )
+    body.append(h3("4) Test ve QA"))
+    body.append(
+        ul(
+            [
+                "Cihaz testleri",
+                "Performans testleri",
+                "Crash analizi",
+                "Store uyumluluk kontrolü",
+            ]
+        )
+    )
+    body.append(h3("5) Yayın ve Optimizasyon"))
+    body.append(
+        ul(
+            [
+                "App Store ve Google Play yayın süreci",
+                "ASO (App Store Optimization)",
+                "Kullanıcı geri bildirim analizi",
+                "Güncelleme planı",
+            ]
+        )
+    )
+
+    body.append(h2("Mobil Uygulamada Performans ve Güvenlik"))
+    body.append(
+        p(
+            "Kaliteli bir mobil uygulama: hızlı açılış süresi, optimize edilmiş veri çağrıları, güvenli authentication, şifreli veri transferi (HTTPS / SSL), sunucu taraflı güvenlik kontrolleri sunar. Güvenlik ihlali marka güvenini zedeler."
+        )
+    )
+
+    body.append(h2("Hangi İşletmeler İçin Uygundur?"))
+    body.append(
+        ul(
+            [
+                "E-ticaret firmaları",
+                "SaaS girişimleri",
+                "Rezervasyon sistemleri",
+                "Lojistik ve kurye firmaları",
+                "Eğitim platformları",
+                "Fintech projeleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Mobil uygulama, büyüme hedefleyen işletmeler için stratejik bir adımdır."
+        )
+    )
+
+    body.append(h2("Neler Kazanırsınız?"))
+    body.append(
+        ul(
+            [
+                "Marka bilinirliği",
+                "Kullanıcı sadakati",
+                "Push notification ile direkt iletişim",
+                "Veri analizi ve kullanıcı davranışı takibi",
+                "Ölçeklenebilir dijital altyapı",
+            ]
+        )
+    )
+
+    body.append(h2("Sonuç"))
+    body.append(
+        p(
+            "Mobil uygulama geliştirme; teknik uzmanlık, strateji ve kullanıcı deneyimi gerektirir. Doğru planlama ve mimari ile uygulamanız yalnızca çalışmaz — büyür."
+        )
+    )
+
+    body.append(h2("İlgili konular"))
+    body.append(
+        p(
+            f"Rehber: {{{{ link:{_guide_url(page)} }}}}. Teklif: {{{{ link:{_quote_url(page)} }}}}."
+        )
+    )
+    cluster_urls = _cluster_urls_for_service(page)
+    if cluster_urls:
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls[:10]]))
+
+    body.append(
+        cta_box(
+            "Teklif Al",
+            "Mobil uygulama projeniz için hedeflerinizi paylaşın; size uygun kapsamı ve planı çıkaralım.",
+            _quote_url(page),
+            "Teklif formu için sayfaya gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Mobil uygulama geliştirme ne kadar sürer?", "Kapsama, özelliklere ve platform sayısına göre değişir."),
+        ("Android ve iOS aynı anda geliştirilebilir mi?", "Evet. Native veya cross-platform çözümlerle mümkündür."),
+        ("Yayın sonrası destek sağlıyor musunuz?", "Evet. Güncelleme ve bakım planı oluşturulur."),
+        ("Uygulama mağazasında üst sıralara nasıl çıkılır?", "ASO, kullanıcı yorumları, performans ve retention oranı belirleyicidir."),
+        ("Backend gerekli mi?", "Çoğu profesyonel uygulamada API tabanlı backend gereklidir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Mobil Uygulama Geliştirme | Android & iOS Profesyonel Çözümler"
+    meta_description = (
+        "Mobil uygulama geliştirme hizmeti. Android ve iOS için ölçeklenebilir, performans odaklı ve kullanıcı deneyimi güçlü mobil uygulamalar."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Mobil Uygulama Geliştirme — Ölçeklenebilir ve Performans Odaklı Çözümler",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_kurumsal_web_sitesi_tr(page: SeoPage) -> Dict:
     """Custom cluster: Kurumsal Web Sitesi — commercial investigation + service authority. 900–1200 words."""
     body: List[str] = []
@@ -2805,6 +3019,8 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_PILLAR:
         if page.service.key == "web-design":
             return _web_design_pillar_tr(page)
+        if page.service.key == "mobile-app-development":
+            return _mobile_app_pillar_tr(page)
         title = f"{svc}"
         meta = make_meta(
             title=title,

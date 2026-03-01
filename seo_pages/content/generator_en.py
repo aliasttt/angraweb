@@ -188,6 +188,171 @@ def _web_design_pillar_en(page: SeoPage) -> Dict:
     }
 
 
+def _mobile_app_pillar_en(page: SeoPage) -> Dict:
+    """Custom SEO pillar for Mobile App Development (EN) — scalable, high-performance, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("What Is Mobile App Development?"))
+    body.append(
+        p(
+            "Mobile app development is not just coding an application. It is the strategic combination of: user experience design, performance optimization, secure backend architecture, scalable infrastructure, and business goal alignment. A successful app must deliver speed, reliability, and measurable growth."
+        )
+    )
+    body.append(
+        p(
+            f"Workflow: {{{{ link:{_guide_url(page)} }}}}. Request a quote: {{{{ link:{_quote_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Why Professional Development Matters"))
+    body.append(
+        p(
+            "Users expect: instant load time, smooth navigation, no crashes, secure transactions. Without proper architecture, apps fail quickly in competitive markets."
+        )
+    )
+
+    body.append(h2("Android & iOS App Development Approaches"))
+    body.append(h3("Native Development"))
+    body.append(
+        p(
+            "Kotlin (Android), Swift (iOS). Highest performance and platform-specific experience."
+        )
+    )
+    body.append(h3("Cross-Platform Development"))
+    body.append(
+        p(
+            "Flutter, React Native. Faster deployment with shared codebase."
+        )
+    )
+    body.append(h3("Backend & API Integration"))
+    body.append(
+        ul(
+            [
+                "Secure authentication",
+                "Payment systems",
+                "Push notifications",
+                "Analytics integration",
+                "Cloud infrastructure",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Strong backend equals scalable growth."
+        )
+    )
+
+    body.append(h2("Our Development Process"))
+    body.append(h3("Strategy & Planning"))
+    body.append(
+        p(
+            "Market research, feature mapping, monetization model."
+        )
+    )
+    body.append(h3("UX/UI Design"))
+    body.append(
+        p(
+            "User flows, wireframes, prototyping."
+        )
+    )
+    body.append(h3("Development"))
+    body.append(
+        p(
+            "Frontend implementation + backend API."
+        )
+    )
+    body.append(h3("Testing & QA"))
+    body.append(
+        p(
+            "Device testing, performance analysis, store compliance."
+        )
+    )
+    body.append(h3("Launch & Optimization"))
+    body.append(
+        p(
+            "App Store submission, ASO, analytics tracking."
+        )
+    )
+
+    body.append(h2("Performance & Security"))
+    body.append(
+        p(
+            "Professional apps include: optimized data handling, encrypted communication, secure authentication, scalable server infrastructure. Security builds trust."
+        )
+    )
+
+    body.append(h2("Who Is It For?"))
+    body.append(
+        ul(
+            [
+                "E-commerce businesses",
+                "SaaS platforms",
+                "Logistics & delivery systems",
+                "Education apps",
+                "Fintech startups",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Mobile apps drive direct engagement and retention."
+        )
+    )
+
+    body.append(h2("Final Thoughts"))
+    body.append(
+        p(
+            "Mobile app development requires more than coding — it demands architecture, performance engineering, and user-centered thinking. Built correctly, it becomes a scalable growth engine."
+        )
+    )
+
+    body.append(h2("Related topics"))
+    body.append(
+        p(
+            f"Workflow: {{{{ link:{_guide_url(page)} }}}}. Quote: {{{{ link:{_quote_url(page)} }}}}."
+        )
+    )
+    cluster_urls = _cluster_urls_for_service(page)
+    if cluster_urls:
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls[:10]]))
+
+    body.append(
+        cta_box(
+            "Get a Quote",
+            "Share your mobile app goals; we'll outline scope and a clear plan.",
+            _quote_url(page),
+            "Go to quote form.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("How long does mobile app development take?", "Depends on scope, features, and platform requirements."),
+        ("Can Android and iOS be developed together?", "Yes, via native or cross-platform approaches."),
+        ("Do you provide post-launch support?", "Yes, maintenance and updates are planned."),
+        ("What impacts App Store ranking?", "ASO, performance, reviews, retention rate."),
+        ("Is backend development necessary?", "For most scalable applications, yes."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Mobile App Development | Android & iOS Scalable Solutions"
+    meta_description = (
+        "Professional mobile app development for Android and iOS. High-performance, secure, and scalable applications built for growth."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Mobile App Development — Scalable & High-Performance Solutions",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_corporate_website_en(page: SeoPage) -> Dict:
     """Custom cluster: Corporate Website Development — strategic planning guide, decision-stage. No pricing triggers."""
     body: List[str] = []
@@ -2206,6 +2371,8 @@ def generate_en(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_PILLAR:
         if page.service.key == "web-design":
             return _web_design_pillar_en(page)
+        if page.service.key == "mobile-app-development":
+            return _mobile_app_pillar_en(page)
         title = svc
         meta = make_meta(
             title=title,
