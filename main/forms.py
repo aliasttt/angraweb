@@ -61,7 +61,7 @@ class QuoteRequestForm(forms.ModelForm):
     service_type = forms.ChoiceField(
         choices=SERVICE_CHOICES,
         widget=forms.Select(attrs={
-            'class': 'form-control',
+            'class': 'form-select form-control',
             'required': True
         }),
         label=_('Service type')
@@ -71,7 +71,7 @@ class QuoteRequestForm(forms.ModelForm):
         choices=PACKAGE_CHOICES,
         required=False,
         widget=forms.Select(attrs={
-            'class': 'form-control'
+            'class': 'form-select form-control'
         }),
         label=_('Package (optional)')
     )

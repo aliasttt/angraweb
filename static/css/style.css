@@ -1644,6 +1644,24 @@ body[dir="rtl"] .benefit-item {
     color: #b2bec3;
 }
 
+/* Select/dropdown: show chevron so users know they can choose an option */
+select.form-control,
+select.form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23b2bec3' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 2.25rem;
+}
+[dir="rtl"] select.form-control,
+[dir="rtl"] select.form-select {
+    background-position: left 12px center;
+    padding-right: 15px;
+    padding-left: 2.25rem;
+}
+
 /* Fix contrast on forms (Bootstrap defaults are dark) */
 .form-label,
 .form-check-label,
