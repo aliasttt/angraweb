@@ -5,9 +5,16 @@ from django.urls import path
 from django.utils import timezone
 
 from .models import InternalLinkRule, SeoPage, Service
-from .content.generator_en import generate_en
-from .content.generator_tr import generate_tr
 from .link_placeholder import has_placeholder_syntax
+
+
+def _get_generator(language: str):
+    """Lazy import of generators so broken generator code does not crash Django/Gunicorn at startup."""
+    if language == "tr":
+        from .content.generator_tr import generate_tr
+        return generate_tr
+    from .content.generator_en import generate_en
+    return generate_en
 
 
 @admin.register(Service)
@@ -59,7 +66,8 @@ class SeoPageAdmin(admin.ModelAdmin):
         page.save()
 
     def _generate_for_page(self, page: SeoPage):
-        data = generate_tr(page) if page.language == "tr" else generate_en(page)
+        gen = _get_generator(page.language)
+        data = gen(page)
         self._apply_generated(page, data)
 
     @admin.action(description="Generate content for selected (only empty)")

@@ -2160,7 +2160,6 @@ def _cluster_web_developer_istanbul_tr(page: SeoPage) -> Dict:
     meta_description = clamp_text(meta_description, 160)
 
     return {
-    return {
         "title": "İstanbul Web Geliştirici — Profesyonel ve Ölçeklenebilir Çözümler",
         "meta_title": meta_title,
         "meta_description": meta_description,
