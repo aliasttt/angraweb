@@ -353,6 +353,192 @@ def _mobile_app_pillar_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_android_app_development_en(page: SeoPage) -> Dict:
+    """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "Android development is fundamentally shaped by device diversity and real-world performance constraints. A successful Android app must run smoothly not only on flagship devices but also on mid-range and low-end phones — under varying network conditions."
+        )
+    )
+    body.append(
+        p(
+            "This page explains the practical framework behind building Android apps that are: fast and responsive, secure by design, scalable for growth, ready for Play Store release, measurable through analytics."
+        )
+    )
+    body.append(
+        p(
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Common Android Development Challenges (and What Matters)"))
+    body.append(h3("1) Device Diversity & Compatibility"))
+    body.append(
+        p(
+            "Android runs across countless device types, screen sizes, chipsets, and OS versions. That means your app must be engineered to handle:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "responsive UI across screen sizes",
+                "stable behavior on different Android versions",
+                "performance constraints (low RAM / low CPU)",
+                "manufacturer-specific quirks",
+                "a realistic device testing strategy",
+            ]
+        )
+    )
+    body.append(h3("2) Performance & Responsiveness"))
+    body.append(
+        p(
+            "Users don't tolerate slow apps. Performance is not \"nice to have\" — it directly impacts retention. Key performance factors:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "cold start / launch time",
+                "smooth scrolling on lists and feeds",
+                "efficient network usage and fewer API calls",
+                "smart caching for data and media",
+                "resilience under weak connectivity (offline-first thinking)",
+            ]
+        )
+    )
+    body.append(h3("3) Security & Data Protection"))
+    body.append(
+        p(
+            "Security is more than login. Android apps often fail due to weak token handling or unsafe data storage. A professional security baseline includes:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "secure authentication and token lifecycle",
+                "server-side validation for API requests",
+                "safe local storage practices",
+                "abuse prevention and rate limiting",
+                "preventing sensitive data leaks in logs/crash reports",
+            ]
+        )
+    )
+
+    body.append(h2("Recommended Delivery Process"))
+    body.append(h3("1) Discovery & Goals"))
+    body.append(
+        ul(
+            [
+                "define the primary outcome (sales, leads, operations)",
+                "map critical user journeys",
+                "align on MVP vs phased roadmap",
+            ]
+        )
+    )
+    body.append(p("<strong>Output:</strong> scope draft + priorities + measurable goals"))
+    body.append(h3("2) Planning & Architecture"))
+    body.append(
+        p(
+            "Architecture choices drive performance and maintainability. Plan should define: navigation and information architecture, API contracts and error handling strategy, push notifications and background tasks approach, analytics event plan (what to measure and why)."
+        )
+    )
+    body.append(p("<strong>Output:</strong> technical plan + delivery criteria"))
+    body.append(h3("3) Design & Development"))
+    body.append(
+        ul(
+            [
+                "UX clarity, simple navigation, strong CTAs",
+                "performance-driven implementation",
+                "maintainable code structure for future iterations",
+            ]
+        )
+    )
+    body.append(p("<strong>Output:</strong> working build + testable release candidate"))
+    body.append(h3("4) Testing & Launch"))
+    body.append(
+        p(
+            "Launching on Android is an engineering phase: device coverage testing, crash/ANR risk reduction, Play Store compliance checks, release notes and rollout plan."
+        )
+    )
+    body.append(p("<strong>Output:</strong> launch checklist + monitoring plan"))
+
+    body.append(h2("Deliverables You Should Expect"))
+    body.append(
+        p(
+            "For a clear project outcome, deliverables must be tangible: phased release roadmap, testing strategy (device list + critical flows), analytics measurement plan, post-launch iteration framework (first 30 days)."
+        )
+    )
+
+    body.append(h2("When to Choose an Android-Focused Approach"))
+    body.append(
+        ul(
+            [
+                "your goals are measurable",
+                "user flows are clear",
+                "you want phased delivery instead of chaos",
+                "performance and security are top priorities",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Android success is not \"ship fast\" — it's build sustainable."
+        )
+    )
+
+    body.append(h2("Post-Launch: Monitoring & Iteration"))
+    body.append(
+        p(
+            "Launch is the beginning. Strong Android products establish: crash monitoring, performance tracking, user feedback loops, continuous improvements and updates."
+        )
+    )
+    body.append(
+        p(
+            "This improves stability, trust, and retention over time."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Share your Android app goal in 2–3 sentences",
+            "We'll define the scope, split it into phases, and build a reliable execution plan. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What's the first step in Android app development?", "Define goals and critical user flows, then lock scope in writing."),
+        ("Where does Android performance break most often?", "App launch time, list scrolling, inefficient network calls, and poor caching."),
+        ("How do you handle device diversity?", "By setting a target device/OS matrix and building a realistic test strategy."),
+        ("What's the minimum security baseline?", "Secure auth, safe token handling, server-side validation, and protected local storage."),
+        ("What causes launch issues on Google Play?", "Permissions, policy compliance, high crash/ANR rate, and missing release checklist items."),
+        ("What should you track after launch?", "Crashes, session duration, key conversion flows, retention, and performance metrics."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Android App Development | Performance, Security & Scalability"
+    meta_description = (
+        "Android app development built for device diversity, speed, and reliability. Secure architecture, Play Store readiness, analytics-driven iteration."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Android App Development — Reliable Performance Across Device Diversity",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_corporate_website_en(page: SeoPage) -> Dict:
     """Custom cluster: Corporate Website Development — strategic planning guide, decision-stage. No pricing triggers."""
     body: List[str] = []
@@ -2698,6 +2884,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "how-to-build-a-website":
         return _cluster_how_to_build_a_website_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Android App Development (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android-app-development":
+        return _cluster_android_app_development_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

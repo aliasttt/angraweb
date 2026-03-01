@@ -537,6 +537,187 @@ def _mobile_app_pillar_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_android_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Android Uygulama Geliştirme — device diversity, performance, security. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "Android uygulama geliştirmede en kritik fark, cihaz çeşitliliği ve performans beklentisidir. Başarılı bir Android uygulaması; düşük/orta seviye cihazlarda bile akıcı çalışır, ağ koşullarına dayanıklıdır ve güvenlik temelini doğru kurar."
+        )
+    )
+    body.append(
+        p(
+            "Bu sayfa; Android projelerinde doğru kararları (mimari, performans, güvenlik, yayın) baştan netleştirmeniz için hazırlanmıştır. "
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Android Uygulama Geliştirmede En Sık Karşılaşılan İhtiyaçlar"))
+    body.append(h3("1) Cihaz Çeşitliliği ve Uyumluluk"))
+    body.append(
+        p(
+            "Android ekosistemi farklı ekran boyutları, üreticiler, Android sürümleri ve donanımlar anlamına gelir. Bu yüzden tasarım ve geliştirme şunları hedeflemeli:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "farklı çözünürlüklerde tutarlı UI",
+                "düşük RAM / düşük CPU cihazlarda stabil performans",
+                "farklı Android sürümlerinde uyumlu davranış",
+                "üretici kaynaklı beklenmedik problemler için test planı",
+            ]
+        )
+    )
+    body.append(h3("2) Performans ve Hız"))
+    body.append(
+        p(
+            "Kullanıcılar \"uygulama açılmıyor, takılıyor, kasıyor\" dediği anda kaybedersiniz. Performansı etkileyen başlıklar:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "cold start / app launch süresi",
+                "liste ekranlarında kaydırma akıcılığı (scroll performance)",
+                "gereksiz network çağrılarının azaltılması",
+                "görsel ve veri cache stratejileri",
+                "offline-first düşünce (zayıf internet koşullarında bile çalışabilme)",
+            ]
+        )
+    )
+    body.append(h3("3) Güvenlik ve Veri Koruma"))
+    body.append(
+        p(
+            "Android uygulamada güvenlik sadece \"login\" değildir. Özellikle kullanıcı verisi, token yönetimi ve API güvenliği kritik:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "güvenli authentication ve token yönetimi",
+                "API isteklerinde sunucu taraflı doğrulama",
+                "cihazda saklanan verilerin güvenli tutulması",
+                "rate limit / abuse korumaları",
+                "log ve hata kayıtlarında hassas veri sızıntısını engelleme",
+            ]
+        )
+    )
+
+    body.append(h2("Önerilen Süreç"))
+    body.append(h3("1) Keşif ve Hedefler"))
+    body.append(
+        ul(
+            [
+                "uygulamanın ana hedefi (satış/lead/operasyon/verimlilik)",
+                "kullanıcı senaryoları ve kritik akışlar",
+                "MVP mi, fazlı geliştirme mi?",
+            ]
+        )
+    )
+    body.append(p("<strong>Çıktı:</strong> hedef + kapsam taslağı + öncelik listesi"))
+    body.append(h3("2) Planlama ve Mimari"))
+    body.append(
+        p(
+            "Android tarafında mimari kararlar performansı direkt etkiler. Planlama aşamasında netleşmesi gerekenler: ekran akışları ve bilgi mimarisi, API sözleşmeleri (endpoint yapısı, hata kodları, veri formatları), bildirim ve arka plan işlerinin yaklaşımı, analitik event planı (hangi aksiyonları ölçeceğiz?)."
+        )
+    )
+    body.append(p("<strong>Çıktı:</strong> teknik plan + teslim kriterleri"))
+    body.append(h3("3) Tasarım ve Geliştirme"))
+    body.append(
+        ul(
+            [
+                "UI/UX: okunabilirlik, net CTA, basit navigasyon",
+                "performans odaklı ekranlar ve veri yönetimi",
+                "sürdürülebilir kod düzeni (kolay bakım ve güncelleme)",
+            ]
+        )
+    )
+    body.append(p("<strong>Çıktı:</strong> çalışan sürüm + test edilebilir build"))
+    body.append(h3("4) Test ve Yayın"))
+    body.append(
+        p(
+            "Android'de yayın, geliştirme kadar önemlidir: farklı cihazlarda temel senaryoların test edilmesi, crash ve ANR risklerini azaltma, Play Store politikalarına uyum, sürüm notları ve release planı."
+        )
+    )
+    body.append(p("<strong>Çıktı:</strong> yayın checklist + izleme planı"))
+
+    body.append(h2("Teslimatlar"))
+    body.append(
+        p(
+            "Bu sayfanın hedefi \"ne teslim alacağınızı\" netleştirmek: sürüm planı (v1, v1.1, v2 gibi faz yaklaşımı), test stratejisi (cihaz listesi + kritik akış testleri), analitik ölçümleme planı (event tracking), yayın sonrası iyileştirme döngüsü (ilk 30 gün)."
+        )
+    )
+
+    body.append(h2("Ne Zaman Android Yaklaşımı Seçmelisiniz?"))
+    body.append(
+        ul(
+            [
+                "hedefiniz ölçülebilir ve netse",
+                "kullanıcı akışları belirginse",
+                "fazlara bölerek ilerlemek istiyorsanız",
+                "stabil performans ve güvenlik önceliğinizse",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Android'de doğru yaklaşım; \"bir an önce çıktı alalım\" değil, sürdürülebilir büyüme hedefiyle kurulur."
+        )
+    )
+
+    body.append(h2("Yayın Sonrası: Sürdürülebilirlik ve İyileştirme Döngüsü"))
+    body.append(
+        p(
+            "Yayın; bitiş değil başlangıçtır. Sağlam Android projelerinde şu döngü kurulur: crash raporlama (hata izleme), performans metrikleri takibi, kullanıcı geri bildirimleri ve iterasyonlar, düzenli bakım ve güvenlik güncellemeleri."
+        )
+    )
+    body.append(
+        p(
+            "Bu yaklaşım; uzun vadede uygulamanızı daha stabil, daha hızlı ve daha güvenilir hale getirir."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Android uygulama hedefinizi 2–3 cümlede yazın",
+            "Kapsamı fazlara bölelim ve uygulanabilir bir plan çıkaralım. Teklif sayfasına gidin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Android uygulama geliştirmede ilk adım nedir?", "Hedefi ve kritik kullanıcı akışlarını netleştirmek; ardından kapsamı yazılı hale getirmektir."),
+        ("Android'de performans en çok nerede bozulur?", "Açılış süresi, liste ekranları (scroll), gereksiz network çağrıları ve yanlış cache yaklaşımı en sık sebeplerdir."),
+        ("Cihaz çeşitliliği nasıl yönetilir?", "Kritik cihaz/sürüm listesi belirlenir, test stratejisi buna göre kurulur ve UI farklı ekranlara uyarlanır."),
+        ("Güvenlik için minimum neler olmalı?", "Güvenli authentication, token yönetimi, API doğrulama, hassas verilerin korunması ve log hijyeni."),
+        ("Play Store'a çıkışta en çok nerede sorun olur?", "İzinler (permissions), politika uyumu, çökme/ANR oranları ve eksik yayın kontrol listesi."),
+        ("Yayından sonra hangi metrikler takip edilmeli?", "Crash oranı, oturum süresi, dönüşüm adımları, retention ve performans metrikleri."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Android Uygulama Geliştirme | Performans, Güvenlik ve Ölçeklenebilirlik"
+    meta_description = (
+        "Android uygulama geliştirme: cihaz çeşitliliğine dayanıklı, hızlı, güvenli ve ölçeklenebilir mimari. Play Store uyumlu, analitik odaklı geliştirme."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Android Uygulama Geliştirme — Cihaz Çeşitliliğinde Stabil, Hızlı ve Güvenli",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_kurumsal_web_sitesi_tr(page: SeoPage) -> Dict:
     """Custom cluster: Kurumsal Web Sitesi — commercial investigation + service authority. 900–1200 words."""
     body: List[str] = []
@@ -3394,6 +3575,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "web-sitesi-nasil-yapilir":
         return _cluster_web_sitesi_nasil_yapilir_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Android Uygulama Geliştirme (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android":
+        return _cluster_android_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
