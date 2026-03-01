@@ -354,7 +354,42 @@ def contact(request):
 
 @ratelimit(key='ip', rate='3/m', method='POST', block=True)
 def quote_request(request):
-    """درخواست قیمت"""
+    """درخواست قیمت. اگر با پارامتر package یا service وارد شده باشد به URL تمیز سیلو (مثلاً /tr/web-tasarim/teklif-al/) ریدایرکت ۳۰۱ می‌شود."""
+    # ریدایرکت به URL تمیز سیلو برای سئو وقتی با package یا service وارد شده
+    if request.method == 'GET':
+        lang = translation.get_language() or request.LANGUAGE_CODE or 'tr'
+        if lang not in ('tr', 'en'):
+            lang = 'tr'
+        silo_key = None
+        package_param = (request.GET.get('package') or '').strip().lower()
+        service_param = (request.GET.get('service') or '').strip()
+        _package_to_silo = {
+            'website': 'web-design',
+            'ecommerce': 'ecommerce-development',
+            'mobile': 'mobile-app-development',
+            'custom': 'web-design',
+        }
+        _service_to_silo = {
+            'web_design': 'web-design',
+            'mobile_app': 'mobile-app-development',
+            'ecommerce': 'ecommerce-development',
+            'seo': 'seo-services',
+            'hosting': 'hosting-domain',
+            'ui_ux': 'ui-ux-design',
+        }
+        if package_param:
+            silo_key = _package_to_silo.get(package_param)
+        if not silo_key and service_param:
+            silo_key = _service_to_silo.get(service_param)
+        if silo_key:
+            from seo_pages.silo_config import SERVICE_SILO_MAP
+            cfg = SERVICE_SILO_MAP.get(silo_key, {}).get(lang)
+            if cfg:
+                base = cfg['base_path']
+                quote_slug = 'teklif-al' if lang == 'tr' else 'get-quote'
+                to_path = f'/{lang}/{base}/{quote_slug}/'
+                return redirect(to_path, permanent=True)
+
     get_language_context(request)
     if request.method == 'POST':
         form = QuoteRequestForm(request.POST)
