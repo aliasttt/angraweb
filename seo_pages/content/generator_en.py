@@ -539,6 +539,154 @@ def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ios_app_development_en(page: SeoPage) -> Dict:
+    """Custom cluster: iOS App Development — App Store ready, stable, scalable. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "Shipping an iOS app is not just \"building screens.\" Real outcomes come from combining App Store readiness, iOS UX standards, stability, performance, and post-launch iteration."
+        )
+    )
+    body.append(
+        p(
+            "This page explains a practical iOS delivery framework with clear process steps, deliverables, and acceptance criteria. "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Common Needs We Solve"))
+    body.append(h3("1) App Store Readiness (Planned Early)"))
+    body.append(
+        p(
+            "App Store submission shouldn't be a last-minute surprise. Typical areas include: guideline-friendly user flows, permission messaging and privacy approach (user trust), release notes, screenshots, submission checklist, testing workflow (TestFlight, scenario coverage)."
+        )
+    )
+    body.append(p("<strong>Goal:</strong> turn \"review uncertainty\" into a predictable checklist-driven launch."))
+    body.append(h3("2) iOS Design Standards (UI/UX)"))
+    body.append(
+        p(
+            "iOS users expect consistency. That means: clear navigation patterns, clean forms and CTAs, consistent typography and spacing, accessibility basics (readability, tap targets)."
+        )
+    )
+    body.append(p("<strong>Goal:</strong> remove friction and guide users to the key action."))
+    body.append(h3("3) Stability, Performance, and Sustainability"))
+    body.append(
+        p(
+            "Even with a controlled ecosystem, quality requires: crash monitoring and logging strategy, performance targets for critical flows, network resilience (retry, offline tolerance when relevant), small iterations after launch."
+        )
+    )
+    body.append(p("<strong>Goal:</strong> \"measurably reliable\" — not just \"it works on my phone.\""))
+
+    body.append(h2("Recommended iOS Delivery Process"))
+    body.append(h3("1) Discovery & Goals"))
+    body.append(
+        ul(
+            [
+                "define users and the problem",
+                "map critical flows (signup, booking, checkout, messaging)",
+                "set measurable metrics (activation, retention, conversion steps)",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> goals + scope skeleton + key decisions"))
+    body.append(h3("2) Planning: Delivery Criteria & Priorities"))
+    body.append(
+        ul(
+            [
+                "MVP scope (v1) + phased roadmap",
+                "define \"must-have\" screens and flows",
+                "analytics event plan (what to measure)",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> phased plan + acceptance criteria"))
+    body.append(h3("3) Design & Development"))
+    body.append(
+        ul(
+            [
+                "iOS-consistent UI system and components",
+                "secure session handling (auth/token; role-based needs if required)",
+                "performance-driven data flow",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> testable build + critical flows complete"))
+    body.append(h3("4) Testing & Launch"))
+    body.append(
+        ul(
+            [
+                "scenario-based QA",
+                "TestFlight distribution + feedback loop",
+                "launch checklist + monitoring plan",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> launch-ready build + monitoring setup"))
+
+    body.append(h2("Deliverables"))
+    body.append(
+        p(
+            "A strong iOS release includes more than the binary: App Store submission checklist, release notes template, testing plan (critical scenarios + OS coverage), monitoring plan (crashes + core user actions)."
+        )
+    )
+
+    body.append(h2("When This Approach Fits Best"))
+    body.append(
+        p(
+            "This framework is ideal when:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "App Store readiness must be smooth",
+                "stability and UX are brand-critical",
+                "growth is planned through post-launch iteration",
+                "you want measurable scope discipline",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Share your goal and critical flows",
+            "We'll clarify scope and turn it into a practical iOS delivery plan. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What's the first step in iOS app development?", "Define the user goal and critical flows, then lock an MVP scope in writing."),
+        ("Why plan for App Store submission early?", "Permissions, privacy approach, UI standards, and submission requirements can impact timelines if handled late."),
+        ("Why do iOS UX standards matter?", "Consistency improves trust, reduces friction, and increases conversion on key actions."),
+        ("What is TestFlight used for?", "Controlled pre-release distribution, feedback collection, and stability improvements."),
+        ("What should you focus on after launch?", "Crash rate, performance of critical flows, and activation/retention metrics."),
+        ("How do you manage scope changes?", "Through phased planning and acceptance criteria (must-have / priority / optional)."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "iOS App Development | App Store Ready & Scalable Delivery"
+    meta_description = (
+        "iOS app development focused on App Store requirements, iOS design standards, stability, performance, and measurable delivery criteria for sustainable growth."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "iOS App Development — App Store Ready, Stable, and Scalable Products",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_or_ios_en(page: SeoPage) -> Dict:
     """Custom cluster: Android or iOS? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -3055,6 +3203,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android-app-development":
         return _cluster_android_app_development_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: iOS App Development (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "ios-app-development":
+        return _cluster_ios_app_development_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android or iOS? (EN) — mobile-app-development

@@ -718,6 +718,164 @@ def _cluster_android_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ios_tr(page: SeoPage) -> Dict:
+    """Custom cluster: iOS Uygulama Geliştirme — App Store uyumlu, stabil, ölçeklenebilir. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "iOS tarafında başarı, \"uygulamayı çalıştırmak\"tan daha fazlasıdır: App Store gereksinimleri, tasarım standardı, performans, stabilite ve yayın sonrası iterasyon birlikte yönetildiğinde ürün büyür."
+        )
+    )
+    body.append(
+        p(
+            "Bu sayfa, iOS uygulama geliştirmeyi süreç + teslim kriterleri + kalite standartları üzerinden netleştirir: neyi, hangi sırayla ve hangi kabul kriterleriyle yapacağınızı görürsünüz. "
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("En Sık Karşılaşılan İhtiyaçlar"))
+    body.append(h3("1) App Store Gereksinimleri ve Yayına Hazırlık"))
+    body.append(
+        p(
+            "iOS projelerinde yayın süreci \"son adım\" değildir; en baştan planlanmalıdır. Sık karşılaşılan başlıklar:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "App Store yönergeleriyle uyumlu akışlar",
+                "izin metinleri ve gizlilik yaklaşımı (kullanıcı güveni)",
+                "sürüm notları, ekran görüntüleri ve yayın checklist'i",
+                "test süreçleri (TestFlight, cihaz kapsaması, senaryolar)",
+            ]
+        )
+    )
+    body.append(p("<strong>Hedef:</strong> yayın sürecini sürprizlere değil, checklist'e bağlamak."))
+    body.append(h3("2) iOS Tasarım Standartları (UI/UX)"))
+    body.append(
+        p(
+            "iOS kullanıcıları tutarlı bir deneyim bekler. Bu yüzden: gezinme (navigation) yapısı net olmalı; form ve CTA (Call-to-Action) dili sade olmalı; boşluklar, tipografi, bileşen davranışları tutarlı olmalı; erişilebilirlik temeli (okunabilirlik, dokunma alanları) düşünülmeli."
+        )
+    )
+    body.append(p("<strong>Hedef:</strong> kullanıcıyı \"arayüzle uğraştırmadan\" kritik aksiyona götürmek."))
+    body.append(h3("3) Stabilite, Performans ve Sürdürülebilirlik"))
+    body.append(
+        p(
+            "iOS ekosistemi daha kontrollü olsa da, iyi bir ürün için şunlar şart: crash takibi ve log stratejisi; kritik akışlarda performans hedefleri; ağ yönetimi (offline tolerans, retry stratejisi); yayın sonrası küçük iterasyonlarla kaliteyi yükseltmek."
+        )
+    )
+    body.append(p("<strong>Hedef:</strong> \"ilk sürüm çıktı\" değil, \"ölçümlenebilir şekilde çalışıyor\" demek."))
+
+    body.append(h2("Önerilen Süreç (iOS İçin Pratik Akış)"))
+    body.append(h3("1) Keşif ve Hedefler"))
+    body.append(
+        ul(
+            [
+                "kullanıcı profili ve ana problem",
+                "kritik akışlar (kayıt, rezervasyon, ödeme, mesajlaşma vb.)",
+                "ölçülecek metrikler (aktivasyon, retention, dönüşüm adımları)",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> hedef + kapsam iskeleti + kararlar"))
+    body.append(h3("2) Plan: Teslim Kriterleri ve Öncelikler"))
+    body.append(
+        ul(
+            [
+                "MVP kapsamı (v1) + sonraki fazlar",
+                "hangi ekranların \"zorunlu\" olduğu",
+                "analitik event planı (ne ölçülecek?)",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> faz planı + kabul kriterleri"))
+    body.append(h3("3) Uygulama: Tasarım/Geliştirme"))
+    body.append(
+        ul(
+            [
+                "iOS tasarım standardı + komponent mantığı",
+                "güvenli oturum yaklaşımı (auth, token, role-based ihtiyaç varsa)",
+                "performans ve veri akışı optimizasyonu",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> test edilebilir sürüm + kritik akışlar"))
+    body.append(h3("4) Test ve Yayın"))
+    body.append(
+        ul(
+            [
+                "senaryo bazlı test",
+                "TestFlight dağıtım ve geri bildirim döngüsü",
+                "yayın checklist + izleme planı",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> yayın-ready build + izleme kurulumları"))
+
+    body.append(h2("Teslimatlar (Somut Çıktılar)"))
+    body.append(
+        p(
+            "iOS uygulama geliştirmede \"teslim\" sadece APK/IPA değildir. Sağlam bir çıktı seti: yayın kontrol listesi (App Store submission checklist), sürüm notları şablonu (release notes), test planı (kritik senaryolar + cihaz kapsaması), izleme planı (crash + temel kullanıcı aksiyonları)."
+        )
+    )
+
+    body.append(h2("Ne Zaman Bu Yaklaşımı Seçmelisiniz?"))
+    body.append(
+        p(
+            "Bu sayfa; iOS'ta hızlı ama kontrollü ilerlemek isteyen ekipler için en iyi sonucu verir:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "ürününüz App Store standartlarına sorunsuz uymalıysa",
+                "stabilite ve kullanıcı deneyimi \"marka algısı\" için kritikse",
+                "yayın sonrası iterasyonla büyümeyi hedefliyorsanız",
+                "süreç yönetimini yazılı ve ölçülebilir yapmak istiyorsanız",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Hedefinizi ve kritik akışlarınızı yazın",
+            "iOS için en doğru kapsamı birlikte çıkaralım. Teklif sayfasına gidin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("iOS uygulama geliştirmede ilk adım nedir?", "Kullanıcı hedefini ve kritik akışları netleştirmek; sonra MVP kapsamını yazılı hale getirmektir."),
+        ("App Store süreci neden en baştan planlanmalı?", "Çünkü izinler, gizlilik yaklaşımı, UI standartları ve yayın checklist'i sonradan eklendiğinde gecikme yaratabilir."),
+        ("iOS tasarım standardı neden önemlidir?", "Tutarlı gezinme, okunabilirlik ve bileşen davranışları kullanıcı güvenini ve dönüşümü doğrudan etkiler."),
+        ("TestFlight ne işe yarar?", "Yayın öncesi dağıtım, geri bildirim toplama ve hataları kontrollü şekilde azaltmak için kullanılır."),
+        ("Yayın sonrası odak ne olmalı?", "Crash oranı, kritik akış performansı ve aktivasyon/retention metrikleri."),
+        ("Kapsam değişirse süreç nasıl yönetilir?", "Faz planı ve kabul kriterleriyle: \"zorunlu/öncelikli/isteğe bağlı\" ayrımı yapılarak."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "iOS Uygulama Geliştirme | App Store Uyumlu ve Ölçeklenebilir"
+    meta_description = (
+        "iOS uygulama geliştirme süreci: App Store gereksinimleri, tasarım standartları, performans ve güvenlik. Ölçülebilir hedeflerle sürdürülebilir iOS ürünleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "iOS Uygulama Geliştirme — App Store Uyumlu, Stabil ve Ölçeklenebilir Ürünler",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_vs_ios_tr(page: SeoPage) -> Dict:
     """Custom cluster: Android mi iOS mu? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -3746,6 +3904,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android":
         return _cluster_android_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: iOS Uygulama Geliştirme (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "ios":
+        return _cluster_ios_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android mi iOS mu? (TR) — mobile-app-development
