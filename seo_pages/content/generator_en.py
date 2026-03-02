@@ -1127,6 +1127,141 @@ def _cluster_how_to_build_mobile_app_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_what_is_a_mobile_app_en(page: SeoPage) -> Dict:
+    """Custom cluster: What Is a Mobile App? — types, use cases, how to decide. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "A mobile app is software designed for smartphones and tablets to help users complete tasks quickly and repeatedly. But \"mobile app\" is not one single format. In practice, it can mean: native iOS and Android apps; cross-platform apps built from one codebase; web solutions that behave like apps (PWA); business apps that streamline operations and workflows."
+        )
+    )
+    body.append(
+        p(
+            "This page helps you answer the real question: Do you actually need a mobile app? "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("What Does a Mobile App Improve?"))
+    body.append(
+        p(
+            "Mobile apps are strongest when they create continuous user touchpoints: push notifications to increase return visits; device features (camera, location, biometrics) to speed up flows; smoother repeat actions (one-tap journeys); better stability in weak network situations; measurement and iteration based on user behavior. A mobile app wins when speed, repeat usage, and engagement matter."
+        )
+    )
+
+    body.append(h2("Types of Mobile Apps"))
+    body.append(h3("1) Native Apps (iOS / Android)"))
+    body.append(
+        p(
+            "Built specifically for each platform. Best for: high performance requirements; heavy device integrations; products where the app is the core experience."
+        )
+    )
+    body.append(h3("2) Cross-Platform Apps (Flutter / React Native)"))
+    body.append(
+        p(
+            "One codebase targeting both platforms. Best for: faster launch cycles; consistent experience across platforms; MVP and first releases with planned iterations."
+        )
+    )
+    body.append(h3("3) PWA (Progressive Web App)"))
+    body.append(
+        p(
+            "Web-based experience that feels like an app. Best for: content-focused products; simpler user flows; reducing app store dependency. The right choice depends on the use case, not the trend."
+        )
+    )
+
+    body.append(h2("How to Choose the Right Use Case"))
+    body.append(
+        p(
+            "Ask these 3 questions: How often will users repeat the core action weekly? Does mobile create a clear speed advantage? Do you need notifications or device features? If at least two are \"yes,\" mobile is a strong candidate."
+        )
+    )
+
+    body.append(h2("Target Audience: B2C vs B2B"))
+    body.append(h3("B2C"))
+    body.append(
+        p(
+            "Focus: UX, onboarding, retention, speed. Examples: e-commerce, booking, delivery, content platforms."
+        )
+    )
+    body.append(h3("B2B"))
+    body.append(
+        p(
+            "Focus: roles, workflows, reporting, integrations. Examples: field team apps, internal CRM companion apps, inventory and order tracking, operational tools."
+        )
+    )
+
+    body.append(h2("Practical Examples"))
+    body.append(
+        ul(
+            [
+                "booking apps: repeatable flows + convenience",
+                "delivery tracking: location + real-time status + notifications",
+                "loyalty apps: campaigns + notifications + account journeys",
+                "operations apps: role-based access + reporting + process consistency",
+            ]
+        )
+    )
+
+    body.append(h2("Recommended Process (High-Level)"))
+    body.append(
+        p(
+            "Successful teams follow a consistent sequence: Discovery → Scope → UX/UI → Development → Testing → Publishing → Measurement & Iteration. Breaking this order usually leads to delays and rework."
+        )
+    )
+
+    body.append(h2("Must-Haves for Quality"))
+    body.append(
+        ul(
+            [
+                "clear information architecture",
+                "performance targets",
+                "secure authentication and access control",
+                "crash logging + core analytics events",
+                "post-launch improvement plan",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Have a mobile app idea?",
+            "Start by clarifying the right use case and target audience. A clear plan reduces surprises and makes growth easier. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What is the difference between a mobile app and a website?", "Apps leverage notifications and device features; websites are easier to access instantly and are strong for content."),
+        ("Do all businesses need a mobile app?", "No. If repeat actions and device features are not essential, web/PWA can be a better fit."),
+        ("Native vs cross-platform — what should I choose?", "Native for maximum performance; cross-platform for speed and shared product experience."),
+        ("What is a PWA?", "A web-based app-like experience with some limitations depending on device/platform."),
+        ("What is the first step to start?", "Define the target user and the 2–3 critical user journeys."),
+        ("Is post-launch work necessary?", "Yes. Measurement and iteration are how apps improve and grow."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "What Is a Mobile App? Types, Use Cases, and Real Examples"
+    meta_description = (
+        "What is a mobile app? Learn mobile app types (native, cross-platform, PWA), when you actually need one, target audience logic, and practical examples."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "What Is a Mobile App? — Types, Use Cases, and How to Decide",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_or_ios_en(page: SeoPage) -> Dict:
     """Custom cluster: Android or iOS? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -3667,6 +3802,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "how-to-build-a-mobile-app":
         return _cluster_how_to_build_mobile_app_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: What Is a Mobile App? (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "what-is-a-mobile-app":
+        return _cluster_what_is_a_mobile_app_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android or iOS? (EN) — mobile-app-development

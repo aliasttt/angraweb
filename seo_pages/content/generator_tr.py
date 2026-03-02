@@ -1355,6 +1355,141 @@ def _cluster_mobil_uygulama_nasil_yapilir_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_mobil_uygulama_nedir_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Mobil Uygulama Nedir? — türler, senaryolar, doğru yaklaşım. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "Mobil uygulama; kullanıcıların telefon veya tablet üzerinden belirli bir işi hızlı ve tekrar edilebilir şekilde yapmasını sağlayan yazılımdır. Ama pratikte \"mobil uygulama\" tek bir şey değildir: iOS / Android üzerinde çalışan uygulamalar; Web tabanlı ama uygulama gibi davranan çözümler; İş süreçlerini hızlandıran kurumsal araçlar; Satış, rezervasyon, lojistik, üyelik, bildirim gibi akışları yöneten sistemler."
+        )
+    )
+    body.append(
+        p(
+            "Bu sayfanın amacı: \"Mobil uygulama gerçekten gerekiyor mu?\" sorusuna net cevap verecek bir çerçeve sunmak. "
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Mobil Uygulama Ne İşe Yarar?"))
+    body.append(
+        p(
+            "Bir mobil uygulamanın en güçlü yanı, kullanıcıyla \"sürekli bir temas\" kurmasıdır. Mobil uygulama şu avantajları sağlar: Push bildirim ile geri dönüşleri artırma; Cihaz özellikleri (kamera, konum, biyometri) ile akışları hızlandırma; Tekrar eden işlemleri \"tek dokunuşa\" indirme; Offline / zayıf internet senaryolarında daha stabil deneyim; Kullanıcı davranışını ölçerek iyileştirme döngüsü kurma. Mobil uygulama; doğru senaryoda web'den daha güçlü bir deneyim sunar."
+        )
+    )
+
+    body.append(h2("Mobil Uygulama Türleri"))
+    body.append(h3("1) Native Uygulama (Android / iOS)"))
+    body.append(
+        p(
+            "Her platformun kendi dili ve standartlarıyla geliştirilir. Ne zaman iyi? Performans kritikse; Kamera, Bluetooth, konum gibi donanım yoğun kullanılıyorsa; Uygulama \"ürünün kendisi\" ise."
+        )
+    )
+    body.append(h3("2) Cross-Platform (Flutter / React Native)"))
+    body.append(
+        p(
+            "Tek codebase ile Android ve iOS hedeflenir. Ne zaman iyi? Hızlı çıkış hedefleniyorsa; Ürün iki platformda da aynı deneyimi istiyorsa; MVP ve ilk faz için optimize edilecekse."
+        )
+    )
+    body.append(h3("3) PWA (Progressive Web App)"))
+    body.append(
+        p(
+            "Web site + uygulama benzeri deneyim. Ne zaman iyi? İçerik ağırlıklıysa; Basit kullanıcı akışları yeterliyse; App store bağımlılığı istenmiyorsa. Doğru tür, \"teknoloji trendi\" ile değil; kullanım senaryosu ile seçilir."
+        )
+    )
+
+    body.append(h2("Doğru Kullanım Senaryosu Nasıl Seçilir?"))
+    body.append(
+        p(
+            "Mobil uygulama kararında 3 test sorusu işe yarar: Kullanıcı aynı işlemi haftada kaç kez yapıyor? İşlem mobilde \"hız avantajı\" sağlıyor mu? Bildirim / cihaz özelliği (kamera, konum, QR) gerekiyor mu? Bu üçünden en az ikisi \"evet\" ise mobil uygulama güçlü bir adaydır."
+        )
+    )
+
+    body.append(h2("Hedef Kitle: B2C mi B2B mi?"))
+    body.append(h3("B2C (Son kullanıcı)"))
+    body.append(
+        p(
+            "Öncelik: kullanıcı deneyimi, hız, onboarding, retention. Örnekler: e-ticaret, rezervasyon, sosyal / içerik, teslimat."
+        )
+    )
+    body.append(h3("B2B (Kurumsal kullanıcı)"))
+    body.append(
+        p(
+            "Öncelik: süreç, yetkilendirme, raporlama, entegrasyonlar. Örnekler: saha ekipleri için uygulama, CRM destek uygulaması, stok / sipariş takip, operasyon yönetimi."
+        )
+    )
+
+    body.append(h2("Örnek Senaryolar"))
+    body.append(
+        ul(
+            [
+                "Rezervasyon / randevu uygulaması: hızlı tekrar eden akış",
+                "Sipariş ve teslimat takibi: konum + bildirim + durum yönetimi",
+                "Sadakat / üyelik uygulaması: push + kampanya akışları",
+                "Kurumsal operasyon uygulaması: rol bazlı yetki + raporlama",
+            ]
+        )
+    )
+
+    body.append(h2("Önerilen Süreç (Kısa ve Net)"))
+    body.append(
+        p(
+            "Başarılı mobil projeler aynı sırayı takip eder: Keşif → Kapsam → UX/UI → Geliştirme → Test → Yayın → Ölçüm ve İyileştirme. Bu sırayı korumak, hem kaliteyi hem sürdürülebilirliği artırır."
+        )
+    )
+
+    body.append(h2("Kalite Standartları (Mobil İçin Olmazsa Olmazlar)"))
+    body.append(
+        ul(
+            [
+                "Net kullanıcı akışları ve ekran hiyerarşisi",
+                "Performans hedefleri (ilk açılış, ekran geçişleri)",
+                "Güvenlik: auth, token, erişim kontrolü",
+                "İzleme: crash log + temel analitik olaylar",
+                "Yayın sonrası iyileştirme planı",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Mobil uygulama fikriniz varsa",
+            "Önce doğru senaryoyu ve hedef kitlenizi netleştirelim. Doğru plan, sürprizleri azaltır ve uygulamayı büyütmeyi kolaylaştırır. Teklif sayfasına gidin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Mobil uygulama nedir, web sitesinden farkı ne?", "Mobil uygulama; cihaz özellikleri, bildirim ve akış hızında avantaj sağlar; web ise erişim ve içerik tarafında hızlıdır."),
+        ("Her iş için mobil uygulama gerekir mi?", "Hayır. Tekrar eden akış, bildirim ihtiyacı ve cihaz özellikleri yoksa web/PWA daha doğru olabilir."),
+        ("Native mi cross-platform mu seçmeliyim?", "Performans ve cihaz kullanımı kritikse native; hızlı çıkış ve ortak deneyim hedefleniyorsa cross-platform mantıklıdır."),
+        ("PWA ile gerçek uygulama arasındaki fark nedir?", "PWA web tabanlıdır; bazı donanım ve store özellikleri sınırlı olabilir."),
+        ("Başlamak için ilk adım nedir?", "Hedef kullanıcıyı ve en kritik 2–3 akışı netleştirmektir."),
+        ("Yayın sonrası süreç önemli mi?", "Evet. Ölçümleme ve iterasyon olmadan büyüme zorlaşır."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Mobil Uygulama Nedir? Türler, Kullanım Senaryoları ve Örnekler"
+    meta_description = (
+        "Mobil uygulama nedir? Native, cross-platform ve PWA farkları, doğru kullanım senaryosu, hedef kitle ve örnek mobil uygulama türleriyle açıklayıcı rehber."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Mobil Uygulama Nedir? — Türler, Senaryolar ve Doğru Yaklaşım",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_vs_ios_tr(page: SeoPage) -> Dict:
     """Custom cluster: Android mi iOS mu? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -4401,6 +4536,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "mobil-uygulama-freelancer":
         return _cluster_mobil_uygulama_freelancer_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Mobil Uygulama Nedir? (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "mobil-uygulama-nedir":
+        return _cluster_mobil_uygulama_nedir_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Mobil Uygulama Nasıl Yapılır? (TR) — mobile-app-development
