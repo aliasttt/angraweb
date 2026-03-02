@@ -1490,6 +1490,134 @@ def _cluster_mobil_uygulama_nedir_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ozel_mobil_uygulama_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Özel Mobil Uygulama — ürün odaklı, ölçeklenebilir, sürdürülebilir. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "Özel mobil uygulama; \"hazır bir şablonu uyarlamak\" yerine, iş hedeflerinize ve kullanıcı akışlarınıza göre sıfırdan tasarlanan bir üründür. Buradaki amaç yalnızca uygulamayı yayınlamak değil; yayın sonrası da büyüyebilen, ölçülebilen ve sürdürülebilen bir altyapı kurmaktır."
+        )
+    )
+    body.append(
+        p(
+            "Bu yaklaşım özellikle: süreçleri dijitalleştiren (B2B), kullanıcı bağlılığı (retention) isteyen (B2C), entegrasyon ve raporlama ihtiyacı olan projelerde en doğru sonucu verir. "
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("En Sık Karşılaşılan İhtiyaçlar"))
+    body.append(h3("1) İş hedefi uyumu"))
+    body.append(
+        p(
+            "Uygulama \"güzel görünsün\" diye değil; ölçülebilir bir hedef için yapılır. Örnek hedefler: sipariş / rezervasyon sayısını artırmak; operasyon süresini kısaltmak; müşteri hizmeti yükünü azaltmak; kullanıcıların tekrar kullanımını artırmak."
+        )
+    )
+    body.append(h3("2) Uzun vadeli geliştirme"))
+    body.append(
+        p(
+            "Özel mobil uygulama bir \"tek seferlik iş\" değildir. Ürün büyüdükçe: yeni akışlar eklenir, performans optimize edilir, güvenlik sertleştirilir, analitik veriye göre iterasyon yapılır. Bu nedenle ilk günden \"yol haritası + mimari + ölçümleme\" planlanır."
+        )
+    )
+
+    body.append(h2("Ne Zaman Özel Mobil Uygulama Tercih Etmelisiniz?"))
+    body.append(
+        p(
+            "Aşağıdaki durumlardan 2–3'ü sizde varsa, özel geliştirme mantıklıdır: Akışlarınız standart değil, işinize özgü; CRM/ERP/ödeme/kargo gibi entegrasyonlar var; Roller ve yetkiler (admin, saha, müşteri) gerekiyor; Bildirim, konum, kamera, QR gibi cihaz yetenekleri kritik; Ürünü uzun vadede büyütmeyi planlıyorsunuz."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Akışlarınız standart değil, işinize özgü",
+                "CRM/ERP/ödeme/kargo gibi entegrasyonlar var",
+                "Roller ve yetkiler (admin, saha, müşteri) gerekiyor",
+                "Bildirim, konum, kamera, QR gibi cihaz yetenekleri kritik",
+                "Ürünü uzun vadede büyütmeyi planlıyorsunuz",
+            ]
+        )
+    )
+
+    body.append(h2("Önerilen Süreç"))
+    body.append(
+        p(
+            "Başarılı özel mobil uygulamalar, aynı omurgayı takip eder: 1) Keşif ve hedefler: hedef KPI'lar, kullanıcı tipleri ve senaryolar, kısıtlar ve riskler. 2) Plan: kapsam + teslim kriterleri — MVP netleştirme, fazlara bölme, \"tamamlandı\" tanımı. 3) Uygulama: UX/UI + geliştirme — bilgi mimarisi, bileşen tasarımı, API entegrasyonları. 4) Test ve yayın: senaryo testleri, performans kontrolü, yayın checklist + izleme kurulumu."
+        )
+    )
+
+    body.append(h2("Teslimatlar"))
+    body.append(h3("Ürün Yol Haritası (Roadmap)"))
+    body.append(
+        p(
+            "Özel projede en kritik çıktı, \"ne zaman ne eklenecek?\" sorusuna net cevap veren yol haritasıdır. Yol haritası şunları içerir: MVP kapsamı, sonraki fazlar, ölçümleme planı, risk ve bağımlılıklar."
+        )
+    )
+    body.append(h3("Teknik Mimari"))
+    body.append(
+        p(
+            "Sürdürülebilir bir uygulama için mimari şunları netleştirir: backend yapısı ve API sözleşmeleri; kimlik doğrulama / yetkilendirme; veri güvenliği yaklaşımı; analitik ve hata izleme; sürümleme ve yayın stratejisi."
+        )
+    )
+
+    body.append(h2("Kalite Standartları: Özel Uygulamada Fark Yaratan Detaylar"))
+    body.append(
+        ul(
+            [
+                "Performans: hızlı açılış, akıcı ekran geçişleri",
+                "Güvenlik: token yönetimi, rol bazlı erişim, güvenli depolama",
+                "Ölçümleme: event takibi, funnel, retention metrikleri",
+                "Bakım: düzenli güncelleme, crash izleme, log standardı",
+                "Sürdürülebilirlik: kod standartları ve dokümantasyon",
+            ]
+        )
+    )
+    body.append(p("Özel uygulamada kalite, \"son gün yapılan kontrol\" değil; süreç boyunca korunan bir standarttır."))
+
+    body.append(h2("Yayın Planı ve Sürdürülebilirlik"))
+    body.append(
+        p(
+            "Yayın, bitiş değil başlangıçtır. İlk 30 gün genelde şu döngü çalışır: kullanıcı davranışı ölçülür, darboğazlar tespit edilir, küçük iterasyonlarla hızla iyileştirilir. Bu yaklaşım, uygulamanın büyümesini gerçek veriye bağlar."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Özel mobil uygulama planlıyorsanız",
+            "İlk adım kapsamı netleştirmek ve yol haritasını doğru kurmaktır. Hedefinizi ve önceliklerinizi paylaşın; size uygun planı birlikte çıkaralım. Teklif sayfasına gidin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Özel mobil uygulama ile hazır çözüm arasındaki fark nedir?", "Özel uygulama, iş akışlarınıza göre tasarlanır ve uzun vadede büyütülebilir; hazır çözümler genelde standart akışlarla sınırlıdır."),
+        ("MVP nedir ve neden önemlidir?", "MVP, ilk sürümde sadece kritik akışları yayınlayıp hızlı doğrulama yapmanızı sağlar. Sonraki fazlar veriye göre planlanır."),
+        ("Teknik mimari neden bu kadar kritik?", "Mimari; performans, güvenlik ve bakım maliyetini doğrudan etkiler. Kötü mimari, büyüdükçe yavaşlatır."),
+        ("Ölçümleme (analytics) şart mı?", "Evet. Retention ve dönüşüm gibi metrikler olmadan iyileştirme \"tahminle\" yapılır."),
+        ("Başlamak için hangi bilgileri hazırlamalıyım?", "Hedef, hedef kitle, 2–3 kritik kullanıcı akışı ve varsa entegrasyon ihtiyaçları."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Özel Mobil Uygulama Geliştirme | Ürün Odaklı, Ölçeklenebilir Çözümler"
+    meta_description = (
+        "Özel mobil uygulama nedir, ne zaman tercih edilir? Ürün yol haritası, teknik mimari, uzun vadeli geliştirme ve sürdürülebilir mobil uygulama yaklaşımı."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Özel Mobil Uygulama — Ürün Odaklı, Ölçeklenebilir ve Sürdürülebilir Geliştirme",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_vs_ios_tr(page: SeoPage) -> Dict:
     """Custom cluster: Android mi iOS mu? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -4530,6 +4658,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "istanbul":
         return _cluster_istanbul_mobil_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Özel Mobil Uygulama (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "ozel-mobil-uygulama":
+        return _cluster_ozel_mobil_uygulama_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Mobil Uygulama Freelancer (TR) — mobile-app-development

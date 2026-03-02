@@ -1262,6 +1262,134 @@ def _cluster_what_is_a_mobile_app_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_custom_mobile_app_en(page: SeoPage) -> Dict:
+    """Custom cluster: Custom Mobile App — product-led, scalable, sustainable development. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "A custom mobile app is built around your business goals and user journeys, not around a generic template. The goal isn't just to \"publish an app.\" The goal is to deliver a product that: can evolve over time; is measurable and improvable; stays stable as features grow; supports integrations and real workflows."
+        )
+    )
+    body.append(
+        p(
+            "This approach is ideal for both B2C and B2B products where mobile is a strategic channel — not a side project. "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Most Common Needs"))
+    body.append(h3("1) Alignment with business goals"))
+    body.append(
+        p(
+            "A strong app is designed for a measurable outcome, such as: increasing bookings or orders; reducing operational time; improving repeat usage (retention); lowering support workload with self-service flows."
+        )
+    )
+    body.append(h3("2) Long-term product iteration"))
+    body.append(
+        p(
+            "Custom apps are not \"one-and-done.\" As the product grows, you'll need: new journeys and modules; performance optimization; stronger security and permissions; continuous improvements driven by data. That's why roadmap + architecture + analytics are planned from day one."
+        )
+    )
+
+    body.append(h2("When Should You Choose a Custom Mobile App?"))
+    body.append(
+        p(
+            "Custom development is the right call if you need 2–3 of the following: non-standard workflows tailored to your business; integrations (CRM/ERP/payment/logistics); multiple roles and permissions; device-driven flows (camera, QR, location, notifications); a long-term product roadmap with future expansions."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Non-standard workflows tailored to your business",
+                "Integrations (CRM/ERP/payment/logistics)",
+                "Multiple roles and permissions",
+                "Device-driven flows (camera, QR, location, notifications)",
+                "Long-term product roadmap with future expansions",
+            ]
+        )
+    )
+
+    body.append(h2("Recommended Process"))
+    body.append(
+        p(
+            "1) Discovery & goals: define success metrics (conversion, retention, task time), map users and scenarios, clarify constraints and risks. 2) Planning: scope + acceptance criteria — define MVP scope, phase breakdown (Phase 1 / Phase 2), clear \"done\" definitions. 3) Execution: UX/UI + engineering — information architecture and screen hierarchy, design system / components, API integrations and data modeling. 4) Testing & release: scenario-based testing, performance checks, release checklist + monitoring setup."
+        )
+    )
+
+    body.append(h2("Deliverables"))
+    body.append(h3("Product Roadmap"))
+    body.append(
+        p(
+            "A roadmap answers the real question: What ships first, what comes next, and why? It typically includes: MVP scope; phased feature plan; measurement plan; dependencies and risks."
+        )
+    )
+    body.append(h3("Technical Architecture"))
+    body.append(
+        p(
+            "Architecture supports long-term delivery by clarifying: backend structure and API contracts; authentication and authorization; security and data handling; analytics and crash monitoring; versioning and release strategy."
+        )
+    )
+
+    body.append(h2("Quality Standards That Actually Matter"))
+    body.append(
+        ul(
+            [
+                "Performance: fast startup, smooth navigation",
+                "Security: token handling, role-based access, safe storage",
+                "Measurement: events, funnels, retention tracking",
+                "Maintainability: clean standards, documentation, monitoring",
+                "Sustainability: update-ready structure and stable releases",
+            ]
+        )
+    )
+    body.append(p("Quality is not a \"final checklist.\" It's a discipline across the full delivery cycle."))
+
+    body.append(h2("Release and Sustainability"))
+    body.append(
+        p(
+            "Publishing is the start of the feedback loop. The first 30 days usually focus on: measuring user behavior; identifying friction points; improving via small, fast iterations. This ties growth to real data instead of assumptions."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Planning a custom mobile app?",
+            "The first step is to clarify scope and set up the roadmap correctly. Share your goals and priorities; we'll work out a plan that fits. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What's the difference between a custom app and a ready-made solution?", "Custom apps are tailored to your workflows and scale over time; ready-made tools are limited to standard flows."),
+        ("What is an MVP and why is it important?", "An MVP launches the critical journeys first and validates direction quickly. Future phases are planned based on data."),
+        ("Why does architecture matter so much?", "Architecture impacts performance, security, and long-term maintenance. Weak architecture becomes expensive as the product grows."),
+        ("Do I really need analytics?", "Yes. Without metrics like retention and conversion, improvements become guesswork."),
+        ("What should I prepare before starting?", "Your goal, target users, 2–3 key journeys, and any integration requirements."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Custom Mobile App Development | Scalable, Product-Led Delivery"
+    meta_description = (
+        "Custom mobile app development explained: when to choose it, product roadmap, technical architecture, long-term iteration, and a process built for sustainable growth."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Custom Mobile App — Product-Led, Scalable, and Sustainable Development",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_or_ios_en(page: SeoPage) -> Dict:
     """Custom cluster: Android or iOS? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -3808,6 +3936,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "what-is-a-mobile-app":
         return _cluster_what_is_a_mobile_app_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Custom Mobile App (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "custom-mobile-app-development":
+        return _cluster_custom_mobile_app_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android or iOS? (EN) — mobile-app-development
