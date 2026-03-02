@@ -1688,6 +1688,115 @@ def _cluster_android_or_ios_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_b2b_ecommerce_en(page: SeoPage) -> Dict:
+    """Custom cluster: B2B E-Commerce — wholesale, dealer, quote, ERP. No pricing triggers (use rates/tiers)."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "B2B e-commerce differs significantly from traditional online stores. The target audience is not end users, but dealers, distributors, and corporate buyers."
+        )
+    )
+    body.append(
+        p(
+            "Therefore, the system must support: customer-specific rates and tiers, quotation workflows, account-based purchasing, approval processes, ERP integration. Standard B2C platforms often fail to handle this complexity."
+        )
+    )
+    body.append(
+        p(
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}. Request a quote: {{{{ link:{_quote_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Key B2B Features"))
+    body.append(h3("Tiered Rates"))
+    body.append(p("Different rate rules per customer or group."))
+    body.append(h3("RFQ (Request for Quote)"))
+    body.append(p("Quote-based purchasing instead of direct checkout."))
+    body.append(h3("Account & Credit Management"))
+    body.append(p("Deferred payments and balance tracking."))
+    body.append(h3("Multi-Level Approval"))
+    body.append(p("Internal purchasing authorization flow."))
+    body.append(h3("ERP / CRM Integration"))
+    body.append(p("Inventory and invoice synchronization."))
+
+    body.append(h2("Development Approach"))
+    body.append(
+        ul(
+            [
+                "Business model analysis",
+                "Role-based system architecture",
+                "Scalable backend design",
+                "Secure authentication & permissions",
+                "Integration testing",
+            ]
+        )
+    )
+
+    body.append(h2("SEO in B2B Platforms"))
+    body.append(
+        p(
+            "B2B platforms can generate organic traffic through: technical product pages, structured category architecture, industry-focused keywords, content-driven SEO strategy. SEO is a long-term competitive advantage."
+        )
+    )
+
+    body.append(h2("Custom vs Ready-Made B2B Platforms"))
+    body.append(
+        p(
+            "Ready systems may limit: rate and tier logic, workflow customization, performance scaling. Custom B2B e-commerce solutions: handle complex rate structures; scale with order volume; integrate deeply with ERP systems. For enterprise models, custom architecture is often preferred."
+        )
+    )
+
+    body.append(h2("Post-Launch Sustainability"))
+    body.append(
+        ul(
+            [
+                "Order volume monitoring",
+                "Infrastructure scaling",
+                "Security hardening",
+                "Backup strategy",
+                "Performance optimization",
+            ]
+        )
+    )
+    body.append(p("B2B systems must grow with the business."))
+
+    body.append(
+        cta_box(
+            "Define your B2B sales structure",
+            "We'll design a scalable e-commerce architecture tailored to your model. Get a B2B E-Commerce quote.",
+            _quote_url(page),
+            "Get a B2B E-Commerce Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("How long does B2B e-commerce development take?", "Depends on integration scope and complexity of rate and approval workflows."),
+        ("Is a ready-made platform enough?", "For simple models sometimes; for complex dealer structures, custom software is usually required."),
+        ("Can you integrate with our ERP?", "Yes, with proper scoping and planning."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "B2B E-Commerce Development | Wholesale & Dealer Management System"
+    meta_description = (
+        "Custom B2B e-commerce development with tiered rates, quote workflows, account management, and ERP integration. Scalable enterprise solutions."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "B2B E-Commerce — Scalable Infrastructure for Wholesale & Dealer Systems",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_en(page: SeoPage) -> Dict:
     """Custom cluster: React Native or Native? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -4276,6 +4385,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native-vs-native":
         return _cluster_react_native_vs_native_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: B2B E-Commerce (EN) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2b-ecommerce-development":
+        return _cluster_b2b_ecommerce_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

@@ -2114,6 +2114,180 @@ def _cluster_android_vs_ios_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_b2b_ecommerce_tr(page: SeoPage) -> Dict:
+    """Custom cluster: B2B E-Ticaret — bayi, toptan satış, teklif, cari hesap, ERP. No pricing triggers (use tarife/liste)."""
+    body: List[str] = []
+
+    body.append(h2("Genel Bakış"))
+    body.append(
+        p(
+            "B2B e-ticaret; klasik online mağazadan farklıdır. Burada hedef son kullanıcı değil, bayi, distribütör veya kurumsal müşteridir."
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle sistem: müşteriye özel tarife listeleri, müşteri bazlı iskonto, teklif alma süreci, cari hesap takibi, ERP / muhasebe entegrasyonu gibi kurumsal ihtiyaçlara cevap vermelidir. Standart B2C altyapılar çoğu zaman bu karmaşıklığı yönetemez."
+        )
+    )
+    body.append(
+        p(
+            f"Genel e-ticaret çerçevesi: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}. Teklif: {{{{ link:{_quote_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("B2B E-Ticaret Neden Farklıdır?"))
+    body.append(
+        p(
+            "B2B projelerde satın alma süreci daha uzundur: Ürün araştırması, teklif talebi, onay süreci, sipariş oluşturma, vadeli ödeme / cari hesap. Bu akış; teknik mimaride doğru planlanmalıdır."
+        )
+    )
+
+    body.append(h2("Temel B2B Özellikleri"))
+    body.append(h3("Müşteri Bazlı Tarife ve İndirim"))
+    body.append(
+        p(
+            "Her bayiye özel liste, iskonto oranı veya kampanya tanımlanabilir."
+        )
+    )
+    body.append(h3("Teklif (RFQ) Sistemi"))
+    body.append(
+        p(
+            "Sepet yerine \"teklif iste\" akışı kullanılabilir."
+        )
+    )
+    body.append(h3("Cari Hesap ve Vade Yönetimi"))
+    body.append(
+        p(
+            "Ödeme anında değil, vadeli sistemle çalışılabilir."
+        )
+    )
+    body.append(h3("Onay Mekanizması"))
+    body.append(
+        p(
+            "Şirket içi satın alma yetkilileri için çok adımlı onay sistemi."
+        )
+    )
+    body.append(h3("ERP / CRM Entegrasyonu"))
+    body.append(
+        p(
+            "Stok, fatura ve sipariş senkronizasyonu."
+        )
+    )
+
+    body.append(h2("B2B E-Ticaret Geliştirme Süreci"))
+    body.append(h3("1) Keşif ve Analiz"))
+    body.append(
+        ul(
+            [
+                "Satış modeli (bayi mi distribütör mü?)",
+                "Sipariş hacmi",
+                "Entegrasyon ihtiyacı",
+                "Onay akış yapısı",
+            ]
+        )
+    )
+    body.append(h3("2) Mimari Planlama"))
+    body.append(
+        ul(
+            [
+                "Rol bazlı kullanıcı sistemi",
+                "Tarife segmentasyonu",
+                "Performans planı",
+            ]
+        )
+    )
+    body.append(h3("3) Geliştirme"))
+    body.append(
+        ul(
+            [
+                "Güvenli erişim yapısı",
+                "Yetkilendirme katmanı",
+                "Ölçeklenebilir veritabanı",
+            ]
+        )
+    )
+    body.append(h3("4) Test ve Yayın"))
+    body.append(
+        ul(
+            [
+                "Sipariş akış testi",
+                "Liste ve indirim doğrulama",
+                "Entegrasyon kontrolü",
+                "Güvenlik testi",
+            ]
+        )
+    )
+
+    body.append(h2("SEO ve B2B"))
+    body.append(
+        p(
+            "B2B projeler sadece satış sistemi değildir. Aynı zamanda ürün katalog SEO, kategori görünürlüğü, teknik içerik stratejisi, sektörel anahtar kelimeler üzerinden organik trafik üretir. Doğru kategori mimarisi, uzun vadede ciddi avantaj sağlar."
+        )
+    )
+
+    body.append(h2("Hazır B2B Altyapı mı Özel Yazılım mı?"))
+    body.append(
+        p(
+            "Hazır sistemler: sınırlı özelleştirme, entegrasyon zorluğu, performans kısıtları getirebilir. Özel B2B e-ticaret yazılımı: karmaşık tarife ve indirim yapısını yönetir; bayi bazlı kontrol sağlar; ölçeklenebilir kalır; teknik borcu azaltır. B2B projelerde çoğu zaman özel mimari tercih edilir."
+        )
+    )
+
+    body.append(h2("Kalite Standartları"))
+    body.append(
+        p(
+            "Başlamadan önce net olmalı: Yetki seviyeleri nasıl? Sipariş minimumları var mı? Ödeme tipi nasıl çalışacak? ERP hangi sıklıkla senkronize olacak? Belirsizlik, proje süresini uzatır."
+        )
+    )
+
+    body.append(h2("Yayın Sonrası Sürdürülebilirlik"))
+    body.append(
+        ul(
+            [
+                "Sipariş hacmi izleme",
+                "Performans takibi",
+                "Sunucu ölçekleme",
+                "Güvenlik güncellemeleri",
+                "Yedekleme planı",
+            ]
+        )
+    )
+    body.append(p("B2B sistemler büyüdükçe altyapı da büyümelidir."))
+
+    body.append(
+        cta_box(
+            "B2B satış modelinizi birlikte netleştirelim",
+            "İhtiyaçlarınıza göre ölçeklenebilir bir mimari planlayalım. B2B E-Ticaret teklif sayfasına gidin.",
+            _quote_url(page),
+            "B2B E-Ticaret Teklif Al",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("B2B e-ticaret süresi neye bağlıdır?", "Entegrasyon sayısı ve tarife/indirim yapısının karmaşıklığına bağlıdır."),
+        ("Hazır platform yeterli olur mu?", "Basit modellerde olabilir; karmaşık bayi yapılarında genellikle özel yazılım gerekir."),
+        ("ERP entegrasyonu yapılabilir mi?", "Doğru planlama ile evet."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "B2B E-Ticaret Yazılımı | Toptan Satış ve Bayi Yönetim Sistemi"
+    meta_description = (
+        "B2B e-ticaret geliştirme: bayi yönetimi, müşteriye özel listeler, teklif akışı, cari hesap ve ERP entegrasyonu. Ölçeklenebilir ve kurumsal çözümler."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "B2B E-Ticaret — Bayi ve Toptan Satış İçin Ölçeklenebilir Altyapı",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_tr(page: SeoPage) -> Dict:
     """Custom cluster: React Native mi Native mi? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -5269,6 +5443,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native-vs-native":
         return _cluster_react_native_vs_native_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: B2B E-Ticaret (TR) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2b":
+        return _cluster_b2b_ecommerce_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
