@@ -3824,6 +3824,12 @@ def generate_en(page: SeoPage) -> Dict:
         }
 
     # -------------------------------------------------------------------------
+    # Custom cluster: React Native App Development (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native-app-development":
+        return _cluster_react_native_app_development_en(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: Corporate Website Development (EN)
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "web-design" and page.slug == "corporate-website-development":
@@ -4011,6 +4017,157 @@ def generate_en(page: SeoPage) -> Dict:
         "meta_description": meta.meta_description,
         "content_html": content_html,
         "faq_json": faq_json[:8],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_react_native_app_development_en(page: SeoPage) -> Dict:
+    """Custom cluster: React Native App Development — one codebase for iOS + Android. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "React Native is a strong approach for building iOS and Android with a single codebase. When done right, it helps you ship an MVP faster, iterate quickly, and keep long-term maintenance more efficient."
+        )
+    )
+    body.append(
+        p(
+            "The goal isn’t simply \"two platforms.\" The goal is a sustainable product with clear scope, performance targets, and a planned release process. "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Common Needs"))
+    body.append(h3("1) Speed with a single codebase"))
+    body.append(
+        p(
+            "Teams often want to launch an MVP faster, manage both platforms with one team, and deliver features to iOS + Android simultaneously."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "launch an MVP faster",
+                "manage both platforms with one team",
+                "deliver features to iOS + Android simultaneously",
+            ]
+        )
+    )
+
+    body.append(h3("2) Performance expectations"))
+    body.append(
+        p(
+            "React Native can deliver great performance, but it’s not automatic. Without early decisions, you may face: laggy lists and feeds; slow UI on low-end devices; unnecessary re-renders and bundle bloat. That’s why we define critical screens and performance goals early."
+        )
+    )
+
+    body.append(h3("3) Store release process"))
+    body.append(
+        p(
+            "Even with one codebase, store releases are two separate ecosystems: App Store & Google Play requirements; testing and rollout strategy; versioning discipline; crash/ANR monitoring. Release checklist and monitoring are planned from day one."
+        )
+    )
+
+    body.append(h2("When React Native Makes Sense"))
+    body.append(
+        p(
+            "React Native is usually a good choice if: you need iOS + Android together; MVP speed and iteration matter; your app is mostly standard journeys and UI flows; you want sustainable maintenance with one team; you plan to grow with analytics-driven improvements."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "you need iOS + Android together",
+                "MVP speed and iteration matter",
+                "your app is mostly standard journeys and UI flows",
+                "you want sustainable maintenance with one team",
+                "you plan to grow with analytics-driven improvements",
+            ]
+        )
+    )
+
+    body.append(h2("When Native May Be Better"))
+    body.append(
+        p(
+            "Native can be a better fit when: you need extremely high FPS animations or game-like UI; heavy camera/AR/ML processing is core; deep low-level hardware integrations are required; top-tier performance is the most critical requirement. React Native is powerful—but not a one-size-fits-all solution."
+        )
+    )
+
+    body.append(h2("Recommended Process"))
+    body.append(
+        p(
+            "A practical delivery sequence looks like this: Discovery & goals (KPIs, journeys, critical screens); Planning (MVP scope, acceptance criteria, risks); Execution (design system, data flow, integrations, performance tuning); Testing & release (device coverage, monitoring, store readiness)."
+        )
+    )
+
+    body.append(h2("Deliverables"))
+    body.append(
+        ul(
+            [
+                "MVP plan: phased scope + measurable acceptance criteria",
+                "Store readiness: release checklist, notes, testing & rollout plan",
+                "Analytics & measurement: funnels, retention events, crash/performance monitoring",
+            ]
+        )
+    )
+
+    body.append(h2("Quality Standards That Matter"))
+    body.append(
+        ul(
+            [
+                "performance: rendering discipline, list optimization, bundle control",
+                "security: auth, token handling, secure storage",
+                "consistency: iOS/Android UI differences managed intentionally",
+                "maintainability: standards, documentation, versioning",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Planning a React Native app?",
+            "If you want to launch on both platforms, the first step is to clarify MVP scope and performance expectations. Share your goals and context; we’ll help you shape a realistic, sustainable plan. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        (
+            "Can React Native build any app?",
+            "Most product apps—yes. For heavy performance or deep device work, native may be the better fit.",
+        ),
+        (
+            "Does one codebase mean identical UX on both platforms?",
+            "Not automatically. Platform differences exist and should be handled intentionally in design and implementation.",
+        ),
+        (
+            "Why is MVP planning so important?",
+            "It helps you validate fast and scale based on real user data, not assumptions.",
+        ),
+        (
+            "What should be planned for release?",
+            "Store requirements, testing strategy, versioning, and monitoring should be set up early.",
+        ),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "React Native App Development | One Codebase for iOS + Android"
+    meta_description = (
+        "Build iOS and Android apps with a single React Native codebase. MVP planning, performance expectations, store release process, analytics, and sustainable delivery."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "React Native App — One Codebase for iOS and Android",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
         "published_at": timezone.now(),
     }
 

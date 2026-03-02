@@ -537,6 +537,176 @@ def _mobile_app_pillar_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_react_native_tr(page: SeoPage) -> Dict:
+    """Custom cluster: React Native Uygulama — tek kod tabanı ile iOS + Android. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "React Native, iOS ve Android’i tek kod tabanı ile geliştirmeyi sağlayan güçlü bir yaklaşımdır. Doğru kurgulandığında hızlı MVP çıkarmayı, ürün iterasyonlarını hızlandırmayı ve bakım yükünü yönetilebilir tutmayı sağlar."
+        )
+    )
+    body.append(
+        p(
+            "Bu yaklaşımda amaç yalnızca \"iki platforma da çıkaralım\" değil; hedefi netleştirip kapsamı doğru kurarak performans, kalite ve yayın sürecini baştan planlamaktır. "
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("En Sık Karşılaşılan İhtiyaçlar"))
+    body.append(h3("1) Tek kod tabanı ile hız"))
+    body.append(
+        p(
+            "Birçok ekip için en kritik ihtiyaç; MVP’yi daha hızlı yayınlamak, tek ekip ile iki platformu yönetmek ve yeni özellikleri aynı anda iOS + Android’e taşımaktır."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "MVP’yi daha hızlı yayınlamak",
+                "Tek ekip ile iki platformu yönetmek",
+                "Yeni özellikleri aynı anda iOS + Android’e taşımak",
+            ]
+        )
+    )
+
+    body.append(h3("2) Performans beklentisi"))
+    body.append(
+        p(
+            "React Native her projede \"otomatik hızlı\" değildir. Performans hedefleri net konmadığında; liste/akış ekranlarında takılmalar, zayıf cihazlarda yavaşlık, gereksiz re-render ve bundle şişmesi gibi problemler oluşabilir. Bu yüzden ekran türleri ve kritik akışlar erken aşamada belirlenir."
+        )
+    )
+
+    body.append(h3("3) Yayın süreci (App Store / Google Play)"))
+    body.append(
+        p(
+            "Tek kod tabanı olsa da yayın tarafında iki ayrı dünya vardır: mağaza gereksinimleri, test süreçleri, release yönetimi ve versiyonlama, crash/ANR takibi. Yayın checklist’i ve izleme metrikleri baştan planlanmalıdır."
+        )
+    )
+
+    body.append(h2("React Native Ne Zaman Mantıklı?"))
+    body.append(
+        p(
+            "Aşağıdakiler sizde varsa React Native genellikle iyi bir seçimdir: iOS + Android’i aynı anda çıkarmak istiyorsunuz; MVP ve hızlı iterasyon öncelikli; ürününüz çoğunlukla standart ekran/akışlardan oluşuyor; tek ekip ile sürdürülebilir bakım hedefliyorsunuz; analitik ve ölçümleme ile ürünü büyütmek istiyorsunuz."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "iOS + Android’i aynı anda çıkarmak istiyorsunuz",
+                "MVP ve hızlı iterasyon öncelikli",
+                "Ürününüz çoğunlukla standart ekran/akışlardan oluşuyor",
+                "Tek ekip ile sürdürülebilir bakım hedefliyorsunuz",
+                "Analitik ve ölçümleme ile ürünü büyütmek istiyorsunuz",
+            ]
+        )
+    )
+
+    body.append(h2("Ne Zaman Native Daha Doğru Olabilir?"))
+    body.append(
+        p(
+            "Şu senaryolarda native yaklaşım daha mantıklı olabilir: yüksek FPS gerektiren animasyonlar / oyun benzeri arayüz; yoğun kamera/AR/ML işleme; çok özel cihaz erişimleri ve düşük seviyeli entegrasyonlar; \"en üst seviye performans\" en kritik gereksinimse. Özet: React Native güçlüdür ama her proje için tek doğru değildir."
+        )
+    )
+
+    body.append(h2("Önerilen Süreç"))
+    body.append(
+        p(
+            "Başarılı React Native projeleri genelde aynı omurgayı takip eder: 1) Keşif ve hedefler: hedef KPI’lar (dönüşüm, retention, işlem süresi), kullanıcı senaryoları ve akışlar, kritik ekranlar listesi. 2) Plan: MVP + teslim kriterleri — MVP kapsamı ve faz planı, kabul kriterleri (performans, kalite, güvenlik), riskler ve bağımlılıklar. 3) Uygulama: tasarım + geliştirme — bileşen tabanlı UI sistemi, state yönetimi ve veri akışı, API entegrasyonları, performans optimizasyonu (özellikle liste/akış ekranları). 4) Test ve yayın: cihaz çeşitliliği testleri, crash/ANR izleme kurulumu, mağaza hazırlığı + release yönetimi."
+        )
+    )
+
+    body.append(h2("Teslimatlar"))
+    body.append(h3("MVP Planı"))
+    body.append(
+        p(
+            "MVP planı; kritik akışlar (zorunlu), dönüşüm artıran iyileştirmeler (öncelikli), ikinci faz geliştirmeler (isteğe bağlı) ve her madde için ölçülebilir kabul kriteri içerir."
+        )
+    )
+    body.append(h3("Mağaza Hazırlığı"))
+    body.append(
+        p(
+            "App Store / Google Play checklist, sürüm notları ve release planı, test akışı (internal / closed testing / production) netleştirilir."
+        )
+    )
+    body.append(h3("Analitik ve Ölçümleme"))
+    body.append(
+        p(
+            "Analitik tarafında event takibi (funnel, activation, retention), hata takibi ve performans metrikleri, ilk 30 gün için net bir iterasyon planı belirlenir."
+        )
+    )
+
+    body.append(h2("Kalite Standartları: React Native’de Kritik Noktalar"))
+    body.append(
+        ul(
+            [
+                "Performans: re-render kontrolü, liste optimizasyonu, bundle boyutu yönetimi",
+                "Güvenlik: token yönetimi, rol bazlı erişim, güvenli depolama",
+                "Tutarlılık: iOS/Android UI farkları için net tasarım kararları",
+                "Bakım: kod standartları, dokümantasyon, sürümleme disiplini",
+            ]
+        )
+    )
+    body.append(
+        p("Kaliteyi artırmanın yolu, beklentileri ölçülebilir kriterlere bağlamaktır.")
+    )
+
+    body.append(h2("Yayın Planı ve Sürdürülebilirlik"))
+    body.append(
+        p(
+            "Yayın anı bitiş değil; ölçümleme ve iyileştirme döngüsünün başlangıcıdır. İlk 30 günde kritik akışlar izlenir, sürtünme noktaları tespit edilir ve küçük iterasyonlarla hızla iyileştirme yapılır. Bu yaklaşım, \"tek seferlik proje\" yerine ürün geliştirme mantığı kurar."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "React Native ile iki platforma birden çıkmak istiyorsanız",
+            "İlk adım MVP kapsamını ve performans hedeflerini netleştirmektir. Hedefinizi paylaşın; size uygun planı birlikte çıkaralım. Teklif sayfasına gidin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        (
+            "React Native ile her şey yapılır mı?",
+            "Çoğu ürün için evet; ancak yoğun donanım/performans gerektiren işlerde native daha doğru olabilir.",
+        ),
+        (
+            "Tek kod tabanı %100 aynı deneyim demek mi?",
+            "Hayır. iOS ve Android’in tasarım ve davranış farkları vardır; bunu tasarım kararlarıyla yönetmek gerekir.",
+        ),
+        (
+            "MVP neden bu kadar önemli?",
+            "İlk sürümde kritik akışları yayınlayıp veriye göre büyümek, hem bütçeyi hem süreyi daha yönetilebilir yapar.",
+        ),
+        (
+            "Yayın sürecinde neler planlanmalı?",
+            "Mağaza gereksinimleri, test stratejisi, sürüm notları ve izleme (crash/perf) baştan kurulur.",
+        ),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "React Native Uygulama Geliştirme | Tek Kod Tabanı ile iOS + Android"
+    meta_description = (
+        "React Native ile iOS ve Android için tek kod tabanı. MVP planı, performans beklentisi, mağaza yayın süreci, analitik ve sürdürülebilir geliştirme yaklaşımı."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "React Native Uygulama — Tek Kod Tabanı ile iOS ve Android Geliştirme",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_tr(page: SeoPage) -> Dict:
     """Custom cluster: Android Uygulama Geliştirme — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -4556,6 +4726,12 @@ def generate_tr(page: SeoPage) -> Dict:
             "faq_json": faq_json[:8],
             "published_at": timezone.now(),
         }
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: React Native Uygulama (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
+        return _cluster_react_native_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Kurumsal Web Sitesi (TR)
