@@ -1953,6 +1953,242 @@ def _cluster_android_vs_ios_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_react_native_vs_native_tr(page: SeoPage) -> Dict:
+    """Custom cluster: React Native mi Native mi? — decision matrix, scenarios, process. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa özet"))
+    body.append(
+        p(
+            "React Native ve Native (Swift/Kotlin) arasında seçim yapmak \"hangisi daha iyi?\" sorusu değil; hedef, kapsam ve kısıtlar sorusudur. "
+            "Bu sayfanın amacı; performans beklentisi, bütçe ve zaman kısıtlarını netleştirerek ölçülebilir bir karar vermenizi sağlamak ve projenizi sürdürülebilir bir plana oturtmaktır."
+        )
+    )
+    body.append(
+        p(
+            f"Genel mobil çerçeve için {{{{ link:{_pillar_url(page)} }}}}, süreç odaklı rehber için {{{{ link:{_guide_url(page)} }}}} sayfasını kullanabilirsiniz."
+        )
+    )
+
+    body.append(h2("En sık karşılaşılan ihtiyaçlar"))
+    body.append(h3("Performans"))
+    body.append(
+        ul(
+            [
+                "akıcı liste/akış ekranları (feed, katalog, mesaj)",
+                "düşük seviye cihazlarda stabil deneyim",
+                "animasyonlar, kamera, arka plan işlemleri",
+            ]
+        )
+    )
+
+    body.append(h3("Bütçe"))
+    body.append(
+        ul(
+            [
+                "tek ekip mi, iki ayrı native ekip mi?",
+                "uzun vadede bakım yükü ve ekip yapısı",
+                "platform sayısı arttıkça bütçeyi kontrollü tutma ihtiyacı",
+            ]
+        )
+    )
+
+    body.append(h3("Zaman"))
+    body.append(
+        ul(
+            [
+                "MVP’yi hızlı yayınlama",
+                "ilk sürümden sonra iterasyon hızı",
+                "store süreçleri ve test döngüsü yönetimi",
+            ]
+        )
+    )
+
+    body.append(h2("React Native nedir, Native nedir?"))
+    body.append(
+        p(
+            "React Native: iOS + Android için tek kod tabanı ile geliştirme yaklaşımıdır. Doğru mimariyle hızlı MVP ve sürdürülebilir geliştirme sunar."
+        )
+    )
+    body.append(
+        p(
+            "Native: iOS (Swift) ve Android (Kotlin) için ayrı geliştirmedir. En yüksek performans ve en geniş platform kontrolünü sağlar."
+        )
+    )
+
+    body.append(h2("Karar Matrisi (Hızlı Özet)"))
+    body.append(
+        p(
+            "Aşağıdaki çerçeve \"tek doğru\" değil; doğru kararı hızlandıran bir karar matrisi olarak düşünülmelidir."
+        )
+    )
+    body.append(h3("React Native genelde daha doğruysa"))
+    body.append(
+        ul(
+            [
+                "MVP hızlı çıkmalı",
+                "özellikler çoğunlukla standart akışlardan oluşuyor",
+                "tek ekip ile iki platform yönetmek istiyorsunuz",
+                "ürün sürekli iterasyonla gelişecek",
+                "bütçeyi kontrollü tutmak önemli",
+            ]
+        )
+    )
+    body.append(h3("Native genelde daha doğruysa"))
+    body.append(
+        ul(
+            [
+                "maksimum performans en kritik gereksinim",
+                "ağır animasyon / kamera / AR / ML yoğunluğu yüksek",
+                "çok özel cihaz yetenekleri ve düşük seviye entegrasyonlar var",
+                "UI/UX’in platformun ince detaylarına kadar native olması şart",
+                "platforma özel ayrı roadmap planlıyorsunuz",
+            ]
+        )
+    )
+
+    body.append(h2("Senaryo bazlı öneriler"))
+    body.append(h3("1) E‑ticaret / katalog / rezervasyon uygulaması"))
+    body.append(
+        p(
+            "Tipik ekranlar: liste, detay, sepet, ödeme, profil. Çoğu zaman React Native; hız + bakım avantajı nedeniyle idealdir."
+        )
+    )
+    body.append(h3("2) Sosyal uygulama / mesajlaşma / feed odaklı ürün"))
+    body.append(
+        p(
+            "Kritik başlıklar: akıcı scroll, medya, bildirimler, offline senaryolar. React Native mümkün, ama performans hedeflerinin erken aşamada netleştirilmesi gerekir; çok yoğun medya ve gerçek zamanlı işlemlerde native tercih edilebilir."
+        )
+    )
+    body.append(h3("3) Kamera tabanlı, AR, filtre, video işleme, ML yoğun ürün"))
+    body.append(
+        p(
+            "Cihaz donanımı, düşük seviye erişim ve yüksek FPS kritikse; native yaklaşım genelde daha güvenli seçenektir."
+        )
+    )
+    body.append(h3("4) Kurumsal iç uygulama / saha ekibi / CRM"))
+    body.append(
+        p(
+            "Kritik başlıklar: hızlı geliştirme, form akışları, entegrasyonlar. Burada React Native genelde en verimli yaklaşım olur (hız + sürdürülebilirlik)."
+        )
+    )
+
+    body.append(h2("Önerilen süreç (Karar ve teslim planı)"))
+    body.append(h3("1) Keşif ve hedefler"))
+    body.append(
+        ul(
+            [
+                "\"hız mı performans mı?\" yerine: hangi ekranlarda hangi hedef?",
+                "kritik akışlar ve kullanıcı senaryoları",
+                "MVP kapsamı ve faz planı",
+            ]
+        )
+    )
+    body.append(h3("2) Plan: teslim kriterleri ve öncelikler"))
+    body.append(
+        ul(
+            [
+                "kabul kriterleri: performans hedefleri, güvenlik, erişilebilirlik",
+                "risk analizi: entegrasyonlar, içerik, store süreçleri",
+            ]
+        )
+    )
+    body.append(h3("3) Uygulama: mimari ve geliştirme"))
+    body.append(
+        ul(
+            [
+                "React Native’de performans disiplinleri (render kontrolü, liste optimizasyonu)",
+                "Native’de modüler yapı ve bakım stratejisi",
+                "ortak: test, loglama, analitik planı",
+            ]
+        )
+    )
+    body.append(h3("4) Test ve yayın"))
+    body.append(
+        ul(
+            [
+                "cihaz çeşitliliği testleri",
+                "crash/ANR ve performans izleme",
+                "rollout stratejisi ve sürüm planı",
+            ]
+        )
+    )
+
+    body.append(h2("Teslimatlar"))
+    body.append(h3("1) Karar Matrisi (doküman)"))
+    body.append(
+        p(
+            "Hedef/kısıt listesi, ekran bazlı performans beklentisi ve önerilen teknoloji + gerekçesini içeren karar dokümanı."
+        )
+    )
+    body.append(h3("2) Senaryo bazlı öneri"))
+    body.append(
+        p(
+            "Ürün tipinize göre en doğru yaklaşım, MVP + Faz‑2 planı ve \"ne yapılmayacak\" sınırları (scope protection) netleştirilir."
+        )
+    )
+
+    body.append(h2("Kalite standartları ve kabul kriterleri"))
+    body.append(
+        p(
+            "Kaliteyi artırmanın en net yolu; beklentileri ölçülebilir kriterlere dönüştürmektir. Özellikle performans, güvenlik, içerik yapısı ve kabul kriterleri yazılı hale geldiğinde, karar almak ve iterasyon yapmak kolaylaşır."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Performans: liste/akış hedefleri, optimizasyon planı",
+                "Güvenlik: erişim yetkileri, token yönetimi, sertleştirme",
+                "İçerik: şablon tutarlılığı ve hiyerarşi",
+                "Kabul: net \"tamamlandı\" tanımı ve kontrol listesi",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Karar vermek için uzun toplantılara değil, net bir brife ihtiyacımız var.",
+            "Hedefinizi ve önceliklerinizi paylaşın; size en doğru yaklaşımı ve takvimi çıkaralım. Mobil uygulama geliştirme için teklif sayfasına gidin.",
+            _quote_url(page),
+            "Mobil Uygulama Geliştirme Teklif Al",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        (
+            "React Native performans olarak yeterli mi?",
+            "Birçok ürün için evet. Kritik olan, hangi ekranlarda hangi performans hedefinin gerektiğini netleştirip bunu mimariye yansıtmaktır.",
+        ),
+        (
+            "Native her zaman daha mı iyi?",
+            "Hayır. Native daha fazla kontrol sağlar ama süre ve harcama tarafını artırabilir. Ürünün hedefi ve iterasyon planı belirleyicidir.",
+        ),
+        (
+            "İlk adım nedir?",
+            "Hedefi ve öncelikleri netleştirmek, ardından MVP kapsamını yazılı hale getirmektir.",
+        ),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "React Native mi Native mi? | Performans, Bütçe ve Zaman Karşılaştırması"
+    meta_description = (
+        "React Native mi Native mi seçmelisiniz? Performans, bütçe ve teslim süresi açısından karar matrisi, senaryo bazlı öneriler ve doğru yaklaşımı belirleme rehberi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "React Native mi Native mi? — Doğru Platform Kararı Nasıl Verilir?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_kurumsal_web_sitesi_tr(page: SeoPage) -> Dict:
     """Custom cluster: Kurumsal Web Sitesi — commercial investigation + service authority. 900–1200 words."""
     body: List[str] = []
@@ -4864,6 +5100,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android-vs-ios":
         return _cluster_android_vs_ios_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: React Native mi Native mi? (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native-vs-native":
+        return _cluster_react_native_vs_native_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

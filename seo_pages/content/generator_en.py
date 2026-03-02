@@ -1555,6 +1555,187 @@ def _cluster_android_or_ios_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_react_native_vs_native_en(page: SeoPage) -> Dict:
+    """Custom cluster: React Native or Native? — decision matrix, scenarios, process. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "Choosing between React Native and Native (Swift/Kotlin) is not about \"which is better.\" It’s about your goals, constraints, and product requirements."
+        )
+    )
+    body.append(
+        p(
+            "This page helps you make a clear, measurable decision based on performance needs, budget, and delivery speed—so the outcome stays sustainable long-term. "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Common decision drivers"))
+    body.append(h3("Performance"))
+    body.append(
+        ul(
+            [
+                "smooth scrolling lists and feeds",
+                "stable UX on low-end devices",
+                "heavy animations, camera, background processing",
+            ]
+        )
+    )
+
+    body.append(h3("Budget"))
+    body.append(
+        ul(
+            [
+                "one cross-platform team vs two native teams",
+                "long-term maintenance effort",
+                "keeping spend under control as the product scales",
+            ]
+        )
+    )
+
+    body.append(h3("Time"))
+    body.append(
+        ul(
+            [
+                "faster MVP release",
+                "iteration speed after launch",
+                "store processes and testing cycles",
+            ]
+        )
+    )
+
+    body.append(h2("What is React Native vs Native?"))
+    body.append(
+        p(
+            "React Native: One codebase for iOS + Android—great for fast MVPs and efficient iteration when scoped correctly."
+        )
+    )
+    body.append(
+        p(
+            "Native: Separate iOS (Swift) and Android (Kotlin) apps—best for maximum performance and deepest platform control."
+        )
+    )
+
+    body.append(h2("Decision matrix (quick guide)"))
+    body.append(
+        p(
+            "This is not a one-size-fits-all answer, but a practical frame to speed up the right decision."
+        )
+    )
+    body.append(h3("React Native is usually a strong fit if"))
+    body.append(
+        ul(
+            [
+                "you need to ship an MVP fast",
+                "your app is mostly standard product flows",
+                "you want one team to deliver on both platforms",
+                "frequent iteration is part of the roadmap",
+                "budget efficiency matters",
+            ]
+        )
+    )
+    body.append(h3("Native is usually a better fit if"))
+    body.append(
+        ul(
+            [
+                "top-tier performance is the #1 requirement",
+                "your app is heavy on camera/AR/ML/video processing",
+                "deep low-level hardware integrations are needed",
+                "you need platform-perfect native UX in fine detail",
+                "you plan separate platform-specific roadmaps",
+            ]
+        )
+    )
+
+    body.append(h2("Scenario-based recommendations"))
+    body.append(h3("E-commerce / booking / catalog apps"))
+    body.append(
+        p(
+            "Typical flows: listing, detail, cart, checkout, profile. React Native is often ideal here thanks to speed and long-term maintainability."
+        )
+    )
+    body.append(h3("Social feed / messaging products"))
+    body.append(
+        p(
+            "Key factors: smooth scrolling, media handling, notifications, offline behavior. React Native can work well—if performance targets are defined and engineered early. For very heavy real-time media, Native may be safer."
+        )
+    )
+    body.append(h3("Camera / AR / filters / ML-heavy apps"))
+    body.append(
+        p(
+            "When device hardware, low-level access, and high FPS are critical, Native is usually the more reliable option."
+        )
+    )
+    body.append(h3("Internal enterprise apps / CRM / field operations"))
+    body.append(
+        p(
+            "Where forms, workflows, and integrations dominate, React Native is often the most efficient approach (faster delivery, simpler maintenance)."
+        )
+    )
+
+    body.append(h2("Recommended process"))
+    body.append(
+        p(
+            "A structured decision and delivery flow typically looks like this: Discovery & goals (critical flows, screen-level performance targets); Planning (MVP scope, acceptance criteria, risk management); Implementation (architecture, performance discipline, analytics); Testing & release (device coverage, monitoring, rollout strategy)."
+        )
+    )
+
+    body.append(h2("Deliverables"))
+    body.append(
+        ul(
+            [
+                "Decision matrix document: goals, constraints, screen-level requirements, recommended approach",
+                "Scenario-based plan: MVP + phase roadmap, scope boundaries (“what’s out”)",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Share your goal and constraints",
+            "You don’t need endless meetings to decide. A clear brief is enough to recommend the right approach and delivery plan. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        (
+            "Is React Native fast enough?",
+            "For many product apps, yes—when performance expectations are defined and engineered early.",
+        ),
+        (
+            "Is Native always better?",
+            "Not always. Native gives more control, but can increase delivery time and required effort.",
+        ),
+        (
+            "What’s the first step?",
+            "Clarify goals and priorities, then write the MVP scope in a short brief.",
+        ),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "React Native or Native? | Performance, Budget, and Time Comparison"
+    meta_description = (
+        "React Native vs Native: how to choose the right approach. Decision matrix, scenario-based recommendations, and a structured process to align performance, budget, and delivery timeline."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "React Native or Native? — How to Choose the Right Approach",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_corporate_website_en(page: SeoPage) -> Dict:
     """Custom cluster: Corporate Website Development — strategic planning guide, decision-stage. No pricing triggers."""
     body: List[str] = []
@@ -3954,6 +4135,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "android-or-ios":
         return _cluster_android_or_ios_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: React Native or Native? (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native-vs-native":
+        return _cluster_react_native_vs_native_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
