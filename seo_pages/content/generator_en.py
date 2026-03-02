@@ -188,6 +188,139 @@ def _web_design_pillar_en(page: SeoPage) -> Dict:
     }
 
 
+def _ecommerce_pillar_en(page: SeoPage) -> Dict:
+    """Custom SEO pillar for E-Commerce Development (EN) — scalable, SEO-driven, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "E-commerce development is not just building an online store. Without a clear goal and technical strategy, most platforms slow down as they grow."
+        )
+    )
+    body.append(
+        p(
+            "This page outlines a structured approach to: custom e-commerce development, B2B and B2C platforms, SEO-optimized e-commerce systems, scalable online store architecture."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "custom e-commerce development",
+                "B2B and B2C platforms",
+                "SEO-optimized e-commerce systems",
+                "scalable online store architecture",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"Rates & scope: {{{{ link:{_pricing_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}. Request a quote: {{{{ link:{_quote_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("The Right Framework for Every E-Commerce Project"))
+    body.append(
+        p(
+            "Successful projects follow this structure: Goal → User → Information Architecture → Design → Development → Testing → Launch → Measurement. Skipping steps creates long-term technical debt."
+        )
+    )
+
+    body.append(h3("1) Define the Business Goal"))
+    body.append(
+        p(
+            "Is the objective: Increase sales? Enter a new market? Build a B2B wholesale system? Improve operational efficiency? Architecture depends on clarity."
+        )
+    )
+
+    body.append(h3("2) Scope Definition"))
+    body.append(
+        p(
+            "Critical elements include: product management system, payment gateway integration, shipping & logistics integration, ERP/CRM integration, campaign & discount modules, multi-language / multi-currency, technical SEO foundation. Unclear scope = delayed delivery."
+        )
+    )
+
+    body.append(h2("Development Process"))
+    body.append(h3("Discovery"))
+    body.append(
+        p(
+            "Goal analysis, competitor research, user flow mapping."
+        )
+    )
+    body.append(h3("Design"))
+    body.append(
+        p(
+            "Conversion-focused UX, mobile optimization, checkout flow optimization."
+        )
+    )
+    body.append(h3("Development"))
+    body.append(
+        p(
+            "Scalable backend, performance-optimized frontend, secure payment systems, structured SEO architecture."
+        )
+    )
+    body.append(h3("Testing & Launch"))
+    body.append(
+        p(
+            "Speed testing, checkout testing, analytics setup, monitoring."
+        )
+    )
+
+    body.append(h2("SEO-First E-Commerce Architecture"))
+    body.append(
+        p(
+            "E-commerce visibility depends on: Core Web Vitals, structured product data, optimized category architecture, internal linking strategy, technical performance. SEO is a structural decision, not an add-on."
+        )
+    )
+
+    body.append(h2("Custom vs Ready-Made Platforms"))
+    body.append(
+        p(
+            "Ready systems are faster initially but may limit scalability. Custom e-commerce solutions: allow full control; support complex B2B models; scale efficiently; reduce long-term technical constraints. The decision should align with growth strategy."
+        )
+    )
+
+    body.append(h2("Launch & Sustainability"))
+    body.append(
+        p(
+            "Post-launch includes: analytics tracking, conversion optimization, error monitoring, security updates, backup systems, performance scaling. Unmeasured platforms don't grow."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Share your goals",
+            "We'll build a clear roadmap aligned with your business. Get an E-Commerce Development quote.",
+            _quote_url(page),
+            "Get an E-Commerce Development Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("How long does e-commerce development take?", "Depends on scope, integrations, and customization."),
+        ("Do you provide post-launch support?", "Ongoing monitoring and maintenance are essential for growing platforms."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "E-Commerce Development | Custom & Scalable E-Commerce Solutions"
+    meta_description = (
+        "Professional e-commerce development: custom e-commerce software, B2B & B2C platforms, SEO-optimized and performance-driven architecture designed to scale."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "E-Commerce Development — Scalable and SEO-Driven Architecture",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _mobile_app_pillar_en(page: SeoPage) -> Dict:
     """Custom SEO pillar for Mobile App Development (EN) — scalable, high-performance, no pricing triggers."""
     body: List[str] = []
@@ -3754,6 +3887,8 @@ def generate_en(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_PILLAR:
         if page.service.key == "web-design":
             return _web_design_pillar_en(page)
+        if page.service.key == "ecommerce-development":
+            return _ecommerce_pillar_en(page)
         if page.service.key == "mobile-app-development":
             return _mobile_app_pillar_en(page)
         title = svc

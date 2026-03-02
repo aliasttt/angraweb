@@ -323,6 +323,167 @@ def _web_design_pillar_tr(page: SeoPage) -> Dict:
     }
 
 
+def _ecommerce_pillar_tr(page: SeoPage) -> Dict:
+    """Custom SEO pillar for E-Ticaret Geliştirme (TR) — scalable, SEO-focused, no pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Genel Bakış"))
+    body.append(
+        p(
+            "E-ticaret geliştirme; sadece bir \"online mağaza kurmak\" değildir. Doğru hedef, doğru mimari ve ölçülebilir metrikler olmadan kurulan sistemler büyüdükçe yavaşlar, karmaşıklaşır ve yük üretir."
+        )
+    )
+    body.append(
+        p(
+            "Bu sayfa; satış odaklı e-ticaret sitesi, özel e-ticaret yazılımı, B2B ve B2C altyapı, SEO uyumlu e-ticaret sistemi kurmak isteyen işletmeler için stratejik bir çerçeve sunar."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "satış odaklı e-ticaret sitesi",
+                "özel e-ticaret yazılımı",
+                "B2B ve B2C altyapı",
+                "SEO uyumlu e-ticaret sistemi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"Kapsam ve bütçe: {{{{ link:{_pricing_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}. Teklif: {{{{ link:{_quote_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Hangi İhtiyaca Hangi Yaklaşım Uygun?"))
+    body.append(
+        p(
+            "Başarılı e-ticaret projeleri aynı temel sırayı izler: Hedef → Kullanıcı → İçerik Mimarisi → Tasarım → Geliştirme → Test → Yayın → Ölçümleme. Bu sırayı korumak: geliştirme süresini kısaltır; bütçeyi kontrol altında tutar; teknik borcu azaltır; dönüşüm oranını artırır."
+        )
+    )
+
+    body.append(h3("1) Hedefi Netleştirmek"))
+    body.append(
+        p(
+            "E-ticaret projesinde ilk soru: Satış mı artırılacak? Yeni pazar mı açılacak? Toptan satış (B2B) mı yapılacak? Operasyonel verimlilik mi sağlanacak? Hedef net değilse, altyapı da doğru kurulamaz."
+        )
+    )
+
+    body.append(h3("2) Doğru Kapsam Tanımı"))
+    body.append(
+        p(
+            "Kapsam sadece \"hangi sayfalar yapılacak\" değildir. Kritik başlıklar: ürün yönetim sistemi, ödeme entegrasyonları, kargo ve lojistik bağlantıları, ERP/CRM entegrasyonu, kampanya ve indirim modülleri, çoklu dil / çoklu para birimi, SEO altyapısı. Net yazılmamış kapsam → sürekli revizyon → uzayan proje demektir."
+        )
+    )
+
+    body.append(h2("E-Ticaret Geliştirme Süreci"))
+    body.append(h3("Keşif ve Planlama"))
+    body.append(
+        ul(
+            [
+                "Hedef analizi",
+                "Rakip analizi",
+                "Kullanıcı akışları",
+                "Teknik mimari planı",
+            ]
+        )
+    )
+    body.append(h3("Tasarım"))
+    body.append(
+        ul(
+            [
+                "UX odaklı akış",
+                "Mobil uyumlu arayüz",
+                "Dönüşüm artırıcı bileşenler",
+                "Sepet ve ödeme optimizasyonu",
+            ]
+        )
+    )
+    body.append(h3("Geliştirme"))
+    body.append(
+        ul(
+            [
+                "Performans odaklı kod yapısı",
+                "Ölçeklenebilir mimari",
+                "Güvenli ödeme sistemleri",
+                "SEO teknik altyapısı",
+            ]
+        )
+    )
+    body.append(h3("Test ve Yayın"))
+    body.append(
+        ul(
+            [
+                "Hız testi",
+                "Güvenlik kontrolü",
+                "Checkout testi",
+                "Analitik kurulumu",
+            ]
+        )
+    )
+
+    body.append(h2("SEO Odaklı E-Ticaret Altyapısı"))
+    body.append(
+        p(
+            "Google'da görünür olmayan e-ticaret sitesi satış üretemez. Bu nedenle teknik olarak: hız optimizasyonu, Core Web Vitals uyumu, ürün şema yapısı (structured data), URL mimarisi, iç bağlantı yapısı, kategori ve filtre SEO stratejisi başlangıçta planlanmalıdır. SEO sonradan eklenen bir modül değil; mimari karardır."
+        )
+    )
+
+    body.append(h2("Özel E-Ticaret Yazılımı mı Hazır Altyapı mı?"))
+    body.append(
+        p(
+            "Hazır sistemler başlangıçta hızlıdır ancak: özelleştirme sınırı vardır; büyüdükçe performans düşebilir; entegrasyon karmaşıklaşabilir. Özel e-ticaret yazılımı: tam kontrol sağlar; ölçeklenebilir olur; B2B ihtiyaçlara daha uygundur; uzun vadede teknik borcu azaltır. Karar; bütçe değil, hedefe göre verilmelidir."
+        )
+    )
+
+    body.append(h2("Kalite Standartları ve Kabul Kriterleri"))
+    body.append(
+        p(
+            "Proje başlamadan önce şu sorular yazılı olmalıdır: Performans hedefi nedir? Checkout kaç adım olacak? Mobil hız hedefi kaç saniye? Kim içerik üretecek? Yayın sonrası bakım planı var mı? Net \"tamamlandı\" tanımı olmayan proje uzar."
+        )
+    )
+
+    body.append(h2("Yayın Planı ve Sürdürülebilirlik"))
+    body.append(
+        p(
+            "Yayın son değildir, başlangıçtır. Analitik kurulumu, dönüşüm takibi, hata izleme, A/B test planı, güvenlik güncellemeleri, yedekleme sistemi — ölçülmeyen e-ticaret büyümez."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "E-ticaret projenizi netleştirebiliriz",
+            "Hedefinizi paylaşın, size uygun yol haritasını çıkaralım. E-Ticaret Geliştirme teklif sayfasına gidin.",
+            _quote_url(page),
+            "E-Ticaret Geliştirme Teklif Al",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("E-Ticaret geliştirme süresi neye bağlıdır?", "Ürün sayısı, entegrasyonlar ve özel geliştirme kapsamına bağlıdır."),
+        ("İçerik kim tarafından hazırlanır?", "Stratejiye göre birlikte planlanabilir."),
+        ("Yayın sonrası destek var mı?", "Sürdürülebilir projelerde bakım ve performans izleme kritik önemdedir."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "E-Ticaret Geliştirme | Özel ve Ölçeklenebilir E-Ticaret Çözümleri"
+    meta_description = (
+        "E-Ticaret geliştirme hizmeti: özel e-ticaret yazılımı, B2B & B2C altyapılar, performans ve SEO odaklı mimari. Satış artıran ve ölçeklenebilir çözümler."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "E-Ticaret Geliştirme — Ölçeklenebilir ve SEO Odaklı Altyapı",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _mobile_app_pillar_tr(page: SeoPage) -> Dict:
     """Custom SEO pillar for Mobil Uygulama Geliştirme (TR) — high-value, trend keywords, no pricing triggers."""
     body: List[str] = []
@@ -4671,6 +4832,8 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_PILLAR:
         if page.service.key == "web-design":
             return _web_design_pillar_tr(page)
+        if page.service.key == "ecommerce-development":
+            return _ecommerce_pillar_tr(page)
         if page.service.key == "mobile-app-development":
             return _mobile_app_pillar_tr(page)
         title = f"{svc}"
