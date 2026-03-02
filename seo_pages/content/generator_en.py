@@ -687,6 +687,140 @@ def _cluster_ios_app_development_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_istanbul_service_en(page: SeoPage) -> Dict:
+    """Custom cluster: Mobile App Development in Istanbul — local competition, fast communication, on-site. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "Building a mobile app in Istanbul is not only engineering — it's managing dense competition, fast decision cycles, and real operational needs."
+        )
+    )
+    body.append(
+        p(
+            "This page explains how we structure Istanbul-based mobile projects around a clear framework: goal → scope → acceptance criteria → launch → measurement → iteration. "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Common Needs in Istanbul Projects"))
+    body.append(h3("1) Local Competition: \"Similar apps already exist\""))
+    body.append(
+        p(
+            "In many Istanbul markets (restaurants, beauty, services, real estate, education, logistics), apps look similar. Winning is not about adding more features — it's about reducing friction. What works: define the value proposition in one sentence; pick 2–3 critical flows (booking, ordering, signup, quote request); prioritize clarity and speed over feature overload; focus on activation and repeat usage in v1."
+        )
+    )
+    body.append(h3("2) Fast Communication Expectations"))
+    body.append(
+        p(
+            "Fast communication is good — but it must not turn into chaotic scope changes. How we keep it controlled: weekly short status updates + a clear priority list; a written \"done\" definition (acceptance criteria); every change request tied to a phase plan; one decision owner to avoid confusion."
+        )
+    )
+    body.append(h3("3) On-Site Meetings (When Needed)"))
+    body.append(
+        p(
+            "In-person meetings can accelerate alignment — only if they follow a clear agenda. Efficient meeting template: goal + users + critical flows; scope boundaries (in / out); delivery criteria + testing/launch plan; written summary and next actions."
+        )
+    )
+
+    body.append(h2("Recommended Process (Istanbul-Oriented)"))
+    body.append(h3("1) Discovery & Goals"))
+    body.append(
+        ul(
+            [
+                "define the local audience segment (district/area/service region)",
+                "map user motivation and urgency",
+                "select critical flows + success metrics",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> goals + scope draft + decision notes"))
+    body.append(h3("2) Planning: Priorities & Acceptance Criteria"))
+    body.append(
+        ul(
+            [
+                "MVP (v1) and phase roadmap",
+                "must-have screens and flows",
+                "measurement plan (events to track)",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> phased plan + acceptance criteria"))
+    body.append(h3("3) Design & Development"))
+    body.append(
+        ul(
+            [
+                "mobile-first UX and clear CTAs",
+                "stability and performance targets",
+                "feedback loop design (support, reviews, in-app signals)",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> testable build with core flows completed"))
+    body.append(h3("4) Testing & Launch"))
+    body.append(
+        ul(
+            [
+                "scenario-based testing for critical flows",
+                "launch checklist + monitoring plan",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> launch-ready build + monitoring baseline"))
+
+    body.append(h2("Deliverables (Specific to Istanbul Service)"))
+    body.append(
+        p(
+            "local-focused scope framework (goal/scope/criteria clarity); industry examples (critical flow templates for common business types); communication plan (meeting rhythm, reporting format, decision structure)."
+        )
+    )
+
+    body.append(h2("Post-Launch Sustainability"))
+    body.append(
+        p(
+            "In competitive markets, launch is the start. The first 30 days should focus on: friction points in key flows; stability and performance; user feedback loops; small, high-impact iterations."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Share your goal and your Istanbul audience segment",
+            "We'll turn it into a clear scope and a practical delivery plan. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What's the first step for an Istanbul-based mobile app project?", "Define the local audience segment and select 2–3 critical flows."),
+        ("How do you compete in a crowded market?", "By reducing friction: fast onboarding, clear CTAs, and simple repeat usage loops."),
+        ("Are on-site meetings required?", "Sometimes — especially for operational businesses — but only with a strict agenda and written outcomes."),
+        ("Can fast communication hurt delivery?", "Yes, if unmanaged. We prevent chaos with weekly summaries, priorities, and acceptance criteria."),
+        ("What matters most after launch?", "Critical flow performance, stability, and user behavior-driven iteration."),
+        ("How do you handle scope changes?", "With a phased roadmap: must-have / priority / optional."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Mobile App Development in Istanbul | Local Competition Ready Delivery"
+    meta_description = (
+        "Istanbul-focused mobile app development: local competition, fast communication, on-site meetings, clear scope, measurable deliverables, launch monitoring, and iteration."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Mobile App Development in Istanbul — A Local-Competition, Metrics-Driven Approach",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_or_ios_en(page: SeoPage) -> Dict:
     """Custom cluster: Android or iOS? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -3209,6 +3343,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "ios-app-development":
         return _cluster_ios_app_development_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Mobile App Development in Istanbul (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "istanbul-service":
+        return _cluster_istanbul_service_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android or iOS? (EN) — mobile-app-development

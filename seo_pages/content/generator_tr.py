@@ -876,6 +876,152 @@ def _cluster_ios_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_istanbul_mobil_tr(page: SeoPage) -> Dict:
+    """Custom cluster: İstanbul'da Mobil Uygulama Hizmeti — yerel rekabet, hızlı iletişim, saha toplantıları. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "İstanbul'da mobil uygulama geliştirmek \"sadece yazılım üretmek\" değildir. Burada pazarda yoğun rekabet, hızlı iletişim beklentisi, saha gerçeği ve operasyonel ihtiyaçlar aynı anda yönetilir."
+        )
+    )
+    body.append(
+        p(
+            "Bu sayfa; İstanbul'da iş yapan markalar için mobil uygulama sürecini hedef → kapsam → teslim kriterleri → yayın → ölçümleme çizgisinde netleştirir. "
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("En Sık Karşılaşılan İhtiyaçlar"))
+    body.append(h3("1) Yerel Rekabet: \"Benzer uygulamalar zaten var\" problemi"))
+    body.append(
+        p(
+            "İstanbul'da çoğu sektör (restoran, güzellik, servis, emlak, eğitim, lojistik) benzer uygulamalarla dolu. Bu yüzden başarı; \"uygulama var\" değil, farkı net anlatan ürün tasarlamakla gelir. Doğru yaklaşım: Hangi kullanıcı problemini çözdüğünü tek cümlede netleştir; 2–3 \"kritik akış\" seç (ör. randevu alma, sipariş, üyelik, teklif talebi); Rakipten \"daha fazla özellik\" değil, daha az sürtünme hedefle; İlk sürümde odak: aktivasyon + tekrar kullanım."
+        )
+    )
+    body.append(h3("2) Hızlı İletişim Beklentisi: karar döngüsü kısadır"))
+    body.append(
+        p(
+            "İstanbul'da ekipler hızlı karar ister ama hızlı karar = rastgele karar olmamalı. Bunu yönetmek için: haftalık kısa durum özeti + net öncelik listesi; \"tamamlandı\" tanımı (kabul kriteri); her değişiklik talebini faz planına bağlama; tek sorumlu iletişim noktası (karar kargaşasını azaltır)."
+        )
+    )
+    body.append(h3("3) Saha Toplantıları: yerinde süreç, net ajanda ister"))
+    body.append(
+        p(
+            "Yüz yüze görüşme hızlıdır ama ajandasız olursa sadece \"konuşulmuş\" olur. Verimli saha toplantısı şablonu: hedef + kullanıcı + kritik akışlar (15 dk); kapsam sınırı (ne var / ne yok) (10 dk); teslim kriterleri + test/yayın planı (10 dk); sonraki adım: yazılı özet ve aksiyonlar (5 dk)."
+        )
+    )
+
+    body.append(h2("Önerilen Süreç (İstanbul Odaklı)"))
+    body.append(h3("1) Keşif ve Hedefler"))
+    body.append(
+        ul(
+            [
+                "İstanbul özelinde hedef kitle: semt / bölge / hizmet alanı",
+                "kullanıcı profili ve \"neden şimdi?\" motivasyonu",
+                "kritik akışlar + başarı metriği",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> hedef + kapsam taslağı + karar notları"))
+    body.append(h3("2) Plan: Teslim Kriterleri ve Öncelikler"))
+    body.append(
+        ul(
+            [
+                "MVP (v1) + faz-2 planı",
+                "hangi ekranların zorunlu olduğu",
+                "ölçümleme planı (event'ler)",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> faz planı + kabul kriterleri"))
+    body.append(h3("3) Uygulama: Tasarım/Geliştirme"))
+    body.append(
+        ul(
+            [
+                "mobil-first UX, net CTA'lar",
+                "performans ve stabilite hedefleri",
+                "bildirim ve kullanıcı geri bildirim döngüsü",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> test edilebilir sürüm + kritik akışlar tamam"))
+    body.append(h3("4) Test ve Yayın"))
+    body.append(
+        ul(
+            [
+                "senaryo bazlı test (kritik akışlar)",
+                "yayın checklist + izleme planı",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> yayın-ready build + izleme planı"))
+
+    body.append(h2("Teslimatlar (Bu Sayfaya Özel)"))
+    body.append(
+        p(
+            "İstanbul'da hizmet odaklı projelerde \"teslim\" sadece uygulama değildir: Yerel odaklı teklif çerçevesi (hedef/kapsam/teslim kriteri netliği); Sektör örnekleri (benzer iş modelleri için kritik akış şablonları); İletişim planı (toplantı ritmi, karar süreçleri, raporlama formatı)."
+        )
+    )
+
+    body.append(h2("Hangi İşletmeler İçin Uygun?"))
+    body.append(
+        ul(
+            [
+                "İstanbul'da şube veya saha operasyonu olan işletmeler",
+                "hızlı büyüyen servis/rezervasyon odaklı markalar",
+                "\"WhatsApp + telefon\" yoğun çalışan ama süreçleri uygulamaya taşımak isteyen ekipler",
+                "rekabette öne çıkmak için hız + UX + ölçümleme isteyenler",
+            ]
+        )
+    )
+
+    body.append(h2("Yayın Planı ve Sürdürülebilirlik"))
+    body.append(
+        p(
+            "İstanbul gibi rekabetçi pazarda yayın \"bitiriş\" değil, başlangıçtır. İlk 30 günde şu döngü kritik olur: kritik akışlarda sürtünme noktaları; stabilite (crash) ve performans; kullanıcı geri bildirimleri; küçük ama etkili iterasyonlar."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Hedefinizi ve İstanbul'daki hedef kitlenizi 2–3 cümlede yazın",
+            "Kapsamı netleştirip uygulanabilir bir plan çıkaralım. Teklif sayfasına gidin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("İstanbul'da mobil uygulama geliştirmede ilk adım nedir?", "Hedef kitleyi (bölge/segment) netleştirmek ve 2–3 kritik akışı seçmektir."),
+        ("Yerel rekabeti aşmak için neye odaklanmalıyım?", "Daha çok özellik yerine, daha az sürtünme: hızlı onboarding, net CTA, kolay tekrar kullanım."),
+        ("Saha toplantıları gerçekten gerekli mi?", "Bazı sektörlerde evet; ama verimli olması için ajanda + yazılı karar özeti şarttır."),
+        ("Hızlı iletişim süreci bozmaz mı?", "Bozabilir. Bu yüzden haftalık özet, öncelik listesi ve kabul kriteri ile disiplin kurulur."),
+        ("Yayın sonrası en kritik şey nedir?", "Kritik akış performansı, stabilite ve kullanıcı davranışına göre hızlı iterasyon."),
+        ("Kapsam değişince ne yapılır?", "Değişiklikleri faz planına bağlarız: zorunlu/öncelikli/isteğe bağlı ayrımı ile yönetiriz."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "İstanbul'da Mobil Uygulama Geliştirme | Yerel Rekabet Odaklı Yaklaşım"
+    meta_description = (
+        "İstanbul'da mobil uygulama geliştirme: yerel rekabet, hızlı iletişim, saha toplantıları, sürdürülebilir süreç. Hedefe göre kapsam, teslim kriterleri ve ölçümleme."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "İstanbul'da Mobil Uygulama Geliştirme — Yerel Rekabeti Anlayan, Ölçülebilir Yaklaşım",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_vs_ios_tr(page: SeoPage) -> Dict:
     """Custom cluster: Android mi iOS mu? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -3910,6 +4056,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "ios":
         return _cluster_ios_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: İstanbul'da Mobil Uygulama Hizmeti (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "istanbul":
+        return _cluster_istanbul_mobil_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android mi iOS mu? (TR) — mobile-app-development

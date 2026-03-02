@@ -85,6 +85,7 @@ SERVICE_SILO_MAP: Dict[str, dict] = {
                 "react-native-vs-native",
                 "cross-platform-vs-native",
                 "android-or-ios",
+                "istanbul-service",
                 "mobile-app-development-cost",
             ],
         },
