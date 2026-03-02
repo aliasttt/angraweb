@@ -1022,6 +1022,197 @@ def _cluster_istanbul_mobil_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_mobil_uygulama_freelancer_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Mobil Uygulama Freelancer — risk azaltma, teslim kontrol listesi. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "Mobil uygulama freelancer ile çalışmak doğru yönetilirse hızlı ilerletir; yanlış yönetilirse proje yarım kalır, kalite düşer veya sürdürülebilir olmaz."
+        )
+    )
+    body.append(
+        p(
+            "Bu sayfa; freelancer seçimini \"şansa\" bırakmadan, kapsam + teslim kriterleri + test/yayın disiplini ile güvenli hale getirmen için hazırlanmıştır. Ana hedef: Tek kişilik ekip riskini azaltmak ve projenin \"teslim edilebilir\" olmasını garanti eden bir süreç kurmak. "
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("En Sık Karşılaşılan İhtiyaçlar"))
+    body.append(h3("1) Tek Kişilik Ekip Riski"))
+    body.append(
+        p(
+            "Freelancer ile çalışırken en büyük risk genelde \"yetkinlik\" değil, tek noktaya bağımlılıktır: tatil/hastalık/yoğunluk → gecikme; bilgi tek kişide → devamlılık sorunu; test ve dokümantasyon zayıf → yayın sonrası problem."
+        )
+    )
+    body.append(
+        p(
+            "<strong>Çözüm prensibi:</strong> Tek kişiye bağımlılığı azaltmak için işi \"kişiye\" değil, sisteme bağla: yazılı kapsam, repo düzeni, test planı, yayın checklist."
+        )
+    )
+    body.append(h3("2) Süreç Yönetimi Eksikliği"))
+    body.append(
+        p(
+            "Freelancer işleri çoğu zaman \"yapıyorum gönderiyorum\" modunda gider. Bu, mobil uygulamada risklidir çünkü cihaz/OS çeşitliliği, store süreçleri, crash ve performans, analytics ve event takibi işin parçasıdır."
+        )
+    )
+    body.append(
+        p(
+            "<strong>Çözüm prensibi:</strong> Haftalık ritim + net teslim kriterleri + \"done\" tanımı."
+        )
+    )
+
+    body.append(h2("Önerilen Süreç (Freelancer için En Sağlam Akış)"))
+    body.append(h3("1) Keşif ve Hedefler"))
+    body.append(
+        p(
+            "Sorulması gereken 5 kritik soru: Uygulamanın ana hedefi nedir? (rezervasyon, sipariş, üyelik, takip vb.) En kritik 2–3 akış hangisi? İlk sürümde \"olmazsa olmaz\" ekranlar neler? Hangi entegrasyonlar şart? (auth, bildirim, ödeme, harita, CRM) Başarıyı hangi metrikle ölçeceğiz? (aktivasyon, tekrar kullanım, form dönüşümü)"
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> 1 sayfa hedef + kapsam özeti"))
+    body.append(h3("2) Plan: Teslim Kriterleri ve Öncelikler"))
+    body.append(
+        ul(
+            [
+                "MVP (v1) + faz-2 listesi",
+                "her maddeye kabul kriteri",
+                "revizyon ve değişiklik yönetimi",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> kapsam listesi + kabul kriterleri"))
+    body.append(h3("3) Uygulama: Tasarım/Geliştirme"))
+    body.append(
+        ul(
+            [
+                "tasarım dosyası net mi? (Figma/akışlar)",
+                "kod standardı, branch düzeni",
+                "crash logging + temel analytics eventleri",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> test edilebilir build + kritik akışlar çalışıyor"))
+    body.append(h3("4) Test ve Yayın"))
+    body.append(
+        ul(
+            [
+                "cihaz matrisi (Android/iOS sürümleri)",
+                "release checklist",
+                "izleme: crash/performance + temel event doğrulama",
+            ]
+        )
+    )
+    body.append(p("<strong>Teslim:</strong> yayın-ready sürüm + izleme planı"))
+
+    body.append(h2("Seçim Kriterleri (Freelancer Değerlendirme Listesi)"))
+    body.append(h3("Teknik yeterlilik sinyalleri"))
+    body.append(
+        ul(
+            [
+                "daha önce benzer uygulama teslimi (store yayını görmüş olması ideal)",
+                "net teknoloji seçimi ve gerekçesi",
+                "versiyonlama ve release disiplinini biliyor olması",
+                "performans/stabilite konuşabiliyor olması",
+            ]
+        )
+    )
+    body.append(h3("Süreç sinyalleri"))
+    body.append(
+        ul(
+            [
+                "\"kapsamı yazalım\" diyorsa iyi işaret",
+                "haftalık raporlama ritmi öneriyorsa iyi işaret",
+                "test ve yayın planı anlatabiliyorsa iyi işaret",
+                "tek başına ise \"risk planı\" sunabiliyorsa mükemmel işaret",
+            ]
+        )
+    )
+    body.append(h3("Kırmızı bayraklar"))
+    body.append(
+        ul(
+            [
+                "\"her şeyi yaparım\" ama scope istemiyor",
+                "test konuşmuyor",
+                "repo / dokümantasyon umursamıyor",
+                "yayın süreci ve store gereksinimlerini hafife alıyor",
+            ]
+        )
+    )
+
+    body.append(h2("Teslim Kontrol Listesi (Bu Listeyi Kullan, Sorun Azalır)"))
+    body.append(p("<strong>Zorunlu teslimler:</strong>"))
+    body.append(
+        ul(
+            [
+                "kaynak kod + repo erişimi (tek hesapta kalmasın)",
+                "build alma dokümantasyonu (README)",
+                "release notları (ne yapıldı / ne kaldı)",
+                "izleme kurulumları (crash logging, temel event'ler)",
+                "kritik akış test senaryoları",
+                "yayın checklist",
+            ]
+        )
+    )
+    body.append(p("<strong>Opsiyonel ama çok değerli:</strong> basit mimari şeması; component/feature listesi; teknik borç notları (sonra iyileştirme için)."))
+
+    body.append(h2("Ne Zaman Freelancer Mantıklı? Ne Zaman Değil?"))
+    body.append(
+        p(
+            "<strong>Freelancer mantıklı</strong> (özellikle): kapsam net ve küçük/orta ölçekliyse; MVP hızlı çıkacaksa; tek kişilik ekip riskini süreçle yönetebiliyorsan."
+        )
+    )
+    body.append(
+        p(
+            "<strong>Freelancer riskli olabilir:</strong> çoklu entegrasyon + karmaşık rol/yetki varsa; timeline çok sıkışıksa ve yedek plan yoksa; bakım/iyileştirme döngüsü kritikse ve tek kişiye bağlı kalacaksan."
+        )
+    )
+
+    body.append(h2("Yayın Sonrası Sürdürülebilirlik"))
+    body.append(
+        p(
+            "Mobil projede sürdürülebilirlik = \"yayınlandı bitti\" değil: crash takibi, performans izleme, kullanıcı davranışı analizi, küçük iterasyonlar — bu döngü kurulmazsa uygulama kısa sürede düşer."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Freelancer ile ilerlemek istiyorsan",
+            "Önce kapsamı netleştirelim ve teslim kriterlerini yazılı hale getirelim. Teklif sayfasına gidin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Mobil uygulama freelancer ile çalışırken ilk adım nedir?", "Kritik akışları seçip kapsamı yazılı hale getirmek ve kabul kriterlerini belirlemek."),
+        ("Tek kişilik ekip riskini nasıl azaltırım?", "Repo erişimi, dokümantasyon, test planı ve yayın checklist ile süreci kişiden bağımsızlaştırarak."),
+        ("Freelancer seçerken en güçlü sinyal nedir?", "Daha önce store'a yayın görmüş proje + net süreç önerisi (kapsam, test, raporlama)."),
+        ("Kapsam değişirse ne olur?", "Değişiklikleri faz planına bağlamak gerekir: zorunlu/öncelikli/isteğe bağlı ayrımı."),
+        ("Teslimde hangi belgeler mutlaka olmalı?", "Repo, README, release notları, test senaryoları, izleme kurulumları."),
+        ("Yayın sonrası en kritik konu nedir?", "Stabilite (crash) + performans + kullanıcı davranışına göre hızlı iterasyon."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Mobil Uygulama Freelancer | Doğru Seçim ve Teslim Kontrol Listesi"
+    meta_description = (
+        "Mobil uygulama freelancer ile çalışma rehberi: tek kişilik ekip riski, süreç yönetimi, seçim kriterleri, teslim kontrol listesi, test ve yayın planı."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Mobil Uygulama Freelancer ile Çalışma — Riskleri Azaltan, Net Teslim Odaklı Rehber",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_vs_ios_tr(page: SeoPage) -> Dict:
     """Custom cluster: Android mi iOS mu? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -4062,6 +4253,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "istanbul":
         return _cluster_istanbul_mobil_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Mobil Uygulama Freelancer (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "mobil-uygulama-freelancer":
+        return _cluster_mobil_uygulama_freelancer_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android mi iOS mu? (TR) — mobile-app-development

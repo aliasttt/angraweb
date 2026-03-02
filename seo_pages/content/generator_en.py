@@ -821,6 +821,197 @@ def _cluster_istanbul_service_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_mobile_app_freelancer_en(page: SeoPage) -> Dict:
+    """Custom cluster: Mobile App Freelancer — reduce risk, delivery checklist. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "Hiring a mobile app freelancer can be a fast path to launch — or a risky shortcut if the project depends on a single person without structure."
+        )
+    )
+    body.append(
+        p(
+            "This page helps you make freelancer work reliable by focusing on scope clarity, acceptance criteria, testing, launch discipline, and ownership of deliverables. "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Common Challenges"))
+    body.append(h3("1) Single-Person Team Risk"))
+    body.append(
+        p(
+            "The biggest risk is not talent — it's dependency: availability issues (busy, sick, travel); knowledge locked in one place; weak testing and documentation → launch problems."
+        )
+    )
+    body.append(
+        p(
+            "<strong>Principle:</strong> Build a system, not a dependency: written scope, repo structure, test plan, launch checklist."
+        )
+    )
+    body.append(h3("2) Process Gaps"))
+    body.append(
+        p(
+            "Mobile apps require more than coding: device/OS fragmentation, store requirements, stability and performance, analytics and events. Without a process, \"it works on my phone\" becomes a disaster."
+        )
+    )
+
+    body.append(h2("Recommended Process (Freelancer-Proof)"))
+    body.append(h3("1) Discovery & Goals"))
+    body.append(
+        p(
+            "Ask these key questions: What is the main goal? (booking, ordering, membership, tracking) What are the top 2–3 critical flows? What screens are must-have in v1? Which integrations are required? (auth, notifications, maps, payments) How will success be measured? (activation, retention, conversions)"
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> a one-page goal + scope summary"))
+    body.append(h3("2) Planning: Priorities & Acceptance Criteria"))
+    body.append(
+        ul(
+            [
+                "MVP (v1) + phase roadmap",
+                "acceptance criteria per feature",
+                "change request discipline",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> scope list + acceptance criteria"))
+    body.append(h3("3) Design & Development"))
+    body.append(
+        ul(
+            [
+                "clear UX flows (Figma or written flows)",
+                "code standards, branching",
+                "crash logging + basic analytics events",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> testable build with core flows working"))
+    body.append(h3("4) Testing & Launch"))
+    body.append(
+        ul(
+            [
+                "device matrix",
+                "release checklist",
+                "monitoring baseline (crashes, performance, key events)",
+            ]
+        )
+    )
+    body.append(p("<strong>Deliverable:</strong> launch-ready build + monitoring plan"))
+
+    body.append(h2("How to Choose a Freelancer (Selection Criteria)"))
+    body.append(h3("Strong technical signals"))
+    body.append(
+        ul(
+            [
+                "has delivered similar apps (ideally published on stores)",
+                "can explain tech choices clearly",
+                "understands release and versioning",
+                "can discuss performance and stability",
+            ]
+        )
+    )
+    body.append(h3("Strong process signals"))
+    body.append(
+        ul(
+            [
+                "insists on written scope",
+                "proposes weekly reporting rhythm",
+                "explains testing and launch plan",
+                "offers a risk plan for single-person delivery",
+            ]
+        )
+    )
+    body.append(h3("Red flags"))
+    body.append(
+        ul(
+            [
+                "\"I can do everything\" but refuses scope clarity",
+                "ignores testing",
+                "messy repo / no documentation",
+                "underestimates store requirements",
+            ]
+        )
+    )
+
+    body.append(h2("Delivery Checklist (Use This to Avoid Pain)"))
+    body.append(p("<strong>Must-have deliverables:</strong>"))
+    body.append(
+        ul(
+            [
+                "source code + repo access (not tied to one account)",
+                "setup/build documentation (README)",
+                "release notes (done / pending)",
+                "monitoring setup (crash logging, basic events)",
+                "test scenarios for critical flows",
+                "launch checklist",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "<strong>High-value extras:</strong> simple architecture overview; feature map; technical debt notes for future improvements."
+        )
+    )
+
+    body.append(h2("When a Freelancer Is a Good Fit"))
+    body.append(
+        p(
+            "scope is clear and not overly complex; you want a focused MVP; you can manage risk with structure."
+        )
+    )
+    body.append(h2("When It's Risky"))
+    body.append(
+        p(
+            "heavy integrations and complex permissions; tight timelines without a backup plan; long-term iteration depends on one person."
+        )
+    )
+
+    body.append(h2("Post-Launch Sustainability"))
+    body.append(
+        p(
+            "Sustainability is not \"launched and done.\" You need: crash monitoring, performance tracking, user behavior insights, small, fast iterations."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "If you want to work with a freelancer",
+            "Start by locking scope and acceptance criteria in writing — then build with a clean delivery system. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What's the first step when hiring a mobile app freelancer?", "Define critical flows and document scope with acceptance criteria."),
+        ("How do I reduce single-person risk?", "Own the repo access, require documentation, testing plan, and a launch checklist."),
+        ("What's the best signal of a strong freelancer?", "A proven store delivery + a clear process (scope, testing, reporting)."),
+        ("What happens when scope changes?", "Handle changes through a phased roadmap: must-have / priority / optional."),
+        ("What must be included in delivery?", "Repo, README, release notes, test scenarios, monitoring setup."),
+        ("What matters most after launch?", "Stability, performance, and behavior-driven iteration."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Mobile App Freelancer | How to Choose + Delivery Checklist"
+    meta_description = (
+        "Guide to working with a mobile app freelancer: single-person risk, process management, selection criteria, delivery checklist, testing and launch plan, sustainability after release."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Working with a Mobile App Freelancer — A Practical Guide to Reduce Risk and Secure Delivery",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_or_ios_en(page: SeoPage) -> Dict:
     """Custom cluster: Android or iOS? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -3349,6 +3540,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "istanbul-service":
         return _cluster_istanbul_service_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Mobile App Freelancer (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "mobile-app-freelancer":
+        return _cluster_mobile_app_freelancer_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android or iOS? (EN) — mobile-app-development
