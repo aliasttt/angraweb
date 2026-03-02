@@ -1012,6 +1012,121 @@ def _cluster_mobile_app_freelancer_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_how_to_build_mobile_app_en(page: SeoPage) -> Dict:
+    """Custom cluster: How to Build a Mobile App — step-by-step process guide. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "Building a mobile app is not just coding. A successful mobile app: starts with clear goals, defines scope properly, focuses on UX, uses the right technology, is tested thoroughly, is monitored after launch."
+        )
+    )
+    body.append(
+        p(
+            "This guide explains the complete mobile app development process in a structured and professional way. "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("1) Define the Idea and Goals"))
+    body.append(
+        p(
+            "Most mobile apps fail due to strategy, not code. Key questions: What problem does it solve? Who is the target user? What are the 2–3 critical flows? What features are mandatory in v1? How will success be measured? Without this clarity, development becomes chaotic."
+        )
+    )
+
+    body.append(h2("2) Define Scope and MVP"))
+    body.append(
+        p(
+            "Biggest mistake: building everything at once. Correct method: Must-have (MVP), Priority, Optional (Phase 2). Each feature needs measurable acceptance criteria."
+        )
+    )
+
+    body.append(h2("3) UX/UI Design"))
+    body.append(
+        p(
+            "Mobile UX requires: thumb-friendly layout, intuitive navigation, clear hierarchy, proper error states, loading states, empty states. Design is experience architecture."
+        )
+    )
+
+    body.append(h2("4) Choose the Right Technology"))
+    body.append(
+        ul(
+            [
+                "Native Android",
+                "Native iOS",
+                "Cross-platform (Flutter, React Native)",
+                "Backend/API architecture",
+            ]
+        )
+    )
+    body.append(p("Technology must align with scalability and performance goals."))
+
+    body.append(h2("5) Development Phase"))
+    body.append(
+        p(
+            "Key technical considerations: clean architecture, version control, API security, performance optimization, crash logging, analytics planning. \"Working\" is not enough. It must be stable."
+        )
+    )
+
+    body.append(h2("6) Testing Phase"))
+    body.append(
+        p(
+            "Professional apps require: functional testing, user flow testing, device compatibility, performance checks, security review. Testing protects reputation."
+        )
+    )
+
+    body.append(h2("7) Publishing"))
+    body.append(
+        p(
+            "Publishing includes: store compliance, privacy policy, screenshots, release notes, approval process. Launch is the beginning, not the end."
+        )
+    )
+
+    body.append(h2("8) Post-Launch Optimization"))
+    body.append(
+        p(
+            "After release: monitor crashes, track performance, analyze user behavior, iterate quickly. The first 30 days are critical."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Ready to build a mobile app?",
+            "Start by defining goals and scope — then we'll turn it into a clear delivery plan. Go to the quote page.",
+            _quote_url(page),
+            "Go to the quote page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("How long does it take to build a mobile app?", "Depends on scope and integrations."),
+        ("What is MVP?", "Minimum viable product — the first functional release."),
+        ("Should I build Android or iOS first?", "Based on target audience analysis."),
+        ("Is post-launch work necessary?", "Yes. Optimization is essential."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "How to Build a Mobile App — Step-by-Step Development Guide"
+    meta_description = (
+        "How to build a mobile app from idea to launch. Step-by-step mobile app development process, MVP strategy, testing, publishing and optimization guide."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "How to Build a Mobile App — From Idea to Launch",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_or_ios_en(page: SeoPage) -> Dict:
     """Custom cluster: Android or iOS? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -3546,6 +3661,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "mobile-app-freelancer":
         return _cluster_mobile_app_freelancer_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: How to Build a Mobile App (EN) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "how-to-build-a-mobile-app":
+        return _cluster_how_to_build_mobile_app_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android or iOS? (EN) — mobile-app-development

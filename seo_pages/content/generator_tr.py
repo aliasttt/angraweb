@@ -1213,6 +1213,148 @@ def _cluster_mobil_uygulama_freelancer_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_mobil_uygulama_nasil_yapilir_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Mobil Uygulama Nasıl Yapılır? — adım adım süreç rehberi. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "Mobil uygulama yapmak sadece kod yazmak değildir. Başarılı bir mobil uygulama: doğru kapsamla başlar, net kullanıcı akışlarıyla tasarlanır, performans ve güvenlik gözetilerek geliştirilir, test edilir, yayınlanır, ölçülür ve iyileştirilir."
+        )
+    )
+    body.append(
+        p(
+            "Bu rehber, mobil uygulama geliştirme sürecini stratejik ve sürdürülebilir şekilde açıklar. "
+            f"Genel çerçeve: {{{{ link:{_pillar_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("1) Fikir ve Hedef Netleştirme (En Kritik Aşama)"))
+    body.append(
+        p(
+            "Çoğu mobil proje teknik değil, stratejik hatadan başarısız olur. Sorulması gereken temel sorular: Bu uygulama hangi problemi çözüyor? Hedef kullanıcı kim? En kritik 2–3 kullanıcı akışı ne? İlk sürümde olmazsa olmaz özellikler neler? Başarı hangi metrikle ölçülecek? (aktivasyon, sipariş, rezervasyon, dönüşüm)"
+        )
+    )
+    body.append(p("Eğer bu aşama atlanırsa, proje geliştirme sırasında sürekli değişir."))
+
+    body.append(h2("2) Kapsam ve MVP Tanımı"))
+    body.append(
+        p(
+            "Mobil uygulama geliştirmede en büyük hata \"her şeyi ilk sürüme koymak\"tır. Doğru yöntem: Zorunlu (MVP), Öncelikli, İsteğe bağlı (2. faz). Her özellik için kabul kriteri yazılmalıdır. Örnek: \"Üyelik ekranı çalışır\" değil, \"E-posta doğrulamalı üyelik, hata mesajları gösteriliyor, backend doğrulaması var.\" Bu disiplin olmadan proje kontrol edilemez."
+        )
+    )
+
+    body.append(h2("3) UX/UI Tasarım Süreci"))
+    body.append(
+        p(
+            "Mobil uygulama tasarımı web tasarım değildir. Dikkat edilmesi gerekenler: Başparmak erişim alanı, Basit navigasyon, Ekran hiyerarşisi, Boş durumlar (empty states), Hata mesajları, Yüklenme durumları. Tasarım sadece görsel değil, kullanıcı deneyimi mimarisidir."
+        )
+    )
+
+    body.append(h2("4) Teknoloji Seçimi (Android, iOS veya Cross-Platform)"))
+    body.append(
+        ul(
+            [
+                "Native Android",
+                "Native iOS",
+                "Cross-platform (Flutter, React Native vb.)",
+                "Backend mimarisi (API, veritabanı, auth sistemi)",
+            ]
+        )
+    )
+    body.append(p("Seçim; hedef kitle, ölçeklenebilirlik ve performansa göre yapılmalıdır. Yanlış teknoloji = gelecekte teknik borç."))
+
+    body.append(h2("5) Geliştirme Aşaması"))
+    body.append(
+        p(
+            "Bu aşamada dikkat edilmesi gereken teknik konular: Temiz kod yapısı, Versiyon kontrolü (Git), API güvenliği, Performans optimizasyonu, Crash logging, Analytics event planı."
+        )
+    )
+    body.append(p("Mobil uygulama geliştirme süreci, yalnızca \"çalışıyor\" demek değildir. \"Stabil çalışıyor\" demektir."))
+
+    body.append(h2("6) Test Süreci"))
+    body.append(
+        p(
+            "Test yapılmadan yayınlanan uygulama, kullanıcı kaybeder. Test türleri: Fonksiyonel test, Kullanıcı akış testi, Cihaz uyumluluk testi, Performans testi, Güvenlik kontrolü. Ayrıca: Form validasyonları, Hata senaryoları, Zayıf internet testi."
+        )
+    )
+
+    body.append(h2("7) Yayın (App Store ve Google Play Süreci)"))
+    body.append(
+        p(
+            "Yayın aşaması teknik olduğu kadar prosedüreldir: Store gereksinimleri, Gizlilik politikası, Uygulama açıklaması, Ekran görüntüleri, Sürüm notları, Onay süreci. Yayın = başlangıç."
+        )
+    )
+
+    body.append(h2("8) Yayın Sonrası Ölçüm ve İyileştirme"))
+    body.append(
+        p(
+            "Profesyonel mobil uygulama geliştirme sürecinde yayın sonrası: Crash takibi, Performans ölçümü, Kullanıcı davranışı analizi, Dönüşüm oranı optimizasyonu. İlk 30 gün en kritik dönemdir."
+        )
+    )
+
+    body.append(h2("Riskler ve Çözümler"))
+    body.append(
+        ul(
+            [
+                "Kapsam sürekli değişiyor → Yazılı MVP ve faz planı",
+                "Performans sorunları → Başta mimari plan",
+                "Kullanıcı kaybı → UX test ve analytics",
+                "Store reddi → Önceden gereksinim analizi",
+            ]
+        )
+    )
+
+    body.append(h2("Ne Zaman Profesyonel Süreç Gereklidir?"))
+    body.append(
+        ul(
+            [
+                "İş modeli uygulamaya bağlıysa",
+                "Uzun vadeli büyüme hedefleniyorsa",
+                "Entegrasyonlar karmaşıksa",
+                "Performans kritikse",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Mobil uygulama yapmak istiyorsanız",
+            "Önce hedef ve kapsamı netleştirelim. Doğru plan olmadan kod yazmak risklidir. Teklif sayfasına gidin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("Mobil uygulama yapmak ne kadar sürer?", "Süre; kapsam, entegrasyon ve test gereksinimlerine bağlıdır."),
+        ("Mobil uygulama için ilk adım nedir?", "Problem ve kullanıcı hedefini netleştirmek."),
+        ("Android mi iOS mu önce yapılmalı?", "Hedef kitle analizine göre karar verilir."),
+        ("MVP nedir?", "Minimum çalışabilir ilk sürümdür."),
+        ("Yayın sonrası süreç var mı?", "Evet. Ölçümleme ve iterasyon zorunludur."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Mobil Uygulama Nasıl Yapılır? Adım Adım Geliştirme Rehberi"
+    meta_description = (
+        "Mobil uygulama nasıl yapılır? Fikirden tasarıma, geliştirmeden test ve yayına kadar adım adım mobil uygulama geliştirme süreci ve risk yönetimi rehberi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Mobil Uygulama Nasıl Yapılır? — Fikirden Yayına Adım Adım Süreç",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_vs_ios_tr(page: SeoPage) -> Dict:
     """Custom cluster: Android mi iOS mu? — platform selection guide. No pricing triggers."""
     body: List[str] = []
@@ -4259,6 +4401,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "mobil-uygulama-freelancer":
         return _cluster_mobil_uygulama_freelancer_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Mobil Uygulama Nasıl Yapılır? (TR) — mobile-app-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "mobil-uygulama-nasil-yapilir":
+        return _cluster_mobil_uygulama_nasil_yapilir_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Android mi iOS mu? (TR) — mobile-app-development
