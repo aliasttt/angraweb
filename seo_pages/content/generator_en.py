@@ -218,6 +218,11 @@ def _ecommerce_pillar_en(page: SeoPage) -> Dict:
             f"Rates & scope: {{{{ link:{_pricing_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}. Request a quote: {{{{ link:{_quote_url(page)} }}}}."
         )
     )
+    body.append(
+        p(
+            f"What is e-commerce and how does it work? For key concepts and a practical launch checklist, see {{{{ link:/en/{_service_base(page)}/what-is-ecommerce/ }}}}."
+        )
+    )
 
     body.append(h2("The Right Framework for Every E-Commerce Project"))
     body.append(

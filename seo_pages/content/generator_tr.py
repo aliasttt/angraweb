@@ -353,6 +353,11 @@ def _ecommerce_pillar_tr(page: SeoPage) -> Dict:
             f"Kapsam ve bütçe: {{{{ link:{_pricing_url(page)} }}}}. Rehber: {{{{ link:{_guide_url(page)} }}}}. Teklif: {{{{ link:{_quote_url(page)} }}}}."
         )
     )
+    body.append(
+        p(
+            f"E-ticaret nedir, nasıl çalışır ve nasıl başlanır? Temel kavramlar ve başlangıç kontrol listesi için {{{{ link:/tr/{_service_base(page)}/e-ticaret-nedir/ }}}} sayfasını inceleyebilirsiniz."
+        )
+    )
 
     body.append(h2("Hangi İhtiyaca Hangi Yaklaşım Uygun?"))
     body.append(

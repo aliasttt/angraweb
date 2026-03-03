@@ -261,6 +261,11 @@ def _choose_anchor(page: SeoPage, target: SeoPage, url: str, mode: str) -> str:
         return random.choice(options.get(mode, options["semantic"]))
 
     # Cluster / Pillar sources: partial match anchors should resemble target topic
+    # Pillar → "E-Ticaret Nedir?" / "What Is E-Commerce?" cluster: use target title as link text
+    if page.page_type == SeoPage.TYPE_PILLAR and target.page_type == SeoPage.TYPE_CLUSTER:
+        if (target.slug or "").strip().lower() in ("e-ticaret-nedir", "what-is-ecommerce"):
+            return (target.title or "").strip() or url
+
     if mode == "branded":
         return "Angraweb"
 
