@@ -1797,6 +1797,134 @@ def _cluster_b2b_ecommerce_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_b2c_ecommerce_en(page: SeoPage) -> Dict:
+    """Custom cluster: B2C E-Commerce — D2C store, conversion and SEO focus. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "B2C e-commerce is the direct-to-consumer online sales model. Success depends on: fast checkout experience, mobile-first UX, secure payment systems, SEO-ready infrastructure, and performance optimization."
+        )
+    )
+    body.append(
+        p(
+            "A website alone is not enough. It must convert traffic into revenue. "
+            f"Service overview: {{{{ link:{_pillar_url(page)} }}}}. Workflow: {{{{ link:{_guide_url(page)} }}}}. Request a quote: {{{{ link:{_quote_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("Key B2C Features"))
+    body.append(h3("Mobile-First Design"))
+    body.append(p("Most traffic comes from mobile devices, so mobile UX must feel effortless."))
+
+    body.append(h3("Fast & Secure Checkout"))
+    body.append(
+        ul(
+            [
+                "single-page checkout to reduce abandonment",
+                "card integrations and secure flows",
+                "support for modern wallets where relevant",
+            ]
+        )
+    )
+
+    body.append(h3("Campaign & Coupon System"))
+    body.append(
+        ul(
+            [
+                "flexible discount codes",
+                "cart-based promotions",
+                "product-level campaigns",
+            ]
+        )
+    )
+
+    body.append(h3("SEO-Friendly Category Architecture"))
+    body.append(
+        ul(
+            [
+                "clear heading hierarchy",
+                "schema markup",
+                "URL structure aligned with keyword strategy",
+                "intentional internal linking",
+            ]
+        )
+    )
+
+    body.append(h3("Performance Optimization"))
+    body.append(
+        ul(
+            [
+                "Core Web Vitals alignment",
+                "image optimization",
+                "cache and CDN strategy",
+            ]
+        )
+    )
+
+    body.append(h2("Development Approach"))
+    body.append(
+        ul(
+            [
+                "business goal analysis (revenue targets, AOV, retention goals)",
+                "UX & conversion planning (flows, funnels, category and filter design)",
+                "secure backend development and integrations",
+                "checkout optimization and tracking setup",
+                "SEO & performance testing before launch",
+            ]
+        )
+    )
+
+    body.append(h2("SEO in B2C E-Commerce"))
+    body.append(
+        p(
+            "Organic traffic reduces paid ad dependency. Strategic SEO covers: category keyword targeting, optimized product pages, technical SEO foundation, and content-driven growth via blog or resources. Long-term visibility creates more predictable revenue."
+        )
+    )
+
+    body.append(h2("Custom vs Ready Platforms"))
+    body.append(
+        p(
+            "Ready-made systems are faster to launch and can be useful for simple cases. Custom development, however, offers higher performance, deeper SEO control, better scalability, and long-term flexibility. Growing brands often prefer custom architecture."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Plan your B2C e-commerce platform",
+            "Share your growth goals and constraints; we’ll design a scalable, SEO-driven B2C e-commerce platform tailored to your needs. Get a B2C E-Commerce quote.",
+            _quote_url(page),
+            "Get a B2C E-Commerce Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("How long does B2C e-commerce development take?", "It depends on scope, integrations, and customization depth."),
+        ("Should SEO be included from the start?", "Yes. SEO is structural — it should be considered in architecture, not added later."),
+        ("Why is mobile optimization so critical?", "Because most users browse and buy on mobile devices."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "B2C E-Commerce Development | SEO Optimized & Conversion Focused Store"
+    meta_description = (
+        "B2C e-commerce website development with mobile-first design, fast checkout, campaign management and scalable architecture."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "B2C E-Commerce — Conversion-Focused & SEO-Optimized Online Store",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_en(page: SeoPage) -> Dict:
     """Custom cluster: React Native or Native? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -4391,6 +4519,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2b-ecommerce-development":
         return _cluster_b2b_ecommerce_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: B2C E-Commerce (EN) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2c-ecommerce-website":
+        return _cluster_b2c_ecommerce_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

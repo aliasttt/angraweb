@@ -2288,6 +2288,204 @@ def _cluster_b2b_ecommerce_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_b2c_ecommerce_tr(page: SeoPage) -> Dict:
+    """Custom cluster: B2C E-Ticaret — son kullanıcıya satış, dönüşüm ve SEO odaklı mağaza. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Genel Bakış"))
+    body.append(
+        p(
+            "B2C e-ticaret; doğrudan son kullanıcıya satış yapılan dijital mağaza modelidir. Bu modelde başarı; hızlı ödeme süreci, mobil uyumlu tasarım, güven veren kullanıcı deneyimi, güçlü SEO altyapısı ve performans optimizasyonu ile doğrudan ilişkilidir."
+        )
+    )
+    body.append(
+        p(
+            "Standart bir site kurmak yeterli değildir; dönüşüm üreten bir sistem kurmak gerekir. "
+            f"Genel e-ticaret çerçevesi için {{{{ link:{_pillar_url(page)} }}}}, süreç odaklı rehber için {{{{ link:{_guide_url(page)} }}}} sayfasını inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("B2C E-Ticaret Neden Stratejik Bir Yatırımdır?"))
+    body.append(
+        p(
+            "Online rekabet her geçen gün artıyor. Başarılı bir B2C e-ticaret sitesi; marka bilinirliğini artırır, reklam harcamasını daha verimli hale getirir, organik trafik üretir ve tekrar satın alma oranını yükseltir. Doğru mimari; uzun vadede reklam bağımlılığını azaltır."
+        )
+    )
+
+    body.append(h2("B2C E-Ticaret Sitesinde Kritik Özellikler"))
+    body.append(h3("Mobil Öncelikli Tasarım (Mobile First)"))
+    body.append(
+        p(
+            "Trafiğin büyük bölümü mobil cihazlardan gelir. Bu nedenle mobil deneyim kusursuz olmalıdır."
+        )
+    )
+    body.append(h3("Hızlı ve Güvenli Ödeme"))
+    body.append(
+        ul(
+            [
+                "Tek sayfa checkout",
+                "Kredi kartı entegrasyonu",
+                "3D secure",
+                "Dijital cüzdan seçenekleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Ödeme sürecindeki her ekstra adım, dönüşüm kaybı riski taşır."
+        )
+    )
+    body.append(h3("Kampanya ve Kupon Yönetimi"))
+    body.append(
+        ul(
+            [
+                "İndirim kodları",
+                "Sepet bazlı promosyon",
+                "Ürün bazlı kampanyalar",
+            ]
+        )
+    )
+    body.append(h3("SEO Uyumlu Kategori Yapısı"))
+    body.append(
+        ul(
+            [
+                "Doğru başlık hiyerarşisi",
+                "Schema yapılandırması",
+                "URL optimizasyonu",
+                "İç linkleme stratejisi",
+            ]
+        )
+    )
+    body.append(h3("Performans Optimizasyonu"))
+    body.append(
+        ul(
+            [
+                "Core Web Vitals uyumu",
+                "Görsel optimizasyon",
+                "Cache ve CDN kullanımı",
+            ]
+        )
+    )
+
+    body.append(h2("B2C E-Ticaret Geliştirme Süreci"))
+    body.append(h3("1) Hedef ve Analiz"))
+    body.append(
+        ul(
+            [
+                "Satış hedefi",
+                "Ortalama sepet tutarı",
+                "Hedef kitle analizi",
+                "Rekabet değerlendirmesi",
+            ]
+        )
+    )
+    body.append(h3("2) Mimari ve UX Planlama"))
+    body.append(
+        ul(
+            [
+                "Kategori yapısı",
+                "Filtre sistemi",
+                "Kullanıcı akışı",
+                "Sepet optimizasyonu",
+            ]
+        )
+    )
+    body.append(h3("3) Geliştirme"))
+    body.append(
+        ul(
+            [
+                "Güvenli altyapı",
+                "Hız odaklı uygulama",
+                "Ödeme entegrasyonları",
+            ]
+        )
+    )
+    body.append(h3("4) Test ve Yayın"))
+    body.append(
+        ul(
+            [
+                "Sepet testi",
+                "Ödeme senaryoları",
+                "Mobil performans testi",
+                "SEO teknik kontrol",
+            ]
+        )
+    )
+
+    body.append(h2("B2C E-Ticaret ve SEO"))
+    body.append(
+        p(
+            "SEO; B2C sitelerde en güçlü uzun vadeli trafik kaynağıdır. Doğru yapı; kategori bazlı anahtar kelime hedefleme, ürün sayfası optimizasyonu, blog destekli içerik stratejisi ve teknik SEO altyapısı ile sürdürülebilir büyüme sağlar. Google’da görünmeyen bir e-ticaret sitesi, sadece reklamla ayakta kalmaya çalışır."
+        )
+    )
+
+    body.append(h2("Hazır Altyapı mı Özel Yazılım mı?"))
+    body.append(
+        p(
+            "Hazır sistemler; hızlı kurulum ve düşük başlangıç yükü sağlayabilir. Ancak performans sınırı, özelleştirme kısıtı ve teknik borç riski oluşturabilir. Özel yazılım; yüksek performans, tam SEO kontrolü, ölçeklenebilir mimari ve entegrasyon esnekliği sağlar. Büyümeyi hedefleyen markalar için genellikle özel geliştirme tercih edilir."
+        )
+    )
+
+    body.append(h2("Kalite Standartları"))
+    body.append(
+        p(
+            "Başlamadan önce netleşmeli: Minimum performans hedefi nedir? Ödeme adımları kaç ekran? Kampanya yapısı nasıl çalışacak? Kategori SEO planı var mı? Net kabul kriterleri; revizyon süresini azaltır."
+        )
+    )
+
+    body.append(h2("Yayın Sonrası Sürdürülebilirlik"))
+    body.append(
+        ul(
+            [
+                "Dönüşüm oranı takibi",
+                "Sepet terk analizi",
+                "A/B testleri",
+                "Güvenlik güncellemeleri",
+                "Performans izleme",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "E-ticaret sitesi canlı bir sistemdir ve sürekli optimize edilmelidir."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Satış odaklı, hızlı ve SEO uyumlu bir B2C e-ticaret altyapısı kuralım.",
+            "Hedefinizi paylaşın; size uygun B2C E-Ticaret yol haritasını birlikte çıkaralım.",
+            _quote_url(page),
+            "B2C E-Ticaret Teklif Al",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("B2C e-ticaret sitesi ne kadar sürede tamamlanır?", "Kapsam ve entegrasyonlara göre değişir."),
+        ("SEO başlangıçta mı yapılmalı?", "Evet. SEO sonradan eklenen bir özellik değildir; mimari karardır."),
+        ("Mobil optimizasyon neden kritik?", "Çünkü kullanıcıların büyük bölümü mobil cihazdan alışveriş yapar."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "B2C E-Ticaret Sitesi | SEO Uyumlu ve Dönüşüm Odaklı Altyapı"
+    meta_description = (
+        "B2C e-ticaret sitesi geliştirme: mobil uyumlu tasarım, hızlı ödeme, kampanya yönetimi ve SEO altyapısı. Ölçeklenebilir ve performans odaklı çözümler."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "B2C E-Ticaret — Dönüşüm Odaklı ve SEO Uyumlu Online Mağaza",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_tr(page: SeoPage) -> Dict:
     """Custom cluster: React Native mi Native mi? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -5449,6 +5647,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2b":
         return _cluster_b2b_ecommerce_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: B2C E-Ticaret (TR) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2c":
+        return _cluster_b2c_ecommerce_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
