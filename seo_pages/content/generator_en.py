@@ -1925,6 +1925,138 @@ def _cluster_b2c_ecommerce_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_what_is_ecommerce_en(page: SeoPage) -> Dict:
+    """Custom cluster: What Is E-Commerce? — concepts, types, how it works, checklist. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Summary"))
+    body.append(
+        p(
+            "E-commerce (electronic commerce) is the process of selling products or services online—covering discovery, ordering, payment, fulfillment and after-sales support. The key to a successful e-commerce project is defining goals, scope and measurable outcomes from day one."
+        )
+    )
+    body.append(
+        p(
+            f"For a deeper look at scalable architecture and delivery, see {{{{ link:{_pillar_url(page)} }}}}. "
+            f"For a practical process breakdown, use the guide: {{{{ link:{_guide_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("How E-Commerce Works"))
+    body.append(
+        ul(
+            [
+                "Traffic (SEO, ads, social, email)",
+                "Product discovery (categories, filters, search, recommendations)",
+                "Cart (shipping, coupons, gift logic, upsell)",
+                "Checkout (cards, bank transfer, wallets, 3D secure)",
+                "Order management (stock, invoices, shipping, returns)",
+                "Measurement & optimization (conversion rate, abandonment, LTV)",
+            ]
+        )
+    )
+
+    body.append(h2("Types of E-Commerce"))
+    body.append(
+        ul(
+            [
+                "B2C (Business to Consumer): direct consumer sales — priorities: mobile UX, fast checkout, campaigns, SEO categories.",
+                "B2B (Business to Business): business sales — priorities: rate lists, quotation flow, account approvals, reseller portals.",
+                "D2C (Direct to Consumer): brand-to-consumer — priorities: brand experience, retention, lifecycle messaging.",
+            ]
+        )
+    )
+
+    body.append(h2("Key Concepts You Should Know"))
+    body.append(
+        ul(
+            [
+                "conversion rate (CR): how many visitors become customers",
+                "average order value (AOV): how much a typical order is worth",
+                "checkout optimization: simplifying the path to purchase",
+                "SEO architecture: URL structure, heading hierarchy, internal linking, schema",
+                "Core Web Vitals: speed and UX metrics that affect both users and visibility",
+                "structured product data: variants, stock, rate logic, images, descriptions, tags",
+            ]
+        )
+    )
+
+    body.append(h2("Getting Started Checklist"))
+    body.append(h3("Business & model"))
+    body.append(
+        ul(
+            [
+                "What is the primary goal? (sales, leads, brand, a mix?)",
+                "Who is your target audience?",
+                "What are your 10 most important products/categories?",
+            ]
+        )
+    )
+    body.append(h3("Infrastructure"))
+    body.append(
+        ul(
+            [
+                "Have you chosen payment methods?",
+                "Is the shipping/fulfillment model clear?",
+                "Is a return and refund policy defined?",
+            ]
+        )
+    )
+    body.append(h3("SEO & content"))
+    body.append(
+        ul(
+            [
+                "Is the category hierarchy mapped out?",
+                "Are product descriptions unique and useful?",
+                "Is there a plan for blog/guide content to support organic growth?",
+            ]
+        )
+    )
+    body.append(h3("Measurement"))
+    body.append(
+        ul(
+            [
+                "Is GA4 set up with key events?",
+                "Is cart/checkout abandonment being tracked?",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Ready to define your e-commerce roadmap?",
+            "Share a one-page brief with your goals, priorities, and constraints. We'll turn it into a clear scope and delivery plan. Get an E-Commerce Development quote.",
+            _quote_url(page),
+            "Get an E-Commerce Development Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("What’s the first step to start e-commerce?", "Clarify your goal and write down the initial scope."),
+        ("Should I use a ready-made platform or custom build?", "Ready platforms are good for fast starts; custom builds are better for control, SEO and scalability."),
+        ("When should SEO be considered?", "From the beginning — SEO is part of architecture, not an afterthought."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "What Is E-Commerce? | How It Works & How to Get Started"
+    meta_description = (
+        "What is e-commerce? Learn B2C vs B2B, key concepts, payments & shipping basics, SEO foundation and a practical launch checklist for your online store."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "What Is E-Commerce?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_en(page: SeoPage) -> Dict:
     """Custom cluster: React Native or Native? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -4525,6 +4657,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2c-ecommerce-website":
         return _cluster_b2c_ecommerce_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: What Is E-Commerce? (EN) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "what-is-ecommerce":
+        return _cluster_what_is_ecommerce_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

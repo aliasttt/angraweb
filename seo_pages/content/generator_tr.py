@@ -2486,6 +2486,207 @@ def _cluster_b2c_ecommerce_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_e_ticaret_nedir_tr(page: SeoPage) -> Dict:
+    """Custom cluster: E-Ticaret Nedir? — kavramlar, türler, başlangıç kontrol listesi. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "E-ticaret (elektronik ticaret), ürün veya hizmetlerin internet üzerinden tanıtılması, sipariş alınması, ödeme yapılması ve teslim edilmesi sürecidir. Başarılı bir e-ticaret projesi için en kritik adım; hedefi, kapsamı ve ölçülebilir çıktıları en başta netleştirmektir."
+        )
+    )
+    body.append(
+        p(
+            "Ölçeklenebilir altyapı yaklaşımı için ana hizmet sayfasını inceleyebilirsiniz: "
+            f"{{{{ link:{_pillar_url(page)} }}}}."
+        )
+    )
+
+    body.append(h2("E-Ticaret Nasıl Çalışır?"))
+    body.append(
+        p(
+            "Temel akış genellikle şu sırayla ilerler:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Trafik (SEO, reklam, sosyal medya, e-posta)",
+                "Ürün keşfi (kategori/filtre, arama, öneriler)",
+                "Sepet (kargo, kupon, hediye, upsell)",
+                "Ödeme (kart, havale/EFT, dijital cüzdan, 3D Secure)",
+                "Sipariş yönetimi (stok, fatura, kargo, iade)",
+                "Ölçümleme ve optimizasyon (dönüşüm oranı, sepet terk, LTV)",
+            ]
+        )
+    )
+
+    body.append(h2("E-Ticaret Türleri: B2C, B2B ve D2C"))
+    body.append(h3("B2C (Business to Consumer)"))
+    body.append(
+        p(
+            "Doğrudan son kullanıcıya satış. Öncelikler: mobil deneyim, hızlı ödeme, kampanya alanları, SEO kategori yapısı."
+        )
+    )
+    body.append(h3("B2B (Business to Business)"))
+    body.append(
+        p(
+            "Şirketlere satış. Öncelikler: liste/iskonto yapıları, teklif akışı, cari hesap, onay süreçleri, bayi paneli."
+        )
+    )
+    body.append(h3("D2C (Direct to Consumer)"))
+    body.append(
+        p(
+            "Markanın aracı olmadan tüketiciye satması. Öncelikler: marka deneyimi, tekrar satın alma, e-posta otomasyonu, sadakat."
+        )
+    )
+
+    body.append(h2("Temel E-Ticaret Kavramları"))
+    body.append(
+        ul(
+            [
+                "Checkout / Ödeme adımı: dönüşümü en çok etkileyen akış",
+                "CR (Conversion Rate) / Dönüşüm oranı: satış / ziyaret oranı",
+                "AOV (Average Order Value) / Ortalama sepet: kampanya ve ürün stratejisiyle artar",
+                "SEO altyapısı: URL, başlık hiyerarşisi, schema, iç linkleme",
+                "Core Web Vitals: hız ve kullanıcı deneyimi metrikleri",
+                "Ürün veri yapısı: varyant, stok, tarife, görsel, açıklama, etiket",
+            ]
+        )
+    )
+
+    body.append(h2("E-Ticaret Sitesi Kurarken En Sık İhtiyaçlar"))
+    body.append(
+        ul(
+            [
+                "Hızlı ödeme (tek sayfa checkout)",
+                "Mobil uyumlu tasarım (mobile-first)",
+                "Kampanya/kupon sistemi",
+                "Kargo entegrasyonu ve iade süreçleri",
+                "Stok ve ürün varyant yönetimi",
+                "SEO uyumlu kategori ve ürün sayfaları",
+                "Analitik ve ölçümleme (GA4, Pixel, event tracking)",
+            ]
+        )
+    )
+
+    body.append(h2("Önerilen Süreç"))
+    body.append(h3("1) Keşif ve hedefler"))
+    body.append(
+        p(
+            "Doğru sorular → doğru kapsam. Hedef: satış mı, lead mi, marka mı?"
+        )
+    )
+    body.append(h3("2) Plan"))
+    body.append(
+        p(
+            "Teslim kriterleri, öncelikler, fazlar (MVP → Phase 2) netleştirilir."
+        )
+    )
+    body.append(h3("3) Uygulama"))
+    body.append(
+        p(
+            "Tasarım + geliştirme + entegrasyonlar birlikte ele alınır."
+        )
+    )
+    body.append(h3("4) Test ve yayın"))
+    body.append(
+        p(
+            "Ödeme senaryoları, mobil test, performans ve teknik SEO kontrolü yapılır."
+        )
+    )
+
+    body.append(h2("Başlangıç Kontrol Listesi (Pratik)"))
+    body.append(h3("İş hedefi"))
+    body.append(
+        ul(
+            [
+                "Hedef kitle kim?",
+                "Ortalama sepet hedefi nedir?",
+                "En kritik 10 ürün/kategori hangisi?",
+            ]
+        )
+    )
+    body.append(h3("Altyapı"))
+    body.append(
+        ul(
+            [
+                "Ödeme yöntemi(leri) seçildi mi?",
+                "Kargo/teslimat modeli net mi?",
+                "İade politikası hazır mı?",
+            ]
+        )
+    )
+    body.append(h3("SEO ve içerik"))
+    body.append(
+        ul(
+            [
+                "Kategori hiyerarşisi çıkarıldı mı?",
+                "Ürün açıklamaları özgün mü?",
+                "Blog/rehber içerik planı var mı?",
+            ]
+        )
+    )
+    body.append(h3("Ölçümleme"))
+    body.append(
+        ul(
+            [
+                "GA4 + dönüşüm event’leri kuruldu mu?",
+                "Sepet terk takibi var mı?",
+            ]
+        )
+    )
+
+    body.append(h2("Ne Zaman Bu Yaklaşımı Seçmelisiniz?"))
+    body.append(
+        p(
+            "Eğer hedefleriniz ölçülebilir, kapsamınız net ve süreç yönetimine önem veriyorsanız; bu yaklaşım en iyi sonucu verir. Öncelikleri fazlara bölmek, hem bütçe hem de teslim süresi açısından avantaj sağlar."
+        )
+    )
+
+    body.append(h2("Bir Sonraki Adım"))
+    body.append(
+        p(
+            "Net bir yol haritası için hedefinizi ve önceliklerinizi tek sayfalık bir brif halinde paylaşmanız yeterlidir. Kısa bir ön görüşme ile kapsamı netleştirip uygulanabilir bir plan çıkarabiliriz."
+        )
+    )
+
+    body.append(
+        cta_box(
+            "E-ticaret projeniz için doğru yol haritasını birlikte çıkaralım.",
+            "Hedef ve kapsamınızı paylaşın; E-Ticaret Geliştirme teklif sayfası üzerinden size özel plan oluşturalım.",
+            _quote_url(page),
+            "E-Ticaret Geliştirme Teklif Al",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = [
+        ("E-ticarete başlamak için ilk adım nedir?", "Hedefi netleştirip kapsamı yazılı hale getirmektir."),
+        ("Hazır altyapı mı özel yazılım mı?", "Hızlı başlamak isteyenler için hazır altyapı; ölçeklenebilirlik ve SEO kontrolü isteyenler için özel yazılım daha uygundur."),
+        ("SEO ne zaman devreye girer?", "En baştan. SEO sonradan \"eklenen\" bir parça değildir; mimarinin parçasıdır."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "E-Ticaret Nedir? | E-Ticaret Sitesi Nasıl Çalışır ve Nasıl Başlanır"
+    meta_description = (
+        "E-ticaret nedir? B2C/B2B farkları, temel kavramlar, ödeme-kargo altyapısı, SEO ve dönüşüm odaklı başlangıç kontrol listesi. E-ticaret projeniz için doğru yol haritası."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "E-Ticaret Nedir?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_tr(page: SeoPage) -> Dict:
     """Custom cluster: React Native mi Native mi? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -5653,6 +5854,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2c":
         return _cluster_b2c_ecommerce_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: E-Ticaret Nedir? (TR) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "e-ticaret-nedir":
+        return _cluster_e_ticaret_nedir_tr(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
