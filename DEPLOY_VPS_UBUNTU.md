@@ -512,6 +512,11 @@ source /srv/angraweb/venv/bin/activate
 # Django tasks
 python manage.py migrate --noinput || exit 1
 python manage.py collectstatic --noinput || exit 1
+ 
+
+
+python manage.py generate_seo_content --force --service ecommerce-development --slug b2b --language tr
+python manage.py generate_seo_content --force --service ecommerce-development --slug b2b-ecommerce-development --language en
 "
 
 # Restart services
@@ -520,3 +525,32 @@ sudo systemctl restart nginx
 
 # Quick health check
 curl -I https://angraweb.com | head -n 20
+
+
+
+
+
+
+
+
+
+Clutch.co
+
+پروفایل شرکت بساز
+لینک سایتتو بزار
+توضیح کامل انگلیسی بنویس
+
+2️⃣ GoodFirms
+
+همین کارو تکرار کن
+
+3️⃣ DesignRush
+4️⃣ LinkedIn Company Page
+
+خیلی مهمه
+Company Page بساز نه فقط پروفایل شخصی
+لینک سایتتو بزار
+
+5️⃣ Crunchbase
+
+این ۵ تا رو بزنی ۵–۱۰ تا بک‌لینک تمیز میگیری.
