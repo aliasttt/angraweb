@@ -3,28 +3,67 @@
 {% load i18n %}
 {% load main_extras %}
 
-{% block title %}{% trans "Our Packages" %} | Angraweb.com{% endblock %}
+{% block title %}{% if current_lang == 'tr' %}Web Tasarım Paketleri | Profesyonel Web Sitesi Fiyatları{% else %}{% trans "Website Development Packages" %} | Angraweb.com{% endif %}{% endblock %}
 
-{% block meta_description %}{% trans "Choose the package that fits your needs. Transparent pricing for web design, e-commerce, and custom projects. Get a free quote from Angraweb." %}{% endblock %}
+{% block meta_description %}{% if current_lang == 'tr' %}Web tasarım paketleri ve profesyonel web sitesi fiyatları. Küçük işletmelerden büyük projelere uygun web sitesi fiyatları. Ücretsiz teklif alın.{% else %}Website development packages and professional website pricing. Transparent web design packages for every business. Get a free quote.{% endif %}{% endblock %}
 
-{% block meta_keywords %}packages, pricing, {% trans "web design" %} package, e-commerce package, {% trans "quote" %}, Angraweb{% endblock %}
+{% block meta_keywords %}web sitesi fiyatları, web tasarım paketleri, profesyonel web sitesi fiyatı, {% trans "packages" %}, {% trans "web design" %}, pricing, Angraweb{% endblock %}
 
-{% block og_title %}{% trans "Our Packages" %} | Angraweb.com{% endblock %}
+{% block og_title %}{% if current_lang == 'tr' %}Web Tasarım Paketleri | Angraweb.com{% else %}{% trans "Website Development Packages" %} | Angraweb.com{% endif %}{% endblock %}
 
-{% block og_description %}{% trans "Choose the package that fits your needs" %}{% endblock %}
+{% block og_description %}{% if current_lang == 'tr' %}Profesyonel web sitesi fiyatları ve web tasarım paketleri. İşletmenize uygun paketi seçin.{% else %}Professional website pricing and web design packages. Choose the right package for your business.{% endif %}{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
         <h1 class="hero-title">
-            <span class="text-gradient">{% trans "Our Packages" %}</span>
+            {% if current_lang == 'tr' %}
+            <span class="text-gradient">Web Tasarım Paketleri</span>
+            {% else %}
+            <span class="text-gradient">{% trans "Website Development Packages" %}</span>
+            {% endif %}
         </h1>
-        <p class="hero-subtitle mt-3">{% trans "Choose the package that fits your needs" %}</p>
+        {% if current_lang == 'tr' %}
+        <p class="hero-subtitle mt-3">İşletmeniz için profesyonel bir web sitesi yaptırmak mı istiyorsunuz?</p>
+        <p class="mt-3" style="color: rgba(255,255,255,0.9); max-width: 720px; margin-left: auto; margin-right: auto;">
+            Angraweb olarak farklı ihtiyaçlara ve bütçelere uygun <strong>web tasarım paketleri</strong> ve yazılım çözümleri sunuyoruz.
+            Küçük işletmelerden büyüyen şirketlere kadar her proje için modern, hızlı ve SEO uyumlu web siteleri geliştiriyoruz.
+        </p>
+        {% else %}
+        <p class="hero-subtitle mt-3">Looking for a professional website for your business?</p>
+        <p class="mt-3" style="color: rgba(255,255,255,0.9); max-width: 720px; margin-left: auto; margin-right: auto;">
+            At Angraweb we offer <strong>web design packages</strong> and software development solutions tailored to different business needs and budgets.
+            From small businesses to growing companies, we develop modern, fast and SEO-optimized websites.
+        </p>
+        {% endif %}
     </div>
 </section>
 
 <section id="packages" class="section">
     <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-10 mx-auto">
+                {% if current_lang == 'tr' %}
+                <h2 class="h4 mb-3" style="color: #fff;">Tüm projelerimiz</h2>
+                <ul class="mb-4" style="color: rgba(255,255,255,0.9); list-style: none; padding-left: 0;">
+                    <li><i class="fas fa-check text-primary me-2"></i> Mobil uyumlu (responsive) tasarım</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> SEO uyumlu altyapı</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> Hızlı ve güvenli hosting desteği</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> Modern kullanıcı deneyimi (UX/UI)</li>
+                </ul>
+                <p class="mb-4" style="color: rgba(255,255,255,0.9);">Aşağıdaki <strong>web tasarım paketleri</strong>nden işletmenize en uygun olanı seçebilirsiniz. <strong>Profesyonel web sitesi fiyatı</strong> ve <strong>web sitesi fiyatları</strong> şeffaf bir şekilde sunulmaktadır.</p>
+                {% else %}
+                <h2 class="h4 mb-3" style="color: #fff;">All packages include</h2>
+                <ul class="mb-4" style="color: rgba(255,255,255,0.9); list-style: none; padding-left: 0;">
+                    <li><i class="fas fa-check text-primary me-2"></i> Responsive web design</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> SEO-friendly website structure</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> Secure hosting support</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> Modern user experience (UX/UI)</li>
+                </ul>
+                <p class="mb-4" style="color: rgba(255,255,255,0.9);">Choose the package that best fits your project. We offer transparent <strong>website development packages</strong> and clear pricing.</p>
+                {% endif %}
+            </div>
+        </div>
         <div class="row">
             {% for package in packages %}
             <div class="col-12 col-lg-3 col-md-6 col-sm-6 mb-4">
@@ -58,6 +97,157 @@
                 </a>
             </div>
             {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8 mx-auto">
+                {% if current_lang == 'tr' %}
+                <h2 class="section-title text-center">Web Sitesi Fiyatları Neye Göre Belirlenir?</h2>
+                <p class="text-center mb-4" style="color: rgba(255,255,255,0.9);">
+                    Bir web sitesinin fiyatı birkaç faktöre bağlıdır: projenin kapsamı, sayfa sayısı, yönetim paneli gereksinimi, özel yazılım ihtiyaçları ve SEO optimizasyonu.
+                    Angraweb olarak her proje için şeffaf <strong>web sitesi fiyatları</strong> ve net teslim süresi sunuyoruz.
+                </p>
+                <ul style="color: rgba(255,255,255,0.9);">
+                    <li>Projenin kapsamı</li>
+                    <li>Sayfa sayısı</li>
+                    <li>Yönetim paneli gereksinimi</li>
+                    <li>Özel yazılım ihtiyaçları</li>
+                    <li>SEO optimizasyonu</li>
+                </ul>
+                {% else %}
+                <h2 class="section-title text-center">What Determines Website Pricing?</h2>
+                <p class="text-center mb-4" style="color: rgba(255,255,255,0.9);">
+                    Website development costs depend on several factors: project complexity, number of pages, admin panel requirements, custom software features and SEO optimization level.
+                    At Angraweb we provide transparent pricing and clear project timelines.
+                </p>
+                <ul style="color: rgba(255,255,255,0.9);">
+                    <li>Project complexity</li>
+                    <li>Number of pages</li>
+                    <li>Admin panel requirements</li>
+                    <li>Custom software features</li>
+                    <li>SEO optimization level</li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8 mx-auto text-center">
+                {% if current_lang == 'tr' %}
+                <h2 class="section-title">Neden Angraweb?</h2>
+                <ul class="mb-4" style="color: rgba(255,255,255,0.9); list-style: none; padding-left: 0;">
+                    <li><i class="fas fa-check text-primary me-2"></i> Modern web geliştirme teknolojileri</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> SEO uyumlu web siteleri</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> Hızlı teslim süresi</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> Uzun vadeli teknik destek</li>
+                </ul>
+                <p style="color: rgba(255,255,255,0.9);">Amacımız sadece bir web sitesi yapmak değil, işletmeniz için dijital büyüme sağlayan bir sistem oluşturmaktır.</p>
+                {% else %}
+                <h2 class="section-title">Why Choose Angraweb?</h2>
+                <ul class="mb-4" style="color: rgba(255,255,255,0.9); list-style: none; padding-left: 0;">
+                    <li><i class="fas fa-check text-primary me-2"></i> Modern development technologies</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> SEO-optimized websites</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> Fast delivery</li>
+                    <li><i class="fas fa-check text-primary me-2"></i> Long-term technical support</li>
+                </ul>
+                <p style="color: rgba(255,255,255,0.9);">Our goal is not just building websites but creating digital systems that help businesses grow.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center">{% if current_lang == 'tr' %}Sık Sorulan Sorular{% else %}FAQ{% endif %}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 mx-auto">
+                <div class="accordion" id="packagesFaqAccordion">
+                    {% if current_lang == 'tr' %}
+                    <div class="accordion-item border-0 mb-2" style="background: rgba(116,185,255,0.08); border-radius: 12px !important;">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" style="background: transparent; color: #fff;" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">Web sitesi ne kadar sürede teslim edilir?</button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#packagesFaqAccordion">
+                            <div class="accordion-body" style="color: rgba(255,255,255,0.9);">Çoğu web tasarım projesi 2–4 hafta içerisinde tamamlanır.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-2" style="background: rgba(116,185,255,0.08); border-radius: 12px !important;">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" style="background: transparent; color: #fff;" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">SEO hizmeti pakete dahil mi?</button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#packagesFaqAccordion">
+                            <div class="accordion-body" style="color: rgba(255,255,255,0.9);">Temel SEO optimizasyonu tüm paketlere dahildir.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-2" style="background: rgba(116,185,255,0.08); border-radius: 12px !important;">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" style="background: transparent; color: #fff;" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Daha büyük bir proje için özel teklif alabilir miyim?</button>
+                        </h3>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#packagesFaqAccordion">
+                            <div class="accordion-body" style="color: rgba(255,255,255,0.9);">Evet. Büyük projeler için özel fiyatlandırma yapılmaktadır.</div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="accordion-item border-0 mb-2" style="background: rgba(116,185,255,0.08); border-radius: 12px !important;">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" style="background: transparent; color: #fff;" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">How long does it take to build a website?</button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#packagesFaqAccordion">
+                            <div class="accordion-body" style="color: rgba(255,255,255,0.9);">Most projects are completed within 2–4 weeks.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-2" style="background: rgba(116,185,255,0.08); border-radius: 12px !important;">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" style="background: transparent; color: #fff;" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">Is SEO included in the packages?</button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#packagesFaqAccordion">
+                            <div class="accordion-body" style="color: rgba(255,255,255,0.9);">Yes. Basic SEO optimization is included in all packages.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-2" style="background: rgba(116,185,255,0.08); border-radius: 12px !important;">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" style="background: transparent; color: #fff;" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Can I request a custom solution?</button>
+                        </h3>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#packagesFaqAccordion">
+                            <div class="accordion-body" style="color: rgba(255,255,255,0.9);">Yes. We provide custom pricing for large or complex projects.</div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="services-cta">
+                    {% if current_lang == 'tr' %}
+                    <h3 class="mb-3">Projenizi Başlatalım</h3>
+                    <p class="mb-4">Profesyonel bir web sitesi yaptırmak mı istiyorsunuz? Bugün bizimle iletişime geçin ve projeniz için ücretsiz danışmanlık alın.</p>
+                    {% else %}
+                    <h3 class="mb-3">Start Your Project</h3>
+                    <p class="mb-4">Ready to build your website? Contact us today and get a free consultation.</p>
+                    {% endif %}
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg me-2"><i class="fas fa-envelope me-2"></i>{% trans "Contact Us" %}</a>
+                    <a href="https://wa.me/905340382335" class="btn btn-success btn-lg" target="_blank"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

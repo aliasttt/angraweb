@@ -515,9 +515,6 @@ python manage.py collectstatic --noinput || exit 1
  
 
 
-
-python manage.py generate_seo_content --force --service ecommerce-development --page-type pillar --language tr
-python manage.py generate_seo_content --force --service ecommerce-development --page-type pillar --language en
 "
 
 # Restart services
