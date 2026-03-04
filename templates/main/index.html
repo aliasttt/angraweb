@@ -4,15 +4,15 @@
 {% load main_extras %}
 {% load seo_pages_tags %}
 
-{% block title %}Angraweb | {% trans "Web Design, E-commerce and Mobile App" %}{% endblock %}
+{% block title %}Angraweb | {% trans "Professional Web Design and Software Development" %}{% endblock %}
 
-{% block meta_description %}Angraweb - {% trans "Professional web design, e-commerce and mobile app. Modern, fast websites. Free quote. Turkey." %} {% trans "Contact Angraweb." %}{% endblock %}
+{% block meta_description %}Angraweb - {% trans "Professional web design, web development, e-commerce development and SEO services. Modern, fast and mobile-friendly professional websites for growing businesses." %}{% endblock %}
 
-{% block meta_keywords %}Angraweb, انگرا وب, {% trans "web design" %}, {% trans "ecommerce" %}, {% trans "mobile app" %}, SEO, {% trans "hosting" %}, UI/UX, Turkey{% endblock %}
+{% block meta_keywords %}Angraweb, انگرا وب, web design, web development, e-commerce development, SEO services, professional website, software development, hosting, UI/UX, Turkey{% endblock %}
 
-{% block og_title %}Angraweb | {% trans "Web Design and E-commerce" %}{% endblock %}
+{% block og_title %}Angraweb | {% trans "Professional Web Design & E-commerce Development" %}{% endblock %}
 
-{% block og_description %}Angraweb - {% trans "Professional web design and development services. Grow your business in the digital world!" %}{% endblock %}
+{% block og_description %}Angraweb - {% trans "We build SEO-optimized, mobile-first professional websites, e-commerce platforms and custom software for modern businesses." %}{% endblock %}
 
 {% block extra_ld_json %}
 <script type="application/ld+json">
@@ -22,12 +22,52 @@
   "name": "Angraweb",
   "alternateName": "انگرا وب",
   "url": "{{ request.scheme }}://{{ request.get_host }}/",
-  "description": "{% trans 'Professional web design, e-commerce and mobile app. Free quote.' %}",
+  "description": "Professional web design, web development, e-commerce development and SEO services. Free quote.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": {"@type": "EntryPoint", "urlTemplate": "{{ request.scheme }}://{{ request.get_host }}/blog/?search={search_term_string}"},
     "query-input": "required name=search_term_string"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most websites take between 2 to 4 weeks depending on the project complexity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you build e-commerce websites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we develop professional e-commerce platforms with payment integrations and product management systems."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Angraweb",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/",
+  "description": "Professional web design, e-commerce development and SEO services.",
+  "areaServed": "Worldwide",
+  "serviceType": [
+    "Web Design",
+    "E-commerce Development",
+    "SEO Optimization",
+    "Software Development"
+  ]
 }
 </script>
 {% endblock %}
@@ -39,20 +79,43 @@
         <div class="row align-items-center min-vh-100">
             <div class="col-12 col-lg-6">
                 <div class="hero-content">
+                    {% get_current_language as CURRENT_LANGUAGE %}
                     <h1 class="hero-title">
                         <span class="text-gradient">Angraweb</span>
                     </h1>
+                    {% if CURRENT_LANGUAGE == 'tr' %}
                     <p class="hero-subtitle">
-                        {% trans "Professional Web Design & E-commerce" %}
+                        Profesyonel Web Tasarım ve Yazılım Geliştirme
                     </p>
                     <p class="hero-tagline">
-                        {% trans "Grow your business in the digital world!" %}
+                        İşletmeniz için modern web tasarım, e-ticaret geliştirme ve SEO uyumlu web siteleri.
                     </p>
                     <p class="hero-description">
-                        {% blocktrans %}
-                        I design modern, fast and user‑friendly websites for your business. From corporate websites to e‑commerce and custom platforms, I deliver professional design, clean code and measurable results.
-                        {% endblocktrans %}
+                        Angraweb olarak İstanbul merkezli bir yazılım geliştirme ekibiyiz. Kurumsal web siteleri, e-ticaret platformları ve özel yazılım çözümleri geliştirerek işletmelerin dijital dünyada büyümesine yardımcı oluyoruz.
                     </p>
+                    <ul class="hero-benefit-list">
+                        <li>SEO uyumlu professional website ve web design</li>
+                        <li>Modern, hızlı ve mobil uyumlu web development altyapısı</li>
+                        <li>Güvenli ve ölçeklenebilir e-commerce development çözümleri</li>
+                        <li>İhtiyaçlarınıza özel software development projeleri</li>
+                    </ul>
+                    {% else %}
+                    <p class="hero-subtitle">
+                        Professional Web Design & Software Development
+                    </p>
+                    <p class="hero-tagline">
+                        Modern web design, e-commerce development and SEO-optimized websites for growing businesses.
+                    </p>
+                    <p class="hero-description">
+                        Angraweb is a software development team based in Istanbul. We build professional websites, e-commerce platforms and custom software solutions that help companies grow online with fast performance and SEO-friendly architecture.
+                    </p>
+                    <ul class="hero-benefit-list">
+                        <li>SEO-optimized web design and professional website development</li>
+                        <li>High-performance web development with modern technologies</li>
+                        <li>Secure and scalable e-commerce development platforms</li>
+                        <li>Custom software development tailored to your business</li>
+                    </ul>
+                    {% endif %}
                     <div class="hero-buttons">
                         <a href="{% url 'resume' %}" class="btn btn-primary btn-lg me-3">
                             <i class="fas fa-certificate"></i> {% trans "View Certificates" %}
@@ -78,19 +141,19 @@
                     <div class="hero-benefits mt-4">
                         <div class="benefit-item">
                             <i class="fas fa-rocket text-primary"></i>
-                            <span>{% trans "Fast Delivery" %}</span>
+                            <span>{% if CURRENT_LANGUAGE == 'tr' %}Hızlı teslimat{% else %}Fast delivery{% endif %}</span>
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-mobile-alt text-primary"></i>
-                            <span>{% trans "Mobile Friendly" %}</span>
+                            <span>{% if CURRENT_LANGUAGE == 'tr' %}Mobil uyumlu tasarım{% else %}Mobile-first design{% endif %}</span>
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-shield-alt text-primary"></i>
-                            <span>{% trans "Secure" %}</span>
+                            <span>{% if CURRENT_LANGUAGE == 'tr' %}Güvenli altyapı{% else %}Secure infrastructure{% endif %}</span>
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-headset text-primary"></i>
-                            <span>{% trans "24/7 Support" %}</span>
+                            <span>{% if CURRENT_LANGUAGE == 'tr' %}7/24 teknik destek{% else %}24/7 technical support{% endif %}</span>
                         </div>
                     </div>
                 </div>
@@ -106,6 +169,49 @@
     </div>
 </section>
 
+<!-- Animated Web Development Highlight Section -->
+<section class="section bg-gradient">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                <div class="hero-image">
+                    <div class="floating-astronaut">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="about-content">
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3>Build Your Digital Platform</h3>
+                    <h4 class="mb-3">Modern Web Development for Growing Businesses</h4>
+                    <p>Yüksek performanslı, SEO uyumlu ve güvenli web development altyapıları ile dijital platformunuzu birlikte inşa edelim.</p>
+                    <ul>
+                        <li>Yüksek performanslı web design ve web development</li>
+                        <li>SEO optimized mimari ve içerik yapısı</li>
+                        <li>Güvenli ve ölçeklenebilir altyapı</li>
+                        <li>Mobil öncelikli (mobile-first) tasarım</li>
+                    </ul>
+                    {% else %}
+                    <h3>Build Your Digital Platform</h3>
+                    <h4 class="mb-3">Modern Web Development for Growing Businesses</h4>
+                    <p>We build high performance, SEO-optimized and secure web development platforms tailored to your business goals.</p>
+                    <ul>
+                        <li>High performance web design and web development</li>
+                        <li>SEO optimized architecture and content structure</li>
+                        <li>Secure and scalable infrastructure</li>
+                        <li>Mobile-first design for every device</li>
+                    </ul>
+                    {% endif %}
+                    <a href="{% url 'quote_request' %}" class="btn btn-primary btn-lg mt-3">
+                        {% if CURRENT_LANGUAGE == 'tr' %}Projenizi Başlatın{% else %}Start Your Project{% endif %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Services Section -->
 <section id="services" class="section">
     <div class="container">
@@ -114,6 +220,19 @@
                 <h2 class="section-title text-center">
                     <span class="text-gradient">{% trans "My Services" %}</span>
                 </h2>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-12 col-lg-10 mx-auto text-center">
+                {% if CURRENT_LANGUAGE == 'tr' %}
+                <p>
+                    Angraweb olarak işletmeler için uçtan uca dijital çözümler sunuyoruz. Profesyonel web design, web development, e-commerce development ve SEO services ile markanızın dijitalde daha görünür ve ölçülebilir sonuçlar elde etmesini sağlıyoruz.
+                </p>
+                {% else %}
+                <p>
+                    At Angraweb we provide complete digital solutions for modern businesses. Our web design, web development, e-commerce development and SEO services help you launch a professional website and scale your online presence.
+                </p>
+                {% endif %}
             </div>
         </div>
         <div class="row d-flex flex-wrap">
@@ -142,8 +261,13 @@
         <div class="row mt-5">
             <div class="col-12 text-center">
                 <div class="services-cta">
-                    <h3 class="mb-3">{% trans "Let's start your project today!" %}</h3>
-                    <p class="mb-4">{% trans "Contact us for a free consultation and a detailed quote." %}</p>
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3 class="mb-3">Projenizi bugünden başlatalım</h3>
+                    <p class="mb-4">İşletmeniz için profesyonel bir web sitesi, e-ticaret sistemi veya yazılım çözümü mü arıyorsunuz? Ücretsiz ön görüşme ve detaylı teklif için bizimle iletişime geçin.</p>
+                    {% else %}
+                    <h3 class="mb-3">Start your web project today</h3>
+                    <p class="mb-4">Looking for a professional website, e-commerce platform or custom software development? Get in touch for a free consultation and detailed quote.</p>
+                    {% endif %}
                     <a href="{% url 'quote_request' %}" class="btn btn-success btn-lg">
                         <i class="fab fa-whatsapp"></i> {% trans "Get Quote" %}
                     </a>
@@ -159,7 +283,11 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center">
-                    <span class="text-gradient">{% trans "Why Choose Me?" %}</span>
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <span class="text-gradient">Neden Angraweb?</span>
+                    {% else %}
+                    <span class="text-gradient">Why choose Angraweb?</span>
+                    {% endif %}
                 </h2>
             </div>
         </div>
@@ -169,8 +297,13 @@
                     <div class="value-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>{% trans "Grow Your Business" %}</h3>
-                    <p>{% trans "Increase your sales with modern websites" %}</p>
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3>Sonuç odaklı web design</h3>
+                    <p>Modern, hızlı ve SEO uyumlu web siteleri ile satış ve dönüşümlerinizi artırın.</p>
+                    {% else %}
+                    <h3>Result-driven web design</h3>
+                    <p>Increase your conversions with fast, SEO-optimized professional websites.</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
@@ -178,8 +311,13 @@
                     <div class="value-icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <h3>{% trans "Time Saving" %}</h3>
-                    <p>{% trans "Fast delivery and professional service" %}</p>
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3>Planlı süreç yönetimi</h3>
+                    <p>Şeffaf proje yönetimi, net zaman planı ve hızlı teslimat.</p>
+                    {% else %}
+                    <h3>Structured process</h3>
+                    <p>Transparent project management with clear timelines and fast delivery.</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
@@ -187,8 +325,13 @@
                     <div class="value-icon">
                         <i class="fas fa-dollar-sign"></i>
                     </div>
-                    <h3>{% trans "Affordable Price" %}</h3>
-                    <p>{% trans "Quality service at affordable prices" %}</p>
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3>İşletmelere uygun paketler</h3>
+                    <p>KOBİ'lerden büyüyen girişimlere kadar farklı bütçelere uygun web development paketleri.</p>
+                    {% else %}
+                    <h3>Business-friendly pricing</h3>
+                    <p>Flexible web development packages for startups, SMEs and growing brands.</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
@@ -196,8 +339,13 @@
                     <div class="value-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>{% trans "Continuous Support" %}</h3>
-                    <p>{% trans "24/7 technical support service" %}</p>
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3>Uzun vadeli iş ortaklığı</h3>
+                    <p>Bakım, güncelleme ve SEO services ile yayından sonra da yanınızdayız.</p>
+                    {% else %}
+                    <h3>Long-term partnership</h3>
+                    <p>Ongoing maintenance, updates and SEO services after launch.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -269,6 +417,21 @@
                 </h2>
             </div>
         </div>
+        <div class="row mb-4">
+            <div class="col-12 col-lg-8 mx-auto text-center">
+                {% if CURRENT_LANGUAGE == 'tr' %}
+                <p>
+                    İşletmeler için farklı ihtiyaçlara uygun web geliştirme paketleri sunuyoruz. Kurumsal web sitesi paketleri, e-commerce development çözümleri ve özel software development projeleri için ölçeklenebilir ve şeffaf fiyatlandırma sağlıyoruz.
+                    Detaylı fiyatlar ve kapsam için paketler sayfamızı inceleyebilirsiniz.
+                </p>
+                {% else %}
+                <p>
+                    We offer flexible web development packages depending on your business needs. From corporate website packages and e-commerce development to custom software development, you get transparent pricing and clear scope.
+                    See our packages page for detailed pricing.
+                </p>
+                {% endif %}
+            </div>
+        </div>
         <div class="row">
             {% for package in packages %}
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
@@ -303,6 +466,13 @@
             </div>
             {% endfor %}
         </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <a href="{% url 'packages_list' %}" class="btn btn-outline-primary btn-lg">
+                    {% if CURRENT_LANGUAGE == 'tr' %}Tüm paketleri görüntüle{% else %}View all packages{% endif %}
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -314,6 +484,21 @@
                 <h2 class="section-title text-center">
                     <span class="text-gradient">{% trans "My Projects" %}</span>
                 </h2>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-12 col-lg-8 mx-auto text-center">
+                {% if CURRENT_LANGUAGE == 'tr' %}
+                <p>
+                    Farklı sektörlerden birçok başarılı proje geliştirdik. E-ticaret platformları, QR menü sistemleri, kurumsal web siteleri ve topluluk platformları ile işletmelerin dijitalde büyümesine katkı sağlıyoruz.
+                    Projelerimizi inceleyerek gerçek web design ve web development çalışmalarımızı detaylı şekilde görebilirsiniz.
+                </p>
+                {% else %}
+                <p>
+                    We have delivered successful projects across multiple industries. From e-commerce platforms and QR menu systems to corporate websites and community platforms, we build scalable digital products.
+                    Explore our portfolio to see real-world web design and web development projects we have built.
+                </p>
+                {% endif %}
             </div>
         </div>
         <div class="row">
@@ -351,13 +536,17 @@
     </div>
 </section>
 
-<!-- Statistics Section -->
+<!-- Trust / Statistics Section -->
 <section class="section bg-gradient">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <h2 class="section-title text-center mb-5">
-                    <span class="text-gradient">Rakamlarla Biz</span>
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <span class="text-gradient">İşletmeler Neden Angraweb’i Tercih Ediyor?</span>
+                    {% else %}
+                    <span class="text-gradient">Why businesses choose Angraweb</span>
+                    {% endif %}
                 </h2>
             </div>
         </div>
@@ -368,7 +557,9 @@
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <div class="stat-number-large">30+</div>
-                    <div class="stat-label-large">Tamamlanan Proje</div>
+                    <div class="stat-label-large">
+                        {% if CURRENT_LANGUAGE == 'tr' %}Tamamlanan proje{% else %}Completed projects{% endif %}
+                    </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4">
@@ -377,7 +568,9 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="stat-number-large">50+</div>
-                    <div class="stat-label-large">Mutlu Müşteri</div>
+                    <div class="stat-label-large">
+                        {% if CURRENT_LANGUAGE == 'tr' %}Mutlu müşteri{% else %}Satisfied clients{% endif %}
+                    </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4">
@@ -386,7 +579,9 @@
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <div class="stat-number-large">10+</div>
-                    <div class="stat-label-large">Yıllık Deneyim</div>
+                    <div class="stat-label-large">
+                        {% if CURRENT_LANGUAGE == 'tr' %}Yıllık deneyim{% else %}Years of experience{% endif %}
+                    </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4">
@@ -395,7 +590,9 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="stat-number-large">100%</div>
-                    <div class="stat-label-large">Memnuniyet Oranı</div>
+                    <div class="stat-label-large">
+                        {% if CURRENT_LANGUAGE == 'tr' %}Müşteri memnuniyeti{% else %}Client satisfaction{% endif %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -461,6 +658,58 @@
 </section>
 {% endif %}
 
+<!-- FAQ Section -->
+<section id="homepage-faq" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title text-center mb-4">
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <span class="text-gradient">Sık Sorulan Sorular</span>
+                    {% else %}
+                    <span class="text-gradient">Frequently Asked Questions</span>
+                    {% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3>Web sitesi geliştirme ne kadar sürer?</h3>
+                    <p>Projenin kapsamına bağlı olarak çoğu web design ve web development projesi genellikle 2–4 hafta arasında tamamlanır.</p>
+                    {% else %}
+                    <h3>How long does it take to build a website?</h3>
+                    <p>Most professional website projects take between 2–4 weeks depending on the overall web development scope.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3>Web sitesi SEO uyumlu olacak mı?</h3>
+                    <p>Evet. Tüm projelerimizi SEO services bakış açısıyla geliştiriyoruz; teknik SEO, site hızı ve içerik yapısı baştan planlanır.</p>
+                    {% else %}
+                    <h3>Will the website be SEO optimized?</h3>
+                    <p>Yes. Every project is built with SEO services in mind, including technical SEO, performance and content structure.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3>E-ticaret sitesi geliştiriyor musunuz?</h3>
+                    <p>Evet. Ödeme entegrasyonları, ürün yönetimi ve sipariş akışları olan profesyonel e-commerce development çözümleri sunuyoruz.</p>
+                    {% else %}
+                    <h3>Do you build e-commerce websites?</h3>
+                    <p>Yes. We provide end-to-end e-commerce development with payment integrations, product management and secure checkout flows.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Testimonials Section -->
 {% if testimonials %}
 <section id="testimonials" class="section bg-gradient">
@@ -521,15 +770,23 @@
 </section>
 {% endif %}
 
-<!-- How It Works CTA -->
+<!-- How It Works / Lead Capture CTA -->
 <section class="section">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="services-cta text-center">
-                    <h3 class="mb-3">{% trans "Want to Know How We Work?" %}</h3>
-                    <p class="mb-4">{% trans "Learn about our professional process from consultation to delivery." %}</p>
-                    <a href="{% url 'how_it_works' %}" class="btn btn-primary btn-lg">
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    <h3 class="mb-3">Projenizi başlatalım</h3>
+                    <p class="mb-4">Profesyonel bir web sitesi, e-ticaret sistemi veya özel yazılım çözümü mü arıyorsunuz? Bugün bizimle iletişime geçin ve ücretsiz danışmanlık alın.</p>
+                    {% else %}
+                    <h3 class="mb-3">Start your project</h3>
+                    <p class="mb-4">Looking for a professional website, e-commerce platform or custom software solution? Contact us today for a free consultation.</p>
+                    {% endif %}
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-envelope"></i> {% trans "Contact Us" %}
+                    </a>
+                    <a href="{% url 'how_it_works' %}" class="btn btn-outline-light btn-lg">
                         <i class="fas fa-cogs"></i> {% trans "See Our Process" %}
                     </a>
                 </div>
