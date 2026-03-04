@@ -203,6 +203,28 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
+# Email (ProMail SMTP)
+# Keep credentials in environment variables for security.
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'mail.promail.com.tr')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', '587'))
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'info@angraweb.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
+EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', 'False') == 'True'
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
+SERVER_EMAIL = os.environ.get('SERVER_EMAIL', EMAIL_HOST_USER)
+
+# Business contact emails
+CONTACT_PRIMARY_EMAIL = os.environ.get('CONTACT_PRIMARY_EMAIL', 'info@angraweb.com')
+CONTACT_SECONDARY_EMAIL = os.environ.get('CONTACT_SECONDARY_EMAIL', 'aliasadi3853@gmail.com')
+CONTACT_NOTIFICATION_EMAILS = [
+    e.strip() for e in os.environ.get(
+        'CONTACT_NOTIFICATION_EMAILS',
+        f'{CONTACT_PRIMARY_EMAIL},{CONTACT_SECONDARY_EMAIL}'
+    ).split(',') if e.strip()
+]
+
 # Security Settings for Production
 if not DEBUG:
     SECURE_SSL_REDIRECT = True

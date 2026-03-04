@@ -11,6 +11,8 @@ from xml.sax.saxutils import escape as xml_escape
 from django.views.decorators.http import require_http_methods
 from django.utils import translation
 from django.utils.translation import gettext as _
+from django.conf import settings
+from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django_ratelimit.decorators import ratelimit
 from django_ratelimit.exceptions import Ratelimited
@@ -20,6 +22,28 @@ from .models import (
     ProcessStep, CaseStudy, TimelineEvent, Skill
 )
 from .forms import ContactForm, QuoteRequestForm, UserRegistrationForm, NewsletterForm, TestimonialSubmitForm, UserProfileEditForm
+
+
+def _get_lang_code(request):
+    lang = getattr(request, 'LANGUAGE_CODE', None) or translation.get_language() or 'tr'
+    return 'tr' if lang == 'tr' else 'en'
+
+
+def _send_ops_notification(subject, body):
+    recipients = getattr(settings, 'CONTACT_NOTIFICATION_EMAILS', []) or [getattr(settings, 'CONTACT_PRIMARY_EMAIL', '')]
+    recipients = [r for r in recipients if r]
+    if not recipients:
+        return
+    send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, recipients, fail_silently=True)
+
+
+def _send_user_activity_email(to_email, request, tr_subject, tr_body, en_subject, en_body):
+    if not to_email:
+        return
+    lang = _get_lang_code(request)
+    subject = tr_subject if lang == 'tr' else en_subject
+    body = tr_body if lang == 'tr' else en_body
+    send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [to_email], fail_silently=True)
 
 
 def redirect_to_default_language(request):
@@ -351,6 +375,32 @@ def contact(request):
                 contact_message.ip_address = request.META.get('REMOTE_ADDR')
             contact_message.user_agent = request.META.get('HTTP_USER_AGENT', '')
             contact_message.save()
+            _send_ops_notification(
+                f"[Contact] {contact_message.subject}",
+                (
+                    f"Name: {contact_message.name}\n"
+                    f"Email: {contact_message.email}\n"
+                    f"Phone: {contact_message.phone or '-'}\n"
+                    f"Subject: {contact_message.subject}\n"
+                    f"Message:\n{contact_message.message}\n"
+                ),
+            )
+            _send_user_activity_email(
+                contact_message.email,
+                request,
+                tr_subject="Mesajiniz alindi - Angraweb",
+                tr_body=(
+                    "Merhaba,\n\nMesajiniz bize ulasti. "
+                    "Ekibimiz en kisa surede sizinle iletisime gececektir.\n\n"
+                    "Tesekkurler,\nAngraweb"
+                ),
+                en_subject="We received your message - Angraweb",
+                en_body=(
+                    "Hello,\n\nYour message has been received. "
+                    "Our team will get back to you shortly.\n\n"
+                    "Thank you,\nAngraweb"
+                ),
+            )
             messages.success(request, _('Your message has been sent successfully. We will contact you soon.'))
             return redirect('contact')
     else:
@@ -406,6 +456,36 @@ def quote_request(request):
         form = QuoteRequestForm(request.POST)
         if form.is_valid():
             quote = form.save()
+            _send_ops_notification(
+                f"[Quote] {quote.service_type} - {quote.name}",
+                (
+                    f"Name: {quote.name}\n"
+                    f"Email: {quote.email}\n"
+                    f"Phone: {quote.phone}\n"
+                    f"Company: {quote.company or '-'}\n"
+                    f"Service: {quote.service_type}\n"
+                    f"Package: {quote.package_type or '-'}\n"
+                    f"Budget: {quote.budget or '-'}\n"
+                    f"Deadline: {quote.deadline or '-'}\n"
+                    f"Description:\n{quote.description}\n"
+                ),
+            )
+            _send_user_activity_email(
+                quote.email,
+                request,
+                tr_subject="Teklif talebiniz alindi - Angraweb",
+                tr_body=(
+                    "Merhaba,\n\nTeklif talebiniz bize ulasti. "
+                    "Projenizi inceleyip en kisa surede size donus yapacagiz.\n\n"
+                    "Tesekkurler,\nAngraweb"
+                ),
+                en_subject="Your quote request has been received - Angraweb",
+                en_body=(
+                    "Hello,\n\nYour quote request has been received. "
+                    "We will review your project and get back to you shortly.\n\n"
+                    "Thank you,\nAngraweb"
+                ),
+            )
             messages.success(request, _('Your request has been submitted successfully. We will contact you soon.'))
             return redirect('quote_request')
     else:
@@ -474,6 +554,26 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            _send_ops_notification(
+                f"[Register] {user.username}",
+                f"New user registered.\nUsername: {user.username}\nEmail: {user.email}\n",
+            )
+            _send_user_activity_email(
+                user.email,
+                request,
+                tr_subject="Kaydiniz basariyla tamamlandi - Angraweb",
+                tr_body=(
+                    "Merhaba,\n\nKaydiniz basariyla tamamlandi. "
+                    "Angraweb hesabiniz aktif.\n\n"
+                    "Tesekkurler,\nAngraweb"
+                ),
+                en_subject="Registration successful - Angraweb",
+                en_body=(
+                    "Hello,\n\nYour registration has been completed successfully. "
+                    "Your Angraweb account is now active.\n\n"
+                    "Thank you,\nAngraweb"
+                ),
+            )
             messages.success(request, _('Registration completed successfully!'))
             return redirect('index')
     else:
@@ -508,6 +608,22 @@ def user_login(request):
                 user = u
         if user:
             login(request, user)
+            _send_user_activity_email(
+                getattr(user, 'email', ''),
+                request,
+                tr_subject="Hesabiniza giris yapildi - Angraweb",
+                tr_body=(
+                    "Merhaba,\n\nHesabiniza basariyla giris yapildi. "
+                    "Bu girisi siz yapmadiysaniz lutfen sifrenizi degistirin.\n\n"
+                    "Angraweb"
+                ),
+                en_subject="New login to your account - Angraweb",
+                en_body=(
+                    "Hello,\n\nA new login to your account was detected. "
+                    "If this wasn't you, please change your password.\n\n"
+                    "Angraweb"
+                ),
+            )
             next_url = request.POST.get('next') or request.GET.get('next') or request.META.get('HTTP_REFERER') or 'index'
             if not next_url or 'login' in str(next_url):
                 next_url = 'index'
@@ -556,6 +672,14 @@ def edit_profile(request):
         form = UserProfileEditForm(request.POST, instance=profile, user=request.user)
         if form.is_valid():
             form.save()
+            _send_user_activity_email(
+                request.user.email,
+                request,
+                tr_subject="Profiliniz guncellendi - Angraweb",
+                tr_body="Merhaba,\n\nProfil bilgileriniz basariyla guncellendi.\n\nAngraweb",
+                en_subject="Your profile was updated - Angraweb",
+                en_body="Hello,\n\nYour profile information was updated successfully.\n\nAngraweb",
+            )
             messages.success(request, _('Your profile has been updated successfully.'))
             return redirect('dashboard')
     else:
@@ -658,9 +782,29 @@ def newsletter_subscribe(request):
                     existing.unsubscribed_at = None
                     existing.name = subscriber.name
                     existing.save()
+                    _send_user_activity_email(
+                        existing.email,
+                        request,
+                        tr_subject="Bulten aboneligi aktif - Angraweb",
+                        tr_body="Merhaba,\n\nBulten aboneliginiz yeniden aktif edildi.\n\nAngraweb",
+                        en_subject="Newsletter subscription active - Angraweb",
+                        en_body="Hello,\n\nYour newsletter subscription has been reactivated.\n\nAngraweb",
+                    )
                     messages.success(request, _('Welcome back! You have been resubscribed to our newsletter.'))
             else:
                 subscriber.save()
+                _send_ops_notification(
+                    "[Newsletter] New subscription",
+                    f"Email: {subscriber.email}\nName: {subscriber.name or '-'}\n",
+                )
+                _send_user_activity_email(
+                    subscriber.email,
+                    request,
+                    tr_subject="Bultene kaydiniz alindi - Angraweb",
+                    tr_body="Merhaba,\n\nBulten aboneliginiz basariyla olusturuldu.\n\nAngraweb",
+                    en_subject="Newsletter subscription confirmed - Angraweb",
+                    en_body="Hello,\n\nYour newsletter subscription is confirmed.\n\nAngraweb",
+                )
                 messages.success(request, _('Thank you for subscribing to our newsletter!'))
             
             if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
