@@ -172,7 +172,7 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">{% trans "About" %}</a>
                     </li>
-                    <li class="nav-item dropdown d-none d-lg-block">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {% if 'service' in request.resolver_match.url_name or 'web_design' in request.resolver_match.url_name or 'mobile_app' in request.resolver_match.url_name or 'ecommerce' in request.resolver_match.url_name %}active{% endif %}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
                             {% trans "Services" %}
                         </a>
