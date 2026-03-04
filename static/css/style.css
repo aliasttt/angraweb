@@ -987,7 +987,7 @@ body[dir="rtl"] .benefit-item {
 
 @media (max-width: 576px) {
     .home-logo-strip .home-logo-marquee .home-logo-track {
-        animation: home-logo-scroll 80s linear infinite !important;
+        animation: home-logo-scroll 50s linear infinite !important;
     }
 }
 
