@@ -13,57 +13,96 @@
 
 {% block og_description %}{% if current_lang == 'tr' %}Profesyonel web sitesi fiyatları ve web tasarım paketleri. İşletmenize uygun paketi seçin.{% else %}Professional website pricing and web design packages. Choose the right package for your business.{% endif %}{% endblock %}
 
+{% block extra_css %}
+<style>
+.packages-hero-visual { border-radius: 20px; overflow: hidden; border: 1px solid rgba(116,185,255,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+.packages-feature-card { background: rgba(116,185,255,0.08); border: 1px solid rgba(116,185,255,0.25); border-radius: 16px; padding: 1.5rem; text-align: center; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.packages-feature-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(116,185,255,0.2); }
+.packages-feature-card .icon-wrap { width: 56px; height: 56px; border-radius: 14px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #fff; }
+.packages-pricing-visual { border-radius: 16px; overflow: hidden; border: 1px solid rgba(116,185,255,0.25); box-shadow: 0 15px 40px rgba(0,0,0,0.25); }
+.packages-why-card { background: linear-gradient(135deg, rgba(116,185,255,0.12), rgba(99,102,241,0.08)); border: 1px solid rgba(116,185,255,0.3); border-radius: 16px; padding: 1.5rem; text-align: center; transition: transform 0.3s ease, border-color 0.3s ease; }
+.packages-why-card:hover { transform: translateY(-6px); border-color: rgba(116,185,255,0.5); }
+.packages-why-card .icon-wrap { width: 52px; height: 52px; border-radius: 50%; margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; color: #fff; background: linear-gradient(135deg, #74b9ff, #0984e3); }
+.packages-animate { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.packages-animate.visible { opacity: 1; transform: translateY(0); }
+</style>
+{% endblock %}
+
 {% block content %}
-<section class="page-hero">
+<section class="page-hero packages-hero">
     <div class="container">
-        <h1 class="hero-title">
-            {% if current_lang == 'tr' %}
-            <span class="text-gradient">Web Tasarım Paketleri</span>
-            {% else %}
-            <span class="text-gradient">{% trans "Website Development Packages" %}</span>
-            {% endif %}
-        </h1>
-        {% if current_lang == 'tr' %}
-        <p class="hero-subtitle mt-3">İşletmeniz için profesyonel bir web sitesi yaptırmak mı istiyorsunuz?</p>
-        <p class="mt-3" style="color: rgba(255,255,255,0.9); max-width: 720px; margin-left: auto; margin-right: auto;">
-            Angraweb olarak farklı ihtiyaçlara ve bütçelere uygun <strong>web tasarım paketleri</strong> ve yazılım çözümleri sunuyoruz.
-            Küçük işletmelerden büyüyen şirketlere kadar her proje için modern, hızlı ve SEO uyumlu web siteleri geliştiriyoruz.
-        </p>
-        {% else %}
-        <p class="hero-subtitle mt-3">Looking for a professional website for your business?</p>
-        <p class="mt-3" style="color: rgba(255,255,255,0.9); max-width: 720px; margin-left: auto; margin-right: auto;">
-            At Angraweb we offer <strong>web design packages</strong> and software development solutions tailored to different business needs and budgets.
-            From small businesses to growing companies, we develop modern, fast and SEO-optimized websites.
-        </p>
-        {% endif %}
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-7">
+                <h1 class="hero-title packages-animate visible">
+                    {% if current_lang == 'tr' %}
+                    <span class="text-gradient">Web Tasarım Paketleri</span>
+                    {% else %}
+                    <span class="text-gradient">{% trans "Website Development Packages" %}</span>
+                    {% endif %}
+                </h1>
+                {% if current_lang == 'tr' %}
+                <p class="hero-subtitle mt-3">İşletmeniz için profesyonel bir web sitesi yaptırmak mı istiyorsunuz?</p>
+                <p class="mt-3" style="color: rgba(255,255,255,0.9);">
+                    Angraweb olarak farklı ihtiyaçlara ve bütçelere uygun <strong>web tasarım paketleri</strong> ve yazılım çözümleri sunuyoruz.
+                    Küçük işletmelerden büyüyen şirketlere kadar her proje için modern, hızlı ve SEO uyumlu web siteleri geliştiriyoruz.
+                </p>
+                {% else %}
+                <p class="hero-subtitle mt-3">Looking for a professional website for your business?</p>
+                <p class="mt-3" style="color: rgba(255,255,255,0.9);">
+                    At Angraweb we offer <strong>web design packages</strong> and software development solutions tailored to different business needs and budgets.
+                    From small businesses to growing companies, we develop modern, fast and SEO-optimized websites.
+                </p>
+                {% endif %}
+            </div>
+            <div class="col-12 col-lg-5 mt-4 mt-lg-0 text-center">
+                <div class="packages-hero-visual packages-animate visible">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Web design" class="img-fluid" style="width:100%; height: 280px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <section id="packages" class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-10 mx-auto">
+        <div class="row mb-4">
+            <div class="col-12 text-center mb-4">
                 {% if current_lang == 'tr' %}
-                <h2 class="h4 mb-3" style="color: #fff;">Tüm projelerimiz</h2>
-                <ul class="mb-4" style="color: rgba(255,255,255,0.9); list-style: none; padding-left: 0;">
-                    <li><i class="fas fa-check text-primary me-2"></i> Mobil uyumlu (responsive) tasarım</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> SEO uyumlu altyapı</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> Hızlı ve güvenli hosting desteği</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> Modern kullanıcı deneyimi (UX/UI)</li>
-                </ul>
-                <p class="mb-4" style="color: rgba(255,255,255,0.9);">Aşağıdaki <strong>web tasarım paketleri</strong>nden işletmenize en uygun olanı seçebilirsiniz. <strong>Profesyonel web sitesi fiyatı</strong> ve <strong>web sitesi fiyatları</strong> şeffaf bir şekilde sunulmaktadır.</p>
+                <h2 class="section-title">Tüm projelerimiz</h2>
                 {% else %}
-                <h2 class="h4 mb-3" style="color: #fff;">All packages include</h2>
-                <ul class="mb-4" style="color: rgba(255,255,255,0.9); list-style: none; padding-left: 0;">
-                    <li><i class="fas fa-check text-primary me-2"></i> Responsive web design</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> SEO-friendly website structure</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> Secure hosting support</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> Modern user experience (UX/UI)</li>
-                </ul>
-                <p class="mb-4" style="color: rgba(255,255,255,0.9);">Choose the package that best fits your project. We offer transparent <strong>website development packages</strong> and clear pricing.</p>
+                <h2 class="section-title">All packages include</h2>
                 {% endif %}
             </div>
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+                <div class="packages-feature-card packages-animate">
+                    <div class="icon-wrap" style="background: linear-gradient(135deg, #74b9ff, #0984e3);"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="h6 text-white mb-1">{% if current_lang == 'tr' %}Mobil uyumlu{% else %}Responsive{% endif %}</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Responsive tasarım{% else %}Mobile-friendly design{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+                <div class="packages-feature-card packages-animate">
+                    <div class="icon-wrap" style="background: linear-gradient(135deg, #55efc4, #00b894);"><i class="fas fa-search"></i></div>
+                    <h3 class="h6 text-white mb-1">SEO</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}SEO uyumlu altyapı{% else %}SEO-friendly structure{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+                <div class="packages-feature-card packages-animate">
+                    <div class="icon-wrap" style="background: linear-gradient(135deg, #a29bfe, #6c5ce7);"><i class="fas fa-server"></i></div>
+                    <h3 class="h6 text-white mb-1">{% if current_lang == 'tr' %}Hosting{% else %}Hosting{% endif %}</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Hızlı ve güvenli destek{% else %}Secure hosting support{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="packages-feature-card packages-animate">
+                    <div class="icon-wrap" style="background: linear-gradient(135deg, #fdcb6e, #e17055);"><i class="fas fa-palette"></i></div>
+                    <h3 class="h6 text-white mb-1">UX/UI</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Modern kullanıcı deneyimi{% else %}Modern user experience{% endif %}</p>
+                </div>
+            </div>
         </div>
+        <p class="text-center mb-4 packages-animate" style="color: rgba(255,255,255,0.9);">{% if current_lang == 'tr' %}Aşağıdaki <strong>web tasarım paketleri</strong>nden işletmenize en uygun olanı seçebilirsiniz. <strong>Profesyonel web sitesi fiyatı</strong> ve <strong>web sitesi fiyatları</strong> şeffaf bir şekilde sunulmaktadır.{% else %}Choose the package that best fits your project. We offer transparent <strong>website development packages</strong> and clear pricing.{% endif %}</p>
         <div class="row">
             {% for package in packages %}
             <div class="col-12 col-lg-3 col-md-6 col-sm-6 mb-4">
@@ -103,33 +142,38 @@
 
 <section class="section bg-gradient">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-8 mx-auto">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-5 mb-4 mb-lg-0">
+                <div class="packages-pricing-visual packages-animate">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Pricing" class="img-fluid" style="width:100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-12 col-lg-7">
                 {% if current_lang == 'tr' %}
-                <h2 class="section-title text-center">Web Sitesi Fiyatları Neye Göre Belirlenir?</h2>
-                <p class="text-center mb-4" style="color: rgba(255,255,255,0.9);">
+                <h2 class="section-title text-center text-lg-start">Web Sitesi Fiyatları Neye Göre Belirlenir?</h2>
+                <p class="mb-4" style="color: rgba(255,255,255,0.9);">
                     Bir web sitesinin fiyatı birkaç faktöre bağlıdır: projenin kapsamı, sayfa sayısı, yönetim paneli gereksinimi, özel yazılım ihtiyaçları ve SEO optimizasyonu.
                     Angraweb olarak her proje için şeffaf <strong>web sitesi fiyatları</strong> ve net teslim süresi sunuyoruz.
                 </p>
-                <ul style="color: rgba(255,255,255,0.9);">
-                    <li>Projenin kapsamı</li>
-                    <li>Sayfa sayısı</li>
-                    <li>Yönetim paneli gereksinimi</li>
-                    <li>Özel yazılım ihtiyaçları</li>
-                    <li>SEO optimizasyonu</li>
+                <ul class="list-unstyled" style="color: rgba(255,255,255,0.9);">
+                    <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> Projenin kapsamı</li>
+                    <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> Sayfa sayısı</li>
+                    <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> Yönetim paneli gereksinimi</li>
+                    <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> Özel yazılım ihtiyaçları</li>
+                    <li><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> SEO optimizasyonu</li>
                 </ul>
                 {% else %}
-                <h2 class="section-title text-center">What Determines Website Pricing?</h2>
-                <p class="text-center mb-4" style="color: rgba(255,255,255,0.9);">
+                <h2 class="section-title text-center text-lg-start">What Determines Website Pricing?</h2>
+                <p class="mb-4" style="color: rgba(255,255,255,0.9);">
                     Website development costs depend on several factors: project complexity, number of pages, admin panel requirements, custom software features and SEO optimization level.
                     At Angraweb we provide transparent pricing and clear project timelines.
                 </p>
-                <ul style="color: rgba(255,255,255,0.9);">
-                    <li>Project complexity</li>
-                    <li>Number of pages</li>
-                    <li>Admin panel requirements</li>
-                    <li>Custom software features</li>
-                    <li>SEO optimization level</li>
+                <ul class="list-unstyled" style="color: rgba(255,255,255,0.9);">
+                    <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> Project complexity</li>
+                    <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> Number of pages</li>
+                    <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> Admin panel requirements</li>
+                    <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> Custom software features</li>
+                    <li><i class="fas fa-circle text-primary me-2" style="font-size: 0.5rem; vertical-align: middle;"></i> SEO optimization level</li>
                 </ul>
                 {% endif %}
             </div>
@@ -139,29 +183,44 @@
 
 <section class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-8 mx-auto text-center">
+        <div class="row mb-4">
+            <div class="col-12 text-center mb-4">
                 {% if current_lang == 'tr' %}
                 <h2 class="section-title">Neden Angraweb?</h2>
-                <ul class="mb-4" style="color: rgba(255,255,255,0.9); list-style: none; padding-left: 0;">
-                    <li><i class="fas fa-check text-primary me-2"></i> Modern web geliştirme teknolojileri</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> SEO uyumlu web siteleri</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> Hızlı teslim süresi</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> Uzun vadeli teknik destek</li>
-                </ul>
-                <p style="color: rgba(255,255,255,0.9);">Amacımız sadece bir web sitesi yapmak değil, işletmeniz için dijital büyüme sağlayan bir sistem oluşturmaktır.</p>
                 {% else %}
-                <h2 class="section-title">Why Choose Angraweb?</h2>
-                <ul class="mb-4" style="color: rgba(255,255,255,0.9); list-style: none; padding-left: 0;">
-                    <li><i class="fas fa-check text-primary me-2"></i> Modern development technologies</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> SEO-optimized websites</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> Fast delivery</li>
-                    <li><i class="fas fa-check text-primary me-2"></i> Long-term technical support</li>
-                </ul>
-                <p style="color: rgba(255,255,255,0.9);">Our goal is not just building websites but creating digital systems that help businesses grow.</p>
+                <h2 class="section-title">Why Angraweb?</h2>
                 {% endif %}
             </div>
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+                <div class="packages-why-card packages-animate">
+                    <div class="icon-wrap" style="background: linear-gradient(135deg, #74b9ff, #0984e3);"><i class="fas fa-code"></i></div>
+                    <h3 class="h6 text-white mb-1">{% if current_lang == 'tr' %}Modern teknolojiler{% else %}Modern tech{% endif %}</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Modern web geliştirme teknolojileri{% else %}Modern web development technologies{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+                <div class="packages-why-card packages-animate">
+                    <div class="icon-wrap" style="background: linear-gradient(135deg, #55efc4, #00b894);"><i class="fas fa-search"></i></div>
+                    <h3 class="h6 text-white mb-1">SEO</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}SEO uyumlu web siteleri{% else %}SEO-friendly websites{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+                <div class="packages-why-card packages-animate">
+                    <div class="icon-wrap" style="background: linear-gradient(135deg, #fdcb6e, #e17055);"><i class="fas fa-clock"></i></div>
+                    <h3 class="h6 text-white mb-1">{% if current_lang == 'tr' %}Hızlı teslim{% else %}Fast delivery{% endif %}</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Hızlı teslim süresi{% else %}Fast delivery time{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="packages-why-card packages-animate">
+                    <div class="icon-wrap" style="background: linear-gradient(135deg, #a29bfe, #6c5ce7);"><i class="fas fa-headset"></i></div>
+                    <h3 class="h6 text-white mb-1">{% if current_lang == 'tr' %}Teknik destek{% else %}Support{% endif %}</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Uzun vadeli teknik destek{% else %}Long-term technical support{% endif %}</p>
+                </div>
+            </div>
         </div>
+        <p class="text-center packages-animate" style="color: rgba(255,255,255,0.9); max-width: 640px; margin: 0 auto;">{% if current_lang == 'tr' %}Amacımız sadece bir web sitesi yapmak değil, işletmeniz için dijital büyüme sağlayan bir sistem oluşturmaktır.{% else %}Our goal is not just building websites but creating digital systems that help businesses grow.{% endif %}</p>
     </div>
 </section>
 
@@ -251,4 +310,23 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    function initPackagesAnimate() {
+        var els = document.querySelectorAll('.packages-animate');
+        if (!els.length) return;
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+        els.forEach(function(el) { observer.observe(el); });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPackagesAnimate);
+    else initPackagesAnimate();
+})();
+</script>
 {% endblock %}
