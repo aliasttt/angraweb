@@ -959,6 +959,112 @@ body[dir="rtl"] .benefit-item {
     color: #ffffff;
 }
 
+/* Home tech logo strip */
+.home-logo-strip {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.home-logo-marquee {
+    overflow: hidden;
+    position: relative;
+}
+
+.home-logo-track {
+    display: flex;
+    gap: 2rem;
+    animation: home-logo-scroll 24s linear infinite;
+    will-change: transform;
+}
+
+.home-logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    background: rgba(12, 19, 38, 0.8);
+    border: 1px solid rgba(116, 185, 255, 0.4);
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.home-logo-item i {
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+    color: #74b9ff;
+}
+
+@keyframes home-logo-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    .home-logo-item {
+        min-width: 100px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Visual feature gallery */
+.home-visual-gallery .visual-card {
+    background: radial-gradient(circle at top left, rgba(116, 185, 255, 0.25), rgba(10, 14, 39, 0.95));
+    border-radius: 20px;
+    border: 1px solid rgba(116, 185, 255, 0.35);
+    padding: 2rem 1.75rem;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    height: 100%;
+}
+
+.home-visual-gallery .visual-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(116, 185, 255, 0.35);
+    border-color: rgba(116, 185, 255, 0.7);
+}
+
+.home-visual-gallery .visual-illustration {
+    width: 80px;
+    height: 80px;
+    border-radius: 24px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.visual-card-web .visual-illustration {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+}
+
+.visual-card-ecommerce .visual-illustration {
+    background: linear-gradient(135deg, #fdcb6e, #e17055);
+}
+
+.visual-card-seo .visual-illustration {
+    background: linear-gradient(135deg, #55efc4, #00b894);
+}
+
+.home-visual-gallery .visual-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+}
+
+.home-visual-gallery .visual-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
 /* About Section & Service pages - تایتل و متن روشن، نه مشکی */
 .about-content h2 {
     color: #ffffff !important;
