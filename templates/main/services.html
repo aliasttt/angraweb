@@ -4,50 +4,179 @@
 {% load main_extras %}
 {% load seo_pages_tags %}
 
-{% block title %}{% trans "Our Services" %} - {% trans "Professional Web Design Services" %} | Angraweb.com{% endblock %}
+{% block title %}{% if current_lang == 'tr' %}Hizmetler | Profesyonel Web Tasarım ve Yazılım Hizmetleri{% else %}Services | Professional Web Design & Software Services{% endif %} | Angraweb.com{% endblock %}
 
-{% block meta_description %}{% trans "We offer comprehensive web design, development, and digital marketing services to help your business grow online. From custom websites to mobile apps, e-commerce stores, and SEO optimization, we deliver solutions that drive results." %}{% endblock %}
+{% block meta_description %}{% if current_lang == 'tr' %}Profesyonel web tasarım hizmetleri, web yazılım hizmetleri, seo hizmetleri ve e ticaret sitesi kurma çözümleri. Angraweb ile işletmeniz için modern dijital sistemler geliştirin.{% else %}Professional web design, software development, SEO, and e-commerce solutions to grow your business online.{% endif %}{% endblock %}
 
-{% block meta_keywords %}{% trans "web design" %}, {% trans "web development" %}, e-commerce, {% trans "mobile app" %}, SEO, {% trans "hosting" %}, UI/UX, {% trans "services" %}, Angraweb{% endblock %}
+{% block meta_keywords %}{% if current_lang == 'tr' %}web tasarım hizmetleri, web yazılım hizmetleri, seo hizmetleri, e ticaret sitesi kurma, hizmetler, Angraweb{% else %}web design services, web development services, seo services, e-commerce development, Angraweb{% endif %}{% endblock %}
 
-{% block og_title %}{% trans "Our Services" %} - {% trans "Professional Web Design Services" %} | Angraweb.com{% endblock %}
+{% block og_title %}{% if current_lang == 'tr' %}Hizmetler | Angraweb{% else %}Services | Angraweb{% endif %}{% endblock %}
 
-{% block og_description %}{% trans "Professional Web Design and Digital Solutions" %}{% endblock %}
+{% block og_description %}{% if current_lang == 'tr' %}Modern web tasarım, yazılım geliştirme ve SEO hizmetleri ile işletmenizi dijitalde büyütün.{% else %}Modern web design, software development, and SEO services for business growth.{% endif %}{% endblock %}
+
+{% block extra_css %}
+<style>
+.services-hero-visual { border-radius: 20px; overflow: hidden; border: 1px solid rgba(116,185,255,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+.services-conversion-box { background: linear-gradient(135deg, rgba(116,185,255,0.16), rgba(99,102,241,0.1)); border: 1px solid rgba(116,185,255,0.35); border-radius: 18px; padding: 1.2rem 1.5rem; box-shadow: 0 14px 36px rgba(0,0,0,0.22); }
+.services-conversion-box h2 { color: #fff; margin: 0 0 0.45rem 0; font-size: 1.4rem; }
+.services-conversion-box p { margin: 0; color: rgba(255,255,255,0.9); }
+.service-landing-item { background: rgba(116,185,255,0.06); border: 1px solid rgba(116,185,255,0.24); border-radius: 18px; padding: 1.1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.service-landing-item:hover { transform: translateY(-5px); box-shadow: 0 16px 42px rgba(0,0,0,0.26); }
+.service-landing-visual { border-radius: 14px; overflow: hidden; border: 1px solid rgba(116,185,255,0.28); min-height: 220px; }
+.service-landing-visual img { width: 100%; height: 100%; min-height: 220px; object-fit: cover; display: block; }
+.service-landing-title { color: #fff; margin-bottom: 0.6rem; }
+.service-landing-desc { color: rgba(255,255,255,0.88); line-height: 1.85; margin-bottom: 0.8rem; }
+.service-landing-meta { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.7rem; }
+.service-icon-chip { width: 44px; height: 44px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; background: linear-gradient(135deg, #74b9ff, #0984e3); }
+.service-keyword-chip { display: inline-flex; align-items: center; background: rgba(116,185,255,0.2); border: 1px solid rgba(116,185,255,0.35); color: #eaf4ff; border-radius: 999px; padding: 0.28rem 0.7rem; font-size: 0.8rem; }
+.services-why-card { background: linear-gradient(135deg, rgba(116,185,255,0.12), rgba(99,102,241,0.08)); border: 1px solid rgba(116,185,255,0.3); border-radius: 16px; padding: 1.4rem; text-align: center; height: 100%; transition: transform 0.3s ease, border-color 0.3s ease; }
+.services-why-card:hover { transform: translateY(-6px); border-color: rgba(116,185,255,0.5); }
+.services-why-card .icon-wrap { width: 52px; height: 52px; border-radius: 50%; margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; color: #fff; background: linear-gradient(135deg, #74b9ff, #0984e3); }
+.services-animate { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.services-animate.visible { opacity: 1; transform: translateY(0); }
+</style>
+{% endblock %}
 
 {% block content %}
 <section class="page-hero">
     <div class="container">
-        <h1 class="hero-title">
-            <span class="text-gradient">{% trans "Our Services" %}</span>
-        </h1>
-        <p class="hero-subtitle mt-3">{% trans "Professional Web Design and Digital Solutions" %}</p>
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-7">
+                <h1 class="hero-title services-animate visible">
+                    <span class="text-gradient">{% if current_lang == 'tr' %}Profesyonel Web Tasarım ve Yazılım Hizmetleri{% else %}Professional Web Design & Software Development Services{% endif %}</span>
+                </h1>
+                <p class="hero-subtitle mt-3 services-animate visible">{% if current_lang == 'tr' %}İşletmenizin dijital dünyada büyümesi için modern ve güvenilir çözümler{% else %}Modern and reliable digital services for business growth{% endif %}</p>
+                <p class="mt-3 services-animate visible" style="color: rgba(255,255,255,0.9); max-width: 620px;">
+                    {% if current_lang == 'tr' %}
+                    Angraweb olarak işletmeler için performans odaklı, mobil uyumlu ve SEO optimize edilmiş dijital platformlar geliştiriyoruz. Kurumsal web sitelerinden e-ticaret platformlarına, mobil uygulamalardan kullanıcı deneyimi tasarımına kadar tüm dijital çözümleri tek bir çatı altında sunuyoruz.
+                    {% else %}
+                    At Angraweb we provide modern web design, software development, and SEO services that help businesses grow in the digital world. From corporate websites and e-commerce platforms to mobile applications and UX design, we offer complete digital solutions.
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-12 col-lg-5 mt-4 mt-lg-0 text-center">
+                <div class="services-hero-visual services-animate visible">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Services" class="img-fluid" style="width:100%; height: 290px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<section id="services" class="section">
+<section class="section pt-0">
     <div class="container">
-        <div class="row">
-            <div class="col-12 mb-5">
-                <p class="text-center" style="color:#b2bec3; line-height:1.9; max-width:800px; margin:0 auto;">
-                    {% trans "We offer comprehensive web design, development, and digital marketing services to help your business grow online. From custom websites to mobile apps, e-commerce stores, and SEO optimization, we deliver solutions that drive results." %}
+        <div class="services-conversion-box text-center services-animate">
+            <h2>{% if current_lang == 'tr' %}Tüm Dijital Hizmetler Tek Bir Yerde{% else %}All Digital Services in One Place{% endif %}</h2>
+            <p>
+                {% if current_lang == 'tr' %}
+                web tasarım hizmetleri, web yazılım hizmetleri, seo hizmetleri ve e ticaret sitesi kurma süreçlerinin tamamını tek bir ekip ile yönetebilirsiniz.
+                {% else %}
+                Manage web design, software development, SEO, and e-commerce growth with one expert team.
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section pt-0">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2 class="section-title services-animate">{% if current_lang == 'tr' %}Hizmetlerimiz{% else %}Our Services{% endif %}</h2>
+                <p class="services-animate" style="color:#b2bec3; line-height:1.9; max-width:860px; margin:0 auto;">
+                    {% if current_lang == 'tr' %}
+                    Modern, hızlı ve dönüşüm odaklı dijital çözümler ile markanızı büyütüyoruz.
+                    {% else %}
+                    We build modern, fast, and conversion-focused digital platforms for your business.
+                    {% endif %}
                 </p>
             </div>
         </div>
-        <div class="row d-flex flex-wrap">
+        <div class="row g-4">
             {% for service in services %}
-            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="{{ service.icon }}"></i>
+            <div class="col-12">
+                <article class="service-landing-item services-animate">
+                    <div class="row align-items-center g-4">
+                        <div class="col-12 col-lg-5 {% if forloop.counter|divisibleby:'2' %}order-lg-2{% endif %}">
+                            <div class="service-landing-visual">
+                                {% if service.image %}
+                                <img src="{{ service.image.url }}" alt="{% localized service 'title' current_lang %}" loading="lazy">
+                                {% else %}
+                                    {% if service.service_type == 'web_design' %}
+                                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="{% localized service 'title' current_lang %}" loading="lazy">
+                                    {% elif service.service_type == 'mobile_app' %}
+                                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="{% localized service 'title' current_lang %}" loading="lazy">
+                                    {% elif service.service_type == 'ecommerce' %}
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="{% localized service 'title' current_lang %}" loading="lazy">
+                                    {% elif service.service_type == 'seo' %}
+                                    <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="{% localized service 'title' current_lang %}" loading="lazy">
+                                    {% elif service.service_type == 'hosting' %}
+                                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="{% localized service 'title' current_lang %}" loading="lazy">
+                                    {% elif service.service_type == 'ui_ux' %}
+                                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="{% localized service 'title' current_lang %}" loading="lazy">
+                                    {% else %}
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="{% localized service 'title' current_lang %}" loading="lazy">
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-7 {% if forloop.counter|divisibleby:'2' %}order-lg-1{% endif %}">
+                            <div class="service-landing-meta">
+                                <span class="service-icon-chip"><i class="{{ service.icon }}"></i></span>
+                                <span class="service-keyword-chip">
+                                    {% if service.service_type == 'web_design' %}
+                                        web tasarım hizmetleri
+                                    {% elif service.service_type == 'seo' %}
+                                        seo hizmetleri
+                                    {% elif service.service_type == 'ecommerce' %}
+                                        e ticaret sitesi kurma
+                                    {% else %}
+                                        web yazılım hizmetleri
+                                    {% endif %}
+                                </span>
+                            </div>
+                            <h3 class="service-landing-title">{% localized service 'title' current_lang %}</h3>
+                            <div class="service-landing-desc">
+                                {% if current_lang == 'tr' %}
+                                    {% if service.service_type == 'web_design' %}
+                                    <p>Modern, hızlı ve kullanıcı dostu web siteleri geliştiriyoruz. Kurumsal web siteleri, landing page'ler ve özel projeler için SEO uyumlu ve mobil uyumlu web tasarım çözümleri sunuyoruz.</p>
+                                    {% elif service.service_type == 'mobile_app' %}
+                                    <p>İşletmeler için kullanıcı dostu mobil uygulama arayüzleri ve mobil platform çözümleri tasarlıyoruz. Android ve iOS platformları için modern tasarım prensipleri ile geliştirilmiş mobil uygulamalar kullanıcı deneyimini güçlendirir.</p>
+                                    {% elif service.service_type == 'ecommerce' %}
+                                    <p>Online satış yapmak isteyen işletmeler için güçlü e-ticaret platformları geliştiriyoruz. Ödeme sistemleri, ürün yönetimi ve sipariş süreçleri ile tamamen optimize edilmiş online mağazalar oluşturuyoruz.</p>
+                                    {% elif service.service_type == 'seo' %}
+                                    <p>Web sitenizin Google arama sonuçlarında daha görünür olması için teknik SEO ve içerik optimizasyonu çalışmaları yapıyoruz. Anahtar kelime analizi, performans iyileştirme ve organik trafik artışı odaklı ilerliyoruz.</p>
+                                    {% elif service.service_type == 'hosting' %}
+                                    <p>Web sitenizin hızlı ve güvenli çalışması için profesyonel hosting ve sunucu yönetimi hizmetleri sunuyoruz. SSL güvenliği, performans optimizasyonu ve güvenilir altyapı ile kesintisiz yayın sağlıyoruz.</p>
+                                    {% elif service.service_type == 'ui_ux' %}
+                                    <p>Kullanıcı deneyimi odaklı modern arayüz tasarımları geliştiriyoruz. Doğru UI/UX tasarımı, ziyaretçilerin web sitenizde daha fazla zaman geçirmesini ve müşteriye dönüşmesini sağlar.</p>
+                                    {% else %}
+                                    <p>{% localized_truncate service 'description' current_lang 45 %}</p>
+                                    {% endif %}
+                                {% else %}
+                                    {% if service.service_type == 'web_design' %}
+                                    <p>We design modern and professional websites optimized for performance and user experience. Our solutions include corporate websites, landing pages, and custom digital platforms.</p>
+                                    {% elif service.service_type == 'mobile_app' %}
+                                    <p>We create intuitive mobile interfaces and platform solutions for Android and iOS. Our mobile services focus on usability, performance, and clean user experience.</p>
+                                    {% elif service.service_type == 'ecommerce' %}
+                                    <p>We build powerful e-commerce platforms with payment integrations, product management tools, and optimized checkout flows designed for conversions.</p>
+                                    {% elif service.service_type == 'seo' %}
+                                    <p>We provide technical SEO and content optimization services to improve search visibility. Our strategy focuses on keyword research, site performance, and organic traffic growth.</p>
+                                    {% elif service.service_type == 'hosting' %}
+                                    <p>We offer reliable hosting and server management solutions for websites and web applications. Secure infrastructure and performance optimization keep your site stable.</p>
+                                    {% elif service.service_type == 'ui_ux' %}
+                                    <p>We design user-focused interfaces and digital experiences that improve engagement and conversions. Great design helps transform visitors into customers.</p>
+                                    {% else %}
+                                    <p>{% localized_truncate service 'description' current_lang 45 %}</p>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                            <a href="{% silo_pillar_for_service_type current_lang service.service_type %}" class="btn btn-primary">
+                                <i class="fas fa-arrow-right me-2"></i>{% trans "Learn More" %}
+                            </a>
+                        </div>
                     </div>
-                    <h3>{% localized service 'title' current_lang %}</h3>
-                    <p style="color:#b2bec3; line-height:1.8;">{% localized_truncate service 'description' current_lang 30 %}</p>
-                    <div class="service-cta">
-                        <a href="{% silo_pillar_for_service_type current_lang service.service_type %}" class="btn btn-sm btn-outline-primary">
-                            {% trans "Learn More" %}
-                        </a>
-                    </div>
-                </div>
+                </article>
             </div>
             {% empty %}
             <div class="col-12">
@@ -55,12 +184,52 @@
             </div>
             {% endfor %}
         </div>
-        
-        <div class="row mt-5">
+        <div class="row mt-4">
+            <div class="col-12 text-center mb-4">
+                <h2 class="section-title services-animate">{% if current_lang == 'tr' %}Neden Angraweb?{% else %}Why Choose Angraweb?{% endif %}</h2>
+            </div>
+            <div class="col-6 col-md-4 col-lg mb-3">
+                <div class="services-why-card services-animate">
+                    <div class="icon-wrap"><i class="fas fa-code"></i></div>
+                    <h3 class="h6 text-white mb-1">{% if current_lang == 'tr' %}Modern teknolojiler{% else %}Modern technologies{% endif %}</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Modern yazılım teknolojileri{% else %}Modern development stack{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg mb-3">
+                <div class="services-why-card services-animate">
+                    <div class="icon-wrap"><i class="fas fa-search"></i></div>
+                    <h3 class="h6 text-white mb-1">SEO</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}SEO uyumlu web siteleri{% else %}SEO optimized websites{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg mb-3">
+                <div class="services-why-card services-animate">
+                    <div class="icon-wrap"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="h6 text-white mb-1">{% if current_lang == 'tr' %}Mobil uyumlu{% else %}Mobile friendly{% endif %}</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Mobil uyumlu tasarım{% else %}Responsive design{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg mb-3">
+                <div class="services-why-card services-animate">
+                    <div class="icon-wrap"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="h6 text-white mb-1">{% if current_lang == 'tr' %}Güvenli altyapı{% else %}Secure infrastructure{% endif %}</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Ölçeklenebilir sistemler{% else %}Scalable systems{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg mb-3">
+                <div class="services-why-card services-animate">
+                    <div class="icon-wrap"><i class="fas fa-headset"></i></div>
+                    <h3 class="h6 text-white mb-1">{% if current_lang == 'tr' %}Teknik destek{% else %}Technical support{% endif %}</h3>
+                    <p class="small mb-0" style="color: rgba(255,255,255,0.8);">{% if current_lang == 'tr' %}Uzun vadeli destek{% else %}Long-term support{% endif %}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
             <div class="col-12 text-center">
-                <div class="services-cta">
-                    <h3 class="mb-3">{% trans "Ready to Start Your Project?" %}</h3>
-                    <p class="mb-4" style="color:#b2bec3;">{% trans "Get a free consultation and quote. Let's discuss your project and find the best solution for your needs." %}</p>
+                <div class="services-cta services-animate">
+                    <h3 class="mb-3">{% if current_lang == 'tr' %}Projenizi Başlatalım{% else %}Start Your Project{% endif %}</h3>
+                    <p class="mb-4" style="color:#b2bec3;">{% if current_lang == 'tr' %}İşletmeniz için profesyonel bir web sitesi veya yazılım çözümü mü arıyorsunuz? Bugün bizimle iletişime geçin ve projeniz için ücretsiz danışmanlık alın.{% else %}Looking for professional web development services? Contact us today and get a free consultation.{% endif %}</p>
                     <a href="{% url 'quote_request' %}" class="btn btn-success btn-lg">
                         <i class="fas fa-paper-plane"></i> {% trans "Request Quote" %}
                     </a>
@@ -69,138 +238,23 @@
         </div>
     </div>
 </section>
+{% endblock %}
 
-<!-- Service Comparison Section -->
-{% if services|length > 1 %}
-<section class="section bg-gradient">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="section-title text-center mb-5">
-                    <span class="text-gradient">{% trans "Compare Our Services" %}</span>
-                </h2>
-                <p class="text-center mb-4" style="color:#b2bec3; max-width: 800px; margin: 0 auto;">
-                    {% trans "Compare our services to find the best solution for your business needs." %}
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="service-comparison-wrapper">
-                    <div class="table-responsive">
-                        <table class="service-comparison-table">
-                            <thead>
-                                <tr>
-                                    <th class="feature-column">{% trans "Features" %}</th>
-                                    {% for service in services %}
-                                    <th class="service-column">
-                                        <div class="service-header-compare">
-                                            <i class="{{ service.icon }}"></i>
-                                            <h4>{% localized service 'title' current_lang %}</h4>
-                                        </div>
-                                    </th>
-                                    {% endfor %}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="feature-name">{% trans "Custom Design" %}</td>
-                                    {% for service in services %}
-                                    <td class="feature-check">
-                                        <i class="fas fa-check text-success"></i>
-                                    </td>
-                                    {% endfor %}
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">{% trans "Responsive Design" %}</td>
-                                    {% for service in services %}
-                                    <td class="feature-check">
-                                        <i class="fas fa-check text-success"></i>
-                                    </td>
-                                    {% endfor %}
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">{% trans "SEO Optimization" %}</td>
-                                    {% for service in services %}
-                                    <td class="feature-check">
-                                        {% if service.service_type == 'seo' %}
-                                        <i class="fas fa-check text-success"></i>
-                                        {% else %}
-                                        <i class="fas fa-check text-warning"></i>
-                                        {% endif %}
-                                    </td>
-                                    {% endfor %}
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">{% trans "E-commerce Features" %}</td>
-                                    {% for service in services %}
-                                    <td class="feature-check">
-                                        {% if service.service_type == 'ecommerce' %}
-                                        <i class="fas fa-check text-success"></i>
-                                        {% else %}
-                                        <i class="fas fa-minus text-secondary"></i>
-                                        {% endif %}
-                                    </td>
-                                    {% endfor %}
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">{% trans "Mobile App" %}</td>
-                                    {% for service in services %}
-                                    <td class="feature-check">
-                                        {% if service.service_type == 'mobile_app' %}
-                                        <i class="fas fa-check text-success"></i>
-                                        {% else %}
-                                        <i class="fas fa-minus text-secondary"></i>
-                                        {% endif %}
-                                    </td>
-                                    {% endfor %}
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">{% trans "Hosting Setup" %}</td>
-                                    {% for service in services %}
-                                    <td class="feature-check">
-                                        {% if service.service_type == 'hosting' %}
-                                        <i class="fas fa-check text-success"></i>
-                                        {% else %}
-                                        <i class="fas fa-check text-warning"></i>
-                                        {% endif %}
-                                    </td>
-                                    {% endfor %}
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">{% trans "Ongoing Support" %}</td>
-                                    {% for service in services %}
-                                    <td class="feature-check">
-                                        <i class="fas fa-check text-success"></i>
-                                    </td>
-                                    {% endfor %}
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td class="feature-column"></td>
-                                    {% for service in services %}
-                                    <td class="service-cta-compare">
-                                        <a href="{% silo_pillar_for_service_type current_lang service.service_type %}" class="btn btn-sm btn-primary w-100">
-                                            {% trans "Learn More" %}
-                                        </a>
-                                    </td>
-                                    {% endfor %}
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <div class="comparison-legend mt-4 text-center">
-                        <p style="color: #b2bec3;">
-                            <i class="fas fa-check text-success"></i> {% trans "Included" %} | 
-                            <i class="fas fa-check text-warning"></i> {% trans "Optional" %} | 
-                            <i class="fas fa-minus text-secondary"></i> {% trans "Not Included" %}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{% endif %}
+{% block extra_js %}
+<script>
+(function() {
+    function initServicesAnimate() {
+        var els = document.querySelectorAll('.services-animate');
+        if (!els.length) return;
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+        els.forEach(function(el) { observer.observe(el); });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initServicesAnimate);
+    else initServicesAnimate();
+})();
+</script>
 {% endblock %}
