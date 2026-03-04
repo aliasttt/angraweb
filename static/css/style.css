@@ -977,9 +977,17 @@ body[dir="rtl"] .benefit-item {
     will-change: transform;
 }
 
+/* موبایل: سرعت انیمیشن را با پراپرتی کامل override می‌کنیم تا حتماً اعمال شود */
 @media (max-width: 768px) {
     .home-logo-strip .home-logo-marquee .home-logo-track {
         gap: 1rem;
+        animation: home-logo-scroll 10s linear infinite !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .home-logo-strip .home-logo-marquee .home-logo-track {
+        animation: home-logo-scroll 10s linear infinite !important;
     }
 }
 
