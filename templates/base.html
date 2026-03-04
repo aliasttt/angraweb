@@ -195,7 +195,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.resolver_match.url_name == 'resume' %}active{% endif %}" href="{% url 'resume' %}">{% trans "Resume" %}</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'team' or request.resolver_match.url_name == 'resume' %}active{% endif %}" href="{% url 'team' %}">{% if request.LANGUAGE_CODE == 'tr' %}Takım{% else %}Team{% endif %}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {% if 'how_it_works' in request.resolver_match.url_name or 'calculator' in request.resolver_match.url_name or 'technology' in request.resolver_match.url_name %}active{% endif %}" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown">
@@ -305,7 +305,7 @@
                         <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>
                         <li><a href="{% url 'web_design' %}">{% trans "Services" %}</a></li>
                         <li><a href="{% url 'projects_list' %}">{% trans "Projects" %}</a></li>
-                        <li><a href="{% url 'resume' %}">{% trans "Resume" %}</a></li>
+                        <li><a href="{% url 'team' %}">{% if request.LANGUAGE_CODE == 'tr' %}Takım{% else %}Team{% endif %}</a></li>
                         <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
                     </ul>
                 </div>

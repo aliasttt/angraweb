@@ -784,7 +784,7 @@ def sitemap_xml(request):
         ('/', 'weekly', '1.0'),
         ('/about/', 'monthly', '0.9'),
         ('/contact/', 'monthly', '0.9'),
-        ('/resume/', 'monthly', '0.8'),
+        ('/team/', 'monthly', '0.8'),
         ('/packages/', 'weekly', '0.9'),
         ('/packages/compare/', 'monthly', '0.7'),
         ('/projects/', 'weekly', '0.9'),

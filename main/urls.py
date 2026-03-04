@@ -9,12 +9,13 @@ urlpatterns = [
     path('contact.html', partial(views._redirect_to_name, view_name='contact')),
     path('packages.html', partial(views._redirect_to_name, view_name='packages_list')),
     path('projects.html', partial(views._redirect_to_name, view_name='projects_list')),
-    path('resume.html', partial(views._redirect_to_name, view_name='resume')),
+    path('resume.html', partial(views._redirect_to_name, view_name='team')),
     # ─── Main routes
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
-    path('resume/', views.resume, name='resume'),
+    path('team/', views.resume, name='team'),
+    path('resume/', partial(views._redirect_to_name, view_name='team')),
     
     # Services landing page (Hizmetler – tek sayfa)
     path('landingpage/', views.services_list, name='services_list'),
