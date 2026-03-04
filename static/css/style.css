@@ -947,6 +947,18 @@ body[dir="rtl"] .benefit-item {
     color: #ffffff !important;
 }
 
+/* Ensure paragraph text in key homepage sections stays white on dark background */
+#services p,
+#services a,
+#packages p,
+#packages a,
+#projects p,
+#projects a,
+#homepage-faq p,
+#free-website-audit p {
+    color: #ffffff;
+}
+
 /* About Section & Service pages - تایتل و متن روشن، نه مشکی */
 .about-content h2 {
     color: #ffffff !important;
