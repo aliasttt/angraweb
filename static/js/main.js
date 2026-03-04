@@ -1788,7 +1788,7 @@ function initTestimonialsSlider() {
 
     function startAuto() {
         if (autoTimer) return;
-        autoTimer = setInterval(nextSlide, 6000);
+        autoTimer = setInterval(nextSlide, 12000);
     }
 
     function restartAuto() {

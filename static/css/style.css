@@ -973,7 +973,7 @@ body[dir="rtl"] .benefit-item {
 .home-logo-track {
     display: flex;
     gap: 2rem;
-    animation: home-logo-scroll 40s linear infinite;
+    animation: home-logo-scroll 24s linear infinite;
     will-change: transform;
 }
 
@@ -1009,11 +1009,6 @@ body[dir="rtl"] .benefit-item {
         min-width: 100px;
         padding: 0.5rem 0.75rem;
         font-size: 0.8rem;
-    }
-    
-    .home-logo-strip {
-        padding-top: 10px;
-        padding-bottom: 10px;
     }
 }
 
@@ -1070,6 +1065,81 @@ body[dir="rtl"] .benefit-item {
     color: rgba(255, 255, 255, 0.8);
 }
 
+/* Hero visual carousel */
+.hero-visual-wrap {
+    width: 100%;
+}
+
+.hero-visual-carousel {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(116, 185, 255, 0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.hero-visual-carousel .carousel-item img {
+    height: 430px;
+    object-fit: cover;
+    filter: saturate(1.1) contrast(1.03);
+}
+
+.hero-visual-carousel .carousel-caption {
+    background: linear-gradient(180deg, rgba(10, 14, 39, 0.15), rgba(10, 14, 39, 0.8));
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    bottom: 1.25rem;
+}
+
+.hero-visual-carousel .carousel-caption h5 {
+    margin-bottom: 0.25rem;
+    color: #ffffff;
+}
+
+.hero-visual-carousel .carousel-caption p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+/* Compact spacing and calmer animations on mobile for homepage */
+@media (max-width: 768px) {
+    #home.hero-section {
+        min-height: auto;
+        padding: 40px 0 20px 0;
+    }
+
+    .section {
+        padding: 28px 0;
+    }
+
+    .section:not(.hero-section) {
+        content-visibility: visible;
+        contain-intrinsic-size: auto;
+    }
+
+    .home-logo-track {
+        gap: 1rem;
+        animation-duration: 52s;
+    }
+
+    .hero-visual-carousel .carousel-item img {
+        height: 260px;
+    }
+
+    #projects .col-lg-4.col-md-6.col-sm-6.mb-4 {
+        margin-bottom: 0.75rem !important;
+    }
+
+    #projects .project-card,
+    .project-card {
+        min-height: auto;
+        margin-bottom: 0.5rem;
+    }
+}
+
 /* About Section & Service pages - تایتل و متن روشن، نه مشکی */
 .about-content h2 {
     color: #ffffff !important;
@@ -1098,12 +1168,6 @@ body[dir="rtl"] .benefit-item {
 
 .about-content li {
     color: #e2e8f0 !important;
-}
-
-/* Secondary headings inside hero/animated sections */
-.about-content h4,
-.hero-section h4 {
-    color: #ffffff !important;
 }
 
 /* هر h2 در سکشن (صفحات سرویس و غیره) سفید */
@@ -2204,7 +2268,7 @@ label {
     
     .service-card,
     .project-card {
-        margin-bottom: 1.25rem;
+        margin-bottom: 2rem;
     }
 
     .navbar-brand {
