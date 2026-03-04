@@ -16,7 +16,8 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('resume/', views.resume, name='resume'),
     
-    # Services (individual pages only; "All Services" page removed)
+    # Services landing page (Hizmetler – tek sayfa)
+    path('landingpage/', views.services_list, name='services_list'),
     path('service/<slug:slug>/', views.service_detail, name='service_detail'),
     path('web-design/', views.web_design, name='web_design'),
     path('mobile-app/', views.mobile_app, name='mobile_app'),

@@ -202,6 +202,17 @@ def packages_list(request):
     return render(request, 'main/packages.html', context)
 
 
+def services_list(request):
+    """صفحه لندینگ خدمات (Hizmetler) — لیست همه خدمات با لندینگ حرفه‌ای"""
+    get_language_context(request)
+    services = Service.objects.filter(active=True).order_by('order')
+    context = {
+        'services': services,
+    }
+    context.update(get_language_context(request))
+    return render(request, 'main/services.html', context)
+
+
 def packages_compare(request):
     """مقایسه پکیج‌ها"""
     packages = Package.objects.filter(active=True).order_by('order')
