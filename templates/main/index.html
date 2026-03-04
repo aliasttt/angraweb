@@ -30,46 +30,6 @@
   }
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How long does it take to build a website?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most websites take between 2 to 4 weeks depending on the project complexity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you build e-commerce websites?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we develop professional e-commerce platforms with payment integrations and product management systems."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Angraweb",
-  "url": "{{ request.scheme }}://{{ request.get_host }}/",
-  "description": "Professional web design, e-commerce development and SEO services.",
-  "areaServed": "Worldwide",
-  "serviceType": [
-    "Web Design",
-    "E-commerce Development",
-    "SEO Optimization",
-    "Software Development"
-  ]
-}
-</script>
 {% endblock %}
 
 {% block content %}
@@ -272,6 +232,31 @@
                         <i class="fab fa-whatsapp"></i> {% trans "Get Quote" %}
                     </a>
                 </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                {% if CURRENT_LANGUAGE == 'tr' %}
+                <p>
+                    Daha fazla bilgi için aşağıdaki sayfalarımızı da inceleyebilirsiniz:
+                    <a href="{% silo_url CURRENT_LANGUAGE 'web-design' 'pillar' %}">Web Tasarım</a>,
+                    <a href="{% silo_url CURRENT_LANGUAGE 'ecommerce-development' 'pillar' %}">E-Ticaret</a>,
+                    <a href="{% silo_url CURRENT_LANGUAGE 'seo-services' 'pillar' %}">SEO Hizmetleri</a>,
+                    <a href="{% silo_url CURRENT_LANGUAGE 'hosting-domain' 'pillar' %}">Hosting</a>,
+                    <a href="{% url 'projects_list' %}">Projeler</a>,
+                    <a href="{% url 'packages_list' %}">Paketler</a>.
+                </p>
+                {% else %}
+                <p>
+                    Learn more about our core services:
+                    <a href="{% silo_url CURRENT_LANGUAGE 'web-design' 'pillar' %}">Web Design</a>,
+                    <a href="{% silo_url CURRENT_LANGUAGE 'ecommerce-development' 'pillar' %}">E-commerce</a>,
+                    <a href="{% silo_url CURRENT_LANGUAGE 'seo-services' 'pillar' %}">SEO Services</a>,
+                    <a href="{% silo_url CURRENT_LANGUAGE 'hosting-domain' 'pillar' %}">Hosting</a>,
+                    <a href="{% url 'projects_list' %}">Projects</a>,
+                    <a href="{% url 'packages_list' %}">Packages</a>.
+                </p>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -710,6 +695,31 @@
     </div>
 </section>
 
+<!-- Free Website Audit Section -->
+<section id="free-website-audit" class="section bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title mb-3">
+                    <span class="text-gradient">Free Website Audit</span>
+                </h2>
+                {% if CURRENT_LANGUAGE == 'tr' %}
+                <p class="mb-4">
+                    Ücretsiz web sitesi analizi alın ve sitenizin nasıl daha fazla müşteri kazanabileceğini öğrenin.
+                </p>
+                {% else %}
+                <p class="mb-4">
+                    Get a free website audit and discover how your website can generate more customers.
+                </p>
+                {% endif %}
+                <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">
+                    {% if CURRENT_LANGUAGE == 'tr' %}Ücretsiz Analiz Talep Et{% else %}Request Free Audit{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Testimonials Section -->
 {% if testimonials %}
 <section id="testimonials" class="section bg-gradient">
@@ -794,4 +804,48 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most websites take between 2 to 4 weeks depending on the project complexity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you build e-commerce websites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we develop professional e-commerce platforms with payment integrations and product management systems."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Angraweb",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/",
+  "description": "Professional web design, e-commerce development and SEO services",
+  "areaServed": "Worldwide",
+  "serviceType": [
+    "Web Design",
+    "E-commerce Development",
+    "SEO Optimization",
+    "Software Development"
+  ]
+}
+</script>
 {% endblock %}
