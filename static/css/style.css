@@ -977,6 +977,20 @@ body[dir="rtl"] .benefit-item {
     will-change: transform;
 }
 
+/* موبایل: سرعت انیمیشن را با پراپرتی کامل override می‌کنیم تا حتماً اعمال شود */
+@media (max-width: 768px) {
+    .home-logo-strip .home-logo-marquee .home-logo-track {
+        gap: 1rem;
+        animation: home-logo-scroll 160s linear infinite !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .home-logo-strip .home-logo-marquee .home-logo-track {
+        animation: home-logo-scroll 240s linear infinite !important;
+    }
+}
+
 .home-logo-item {
     display: flex;
     flex-direction: column;
@@ -1120,11 +1134,6 @@ body[dir="rtl"] .benefit-item {
         contain-intrinsic-size: auto;
     }
 
-    .home-logo-track {
-        gap: 1rem;
-        animation-duration: 140s;
-    }
-
     .hero-visual-carousel .carousel-item img {
         height: 260px;
     }
@@ -1137,12 +1146,6 @@ body[dir="rtl"] .benefit-item {
     .project-card {
         min-height: auto;
         margin-bottom: 0.5rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .home-logo-track {
-        animation-duration: 200s;
     }
 }
 
