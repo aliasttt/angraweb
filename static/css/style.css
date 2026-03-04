@@ -973,7 +973,7 @@ body[dir="rtl"] .benefit-item {
 .home-logo-track {
     display: flex;
     gap: 2rem;
-    animation: home-logo-scroll 24s linear infinite;
+    animation: home-logo-scroll 40s linear infinite;
     will-change: transform;
 }
 
@@ -1009,6 +1009,11 @@ body[dir="rtl"] .benefit-item {
         min-width: 100px;
         padding: 0.5rem 0.75rem;
         font-size: 0.8rem;
+    }
+    
+    .home-logo-strip {
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 }
 
@@ -1093,6 +1098,12 @@ body[dir="rtl"] .benefit-item {
 
 .about-content li {
     color: #e2e8f0 !important;
+}
+
+/* Secondary headings inside hero/animated sections */
+.about-content h4,
+.hero-section h4 {
+    color: #ffffff !important;
 }
 
 /* هر h2 در سکشن (صفحات سرویس و غیره) سفید */
@@ -2193,7 +2204,7 @@ label {
     
     .service-card,
     .project-card {
-        margin-bottom: 2rem;
+        margin-bottom: 1.25rem;
     }
 
     .navbar-brand {
