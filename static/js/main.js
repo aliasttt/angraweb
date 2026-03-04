@@ -1234,6 +1234,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupLazyInit();
     setupIdleTasks();
     initCleanURLs(); // Initialize clean URL handling for links
+    try { initTestimonialsSlider(); } catch (e) {}
     
     // Force all content to be visible - Anti-disappearing fix
     forceContentVisibility();
@@ -1720,6 +1721,87 @@ function changeLanguage(lang) {
     
     // Update page title and meta description
     updatePageMeta(lang);
+}
+
+// Testimonials horizontal slider
+function initTestimonialsSlider() {
+    const section = document.querySelector('#testimonials');
+    if (!section) return;
+
+    const track = section.querySelector('.testimonials-track');
+    const slides = section.querySelectorAll('.testimonial-slide');
+    const prevBtn = section.querySelector('.testimonial-prev');
+    const nextBtn = section.querySelector('.testimonial-next');
+    const dotsContainer = section.querySelector('.testimonial-dots');
+
+    if (!track || slides.length === 0 || !prevBtn || !nextBtn || !dotsContainer) return;
+
+    let currentIndex = 0;
+    let autoTimer = null;
+
+    // Create dots (one per slide group)
+    slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.className = 'testimonial-dot' + (index === 0 ? ' active' : '');
+        dot.dataset.index = index;
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+
+    function updateSlider(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        const offset = -currentIndex * 100;
+        track.style.transform = `translateX(${offset}%)`;
+
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (dots[currentIndex]) {
+            dots[currentIndex].classList.add('active');
+        }
+    }
+
+    function nextSlide() {
+        updateSlider(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        updateSlider(currentIndex - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        restartAuto();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        restartAuto();
+    });
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const index = parseInt(dot.dataset.index || '0', 10);
+            updateSlider(index);
+            restartAuto();
+        });
+    });
+
+    function startAuto() {
+        if (autoTimer) return;
+        autoTimer = setInterval(nextSlide, 6000);
+    }
+
+    function restartAuto() {
+        if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+        }
+        startAuto();
+    }
+
+    // Start slider
+    updateSlider(0);
+    startAuto();
 }
 
 // Update page meta information

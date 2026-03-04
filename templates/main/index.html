@@ -741,43 +741,54 @@
                 </h2>
             </div>
         </div>
-        <div class="row">
-            {% for testimonial in testimonials %}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        {% for i in "12345"|make_list %}
-                            {% if forloop.counter <= testimonial.rating %}
-                            <i class="fas fa-star text-warning"></i>
-                            {% else %}
-                            <i class="far fa-star text-secondary"></i>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <div class="testimonial-content">
-                        <p>{% localized testimonial 'content' current_lang|truncatewords:30 %}</p>
-                    </div>
-                    <div class="testimonial-author">
-                        {% if testimonial.image %}
-                        <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" class="testimonial-avatar">
-                        {% else %}
-                        <div class="testimonial-avatar-placeholder">
-                            <i class="fas fa-user"></i>
+        <div class="testimonials-slider">
+            <div class="testimonials-track">
+                {% for testimonial in testimonials %}
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            {% for i in "12345"|make_list %}
+                                {% if forloop.counter <= testimonial.rating %}
+                                <i class="fas fa-star text-warning"></i>
+                                {% else %}
+                                <i class="far fa-star text-secondary"></i>
+                                {% endif %}
+                            {% endfor %}
                         </div>
-                        {% endif %}
-                        <div class="testimonial-info">
-                            <h5>{{ testimonial.name }}</h5>
-                            {% if testimonial.company %}
-                            <p class="testimonial-company">{{ testimonial.company }}</p>
+                        <div class="testimonial-content">
+                            <p>{% localized testimonial 'content' current_lang|truncatewords:30 %}</p>
+                        </div>
+                        <div class="testimonial-author">
+                            {% if testimonial.image %}
+                            <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" class="testimonial-avatar">
+                            {% else %}
+                            <div class="testimonial-avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
                             {% endif %}
-                            {% if testimonial.position %}
-                            <p class="testimonial-position">{{ testimonial.position }}</p>
-                            {% endif %}
+                            <div class="testimonial-info">
+                                <h5>{{ testimonial.name }}</h5>
+                                {% if testimonial.company %}
+                                <p class="testimonial-company">{{ testimonial.company }}</p>
+                                {% endif %}
+                                {% if testimonial.position %}
+                                <p class="testimonial-position">{{ testimonial.position }}</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+            <div class="testimonials-controls text-center mt-4">
+                <button class="testimonial-prev btn btn-outline-light btn-sm me-2" type="button">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="testimonial-dots d-inline-block"></div>
+                <button class="testimonial-next btn btn-outline-light btn-sm ms-2" type="button">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
         <div class="row mt-4">
             <div class="col-12 text-center">
