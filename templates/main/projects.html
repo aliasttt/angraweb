@@ -3,137 +3,226 @@
 {% load i18n %}
 {% load main_extras %}
 
-{% block title %}{% trans "Projects" %} - {% trans "Video Demos" %} & {% trans "Portfolio" %} | Angraweb.com{% endblock %}
+{% block title %}{% if current_lang == 'tr' %}Projeler | Web Tasarım Örnekleri ve Portfolio - Angraweb{% else %}Projects | Web Development Portfolio - Angraweb{% endif %}{% endblock %}
 
-{% block meta_description %}{% trans "Explore our portfolio of successful projects. Web design, e-commerce, and custom development. Video demos and case studies." %}{% endblock %}
+{% block meta_description %}{% if current_lang == 'tr' %}Gerçek projeler, gerçek sonuçlar. Angraweb web tasarım portfolio sayfasında web tasarım örnekleri, e-ticaret projeleri ve web development projects keşfedin.{% else %}Real projects, real results. Explore our web development portfolio including e-commerce, corporate websites, and custom digital platforms.{% endif %}{% endblock %}
 
-{% block meta_keywords %}portfolio, {% trans "projects" %}, {% trans "web design" %}, case studies, Angraweb{% endblock %}
+{% block meta_keywords %}{% if current_lang == 'tr' %}web tasarım örnekleri, web tasarım portfolio, web development projects, projeler, portfolio, Angraweb{% else %}web development projects, web design portfolio, projects, portfolio, Angraweb{% endif %}{% endblock %}
 
-{% block og_title %}{% trans "Projects" %} - {% trans "Portfolio" %} | Angraweb.com{% endblock %}
+{% block og_title %}{% if current_lang == 'tr' %}Projeler | Angraweb Portfolio{% else %}Projects | Angraweb Portfolio{% endif %}{% endblock %}
 
-{% block og_description %}{% trans "Explore our portfolio of successful projects" %}{% endblock %}
+{% block og_description %}{% if current_lang == 'tr' %}Farklı sektörlerden geliştirdiğimiz projeleri inceleyin.{% else %}Explore successful projects we built across different industries.{% endif %}{% endblock %}
+
+{% block extra_css %}
+<style>
+.projects-intro-box { background: linear-gradient(135deg, rgba(116,185,255,0.12), rgba(99,102,241,0.08)); border: 1px solid rgba(116,185,255,0.3); border-radius: 18px; padding: 1.5rem; max-width: 920px; margin: 0 auto; box-shadow: 0 14px 36px rgba(0,0,0,0.2); }
+.projects-intro-box p { margin: 0; color: rgba(255,255,255,0.92); }
+.project-showcase-item { margin-bottom: 3.25rem; }
+.project-showcase-card { background: rgba(116,185,255,0.06); border: 1px solid rgba(116,185,255,0.22); border-radius: 18px; padding: 1.25rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.project-showcase-card:hover { transform: translateY(-4px); box-shadow: 0 16px 42px rgba(0,0,0,0.26); }
+.project-visual { border-radius: 14px; overflow: hidden; border: 1px solid rgba(116,185,255,0.3); position: relative; min-height: 240px; }
+.project-visual img { width: 100%; height: 100%; min-height: 240px; object-fit: cover; display: block; }
+.project-visual .placeholder-content { min-height: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.8); gap: 0.5rem; }
+.project-meta-top { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+.project-title { color: #fff; margin: 0; font-size: 1.55rem; }
+.project-type-badge { display: inline-flex; align-items: center; background: rgba(116,185,255,0.18); border: 1px solid rgba(116,185,255,0.35); color: #eaf4ff; border-radius: 999px; padding: 0.35rem 0.75rem; font-size: 0.8rem; }
+.project-description p { color: rgba(255,255,255,0.9); margin-bottom: 0.7rem; }
+.tech-title { color: #fff; font-size: 1rem; margin: 0.35rem 0 0.55rem 0; }
+.tech-tags-container { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.tech-tag-large { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(99,102,241,0.15)); border: 1px solid rgba(116,185,255,0.35); color: #fff; border-radius: 999px; padding: 0.32rem 0.75rem; font-size: 0.82rem; }
+.project-footer { margin-top: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+.project-domain-large { display: inline-flex; align-items: center; gap: 0.4rem; color: rgba(255,255,255,0.9); font-size: 0.9rem; }
+.project-domain-large a { color: #74b9ff; text-decoration: none; }
+.project-domain-large a:hover { text-decoration: underline; }
+.projects-animate { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.projects-animate.visible { opacity: 1; transform: translateY(0); }
+</style>
+{% endblock %}
 
 {% block content %}
 <section class="page-hero" style="margin-bottom: 2rem;">
     <div class="container">
-        <h1 class="hero-title">
-            <span class="text-gradient">{% trans "Projects" %}</span>
+        <h1 class="hero-title projects-animate visible">
+            <span class="text-gradient">{% if current_lang == 'tr' %}Projeler{% else %}Projects{% endif %}</span>
         </h1>
-        <p class="hero-subtitle" style="margin-bottom: 0;">{% trans "Explore our portfolio of successful projects" %}</p>
+        <p class="hero-subtitle projects-animate visible" style="margin-bottom: 1.2rem;">{% if current_lang == 'tr' %}Gerçek projeler, gerçek sonuçlar{% else %}Real projects, real results{% endif %}</p>
+        <div class="projects-intro-box projects-animate visible">
+            <p>
+                {% if current_lang == 'tr' %}
+                Gerçek projeler, gerçek sonuçlar. Angraweb olarak farklı sektörlerden işletmeler için modern web siteleri, e-ticaret platformları ve dijital sistemler geliştiriyoruz.
+                {% else %}
+                Real projects, real results. Explore some of the websites, platforms, and digital systems we have developed for businesses.
+                {% endif %}
+            </p>
+        </div>
     </div>
 </section>
 
-<section id="projects" class="section" style="padding-top: 2rem;">
+<section id="projects" class="section" style="padding-top: 1.5rem;">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="section-title text-center mb-4">
-                    <span class="text-gradient">{% trans "My Projects" %}</span>
-                </h2>
-            </div>
-        </div>
-        
         <div class="projects-list-container">
             {% for project in projects %}
-            <div class="project-item-large mb-5">
-                <div class="project-item-wrapper">
-                    {% if project.image %}
-                    <div class="project-image-large">
-                        <img src="{{ project.image.url }}" alt="{% localized project 'title' current_lang %}" loading="lazy">
-                        <div class="project-image-overlay">
-                            <a href="{{ project.url }}" class="btn btn-light btn-lg" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
-                            </a>
-                        </div>
-                    </div>
-                    {% elif project.url %}
-                    <div class="project-image-large">
-                        {% localized project 'title' current_lang as project_title %}
-                        {% if project.slug == 'firmentshirt-custom-tshirt-printing' %}
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
-                        {% elif project.slug == 'bonus-berlin-qr-menu-loyalty' %}
-                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
-                        {% elif project.slug == 'kanoon-hamyari-persian-community' %}
-                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
-                        {% elif project.slug == 'pier-insaat-construction' %}
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
-                        {% elif project.slug == 'kalici-makyaj-monir-permanent-makeup' %}
-                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
-                        {% elif project.slug == 'angraweb-portfolio' %}
-                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
-                        {% elif project.slug == 'hedef-surucu-kursu-driving-school' %}
-                            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
-                        {% elif project.slug == 'gezgin-ustalar-home-services' %}
-                            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
-                        {% else %}
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
-                        {% endif %}
-                        <div class="project-image-overlay">
-                            <a href="{{ project.url }}" class="btn btn-light btn-lg" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
-                            </a>
-                        </div>
-                    </div>
-                    {% else %}
-                    <div class="project-image-large project-image-placeholder">
-                        <div class="placeholder-content">
-                            <i class="fas fa-globe fa-4x"></i>
-                            <p>{% localized project 'title' current_lang %}</p>
-                        </div>
-                    </div>
-                    {% endif %}
-                    <div class="project-content-large">
-                        <div class="project-header">
-                            <h2 class="project-title-large">{% localized project 'title' current_lang %}</h2>
-                            {% if project.domain %}
-                            <div class="project-domain-large">
-                                <i class="fas fa-globe me-2"></i>
-                                <a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.domain }}</a>
+            <article class="project-showcase-item projects-animate">
+                <div class="project-showcase-card">
+                    <div class="row align-items-center g-4">
+                        <div class="col-12 col-lg-6 {% if forloop.counter|divisibleby:'2' %}order-lg-2{% endif %}">
+                            {% if project.image %}
+                            <div class="project-visual">
+                                <img src="{{ project.image.url }}" alt="{% localized project 'title' current_lang %}" loading="lazy">
                             </div>
-                            {% endif %}
-                        </div>
-                        
-                        <div class="project-description-full">
-                            <p>{% localized project 'description' current_lang %}</p>
-                        </div>
-                        
-                        {% if project.technologies %}
-                        <div class="project-technologies">
-                            <h4 class="tech-title">
-                                <i class="fas fa-code me-2"></i>{% trans "Technologies Used" %}:
-                            </h4>
-                            <div class="tech-tags-container">
-                                {% for tech in project.get_technologies_list %}
-                                <span class="tech-tag-large">{{ tech }}</span>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        {% endif %}
-                        
-                        <div class="project-footer">
-                            <div class="project-type-badge">
-                                <i class="fas fa-tag me-2"></i>
-                                {% if project.project_type == 'web' %}
-                                    {% trans "Web Development" %}
-                                {% elif project.project_type == 'ecommerce' %}
-                                    {% trans "E-Commerce" %}
-                                {% elif project.project_type == 'mobile' %}
-                                    {% trans "Mobile App" %}
-                                {% elif project.project_type == 'platform' %}
-                                    {% trans "Platform" %}
+                            {% elif project.url %}
+                            <div class="project-visual">
+                                {% localized project 'title' current_lang as project_title %}
+                                {% if project.slug == 'firmentshirt-custom-tshirt-printing' %}
+                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1400&h=900&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                                {% elif project.slug == 'bonus-berlin-qr-menu-loyalty' %}
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&h=900&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                                {% elif project.slug == 'kanoon-hamyari-persian-community' %}
+                                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&h=900&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                                {% elif project.slug == 'pier-insaat-construction' %}
+                                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=900&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                                {% elif project.slug == 'kalici-makyaj-monir-permanent-makeup' %}
+                                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1400&h=900&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                                {% elif project.slug == 'angraweb-portfolio' %}
+                                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1400&h=900&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                                {% elif project.slug == 'hedef-surucu-kursu-driving-school' %}
+                                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1400&h=900&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
+                                {% elif project.slug == 'gezgin-ustalar-home-services' %}
+                                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1400&h=900&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
                                 {% else %}
-                                    {% trans "Other" %}
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=900&fit=crop&q=80" alt="{{ project_title }}" loading="lazy">
                                 {% endif %}
                             </div>
-                            {% if project.url %}
-                            <a href="{{ project.url }}" class="btn btn-primary btn-lg project-visit-btn-large" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
-                            </a>
+                            {% else %}
+                            <div class="project-visual">
+                                <div class="placeholder-content">
+                                    <i class="fas fa-globe fa-3x"></i>
+                                    <p>{% localized project 'title' current_lang %}</p>
+                                </div>
+                            </div>
                             {% endif %}
+                        </div>
+                        <div class="col-12 col-lg-6 {% if forloop.counter|divisibleby:'2' %}order-lg-1{% endif %}">
+                            <div class="project-meta-top">
+                                <h2 class="project-title">{% localized project 'title' current_lang %}</h2>
+                                <span class="project-type-badge">
+                                    <i class="fas fa-tag me-2"></i>
+                                    {% if project.project_type == 'web' %}
+                                        {% trans "Web Development" %}
+                                    {% elif project.project_type == 'ecommerce' %}
+                                        {% trans "E-Commerce" %}
+                                    {% elif project.project_type == 'mobile' %}
+                                        {% trans "Mobile App" %}
+                                    {% elif project.project_type == 'platform' %}
+                                        {% trans "Platform" %}
+                                    {% else %}
+                                        {% trans "Other" %}
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                            <div class="project-description">
+                                {% if current_lang == 'tr' %}
+                                    {% if project.slug == 'firmentshirt-custom-tshirt-printing' %}
+                                    <p>Firmentshirt, kullanıcıların kendi tasarımlarını oluşturup sipariş verebildiği modern bir e-ticaret platformudur. Platform; tişört, şapka, kupa ve apron gibi ürünler için özelleştirme seçenekleri sunar.</p>
+                                    <p>Sistem içerisinde gelişmiş ürün tasarım aracı, çok dilli destek (Almanca / İngilizce) ve güvenli ödeme entegrasyonları bulunmaktadır. Kullanıcı deneyimi ve performans odaklı geliştirilen bu proje, hızlı ve ölçeklenebilir bir e-ticaret altyapısına sahiptir.</p>
+                                    {% elif project.slug == 'bonus-berlin-qr-menu-loyalty' %}
+                                    <p>Bonus Berlin, restoranlar ve işletmeler için geliştirilen kapsamlı bir QR menü ve müşteri sadakat platformudur.</p>
+                                    <p>Sistem; dijital menüler, sadakat puanı sistemi, müşteri yorumları, bildirimler ve işletme yönetim paneli gibi özellikler içerir. Web uygulaması ve mobil uygulama olarak tasarlanan platform, restoranların müşteri etkileşimini artırmasına yardımcı olur.</p>
+                                    {% elif project.slug == 'kanoon-hamyari-persian-community' %}
+                                    <p>Kanoon Hamyari, Türkiye'de yaşayan Farsça konuşan topluluk için geliştirilmiş kapsamlı bir topluluk ve hizmet platformudur.</p>
+                                    <p>Platform; etkinlikler, tur organizasyonları, emlak hizmetleri, reklam, eğitim danışmanlığı ve iş destek hizmetleri gibi birçok özelliği bir araya getirir. Çok dilli yapısı (Farsça, Türkçe, İngilizce) sayesinde kullanıcıların kolayca iletişim kurmasını sağlar.</p>
+                                    {% elif project.slug == 'pier-insaat-construction' %}
+                                    <p>Pier İnşaat için geliştirilen bu proje, şirketin inşaat ve spor tesisleri alanındaki projelerini tanıtan modern bir kurumsal web sitesidir.</p>
+                                    <p>Site içerisinde proje portföyü, proje ilerleme takibi, müşteri referansları ve şirket hakkında detaylı bilgiler yer almaktadır. Kullanıcı dostu tasarım ve SEO uyumlu altyapı ile dijital görünürlük güçlendirilmiştir.</p>
+                                    {% elif project.slug == 'kalici-makyaj-monir-permanent-makeup' %}
+                                    <p>İstanbul'da faaliyet gösteren Kalıcı Makyaj Monir için geliştirilen bu web sitesi, profesyonel bir güzellik ve hizmet platformu olarak tasarlanmıştır.</p>
+                                    <p>Sistem; hizmet rezervasyonu, portföy galerisi, müşteri yorumları ve eğitim programları gibi özellikler içerir. Modern tasarım ve mobil uyumlu altyapı sayesinde kullanıcılar hizmetleri kolayca inceleyip randevu oluşturabilir.</p>
+                                    {% elif project.slug == 'angraweb-portfolio' %}
+                                    <p>Angraweb için geliştirilen bu web sitesi, şirketin hizmetlerini, projelerini ve yazılım çözümlerini tanıtan modern bir kurumsal portföy platformudur.</p>
+                                    <p>SEO uyumlu altyapısı, hızlı performansı ve mobil uyumlu tasarımı ile işletmeler için geliştirilen projeleri sergilemek amacıyla tasarlanmıştır.</p>
+                                    {% elif project.slug == 'hedef-surucu-kursu-driving-school' %}
+                                    <p>Diyarbakır'da faaliyet gösteren Hedef Sürücü Kursu için geliştirilen bu web sitesi, kurs hizmetlerini tanıtan modern bir eğitim platformudur.</p>
+                                    <p>Site içerisinde kurs bilgileri, eğitmen profilleri, öğrenci yorumları, duyurular ve sık sorulan sorular bölümü bulunmaktadır. SEO uyumlu tasarım sayesinde kurumun dijital görünürlüğü artırılmıştır.</p>
+                                    {% elif project.slug == 'gezgin-ustalar-home-services' %}
+                                    <p>Gezgin Ustalar, İstanbul'da ev hizmetleri sunan işletmeler için geliştirilen kapsamlı bir hizmet platformudur.</p>
+                                    <p>Platform üzerinden kullanıcılar boya, tadilat, dekorasyon ve bakım hizmetleri için kolayca talep oluşturabilir. Sistem; hizmet rezervasyonu, portföy galerisi ve müşteri yorumları gibi özellikler içerir.</p>
+                                    {% else %}
+                                    <p>{% localized project 'description' current_lang %}</p>
+                                    {% endif %}
+                                {% else %}
+                                    {% if project.slug == 'firmentshirt-custom-tshirt-printing' %}
+                                    <p>Firmentshirt is a modern e-commerce platform that allows customers to design and order custom products online.</p>
+                                    <p>The platform includes product customization tools, multi-language support (German / English), and integrated payment systems. The project was developed with performance and scalability in mind.</p>
+                                    {% elif project.slug == 'bonus-berlin-qr-menu-loyalty' %}
+                                    <p>Bonus Berlin is a comprehensive QR menu and customer loyalty platform developed for restaurants and businesses.</p>
+                                    <p>The system includes digital menus, loyalty points, customer reviews, notifications, and a business dashboard. The platform is available as both a web application and a mobile application.</p>
+                                    {% elif project.slug == 'kanoon-hamyari-persian-community' %}
+                                    <p>Kanoon Hamyari is a community platform designed for Persian speakers living in Turkey.</p>
+                                    <p>The platform offers services such as events, tourism, real estate, advertising, educational consulting, and business support with multi-language support.</p>
+                                    {% elif project.slug == 'pier-insaat-construction' %}
+                                    <p>This project was developed for Pier İnşaat, a company specializing in residential and sports facility construction.</p>
+                                    <p>The website presents company projects, portfolio information, project progress tracking, and customer testimonials with SEO and performance in mind.</p>
+                                    {% elif project.slug == 'kalici-makyaj-monir-permanent-makeup' %}
+                                    <p>This website was developed for Kalıcı Makyaj Monir, a beauty studio located in Istanbul.</p>
+                                    <p>The platform includes service booking, portfolio galleries, customer reviews, and training programs with a modern mobile-friendly user experience.</p>
+                                    {% elif project.slug == 'angraweb-portfolio' %}
+                                    <p>The Angraweb website is a corporate portfolio platform showcasing the company's services, projects, and software solutions.</p>
+                                    <p>The site was developed with SEO optimization, fast performance, and responsive design.</p>
+                                    {% elif project.slug == 'hedef-surucu-kursu-driving-school' %}
+                                    <p>This project was developed for a professional driving school located in Diyarbakır.</p>
+                                    <p>The website includes course information, instructor profiles, student testimonials, announcements, and FAQ sections.</p>
+                                    {% elif project.slug == 'gezgin-ustalar-home-services' %}
+                                    <p>Gezgin Ustalar is a home services platform developed for service providers in Istanbul.</p>
+                                    <p>The system allows users to request services such as renovation, decoration, insulation, and repair.</p>
+                                    {% else %}
+                                    <p>{% localized project 'description' current_lang %}</p>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+
+                            <div class="project-technologies">
+                                <h4 class="tech-title"><i class="fas fa-code me-2"></i>{% if current_lang == 'tr' %}Kullanılan Teknolojiler{% else %}Technologies Used{% endif %}</h4>
+                                <div class="tech-tags-container">
+                                    {% if project.slug == 'firmentshirt-custom-tshirt-printing' %}
+                                        <span class="tech-tag-large">Python</span><span class="tech-tag-large">Django</span><span class="tech-tag-large">E-Commerce Systems</span><span class="tech-tag-large">Payment Integration</span><span class="tech-tag-large">Multi-language Support</span>
+                                    {% elif project.slug == 'bonus-berlin-qr-menu-loyalty' %}
+                                        <span class="tech-tag-large">Django</span><span class="tech-tag-large">Python</span><span class="tech-tag-large">React</span><span class="tech-tag-large">Firebase</span><span class="tech-tag-large">JWT Authentication</span>
+                                    {% elif project.slug == 'kanoon-hamyari-persian-community' %}
+                                        <span class="tech-tag-large">Python</span><span class="tech-tag-large">Django</span><span class="tech-tag-large">Multi-language Systems</span><span class="tech-tag-large">Community Platform</span><span class="tech-tag-large">Social Features</span>
+                                    {% elif project.slug == 'pier-insaat-construction' %}
+                                        <span class="tech-tag-large">Python</span><span class="tech-tag-large">Django</span><span class="tech-tag-large">Project Portfolio Systems</span><span class="tech-tag-large">Progress Tracking</span><span class="tech-tag-large">Client Testimonials</span>
+                                    {% elif project.slug == 'kalici-makyaj-monir-permanent-makeup' %}
+                                        <span class="tech-tag-large">Python</span><span class="tech-tag-large">Django</span><span class="tech-tag-large">Appointment Booking System</span><span class="tech-tag-large">Portfolio Gallery</span><span class="tech-tag-large">Customer Reviews</span>
+                                    {% elif project.slug == 'angraweb-portfolio' %}
+                                        <span class="tech-tag-large">Django</span><span class="tech-tag-large">HTML</span><span class="tech-tag-large">CSS</span><span class="tech-tag-large">JavaScript</span>
+                                    {% elif project.slug == 'hedef-surucu-kursu-driving-school' %}
+                                        <span class="tech-tag-large">Python</span><span class="tech-tag-large">Django</span><span class="tech-tag-large">Course Management</span><span class="tech-tag-large">Testimonials</span><span class="tech-tag-large">FAQ Systems</span>
+                                    {% elif project.slug == 'gezgin-ustalar-home-services' %}
+                                        <span class="tech-tag-large">Python</span><span class="tech-tag-large">Django</span><span class="tech-tag-large">Service Booking</span><span class="tech-tag-large">Portfolio Gallery</span><span class="tech-tag-large">Customer Reviews</span>
+                                    {% elif project.technologies %}
+                                        {% for tech in project.get_technologies_list %}
+                                        <span class="tech-tag-large">{{ tech }}</span>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="project-footer">
+                                {% if project.url %}
+                                <div class="project-domain-large">
+                                    <i class="fas fa-globe"></i>
+                                    <a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.domain|default:project.url }}</a>
+                                </div>
+                                <a href="{{ project.url }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt me-2"></i> {% trans "Visit Website" %}
+                                </a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </article>
             {% empty %}
             <div class="col-12">
                 <div class="no-projects-message">
@@ -143,7 +232,7 @@
             </div>
             {% endfor %}
         </div>
-        
+
         {% if projects.has_other_pages %}
         <div class="row mt-5">
             <div class="col-12">
@@ -167,7 +256,7 @@
             </div>
         </div>
         {% endif %}
-        
+
         {% if videos %}
         <div class="row mt-5 mb-5" style="margin-top: 4rem !important;">
             <div class="col-12">
@@ -192,5 +281,23 @@
         {% endif %}
     </div>
 </section>
+{% endblock %}
 
+{% block extra_js %}
+<script>
+(function() {
+    function initProjectsAnimate() {
+        var els = document.querySelectorAll('.projects-animate');
+        if (!els.length) return;
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+        els.forEach(function(el) { observer.observe(el); });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initProjectsAnimate);
+    else initProjectsAnimate();
+})();
+</script>
 {% endblock %}
