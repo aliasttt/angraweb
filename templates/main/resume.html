@@ -3,132 +3,172 @@
 {% load i18n %}
 {% load main_extras %}
 
-{% block title %}{% if current_lang == 'tr' %}Özgeçmiş ve Sertifikalar | Yazılım Geliştirici - Angraweb{% else %}Resume & Certificates | Software Developer - Angraweb{% endif %}{% endblock %}
+{% block title %}{% if current_lang == 'tr' %}Yazılım Geliştirme Ekibimiz | Angraweb{% else %}Our Development Team | Angraweb{% endif %}{% endblock %}
 
-{% block meta_description %}{% if current_lang == 'tr' %}Ali Asadi özgeçmiş ve sertifikalar. Python, Django, e-ticaret ve SEO uyumlu web geliştirme. Yazılım geliştirici portföyü.{% else %}Ali Asadi resume and certificates. Python, Django, e-commerce and SEO-optimized web development. Software developer portfolio.{% endif %}{% endblock %}
+{% block meta_description %}{% if current_lang == 'tr' %}Angraweb yazılım geliştirme ekibi: Ali Asadi ve Mahsun Kaya. Web, mobil, e-ticaret ve ölçeklenebilir dijital platform geliştirme uzmanları.{% else %}Meet the Angraweb software development team: Ali Asadi and Mahsun Kaya. Experts in web, mobile, e-commerce, and scalable digital platforms.{% endif %}{% endblock %}
 
-{% block meta_keywords %}{% if current_lang == 'tr' %}özgeçmiş, sertifika, yazılım geliştirici, web developer, Python, Django, Angraweb{% else %}resume, certificates, software developer, web developer, Python, Django, Angraweb{% endif %}{% endblock %}
+{% block meta_keywords %}{% if current_lang == 'tr' %}yazılım geliştirme ekibi, full stack developer, react native developer, team, Angraweb{% else %}development team, full stack developer, react native developer, software agency, Angraweb{% endif %}{% endblock %}
 
-{% block og_title %}{% if current_lang == 'tr' %}Özgeçmiş ve Sertifikalar | Angraweb{% else %}Resume & Certificates | Angraweb{% endif %}{% endblock %}
+{% block og_title %}{% if current_lang == 'tr' %}Yazılım Geliştirme Ekibimiz | Angraweb{% else %}Our Development Team | Angraweb{% endif %}{% endblock %}
 
-{% block og_description %}{% if current_lang == 'tr' %}Yazılım geliştirici özgeçmişi ve sertifikalar. Web geliştirme, e-ticaret, SEO.{% else %}Software developer resume and certificates. Web development, e-commerce, SEO.{% endif %}{% endblock %}
+{% block og_description %}{% if current_lang == 'tr' %}Web ve mobil projeler için profesyonel yazılım geliştirme ekibi.{% else %}Professional software development team for web and mobile projects.{% endif %}{% endblock %}
 
 {% block extra_css %}
 <style>
-.resume-hero-visual { border-radius: 20px; overflow: hidden; border: 1px solid rgba(116,185,255,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-.resume-profile-card { background: linear-gradient(135deg, rgba(116,185,255,0.1), rgba(99,102,241,0.06)); border: 1px solid rgba(116,185,255,0.28); border-radius: 18px; padding: 1.5rem; }
-.resume-profile-img { border-radius: 16px; overflow: hidden; border: 1px solid rgba(116,185,255,0.3); min-height: 260px; }
-.resume-profile-img img { width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
-.resume-tech-icon { width: 52px; height: 52px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #fff; margin: 0.35rem; transition: transform 0.25s ease; }
-.resume-tech-icon:hover { transform: scale(1.1); }
-.resume-cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-@media (max-width: 991px) { .resume-cert-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 575px) { .resume-cert-grid { grid-template-columns: 1fr; } }
-.resume-cert-card { background: rgba(116,185,255,0.06); border: 1px solid rgba(116,185,255,0.25); border-radius: 16px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.resume-cert-card:hover { transform: scale(1.03); box-shadow: 0 16px 40px rgba(116,185,255,0.2); }
-.resume-cert-card .certificate-image-container { height: 180px; }
-.resume-cert-card .certificate-content { padding: 1rem; color: #fff; }
-.resume-cert-card .certificate-content h5 { margin: 0 0 0.35rem 0; font-size: 1rem; }
-.resume-cert-card .certificate-content p { margin: 0; color: rgba(255,255,255,0.8); font-size: 0.88rem; }
-.resume-cert-card .certificate-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
-.resume-cert-card:hover .certificate-overlay { opacity: 1; }
-.resume-timeline-item { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
-.resume-timeline-marker { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #74b9ff, #0984e3); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; }
-.resume-timeline-body h4 { color: #fff; margin: 0 0 0.25rem 0; font-size: 1.05rem; }
-.resume-timeline-body p { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.9rem; }
-.resume-skill-tag { display: inline-block; background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(99,102,241,0.12)); border: 1px solid rgba(116,185,255,0.35); color: #fff; border-radius: 999px; padding: 0.5rem 1rem; margin: 0.35rem; font-size: 0.9rem; transition: transform 0.2s ease; }
-.resume-skill-tag:hover { transform: scale(1.05); }
-.resume-animate { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
-.resume-animate.visible { opacity: 1; transform: translateY(0); }
+.team-hero-card { background: linear-gradient(135deg, rgba(116,185,255,0.13), rgba(99,102,241,0.08)); border: 1px solid rgba(116,185,255,0.3); border-radius: 18px; padding: 1.2rem 1.4rem; max-width: 940px; margin: 0 auto; }
+.team-member-card { background: rgba(116,185,255,0.06); border: 1px solid rgba(116,185,255,0.25); border-radius: 18px; padding: 1.2rem; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.team-member-card:hover { transform: translateY(-6px); box-shadow: 0 16px 44px rgba(0,0,0,0.28); }
+.team-member-photo { border-radius: 14px; overflow: hidden; border: 1px solid rgba(116,185,255,0.3); min-height: 300px; }
+.team-member-photo img { width: 100%; min-height: 300px; object-fit: cover; }
+.team-role { color: #74b9ff; font-weight: 700; font-size: 0.95rem; }
+.team-member-bio { color: rgba(255,255,255,0.9); line-height: 1.8; font-size: 0.95rem; }
+.team-list { list-style: none; padding-left: 0; margin-bottom: 0.9rem; }
+.team-list li { color: rgba(255,255,255,0.92); margin-bottom: 0.35rem; font-size: 0.92rem; }
+.team-list i { color: #74b9ff; margin-right: 0.4rem; }
+.team-tag { display: inline-block; background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(99,102,241,0.1)); border: 1px solid rgba(116,185,255,0.35); color: #fff; border-radius: 999px; padding: 0.38rem 0.82rem; margin: 0.25rem; font-size: 0.82rem; }
+.team-tech-stack { display: grid; grid-template-columns: repeat(4, minmax(120px, 1fr)); gap: 0.9rem; }
+@media (max-width: 991px) { .team-tech-stack { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
+@media (max-width: 575px) { .team-tech-stack { grid-template-columns: 1fr; } }
+.team-tech-item { background: rgba(116,185,255,0.08); border: 1px solid rgba(116,185,255,0.25); border-radius: 14px; padding: 0.9rem; text-align: center; color: #fff; transition: transform 0.25s ease; }
+.team-tech-item:hover { transform: scale(1.04); }
+.team-tech-icon { font-size: 1.35rem; margin-bottom: 0.35rem; display: inline-block; color: #74b9ff; }
+.team-cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 991px) { .team-cert-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 575px) { .team-cert-grid { grid-template-columns: 1fr; } }
+.team-cert-card { background: rgba(116,185,255,0.06); border: 1px solid rgba(116,185,255,0.25); border-radius: 16px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.team-cert-card:hover { transform: scale(1.03); box-shadow: 0 16px 40px rgba(116,185,255,0.2); }
+.team-cert-card .certificate-image-container { height: 180px; position: relative; }
+.team-cert-card .certificate-image { width: 100%; height: 100%; object-fit: cover; }
+.team-cert-card .certificate-content { padding: 1rem; color: #fff; }
+.team-cert-card .certificate-content h5 { margin: 0 0 0.35rem 0; font-size: 1rem; }
+.team-cert-card .certificate-content p { margin: 0; color: rgba(255,255,255,0.8); font-size: 0.88rem; }
+.team-cert-card .certificate-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.58); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+.team-cert-card:hover .certificate-overlay { opacity: 1; }
+.team-animate { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.team-animate.visible { opacity: 1; transform: translateY(0); }
 </style>
 {% endblock %}
 
 {% block content %}
-<!-- Hero -->
 <section class="page-hero">
     <div class="container">
-        <h1 class="hero-title resume-animate visible">
-            <span class="text-gradient">{% if current_lang == 'tr' %}Yazılım Geliştirici Özgeçmişi{% else %}Software Developer Resume{% endif %}</span>
+        <h1 class="hero-title team-animate visible">
+            <span class="text-gradient">{% if current_lang == 'tr' %}Yazılım Geliştirme Ekibimiz{% else %}Our Development Team{% endif %}</span>
         </h1>
-        <p class="hero-subtitle mt-2 resume-animate visible">{% if current_lang == 'tr' %}Özgeçmiş ve Sertifikalar{% else %}Resume & Certificates{% endif %}</p>
+        <p class="hero-subtitle mt-2 team-animate visible">{% if current_lang == 'tr' %}Web, mobil ve ölçeklenebilir dijital çözümler geliştiren profesyonel ekip{% else %}A professional team building web, mobile, and scalable digital solutions{% endif %}</p>
+        <div class="team-hero-card mt-3 team-animate visible">
+            <p class="mb-0" style="color: rgba(255,255,255,0.92); line-height: 1.85;">
+                {% if current_lang == 'tr' %}
+                Angraweb, Istanbul merkezli bir yazılım geliştirme ekibi olarak modern web ve mobil teknolojileri kullanarak işletmeler için dijital çözümler üretmektedir. Amacımız yalnızca yazılım geliştirmek değil, işletmeler için büyümeyi destekleyen güçlü dijital platformlar oluşturmaktır.
+                {% else %}
+                Angraweb is a software development team based in Istanbul specializing in modern web and mobile technologies. Our goal is not just to build software but to create digital solutions that help businesses grow online.
+                {% endif %}
+            </p>
+        </div>
     </div>
 </section>
 
-<!-- Professional Profile -->
 <section class="section">
     <div class="container">
-        <div class="resume-profile-card resume-animate">
-            <div class="row align-items-center g-4">
-                <div class="col-12 col-lg-7">
-                    <h2 class="section-title mb-3">{% if current_lang == 'tr' %}Profesyonel Profil{% else %}Professional Profile{% endif %}</h2>
-                    {% if current_lang == 'tr' %}
-                    <p class="mb-2" style="color: rgba(255,255,255,0.92); line-height: 1.85;">Ali Asadi, modern web teknolojileri ile çalışan bir yazılım geliştirici ve web developer olarak işletmeler için ölçeklenebilir dijital çözümler geliştirmektedir.</p>
-                    <p class="mb-2" style="color: rgba(255,255,255,0.92); line-height: 1.85;">Python ve Django tabanlı web uygulamaları, e-ticaret platformları ve özel yazılım projeleri geliştirerek işletmelerin dijital dünyada güçlü bir varlık oluşturmasına yardımcı olmaktadır.</p>
-                    <p class="mb-0" style="color: rgba(255,255,255,0.92); line-height: 1.85;">Modern yazılım mimarisi, performans optimizasyonu ve SEO uyumlu web geliştirme yaklaşımı ile projelerde yüksek kalite standartları hedeflenmektedir.</p>
-                    {% else %}
-                    <p class="mb-2" style="color: rgba(255,255,255,0.92); line-height: 1.85;">Ali Asadi is a software developer and web developer focused on building modern digital solutions for businesses.</p>
-                    <p class="mb-2" style="color: rgba(255,255,255,0.92); line-height: 1.85;">Specialized in Python and Django development, he creates scalable web applications, e-commerce platforms, and custom digital systems that help companies grow online.</p>
-                    <p class="mb-0" style="color: rgba(255,255,255,0.92); line-height: 1.85;">With a strong focus on performance, security, and SEO-optimized development, each project is built to meet high professional standards.</p>
-                    {% endif %}
-                </div>
-                <div class="col-12 col-lg-5 text-center">
-                    <div class="resume-hero-visual resume-profile-img">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="{% if current_lang == 'tr' %}Yazılım Geliştirici{% else %}Software Developer{% endif %}" loading="lazy">
+        <div class="row g-4">
+            <div class="col-12 col-lg-6">
+                <article class="team-member-card team-animate">
+                    <div class="team-member-photo mb-3">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Ali Asadi" loading="lazy">
                     </div>
-                </div>
+                    <h2 class="h4 text-white mb-1">Ali Asadi</h2>
+                    <div class="team-role mb-3">{% if current_lang == 'tr' %}Founder & Full-Stack Web Developer{% else %}Founder & Full-Stack Web Developer{% endif %}</div>
+                    {% if current_lang == 'tr' %}
+                    <p class="team-member-bio">Ali Asadi, Angraweb'in kurucusu ve Full-Stack Web Developer olarak web uygulamaları, e-ticaret platformları ve özel yazılım sistemleri geliştirmektedir. Python ve Django teknolojileri üzerine uzmanlaşmış olup modern web mimarileri ile işletmeler için yüksek performanslı dijital platformlar geliştirmektedir.</p>
+                    <p class="team-member-bio">Web tasarım, backend geliştirme, SEO uyumlu mimari ve ölçeklenebilir sistemler konusunda deneyime sahiptir.</p>
+                    <h3 class="h6 text-white mt-3 mb-2">Uzmanlık Alanları</h3>
+                    {% else %}
+                    <p class="team-member-bio">Ali Asadi is the founder of Angraweb and a Full-Stack Web Developer specializing in web applications, e-commerce platforms, and scalable software systems. He focuses on Python and Django development while building modern high-performance web platforms for businesses.</p>
+                    <p class="team-member-bio">His expertise includes backend architecture, web design, SEO-optimized systems, and scalable infrastructure.</p>
+                    <h3 class="h6 text-white mt-3 mb-2">Core Expertise</h3>
+                    {% endif %}
+                    <ul class="team-list">
+                        <li><i class="fas fa-check"></i>Web Application Development</li>
+                        <li><i class="fas fa-check"></i>Python & Django Development</li>
+                        <li><i class="fas fa-check"></i>E-Commerce Development</li>
+                        <li><i class="fas fa-check"></i>SEO Optimized Web Development</li>
+                        <li><i class="fas fa-check"></i>API Development</li>
+                        <li><i class="fas fa-check"></i>Cloud Deployment</li>
+                    </ul>
+                    <div>
+                        <span class="team-tag">Python</span>
+                        <span class="team-tag">Django</span>
+                        <span class="team-tag">REST API</span>
+                        <span class="team-tag">PostgreSQL</span>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-lg-6">
+                <article class="team-member-card team-animate">
+                    <div class="team-member-photo mb-3">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Mahsun Kaya" loading="lazy">
+                    </div>
+                    <h2 class="h4 text-white mb-1">Mahsun Kaya</h2>
+                    <div class="team-role mb-3">{% if current_lang == 'tr' %}Senior React Native Developer{% else %}Senior React Native Developer{% endif %}</div>
+                    {% if current_lang == 'tr' %}
+                    <p class="team-member-bio">Mahsun Kaya, mobil uygulama geliştirme alanında 6 yıldan fazla deneyime sahip bir Senior React Native Developer'dır. React Native, TypeScript ve modern mobil geliştirme teknolojileri ile yüksek performanslı iOS ve Android uygulamaları geliştirmektedir.</p>
+                    <p class="team-member-bio">Sibche gibi buyuk olcekli mobil platformlarda calismis ve mobil uygulama performansini onemli olcude artiran sistemler gelistirmistir.</p>
+                    <h3 class="h6 text-white mt-3 mb-2">Uzmanlık Alanları</h3>
+                    {% else %}
+                    <p class="team-member-bio">Mahsun Kaya is a Senior React Native Developer with more than 6 years of experience building high-performance mobile applications. He specializes in scalable iOS and Android development using React Native, TypeScript, GraphQL, and modern mobile tools.</p>
+                    <p class="team-member-bio">Mahsun has worked on large-scale platforms such as Sibche and several modern startup mobile applications.</p>
+                    <h3 class="h6 text-white mt-3 mb-2">Core Expertise</h3>
+                    {% endif %}
+                    <ul class="team-list">
+                        <li><i class="fas fa-check"></i>React Native Development</li>
+                        <li><i class="fas fa-check"></i>Mobile App Architecture</li>
+                        <li><i class="fas fa-check"></i>TypeScript & JavaScript</li>
+                        <li><i class="fas fa-check"></i>GraphQL & WebSocket Integration</li>
+                        <li><i class="fas fa-check"></i>CI/CD Mobile Pipelines</li>
+                        <li><i class="fas fa-check"></i>Mobile Performance Optimization</li>
+                    </ul>
+                    <div>
+                        <span class="team-tag">React Native</span>
+                        <span class="team-tag">TypeScript</span>
+                        <span class="team-tag">GraphQL</span>
+                        <span class="team-tag">CI/CD</span>
+                    </div>
+                </article>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Technical Expertise -->
 <section class="section bg-gradient">
     <div class="container">
-        <h2 class="section-title text-center mb-4 resume-animate">{% if current_lang == 'tr' %}Teknik Uzmanlık Alanları{% else %}Technical Expertise{% endif %}</h2>
-        <p class="text-center mb-4 resume-animate" style="color: rgba(255,255,255,0.9); max-width: 720px; margin-left: auto; margin-right: auto;">{% if current_lang == 'tr' %}Başlıca teknik uzmanlık alanları. Bu uzmanlık alanları sayesinde hem küçük işletmeler hem de büyük ölçekli platformlar için güvenilir ve ölçeklenebilir yazılım çözümleri geliştirilmektedir.{% else %}Core areas of expertise. These skills allow the development of secure and scalable software solutions for businesses and digital platforms.{% endif %}</p>
-        <ul class="list-unstyled text-center resume-animate" style="color: rgba(255,255,255,0.92); max-width: 560px; margin: 0 auto;">
-            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Web Application Development</li>
-            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Python & Django Development</li>
-            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> {% if current_lang == 'tr' %}E-Ticaret Platform Geliştirme{% else %}E-Commerce Platform Development{% endif %}</li>
-            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> SEO Optimized Web Development</li>
-            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> API Development</li>
-            <li><i class="fas fa-check text-primary me-2"></i> Database Architecture</li>
-        </ul>
-    </div>
-</section>
-
-<!-- Technologies -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title text-center mb-4 resume-animate">{% if current_lang == 'tr' %}Kullanılan Teknolojiler{% else %}Technologies{% endif %}</h2>
-        <p class="text-center mb-4 resume-animate" style="color: rgba(255,255,255,0.88);">{% if current_lang == 'tr' %}Projelerde kullanılan başlıca teknolojiler. Modern teknoloji stack'i sayesinde geliştirilen web siteleri hızlı, güvenli ve sürdürülebilir bir altyapıya sahip olur.{% else %}Main technologies used in projects. This modern stack ensures that websites and applications are fast, secure, and scalable.{% endif %}</p>
-        <div class="text-center resume-animate">
-            <span class="resume-tech-icon" style="background: linear-gradient(135deg, #3776ab, #ffd43b);" title="Python"><i class="fab fa-python"></i></span>
-            <span class="resume-tech-icon" style="background: linear-gradient(135deg, #0c4b33, #20aa76);" title="Django"><i class="fas fa-server"></i></span>
-            <span class="resume-tech-icon" style="background: linear-gradient(135deg, #f7df1e, #f0db4f);" title="JavaScript"><i class="fab fa-js-square"></i></span>
-            <span class="resume-tech-icon" style="background: linear-gradient(135deg, #e34f26, #e34f26);" title="HTML5"><i class="fab fa-html5"></i></span>
-            <span class="resume-tech-icon" style="background: linear-gradient(135deg, #1572b6, #1572b6);" title="CSS3"><i class="fab fa-css3-alt"></i></span>
-            <span class="resume-tech-icon" style="background: linear-gradient(135deg, #f05032, #f05032);" title="Git"><i class="fab fa-git-alt"></i></span>
-            <span class="resume-tech-icon" style="background: linear-gradient(135deg, #74b9ff, #0984e3);" title="REST API"><i class="fas fa-plug"></i></span>
-            <span class="resume-tech-icon" style="background: linear-gradient(135deg, #336791, #336791);" title="PostgreSQL"><i class="fas fa-database"></i></span>
-            <span class="resume-tech-icon" style="background: linear-gradient(135deg, #61dafb, #61dafb);" title="React Native"><i class="fab fa-react"></i></span>
+        <h2 class="section-title text-center mb-4 team-animate">{% if current_lang == 'tr' %}Technology Stack{% else %}Technology Stack{% endif %}</h2>
+        <p class="text-center mb-4 team-animate" style="color: rgba(255,255,255,0.88); max-width: 760px; margin-left: auto; margin-right: auto;">{% if current_lang == 'tr' %}Ekibimiz projelerde modern yazılım teknolojileri kullanmaktadır. Bu stack sayesinde hızlı, güvenli ve ölçeklenebilir yazılım sistemleri geliştirilmektedir.{% else %}Our team uses modern technologies to build secure and scalable digital systems.{% endif %}</p>
+        <div class="team-tech-stack team-animate">
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fab fa-python"></i></span><div>Python</div></div>
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fas fa-server"></i></span><div>Django</div></div>
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fab fa-react"></i></span><div>React</div></div>
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fab fa-react"></i></span><div>React Native</div></div>
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fab fa-js-square"></i></span><div>JavaScript</div></div>
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fas fa-code"></i></span><div>TypeScript</div></div>
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fab fa-docker"></i></span><div>Docker</div></div>
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fas fa-database"></i></span><div>PostgreSQL</div></div>
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fas fa-project-diagram"></i></span><div>GraphQL</div></div>
+            <div class="team-tech-item"><span class="team-tech-icon"><i class="fas fa-plug"></i></span><div>REST API</div></div>
         </div>
-        <p class="text-center mt-3 resume-animate" style="color: rgba(255,255,255,0.75); font-size: 0.9rem;">Python · Django · JavaScript · HTML5 · CSS3 · Git · REST API · PostgreSQL · React Native</p>
     </div>
 </section>
 
-<!-- Certifications intro + Grid -->
 <section class="section bg-gradient">
     <div class="container">
-        <h2 class="section-title text-center mb-3 resume-animate">{% if current_lang == 'tr' %}Sertifikalar ve Eğitim{% else %}Certifications & Education{% endif %}</h2>
-        <p class="text-center mb-4 resume-animate" style="color: rgba(255,255,255,0.9); max-width: 700px; margin-left: auto; margin-right: auto;">{% if current_lang == 'tr' %}Yazılım geliştirme alanında alınmış uluslararası sertifikalar ve eğitimler, teknik bilgi ve profesyonel yetkinliği desteklemektedir. Web geliştirme, yazılım mühendisliği, SEO ve dijital sistemler, modern programlama teknolojileri gibi alanlarda uzmanlık kazanıldığını göstermektedir. Her proje bu bilgi ve deneyim birikimi ile geliştirilmektedir.{% else %}The certifications on this page represent continuous learning and professional development in software engineering and web development. They demonstrate expertise in software engineering, web development, SEO and digital systems, and modern programming technologies. Each project benefits from this accumulated knowledge and experience.{% endif %}</p>
+        <h2 class="section-title text-center mb-3 team-animate">{% if current_lang == 'tr' %}Professional Certifications{% else %}Professional Certifications{% endif %}</h2>
+        <p class="text-center mb-4 team-animate" style="color: rgba(255,255,255,0.9); max-width: 700px; margin-left: auto; margin-right: auto;">{% if current_lang == 'tr' %}Sertifikalarimiz ekibimizin surekli gelisimini ve profesyonel yetkinligini gostermektedir. Bu bilgi birikimi her projeye kalite, guvenlik ve performans olarak yansir.{% else %}Our certifications reflect continuous learning and professional growth. This knowledge directly improves quality, security, and performance in every project.{% endif %}</p>
 
-        <div class="resume-cert-grid" id="certificateGallery">
+        <div class="team-cert-grid" id="certificateGallery">
             {% for certificate in certificates %}
-            <div class="resume-cert-card resume-animate">
+            <div class="team-cert-card team-animate">
                 {% if certificate.image %}
                 <div class="certificate-image-container position-relative">
-                    <img src="{{ certificate.image.url }}" alt="{{ certificate.title }}" class="certificate-image" style="width:100%; height:100%; object-fit: cover;" loading="lazy">
+                    <img src="{{ certificate.image.url }}" alt="{{ certificate.title }}" class="certificate-image" loading="lazy">
                     <div class="certificate-overlay">
                         <a href="{{ certificate.image.url }}" target="_blank" rel="noopener" class="btn btn-sm btn-light"><i class="fas fa-search-plus me-1"></i> {% trans "View" %}</a>
                     </div>
@@ -140,26 +180,26 @@
                 </div>
             </div>
             {% empty %}
-            <div class="resume-cert-card resume-animate">
+            <div class="team-cert-card team-animate">
                 <a href="{% static 'certificates/python_harvard.png' %}" target="_blank" class="text-decoration-none d-block">
                     <div class="certificate-image-container position-relative">
-                        <img src="{% static 'certificates/python_harvard.png' %}" alt="Python Harvard" class="certificate-image" style="width:100%; height:100%; object-fit: cover;" loading="lazy">
+                        <img src="{% static 'certificates/python_harvard.png' %}" alt="Python Harvard" class="certificate-image" loading="lazy">
                     </div>
                     <div class="certificate-content"><h5>Python (Harvard)</h5></div>
                 </a>
             </div>
-            <div class="resume-cert-card resume-animate">
+            <div class="team-cert-card team-animate">
                 <a href="{% static 'certificates/google_ads_search.jpg' %}" target="_blank" class="text-decoration-none d-block">
                     <div class="certificate-image-container position-relative">
-                        <img src="{% static 'certificates/google_ads_search.jpg' %}" alt="Google Ads Search" class="certificate-image" style="width:100%; height:100%; object-fit: cover;" loading="lazy">
+                        <img src="{% static 'certificates/google_ads_search.jpg' %}" alt="Google Ads Search" class="certificate-image" loading="lazy">
                     </div>
                     <div class="certificate-content"><h5>Google Ads Search</h5></div>
                 </a>
             </div>
-            <div class="resume-cert-card resume-animate">
+            <div class="team-cert-card team-animate">
                 <a href="{% static 'certificates/google_analytics.jpg' %}" target="_blank" class="text-decoration-none d-block">
                     <div class="certificate-image-container position-relative">
-                        <img src="{% static 'certificates/google_analytics.jpg' %}" alt="Google Analytics" class="certificate-image" style="width:100%; height:100%; object-fit: cover;" loading="lazy">
+                        <img src="{% static 'certificates/google_analytics.jpg' %}" alt="Google Analytics" class="certificate-image" loading="lazy">
                     </div>
                     <div class="certificate-content"><h5>Google Analytics</h5></div>
                 </a>
@@ -168,101 +208,36 @@
         </div>
 
         {% if not certificates %}
-        <div class="text-center mt-4 resume-animate">
+        <div class="text-center mt-4 team-animate">
             <p class="mb-2" style="color: rgba(255,255,255,0.85);">{% trans "Marmara University certificate as PDF:" %}</p>
             <a class="btn btn-primary" href="{% static 'certificates/marmara_sertification.pdf' %}" target="_blank" rel="noopener"><i class="fas fa-download me-2"></i>{% trans "Open / Download PDF" %}</a>
         </div>
         {% else %}
-        <div class="text-center mt-4 resume-animate">
+        <div class="text-center mt-4 team-animate">
             <a class="btn btn-outline-light btn-sm" href="{% static 'certificates/marmara_sertification.pdf' %}" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-1"></i>{% trans "Marmara University PDF" %}</a>
         </div>
         {% endif %}
     </div>
 </section>
 
-<!-- Skills (for developer keywords / SEO) -->
 <section class="section">
     <div class="container">
-        <h2 class="section-title text-center mb-4 resume-animate">⭐ {% if current_lang == 'tr' %}Yetenekler{% else %}Skills{% endif %}</h2>
-        <div class="text-center resume-animate">
-            <span class="resume-skill-tag">Python</span>
-            <span class="resume-skill-tag">Django</span>
-            <span class="resume-skill-tag">{% if current_lang == 'tr' %}Web Geliştirme{% else %}Web Development{% endif %}</span>
-            <span class="resume-skill-tag">SEO</span>
-            <span class="resume-skill-tag">{% if current_lang == 'tr' %}E-Ticaret{% else %}E-commerce{% endif %}</span>
-            <span class="resume-skill-tag">API Development</span>
-        </div>
-    </div>
-</section>
-
-<!-- Experience & Certifications Timeline -->
-<section class="section bg-gradient">
-    <div class="container">
-        <h2 class="section-title text-center mb-4 resume-animate">{% if current_lang == 'tr' %}Deneyim ve Sertifikalar{% else %}Experience & Certifications{% endif %}</h2>
+        <h2 class="section-title text-center mb-4 team-animate">{% if current_lang == 'tr' %}Birlikte Çalışalım{% else %}Start Your Project{% endif %}</h2>
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-                <div class="resume-timeline-item resume-animate">
-                    <div class="resume-timeline-marker"><i class="fas fa-code"></i></div>
-                    <div class="resume-timeline-body">
-                        <h4>{% if current_lang == 'tr' %}Web Uygulama Geliştirme{% else %}Web Application Development{% endif %}</h4>
-                        <p>{% if current_lang == 'tr' %}Kurumsal siteler, e-ticaret ve özel yazılım projeleri.{% else %}Corporate sites, e-commerce, and custom software projects.{% endif %}</p>
-                    </div>
-                </div>
-                <div class="resume-timeline-item resume-animate">
-                    <div class="resume-timeline-marker"><i class="fab fa-python"></i></div>
-                    <div class="resume-timeline-body">
-                        <h4>Python & Django</h4>
-                        <p>{% if current_lang == 'tr' %}Performans odaklı, güvenli ve ölçeklenebilir backend geliştirme.{% else %}Performance-focused, secure, and scalable backend development.{% endif %}</p>
-                    </div>
-                </div>
-                <div class="resume-timeline-item resume-animate">
-                    <div class="resume-timeline-marker"><i class="fas fa-shopping-cart"></i></div>
-                    <div class="resume-timeline-body">
-                        <h4>{% if current_lang == 'tr' %}E-Ticaret ve Platformlar{% else %}E-Commerce & Platforms{% endif %}</h4>
-                        <p>{% if current_lang == 'tr' %}Ödeme entegrasyonları, ürün yönetimi, sipariş süreçleri.{% else %}Payment integrations, product management, order workflows.{% endif %}</p>
-                    </div>
-                </div>
-                <div class="resume-timeline-item resume-animate">
-                    <div class="resume-timeline-marker"><i class="fas fa-search"></i></div>
-                    <div class="resume-timeline-body">
-                        <h4>SEO & Dijital Sistemler</h4>
-                        <p>{% if current_lang == 'tr' %}Teknik SEO, içerik optimizasyonu, organik trafik artışı.{% else %}Technical SEO, content optimization, organic traffic growth.{% endif %}</p>
-                    </div>
-                </div>
-                <div class="resume-timeline-item resume-animate">
-                    <div class="resume-timeline-marker"><i class="fas fa-certificate"></i></div>
-                    <div class="resume-timeline-body">
-                        <h4>{% if current_lang == 'tr' %}Sertifikalar ve Eğitim{% else %}Certifications & Education{% endif %}</h4>
-                        <p>{% if current_lang == 'tr' %}Web geliştirme, yazılım mühendisliği, modern programlama teknolojileri.{% else %}Web development, software engineering, modern programming technologies.{% endif %}</p>
-                    </div>
+            <div class="col-12 col-lg-9">
+                <div class="services-cta text-center team-animate">
+                    <p class="mb-4" style="color: rgba(255,255,255,0.9);">
+                        {% if current_lang == 'tr' %}
+                        Profesyonel bir web sitesi, mobil uygulama veya ozel yazilim cozumu mu ariyorsunuz? Angraweb ekibi olarak projenizi hayata gecirmek icin size yardimci olmaktan memnuniyet duyariz.
+                        {% else %}
+                        Looking for a professional team to build your website, mobile app, or digital platform? Contact Angraweb today and let's discuss your project.
+                        {% endif %}
+                    </p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-envelope me-2"></i>{% trans "Contact Us" %}
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Professional Approach -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title text-center mb-4 resume-animate">{% if current_lang == 'tr' %}Profesyonel Yaklaşım{% else %}Professional Approach{% endif %}</h2>
-        <p class="text-center mb-3 resume-animate" style="color: rgba(255,255,255,0.92); max-width: 720px; margin-left: auto; margin-right: auto;">{% if current_lang == 'tr' %}Her projede hedef yalnızca bir web sitesi geliştirmek değildir. Amaç, işletmeler için daha fazla müşteri getiren ve uzun vadede büyümeyi destekleyen dijital platformlar oluşturmaktır. Bu nedenle tüm projelerde öncelikli olarak ele alınır:{% else %}The goal is not only to build websites but to create digital platforms that help businesses grow and attract customers online. Every project focuses on:{% endif %}</p>
-        <ul class="list-unstyled text-center resume-animate" style="color: rgba(255,255,255,0.9);">
-            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> {% if current_lang == 'tr' %}SEO uyumlu altyapı{% else %}SEO-friendly architecture{% endif %}</li>
-            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> {% if current_lang == 'tr' %}mobil uyumlu tasarım{% else %}mobile-first design{% endif %}</li>
-            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> {% if current_lang == 'tr' %}yüksek performans{% else %}high performance{% endif %}</li>
-            <li><i class="fas fa-check text-primary me-2"></i> {% if current_lang == 'tr' %}güvenli yazılım mimarisi{% else %}secure infrastructure{% endif %}</li>
-        </ul>
-    </div>
-</section>
-
-<!-- CTA -->
-<section class="section bg-gradient">
-    <div class="container">
-        <div class="services-cta text-center resume-animate">
-            <h3 class="mb-3">{% if current_lang == 'tr' %}Birlikte Çalışalım{% else %}Start Your Project{% endif %}</h3>
-            <p class="mb-4" style="color: rgba(255,255,255,0.9);">{% if current_lang == 'tr' %}İşletmeniz için profesyonel bir web sitesi veya özel yazılım çözümü mü arıyorsunuz? Benimle iletişime geçerek projeniz hakkında konuşabilir ve ücretsiz danışmanlık alabilirsiniz.{% else %}Looking for a professional developer for your project? Contact me today and let's discuss how we can build your next digital product.{% endif %}</p>
-            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg me-2"><i class="fas fa-envelope me-2"></i>{% trans "Contact" %}</a>
-            <a href="{% url 'quote_request' %}" class="btn btn-success btn-lg"><i class="fas fa-paper-plane me-2"></i>{% trans "Get Free Quote" %}</a>
         </div>
     </div>
 </section>
@@ -271,8 +246,8 @@
 {% block extra_js %}
 <script>
 (function() {
-    function initResumeAnimate() {
-        var els = document.querySelectorAll('.resume-animate');
+    function initTeamAnimate() {
+        var els = document.querySelectorAll('.team-animate');
         if (!els.length) return;
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -281,8 +256,8 @@
         }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
         els.forEach(function(el) { observer.observe(el); });
     }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initResumeAnimate);
-    else initResumeAnimate();
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initTeamAnimate);
+    else initTeamAnimate();
 })();
 </script>
 {% endblock %}
