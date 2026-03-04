@@ -1118,6 +1118,16 @@ body[dir="rtl"] .benefit-item {
     font-size: 0.9rem;
 }
 
+.hero-visual-carousel .carousel-caption .btn {
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.hero-visual-carousel .carousel-caption .btn:hover {
+    color: #0a0e27;
+    background: #fff;
+}
+
 /* Compact spacing and calmer animations on mobile for homepage */
 @media (max-width: 768px) {
     #home.hero-section {
