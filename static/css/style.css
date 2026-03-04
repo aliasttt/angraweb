@@ -1122,7 +1122,7 @@ body[dir="rtl"] .benefit-item {
 
     .home-logo-track {
         gap: 1rem;
-        animation-duration: 52s;
+        animation-duration: 80s;
     }
 
     .hero-visual-carousel .carousel-item img {
@@ -1140,6 +1140,12 @@ body[dir="rtl"] .benefit-item {
     }
 }
 
+@media (max-width: 576px) {
+    .home-logo-track {
+        animation-duration: 110s;
+    }
+}
+
 /* About Section & Service pages - تایتل و متن روشن، نه مشکی */
 .about-content h2 {
     color: #ffffff !important;
@@ -1152,6 +1158,10 @@ body[dir="rtl"] .benefit-item {
     font-size: 2rem;
     margin-bottom: 1.5rem;
     color: #74b9ff !important;
+}
+
+.about-content h4 {
+    color: #ffffff !important;
 }
 
 .about-content p {
