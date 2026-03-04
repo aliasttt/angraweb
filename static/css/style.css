@@ -1122,7 +1122,7 @@ body[dir="rtl"] .benefit-item {
 
     .home-logo-track {
         gap: 1rem;
-        animation-duration: 80s;
+        animation-duration: 140s;
     }
 
     .hero-visual-carousel .carousel-item img {
@@ -1142,7 +1142,7 @@ body[dir="rtl"] .benefit-item {
 
 @media (max-width: 576px) {
     .home-logo-track {
-        animation-duration: 110s;
+        animation-duration: 200s;
     }
 }
 
