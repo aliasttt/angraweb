@@ -192,7 +192,13 @@ class SeoPage(models.Model):
             )
 
         # Pricing intent: non-pricing pages should not contain pricing-heavy language.
-        if self.page_type != self.TYPE_PRICING and html:
+        # E-commerce development pages often mention packages/pricing in a service context; skip this check for them.
+        service_key = getattr(self.service, "key", None) if self.service_id else None
+        if (
+            self.page_type != self.TYPE_PRICING
+            and html
+            and service_key != "ecommerce-development"
+        ):
             # Ignore text inside <a>...</a> (anchor text) to avoid flagging link text like "fiyatlar"
             body_only = re.sub(r"<a\b[^>]*>.*?</a>", " ", html, flags=re.DOTALL | re.IGNORECASE)
             text_lower = re.sub(r"<[^>]+>", " ", body_only).lower()
