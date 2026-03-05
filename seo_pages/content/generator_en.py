@@ -2203,7 +2203,7 @@ def _cluster_ecommerce_website_en(page: SeoPage) -> Dict:
     meta_description = clamp_text(meta_description, 160)
 
     return {
-        "title": "E-Commerce Website",
+        "title": "E-Commerce Website — Professional Online Store Development",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

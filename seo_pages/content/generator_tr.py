@@ -2924,7 +2924,7 @@ def _cluster_e_ticaret_sitesi_tr(page: SeoPage) -> Dict:
     meta_description = clamp_text(meta_description, 160)
 
     return {
-        "title": "E-Ticaret Sitesi",
+        "title": "E-Ticaret Sitesi — Profesyonel ve SEO Uyumlu Online Mağaza",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
