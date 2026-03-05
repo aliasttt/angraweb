@@ -2429,6 +2429,124 @@ def _cluster_how_to_build_ecommerce_website_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ecommerce_website_development_en(page: SeoPage) -> Dict:
+    """Custom cluster: E-Commerce Website Development — professional online store. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "Building a professional e-commerce website is one of the most effective ways for businesses to sell products online and reach new customers. "
+            "A successful online store combines strong technical infrastructure, search engine optimization, secure payment systems and user-friendly design."
+        )
+    )
+    body.append(
+        p(
+            "When these elements are implemented correctly, businesses can create a scalable digital sales platform that supports long-term growth."
+        )
+    )
+
+    body.append(h2("Key Features of a Professional E-Commerce Website"))
+    body.append(h3("SEO Infrastructure"))
+    body.append(
+        p(
+            "A well-structured SEO architecture helps online stores rank in search results and attract organic traffic. Important elements include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "clean, readable URL structure",
+                "clear category hierarchy",
+                "fast loading pages",
+                "mobile-friendly layout",
+                "internal linking between related pages",
+            ]
+        )
+    )
+
+    body.append(h3("Secure Payment Systems"))
+    body.append(
+        p(
+            "Modern e-commerce platforms must support secure, frictionless payment experiences. Typical options are:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "credit card payments",
+                "debit card payments",
+                "secure checkout flows (for example, 3D secure)",
+                "digital wallets and similar methods",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "A reliable payment experience increases customer trust and reduces abandoned checkouts."
+        )
+    )
+
+    body.append(h3("Logistics and Order Management"))
+    body.append(
+        p(
+            "Beyond the storefront, a professional e-commerce website needs strong logistics and fulfilment capabilities. Core components are:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "shipping integrations with carriers",
+                "order tracking for customers",
+                "inventory management",
+                "return and refund workflows",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Well-designed order management improves the post-purchase experience and supports customer retention."
+        )
+    )
+
+    body.append(h2("Next Step"))
+    body.append(
+        p(
+            "If you are looking to build an e-commerce website, defining a clear technical and SEO architecture from the beginning is essential. "
+            "With the right structure, your online store can become a reliable growth channel instead of a maintenance burden."
+        )
+    )
+    body.append(
+        cta_box(
+            "Get an E-Commerce Development Quote",
+            "Share your goals and constraints; we’ll help you design a scalable, SEO-first e-commerce architecture tailored to your business.",
+            _quote_url(page),
+            "Get an E-Commerce Development Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs: List[Tuple[str, str]] = []
+    faq_json = faq(faq_pairs)
+
+    meta_title = "E-Commerce Website Development | Professional Online Store"
+    meta_description = (
+        "Looking to build an e-commerce website? Learn about SEO-optimized architecture, secure payment systems and scalable online store development."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "E-Commerce Website Development — Professional Online Store",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_en(page: SeoPage) -> Dict:
     """Custom cluster: React Native or Native? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -5023,6 +5141,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "custom-ecommerce-development":
         return _cluster_ecommerce_website_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: E-Commerce Website Development (EN) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "ecommerce-development-company":
+        return _cluster_ecommerce_website_development_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: How to Build an E-Commerce Website? (EN) — ecommerce-development
