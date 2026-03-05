@@ -2686,6 +2686,125 @@ def _cluster_ecommerce_software_company_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_custom_ecommerce_software_en(page: SeoPage) -> Dict:
+    """Custom cluster: Custom E-Commerce Software — scalable, SEO-optimized online store development. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Custom E-Commerce Software"))
+    body.append(
+        p(
+            "Custom e-commerce software is a tailored online store solution developed specifically for the needs of a business."
+        )
+    )
+    body.append(
+        p(
+            "Unlike ready-made platforms, custom e-commerce systems are designed based on business model, operational workflows, product structure and long-term scalability requirements."
+        )
+    )
+    body.append(
+        p(
+            "This allows businesses to build highly flexible and powerful online sales platforms."
+        )
+    )
+
+    body.append(h2("Advantages of Custom E-Commerce Software"))
+    body.append(h3("Flexibility and Customization"))
+    body.append(
+        p(
+            "Custom e-commerce platforms can be fully adapted to business needs. Typical features include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "advanced product management",
+                "custom rate and tier systems",
+                "promotion and campaign engines",
+                "custom payment integrations",
+            ]
+        )
+    )
+
+    body.append(h3("Performance and Scalability"))
+    body.append(
+        p(
+            "High-traffic e-commerce websites require optimized performance. Custom e-commerce software allows developers to build:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "high-performance architectures",
+                "scalable infrastructure",
+                "optimized database structures",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This ensures that the platform continues to perform well as the business grows."
+        )
+    )
+
+    body.append(h3("SEO-Optimized Architecture"))
+    body.append(
+        p(
+            "Search engine visibility is essential for online stores. Professional e-commerce platforms include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO-friendly URL structures",
+                "optimized category pages",
+                "fast loading speeds",
+                "mobile-responsive design",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These elements help online stores attract organic search traffic."
+        )
+    )
+
+    body.append(h2("Next Step"))
+    body.append(
+        p(
+            "If your business requires a scalable and flexible online sales platform, investing in custom e-commerce software development can provide significant long-term benefits."
+        )
+    )
+    body.append(
+        cta_box(
+            "Get an E-Commerce Development Quote",
+            "Share your goals and constraints; we'll help you design a scalable, SEO-first e-commerce architecture tailored to your business.",
+            _quote_url(page),
+            "Get an E-Commerce Development Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs: List[Tuple[str, str]] = []
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Custom E-Commerce Software | Scalable Online Store Development"
+    meta_description = (
+        "What is custom e-commerce software? Learn how scalable, SEO-optimized and high-performance e-commerce platforms are built for modern online businesses."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Custom E-Commerce Software — Scalable Online Store Development",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_ecommerce_software_en(page: SeoPage) -> Dict:
     """Custom cluster: E-Commerce Software — scalable and SEO-optimized platforms. No pricing triggers."""
     body: List[str] = []
@@ -5424,22 +5543,16 @@ def generate_en(page: SeoPage) -> Dict:
         return _cluster_react_native_vs_native_en(page)
 
     # -------------------------------------------------------------------------
-    # Custom cluster: E-Commerce Software (EN) — ecommerce-development
+    # Custom cluster: E-Commerce Software / Custom E-Commerce (EN) — ecommerce-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "ecommerce-platform-development":
-        return _cluster_ecommerce_software_en(page)
+        return _cluster_custom_ecommerce_software_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: E-Commerce Software Company (EN) — ecommerce-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "custom-ecommerce-development":
         return _cluster_ecommerce_software_company_en(page)
-
-    # -------------------------------------------------------------------------
-    # Custom cluster: E-Commerce Website (EN) — ecommerce-development
-    # -------------------------------------------------------------------------
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "ecommerce-platform-development":
-        return _cluster_ecommerce_website_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: E-Commerce Website Development (EN) — ecommerce-development

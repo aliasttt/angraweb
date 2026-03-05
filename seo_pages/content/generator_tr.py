@@ -3579,6 +3579,211 @@ def _cluster_e_ticaret_yazilim_firmasi_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ozel_e_ticaret_yazilimi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Özel E-Ticaret Yazılımı — ölçeklenebilir ve SEO uyumlu e-ticaret geliştirme. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Özel E-Ticaret Yazılımı"))
+    body.append(
+        p(
+            "Özel e-ticaret yazılımı, işletmelerin ihtiyaçlarına özel olarak geliştirilen bir online satış altyapısıdır."
+        )
+    )
+    body.append(
+        p(
+            "Hazır e-ticaret platformlarının aksine, özel yazılım çözümleri tamamen işletmenin iş modeli, operasyon süreçleri ve büyüme hedefleri dikkate alınarak geliştirilir."
+        )
+    )
+    body.append(
+        p(
+            "Bu sayede işletmeler daha yüksek performans elde eder; SEO açısından daha güçlü altyapıya sahip olur; özel entegrasyonlar kullanabilir; uzun vadede daha ölçeklenebilir bir sistem kurabilir."
+        )
+    )
+
+    body.append(h2("Özel E-Ticaret Yazılımının Avantajları"))
+    body.append(h3("Tam Esneklik ve Özelleştirme"))
+    body.append(
+        p(
+            "Özel e-ticaret yazılımı, işletmenin ihtiyaçlarına göre tamamen özelleştirilebilir. Bu sistemlerde:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "özel ürün yönetimi",
+                "gelişmiş kategori yapısı",
+                "kampanya ve indirim motoru",
+                "özel ödeme ve kargo entegrasyonları",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Hazır platformlarda mümkün olmayan birçok özellik özel yazılım ile uygulanabilir."
+        )
+    )
+
+    body.append(h3("Yüksek Performans ve Hız"))
+    body.append(
+        p(
+            "E-ticaret sitelerinde hız çok önemlidir. Yavaş çalışan bir online mağaza kullanıcı deneyimini düşürür, dönüşüm oranını azaltır ve SEO performansını olumsuz etkiler."
+        )
+    )
+    body.append(
+        p(
+            "Özel e-ticaret yazılımı, performans odaklı geliştirildiği için genellikle hazır platformlara göre daha hızlı çalışır."
+        )
+    )
+
+    body.append(h3("SEO Uyumlu Mimari"))
+    body.append(
+        p(
+            "E-ticaret sitelerinin Google'da görünür olması için SEO altyapısı kritik öneme sahiptir. Profesyonel bir e-ticaret yazılımı şu özelliklere sahip olmalıdır:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO uyumlu URL yapısı",
+                "optimize edilmiş kategori sayfaları",
+                "hızlı sayfa yükleme",
+                "mobil uyumlu tasarım",
+                "güçlü iç bağlantı mimarisi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu yapı sayesinde e-ticaret siteleri organik trafik elde edebilir ve satışlarını artırabilir."
+        )
+    )
+
+    body.append(h2("Özel E-Ticaret Yazılımı Hangi İşletmeler İçin Uygundur?"))
+    body.append(
+        p(
+            "Her işletmenin ihtiyacı aynı değildir. Özel e-ticaret yazılımı özellikle şu işletmeler için uygundur:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "büyük ürün kataloglarına sahip şirketler",
+                "B2B satış yapan firmalar",
+                "özel tarife veya kampanya sistemi kullanan işletmeler",
+                "yüksek trafik alan e-ticaret siteleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu tür projelerde özel yazılım, uzun vadede çok daha sürdürülebilir bir çözüm sunar."
+        )
+    )
+
+    body.append(h2("Hazır E-Ticaret Platformu ile Özel Yazılım Arasındaki Fark"))
+    body.append(h3("Hazır Platformlar"))
+    body.append(
+        ul(
+            [
+                "Avantajları: hızlı kurulum, daha düşük başlangıç bütçesi.",
+                "Dezavantajları: sınırlı özelleştirme, performans sınırlamaları, SEO kısıtlamaları.",
+            ]
+        )
+    )
+    body.append(h3("Özel E-Ticaret Yazılımı"))
+    body.append(
+        ul(
+            [
+                "tamamen işletmeye özel geliştirilir",
+                "yüksek performans sunar",
+                "SEO açısından güçlüdür",
+                "ölçeklenebilir mimariye sahiptir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle büyümeyi hedefleyen işletmeler genellikle özel e-ticaret yazılımı geliştirme tercih eder."
+        )
+    )
+
+    body.append(h2("Özel E-Ticaret Yazılımı Geliştirme Süreci"))
+    body.append(
+        p(
+            "Profesyonel bir e-ticaret yazılımı geliştirme süreci genellikle şu aşamalardan oluşur:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Keşif ve Analiz — iş hedefleri, kullanıcı kitlesi ve teknik gereksinimler analiz edilir.",
+                "Planlama — proje mimarisi ve geliştirme planı oluşturulur.",
+                "Tasarım ve Geliştirme — kullanıcı deneyimi ve yazılım altyapısı geliştirilir.",
+                "Test ve Yayın — sistem performansı, güvenlik ve ödeme entegrasyonları test edilir.",
+            ]
+        )
+    )
+
+    body.append(h2("Neden Özel E-Ticaret Yazılımı Tercih Edilmeli?"))
+    body.append(
+        p(
+            "Özel e-ticaret yazılımı işletmelere şu avantajları sağlar:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "tamamen özelleştirilebilir altyapı",
+                "yüksek performans ve hız",
+                "gelişmiş SEO mimarisi",
+                "güçlü entegrasyon seçenekleri",
+                "uzun vadeli ölçeklenebilirlik",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle birçok işletme için özel yazılım stratejik bir dijital yatırım olarak görülür."
+        )
+    )
+
+    body.append(h2("Bir Sonraki Adım"))
+    body.append(
+        p(
+            "Eğer işletmeniz için özel e-ticaret yazılımı geliştirmek istiyorsanız, doğru planlama ve teknik mimari projenin başarısını belirler."
+        )
+    )
+    body.append(
+        cta_box(
+            "E-ticaret projeniz için doğru yol haritasını birlikte çıkaralım.",
+            "Hedef ve kapsamınızı paylaşın; E-Ticaret Geliştirme teklif sayfası üzerinden size özel plan oluşturalım.",
+            _quote_url(page),
+            "E-Ticaret Geliştirme Teklif Al",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs: List[Tuple[str, str]] = []
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Özel E-Ticaret Yazılımı | Ölçeklenebilir ve SEO Uyumlu E-Ticaret Geliştirme"
+    meta_description = (
+        "Özel e-ticaret yazılımı nedir? İşletmenize özel geliştirilen e-ticaret altyapısı, SEO uyumlu mimari, ödeme entegrasyonları ve ölçeklenebilir online mağaza çözümleri hakkında kapsamlı rehber."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Özel E-Ticaret Yazılımı — Ölçeklenebilir ve SEO Uyumlu E-Ticaret Geliştirme",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_e_ticaret_yazilimi_tr(page: SeoPage) -> Dict:
     """Custom cluster: E-Ticaret Yazılımı — profesyonel ve ölçeklenebilir e-ticaret altyapısı. No pricing triggers."""
     body: List[str] = []
@@ -6969,6 +7174,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "e-ticaret-yazilim-firmasi":
         return _cluster_e_ticaret_yazilim_firmasi_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Özel E-Ticaret Yazılımı (TR) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "ozel-e-ticaret-yazilimi":
+        return _cluster_ozel_e_ticaret_yazilimi_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: E-Ticaret Sitesi (TR) — ecommerce-development
