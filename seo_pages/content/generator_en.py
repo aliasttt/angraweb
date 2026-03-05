@@ -2062,6 +2062,156 @@ def _cluster_what_is_ecommerce_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ecommerce_website_en(page: SeoPage) -> Dict:
+    """Custom cluster: E-Commerce Website — core components, UX, SEO, process. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "An e-commerce website is a digital platform where products or services are sold online. A successful online store requires more than simply listing products; it needs a well-planned combination of SEO architecture, user experience, secure payments and conversion optimization."
+        )
+    )
+
+    body.append(h2("Key Components of a Successful E-Commerce Website"))
+    body.append(h3("SEO Infrastructure"))
+    body.append(
+        p(
+            "Search engine optimization is one of the most important traffic sources for online stores. A strong SEO structure typically includes:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "optimized URL structure",
+                "clear category hierarchy",
+                "internal linking strategy",
+                "fast loading pages",
+                "structured product data",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This structure helps search engines understand the site, increases organic visibility and brings more qualified visitors."
+        )
+    )
+
+    body.append(h3("User Experience (UX)"))
+    body.append(
+        p(
+            "User experience directly impacts conversion rates. A good e-commerce design usually includes:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "mobile-first interface",
+                "fast product search",
+                "filtering and category navigation",
+                "simple, predictable checkout process",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "The easier it is for users to find and purchase products, the higher the sales potential."
+        )
+    )
+
+    body.append(h3("Secure Payment Systems"))
+    body.append(
+        p(
+            "Payment security is one of the most critical aspects of online commerce. Modern online stores typically support:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "credit / debit card payments",
+                "3D secure transactions",
+                "digital wallets",
+                "bank transfers",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Secure payment systems increase trust and reduce abandoned purchases."
+        )
+    )
+
+    body.append(h3("Shipping and Order Management"))
+    body.append(
+        p(
+            "A robust e-commerce system must also handle logistics effectively. Core elements include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "automated shipping integrations",
+                "order tracking",
+                "inventory management",
+                "return and refund processes",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Efficient logistics management improves customer satisfaction and long-term retention."
+        )
+    )
+
+    body.append(h2("Why Businesses Need an E-Commerce Website"))
+    body.append(
+        p(
+            "An online store allows businesses to sell products 24/7, reach global customers and scale without physical store limitations. It also enables detailed measurement of marketing performance through analytics."
+        )
+    )
+    body.append(
+        p(
+            "For many businesses today, e-commerce is a key driver of digital growth and a central part of their long-term strategy."
+        )
+    )
+
+    body.append(h2("Next Step"))
+    body.append(
+        p(
+            "If you are planning to launch or improve your online store, defining a clear strategy and technical architecture is essential. A well-structured e-commerce website can become a long-term growth engine for your business."
+        )
+    )
+    body.append(
+        cta_box(
+            "Get an E-Commerce Development Quote",
+            "Share your goals and constraints; we’ll help you design a scalable, SEO-first e-commerce architecture tailored to your business.",
+            _quote_url(page),
+            "Get an E-Commerce Development Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = []  # Optional for this cluster; FAQs are covered in other e-commerce pages.
+    faq_json = faq(faq_pairs)
+
+    meta_title = "E-Commerce Website | Professional Online Store Development"
+    meta_description = (
+        "What is an e-commerce website and how can you build a successful online store? Learn about SEO architecture, payment systems, shipping integration and conversion-focused design."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "E-Commerce Website",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_en(page: SeoPage) -> Dict:
     """Custom cluster: React Native or Native? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -4653,6 +4803,10 @@ def generate_en(page: SeoPage) -> Dict:
 
     # -------------------------------------------------------------------------
     # Custom cluster: B2B E-Commerce (EN) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "custom-ecommerce-development":
+        return _cluster_ecommerce_website_en(page)
+
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2b-ecommerce-development":
         return _cluster_b2b_ecommerce_en(page)

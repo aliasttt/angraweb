@@ -166,7 +166,7 @@ def ecommerce(request):
         Q(package_type='commercial') | Q(package_type='professional'),
         active=True
     ).order_by('order')
-    
+
     context = {
         'services': services,
         'projects': projects,

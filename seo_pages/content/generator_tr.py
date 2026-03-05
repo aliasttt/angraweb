@@ -2692,6 +2692,247 @@ def _cluster_e_ticaret_nedir_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_e_ticaret_sitesi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: E-Ticaret Sitesi — temel özellikler, süreç, SEO mimarisi. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "Bir e-ticaret sitesi, ürün veya hizmetlerin internet üzerinden satıldığı dijital mağazadır. Başarılı bir e-ticaret projesi sadece ürün listelemekten ibaret değildir; SEO altyapısı, kullanıcı deneyimi, ödeme güvenliği ve dönüşüm optimizasyonu birlikte planlanmalıdır."
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle e-ticaret sitesi geliştirme sürecinde amaç; hedefi netleştirmek, doğru mimariyi kurmak ve sürdürülebilir büyüme sağlayan bir altyapı oluşturmak olmalıdır."
+        )
+    )
+
+    body.append(h2("E-Ticaret Sitesinin Temel Özellikleri"))
+    body.append(h3("1. SEO Uyumlu Yapı"))
+    body.append(
+        p(
+            "E-ticaret sitelerinde organik trafik en değerli kaynaklardan biridir. SEO açısından güçlü bir e-ticaret sitesinde şu yapı taşları bulunur:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "doğru kategori mimarisi",
+                "SEO uyumlu URL yapısı",
+                "ürün sayfalarında özgün içerik",
+                "iç bağlantı stratejisi",
+                "hızlı sayfa yükleme süresi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Arama motorları için optimize edilmiş bir yapı, Google’da görünürlüğü artırarak daha fazla potansiyel müşteri getirir."
+        )
+    )
+
+    body.append(h3("2. Kullanıcı Deneyimi (UX)"))
+    body.append(
+        p(
+            "Kullanıcı deneyimi satış oranını doğrudan etkiler. İyi tasarlanmış bir e-ticaret sitesinde:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "mobil uyumlu tasarım",
+                "hızlı ürün arama",
+                "filtreleme sistemi",
+                "kolay sepet ve ödeme süreci",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Ziyaretçi aradığı ürünü hızlı bulamazsa siteyi terk eder; bu da dönüşüm oranını doğrudan düşürür."
+        )
+    )
+
+    body.append(h3("3. Güvenli Ödeme Sistemleri"))
+    body.append(
+        p(
+            "Online satışın en kritik noktalarından biri ödeme güvenliğidir. Modern e-ticaret sitelerinde genellikle şu ödeme yöntemleri bulunur:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "kredi kartı / banka kartı",
+                "3D secure ödeme",
+                "dijital cüzdanlar",
+                "havale / EFT",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Güvenli ödeme altyapısı müşterinin güvenini artırır ve satış dönüşüm oranını yükseltir."
+        )
+    )
+
+    body.append(h3("4. Kargo ve Sipariş Yönetimi"))
+    body.append(
+        p(
+            "E-ticaret sadece satış değil, aynı zamanda lojistik yönetimi gerektirir. Profesyonel bir e-ticaret sisteminde:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "otomatik kargo entegrasyonu",
+                "sipariş takip sistemi",
+                "stok yönetimi",
+                "iade ve değişim süreci",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu süreçlerin doğru yönetilmesi müşteri memnuniyetini ve tekrar satın alma oranlarını artırır."
+        )
+    )
+
+    body.append(h2("E-Ticaret Sitesi Neden Önemlidir?"))
+    body.append(
+        p(
+            "Dijital dünyada işletmeler için e-ticaret artık bir seçenek değil, çoğu zaman zorunluluktur. Bir e-ticaret sitesi sayesinde:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "ürünler 7/24 satışa açık olur",
+                "fiziksel mağaza sınırları ortadan kalkar",
+                "global müşteri kitlesine ulaşılabilir",
+                "pazarlama ve analiz araçları ile satış optimize edilebilir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle birçok marka dijital büyüme stratejisinin merkezine online satış platformlarını yerleştirir."
+        )
+    )
+
+    body.append(h2("E-Ticaret Sitesi Kurarken En Sık Karşılaşılan Sorunlar"))
+    body.append(
+        ul(
+            [
+                "Düşük dönüşüm oranı — ziyaretçiler siteye gelir fakat satın alma gerçekleşmez.",
+                "Sepet terk oranı — kullanıcılar ürünü sepete ekler fakat ödeme adımını tamamlamaz.",
+                "Ödeme güveni — kullanıcılar ödeme sistemine güvenmediğinde satın alma işlemi gerçekleşmez.",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu sorunları azaltmak için doğru UX, güvenli ödeme altyapısı ve performans optimizasyonu birlikte ele alınmalıdır."
+        )
+    )
+
+    body.append(h2("E-Ticaret Geliştirme Süreci"))
+    body.append(
+        p(
+            "Profesyonel bir e-ticaret projesi genellikle şu adımlarla ilerler:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Keşif ve hedefler — iş hedefleri, kullanıcı kitlesi ve ürün yapısı analiz edilir.",
+                "Planlama — proje kapsamı, teslim kriterleri ve teknik mimari belirlenir.",
+                "Tasarım ve geliştirme — kullanıcı deneyimi ve teknik altyapı birlikte geliştirilir.",
+                "Test ve yayın — site performansı, ödeme sistemleri ve kullanıcı akışları test edilir.",
+            ]
+        )
+    )
+
+    body.append(h2("Bilgi Mimarisi ve SEO İç Bağlantı Yapısı"))
+    body.append(
+        p(
+            "E-ticaret sitelerinde içerik yapısı doğru kurulmalıdır. Genellikle şu model kullanılır:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Pillar sayfa — ana hizmet veya ana kategori.",
+                "Cluster içerikler — alt konular ve rehber içerikler.",
+                "Guide sayfalar — detaylı eğitim ve açıklama içerikleri.",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu yapı hem kullanıcıların bilgiye hızlı ulaşmasını sağlar hem de SEO performansını güçlendirir."
+        )
+    )
+
+    body.append(h2("Yayın Sonrası Büyüme"))
+    body.append(
+        p(
+            "E-ticaret sitesi yayına alındıktan sonra süreç bitmez; asıl büyüme yayın sonrası optimizasyonla gelir. Süreç genellikle şu başlıklarla devam eder:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO içerik stratejisi",
+                "reklam kampanyaları",
+                "dönüşüm optimizasyonu",
+                "kullanıcı davranışı analizi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu sürekli iyileştirme süreci sayesinde satışlar zamanla artar ve marka dijitalde güçlenir."
+        )
+    )
+
+    body.append(h2("Bir Sonraki Adım"))
+    body.append(
+        p(
+            "E-ticaret projeniz için doğru stratejiyi belirlemek istiyorsanız, hedeflerinizi ve iş modelinizi paylaşmanız yeterlidir. İş modelinize uygun, SEO uyumlu ve ölçeklenebilir bir e-ticaret altyapısını birlikte planlayabiliriz."
+        )
+    )
+    body.append(
+        cta_box(
+            "E-ticaret projeniz için doğru yol haritasını birlikte çıkaralım.",
+            "Hedef ve kapsamınızı paylaşın; E-Ticaret Geliştirme teklif sayfası üzerinden size özel plan oluşturalım.",
+            _quote_url(page),
+            "E-Ticaret Geliştirme Teklif Al",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs = []  # Silo FAQ zaten diğer sayfalarda kapsanıyor; burada opsiyonel bırakıyoruz.
+    faq_json = faq(faq_pairs)
+
+    meta_title = "E-Ticaret Sitesi | Profesyonel ve SEO Uyumlu Online Mağaza"
+    meta_description = (
+        "E-ticaret sitesi nedir ve başarılı bir online mağaza nasıl oluşturulur? SEO altyapısı, ödeme sistemleri, kargo entegrasyonu ve dönüşüm odaklı tasarım hakkında kapsamlı rehber."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "E-Ticaret Sitesi",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_tr(page: SeoPage) -> Dict:
     """Custom cluster: React Native mi Native mi? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -5850,6 +6091,10 @@ def generate_tr(page: SeoPage) -> Dict:
 
     # -------------------------------------------------------------------------
     # Custom cluster: B2B E-Ticaret (TR) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "e-ticaret-sitesi":
+        return _cluster_e_ticaret_sitesi_tr(page)
+
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2b":
         return _cluster_b2b_ecommerce_tr(page)
