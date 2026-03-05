@@ -2698,7 +2698,17 @@ def _cluster_custom_ecommerce_software_en(page: SeoPage) -> Dict:
     )
     body.append(
         p(
-            "Unlike ready-made platforms, custom e-commerce systems are designed based on business model, operational workflows, product structure and long-term scalability requirements."
+            "Unlike ready-made platforms, custom e-commerce systems are designed based on:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "business model",
+                "operational workflows",
+                "product structure",
+                "long-term scalability requirements.",
+            ]
         )
     )
     body.append(
@@ -2718,7 +2728,7 @@ def _cluster_custom_ecommerce_software_en(page: SeoPage) -> Dict:
         ul(
             [
                 "advanced product management",
-                "custom rate and tier systems",
+                "custom pricing systems",
                 "promotion and campaign engines",
                 "custom payment integrations",
             ]

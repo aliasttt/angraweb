@@ -513,7 +513,8 @@ source /srv/angraweb/venv/bin/activate
 python manage.py migrate --noinput || exit 1
 python manage.py collectstatic --noinput || exit 1
  
-
+python manage.py generate_seo_content --force --service ecommerce-development --slug ozel-e-ticaret-yazilimi --language tr
+python manage.py generate_seo_content --force --service ecommerce-development --slug ecommerce-platform-development --language en
 
 "
 

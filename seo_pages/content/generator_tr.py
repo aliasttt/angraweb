@@ -3594,9 +3594,15 @@ def _cluster_ozel_e_ticaret_yazilimi_tr(page: SeoPage) -> Dict:
             "Hazır e-ticaret platformlarının aksine, özel yazılım çözümleri tamamen işletmenin iş modeli, operasyon süreçleri ve büyüme hedefleri dikkate alınarak geliştirilir."
         )
     )
+    body.append(p("Bu sayede işletmeler:"))
     body.append(
-        p(
-            "Bu sayede işletmeler daha yüksek performans elde eder; SEO açısından daha güçlü altyapıya sahip olur; özel entegrasyonlar kullanabilir; uzun vadede daha ölçeklenebilir bir sistem kurabilir."
+        ul(
+            [
+                "daha yüksek performans elde eder",
+                "SEO açısından daha güçlü altyapıya sahip olur",
+                "özel entegrasyonlar kullanabilir",
+                "uzun vadede daha ölçeklenebilir bir sistem kurabilir.",
+            ]
         )
     )
 
@@ -3624,9 +3630,15 @@ def _cluster_ozel_e_ticaret_yazilimi_tr(page: SeoPage) -> Dict:
     )
 
     body.append(h3("Yüksek Performans ve Hız"))
+    body.append(p("E-ticaret sitelerinde hız çok önemlidir."))
+    body.append(p("Yavaş çalışan bir online mağaza:"))
     body.append(
-        p(
-            "E-ticaret sitelerinde hız çok önemlidir. Yavaş çalışan bir online mağaza kullanıcı deneyimini düşürür, dönüşüm oranını azaltır ve SEO performansını olumsuz etkiler."
+        ul(
+            [
+                "kullanıcı deneyimini düşürür",
+                "dönüşüm oranını azaltır",
+                "SEO performansını olumsuz etkiler.",
+            ]
         )
     )
     body.append(
@@ -3669,7 +3681,7 @@ def _cluster_ozel_e_ticaret_yazilimi_tr(page: SeoPage) -> Dict:
             [
                 "büyük ürün kataloglarına sahip şirketler",
                 "B2B satış yapan firmalar",
-                "özel tarife veya kampanya sistemi kullanan işletmeler",
+                "özel fiyatlandırma veya kampanya sistemi kullanan işletmeler",
                 "yüksek trafik alan e-ticaret siteleri",
             ]
         )
@@ -3682,11 +3694,22 @@ def _cluster_ozel_e_ticaret_yazilimi_tr(page: SeoPage) -> Dict:
 
     body.append(h2("Hazır E-Ticaret Platformu ile Özel Yazılım Arasındaki Fark"))
     body.append(h3("Hazır Platformlar"))
+    body.append(p("Avantajları"))
     body.append(
         ul(
             [
-                "Avantajları: hızlı kurulum, daha düşük başlangıç bütçesi.",
-                "Dezavantajları: sınırlı özelleştirme, performans sınırlamaları, SEO kısıtlamaları.",
+                "hızlı kurulum",
+                "düşük başlangıç maliyeti",
+            ]
+        )
+    )
+    body.append(p("Dezavantajları"))
+    body.append(
+        ul(
+            [
+                "sınırlı özelleştirme",
+                "performans sınırlamaları",
+                "SEO kısıtlamaları",
             ]
         )
     )
@@ -3703,24 +3726,38 @@ def _cluster_ozel_e_ticaret_yazilimi_tr(page: SeoPage) -> Dict:
     )
     body.append(
         p(
-            "Bu nedenle büyümeyi hedefleyen işletmeler genellikle özel e-ticaret yazılımı geliştirme tercih eder."
+            "Bu nedenle büyümeyi hedefleyen işletmeler genellikle custom e-commerce development tercih eder."
         )
     )
 
     body.append(h2("Özel E-Ticaret Yazılımı Geliştirme Süreci"))
     body.append(
         p(
-            "Profesyonel bir e-ticaret yazılımı geliştirme süreci genellikle şu aşamalardan oluşur:"
+            "Profesyonel bir e-ticaret yazılımı geliştirme süreci genellikle şu aşamalardan oluşur."
         )
     )
+    body.append(h3("Keşif ve Analiz"))
     body.append(
-        ul(
-            [
-                "Keşif ve Analiz — iş hedefleri, kullanıcı kitlesi ve teknik gereksinimler analiz edilir.",
-                "Planlama — proje mimarisi ve geliştirme planı oluşturulur.",
-                "Tasarım ve Geliştirme — kullanıcı deneyimi ve yazılım altyapısı geliştirilir.",
-                "Test ve Yayın — sistem performansı, güvenlik ve ödeme entegrasyonları test edilir.",
-            ]
+        p(
+            "İş hedefleri, kullanıcı kitlesi ve teknik gereksinimler analiz edilir."
+        )
+    )
+    body.append(h3("Planlama"))
+    body.append(
+        p(
+            "Proje mimarisi ve geliştirme planı oluşturulur."
+        )
+    )
+    body.append(h3("Tasarım ve Geliştirme"))
+    body.append(
+        p(
+            "Kullanıcı deneyimi ve yazılım altyapısı geliştirilir."
+        )
+    )
+    body.append(h3("Test ve Yayın"))
+    body.append(
+        p(
+            "Sistem performansı, güvenlik ve ödeme entegrasyonları test edilir."
         )
     )
 
