@@ -512,7 +512,11 @@ source /srv/angraweb/venv/bin/activate
 # Django tasks
 python manage.py migrate --noinput || exit 1
 python manage.py collectstatic --noinput || exit 1
- 
+
+# Portfolio: add/update projects (e.g. Revolift Asansör, QRMenu Pro) and set display order
+python manage.py add_new_projects
+python manage.py update_projects_order_final
+
 python manage.py generate_seo_content --force --service ecommerce-development --slug ozel-e-ticaret-yazilimi --language tr
 python manage.py generate_seo_content --force --service ecommerce-development --slug ecommerce-platform-development --language en
 
