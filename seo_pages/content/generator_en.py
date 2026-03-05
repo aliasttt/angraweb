@@ -2547,6 +2547,145 @@ def _cluster_ecommerce_website_development_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ecommerce_software_company_en(page: SeoPage) -> Dict:
+    """Custom cluster: E-Commerce Software Company — professional e-commerce development. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "An e-commerce software company develops the technical infrastructure that enables businesses to sell products and services online."
+        )
+    )
+    body.append(
+        p(
+            "A professional e-commerce platform includes much more than a website. It typically provides secure payment systems, scalable software architecture, product and order management, high-performance infrastructure and SEO-optimized page structure."
+        )
+    )
+    body.append(
+        p(
+            "When implemented correctly, an e-commerce system allows businesses to grow their online sales and compete in digital markets."
+        )
+    )
+
+    body.append(h2("Core Services of an E-Commerce Software Company"))
+
+    body.append(h3("Custom E-Commerce Development"))
+    body.append(
+        p(
+            "Custom e-commerce development focuses on building platforms tailored to the specific needs of a business. Typical capabilities include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "product and catalog management",
+                "category and navigation structure",
+                "inventory and order tracking",
+                "promotion and campaign systems",
+            ]
+        )
+    )
+
+    body.append(h3("SEO-Optimized E-Commerce Architecture"))
+    body.append(
+        p(
+            "Search engine visibility is critical for online stores. Professional e-commerce development usually includes:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO-friendly URLs",
+                "fast page loading",
+                "mobile-responsive design",
+                "internal linking structure between categories and products",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These elements help online stores gain organic traffic from search engines and improve discoverability."
+        )
+    )
+
+    body.append(h3("Payment Gateway Integrations"))
+    body.append(
+        p(
+            "Secure payment processing is essential for online commerce. Modern e-commerce platforms support:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "credit card payments",
+                "secure checkout systems",
+                "digital payment services",
+                "bank transfers",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Reliable payment infrastructure increases customer trust and improves conversion rates."
+        )
+    )
+
+    body.append(h2("Choosing the Right E-Commerce Software Company"))
+    body.append(
+        p(
+            "Selecting the right development partner is crucial for the success of an online store. Key factors include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "experience with scalable architectures",
+                "SEO-friendly development practices",
+                "secure payment integrations",
+                "long-term technical support",
+                "focus on performance optimization",
+            ]
+        )
+    )
+
+    body.append(h2("Next Step"))
+    body.append(
+        p(
+            "If you are planning to launch or scale an online store, working with an experienced e-commerce software company can significantly impact your success."
+        )
+    )
+    body.append(
+        cta_box(
+            "Get an E-Commerce Development Quote",
+            "Share your goals and constraints; we’ll help you design a scalable, SEO-first e-commerce architecture tailored to your business.",
+            _quote_url(page),
+            "Get an E-Commerce Development Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs: List[Tuple[str, str]] = []
+    faq_json = faq(faq_pairs)
+
+    meta_title = "E-Commerce Software Company | Professional E-Commerce Development"
+    meta_description = (
+        "Looking for an e-commerce software company? Discover scalable, SEO-optimized and high-performance e-commerce development solutions for online businesses."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "E-Commerce Software Company — Professional E-Commerce Development",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_en(page: SeoPage) -> Dict:
     """Custom cluster: React Native or Native? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -5137,9 +5276,15 @@ def generate_en(page: SeoPage) -> Dict:
         return _cluster_react_native_vs_native_en(page)
 
     # -------------------------------------------------------------------------
-    # Custom cluster: B2B E-Commerce (EN) — ecommerce-development
+    # Custom cluster: E-Commerce Software Company (EN) — ecommerce-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "custom-ecommerce-development":
+        return _cluster_ecommerce_software_company_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: E-Commerce Website (EN) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "ecommerce-platform-development":
         return _cluster_ecommerce_website_en(page)
 
     # -------------------------------------------------------------------------
