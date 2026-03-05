@@ -2933,6 +2933,246 @@ def _cluster_e_ticaret_sitesi_tr(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_e_ticaret_sitesi_nasil_kurulur_tr(page: SeoPage) -> Dict:
+    """Custom cluster: E-Ticaret Sitesi Nasıl Kurulur? — adım adım kurulum rehberi. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Kısa Özet"))
+    body.append(
+        p(
+            "Bir e-ticaret sitesi kurmak, sadece ürün eklemekten ibaret değildir. Başarılı bir online mağaza için strateji, teknik altyapı ve kullanıcı deneyimi birlikte planlanmalıdır."
+        )
+    )
+    body.append(
+        p(
+            "Profesyonel bir e-ticaret projesinde amaç; SEO uyumlu, hızlı ve güvenli bir altyapı kurarak sürdürülebilir bir satış sistemi oluşturmaktır."
+        )
+    )
+
+    body.append(h2("1. İş Modelini ve Hedefi Belirlemek"))
+    body.append(
+        p(
+            "E-ticaret projesine başlamadan önce şu soruların net olması gerekir:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Hangi ürün veya hizmet satılacak?",
+                "Hedef müşteri kitlesi kim?",
+                "B2C mi B2B mi olacak?",
+                "Beklenen ortalama sepet tutarı nedir?",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu analizler yapılmadan geliştirilen e-ticaret projeleri çoğunlukla düşük dönüşüm oranı problemi yaşar."
+        )
+    )
+
+    body.append(h2("2. Doğru E-Ticaret Altyapısını Seçmek"))
+    body.append(
+        p(
+            "Bir e-ticaret sitesi kurarken en kritik kararlardan biri altyapı seçimidir. Genellikle iki ana seçenek vardır:"
+        )
+    )
+    body.append(h3("Hazır E-Ticaret Platformları"))
+    body.append(
+        ul(
+            [
+                "Avantajları: hızlı kurulum, nispeten düşük başlangıç bütçesi, hazır tema ve modüller.",
+                "Sınırlamaları: SEO ve performans kısıtları, kapsamlı özelleştirme zorlukları.",
+            ]
+        )
+    )
+    body.append(h3("Özel E-Ticaret Yazılımı"))
+    body.append(
+        ul(
+            [
+                "SEO odaklı mimari kurulumu.",
+                "Yüksek performans ve ölçeklenebilirlik.",
+                "İş modeline tam uyumlu esnek geliştirme imkânı.",
+                "Özel entegrasyonlar (ERP, CRM, pazar yerleri vb.).",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Uzun vadeli büyüme hedefleyen orta ve büyük projeler, çoğu zaman özel e-ticaret yazılımını tercih eder."
+        )
+    )
+
+    body.append(h2("3. Alan Adı ve Sunucu Kurulumu"))
+    body.append(
+        p(
+            "Teknik altyapı; alan adı, barındırma ve güvenlik bileşenlerini içerir:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "domain (alan adı) seçimi ve yönlendirmesi",
+                "hosting veya bulut sunucu (cloud server)",
+                "SSL güvenlik sertifikası",
+                "önbellekleme ve temel hız optimizasyonu",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu yapı sitenin güvenli, hızlı ve stabil çalışması için temel zemini oluşturur."
+        )
+    )
+
+    body.append(h2("4. Ürün ve Kategori Yapısını Kurmak"))
+    body.append(
+        p(
+            "SEO açısından e-ticaret sitelerinde kategori mimarisi kritik öneme sahiptir. Doğru yapı genellikle şöyle kurgulanır:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Ana kategori → alt kategori → ürün sayfası hiyerarşisi",
+                "her ürün için açıklama, teknik özellikler ve yüksek kaliteli görseller",
+                "başlık, açıklama ve URL seviyesinde SEO uyumu",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu yapı hem kullanıcıların aradığını hızlı bulmasını sağlar hem de arama motorlarının siteyi daha iyi anlamasına yardımcı olur."
+        )
+    )
+
+    body.append(h2("5. Ödeme Sistemi Entegrasyonu"))
+    body.append(
+        p(
+            "E-ticaret sitelerinde ödeme akışı en kritik adımlardan biridir. Modern online mağazalarda genellikle şu yöntemler desteklenir:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "kredi kartı / banka kartı işlemleri",
+                "3D secure odaklı güvenli ödeme",
+                "dijital cüzdan entegrasyonları",
+                "havale veya EFT seçenekleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Güvenli ve sorunsuz çalışan bir ödeme altyapısı, müşteri güvenini artırır ve tamamlama oranlarını yükseltir."
+        )
+    )
+
+    body.append(h2("6. Kargo ve Sipariş Yönetimi"))
+    body.append(
+        p(
+            "E-ticaretin sürdürülebilir olması için lojistik süreçlerinin de iyi tasarlanması gerekir. Profesyonel bir e-ticaret sisteminde:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "otomatik kargo entegrasyonları",
+                "sipariş takip ekranları",
+                "stok yönetimi ve uyarı mekanizmaları",
+                "iade ve değişim süreçlerinin kayıt altına alınması",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu adımlar müşteri deneyimini güçlendirir ve tekrar satın alma davranışını destekler."
+        )
+    )
+
+    body.append(h2("7. SEO ve Dijital Pazarlama Altyapısı"))
+    body.append(
+        p(
+            "E-ticaret sitesinin uzun vadede başarılı olması için SEO ve dijital pazarlama temel bir gerekliliktir. Özellikle şu başlıklar önemlidir:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO uyumlu URL ve başlık yapısı",
+                "hızlı sayfa yükleme süreleri",
+                "mobil uyumlu arayüz",
+                "anahtar kelime odaklı içerik üretimi",
+                "iç bağlantı stratejisi ve kategori/ürün ilişkileri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu bileşenler sayesinde e-ticaret sitesi arama motorlarında görünürlük kazanır ve organik trafik üretmeye başlar."
+        )
+    )
+
+    body.append(h2("Yayın Öncesi Kontrol Listesi"))
+    body.append(
+        p(
+            "Bir e-ticaret sitesi yayına alınmadan önce mutlaka şu kontroller yapılmalıdır:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "ödeme akışlarının uçtan uca test edilmesi",
+                "mobil cihaz ve tarayıcı uyumluluğu",
+                "SEO başlık ve açıklamalarının gözden geçirilmesi",
+                "sayfa hız ölçümleri ve temel optimizasyonlar",
+                "güvenlik ve erişim kontrolleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu adımlar yayın sonrası oluşabilecek hataları azaltır ve ilk günden itibaren daha stabil bir deneyim sunar."
+        )
+    )
+
+    body.append(h2("Bir Sonraki Adım"))
+    body.append(
+        p(
+            "Eğer bir e-ticaret sitesi kurmayı planlıyorsanız, doğru mimari ve teknik altyapıyı belirlemek kritik öneme sahiptir. Hedeflerinizi paylaşarak projeniz için en uygun stratejiyi birlikte planlayabiliriz."
+        )
+    )
+    body.append(
+        cta_box(
+            "E-ticaret projeniz için doğru yol haritasını birlikte çıkaralım.",
+            "Hedef ve kapsamınızı paylaşın; E-Ticaret Geliştirme teklif sayfası üzerinden size özel plan oluşturalım.",
+            _quote_url(page),
+            "E-Ticaret Geliştirme Teklif Al",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs: List[Tuple[str, str]] = []
+    faq_json = faq(faq_pairs)
+
+    meta_title = "E-Ticaret Sitesi Nasıl Kurulur? | Adım Adım Profesyonel Rehber"
+    meta_description = (
+        "E-ticaret sitesi nasıl kurulur? Domain, altyapı seçimi, ödeme sistemi, kargo entegrasyonu ve SEO uyumlu online mağaza kurulumu için kapsamlı rehber."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "E-Ticaret Sitesi Nasıl Kurulur? — Adım Adım Profesyonel Rehber",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_tr(page: SeoPage) -> Dict:
     """Custom cluster: React Native mi Native mi? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -6094,6 +6334,12 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "e-ticaret-sitesi":
         return _cluster_e_ticaret_sitesi_tr(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: E-Ticaret Sitesi Nasıl Kurulur? (TR) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "e-ticaret-sitesi-nasil-kurulur":
+        return _cluster_e_ticaret_sitesi_nasil_kurulur_tr(page)
 
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2b":

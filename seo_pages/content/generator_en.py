@@ -2212,6 +2212,223 @@ def _cluster_ecommerce_website_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_how_to_build_ecommerce_website_en(page: SeoPage) -> Dict:
+    """Custom cluster: How to Build an E-Commerce Website — step-by-step guide. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "Building an e-commerce website requires more than simply adding products to a page. A successful online store must combine technical infrastructure, user experience, secure payment systems and search engine optimization."
+        )
+    )
+    body.append(
+        p(
+            "When these elements are planned correctly, businesses can create a scalable digital sales platform that supports long-term growth."
+        )
+    )
+
+    body.append(h2("Step 1 — Define the Business Model"))
+    body.append(
+        p(
+            "Before building an online store, you should clearly define your business model and goals. Key questions include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Who are your target customers?",
+                "Which product categories will you focus on?",
+                "Will the model be B2C or B2B?",
+                "What is the expected average order value?",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "A clear business model helps you design an e-commerce strategy that is focused on conversions and sustainable revenue."
+        )
+    )
+
+    body.append(h2("Step 2 — Choose the Right Platform"))
+    body.append(
+        p(
+            "There are two main options when creating an online store: ready-made platforms and custom e-commerce development."
+        )
+    )
+    body.append(h3("Ready-made Platforms"))
+    body.append(
+        ul(
+            [
+                "Benefits: faster setup, lower initial budget, built-in features and themes.",
+                "Limitations: constrained customization and technical SEO limitations on large, complex projects.",
+            ]
+        )
+    )
+    body.append(h3("Custom E-Commerce Development"))
+    body.append(
+        ul(
+            [
+                "Scalable architecture tailored to your business model.",
+                "Better performance and control over technical SEO.",
+                "Full customization for catalog rules, integrations and workflows.",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Businesses that plan for long-term growth often prefer custom e-commerce development to avoid hitting structural limits later."
+        )
+    )
+
+    body.append(h2("Step 3 — Domain and Hosting Setup"))
+    body.append(
+        p(
+            "A professional e-commerce website requires a stable technical foundation. At minimum, you should plan for:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "a clear, brand-aligned domain name",
+                "reliable hosting or cloud infrastructure",
+                "an SSL security certificate",
+                "basic performance optimization and caching",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This foundation ensures that your store runs securely and efficiently from day one."
+        )
+    )
+
+    body.append(h2("Step 4 — Product and Category Structure"))
+    body.append(
+        p(
+            "For both SEO and user experience, product organization is critical. A typical structure looks like:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Category → subcategory → product pages hierarchy",
+                "clear product descriptions and specifications",
+                "high-quality, optimized images",
+                "SEO-friendly titles and descriptions for each product page",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This structure helps users find what they need quickly and helps search engines understand your catalog."
+        )
+    )
+
+    body.append(h2("Step 5 — Payment Integration"))
+    body.append(
+        p(
+            "Online stores must provide secure, frictionless payment methods. Common options include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "credit card payments",
+                "debit card payments",
+                "3D secure checkout flows",
+                "digital wallets",
+                "bank transfers",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Reliable payment systems build customer trust and reduce abandoned checkouts."
+        )
+    )
+
+    body.append(h2("Step 6 — Shipping and Order Management"))
+    body.append(
+        p(
+            "Efficient logistics is essential for e-commerce success. Modern online stores typically implement:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "automated shipping integrations with carriers",
+                "order tracking for customers and admins",
+                "inventory management across categories and warehouses",
+                "structured return and refund processes",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Well-designed logistics flows improve customer satisfaction and encourage repeat purchases."
+        )
+    )
+
+    body.append(h2("Step 7 — SEO and Digital Growth"))
+    body.append(
+        p(
+            "Search engine optimization is one of the most important traffic sources for e-commerce websites. Key focus areas include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "optimized URL structure and internal linking",
+                "fast page speed and Core Web Vitals alignment",
+                "mobile-friendly design",
+                "keyword-focused content around key categories and products",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Together with analytics tracking, these elements help your store earn organic traffic and make better marketing decisions."
+        )
+    )
+
+    body.append(h2("Next Step"))
+    body.append(
+        p(
+            "If you are planning to launch or improve your online store, defining a clear strategy and technical architecture is essential. With the right structure, your e-commerce website can become a long-term growth engine for your business."
+        )
+    )
+    body.append(
+        cta_box(
+            "Get an E-Commerce Development Quote",
+            "Share your goals and constraints; we’ll help you design a scalable, SEO-first e-commerce architecture tailored to your business.",
+            _quote_url(page),
+            "Get an E-Commerce Development Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs: List[Tuple[str, str]] = []
+    faq_json = faq(faq_pairs)
+
+    meta_title = "How to Build an E-Commerce Website | Step-by-Step Guide"
+    meta_description = (
+        "Learn how to build an e-commerce website including platform selection, payment integration, shipping setup and SEO optimization for a successful online store."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "How to Build an E-Commerce Website — Step-by-Step Guide",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_en(page: SeoPage) -> Dict:
     """Custom cluster: React Native or Native? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -4806,6 +5023,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "custom-ecommerce-development":
         return _cluster_ecommerce_website_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: How to Build an E-Commerce Website? (EN) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "ecommerce-website-cost":
+        return _cluster_how_to_build_ecommerce_website_en(page)
 
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "b2b-ecommerce-development":
