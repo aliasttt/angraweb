@@ -2686,6 +2686,154 @@ def _cluster_ecommerce_software_company_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ecommerce_software_en(page: SeoPage) -> Dict:
+    """Custom cluster: E-Commerce Software — scalable and SEO-optimized platforms. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("Overview"))
+    body.append(
+        p(
+            "E-commerce software is the technological infrastructure that allows businesses to sell products and services online."
+        )
+    )
+    body.append(
+        p(
+            "A modern e-commerce platform includes much more than a simple website. It usually provides product management systems, order and inventory management, payment gateway integrations, shipping integrations and an SEO-optimized page structure."
+        )
+    )
+    body.append(
+        p(
+            "A well-designed e-commerce platform enables businesses to scale their online sales and reach global customers."
+        )
+    )
+
+    body.append(h2("Key Features of Professional E-Commerce Software"))
+
+    body.append(h3("Product and Category Management"))
+    body.append(
+        p(
+            "E-commerce platforms allow businesses to manage products efficiently through:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "product creation and editing",
+                "category management",
+                "product variations",
+                "stock management",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These capabilities make it easier to manage large product catalogs and keep data consistent across the store."
+        )
+    )
+
+    body.append(h3("Order and Inventory Management"))
+    body.append(
+        p(
+            "Modern e-commerce platforms include advanced order management features such as:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "order tracking",
+                "automatic stock updates",
+                "customer order history",
+                "return and refund management",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These systems improve operational efficiency and overall customer experience."
+        )
+    )
+
+    body.append(h3("Payment Gateway Integration"))
+    body.append(
+        p(
+            "Secure payment systems are essential for online businesses. Professional e-commerce platforms typically support:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "credit card payments",
+                "secure checkout systems",
+                "digital payment services",
+                "bank transfers",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Reliable payment infrastructure improves trust and conversion rates."
+        )
+    )
+
+    body.append(h3("SEO-Optimized E-Commerce Platforms"))
+    body.append(
+        p(
+            "For an online store to succeed, it must be visible on search engines. SEO-optimized e-commerce platforms include:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO-friendly URLs",
+                "fast loading pages",
+                "mobile-responsive design",
+                "structured internal linking",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These factors help online stores gain organic search traffic and support long-term growth."
+        )
+    )
+
+    body.append(h2("Next Step"))
+    body.append(
+        p(
+            "If you are planning to launch or scale an online store, choosing the right e-commerce software architecture is critical for long-term success."
+        )
+    )
+    body.append(
+        cta_box(
+            "Get an E-Commerce Development Quote",
+            "Share your goals and constraints; we’ll help you design a scalable, SEO-first e-commerce architecture tailored to your business.",
+            _quote_url(page),
+            "Get an E-Commerce Development Quote",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    faq_pairs: List[Tuple[str, str]] = []
+    faq_json = faq(faq_pairs)
+
+    meta_title = "E-Commerce Software | Scalable and SEO-Optimized Online Store Development"
+    meta_description = (
+        "What is e-commerce software? Learn about professional e-commerce platforms, payment integrations, SEO-optimized architecture and scalable online store development."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "E-Commerce Software — Scalable and SEO-Optimized Online Store Development",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_react_native_vs_native_en(page: SeoPage) -> Dict:
     """Custom cluster: React Native or Native? — decision matrix, scenarios, process. No pricing triggers."""
     body: List[str] = []
@@ -5274,6 +5422,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native-vs-native":
         return _cluster_react_native_vs_native_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: E-Commerce Software (EN) — ecommerce-development
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "ecommerce-platform-development":
+        return _cluster_ecommerce_software_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: E-Commerce Software Company (EN) — ecommerce-development
