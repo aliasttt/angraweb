@@ -7,6 +7,9 @@ Management command to update project order:
 5. kalicimakyajmonir (order: 5)
 6. angraweb (order: 6)
 7. hedef surucu kursu (order: 7)
+8. gezgin-ustalar (order: 8)
+9. qrmenu-pro preismenu (order: 9)
+10. revolift asansor / aliasadi.online (order: 10 - last)
 """
 import sys
 from django.core.management.base import BaseCommand
@@ -30,7 +33,9 @@ class Command(BaseCommand):
             {'slug': 'kalici-makyaj-monir-permanent-makeup', 'order': 5},
             {'slug': 'angraweb-portfolio', 'order': 6},
             {'slug': 'hedef-surucu-kursu-driving-school', 'order': 7},
-            {'slug': 'gezgin-ustalar-home-services', 'order': 8},  # Last
+            {'slug': 'gezgin-ustalar-home-services', 'order': 8},
+            {'slug': 'qrmenu-pro-preismenu', 'order': 9},
+            {'slug': 'revolift-asansor-elevator-solutions', 'order': 10},  # Last
         ]
 
         updated_count = 0

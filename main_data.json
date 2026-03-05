@@ -637,6 +637,58 @@
   }
 },
 {
+  "model": "main.project",
+  "pk": 10,
+  "fields": {
+    "title": "Revolift Asansör - Asansör Çözümleri",
+    "title_en": "Revolift Elevator - Elevator Solutions",
+    "title_fa": "Revolift Asansör - راه‌حل‌های آسانسور",
+    "title_ar": "Revolift Asansör - حلول المصاعد",
+    "slug": "revolift-asansor-elevator-solutions",
+    "project_type": "web",
+    "description": "Modern ve lüks asansör çözümleri. Bina içi asansörler, yük asansörleri, bakım ve 7/24 servis hizmeti. 25 yıllık deneyim, referans projeler ve müşteri yorumları.",
+    "description_en": "Modern and luxury elevator solutions. Passenger elevators, freight elevators, maintenance and 24/7 service. 25 years of experience, reference projects and customer testimonials.",
+    "description_fa": "راه‌حل‌های آسانسور مدرن و لوکس. آسانسورهای مسافری و باری، نگهداری و خدمات ۲۴/۷. ۲۵ سال تجربه، پروژه‌های مرجع و نظرات مشتریان.",
+    "description_ar": "حلول مصاعد حديثة وفاخرة. مصاعد ركاب وشحن، صيانة وخدمة 24/7. 25 عاماً من الخبرة ومشاريع مرجعية وشهادات العملاء.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://aliasadi.online/",
+    "domain": "aliasadi.online",
+    "technologies": "Django, Python, Web, SEO, Responsive",
+    "featured": true,
+    "order": 10,
+    "active": true,
+    "created_at": "2026-03-06T12:00:00.000Z",
+    "updated_at": "2026-03-06T12:00:00.000Z"
+  }
+},
+{
+  "model": "main.project",
+  "pk": 11,
+  "fields": {
+    "title": "QRMenu Pro - QR Menü ve Online Sipariş",
+    "title_en": "QRMenu Pro - QR Menu & Online Ordering",
+    "title_fa": "QRMenu Pro - منوی QR و سفارش آنلاین",
+    "title_ar": "QRMenu Pro - قائمة QR والطلب عبر الإنترنت",
+    "slug": "qrmenu-pro-preismenu",
+    "project_type": "platform",
+    "description": "Restoran ve kafeler için QR menü, online sipariş ve teslimat platformu. Mobil uygulama, canlı menü senkronizasyonu, çok dilli menü (Türkçe/İngilizce), kampanya motoru ve anlık analitik. Siteden menüden sipariş verilebiliyor.",
+    "description_en": "QR menu, online ordering and delivery platform for restaurants and cafes. Mobile app, live menu sync, multilingual menus (Turkish/English), campaign engine and real-time analytics. Order directly from the restaurant menu on the site.",
+    "description_fa": "پلتفرم منوی QR، سفارش آنلاین و تحویل برای رستوران‌ها و کافه‌ها. اپ موبایل، همگام‌سازی زنده منو، منوی چندزبانه (ترکی/انگلیسی)، موتور کمپین و آنالیتیک لحظه‌ای. سفارش از روی منو در سایت.",
+    "description_ar": "منصة قائمة QR والطلب عبر الإنترنت والتوصيل للمطاعم والمقاهي. تطبيق جوال، مزامنة القائمة المباشرة، قوائم متعددة اللغات (التركية/الإنجليزية)، محرك الحملات والتحليلات الفورية. الطلب من القائمة على الموقع.",
+    "image": "",
+    "thumbnail": "",
+    "url": "https://preismenu.de/",
+    "domain": "preismenu.de",
+    "technologies": "Django, Python, Mobile App, Online Ordering, Delivery, Multi-language, Turkish, English",
+    "featured": true,
+    "order": 9,
+    "active": true,
+    "created_at": "2026-03-06T12:00:00.000Z",
+    "updated_at": "2026-03-06T12:00:00.000Z"
+  }
+},
+{
   "model": "main.projectvideo",
   "pk": 1,
   "fields": {
