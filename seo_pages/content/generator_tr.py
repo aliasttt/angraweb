@@ -6768,6 +6768,8 @@ def generate_tr(page: SeoPage) -> Dict:
             return _mobile_app_pillar_tr(page)
         if page.service.key == "seo-services":
             return _seo_services_pillar_tr(page)
+        if page.service.key == "hosting-domain":
+            return _hosting_domain_pillar_tr(page)
         title = f"{svc}"
         meta = make_meta(
             title=title,
@@ -7608,6 +7610,100 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
         "meta_description": meta_description,
         "content_html": content_html,
         "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _hosting_domain_pillar_tr(page: SeoPage) -> Dict:
+    """Custom pillar: Hosting ve Domain (TR) — web hosting, VPS, cloud, domain, SSL, Linux."""
+    body: List[str] = []
+
+    body.append(h2("Hosting ve Domain Nedir"))
+    body.append(p("Bir web sitesinin internet üzerinde yayınlanabilmesi için iki temel bileşen gerekir: domain (alan adı) ve hosting (barındırma hizmeti)."))
+    body.append(p("Domain, kullanıcıların web sitenize ulaşmasını sağlayan adresi ifade eder. Örneğin angraweb.com bir alan adıdır."))
+    body.append(p("Hosting ise web sitenizin dosyalarının saklandığı ve internet üzerinden erişilebilir hale getirildiği sunucudur."))
+    body.append(p("Bu iki bileşen birlikte çalışarak web sitelerinin online olarak yayınlanmasını sağlar."))
+
+    body.append(h2("Web Hosting Nedir"))
+    body.append(p("Web hosting, web sitelerinin internet üzerinde yayınlanmasını sağlayan barındırma hizmetidir."))
+    body.append(p("Hosting hizmeti sayesinde web sitesi dosyaları bir sunucu üzerinde saklanır ve kullanıcılar internet üzerinden bu dosyalara erişebilir."))
+    body.append(p("Hosting hizmetlerinin temel özellikleri şunlardır:"))
+    body.append(ul(["yüksek uptime oranı", "hızlı sunucu performansı", "güvenli altyapı", "teknik destek"]))
+    body.append(p("Doğru hosting seçimi web sitesinin performansı ve güvenliği açısından büyük önem taşır."))
+
+    body.append(h2("VPS Hosting"))
+    body.append(p("VPS (Virtual Private Server), fiziksel bir sunucunun sanal olarak bölünmesiyle oluşturulan hosting çözümüdür."))
+    body.append(p("VPS hosting çözümleri genellikle şu avantajları sunar:"))
+    body.append(ul(["daha yüksek performans", "daha fazla kontrol", "özelleştirilebilir sunucu yapılandırması"]))
+    body.append(p("Bu nedenle VPS hosting genellikle büyüyen web siteleri ve projeler için tercih edilir."))
+
+    body.append(h2("Bulut Sunucu (Cloud Hosting)"))
+    body.append(p("Bulut sunucu teknolojisi, web sitelerinin birden fazla sunucu üzerinde çalışmasını sağlayan modern bir altyapıdır."))
+    body.append(p("Cloud hosting çözümleri şu avantajları sağlar:"))
+    body.append(ul(["yüksek ölçeklenebilirlik", "daha iyi performans", "yüksek erişilebilirlik"]))
+    body.append(p("Bu nedenle modern web projelerinde bulut altyapısı sıkça tercih edilir."))
+
+    body.append(h2("Dedicated Sunucu (Özel Sunucu)"))
+    body.append(p("Özel sunucu kiralama, tüm fiziksel sunucunun tek bir proje için ayrıldığı hosting türüdür."))
+    body.append(p("Dedicated server çözümleri genellikle:"))
+    body.append(ul(["yüksek trafikli web siteleri", "büyük ölçekli uygulamalar", "kurumsal projeler"]))
+    body.append(p("için tercih edilir."))
+    body.append(p("Bu yapı maksimum performans ve kontrol sağlar."))
+
+    body.append(h2("Domain Satın Alma"))
+    body.append(p("Domain (alan adı), web sitenizin internet üzerindeki adresidir."))
+    body.append(p("Doğru domain seçimi markanız için büyük önem taşır."))
+    body.append(p("Domain seçerken şu kriterlere dikkat edilmelidir:"))
+    body.append(ul(["kısa ve akılda kalıcı olması", "marka ile uyumlu olması", "doğru domain uzantısı seçimi (.com, .net vb.)"]))
+    body.append(p("Alan adı seçimi dijital marka kimliğinin temel parçasıdır."))
+
+    body.append(h2("SSL Sertifikası"))
+    body.append(p("SSL sertifikası, web siteleri ile kullanıcılar arasındaki veri iletişimini şifreleyen güvenlik teknolojisidir."))
+    body.append(p("SSL sertifikası sayesinde:"))
+    body.append(ul(["kullanıcı verileri korunur", "web sitesi güvenli hale gelir", "Google sıralamalarında avantaj sağlanır"]))
+    body.append(p("Bu nedenle modern web sitelerinde SSL kullanımı zorunlu hale gelmiştir."))
+
+    body.append(h2("Linux Sunucu Kurulumu"))
+    body.append(p("Linux sunucular web hosting dünyasında en yaygın kullanılan sunucu altyapılarından biridir."))
+    body.append(p("Linux tabanlı sunucular şu avantajları sunar:"))
+    body.append(ul(["yüksek güvenlik", "güçlü performans", "açık kaynak ekosistemi"]))
+    body.append(p("Bu nedenle birçok web uygulaması Linux sunucular üzerinde çalışır."))
+
+    body.append(h2("Hosting Seçerken Nelere Dikkat Edilmeli"))
+    body.append(p("Doğru hosting seçimi web sitenizin performansını doğrudan etkiler."))
+    body.append(p("Hosting seçerken şu faktörler dikkate alınmalıdır:"))
+    body.append(ul(["sunucu performansı", "uptime oranı", "teknik destek kalitesi", "güvenlik altyapısı", "ölçeklenebilirlik"]))
+    body.append(p("Bu kriterler uzun vadede web sitenizin başarısını belirler."))
+
+    body.append(h2("Angraweb Hosting ve Sunucu Çözümleri"))
+    body.append(p("Angraweb olarak web projeleri için hosting ve sunucu altyapısı konusunda danışmanlık ve kurulum hizmetleri sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları kapsar:"))
+    body.append(ul(["web hosting kurulumu", "VPS ve bulut sunucu yapılandırması", "domain yönetimi", "SSL kurulumu", "Linux sunucu kurulumu"]))
+    body.append(p("Amacımız web projelerinin hızlı, güvenli ve sürdürülebilir şekilde çalışmasını sağlamaktır."))
+
+    body.append(h2("Hosting Çözümü İçin Teklif Alın"))
+    body.append(p("Projeniz için en uygun hosting altyapısını belirlemek performans ve güvenlik açısından kritik bir adımdır."))
+    body.append(p(f"Angraweb ekibi ile iletişime geçerek projenize en uygun hosting çözümünü belirleyebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"))
+
+    cluster_urls = _cluster_urls_for_service(page)
+    if cluster_urls:
+        body.append(h2("Konular"))
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
+
+    content_html = "\n".join(body)
+    meta_title = "Hosting ve Domain Rehberi: Web Hosting, VPS ve Sunucu Çözümleri – Angraweb"
+    meta_description = (
+        "Hosting ve domain nedir? Web hosting, VPS, bulut sunucu, domain satın alma ve SSL sertifikası hakkında kapsamlı rehberi keşfedin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Hosting ve Domain",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
         "published_at": timezone.now(),
     }
 

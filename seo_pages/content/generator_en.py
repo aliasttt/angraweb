@@ -3072,6 +3072,96 @@ def _mobile_app_pillar_en(page: SeoPage) -> Dict:
     }
 
 
+def _hosting_domain_pillar_en(page: SeoPage) -> Dict:
+    """Custom pillar: Hosting and Domain (EN) — hosting, VPS, cloud, domain, SSL, Linux."""
+    body: List[str] = []
+
+    body.append(h2("What Is Hosting and Domain"))
+    body.append(p("To publish a website on the internet, two essential components are required: a domain name and hosting service."))
+    body.append(p("A domain name is the address users type into their browser to access a website."))
+    body.append(p("Hosting is the server infrastructure where the website files are stored and served to visitors."))
+    body.append(p("Together, these two components allow websites to be accessible on the internet."))
+
+    body.append(h2("Web Hosting"))
+    body.append(p("Web hosting is a service that stores website files on servers connected to the internet."))
+    body.append(p("A hosting provider ensures that a website is accessible to users around the world."))
+    body.append(p("Key hosting features include:"))
+    body.append(ul(["high uptime", "fast performance", "secure infrastructure", "technical support"]))
+    body.append(p("Choosing the right hosting provider is critical for website performance."))
+
+    body.append(h2("VPS Hosting"))
+    body.append(p("VPS (Virtual Private Server) hosting divides a physical server into multiple virtual servers."))
+    body.append(p("Each VPS operates independently with its own resources."))
+    body.append(p("Advantages of VPS hosting include:"))
+    body.append(ul(["higher performance", "more control", "flexible configuration"]))
+    body.append(p("This makes VPS hosting ideal for growing websites and applications."))
+
+    body.append(h2("Cloud Servers"))
+    body.append(p("Cloud hosting uses multiple servers working together to host websites and applications."))
+    body.append(p("Advantages of cloud hosting include:"))
+    body.append(ul(["scalability", "high reliability", "strong performance"]))
+    body.append(p("Cloud infrastructure is widely used for modern web projects."))
+
+    body.append(h2("Dedicated Servers"))
+    body.append(p("Dedicated servers provide an entire physical server for a single project."))
+    body.append(p("These servers are typically used for:"))
+    body.append(ul(["high traffic websites", "enterprise applications", "large scale platforms"]))
+    body.append(p("Dedicated hosting offers maximum performance and control."))
+
+    body.append(h2("Domain Registration"))
+    body.append(p("A domain name is the digital address of a website."))
+    body.append(p("Choosing the right domain is important for branding and online visibility."))
+    body.append(p("Key factors when selecting a domain include:"))
+    body.append(ul(["short and memorable name", "brand relevance", "proper extension (.com, .net etc.)"]))
+    body.append(p("A good domain name strengthens digital identity."))
+
+    body.append(h2("SSL Certificates"))
+    body.append(p("SSL certificates encrypt communication between a website and its users."))
+    body.append(p("Benefits of SSL include:"))
+    body.append(ul(["data security", "trust and credibility", "improved SEO rankings"]))
+    body.append(p("Today SSL is essential for all modern websites."))
+
+    body.append(h2("Linux Server Setup"))
+    body.append(p("Linux servers are widely used in web hosting environments."))
+    body.append(p("They provide:"))
+    body.append(ul(["strong security", "stable performance", "open source flexibility"]))
+    body.append(p("Many modern web applications run on Linux-based servers."))
+
+    body.append(h2("Choosing the Right Hosting"))
+    body.append(p("Selecting the right hosting solution is crucial for website success."))
+    body.append(p("Important factors include:"))
+    body.append(ul(["server performance", "uptime reliability", "technical support", "security features", "scalability"]))
+    body.append(p("A well chosen hosting infrastructure ensures long term website stability."))
+
+    body.append(h2("Angraweb Hosting Solutions"))
+    body.append(p("At Angraweb we provide consulting and infrastructure services for hosting and server environments."))
+    body.append(p("Our services include:"))
+    body.append(ul(["hosting setup", "VPS and cloud server configuration", "domain management", "SSL installation", "Linux server setup"]))
+    body.append(p("Our goal is to ensure reliable and secure hosting environments for web projects."))
+
+    cluster_urls = _cluster_urls_for_service(page)
+    if cluster_urls:
+        body.append(h2("Topics"))
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
+
+    content_html = "\n".join(body)
+    meta_title = "Hosting and Domain Guide: Web Hosting, VPS and Cloud Servers – Angraweb"
+    meta_description = (
+        "Learn about web hosting, VPS hosting, cloud servers, domain registration and SSL certificates in this complete hosting and domain guide."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Hosting and Domain",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -7751,6 +7841,8 @@ def generate_en(page: SeoPage) -> Dict:
             return _mobile_app_pillar_en(page)
         if page.service.key == "seo-services":
             return _seo_services_pillar_en(page)
+        if page.service.key == "hosting-domain":
+            return _hosting_domain_pillar_en(page)
         title = svc
         meta = make_meta(
             title=title,
