@@ -8040,25 +8040,28 @@ def generate_en(page: SeoPage) -> Dict:
         return _cluster_what_is_ecommerce_en(page)
 
     # -------------------------------------------------------------------------
-    # Custom cluster: Hire an SEO Expert (EN) — seo-services
+    # Custom clusters: seo-services (EN)
+    # Accept minor legacy slug variations by normalizing spaces and "?".
     # -------------------------------------------------------------------------
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-consultancy":
-        return _cluster_seo_consultancy_en(page)
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services":
+        seo_slug_norm = (page.slug or "").strip().lower().replace(" ", "-").replace("?", "")
 
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "technical-seo-services":
-        return _cluster_technical_seo_services_en(page)
-
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "on-page-seo-services":
-        return _cluster_on_page_seo_services_en(page)
-
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-audit":
-        return _cluster_seo_audit_en(page)
-
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "what-is-seo":
-        return _cluster_what_is_seo_en(page)
-
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "hire-seo-expert":
-        return _cluster_hire_seo_expert_en(page)
+        if seo_slug_norm == "seo-consultancy":
+            return _cluster_seo_consultancy_en(page)
+        if seo_slug_norm == "technical-seo-services":
+            return _cluster_technical_seo_services_en(page)
+        if seo_slug_norm == "on-page-seo-services":
+            return _cluster_on_page_seo_services_en(page)
+        if seo_slug_norm == "seo-audit":
+            return _cluster_seo_audit_en(page)
+        if seo_slug_norm == "what-is-seo":
+            return _cluster_what_is_seo_en(page)
+        if seo_slug_norm == "hire-seo-expert":
+            return _cluster_hire_seo_expert_en(page)
+        if seo_slug_norm == "istanbul-seo-agency":
+            return _cluster_istanbul_seo_agency_en(page)
+        if seo_slug_norm == "agency-vs-freelancer":
+            return _cluster_seo_agency_vs_freelancer_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: Istanbul SEO Agency (EN) — seo-services
