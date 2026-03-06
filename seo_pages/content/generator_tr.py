@@ -6819,6 +6819,8 @@ def generate_tr(page: SeoPage) -> Dict:
         }
 
     if page.page_type == SeoPage.TYPE_PRICING:
+        if page.service.key == "seo-services":
+            return _seo_services_pricing_tr(page)
         title = f"{svc} Fiyatları"
         meta = make_meta(
             title=title,
@@ -7530,6 +7532,342 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
         "meta_description": meta_description,
         "content_html": content_html,
         "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _seo_services_pricing_tr(page: SeoPage) -> Dict:
+    """Custom SEO pricing page (TR) — fiyat faktörleri, kapsam, aylık/proje modelleri, cluster linkleri."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "SEO hizmetleri fiyatları, bir web sitesinin ihtiyaçlarına, rekabet seviyesine ve hedeflenen anahtar kelimelere göre değişiklik gösterebilir. "
+            "Her web sitesi farklı olduğu için SEO çalışmaları da standart bir paket yerine projeye özel planlanır."
+        )
+    )
+    body.append(
+        p(
+            "Profesyonel SEO hizmetlerinin amacı yalnızca arama motorlarında görünürlük kazanmak değil, aynı zamanda doğru hedef kitleye ulaşarak sürdürülebilir bir trafik ve müşteri akışı sağlamaktır. "
+            "Bu nedenle SEO fiyatlandırması yapılırken yalnızca teknik çalışmalar değil; içerik stratejisi, kullanıcı deneyimi ve rekabet analizi gibi birçok faktör göz önünde bulundurulur."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak SEO projelerinde fiyatlandırmayı şeffaf ve anlaşılır bir şekilde planlıyoruz. "
+            "Böylece müşteriler hangi çalışmaların projeye dahil olduğunu ve bütçenin hangi alanlara ayrıldığını net bir şekilde görebilir."
+        )
+    )
+
+    body.append(h2("SEO Hizmetleri Fiyatlarını Etkileyen Faktörler"))
+    body.append(
+        p(
+            "SEO fiyatları birkaç temel faktöre bağlı olarak değişir. "
+            "Bunların başında sektör rekabeti, hedeflenen anahtar kelimeler ve web sitesinin mevcut durumu gelir."
+        )
+    )
+    body.append(h3("Rekabet Seviyesi"))
+    body.append(
+        p(
+            "Bazı sektörlerde SEO rekabeti oldukça yüksektir. "
+            "Özellikle e-ticaret, finans, sağlık ve teknoloji gibi alanlarda çok sayıda rakip bulunur. "
+            "Bu durumda SEO çalışmaları daha kapsamlı bir strateji gerektirir."
+        )
+    )
+    body.append(
+        p(
+            "Rekabet seviyesi arttıkça yapılması gereken çalışmalar da artar. "
+            "Bu nedenle yüksek rekabetli sektörlerde SEO bütçesi genellikle daha yüksek olur."
+        )
+    )
+    body.append(h3("Web Sitesinin Mevcut Durumu"))
+    body.append(
+        p(
+            "SEO çalışmasına başlamadan önce web sitesinin teknik altyapısı incelenir. "
+            "Eğer site yapısında ciddi teknik sorunlar varsa öncelikle bu sorunların çözülmesi gerekir."
+        )
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "Site hızının düşük olması",
+                "Mobil uyumluluk sorunları",
+                "Hatalı sayfa yapıları",
+                "Eksik meta etiketleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu tür sorunlar SEO performansını doğrudan etkiler ve düzeltilmesi gereken çalışmalar fiyatlandırmaya dahil edilir."
+        )
+    )
+    body.append(h3("Anahtar Kelime Stratejisi"))
+    body.append(
+        p(
+            "SEO çalışmalarının en önemli parçalarından biri anahtar kelime araştırmasıdır. "
+            "Hedeflenen anahtar kelimelerin arama hacmi ve rekabet düzeyi SEO stratejisini doğrudan etkiler."
+        )
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "düşük rekabetli anahtar kelimeler daha hızlı sonuç verebilir",
+                "yüksek rekabetli anahtar kelimeler uzun vadeli SEO çalışması gerektirir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle anahtar kelime stratejisi SEO fiyatlandırmasının önemli bir parçasıdır."
+        )
+    )
+
+    body.append(h2("SEO Hizmeti Neleri Kapsar"))
+    body.append(
+        p(
+            "Profesyonel SEO hizmetleri yalnızca birkaç teknik ayardan ibaret değildir. "
+            "Başarılı bir SEO stratejisi birçok farklı çalışmanın birlikte yürütülmesini gerektirir."
+        )
+    )
+    body.append(h3("SEO Analizi (SEO Audit)"))
+    body.append(
+        p(
+            "SEO süreci genellikle detaylı bir SEO analizi ile başlar. "
+            "Bu analizde web sitesinin teknik yapısı, içerik kalitesi ve arama motoru uyumluluğu incelenir."
+        )
+    )
+    body.append(p("SEO analizinde şu konular değerlendirilir:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO sorunları",
+                "site hızı",
+                "mobil uyumluluk",
+                "içerik yapısı",
+                "backlink profili",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu analiz sonucunda bir SEO yol haritası oluşturulur. "
+            f"Detay için: {{{{ link:/tr/seo-hizmetleri/seo-analizi/ }}}}"
+        )
+    )
+    body.append(h3("Teknik SEO"))
+    body.append(
+        p(
+            "Teknik SEO, arama motorlarının web sitesini daha iyi taramasını ve anlamasını sağlayan optimizasyonları içerir."
+        )
+    )
+    body.append(p("Teknik SEO çalışmaları şunları kapsar:"))
+    body.append(
+        ul(
+            [
+                "site hız optimizasyonu",
+                "mobil uyumluluk iyileştirmeleri",
+                "site mimarisi düzenleme",
+                "indeksleme sorunlarının çözülmesi",
+                "yapılandırılmış veri (schema) kullanımı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Teknik SEO çalışmaları doğru yapılmadığında diğer SEO çalışmalarının etkisi sınırlı kalabilir. "
+            f"Daha fazla bilgi: {{{{ link:/tr/seo-hizmetleri/teknik-seo/ }}}}"
+        )
+    )
+    body.append(h3("İçerik Optimizasyonu"))
+    body.append(
+        p(
+            "SEO'nun en önemli parçalarından biri içeriktir. "
+            "Google algoritmaları kullanıcıya değer sağlayan içerikleri ön plana çıkarır."
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle SEO çalışmalarında içerik optimizasyonu önemli bir rol oynar."
+        )
+    )
+    body.append(p("İçerik optimizasyonu kapsamında:"))
+    body.append(
+        ul(
+            [
+                "anahtar kelime uyumlu içerik oluşturma",
+                "başlık yapısı düzenleme",
+                "meta açıklamaları optimize etme",
+                "kullanıcı niyetine uygun içerik geliştirme",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu çalışmalar web sitesinin organik trafik kazanmasına yardımcı olur. "
+            f"Site içi SEO detayları: {{{{ link:/tr/seo-hizmetleri/on-page-seo/ }}}}"
+        )
+    )
+    body.append(h3("Backlink Çalışmaları"))
+    body.append(
+        p(
+            "Backlink, başka web sitelerinden alınan bağlantılardır ve SEO açısından önemli bir otorite sinyalidir."
+        )
+    )
+    body.append(p("Kaliteli backlinkler:"))
+    body.append(
+        ul(
+            [
+                "web sitesinin güvenilirliğini artırır",
+                "Google sıralamalarını güçlendirir",
+                "organik trafik artışına katkı sağlar",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Ancak backlink çalışmaları doğal ve kaliteli kaynaklardan yapılmalıdır. "
+            "Düşük kaliteli backlinkler SEO performansına zarar verebilir."
+        )
+    )
+
+    body.append(h2("Aylık SEO Hizmeti Fiyatları"))
+    body.append(
+        p(
+            "SEO fiyatları projeye göre değişse de genel olarak birkaç farklı model bulunur."
+        )
+    )
+    body.append(h3("Aylık SEO Hizmeti"))
+    body.append(
+        p(
+            "Birçok işletme için en uygun model aylık SEO hizmetidir. "
+            "Bu modelde SEO çalışmaları sürekli olarak yürütülür ve performans düzenli olarak analiz edilir."
+        )
+    )
+    body.append(p("Aylık SEO hizmetleri genellikle şu çalışmaları içerir:"))
+    body.append(
+        ul(
+            [
+                "anahtar kelime analizi",
+                "içerik optimizasyonu",
+                "teknik SEO iyileştirmeleri",
+                "backlink geliştirme",
+                "SEO raporlama",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu model uzun vadeli SEO başarısı için en etkili yöntemlerden biridir."
+        )
+    )
+    body.append(h3("Proje Bazlı SEO"))
+    body.append(
+        p(
+            "Bazı durumlarda SEO çalışmaları proje bazlı olarak yapılabilir."
+        )
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "SEO site analizi",
+                "teknik SEO düzeltmeleri",
+                "site taşınması sonrası SEO düzenlemeleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu tür çalışmalar genellikle tek seferlik projeler şeklinde planlanır."
+        )
+    )
+
+    body.append(h2("SEO Hizmeti Alırken Nelere Dikkat Edilmeli"))
+    body.append(
+        p(
+            "SEO hizmeti seçerken yalnızca fiyat değil, sunulan hizmetin kalitesi de dikkate alınmalıdır."
+        )
+    )
+    body.append(
+        p(
+            "Profesyonel bir SEO hizmetinde şu özellikler bulunmalıdır:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "şeffaf raporlama",
+                "sürdürülebilir SEO stratejisi",
+                "güncel Google algoritmalarına uygun çalışma",
+                "uzun vadeli organik büyüme hedefi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "SEO kısa vadeli bir reklam çalışması değil, uzun vadeli bir dijital büyüme stratejisidir."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Hizmetleri"))
+    body.append(
+        p(
+            "Angraweb olarak işletmelerin dijital görünürlüğünü artırmak için modern ve sürdürülebilir SEO stratejileri uyguluyoruz."
+        )
+    )
+    body.append(p("SEO çalışmalarımız şu alanlara odaklanır:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO optimizasyonu",
+                "anahtar kelime stratejisi",
+                "içerik geliştirme",
+                "site içi ve site dışı SEO",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Amacımız web sitenizin arama motorlarında daha üst sıralara çıkmasını sağlamak ve işletmenize gerçek müşteri kazandırmaktır."
+        )
+    )
+    body.append(
+        p(
+            "SEO hizmetleri fiyatları hakkında detaylı bilgi almak için bizimle iletişime geçebilir veya "
+            f"hızlı teklif formunu kullanabilirsiniz: {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    # Topical authority: link to cluster pages
+    body.append(h3("İlgili konular"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/seo-hizmetleri/seo-analizi/ }}}}",
+                f"{{{{ link:/tr/seo-hizmetleri/on-page-seo/ }}}}",
+                f"{{{{ link:/tr/seo-hizmetleri/teknik-seo/ }}}}",
+                f"{{{{ link:/tr/seo-hizmetleri/seo-nedir/ }}}}",
+                f"{{{{ link:/tr/seo-hizmetleri/seo-nasil-yapilir/ }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Hizmetleri Fiyatları 2026 | Profesyonel SEO Maliyeti – Angraweb"
+    meta_description = (
+        "SEO hizmetleri fiyatları neye göre belirlenir? Profesyonel SEO maliyeti, aylık SEO paketleri ve fiyatları hakkında detaylı bilgi alın."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Hizmetleri Fiyatları",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
         "published_at": timezone.now(),
     }
 

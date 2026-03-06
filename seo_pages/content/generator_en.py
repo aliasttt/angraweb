@@ -386,6 +386,338 @@ def _seo_services_pillar_en(page: SeoPage) -> Dict:
     }
 
 
+def _seo_services_pricing_en(page: SeoPage) -> Dict:
+    """Custom SEO pricing page (EN) — factors, scope, monthly/project models, cluster links for topical authority."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "SEO services pricing can vary depending on the needs of a website, the level of competition in the industry, and the targeted keywords. "
+            "Since every website is unique, SEO strategies are typically tailored to the specific goals and requirements of each project."
+        )
+    )
+    body.append(
+        p(
+            "The goal of professional SEO services is not only to improve search engine rankings but also to attract the right audience and generate sustainable traffic and leads. "
+            "For this reason, SEO pricing is determined based on multiple factors including technical optimization, content strategy, user experience, and market competition."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb, we approach SEO pricing with transparency and clarity. "
+            "Our goal is to ensure that clients fully understand what services are included and how the SEO strategy will support their long-term digital growth."
+        )
+    )
+
+    body.append(h2("Factors That Affect SEO Pricing"))
+    body.append(
+        p(
+            "Several factors influence the cost of SEO services. "
+            "These include the competitiveness of the industry, the current condition of the website, and the scope of the SEO strategy."
+        )
+    )
+    body.append(h3("Competition Level"))
+    body.append(
+        p(
+            "Some industries are far more competitive than others. "
+            "Sectors such as e-commerce, finance, technology, and healthcare often require more advanced SEO strategies due to high competition."
+        )
+    )
+    body.append(
+        p(
+            "When competition increases, SEO campaigns require more comprehensive work, including stronger content strategies and authority building. "
+            "This naturally affects the overall cost of SEO services."
+        )
+    )
+    body.append(h3("Current Website Condition"))
+    body.append(
+        p(
+            "Before starting an SEO campaign, the technical health of the website must be analyzed. "
+            "If the site has significant technical issues, those problems need to be addressed before implementing a full SEO strategy."
+        )
+    )
+    body.append(p("Common issues include:"))
+    body.append(
+        ul(
+            [
+                "slow page loading speed",
+                "poor mobile responsiveness",
+                "technical crawl errors",
+                "missing meta tags",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Fixing these issues is often the first step of a professional SEO process."
+        )
+    )
+    body.append(h3("Keyword Strategy"))
+    body.append(
+        p(
+            "Keyword research is one of the most critical elements of a successful SEO campaign."
+        )
+    )
+    body.append(
+        p(
+            "Different keywords require different levels of effort. For example:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "low-competition keywords may rank faster",
+                "highly competitive keywords require long-term SEO work",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Therefore, keyword strategy directly impacts the scope and pricing of SEO services."
+        )
+    )
+
+    body.append(h2("What Is Included in SEO Services"))
+    body.append(
+        p(
+            "Effective SEO campaigns involve multiple areas of optimization."
+        )
+    )
+    body.append(h3("SEO Audit"))
+    body.append(
+        p(
+            "The first step in most SEO projects is a comprehensive SEO audit. "
+            "This process evaluates the technical health of the website and identifies opportunities for improvement."
+        )
+    )
+    body.append(p("An SEO audit typically examines:"))
+    body.append(
+        ul(
+            [
+                "technical SEO structure",
+                "page speed performance",
+                "mobile responsiveness",
+                "content quality",
+                "backlink profile",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "The results of this audit form the foundation of the SEO strategy. "
+            f"Learn more: {{{{ link:/en/seo-services/seo-audit/ }}}}"
+        )
+    )
+    body.append(h3("Technical SEO"))
+    body.append(
+        p(
+            "Technical SEO focuses on optimizing the structure and performance of a website so that search engines can easily crawl and index it."
+        )
+    )
+    body.append(p("Technical SEO services typically include:"))
+    body.append(
+        ul(
+            [
+                "website speed optimization",
+                "mobile usability improvements",
+                "site architecture optimization",
+                "indexing issue fixes",
+                "structured data implementation",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Without strong technical SEO, other SEO strategies may not perform effectively. "
+            f"Details: {{{{ link:/en/seo-services/technical-seo-services/ }}}}"
+        )
+    )
+    body.append(h3("Content Optimization"))
+    body.append(
+        p(
+            "Content plays a central role in SEO success. "
+            "Search engines prioritize content that provides real value to users."
+        )
+    )
+    body.append(p("Content optimization may include:"))
+    body.append(
+        ul(
+            [
+                "keyword-focused content creation",
+                "improving heading structure",
+                "optimizing meta tags",
+                "aligning content with search intent",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These improvements help websites attract organic traffic and rank higher in search results. "
+            f"On-page SEO: {{{{ link:/en/seo-services/on-page-seo-services/ }}}}"
+        )
+    )
+    body.append(h3("Backlink Development"))
+    body.append(
+        p(
+            "Backlinks are links from other websites that point to your site. "
+            "They are considered a key authority signal by search engines."
+        )
+    )
+    body.append(p("High-quality backlinks can:"))
+    body.append(
+        ul(
+            [
+                "increase domain authority",
+                "improve search rankings",
+                "drive referral traffic",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "However, backlink strategies must focus on quality and relevance rather than quantity."
+        )
+    )
+
+    body.append(h2("Monthly SEO Pricing"))
+    body.append(
+        p(
+            "SEO services are typically offered using several pricing models."
+        )
+    )
+    body.append(h3("Monthly SEO Services"))
+    body.append(
+        p(
+            "For most businesses, monthly SEO services are the most effective model. "
+            "This approach allows continuous optimization and long-term growth."
+        )
+    )
+    body.append(p("Monthly SEO services usually include:"))
+    body.append(
+        ul(
+            [
+                "keyword research",
+                "content optimization",
+                "technical improvements",
+                "backlink strategy",
+                "performance reporting",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This model helps businesses build consistent organic traffic over time."
+        )
+    )
+    body.append(h3("Project-Based SEO"))
+    body.append(
+        p(
+            "Some SEO services are delivered as one-time projects."
+        )
+    )
+    body.append(p("Examples include:"))
+    body.append(
+        ul(
+            [
+                "SEO audits",
+                "technical SEO fixes",
+                "website migration SEO",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These services are usually defined by a specific scope and timeline."
+        )
+    )
+
+    body.append(h2("How to Choose an SEO Provider"))
+    body.append(
+        p(
+            "When selecting an SEO provider, it is important to evaluate not only the price but also the quality of the service."
+        )
+    )
+    body.append(
+        p(
+            "A reliable SEO provider should offer:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "transparent reporting",
+                "sustainable SEO strategies",
+                "compliance with modern search engine algorithms",
+                "long-term growth planning",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "SEO should be viewed as a long-term investment in digital visibility rather than a short-term marketing tactic."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Services"))
+    body.append(
+        p(
+            "At Angraweb, we focus on building sustainable SEO strategies that help businesses grow online."
+        )
+    )
+    body.append(p("Our SEO services include:"))
+    body.append(
+        ul(
+            [
+                "technical SEO optimization",
+                "keyword research and strategy",
+                "content development",
+                "on-page and off-page SEO",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Our goal is to help your website achieve higher search engine rankings and attract qualified customers."
+        )
+    )
+    body.append(
+        p(
+            "If you would like to learn more about SEO services pricing, you can contact us or "
+            f"request a quick quote: {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    # Topical authority: link to cluster pages
+    body.append(h3("Related topics"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/seo-services/seo-audit/ }}}}",
+                f"{{{{ link:/en/seo-services/on-page-seo-services/ }}}}",
+                f"{{{{ link:/en/seo-services/technical-seo-services/ }}}}",
+                f"{{{{ link:/en/seo-services/what-is-seo/ }}}}",
+                f"{{{{ link:/en/seo-services/how-seo-works/ }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Services Pricing 2026 | Professional SEO Cost – Angraweb"
+    meta_description = (
+        "Learn how SEO services pricing works. Discover monthly SEO packages, project SEO costs and factors that influence SEO pricing."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Services Pricing",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _ecommerce_pillar_en(page: SeoPage) -> Dict:
     """Custom SEO pillar for E-Commerce Development (EN) — scalable, SEO-driven, no pricing triggers."""
     body: List[str] = []
@@ -5438,6 +5770,8 @@ def generate_en(page: SeoPage) -> Dict:
         }
 
     if page.page_type == SeoPage.TYPE_PRICING:
+        if page.service.key == "seo-services":
+            return _seo_services_pricing_en(page)
         title = f"{svc} Pricing"
         meta = make_meta(
             title=title,
