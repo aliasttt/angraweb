@@ -3162,6 +3162,76 @@ def _hosting_domain_pillar_en(page: SeoPage) -> Dict:
     }
 
 
+def _hosting_domain_pricing_en(page: SeoPage) -> Dict:
+    """Custom pricing page: Hosting and Domain Pricing (EN)."""
+    body: List[str] = []
+
+    body.append(h2("How Hosting and Domain Pricing Works"))
+    body.append(p("Hosting and domain pricing varies depending on infrastructure, performance requirements and project size."))
+    body.append(p("Small websites may only require basic hosting plans, while larger platforms often require VPS or cloud infrastructure."))
+    body.append(p("Key pricing factors include:"))
+    body.append(ul(["server type", "performance requirements", "traffic volume", "storage capacity", "security features"]))
+    body.append(p("Understanding these factors helps businesses choose the right hosting solution."))
+
+    body.append(h2("Web Hosting Pricing"))
+    body.append(p("Web hosting is the most common solution for small and medium sized websites."))
+    body.append(p("Pricing usually depends on:"))
+    body.append(ul(["disk storage", "bandwidth limits", "email accounts", "support services"]))
+    body.append(p("Entry-level hosting plans are generally affordable and suitable for basic websites."))
+
+    body.append(h2("VPS Hosting Pricing"))
+    body.append(p("VPS hosting offers more power and flexibility compared to shared hosting."))
+    body.append(p("VPS pricing is typically based on:"))
+    body.append(ul(["CPU cores", "RAM", "SSD storage", "bandwidth"]))
+    body.append(p("This makes VPS hosting ideal for growing websites and applications."))
+
+    body.append(h2("Cloud Server Pricing"))
+    body.append(p("Cloud hosting provides scalable infrastructure for modern web applications."))
+    body.append(p("Cloud pricing often depends on:"))
+    body.append(ul(["computing resources", "storage usage", "data transfer", "traffic volume"]))
+    body.append(p("Cloud hosting is widely used for scalable projects."))
+
+    body.append(h2("Dedicated Server Pricing"))
+    body.append(p("Dedicated servers provide full physical servers for individual projects."))
+    body.append(p("Pricing depends on:"))
+    body.append(ul(["processor power", "RAM capacity", "storage technology", "data center location"]))
+    body.append(p("These servers are typically used for high traffic applications."))
+
+    body.append(h2("Domain Registration Pricing"))
+    body.append(p("Domain prices depend on the selected extension."))
+    body.append(p("Common domain extensions include:"))
+    body.append(ul([".com", ".net", ".org"]))
+    body.append(p("Domain registration is typically billed annually."))
+
+    body.append(h2("Angraweb Hosting Consulting"))
+    body.append(p("Angraweb provides hosting consulting and infrastructure setup for web projects."))
+    body.append(p("Our services include:"))
+    body.append(ul(["hosting setup", "VPS and cloud configuration", "domain management", "SSL installation", "Linux server configuration"]))
+    body.append(p("Our goal is to provide reliable and scalable hosting environments."))
+
+    body.append(h2("Request a Hosting Quote"))
+    body.append(p("Choosing the right hosting setup is critical for both performance and long-term reliability."))
+    body.append(p(f"Contact Angraweb to plan the right hosting infrastructure for your project. {{{{ link:{_quote_url(page)} }}}}"))
+
+    body.append(h2("Related pages"))
+    body.append(ul([f"{{{{ link:{_pillar_url(page)} }}}}", f"{{{{ link:{_guide_url(page)} }}}}"]))
+
+    content_html = "\n".join(body)
+    meta_title = "Hosting and Domain Pricing: Web Hosting, VPS and Server Costs – Angraweb"
+    meta_description = "Explore hosting and domain pricing including web hosting, VPS hosting, cloud servers and domain registration costs. Plan the right hosting budget."
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Hosting and Domain Pricing",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -7917,6 +7987,8 @@ def generate_en(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_PRICING:
         if page.service.key == "seo-services":
             return _seo_services_pricing_en(page)
+        if page.service.key == "hosting-domain":
+            return _hosting_domain_pricing_en(page)
         title = f"{svc} Pricing"
         meta = make_meta(
             title=title,

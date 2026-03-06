@@ -6823,6 +6823,8 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_PRICING:
         if page.service.key == "seo-services":
             return _seo_services_pricing_tr(page)
+        if page.service.key == "hosting-domain":
+            return _hosting_domain_pricing_tr(page)
         title = f"{svc} Fiyatları"
         meta = make_meta(
             title=title,
@@ -7700,6 +7702,91 @@ def _hosting_domain_pillar_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Hosting ve Domain",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _hosting_domain_pricing_tr(page: SeoPage) -> Dict:
+    """Custom pricing page: Hosting ve Domain Fiyatları (TR)."""
+    body: List[str] = []
+
+    body.append(h2("Hosting ve Domain Fiyatları Nasıl Belirlenir"))
+    body.append(p("Hosting ve domain fiyatları; seçilen altyapı, performans ihtiyaçları ve proje ölçeğine göre değişir."))
+    body.append(p("Basit bir web sitesi için temel hosting çözümleri yeterli olabilirken, yüksek trafik alan projelerde VPS veya bulut sunucu çözümleri tercih edilir."))
+    body.append(p("Fiyatlandırmayı etkileyen başlıca faktörler şunlardır:"))
+    body.append(ul(["sunucu türü", "performans gereksinimleri", "trafik hacmi", "depolama kapasitesi", "güvenlik ve bakım ihtiyaçları"]))
+    body.append(p("Bu faktörler hosting maliyetlerini doğrudan etkiler."))
+
+    body.append(h2("Web Hosting Fiyatları"))
+    body.append(p("Web hosting, küçük ve orta ölçekli web siteleri için en yaygın kullanılan barındırma çözümüdür."))
+    body.append(p("Web hosting paketleri genellikle şu özelliklere göre fiyatlandırılır:"))
+    body.append(ul(["disk alanı", "trafik limiti", "e-posta hesapları", "teknik destek"]))
+    body.append(p("Başlangıç seviyesindeki web hosting paketleri genellikle düşük maliyetlidir ve küçük projeler için yeterli performans sağlar."))
+
+    body.append(h2("VPS Hosting Fiyatları"))
+    body.append(p("VPS hosting çözümleri daha yüksek performans ve kontrol sağlar."))
+    body.append(p("VPS sunucular genellikle şu faktörlere göre fiyatlandırılır:"))
+    body.append(ul(["CPU çekirdek sayısı", "RAM kapasitesi", "SSD depolama alanı", "bant genişliği"]))
+    body.append(p("Bu nedenle VPS hosting fiyatları paylaşımlı hosting çözümlerine göre daha yüksek olabilir."))
+
+    body.append(h2("Bulut Sunucu Fiyatları"))
+    body.append(p("Cloud hosting altyapısı esnek ve ölçeklenebilir bir yapı sunar."))
+    body.append(p("Bulut sunucu fiyatları genellikle kullanım bazlıdır."))
+    body.append(p("Maliyeti etkileyen faktörler şunlardır:"))
+    body.append(ul(["sunucu kaynakları", "veri transferi", "depolama alanı", "trafik miktarı"]))
+    body.append(p("Bulut altyapısı büyüyen projeler için ideal bir çözümdür."))
+
+    body.append(h2("Dedicated Server (Özel Sunucu) Fiyatları"))
+    body.append(p("Özel sunucular tüm fiziksel sunucunun tek bir projeye ayrıldığı hosting çözümleridir."))
+    body.append(p("Dedicated server maliyetleri genellikle şu faktörlere bağlıdır:"))
+    body.append(ul(["işlemci gücü", "RAM kapasitesi", "depolama teknolojisi", "veri merkezi konumu"]))
+    body.append(p("Bu tür sunucular yüksek trafik alan projeler için tercih edilir."))
+
+    body.append(h2("Domain Fiyatları"))
+    body.append(p("Domain fiyatları seçilen uzantıya göre değişir."))
+    body.append(p("En yaygın domain uzantıları:"))
+    body.append(ul([".com", ".net", ".org"]))
+    body.append(p("Domain fiyatları genellikle yıllık olarak ödenir ve uzantıya göre farklılık gösterebilir."))
+
+    body.append(h2("SSL Sertifikası Maliyetleri"))
+    body.append(p("SSL sertifikaları web siteleri için güvenli veri iletişimi sağlar."))
+    body.append(p("SSL maliyetleri şu faktörlere göre değişebilir:"))
+    body.append(ul(["domain doğrulama seviyesi", "şirket doğrulaması", "wildcard sertifikalar"]))
+    body.append(p("Günümüzde birçok hosting sağlayıcısı ücretsiz SSL sertifikası da sunmaktadır."))
+
+    body.append(h2("Hosting Bütçesi Nasıl Planlanmalı"))
+    body.append(p("Hosting bütçesi planlanırken projenin gelecekteki büyümesi de göz önünde bulundurulmalıdır."))
+    body.append(p("Sağlıklı bir bütçe planlaması için:"))
+    body.append(ul(["minimum gereksinimler belirlenmeli", "ölçeklenebilir altyapı seçilmeli", "performans ihtiyaçları analiz edilmelidir"]))
+    body.append(p("Bu yaklaşım uzun vadede maliyet kontrolü sağlar."))
+
+    body.append(h2("Angraweb Hosting Danışmanlığı"))
+    body.append(p("Angraweb olarak işletmelere hosting altyapısı seçimi ve sunucu kurulumu konusunda danışmanlık sağlıyoruz."))
+    body.append(p("Hizmetlerimiz şunları kapsar:"))
+    body.append(ul(["hosting altyapısı danışmanlığı", "VPS ve bulut sunucu kurulumu", "domain yönetimi", "SSL kurulumu", "Linux sunucu yapılandırması"]))
+    body.append(p("Amacımız web projelerinin hızlı, güvenli ve sürdürülebilir şekilde çalışmasını sağlamaktır."))
+
+    body.append(h2("Hosting Çözümü İçin Teklif Alın"))
+    body.append(p("Projeniz için en uygun hosting altyapısını belirlemek performans ve maliyet açısından kritik bir adımdır."))
+    body.append(p(f"Angraweb ekibi ile iletişime geçerek projeniz için en doğru hosting çözümünü belirleyebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"))
+
+    body.append(h2("İlgili sayfalar"))
+    body.append(ul([f"{{{{ link:{_pillar_url(page)} }}}}", f"{{{{ link:{_guide_url(page)} }}}}"]))
+
+    content_html = "\n".join(body)
+    meta_title = "Hosting ve Domain Fiyatları: Web Hosting, VPS ve Sunucu Ücretleri – Angraweb"
+    meta_description = (
+        "Hosting ve domain fiyatları neye göre belirlenir? Web hosting, VPS, bulut sunucu ve domain maliyetleri hakkında detaylı bilgi ve bütçe planlama rehberi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Hosting & Domain Fiyatları",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
