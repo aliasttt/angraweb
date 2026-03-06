@@ -1156,6 +1156,246 @@ def _seo_services_quote_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
+    """Custom cluster: Hire an SEO Expert (EN) — professional SEO consulting, process, benefits."""
+    body: List[str] = []
+
+    body.append(h2("Why Hire an SEO Expert"))
+    body.append(
+        p(
+            "Hiring an SEO expert can significantly improve your website's visibility in search engines like Google. "
+            "While many businesses attempt to manage SEO internally, professional SEO specialists bring experience, technical knowledge, and proven strategies that lead to stronger results."
+        )
+    )
+    body.append(
+        p(
+            "An SEO expert analyzes your website, identifies optimization opportunities, and creates a structured strategy to increase organic traffic and improve search rankings."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb, our SEO experts focus on long-term growth strategies that help businesses attract qualified visitors and convert them into customers."
+        )
+    )
+
+    body.append(h2("What Does an SEO Expert Do"))
+    body.append(
+        p(
+            "An SEO expert is responsible for improving a website's performance in search engines through various optimization techniques."
+        )
+    )
+    body.append(p("Typical responsibilities include:"))
+    body.append(
+        ul(
+            [
+                "conducting detailed SEO audits",
+                "performing keyword research",
+                "optimizing website structure",
+                "improving on-page SEO elements",
+                "developing backlink strategies",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These activities help search engines understand the website better and improve its ranking for relevant searches."
+        )
+    )
+
+    body.append(h2("When Should You Hire an SEO Expert"))
+    body.append(
+        p(
+            "Businesses often decide to hire an SEO expert when they want to increase their online visibility or improve their current website performance."
+        )
+    )
+    body.append(p("You should consider hiring an SEO expert if:"))
+    body.append(
+        ul(
+            [
+                "your website does not appear in search results",
+                "organic traffic is decreasing",
+                "competitors are ranking higher",
+                "you want long-term digital growth",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "A professional SEO strategy can help solve these problems and create sustainable organic traffic."
+        )
+    )
+
+    body.append(h2("Our SEO Expert Process"))
+    body.append(
+        p(
+            "At Angraweb we follow a structured process to ensure every SEO project delivers measurable results."
+        )
+    )
+    body.append(h3("Discovery and Analysis"))
+    body.append(
+        p(
+            "The process begins with understanding your business goals, target audience, and current website performance."
+        )
+    )
+    body.append(p("This includes:"))
+    body.append(
+        ul(
+            [
+                "website analysis",
+                "keyword research",
+                "competitor analysis",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These insights help define the SEO strategy."
+        )
+    )
+    body.append(h3("SEO Strategy and Planning"))
+    body.append(
+        p(
+            "Once the analysis is complete, a detailed SEO strategy is developed."
+        )
+    )
+    body.append(p("The plan may include:"))
+    body.append(
+        ul(
+            [
+                "technical SEO improvements",
+                "content optimization",
+                "keyword targeting",
+                "backlink development",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Each step is designed to improve search engine rankings and organic traffic."
+        )
+    )
+    body.append(h3("Implementation and Optimization"))
+    body.append(
+        p(
+            "During the implementation phase, SEO improvements are applied to the website."
+        )
+    )
+    body.append(p("This may include:"))
+    body.append(
+        ul(
+            [
+                "optimizing meta tags",
+                "improving page structure",
+                "enhancing site speed",
+                "creating optimized content",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Regular monitoring ensures the strategy is continuously improved."
+        )
+    )
+    body.append(h3("Monitoring and Reporting"))
+    body.append(
+        p(
+            "SEO is an ongoing process. After implementation, performance is monitored regularly."
+        )
+    )
+    body.append(p("This includes tracking:"))
+    body.append(
+        ul(
+            [
+                "keyword rankings",
+                "organic traffic",
+                "website performance",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Regular reports help businesses understand the impact of SEO activities."
+        )
+    )
+
+    body.append(h2("Benefits of Hiring a Professional SEO Expert"))
+    body.append(
+        p(
+            "Working with a professional SEO expert offers several advantages."
+        )
+    )
+    body.append(p("Key benefits include:"))
+    body.append(
+        ul(
+            [
+                "improved search engine visibility",
+                "higher organic traffic",
+                "stronger website authority",
+                "better user experience",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These improvements help businesses grow sustainably online."
+        )
+    )
+
+    body.append(h2("Hire an SEO Expert for Your Website"))
+    body.append(
+        p(
+            "If you want to improve your website's search engine rankings, hiring an SEO expert is an important step."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb, we help businesses build strong SEO strategies that deliver long-term results."
+        )
+    )
+    body.append(p("By working with our SEO experts you can:"))
+    body.append(
+        ul(
+            [
+                "increase your website traffic",
+                "improve search engine rankings",
+                "attract more qualified customers",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"To start your SEO project, you can request a quote and share your goals with our team. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Hire an SEO Expert | Professional SEO Consulting Services – Angraweb"
+    meta_description = (
+        "Hire an SEO expert to improve your website rankings. Get professional SEO consulting, technical optimization and keyword strategy for long-term growth."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Hire an SEO Expert",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _ecommerce_pillar_en(page: SeoPage) -> Dict:
     """Custom SEO pillar for E-Commerce Development (EN) — scalable, SEO-driven, no pricing triggers."""
     body: List[str] = []
@@ -6567,6 +6807,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "what-is-ecommerce":
         return _cluster_what_is_ecommerce_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Hire an SEO Expert (EN) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "hire-seo-expert":
+        return _cluster_hire_seo_expert_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)

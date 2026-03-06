@@ -7260,6 +7260,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ecommerce-development" and page.slug == "e-ticaret-nedir":
         return _cluster_e_ticaret_nedir_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: SEO Uzmanı Kirala (TR) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-uzmani":
+        return _cluster_seo_uzmani_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -8362,6 +8368,208 @@ def _seo_services_quote_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "SEO Hizmetleri Teklif Al",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_seo_uzmani_tr(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Uzmanı Kirala (TR) — profesyonel SEO danışmanlığı, süreç, avantajlar."""
+    body: List[str] = []
+
+    body.append(h2("Neden SEO Uzmanı Kiralamalısınız"))
+    body.append(
+        p(
+            "Bir SEO uzmanı kiralamak, web sitenizin arama motorlarında daha görünür olmasını sağlayabilir. "
+            "Günümüzde birçok işletme web sitesine sahip olsa da, doğru SEO stratejileri uygulanmadığında bu siteler arama sonuçlarında yeterince görünmez."
+        )
+    )
+    body.append(
+        p(
+            "Profesyonel bir SEO uzmanı, web sitenizin mevcut durumunu analiz eder ve arama motoru sıralamalarını artırmak için etkili bir optimizasyon planı oluşturur."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak işletmelerin dijital görünürlüğünü artırmak için veri odaklı ve sürdürülebilir SEO stratejileri uyguluyoruz."
+        )
+    )
+
+    body.append(h2("SEO Uzmanı Ne Yapar"))
+    body.append(
+        p(
+            "Bir SEO uzmanının görevi, web sitesinin arama motorlarında daha iyi performans göstermesini sağlamaktır."
+        )
+    )
+    body.append(p("SEO uzmanlarının yaptığı çalışmalar şunları içerir:"))
+    body.append(
+        ul(
+            [
+                "SEO site analizi",
+                "anahtar kelime araştırması",
+                "site içi SEO optimizasyonu",
+                "teknik SEO geliştirmeleri",
+                "backlink stratejisi oluşturma",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu çalışmalar web sitesinin Google gibi arama motorlarında daha üst sıralara çıkmasına yardımcı olur."
+        )
+    )
+
+    body.append(h2("Ne Zaman SEO Uzmanı Kiralamalısınız"))
+    body.append(
+        p(
+            "Birçok işletme web sitesi kurduktan sonra SEO çalışmalarına ihtiyaç duyar."
+        )
+    )
+    body.append(p("SEO uzmanı kiralamayı düşünmeniz gereken durumlar:"))
+    body.append(
+        ul(
+            [
+                "web sitenizin Google'da görünmemesi",
+                "organik trafiğin düşük olması",
+                "rakiplerin arama sonuçlarında üstte olması",
+                "dijital pazarlamada büyümek istemeniz",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Profesyonel bir SEO stratejisi bu sorunların çözülmesine yardımcı olabilir."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Süreci"))
+    body.append(
+        p(
+            "Angraweb olarak SEO projelerinde belirli bir süreç izliyoruz."
+        )
+    )
+    body.append(h3("Analiz ve Keşif"))
+    body.append(
+        p(
+            "İlk aşamada web sitenizin mevcut performansı analiz edilir."
+        )
+    )
+    body.append(p("Bu süreçte şu çalışmalar yapılır:"))
+    body.append(
+        ul(
+            [
+                "SEO analizi",
+                "rakip analizi",
+                "anahtar kelime araştırması",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu analizler SEO stratejisinin temelini oluşturur."
+        )
+    )
+    body.append(h3("SEO Stratejisi"))
+    body.append(
+        p(
+            "Analiz tamamlandıktan sonra web sitesi için bir SEO stratejisi oluşturulur."
+        )
+    )
+    body.append(p("Bu strateji şu alanları kapsar:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO optimizasyonu",
+                "içerik geliştirme",
+                "anahtar kelime hedefleme",
+                "backlink stratejisi",
+            ]
+        )
+    )
+    body.append(h3("Uygulama ve Optimizasyon"))
+    body.append(
+        p(
+            "SEO planı oluşturulduktan sonra optimizasyon çalışmaları uygulanır."
+        )
+    )
+    body.append(p("Bu çalışmalar:"))
+    body.append(
+        ul(
+            [
+                "sayfa başlıklarını optimize etmek",
+                "içerikleri geliştirmek",
+                "site hızını artırmak",
+                "kullanıcı deneyimini iyileştirmek",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "gibi adımları içerir."
+        )
+    )
+    body.append(h3("İzleme ve Raporlama"))
+    body.append(
+        p(
+            "SEO çalışmaları uygulandıktan sonra performans düzenli olarak takip edilir."
+        )
+    )
+    body.append(p("Bu süreçte:"))
+    body.append(
+        ul(
+            [
+                "anahtar kelime sıralamaları",
+                "organik trafik",
+                "site performansı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "analiz edilir ve raporlanır."
+        )
+    )
+
+    body.append(h2("Web Siteniz İçin SEO Uzmanı Kiralayın"))
+    body.append(
+        p(
+            "Eğer web sitenizin Google'da daha üst sıralarda görünmesini istiyorsanız profesyonel bir SEO uzmanı ile çalışmak büyük bir avantaj sağlar."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb SEO uzmanları, işletmenizin dijital büyümesini destekleyen sürdürülebilir SEO stratejileri geliştirir."
+        )
+    )
+    body.append(
+        p(
+            f"SEO hizmetleri hakkında detaylı bilgi almak veya projeniz için teklif almak için bizimle iletişime geçebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Uzmanı Kirala | Profesyonel SEO Danışmanlığı – Angraweb"
+    meta_description = (
+        "SEO uzmanı kiralayarak web sitenizin Google sıralamalarını yükseltin. Profesyonel SEO analizi, teknik optimizasyon ve anahtar kelime stratejisi ile organik trafik artırın."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Uzmanı Kirala",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
