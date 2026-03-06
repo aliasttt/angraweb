@@ -1523,6 +1523,209 @@ def _cluster_technical_seo_services_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_on_page_seo_services_en(page: SeoPage) -> Dict:
+    """Custom cluster: On-Page SEO Services (EN) — content, headings, internal links, meta tags."""
+    body: List[str] = []
+
+    body.append(h2("What Is On-Page SEO"))
+    body.append(
+        p(
+            "On-page SEO refers to optimizing the content and structure of individual web pages so search engines can better understand and rank them."
+        )
+    )
+    body.append(
+        p(
+            "Unlike technical SEO, which focuses on infrastructure, on-page SEO focuses on elements such as content quality, headings, keywords and internal links."
+        )
+    )
+    body.append(
+        p(
+            "A well-optimized page helps search engines understand the topic and relevance of the content."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb we provide professional on-page SEO services designed to improve rankings, visibility and user experience."
+        )
+    )
+
+    body.append(h2("Why On-Page SEO Is Important"))
+    body.append(
+        p(
+            "Even if a website has strong technical SEO, poorly optimized content can prevent pages from ranking well in search engines."
+        )
+    )
+    body.append(p("On-page SEO improvements help websites:"))
+    body.append(
+        ul(
+            [
+                "target the right keywords",
+                "improve search engine visibility",
+                "increase organic traffic",
+                "create a better user experience",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "When content structure and keyword optimization are done correctly, search engines can better evaluate page relevance."
+        )
+    )
+
+    body.append(h2("What On-Page SEO Services Include"))
+    body.append(
+        p(
+            "On-page SEO services focus on optimizing individual pages to improve their performance in search engines."
+        )
+    )
+    body.append(p("Typical on-page SEO work includes:"))
+    body.append(
+        ul(
+            [
+                "keyword optimization",
+                "title and meta description optimization",
+                "heading structure (H1, H2, H3)",
+                "content optimization",
+                "internal linking strategy",
+                "image optimization",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These optimizations make pages more relevant and easier for search engines to understand."
+        )
+    )
+
+    body.append(h2("Content Optimization"))
+    body.append(
+        p(
+            "Content is one of the most important elements of on-page SEO."
+        )
+    )
+    body.append(p("Optimized content should:"))
+    body.append(
+        ul(
+            [
+                "match search intent",
+                "include relevant keywords naturally",
+                "provide useful and structured information",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Search engines reward content that is clear, valuable and well structured."
+        )
+    )
+
+    body.append(h2("Internal Linking Strategy"))
+    body.append(
+        p(
+            "Internal linking connects related pages within a website and helps search engines understand the site structure."
+        )
+    )
+    body.append(p("A strong internal linking strategy helps:"))
+    body.append(
+        ul(
+            [
+                "distribute SEO authority across pages",
+                "improve crawlability",
+                "guide users to relevant content",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This improves both search visibility and user navigation."
+        )
+    )
+
+    body.append(h2("Heading Structure Optimization"))
+    body.append(
+        p(
+            "Proper heading structure helps both users and search engines understand page hierarchy."
+        )
+    )
+    body.append(p("On-page SEO typically includes optimizing:"))
+    body.append(
+        ul(
+            [
+                "H1 for the main topic",
+                "H2 and H3 for content sections",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This structure improves readability and SEO performance."
+        )
+    )
+
+    body.append(h2("Angraweb On-Page SEO Services"))
+    body.append(
+        p(
+            "At Angraweb we provide professional on-page SEO services designed to improve website rankings and search visibility."
+        )
+    )
+    body.append(p("Our services include:"))
+    body.append(
+        ul(
+            [
+                "keyword optimization",
+                "content improvement",
+                "meta tag optimization",
+                "internal linking strategy",
+                "on-page SEO audits",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Our goal is to ensure every page on your website is optimized for both users and search engines."
+        )
+    )
+
+    body.append(h2("Request an On-Page SEO Quote"))
+    body.append(
+        p(
+            "If you want to improve your website rankings and increase organic traffic, professional on-page SEO services can help."
+        )
+    )
+    body.append(
+        p(
+            f"Contact the Angraweb team to request a customized on-page SEO strategy for your website. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "On-Page SEO Services | Website On-Page SEO Optimization – Angraweb"
+    meta_description = (
+        "Improve your website rankings with professional on-page SEO services. Optimize content, headings, internal links and meta tags for better Google visibility."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "On-Page SEO Services",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
     """Custom cluster: Hire an SEO Expert (EN) — professional SEO consulting, process, benefits."""
     body: List[str] = []
@@ -7564,6 +7767,9 @@ def generate_en(page: SeoPage) -> Dict:
 
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "technical-seo-services":
         return _cluster_technical_seo_services_en(page)
+
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "on-page-seo-services":
+        return _cluster_on_page_seo_services_en(page)
 
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "hire-seo-expert":
         return _cluster_hire_seo_expert_en(page)

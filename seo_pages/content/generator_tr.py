@@ -7273,6 +7273,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_teknik_seo_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: On Page SEO (TR) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "on-page-seo":
+        return _cluster_on_page_seo_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: SEO Uzmanı Kirala (TR) — seo-services
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-uzmani":
@@ -8848,6 +8854,191 @@ def _cluster_teknik_seo_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Teknik SEO",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_on_page_seo_tr(page: SeoPage) -> Dict:
+    """Custom cluster: On Page SEO (TR) — içerik, başlık, iç bağlantı optimizasyonu."""
+    body: List[str] = []
+
+    body.append(h2("On Page SEO Nedir"))
+    body.append(
+        p(
+            "On page SEO, web sayfalarının içerik ve yapı açısından arama motorları için optimize edilmesi sürecidir."
+        )
+    )
+    body.append(
+        p(
+            "Teknik SEO web sitesinin altyapısına odaklanırken, on page SEO doğrudan sayfa içeriği ve yapısı ile ilgilenir."
+        )
+    )
+    body.append(p("Doğru şekilde optimize edilmiş bir sayfa:"))
+    body.append(
+        ul(
+            [
+                "arama motorları tarafından daha iyi anlaşılır",
+                "doğru anahtar kelimeler için sıralama alır",
+                "kullanıcı deneyimini geliştirir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak web sitelerinin görünürlüğünü artırmak için kapsamlı on page SEO optimizasyonu sunuyoruz."
+        )
+    )
+
+    body.append(h2("On Page SEO Neden Önemlidir"))
+    body.append(
+        p(
+            "Bir web sitesinin içeriği arama motoru sıralamalarını doğrudan etkiler."
+        )
+    )
+    body.append(
+        p(
+            "Eğer içerik doğru optimize edilmemişse sayfalar Google'da üst sıralara çıkmakta zorlanabilir."
+        )
+    )
+    body.append(p("On page SEO çalışmaları sayesinde:"))
+    body.append(
+        ul(
+            [
+                "sayfalar doğru anahtar kelimeler için optimize edilir",
+                "içerik daha okunabilir hale gelir",
+                "kullanıcı deneyimi iyileşir",
+                "organik trafik artar",
+            ]
+        )
+    )
+
+    body.append(h2("On Page SEO Hizmeti Neleri Kapsar"))
+    body.append(
+        p(
+            "On page SEO hizmetleri web sitesindeki sayfaların detaylı şekilde optimize edilmesini içerir."
+        )
+    )
+    body.append(p("Bu çalışmalar genellikle şunları kapsar:"))
+    body.append(
+        ul(
+            [
+                "anahtar kelime optimizasyonu",
+                "başlık ve meta açıklama optimizasyonu",
+                "içerik geliştirme",
+                "iç bağlantı stratejisi",
+                "görsel optimizasyonu",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu optimizasyonlar web sayfalarının arama motorlarında daha iyi performans göstermesini sağlar."
+        )
+    )
+
+    body.append(h2("İçerik Optimizasyonu"))
+    body.append(
+        p(
+            "SEO için içerik optimizasyonu çok önemlidir."
+        )
+    )
+    body.append(p("Kaliteli bir SEO içeriği:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı niyetine uygun olmalı",
+                "doğal anahtar kelimeler içermeli",
+                "iyi yapılandırılmış olmalıdır",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Arama motorları kullanıcıya değer sunan içerikleri daha üst sıralarda gösterir."
+        )
+    )
+
+    body.append(h2("İç Bağlantı Stratejisi"))
+    body.append(
+        p(
+            "İç bağlantılar web sitesi içindeki sayfaları birbirine bağlar."
+        )
+    )
+    body.append(p("Doğru iç bağlantı yapısı sayesinde:"))
+    body.append(
+        ul(
+            [
+                "SEO otoritesi sayfalar arasında dağıtılır",
+                "sayfalar daha kolay taranır",
+                "kullanıcılar ilgili içeriklere ulaşabilir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu yapı SEO performansını önemli ölçüde artırır."
+        )
+    )
+
+    body.append(h2("Angraweb On Page SEO Hizmetleri"))
+    body.append(
+        p(
+            "Angraweb olarak web siteleri için profesyonel on page SEO optimizasyonu sunuyoruz."
+        )
+    )
+    body.append(p("Hizmetlerimiz şunları kapsar:"))
+    body.append(
+        ul(
+            [
+                "SEO içerik optimizasyonu",
+                "meta etiket optimizasyonu",
+                "iç bağlantı stratejisi",
+                "sayfa içi SEO analizi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Amacımız web sitenizin Google aramalarında daha görünür olmasını sağlamaktır."
+        )
+    )
+
+    body.append(h2("On Page SEO Hizmeti İçin Teklif Alın"))
+    body.append(
+        p(
+            "Web sitenizin organik trafiğini artırmak ve Google sıralamalarını yükseltmek için profesyonel on page SEO hizmeti alabilirsiniz."
+        )
+    )
+    body.append(
+        p(
+            f"Projeniz için en doğru SEO stratejisini oluşturmak üzere Angraweb ekibiyle iletişime geçebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "On Page SEO Hizmeti | Sayfa İçi SEO Optimizasyonu – Angraweb"
+    meta_description = (
+        "On page SEO hizmeti ile web sitenizin Google sıralamasını yükseltin. İçerik optimizasyonu, başlık yapısı ve iç bağlantılar ile organik trafiği artırın."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "On Page SEO Hizmeti",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
