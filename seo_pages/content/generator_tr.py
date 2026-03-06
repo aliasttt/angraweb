@@ -7266,6 +7266,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-uzmani":
         return _cluster_seo_uzmani_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: SEO Ajansı mı Freelancer mı? (TR) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "ajans-mi-freelancer-mi":
+        return _cluster_seo_ajans_freelancer_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -8570,6 +8576,237 @@ def _cluster_seo_uzmani_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "SEO Uzmanı Kirala",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_seo_ajans_freelancer_tr(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Ajansı mı Freelancer mı? (TR) — avantajlar, ne zaman hangisi. No pricing triggers."""
+    body: List[str] = []
+
+    body.append(h2("SEO Ajansı mı Freelancer mı?"))
+    body.append(
+        p(
+            "SEO hizmeti almak isteyen birçok işletme aynı soruyu sorar: SEO ajansı ile çalışmak mı daha iyi, yoksa freelancer bir SEO uzmanı mı tercih edilmelidir?"
+        )
+    )
+    body.append(
+        p(
+            "Her iki yaklaşımın da avantajları ve dezavantajları vardır. Doğru seçim; projenin büyüklüğüne, bütçeye ve ihtiyaç duyulan uzmanlık seviyesine bağlıdır."
+        )
+    )
+    body.append(
+        p(
+            "Bu rehberde SEO ajansı ve freelancer arasındaki farkları inceleyerek hangi seçeneğin sizin için daha uygun olduğunu açıklıyoruz."
+        )
+    )
+
+    body.append(h2("SEO Freelancer ile Çalışmanın Avantajları"))
+    body.append(
+        p(
+            "Freelancer SEO uzmanları genellikle bireysel olarak çalışan ve belirli bir uzmanlık alanına odaklanan profesyonellerdir."
+        )
+    )
+    body.append(p("Freelancer ile çalışmanın bazı avantajları şunlardır:"))
+    body.append(
+        ul(
+            [
+                "daha uygun bütçe",
+                "daha hızlı iletişim",
+                "küçük projeler için esneklik",
+                "kısa süreli projeler için uygunluk",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Özellikle küçük işletmeler veya yeni başlayan web siteleri için freelancer SEO uzmanları iyi bir başlangıç çözümü olabilir."
+        )
+    )
+
+    body.append(h2("Freelancer ile Çalışmanın Dezavantajları"))
+    body.append(
+        p(
+            "Freelancer SEO uzmanları bazı durumlarda sınırlı kaynaklara sahip olabilir."
+        )
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "tek kişi çalıştığı için iş kapasitesi sınırlıdır",
+                "teknik SEO, içerik ve backlink gibi alanlarda farklı uzmanlıklar gerekebilir",
+                "büyük projelerde süreç yönetimi zorlaşabilir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle büyük ve uzun vadeli SEO projelerinde freelancer modeli her zaman yeterli olmayabilir."
+        )
+    )
+
+    body.append(h2("SEO Ajansı ile Çalışmanın Avantajları"))
+    body.append(
+        p(
+            "SEO ajansları genellikle farklı uzmanlık alanlarına sahip ekiplerden oluşur."
+        )
+    )
+    body.append(p("Bir SEO ajansı ile çalışmanın avantajları şunlardır:"))
+    body.append(
+        ul(
+            [
+                "farklı uzmanlık alanlarına erişim",
+                "daha kapsamlı SEO stratejisi",
+                "düzenli raporlama ve süreç yönetimi",
+                "uzun vadeli SEO planı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Ajanslar genellikle teknik SEO, içerik üretimi ve backlink stratejisi gibi alanlarda ekip halinde çalışır."
+        )
+    )
+
+    body.append(h2("SEO Ajansı ile Çalışmanın Dezavantajları"))
+    body.append(
+        p(
+            "Ajanslarla çalışmanın bazı dezavantajları da olabilir."
+        )
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "freelancerlara göre daha yüksek bütçe",
+                "bazı durumlarda iletişim süreçleri daha formal olabilir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Ancak doğru ajans seçildiğinde bu dezavantajlar genellikle proje yönetimi avantajlarıyla dengelenir."
+        )
+    )
+
+    body.append(h2("Hangi Durumda Freelancer Seçmelisiniz"))
+    body.append(
+        p(
+            "Aşağıdaki durumlarda freelancer SEO uzmanı ile çalışmak mantıklı olabilir:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "küçük ölçekli bir web sitesi",
+                "sınırlı bütçe",
+                "kısa süreli SEO danışmanlığı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu tür projelerde freelancer modeli hızlı ve ekonomik bir çözüm olabilir."
+        )
+    )
+
+    body.append(h2("Hangi Durumda SEO Ajansı Seçmelisiniz"))
+    body.append(
+        p(
+            "Aşağıdaki durumlarda SEO ajansı ile çalışmak daha doğru bir seçim olabilir:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "rekabetin yüksek olduğu sektörler",
+                "büyük e-ticaret siteleri",
+                "uzun vadeli SEO stratejileri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Ajanslar daha kapsamlı projelerde daha sürdürülebilir sonuçlar sağlayabilir."
+        )
+    )
+
+    body.append(h2("SEO Hizmeti Seçerken Nelere Dikkat Edilmeli"))
+    body.append(
+        p(
+            "SEO hizmeti seçerken yalnızca bütçe değil, uzmanlık ve deneyim de önemlidir."
+        )
+    )
+    body.append(p("Doğru SEO hizmetini seçmek için şu faktörlere dikkat edilmelidir:"))
+    body.append(
+        ul(
+            [
+                "referans projeler",
+                "kullanılan SEO yöntemleri",
+                "raporlama sistemi",
+                "uzun vadeli strateji",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "SEO çalışmaları uzun vadeli bir süreç olduğu için güvenilir bir partner seçmek önemlidir."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Hizmetleri"))
+    body.append(
+        p(
+            "Angraweb olarak işletmelere hem stratejik hem de teknik SEO çözümleri sunuyoruz."
+        )
+    )
+    body.append(p("SEO çalışmalarımız şu alanları kapsar:"))
+    body.append(
+        ul(
+            [
+                "SEO analizi",
+                "teknik SEO optimizasyonu",
+                "anahtar kelime stratejisi",
+                "içerik geliştirme",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Amacımız web sitenizin arama motorlarında daha görünür hale gelmesini sağlamak ve sürdürülebilir organik trafik elde etmektir."
+        )
+    )
+    body.append(
+        p(
+            f"SEO hizmetleri hakkında daha fazla bilgi almak veya projeniz için teklif almak için bizimle iletişime geçebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Ajansı mı Freelancer mı? Hangisi Daha İyi – Angraweb"
+    meta_description = (
+        "SEO ajansı mı freelancer mı daha iyi? SEO hizmeti alırken ajans ve freelancer arasındaki farkları, avantajları ve doğru seçim yöntemlerini öğrenin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Ajansı mı Freelancer mı?",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

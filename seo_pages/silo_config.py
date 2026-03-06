@@ -163,7 +163,7 @@ SERVICE_SILO_MAP: Dict[str, dict] = {
                 "how-seo-works",
                 "hire-seo-expert",
                 "seo-audit",
-                "seo-for-django-sites",
+                "agency-vs-freelancer",
             ],
         },
     },

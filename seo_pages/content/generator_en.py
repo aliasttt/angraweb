@@ -1396,6 +1396,222 @@ def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_seo_agency_vs_freelancer_en(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Agency vs Freelancer (EN) — advantages, when to choose which."""
+    body: List[str] = []
+
+    body.append(h2("SEO Agency vs Freelancer"))
+    body.append(
+        p(
+            "Many businesses looking for SEO services ask the same question: should they hire an SEO agency or work with a freelance SEO specialist?"
+        )
+    )
+    body.append(
+        p(
+            "Both options have advantages and limitations. The right choice depends on your project size, budget, and the level of expertise required."
+        )
+    )
+    body.append(
+        p(
+            "Understanding the differences between SEO agencies and freelancers helps businesses make better decisions when investing in search engine optimization."
+        )
+    )
+
+    body.append(h2("Advantages of Hiring a Freelance SEO Expert"))
+    body.append(
+        p(
+            "Freelance SEO specialists are independent professionals who often focus on specific areas of SEO."
+        )
+    )
+    body.append(p("Some advantages include:"))
+    body.append(
+        ul(
+            [
+                "more affordable than agencies",
+                "direct communication",
+                "flexibility for smaller projects",
+                "faster decision making",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "For startups and small websites, freelancers can provide effective SEO support at a lower budget."
+        )
+    )
+
+    body.append(h2("Limitations of Freelancers"))
+    body.append(
+        p(
+            "Freelancers usually work alone, which means their resources can be limited."
+        )
+    )
+    body.append(p("Possible limitations include:"))
+    body.append(
+        ul(
+            [
+                "limited capacity for large projects",
+                "lack of multiple SEO specialties",
+                "slower progress for complex campaigns",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Because SEO involves technical optimization, content strategy, and link building, larger projects often require multiple specialists."
+        )
+    )
+
+    body.append(h2("Advantages of Hiring an SEO Agency"))
+    body.append(
+        p(
+            "SEO agencies typically have teams of specialists working together."
+        )
+    )
+    body.append(p("Benefits of working with an agency include:"))
+    body.append(
+        ul(
+            [
+                "access to multiple SEO experts",
+                "comprehensive SEO strategies",
+                "structured project management",
+                "regular performance reporting",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Agencies often provide a more scalable solution for businesses aiming for long-term SEO growth."
+        )
+    )
+
+    body.append(h2("Limitations of SEO Agencies"))
+    body.append(
+        p(
+            "Working with an agency can sometimes involve a higher budget compared to freelancers."
+        )
+    )
+    body.append(
+        p(
+            "However, the additional investment often reflects the broader expertise and resources provided by the agency team."
+        )
+    )
+
+    body.append(h2("When Should You Hire a Freelancer"))
+    body.append(
+        p(
+            "Hiring a freelancer may be suitable if:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "your website is small",
+                "your SEO needs are limited",
+                "you require short-term SEO consulting",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Freelancers can offer cost-effective solutions for smaller projects."
+        )
+    )
+
+    body.append(h2("When Should You Hire an SEO Agency"))
+    body.append(
+        p(
+            "An SEO agency may be the better choice if:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "you operate in a highly competitive industry",
+                "you manage a large website or e-commerce store",
+                "you want a long-term SEO strategy",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Agencies provide structured strategies that help businesses scale their organic growth."
+        )
+    )
+
+    body.append(h2("Choosing the Right SEO Partner"))
+    body.append(
+        p(
+            "When choosing between an agency and a freelancer, it is important to evaluate:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "experience and portfolio",
+                "SEO methods and transparency",
+                "reporting practices",
+                "long-term strategy",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "The right SEO partner should align with your business goals and growth plans."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Services"))
+    body.append(
+        p(
+            "At Angraweb, we provide professional SEO services designed to improve search engine visibility and drive sustainable traffic."
+        )
+    )
+    body.append(p("Our SEO solutions include:"))
+    body.append(
+        ul(
+            [
+                "technical SEO optimization",
+                "keyword research",
+                "content strategy",
+                "performance monitoring",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"If you want to improve your website rankings, you can contact our team or request a quote to start your SEO project. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Agency vs Freelancer | Which Is Better for SEO – Angraweb"
+    meta_description = (
+        "SEO agency vs freelancer: which one should you choose? Learn the advantages, differences and how to choose the right SEO partner for your business."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Agency vs Freelancer",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _ecommerce_pillar_en(page: SeoPage) -> Dict:
     """Custom SEO pillar for E-Commerce Development (EN) — scalable, SEO-driven, no pricing triggers."""
     body: List[str] = []
@@ -6163,7 +6379,7 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "how-seo-works": ("How SEO Works", ["Ranking factors", "Practical workflow"], ["Process outline", "Checklist"]),
         "hire-seo-expert": ("Hire an SEO Expert", ["Skill verification", "Strategy fit"], ["Interview checklist", "Pilot plan"]),
         "seo-audit": ("SEO Audit", ["Issue discovery", "Quick wins"], ["Audit report", "Priority list"]),
-        "seo-for-django-sites": ("SEO for Django Sites", ["Rendering and performance", "Routing and canonicals"], ["Technical checklist", "Implementation plan"]),
+        "agency-vs-freelancer": ("SEO Agency vs Freelancer", ["Agency vs freelancer choice", "Scope fit"], ["Comparison", "Selection criteria"]),
         "web-hosting-services": ("Web Hosting Services", ["Reliability", "Security"], ["Backups", "Monitoring"]),
         "vps-hosting": ("VPS Hosting", ["Resource sizing", "Ops overhead"], ["Setup plan", "Hardening"]),
         "dedicated-server-hosting": ("Dedicated Server Hosting", ["Performance", "Budget control"], ["Sizing guide", "SLA"]),
@@ -6813,6 +7029,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "hire-seo-expert":
         return _cluster_hire_seo_expert_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: SEO Agency vs Freelancer (EN) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "agency-vs-freelancer":
+        return _cluster_seo_agency_vs_freelancer_en(page)
 
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
