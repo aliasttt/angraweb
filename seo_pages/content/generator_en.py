@@ -1307,6 +1307,222 @@ def _cluster_seo_consultancy_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_technical_seo_services_en(page: SeoPage) -> Dict:
+    """Custom cluster: Technical SEO (EN) — site speed, CWV, crawl, architecture."""
+    body: List[str] = []
+
+    body.append(h2("What Is Technical SEO"))
+    body.append(
+        p(
+            "Technical SEO refers to optimizing the technical infrastructure of a website to help search engines crawl, index and rank pages more effectively."
+        )
+    )
+    body.append(
+        p(
+            "Even websites with high-quality content may struggle to rank if they have technical SEO problems."
+        )
+    )
+    body.append(p("Technical SEO improvements help websites:"))
+    body.append(
+        ul(
+            [
+                "load faster",
+                "become easier for search engines to crawl",
+                "improve user experience",
+                "achieve better search rankings",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb we provide technical SEO optimization to build a strong search-friendly website structure."
+        )
+    )
+
+    body.append(h2("Why Technical SEO Is Important"))
+    body.append(
+        p(
+            "Search engines evaluate websites based on many technical factors."
+        )
+    )
+    body.append(
+        p(
+            "If a website contains technical errors, this can negatively affect its search rankings."
+        )
+    )
+    body.append(p("Technical SEO helps:"))
+    body.append(
+        ul(
+            [
+                "improve website performance",
+                "speed up indexing",
+                "reduce crawl errors",
+                "enhance user experience",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These improvements are essential for long-term SEO success."
+        )
+    )
+
+    body.append(h2("What Technical SEO Includes"))
+    body.append(
+        p(
+            "Technical SEO services analyze the technical structure of a website and identify optimization opportunities."
+        )
+    )
+    body.append(p("Typical technical SEO work includes:"))
+    body.append(
+        ul(
+            [
+                "site speed optimization",
+                "Core Web Vitals improvements",
+                "crawl and index optimization",
+                "URL structure optimization",
+                "website architecture improvements",
+                "mobile optimization",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These changes help search engines better understand the website."
+        )
+    )
+
+    body.append(h2("Technical SEO Audit"))
+    body.append(
+        p(
+            "The first step of technical SEO is a detailed SEO audit."
+        )
+    )
+    body.append(p("This audit identifies:"))
+    body.append(
+        ul(
+            [
+                "crawl errors",
+                "indexing issues",
+                "page performance problems",
+                "technical SEO gaps",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "The results help create a structured technical optimization plan."
+        )
+    )
+
+    body.append(h2("Core Web Vitals Optimization"))
+    body.append(
+        p(
+            "Core Web Vitals are performance metrics used by Google to evaluate user experience."
+        )
+    )
+    body.append(p("These metrics include:"))
+    body.append(
+        ul(
+            [
+                "Largest Contentful Paint (LCP)",
+                "Cumulative Layout Shift (CLS)",
+                "Interaction to Next Paint (INP)",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Optimizing these metrics improves both SEO and user experience."
+        )
+    )
+
+    body.append(h2("Technical SEO and Site Architecture"))
+    body.append(
+        p(
+            "A well-structured website architecture helps both users and search engines navigate a site effectively."
+        )
+    )
+    body.append(p("A strong technical SEO structure helps:"))
+    body.append(
+        ul(
+            [
+                "improve internal linking",
+                "optimize crawl budget",
+                "make content easier to discover",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This structure significantly improves SEO performance."
+        )
+    )
+
+    body.append(h2("Angraweb Technical SEO Services"))
+    body.append(
+        p(
+            "At Angraweb we provide professional technical SEO services designed to improve website performance and search visibility."
+        )
+    )
+    body.append(p("Our services include:"))
+    body.append(
+        ul(
+            [
+                "technical SEO audits",
+                "site speed optimization",
+                "Core Web Vitals improvements",
+                "website architecture optimization",
+                "crawl and index issue resolution",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Our goal is to create a technically optimized website that performs better in search engines."
+        )
+    )
+
+    body.append(h2("Request a Technical SEO Quote"))
+    body.append(
+        p(
+            "If you want to improve your website's technical performance and search rankings, professional technical SEO services can help."
+        )
+    )
+    body.append(
+        p(
+            f"Contact the Angraweb team to request a technical SEO analysis for your website. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Technical SEO Services | Technical SEO Optimization – Angraweb"
+    meta_description = (
+        "Improve your website rankings with technical SEO services. Optimize site speed, crawlability, Core Web Vitals and technical structure for better Google performance."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Technical SEO",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
     """Custom cluster: Hire an SEO Expert (EN) — professional SEO consulting, process, benefits."""
     body: List[str] = []
@@ -7345,6 +7561,9 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-consultancy":
         return _cluster_seo_consultancy_en(page)
+
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "technical-seo-services":
+        return _cluster_technical_seo_services_en(page)
 
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "hire-seo-expert":
         return _cluster_hire_seo_expert_en(page)

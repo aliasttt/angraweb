@@ -7267,6 +7267,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_seo_danismanligi_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Teknik SEO (TR) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "teknik-seo":
+        return _cluster_teknik_seo_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: SEO Uzmanı Kirala (TR) — seo-services
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-uzmani":
@@ -8624,6 +8630,224 @@ def _cluster_seo_danismanligi_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "SEO Danışmanlığı",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_teknik_seo_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Teknik SEO (TR) — site hızı, CWV, crawl, mimari."""
+    body: List[str] = []
+
+    body.append(h2("Teknik SEO Nedir"))
+    body.append(
+        p(
+            "Teknik SEO, web sitesinin arama motorları tarafından doğru şekilde taranması, dizine eklenmesi ve sıralanabilmesi için yapılan teknik optimizasyon çalışmalarını kapsar."
+        )
+    )
+    body.append(
+        p(
+            "Bir web sitesi güçlü içeriklere sahip olsa bile teknik sorunlar nedeniyle arama motorlarında yeterince görünmeyebilir."
+        )
+    )
+    body.append(p("Teknik SEO çalışmaları sayesinde web siteleri:"))
+    body.append(
+        ul(
+            [
+                "daha hızlı yüklenir",
+                "arama motorları tarafından daha kolay taranır",
+                "kullanıcı deneyimi iyileşir",
+                "Google sıralamalarında daha iyi performans gösterir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak teknik SEO optimizasyonu ile web sitelerinin arama motorları için daha güçlü bir altyapıya sahip olmasını sağlıyoruz."
+        )
+    )
+
+    body.append(h2("Teknik SEO Neden Önemlidir"))
+    body.append(
+        p(
+            "Google gibi arama motorları web sitelerini teknik kriterlere göre değerlendirir."
+        )
+    )
+    body.append(
+        p(
+            "Eğer bir web sitesinde teknik sorunlar varsa, bu durum arama motoru sıralamalarını doğrudan etkileyebilir."
+        )
+    )
+    body.append(p("Teknik SEO çalışmaları sayesinde:"))
+    body.append(
+        ul(
+            [
+                "site performansı artar",
+                "sayfalar daha hızlı indekslenir",
+                "crawl hataları azaltılır",
+                "kullanıcı deneyimi iyileşir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu optimizasyonlar web sitelerinin uzun vadeli SEO başarısı için kritik öneme sahiptir."
+        )
+    )
+
+    body.append(h2("Teknik SEO Çalışmaları Neleri Kapsar"))
+    body.append(
+        p(
+            "Teknik SEO hizmetleri web sitesinin altyapısını analiz ederek performans sorunlarını tespit etmeyi içerir."
+        )
+    )
+    body.append(p("Bu çalışmalar genellikle şu alanları kapsar:"))
+    body.append(
+        ul(
+            [
+                "site hız optimizasyonu",
+                "Core Web Vitals iyileştirmeleri",
+                "crawl ve index optimizasyonu",
+                "URL yapılandırması",
+                "site mimarisi optimizasyonu",
+                "mobil uyumluluk analizi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu optimizasyonlar arama motorlarının web sitesini daha iyi anlamasını sağlar."
+        )
+    )
+
+    body.append(h2("Teknik SEO Analizi"))
+    body.append(
+        p(
+            "Teknik SEO çalışmalarının ilk adımı detaylı bir SEO analizidir."
+        )
+    )
+    body.append(p("Bu analiz sırasında:"))
+    body.append(
+        ul(
+            [
+                "site crawl hataları",
+                "indeksleme sorunları",
+                "sayfa performansı",
+                "teknik SEO eksiklikleri",
+            ]
+        )
+    )
+    body.append(p("tespit edilir."))
+    body.append(
+        p(
+            "Bu analiz sayesinde web sitesi için uygulanabilir bir teknik SEO planı oluşturulur."
+        )
+    )
+
+    body.append(h2("Core Web Vitals Optimizasyonu"))
+    body.append(
+        p(
+            "Google sıralama faktörlerinden biri olan Core Web Vitals, kullanıcı deneyimini ölçen performans metrikleridir."
+        )
+    )
+    body.append(p("Bu metrikler:"))
+    body.append(
+        ul(
+            [
+                "LCP (Largest Contentful Paint)",
+                "CLS (Cumulative Layout Shift)",
+                "INP / Interaction",
+            ]
+        )
+    )
+    body.append(p("gibi performans ölçümlerini içerir."))
+    body.append(
+        p(
+            "Teknik SEO çalışmaları bu metriklerin optimize edilmesini sağlar."
+        )
+    )
+
+    body.append(h2("Teknik SEO ve Site Mimarisi"))
+    body.append(
+        p(
+            "Doğru site mimarisi hem kullanıcılar hem de arama motorları için önemlidir."
+        )
+    )
+    body.append(p("İyi bir teknik SEO yapısı sayesinde:"))
+    body.append(
+        ul(
+            [
+                "sayfalar daha kolay bulunur",
+                "site içi bağlantılar daha güçlü olur",
+                "crawl bütçesi daha verimli kullanılır",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu yapı SEO performansını doğrudan etkiler."
+        )
+    )
+
+    body.append(h2("Angraweb Teknik SEO Hizmetleri"))
+    body.append(
+        p(
+            "Angraweb olarak işletmelere kapsamlı teknik SEO çözümleri sunuyoruz."
+        )
+    )
+    body.append(p("Teknik SEO hizmetlerimiz şunları kapsar:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO analizi",
+                "site hız optimizasyonu",
+                "Core Web Vitals iyileştirmeleri",
+                "site mimarisi optimizasyonu",
+                "indeksleme ve crawl sorunlarının çözümü",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Amacımız web sitenizin arama motorları tarafından daha iyi anlaşılmasını ve daha yüksek sıralamalara ulaşmasını sağlamaktır."
+        )
+    )
+
+    body.append(h2("Teknik SEO Hizmeti İçin Teklif Alın"))
+    body.append(
+        p(
+            "Web sitenizin teknik altyapısını güçlendirmek ve SEO performansını artırmak için profesyonel teknik SEO hizmeti alabilirsiniz."
+        )
+    )
+    body.append(
+        p(
+            f"Projeniz için teknik SEO analizi ve strateji oluşturmak için Angraweb ekibiyle iletişime geçebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Teknik SEO Hizmeti | Site Teknik SEO Analizi – Angraweb"
+    meta_description = (
+        "Teknik SEO hizmeti ile web sitenizin taranabilirliğini ve performansını artırın. Site hızı, Core Web Vitals ve teknik SEO optimizasyonu ile Google sıralamalarınızı yükseltin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Teknik SEO",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
