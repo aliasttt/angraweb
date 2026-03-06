@@ -2006,6 +2006,88 @@ def _cluster_what_is_seo_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_how_to_do_seo_en(page: SeoPage) -> Dict:
+    """Custom cluster: How to Do SEO (EN) — step-by-step implementation guide."""
+    body: List[str] = []
+
+    body.append(h2("How to Do SEO"))
+    body.append(p("SEO is the process of optimizing a website to improve its visibility in search engine results."))
+    body.append(p("A successful SEO strategy requires optimizing several elements including technical structure, content quality and authority signals."))
+    body.append(p("The SEO process typically includes the following steps:"))
+    body.append(ul(["keyword research", "technical SEO optimization", "content optimization", "internal linking", "backlink building"]))
+    body.append(p("When these elements are implemented correctly, websites can significantly increase their organic traffic."))
+
+    body.append(h2("1. Keyword Research"))
+    body.append(p("The first step in SEO is identifying the right keywords."))
+    body.append(p("Keyword research helps businesses understand what users are searching for."))
+    body.append(p("Common tools used for keyword research include:"))
+    body.append(ul(["Google Keyword Planner", "Ahrefs", "Semrush", "Google Search Console"]))
+    body.append(p("Choosing the right keywords is critical for SEO success."))
+
+    body.append(h2("2. Technical SEO Optimization"))
+    body.append(p("Technical SEO focuses on improving the technical structure of a website."))
+    body.append(ul(["site speed optimization", "mobile optimization", "crawl and index improvements", "Core Web Vitals optimization"]))
+    body.append(p("These improvements help search engines crawl and index the website more effectively."))
+
+    body.append(h2("3. Content Optimization"))
+    body.append(p("Content quality plays a major role in SEO performance."))
+    body.append(p("SEO-friendly content should:"))
+    body.append(ul(["target relevant keywords", "follow clear heading structure", "match search intent", "provide valuable information"]))
+    body.append(p("High-quality content helps pages rank better in search results."))
+
+    body.append(h2("4. Internal Linking"))
+    body.append(p("Internal links connect pages within a website."))
+    body.append(p("A strong internal linking strategy helps:"))
+    body.append(ul(["distribute SEO authority", "improve site crawlability", "guide users to related content"]))
+    body.append(p("This improves both user experience and SEO performance."))
+
+    body.append(h2("5. Backlink Strategy"))
+    body.append(p("Backlinks are links from other websites pointing to your site."))
+    body.append(p("High-quality backlinks increase a website's credibility and authority."))
+    body.append(p("Backlink strategies often include:"))
+    body.append(ul(["content marketing", "digital PR", "guest posts"]))
+    body.append(p("These signals help improve search engine rankings."))
+
+    body.append(h2("Continuous SEO Improvement"))
+    body.append(p("SEO is not a one-time process."))
+    body.append(p("It requires ongoing monitoring and optimization."))
+    body.append(p("Regular improvements include:"))
+    body.append(ul(["performance analysis", "SEO audits", "content updates"]))
+    body.append(p("These activities ensure long-term SEO success."))
+
+    body.append(h2("Related SEO Topics"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{_service_base(page)}/what-is-seo/ }}}}",
+                f"{{{{ link:/en/{_service_base(page)}/technical-seo-services/ }}}}",
+                f"{{{{ link:/en/{_service_base(page)}/on-page-seo-services/ }}}}",
+                f"{{{{ link:/en/{_service_base(page)}/seo-audit/ }}}}",
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+            ]
+        )
+    )
+
+    body.append(h2("Request an SEO Quote"))
+    body.append(p("If you want to improve your website rankings and increase organic traffic, professional SEO services can help."))
+    body.append(p(f"Contact the Angraweb team to request a customized SEO strategy for your website. {{{{ link:{_quote_url(page)} }}}}"))
+
+    content_html = "\n".join(body)
+    meta_title = "How to Do SEO? Step-by-Step SEO Guide – Angraweb"
+    meta_description = "Learn how to do SEO step by step. Discover keyword research, technical SEO, content optimization and backlink strategies to improve your Google rankings."
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "How to Do SEO",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
     """Custom cluster: Hire an SEO Expert (EN) — professional SEO consulting, process, benefits."""
     body: List[str] = []
@@ -8056,6 +8138,8 @@ def generate_en(page: SeoPage) -> Dict:
             return _cluster_seo_audit_en(page)
         if seo_slug_norm == "what-is-seo":
             return _cluster_what_is_seo_en(page)
+        if seo_slug_norm in {"how-seo-works", "how-to-do-seo"}:
+            return _cluster_how_to_do_seo_en(page)
         if seo_slug_norm == "hire-seo-expert":
             return _cluster_hire_seo_expert_en(page)
         if seo_slug_norm == "istanbul-seo-agency":

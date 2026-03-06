@@ -7291,6 +7291,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_seo_nedir_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: SEO Nasıl Yapılır? (TR) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-nasil-yapilir":
+        return _cluster_seo_nasil_yapilir_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: SEO Uzmanı Kirala (TR) — seo-services
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-uzmani":
@@ -9491,6 +9497,187 @@ def _cluster_seo_nedir_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "SEO Nedir?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_seo_nasil_yapilir_tr(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Nasıl Yapılır? (TR) — adım adım SEO rehberi."""
+    body: List[str] = []
+
+    body.append(h2("SEO Nasıl Yapılır"))
+    body.append(
+        p(
+            "SEO çalışmaları web sitelerinin arama motorlarında daha üst sıralarda yer almasını sağlamak için yapılan optimizasyon süreçlerinden oluşur."
+        )
+    )
+    body.append(
+        p(
+            "Başarılı bir SEO çalışması, teknik yapıdan içerik stratejisine kadar birçok farklı faktörün birlikte optimize edilmesini gerektirir."
+        )
+    )
+    body.append(p("SEO süreci genellikle aşağıdaki adımlardan oluşur:"))
+    body.append(
+        ul(
+            [
+                "anahtar kelime araştırması",
+                "teknik SEO optimizasyonu",
+                "içerik optimizasyonu",
+                "site içi bağlantı yapısı",
+                "backlink çalışmaları",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu adımlar doğru şekilde uygulandığında web sitelerinin organik trafik potansiyeli önemli ölçüde artar."
+        )
+    )
+
+    body.append(h2("1. Anahtar Kelime Araştırması"))
+    body.append(
+        p(
+            "SEO çalışmalarının ilk adımı doğru anahtar kelimeleri belirlemektir."
+        )
+    )
+    body.append(
+        p(
+            "Anahtar kelime araştırması sayesinde kullanıcıların arama motorlarında hangi kelimeleri aradığı anlaşılır."
+        )
+    )
+    body.append(p("Bu süreçte genellikle şu araçlar kullanılır:"))
+    body.append(
+        ul(
+            [
+                "Google Keyword Planner",
+                "Ahrefs",
+                "Semrush",
+                "Google Search Console",
+            ]
+        )
+    )
+    body.append(p("Doğru anahtar kelimeleri hedeflemek SEO başarısı için kritik öneme sahiptir."))
+
+    body.append(h2("2. Teknik SEO Optimizasyonu"))
+    body.append(p("Teknik SEO, web sitesinin altyapısını optimize etmeye odaklanır."))
+    body.append(p("Bu çalışmalar şunları kapsar:"))
+    body.append(
+        ul(
+            [
+                "site hız optimizasyonu",
+                "mobil uyumluluk",
+                "crawl ve index optimizasyonu",
+                "Core Web Vitals iyileştirmeleri",
+            ]
+        )
+    )
+    body.append(p("Teknik SEO sayesinde arama motorları web sitesini daha kolay tarayabilir."))
+
+    body.append(h2("3. İçerik Optimizasyonu"))
+    body.append(p("SEO için içerik kalitesi oldukça önemlidir."))
+    body.append(p("SEO uyumlu içerik oluştururken şu unsurlara dikkat edilmelidir:"))
+    body.append(
+        ul(
+            [
+                "doğru anahtar kelimelerin kullanımı",
+                "başlık yapısı (H1, H2, H3)",
+                "kullanıcı niyetine uygun içerik",
+                "değerli ve bilgilendirici metinler",
+            ]
+        )
+    )
+    body.append(p("Kaliteli içerikler arama motorlarında daha iyi performans gösterir."))
+
+    body.append(h2("4. İç Bağlantı Yapısı"))
+    body.append(p("İç bağlantılar web sitesindeki sayfaları birbirine bağlar."))
+    body.append(p("Doğru iç bağlantı stratejisi sayesinde:"))
+    body.append(
+        ul(
+            [
+                "SEO otoritesi sayfalar arasında dağıtılır",
+                "kullanıcılar ilgili içeriklere kolay ulaşır",
+                "arama motorları site yapısını daha iyi anlar",
+            ]
+        )
+    )
+    body.append(p("Bu yapı SEO performansını önemli ölçüde artırır."))
+
+    body.append(h2("5. Backlink Stratejisi"))
+    body.append(p("Backlink, başka web sitelerinin sizin sitenize verdiği bağlantılardır."))
+    body.append(p("Kaliteli backlinkler web sitesinin güvenilirliğini artırır."))
+    body.append(p("Backlink stratejileri genellikle şunları içerir:"))
+    body.append(
+        ul(
+            [
+                "içerik pazarlaması",
+                "dijital PR",
+                "sektör sitelerinde yayınlar",
+            ]
+        )
+    )
+    body.append(p("Bu çalışmalar web sitesinin otoritesini güçlendirir."))
+
+    body.append(h2("SEO Stratejisinin Sürekliliği"))
+    body.append(p("SEO tek seferlik bir çalışma değildir."))
+    body.append(p("SEO çalışmalarının düzenli olarak analiz edilmesi ve geliştirilmesi gerekir."))
+    body.append(p("Bu süreçte:"))
+    body.append(ul(["performans ölçümü", "SEO analizleri", "içerik güncellemeleri"]))
+    body.append(p("yapılarak SEO performansı sürekli iyileştirilir."))
+
+    body.append(h2("Angraweb SEO Hizmetleri"))
+    body.append(p("Angraweb olarak işletmeler için kapsamlı SEO hizmetleri sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları kapsar:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO optimizasyonu",
+                "içerik ve on page SEO çalışmaları",
+                "SEO analizi ve strateji oluşturma",
+                "rakip analizi",
+            ]
+        )
+    )
+    body.append(p("Amacımız web sitenizin arama motorlarında daha görünür hale gelmesini sağlamaktır."))
+
+    body.append(h2("İlgili SEO Konuları"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{_service_base(page)}/seo-nedir/ }}}}",
+                f"{{{{ link:/tr/{_service_base(page)}/teknik-seo/ }}}}",
+                f"{{{{ link:/tr/{_service_base(page)}/on-page-seo/ }}}}",
+                f"{{{{ link:/tr/{_service_base(page)}/seo-analizi/ }}}}",
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+            ]
+        )
+    )
+
+    body.append(h2("SEO Hizmeti İçin Teklif Alın"))
+    body.append(
+        p(
+            "Web sitenizin Google sıralamalarını yükseltmek ve organik trafik elde etmek için profesyonel SEO hizmeti alabilirsiniz."
+        )
+    )
+    body.append(
+        p(
+            f"Projeniz için en doğru SEO stratejisini oluşturmak üzere Angraweb ekibiyle iletişime geçebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Nasıl Yapılır? Adım Adım SEO Rehberi – Angraweb"
+    meta_description = (
+        "SEO nasıl yapılır? Anahtar kelime araştırması, teknik SEO, içerik optimizasyonu ve backlink stratejileri ile web sitenizi Google'da yükseltmenin adımlarını öğrenin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Nasıl Yapılır?",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
