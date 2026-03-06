@@ -8272,7 +8272,7 @@ def _seo_services_quote_tr(page: SeoPage) -> Dict:
     body.append(h2("SEO Teklifi Neden Özel Hazırlanır"))
     body.append(
         p(
-            "SEO projeleri genellikle standart paketlerle sınırlı değildir. Çünkü her sektörün rekabet seviyesi ve hedef kitlesi farklıdır."
+            "SEO projeleri genellikle tek tip kapsamlarla sınırlı değildir. Çünkü her sektörün rekabet seviyesi ve hedef kitlesi farklıdır."
         )
     )
     body.append(p("Örneğin:"))
