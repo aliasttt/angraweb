@@ -718,6 +718,234 @@ def _seo_services_pricing_en(page: SeoPage) -> Dict:
     }
 
 
+def _seo_services_guide_en(page: SeoPage) -> Dict:
+    """Custom SEO guide page (EN) — steps, planning, technical SEO, content strategy."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "An SEO services guide helps businesses understand how search engine optimization works and how it can improve online visibility. "
+            "In today's competitive digital environment, simply having a website is not enough. "
+            "A website must also be optimized so that potential customers can find it through search engines like Google."
+        )
+    )
+    body.append(
+        p(
+            "SEO strategies are designed to improve website visibility, attract organic traffic, and generate long-term business growth. "
+            "This guide explains the core steps involved in professional SEO services and how businesses can build a sustainable SEO strategy."
+        )
+    )
+    body.append(p("This guide is particularly useful for:"))
+    body.append(
+        ul(
+            [
+                "businesses launching a new website",
+                "companies looking to improve their current website performance",
+                "teams that want to understand SEO processes",
+            ]
+        )
+    )
+
+    body.append(h2("Defining Goals and Target Audience"))
+    body.append(
+        p(
+            "A successful SEO strategy begins with clear goals and a well-defined target audience. "
+            "If a website does not clearly define who it is trying to reach, it becomes difficult to create an effective SEO strategy."
+        )
+    )
+    body.append(p("Key questions to consider include:"))
+    body.append(
+        ul(
+            [
+                "who is the target user",
+                "what problems is the user trying to solve",
+                "what keywords do users search for",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Answering these questions helps build a strong SEO foundation."
+        )
+    )
+
+    body.append(h2("Information Architecture and Content Planning"))
+    body.append(
+        p(
+            "Information architecture plays a critical role in SEO. "
+            "A well-structured website improves user experience and helps search engines understand the relationship between different pages."
+        )
+    )
+    body.append(p("Key components include:"))
+    body.append(
+        ul(
+            [
+                "main pages",
+                "service pages",
+                "topic clusters",
+                "frequently asked questions",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "A logical site structure helps both users and search engines navigate the website more effectively."
+        )
+    )
+
+    body.append(h2("Keyword Research"))
+    body.append(
+        p(
+            "Keyword research is one of the most important steps in SEO. "
+            "Understanding what users search for allows businesses to create content that matches search intent."
+        )
+    )
+    body.append(p("Keyword research typically analyzes:"))
+    body.append(
+        ul(
+            [
+                "search volume",
+                "competition level",
+                "user intent",
+                "industry trends",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Targeting the right keywords increases the chances of attracting qualified organic traffic."
+        )
+    )
+
+    body.append(h2("Website Design and Usability"))
+    body.append(
+        p(
+            "SEO performance is closely connected to user experience. "
+            "A well-designed website helps users find information quickly and encourages them to stay longer on the site."
+        )
+    )
+    body.append(p("Important design elements include:"))
+    body.append(
+        ul(
+            [
+                "clear and readable content",
+                "mobile responsive design",
+                "fast loading speed",
+                "simple navigation structure",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Search engines consider user experience as an important ranking factor."
+        )
+    )
+
+    body.append(h2("Technical SEO"))
+    body.append(
+        p(
+            "Technical SEO focuses on optimizing the website infrastructure so search engines can crawl and index the site efficiently."
+        )
+    )
+    body.append(p("Technical SEO improvements include:"))
+    body.append(
+        ul(
+            [
+                "website speed optimization",
+                "mobile responsiveness",
+                "sitemap implementation",
+                "fixing indexing issues",
+                "structured data integration",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Without proper technical optimization, other SEO efforts may not produce strong results."
+        )
+    )
+
+    body.append(h2("Content Strategy"))
+    body.append(
+        p(
+            "High-quality content is one of the most important components of SEO. "
+            "Search engines prioritize content that provides valuable information to users."
+        )
+    )
+    body.append(p("A strong content strategy includes:"))
+    body.append(
+        ul(
+            [
+                "answering user questions",
+                "creating keyword-focused articles",
+                "publishing content consistently",
+                "producing comprehensive guides",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These elements help increase website authority and improve rankings."
+        )
+    )
+
+    body.append(h2("Post-Launch SEO Process"))
+    body.append(
+        p(
+            "SEO does not end after a website is launched. "
+            "In reality, SEO is a continuous optimization process."
+        )
+    )
+    body.append(p("Post-launch SEO activities include:"))
+    body.append(
+        ul(
+            [
+                "performance analysis",
+                "traffic monitoring",
+                "content updates",
+                "backlink development",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These efforts help websites grow steadily in search engine rankings."
+        )
+    )
+
+    body.append(h2("Next step"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_quote_url(page)} }}}}",
+            ]
+        )
+    )
+    cluster_urls = _cluster_urls_for_service(page)[:10]
+    if cluster_urls:
+        body.append(h3("Related topics"))
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Services Guide | How Professional SEO Works – Angraweb"
+    meta_description = (
+        "Learn how professional SEO services work. Discover keyword research, technical SEO, content strategy and the essential steps of a successful SEO process."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Services Guide",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _ecommerce_pillar_en(page: SeoPage) -> Dict:
     """Custom SEO pillar for E-Commerce Development (EN) — scalable, SEO-driven, no pricing triggers."""
     body: List[str] = []
@@ -5836,6 +6064,8 @@ def generate_en(page: SeoPage) -> Dict:
         }
 
     if page.page_type == SeoPage.TYPE_GUIDE:
+        if page.service.key == "seo-services":
+            return _seo_services_guide_en(page)
         title = f"{svc} Guide"
         meta = make_meta(
             title=title,
