@@ -154,16 +154,16 @@ SERVICE_SILO_MAP: Dict[str, dict] = {
             "name": "SEO Services",
             "base_path": "seo-services",
             "clusters": [
-                "technical-seo-services",
-                "on-page-seo-services",
-                "seo-consultancy",
-                "seo-pricing",
-                "seo-cost",
-                "what-is-seo",
-                "how-seo-works",
-                "hire-seo-expert",
-                "seo-audit",
-                "agency-vs-freelancer",
+                "seo-consultancy",           # 1 = seo-danismanligi
+                "technical-seo-services",    # 2 = teknik-seo
+                "on-page-seo-services",      # 3 = on-page-seo
+                "seo-audit",                 # 4 = seo-analizi
+                "istanbul-seo-agency",       # 5 = istanbul-seo-ajansi
+                "hire-seo-expert",           # 6 = seo-uzmani
+                "what-is-seo",               # 7 = seo-nedir
+                "how-seo-works",             # 8 = seo-nasil-yapilir
+                "seo-friendly-website",      # 9 = seo-uyumlu-web-sitesi
+                "agency-vs-freelancer",      # 10 = ajans-mi-freelancer-mi
             ],
         },
     },

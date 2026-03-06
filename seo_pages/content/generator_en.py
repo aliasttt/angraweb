@@ -6379,6 +6379,8 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "how-seo-works": ("How SEO Works", ["Ranking factors", "Practical workflow"], ["Process outline", "Checklist"]),
         "hire-seo-expert": ("Hire an SEO Expert", ["Skill verification", "Strategy fit"], ["Interview checklist", "Pilot plan"]),
         "seo-audit": ("SEO Audit", ["Issue discovery", "Quick wins"], ["Audit report", "Priority list"]),
+        "istanbul-seo-agency": ("Istanbul SEO Agency", ["Local SEO", "Market fit"], ["Strategy", "Reporting"]),
+        "seo-friendly-website": ("SEO Friendly Website", ["Technical foundation", "Content structure"], ["Checklist", "Implementation"]),
         "agency-vs-freelancer": ("SEO Agency vs Freelancer", ["Agency vs freelancer choice", "Scope fit"], ["Comparison", "Selection criteria"]),
         "web-hosting-services": ("Web Hosting Services", ["Reliability", "Security"], ["Backups", "Monitoring"]),
         "vps-hosting": ("VPS Hosting", ["Resource sizing", "Ops overhead"], ["Setup plan", "Hardening"]),
