@@ -9410,7 +9410,7 @@ def _cluster_seo_nedir_tr(page: SeoPage) -> Dict:
                 "organik trafik artar",
                 "marka bilinirliği yükselir",
                 "daha fazla potansiyel müşteri elde edilir",
-                "reklam maliyetleri azalır",
+                "reklam bağımlılığı azalır",
             ]
         )
     )

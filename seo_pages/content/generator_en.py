@@ -1975,7 +1975,7 @@ def _cluster_what_is_seo_en(page: SeoPage) -> Dict:
     body.append(p("Most internet users discover information through search engines."))
     body.append(p("This means that ranking in search results provides significant advantages for businesses."))
     body.append(p("SEO helps:"))
-    body.append(ul(["increase organic traffic", "improve brand visibility", "attract potential customers", "reduce advertising costs"]))
+    body.append(ul(["increase organic traffic", "improve brand visibility", "attract potential customers", "reduce dependence on ads"]))
     body.append(p("SEO remains one of the most sustainable digital marketing strategies."))
 
     body.append(h2("Angraweb SEO Services"))
