@@ -7261,6 +7261,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_e_ticaret_nedir_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: SEO Danışmanlığı (TR) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-danismanligi":
+        return _cluster_seo_danismanligi_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: SEO Uzmanı Kirala (TR) — seo-services
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-uzmani":
@@ -8392,6 +8398,232 @@ def _seo_services_quote_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "SEO Hizmetleri Teklif Al",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_seo_danismanligi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Danışmanlığı (TR) — danışmanlık hizmeti, süreç, kapsam."""
+    body: List[str] = []
+
+    body.append(h2("SEO Danışmanlığı Nedir"))
+    body.append(
+        p(
+            "SEO danışmanlığı, web sitelerinin arama motorlarında daha görünür olması için stratejik yönlendirme ve optimizasyon önerileri sunan profesyonel bir hizmettir."
+        )
+    )
+    body.append(
+        p(
+            "Bir SEO danışmanı, web sitenizin mevcut performansını analiz eder ve arama motoru sıralamalarını yükseltmek için uygulanabilir bir yol haritası oluşturur."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak işletmelerin dijital görünürlüğünü artırmak için veri odaklı SEO danışmanlığı sunuyoruz."
+        )
+    )
+
+    body.append(h2("SEO Danışmanlığı Neden Önemlidir"))
+    body.append(
+        p(
+            "Birçok web sitesi teknik hatalar, yanlış anahtar kelime stratejileri veya zayıf içerik yapısı nedeniyle arama motorlarında yeterince görünmez."
+        )
+    )
+    body.append(p("Profesyonel SEO danışmanlığı sayesinde işletmeler:"))
+    body.append(
+        ul(
+            [
+                "Google sıralamalarını yükseltebilir",
+                "organik trafik artırabilir",
+                "teknik SEO hatalarını düzeltebilir",
+                "içerik stratejisini geliştirebilir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Doğru bir SEO danışmanlığı, uzun vadeli dijital büyüme için önemli bir adımdır."
+        )
+    )
+
+    body.append(h2("SEO Danışmanlığı Hizmeti Neleri Kapsar"))
+    body.append(
+        p(
+            "SEO danışmanlığı hizmeti genellikle web sitesinin tüm SEO performansını kapsayan kapsamlı bir analiz sürecini içerir."
+        )
+    )
+    body.append(p("Bu süreçte şu çalışmalar yapılır:"))
+    body.append(
+        ul(
+            [
+                "SEO site analizi",
+                "teknik SEO değerlendirmesi",
+                "anahtar kelime araştırması",
+                "rakip analizi",
+                "içerik stratejisi oluşturma",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu analizler web sitesi için en doğru SEO stratejisinin belirlenmesini sağlar."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Danışmanlığı Süreci"))
+    body.append(
+        p(
+            "SEO danışmanlığı hizmetimiz belirli bir süreç doğrultusunda ilerler."
+        )
+    )
+    body.append(h3("SEO Analizi"))
+    body.append(
+        p(
+            "İlk aşamada web sitesinin teknik altyapısı ve mevcut SEO performansı analiz edilir."
+        )
+    )
+    body.append(p("Bu aşamada:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO hataları",
+                "site performansı",
+                "anahtar kelime fırsatları",
+            ]
+        )
+    )
+    body.append(p("tespit edilir."))
+    body.append(h3("SEO Stratejisi"))
+    body.append(
+        p(
+            "Analiz tamamlandıktan sonra web sitesi için kapsamlı bir SEO stratejisi hazırlanır."
+        )
+    )
+    body.append(p("Bu strateji şunları kapsar:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO iyileştirmeleri",
+                "içerik optimizasyonu",
+                "anahtar kelime hedefleme",
+            ]
+        )
+    )
+    body.append(h3("Uygulama Rehberi"))
+    body.append(
+        p(
+            "SEO danışmanlığı kapsamında işletmelere uygulanabilir bir yol haritası sunulur."
+        )
+    )
+    body.append(p("Bu yol haritası sayesinde ekipler:"))
+    body.append(
+        ul(
+            [
+                "SEO optimizasyonlarını doğru şekilde uygulayabilir",
+                "içerik stratejisini geliştirebilir",
+                "site performansını iyileştirebilir",
+            ]
+        )
+    )
+    body.append(h3("İzleme ve Raporlama"))
+    body.append(
+        p(
+            "SEO çalışmaları uygulandıktan sonra performans düzenli olarak takip edilir."
+        )
+    )
+    body.append(p("Bu süreçte:"))
+    body.append(
+        ul(
+            [
+                "anahtar kelime sıralamaları",
+                "organik trafik",
+                "kullanıcı davranışları",
+            ]
+        )
+    )
+    body.append(p("analiz edilir."))
+
+    body.append(h2("SEO Danışmanlığı Kimler İçin Uygundur"))
+    body.append(
+        p(
+            "SEO danışmanlığı özellikle şu durumlarda faydalıdır:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO stratejisi oluşturmak isteyen işletmeler",
+                "mevcut web sitesinin performansını artırmak isteyen şirketler",
+                "teknik SEO hatalarını düzeltmek isteyen ekipler",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu hizmet, SEO çalışmalarını daha sistemli ve verimli hale getirir."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Danışmanlığı"))
+    body.append(
+        p(
+            "Angraweb olarak işletmelere profesyonel SEO danışmanlığı hizmeti sunuyoruz."
+        )
+    )
+    body.append(p("SEO danışmanlığı kapsamında:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO analizi",
+                "anahtar kelime stratejisi",
+                "içerik geliştirme önerileri",
+                "performans izleme",
+            ]
+        )
+    )
+    body.append(p("gibi alanlarda destek sağlıyoruz."))
+    body.append(
+        p(
+            "Amacımız web sitenizin arama motorlarında daha görünür hale gelmesini ve sürdürülebilir organik trafik elde etmesini sağlamaktır."
+        )
+    )
+
+    body.append(h2("SEO Danışmanlığı İçin Teklif Alın"))
+    body.append(
+        p(
+            "Eğer web sitenizin Google sıralamalarını yükseltmek ve organik trafiğinizi artırmak istiyorsanız profesyonel SEO danışmanlığı hizmeti alabilirsiniz."
+        )
+    )
+    body.append(
+        p(
+            f"Projeniz için en doğru SEO stratejisini oluşturmak için Angraweb ekibiyle iletişime geçebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Danışmanlığı | Profesyonel SEO Danışmanlık Hizmeti – Angraweb"
+    meta_description = (
+        "Profesyonel SEO danışmanlığı ile web sitenizin Google sıralamasını yükseltin. Teknik SEO analizi, anahtar kelime stratejisi ve sürdürülebilir organik trafik büyümesi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Danışmanlığı",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

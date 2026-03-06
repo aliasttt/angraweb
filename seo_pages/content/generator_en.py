@@ -1168,6 +1168,145 @@ def _seo_services_quote_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_seo_consultancy_en(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Consulting Services (EN) — consulting, strategy, process."""
+    body: List[str] = []
+
+    body.append(h2("What Is SEO Consulting"))
+    body.append(
+        p(
+            "SEO consulting is a professional service that helps businesses improve their search engine visibility through strategic guidance and optimization recommendations."
+        )
+    )
+    body.append(
+        p(
+            "An SEO consultant analyzes a website's performance and creates a structured plan to improve search engine rankings."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb, we provide data-driven SEO consulting designed to help businesses grow their organic traffic."
+        )
+    )
+
+    body.append(h2("Why SEO Consulting Is Important"))
+    body.append(
+        p(
+            "Many websites struggle to rank in search engines due to technical issues, weak keyword strategies, or poor content structure."
+        )
+    )
+    body.append(p("Professional SEO consulting helps businesses:"))
+    body.append(
+        ul(
+            [
+                "improve search engine rankings",
+                "increase organic traffic",
+                "identify technical SEO issues",
+                "develop a strong content strategy",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "With the right SEO strategy, businesses can achieve sustainable digital growth."
+        )
+    )
+
+    body.append(h2("What SEO Consulting Includes"))
+    body.append(
+        p(
+            "SEO consulting services typically include a full analysis of the website's SEO performance."
+        )
+    )
+    body.append(p("This process includes:"))
+    body.append(
+        ul(
+            [
+                "SEO audits",
+                "technical SEO analysis",
+                "keyword research",
+                "competitor analysis",
+                "content strategy development",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These insights help businesses build effective SEO strategies."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Consulting Process"))
+    body.append(
+        p(
+            "Our SEO consulting service follows a structured approach."
+        )
+    )
+    body.append(h3("SEO Analysis"))
+    body.append(
+        p(
+            "We begin by analyzing the website's current SEO performance and identifying optimization opportunities."
+        )
+    )
+    body.append(h3("Strategy Development"))
+    body.append(
+        p(
+            "Based on the analysis, a customized SEO strategy is created."
+        )
+    )
+    body.append(h3("Implementation Guidance"))
+    body.append(
+        p(
+            "Businesses receive a clear roadmap for implementing SEO improvements."
+        )
+    )
+    body.append(h3("Monitoring and Reporting"))
+    body.append(
+        p(
+            "SEO performance is continuously monitored and analyzed."
+        )
+    )
+
+    body.append(h2("Request an SEO Consulting Quote"))
+    body.append(
+        p(
+            "If you want to improve your website rankings and increase organic traffic, professional SEO consulting can help."
+        )
+    )
+    body.append(
+        p(
+            f"Contact the Angraweb team to request a personalized SEO strategy for your project. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Consulting Services | Professional SEO Strategy – Angraweb"
+    meta_description = (
+        "Professional SEO consulting services to improve your website rankings. Get technical SEO analysis, keyword strategy and sustainable organic growth."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Consulting Services",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
     """Custom cluster: Hire an SEO Expert (EN) — professional SEO consulting, process, benefits."""
     body: List[str] = []
@@ -7204,6 +7343,9 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     # Custom cluster: Hire an SEO Expert (EN) — seo-services
     # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-consultancy":
+        return _cluster_seo_consultancy_en(page)
+
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "hire-seo-expert":
         return _cluster_hire_seo_expert_en(page)
 
