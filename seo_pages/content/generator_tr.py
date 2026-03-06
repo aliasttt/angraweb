@@ -7360,7 +7360,7 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
     )
 
     # SEO nedir
-    body.append(h2("What is SEO"))
+    body.append(h2("SEO Nedir?"))
     body.append(
         p(
             "SEO (Arama Motoru Optimizasyonu), bir web sitesinin Google gibi arama motorlarında daha üst sıralarda görünmesi için yapılan optimizasyon çalışmalarının tamamıdır."
@@ -7384,7 +7384,7 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
     )
 
     # SEO hizmetlerimizin kapsamı
-    body.append(h2("What Do Our SEO Services Include"))
+    body.append(h2("SEO Hizmetlerimiz Neleri Kapsar?"))
     body.append(
         p(
             "SEO hizmetlerimiz, web sitenizin arama performansını tüm yönleriyle geliştirmek için tasarlanmıştır."
@@ -7413,7 +7413,7 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
     )
 
     # Teknik SEO
-    body.append(h2("Technical SEO Optimization"))
+    body.append(h2("Teknik SEO Optimizasyonu"))
     body.append(
         p(
             "Teknik SEO, arama motorlarının web sitenizi doğru şekilde taramasını ve indekslemesini sağlar."
@@ -7437,7 +7437,7 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
     )
 
     # Anahtar kelime stratejisi
-    body.append(h2("Keyword Research and Strategy"))
+    body.append(h2("Anahtar Kelime Araştırması ve Stratejisi"))
     body.append(
         p(
             "Anahtar kelime araştırması başarılı bir SEO stratejisinin temelini oluşturur."
@@ -7465,7 +7465,7 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
     )
 
     # On Page SEO
-    body.append(h2("On Page SEO Optimization"))
+    body.append(h2("Site İçi SEO Optimizasyonu"))
     body.append(
         p(
             "Site içi SEO (On Page SEO), web sitenizin iç yapısının optimize edilmesini kapsar."
@@ -7489,7 +7489,7 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
     )
 
     # Neden Angraweb
-    body.append(h2("Why Choose Angraweb SEO Services"))
+    body.append(h2("Neden Angraweb SEO Hizmetleri?"))
     body.append(
         p(
             "Angraweb olarak SEO çalışmalarımızı veri odaklı ve sürdürülebilir bir büyüme stratejisi üzerine kuruyoruz."
@@ -7507,7 +7507,7 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
     )
 
     # SSS
-    body.append(h2("FAQ"))
+    body.append(h2("Sık Sorulan Sorular"))
 
     content_html = "\n".join(body)
 
