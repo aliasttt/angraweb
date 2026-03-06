@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.utils import translation
 
 from .models import SeoPage, Service
-from .silo_config import get_mirrored_slug, get_service_bases
+from .silo_config import SERVICE_SILO_MAP, get_mirrored_slug, get_service_bases
 
 
 def _get_service_for_base(language: str, service_base: str) -> Service:
@@ -54,11 +54,18 @@ def seo_page_view(request, language: str, service_base: str, page_type: str, slu
     pricing = _get_page(language, service, SeoPage.TYPE_PRICING, "fiyatlar" if language == "tr" else "pricing")
     guide = _get_page(language, service, SeoPage.TYPE_GUIDE, "rehber" if language == "tr" else "guide")
     quote = _get_page(language, service, SeoPage.TYPE_QUOTE, "teklif-al" if language == "tr" else "get-quote")
-    clusters = list(
-        SeoPage.objects.filter(language=language, service=service, page_type=SeoPage.TYPE_CLUSTER)
-        .order_by("slug")
-        .only("id", "language", "page_type", "slug", "title", "service_id")
+    # Cluster list in same order as silo_config (TR/EN aligned); only slugs in config are shown.
+    ordered_slugs = (
+        SERVICE_SILO_MAP.get(service.key, {}).get(language, {}).get("clusters", [])
+        or []
     )
+    cluster_pages = {
+        p.slug: p
+        for p in SeoPage.objects.filter(
+            language=language, service=service, page_type=SeoPage.TYPE_CLUSTER
+        ).only("id", "language", "page_type", "slug", "title", "service_id")
+    }
+    clusters = [cluster_pages[s] for s in ordered_slugs if s in cluster_pages]
 
     related_reading = []
     if page.page_type == SeoPage.TYPE_GUIDE:
