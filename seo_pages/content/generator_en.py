@@ -1935,6 +1935,77 @@ def _cluster_seo_audit_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_what_is_seo_en(page: SeoPage) -> Dict:
+    """Custom cluster: What Is SEO? (EN) — fundamentals, types, strategy."""
+    body: List[str] = []
+
+    body.append(h2("What Is SEO"))
+    body.append(p("SEO (Search Engine Optimization) is the process of improving a website so that it appears higher in search engine results."))
+    body.append(p("Through SEO optimization, websites become more visible in search engines such as Google and attract more organic traffic."))
+    body.append(p("The main goals of SEO include:"))
+    body.append(ul(["increasing website visibility", "ranking for relevant keywords", "improving user experience", "generating organic traffic"]))
+    body.append(p("A strong SEO strategy provides sustainable long-term growth."))
+
+    body.append(h2("How SEO Works"))
+    body.append(p("Search engines use complex algorithms to evaluate and rank websites."))
+    body.append(p("These algorithms consider multiple factors when determining rankings."))
+    body.append(p("Some of the most important factors include:"))
+    body.append(ul(["content quality", "page structure", "website speed", "user experience", "backlinks"]))
+    body.append(p("SEO optimizations improve these factors so that search engines can better understand and rank websites."))
+
+    body.append(h2("Types of SEO"))
+    body.append(p("SEO strategies are generally divided into three main categories."))
+    body.append(h3("Technical SEO"))
+    body.append(p("Technical SEO focuses on optimizing the technical infrastructure of a website."))
+    body.append(p("This includes:"))
+    body.append(ul(["site speed optimization", "crawl and index optimization", "Core Web Vitals improvements", "website architecture"]))
+    body.append(p("These optimizations help search engines crawl websites more efficiently."))
+    body.append(h3("On Page SEO"))
+    body.append(p("On-page SEO focuses on optimizing the content and structure of individual pages."))
+    body.append(p("This includes:"))
+    body.append(ul(["keyword optimization", "title and meta tags", "content improvements", "internal linking"]))
+    body.append(p("These optimizations help pages rank higher in search results."))
+    body.append(h3("Off Page SEO"))
+    body.append(p("Off-page SEO refers to optimization activities that happen outside the website."))
+    body.append(p("These usually include:"))
+    body.append(ul(["backlink building", "brand authority", "digital PR"]))
+    body.append(p("These factors help improve the credibility of a website."))
+
+    body.append(h2("Why SEO Is Important"))
+    body.append(p("Most internet users discover information through search engines."))
+    body.append(p("This means that ranking in search results provides significant advantages for businesses."))
+    body.append(p("SEO helps:"))
+    body.append(ul(["increase organic traffic", "improve brand visibility", "attract potential customers", "reduce advertising costs"]))
+    body.append(p("SEO remains one of the most sustainable digital marketing strategies."))
+
+    body.append(h2("Angraweb SEO Services"))
+    body.append(p("At Angraweb we provide professional SEO services designed to improve website visibility and search rankings."))
+    body.append(p("Our services include:"))
+    body.append(ul(["technical SEO optimization", "on-page SEO improvements", "SEO analysis and strategy", "competitor research"]))
+    body.append(p("Our goal is to help businesses grow through search visibility."))
+
+    body.append(h2("Request an SEO Quote"))
+    body.append(p("If you want to improve your website rankings and increase organic traffic, professional SEO services can help."))
+    body.append(p(f"Contact the Angraweb team to request a customized SEO strategy. {{{{ link:{_quote_url(page)} }}}}"))
+    body.append(h2("Related pages"))
+    body.append(ul([f"{{{{ link:{_pillar_url(page)} }}}}", f"{{{{ link:{_pricing_url(page)} }}}}", f"{{{{ link:{_guide_url(page)} }}}}"]))
+
+    content_html = "\n".join(body)
+    meta_title = "What Is SEO? Search Engine Optimization Guide – Angraweb"
+    meta_description = "What is SEO and how does it work? Learn the fundamentals of search engine optimization, SEO types and strategies to improve your website rankings."
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "What Is SEO?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
     """Custom cluster: Hire an SEO Expert (EN) — professional SEO consulting, process, benefits."""
     body: List[str] = []
@@ -7982,6 +8053,9 @@ def generate_en(page: SeoPage) -> Dict:
 
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-audit":
         return _cluster_seo_audit_en(page)
+
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "what-is-seo":
+        return _cluster_what_is_seo_en(page)
 
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "hire-seo-expert":
         return _cluster_hire_seo_expert_en(page)
