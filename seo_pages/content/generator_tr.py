@@ -6998,6 +6998,8 @@ def generate_tr(page: SeoPage) -> Dict:
         }
 
     if page.page_type == SeoPage.TYPE_QUOTE:
+        if page.service.key == "seo-services":
+            return _seo_services_quote_tr(page)
         title = f"{svc} Teklif Al"
         meta = make_meta(
             title=title,
@@ -8118,6 +8120,248 @@ def _seo_services_guide_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "SEO Hizmetleri Rehberi",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _seo_services_quote_tr(page: SeoPage) -> Dict:
+    """Custom SEO quote page (TR) — teklif süreci, brif, şeffaf süreç."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "SEO hizmetleri için doğru bir teklif almak, projenin kapsamını ve hedeflerini doğru şekilde belirlemekle başlar. "
+            "Her web sitesi farklı ihtiyaçlara sahip olduğu için SEO çalışmaları genellikle projeye özel planlanır."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak SEO projelerinde önce işletmenin hedeflerini ve mevcut dijital durumunu analiz ediyoruz. "
+            "Bu sayede hem bütçeye uygun hem de sürdürülebilir bir SEO stratejisi oluşturabiliyoruz."
+        )
+    )
+    body.append(
+        p(
+            "SEO hizmetleri için teklif almak isteyen işletmelerin kısa bir proje brifi paylaşması sürecin daha hızlı ilerlemesini sağlar."
+        )
+    )
+
+    body.append(h2("Teklif Süreci Nasıl İşler"))
+    body.append(
+        p(
+            "SEO hizmetleri teklif süreci birkaç temel adımdan oluşur. "
+            "Bu süreç hem işletmenin ihtiyaçlarını doğru anlamayı hem de uygulanabilir bir SEO planı oluşturmayı amaçlar."
+        )
+    )
+    body.append(h3("1. Kısa Brif"))
+    body.append(
+        p(
+            "İlk adımda işletmenin hedefleri ve beklentileri hakkında kısa bir bilgi alınır."
+        )
+    )
+    body.append(p("Bu brifte genellikle şu bilgiler yer alır:"))
+    body.append(
+        ul(
+            [
+                "işletmenin faaliyet alanı",
+                "hedef kitle",
+                "mevcut web sitesi durumu",
+                "SEO hedefleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu bilgiler SEO stratejisinin temelini oluşturur."
+        )
+    )
+    body.append(h3("2. Ön Görüşme"))
+    body.append(
+        p(
+            "Kısa brif incelendikten sonra bir ön görüşme yapılır. Bu görüşme genellikle online olarak gerçekleştirilir."
+        )
+    )
+    body.append(p("Bu aşamada şu konular netleştirilir:"))
+    body.append(
+        ul(
+            [
+                "projenin kapsamı",
+                "öncelikli SEO hedefleri",
+                "rekabet analizi",
+                "tahmini çalışma süresi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu görüşme sayesinde SEO planı daha net hale gelir."
+        )
+    )
+    body.append(h3("3. SEO Planı Oluşturma"))
+    body.append(
+        p(
+            "İhtiyaçlar netleştikten sonra detaylı bir SEO planı hazırlanır. Bu plan genellikle şu çalışmaları içerir:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO analizi",
+                "anahtar kelime araştırması",
+                "teknik SEO optimizasyonu",
+                "içerik stratejisi",
+                "backlink planı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "SEO planı web sitesinin mevcut durumuna göre özelleştirilir."
+        )
+    )
+    body.append(h3("4. Teklif ve Çalışma Planı"))
+    body.append(
+        p(
+            "Son aşamada SEO hizmeti için kapsamlı bir teklif hazırlanır."
+        )
+    )
+    body.append(p("Bu teklif genellikle şu bilgileri içerir:"))
+    body.append(
+        ul(
+            [
+                "yapılacak çalışmalar",
+                "proje takvimi",
+                "raporlama süreci",
+                "ödeme planı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu sayede işletmeler SEO projesinin nasıl ilerleyeceğini net bir şekilde görebilir."
+        )
+    )
+
+    body.append(h2("Brifte Hangi Bilgileri Paylaşmalısınız"))
+    body.append(
+        p(
+            "SEO teklifinin doğru hazırlanabilmesi için bazı temel bilgilerin paylaşılması önemlidir."
+        )
+    )
+    body.append(p("Paylaşılması önerilen bilgiler:"))
+    body.append(
+        ul(
+            [
+                "işletmenin ana hedefi (satış, trafik, marka bilinirliği)",
+                "öncelikli sayfalar veya hizmetler",
+                "mevcut web sitesi adresi",
+                "rakip web siteleri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu bilgiler SEO stratejisinin doğru planlanmasına yardımcı olur."
+        )
+    )
+
+    body.append(h2("SEO Teklifi Neden Özel Hazırlanır"))
+    body.append(
+        p(
+            "SEO projeleri genellikle standart paketlerle sınırlı değildir. Çünkü her sektörün rekabet seviyesi ve hedef kitlesi farklıdır."
+        )
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "yeni bir web sitesi için SEO stratejisi farklıdır",
+                "yüksek rekabetli sektörler daha kapsamlı SEO çalışmaları gerektirir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle SEO teklifleri genellikle işletmeye özel hazırlanır."
+        )
+    )
+
+    body.append(h2("Şeffaf Süreç ve Güven"))
+    body.append(
+        p(
+            "Angraweb olarak SEO projelerinde şeffaf bir süreç yönetimi uyguluyoruz. "
+            "Tüm çalışmalar açık şekilde raporlanır ve proje süreci boyunca düzenli iletişim sağlanır."
+        )
+    )
+    body.append(p("SEO çalışmalarında şu prensiplere önem veriyoruz:"))
+    body.append(
+        ul(
+            [
+                "net proje kapsamı",
+                "düzenli raporlama",
+                "ölçülebilir performans hedefleri",
+                "uzun vadeli büyüme stratejisi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu yaklaşım SEO projelerinin daha verimli ilerlemesini sağlar."
+        )
+    )
+
+    body.append(h2("SEO Hizmetleri İçin Hızlı Teklif"))
+    body.append(
+        p(
+            "Eğer web siteniz için profesyonel SEO hizmetleri almak istiyorsanız teklif formunu doldurarak bizimle iletişime geçebilirsiniz."
+        )
+    )
+    body.append(
+        p(
+            "Kısa bir brif paylaşmanız durumunda SEO projeniz için en uygun yaklaşımı hızlıca planlayabiliriz."
+        )
+    )
+    body.append(p("Teklif formu sayesinde:"))
+    body.append(
+        ul(
+            [
+                "SEO ihtiyaçlarınızı paylaşabilirsiniz",
+                "proje kapsamını belirleyebilirsiniz",
+                "tahmini bütçe planı oluşturabilirsiniz",
+            ]
+        )
+    )
+    body.append(
+        p(
+            f"SEO hizmetleri teklif formunu doldurarak projenize ilk adımı atabilirsiniz. "
+            f"Teklif almak için: {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Hizmetleri Teklif Al | Profesyonel SEO Danışmanlığı – Angraweb"
+    meta_description = (
+        "Profesyonel SEO hizmetleri için hızlı teklif alın. Web sitenizin SEO analizi, anahtar kelime stratejisi ve teknik optimizasyon planını öğrenin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Hizmetleri Teklif Al",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

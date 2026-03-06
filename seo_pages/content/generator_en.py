@@ -946,6 +946,216 @@ def _seo_services_guide_en(page: SeoPage) -> Dict:
     }
 
 
+def _seo_services_quote_en(page: SeoPage) -> Dict:
+    """Custom SEO quote page (EN) — quote process, brief, transparent process."""
+    body: List[str] = []
+
+    body.append(
+        p(
+            "Getting a quote for SEO services starts with understanding the goals and scope of your project. "
+            "Since every website and industry is different, SEO strategies are typically customized for each business."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb, we begin by analyzing your current digital presence and business objectives. "
+            "This allows us to create an SEO strategy that is both effective and aligned with your budget."
+        )
+    )
+    body.append(
+        p(
+            "Providing a short project brief helps us evaluate your needs quickly and prepare a tailored SEO proposal."
+        )
+    )
+
+    body.append(h2("How the Quote Process Works"))
+    body.append(
+        p(
+            "The SEO quote process typically includes several steps designed to understand your business needs and create a practical optimization strategy."
+        )
+    )
+    body.append(h3("Initial Brief"))
+    body.append(
+        p(
+            "The first step is sharing a short overview of your business and goals."
+        )
+    )
+    body.append(p("This may include:"))
+    body.append(
+        ul(
+            [
+                "industry and services",
+                "target audience",
+                "website status",
+                "SEO goals",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These details help build the foundation for the SEO strategy."
+        )
+    )
+    body.append(h3("Consultation"))
+    body.append(
+        p(
+            "After reviewing the brief, we schedule a short consultation. This meeting is usually conducted online."
+        )
+    )
+    body.append(p("During this stage we clarify:"))
+    body.append(
+        ul(
+            [
+                "project scope",
+                "SEO priorities",
+                "competition level",
+                "estimated timeline",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This discussion allows us to refine the strategy before preparing the proposal."
+        )
+    )
+    body.append(h3("SEO Strategy Planning"))
+    body.append(
+        p(
+            "Once the requirements are clear, we create a structured SEO plan."
+        )
+    )
+    body.append(p("This plan may include:"))
+    body.append(
+        ul(
+            [
+                "SEO audit",
+                "keyword research",
+                "technical optimization",
+                "content strategy",
+                "backlink development",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "The strategy is tailored to your website and market competition."
+        )
+    )
+    body.append(h3("Proposal and Work Plan"))
+    body.append(
+        p(
+            "Finally, a detailed proposal is prepared outlining the SEO services."
+        )
+    )
+    body.append(p("The proposal typically includes:"))
+    body.append(
+        ul(
+            [
+                "scope of work",
+                "project timeline",
+                "reporting process",
+                "payment structure",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This ensures that both parties clearly understand how the project will progress."
+        )
+    )
+
+    body.append(h2("Information Needed for an SEO Quote"))
+    body.append(
+        p(
+            "To prepare an accurate SEO proposal, several pieces of information are helpful."
+        )
+    )
+    body.append(p("These include:"))
+    body.append(
+        ul(
+            [
+                "your business goals (traffic, leads, sales)",
+                "key services or pages",
+                "current website URL",
+                "competitor websites",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Providing these details allows us to create a more effective SEO strategy."
+        )
+    )
+
+    body.append(h2("Transparent SEO Process"))
+    body.append(
+        p(
+            "At Angraweb, we believe in transparent communication and measurable results."
+        )
+    )
+    body.append(p("Our SEO projects focus on:"))
+    body.append(
+        ul(
+            [
+                "clear project scope",
+                "regular performance reporting",
+                "sustainable SEO strategies",
+                "long-term organic growth",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This approach ensures that SEO efforts lead to real business results."
+        )
+    )
+
+    body.append(h2("Request Your SEO Quote"))
+    body.append(
+        p(
+            "If you are interested in professional SEO services, you can request a quote by filling out the form on this page."
+        )
+    )
+    body.append(
+        p(
+            "By submitting a brief description of your project, we can quickly evaluate your needs and suggest the most effective SEO approach."
+        )
+    )
+    body.append(
+        p(
+            f"Start your SEO journey today by requesting a professional SEO services quote. "
+            f"Request a quote: {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("Helpful pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Get SEO Services Quote | Professional SEO Consulting – Angraweb"
+    meta_description = (
+        "Get a professional SEO services quote for your website. Learn how our SEO strategy, keyword research and technical optimization can grow your traffic."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Get SEO Services Quote",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _ecommerce_pillar_en(page: SeoPage) -> Dict:
     """Custom SEO pillar for E-Commerce Development (EN) — scalable, SEO-driven, no pricing triggers."""
     body: List[str] = []
@@ -6128,6 +6338,8 @@ def generate_en(page: SeoPage) -> Dict:
         }
 
     if page.page_type == SeoPage.TYPE_QUOTE:
+        if page.service.key == "seo-services":
+            return _seo_services_quote_en(page)
         title = f"Get a Quote for {svc}"
         meta = make_meta(
             title=title,
