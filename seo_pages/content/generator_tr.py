@@ -7279,6 +7279,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_on_page_seo_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: SEO Analizi (TR) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-analizi":
+        return _cluster_seo_analizi_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: SEO Uzmanı Kirala (TR) — seo-services
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-uzmani":
@@ -9039,6 +9045,227 @@ def _cluster_on_page_seo_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "On Page SEO Hizmeti",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_seo_analizi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Analizi (TR) — audit, teknik, içerik, rakip analizi."""
+    body: List[str] = []
+
+    body.append(h2("SEO Analizi Nedir"))
+    body.append(
+        p(
+            "SEO analizi, bir web sitesinin arama motorlarındaki performansını değerlendirmek için yapılan kapsamlı inceleme sürecidir."
+        )
+    )
+    body.append(
+        p(
+            "Bu analiz sayesinde web sitesinin teknik yapısı, içerik kalitesi ve SEO performansı detaylı şekilde değerlendirilir."
+        )
+    )
+    body.append(p("SEO analizi çalışmaları sayesinde şu sorulara cevap bulunur:"))
+    body.append(
+        ul(
+            [
+                "Web sitesi neden sıralama alamıyor?",
+                "Hangi teknik hatalar SEO'yu etkiliyor?",
+                "Hangi anahtar kelimelerde fırsatlar var?",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu analiz, başarılı bir SEO stratejisinin ilk adımıdır."
+        )
+    )
+
+    body.append(h2("SEO Analizi Neden Önemlidir"))
+    body.append(
+        p(
+            "Bir web sitesi SEO açısından optimize edilmeden önce mevcut durumun doğru şekilde analiz edilmesi gerekir."
+        )
+    )
+    body.append(p("SEO analizi sayesinde:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO sorunları tespit edilir",
+                "içerik eksikleri belirlenir",
+                "rakip stratejileri incelenir",
+                "SEO fırsatları ortaya çıkar",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu bilgiler daha etkili bir SEO stratejisi oluşturmayı sağlar."
+        )
+    )
+
+    body.append(h2("SEO Analizi Neleri Kapsar"))
+    body.append(
+        p(
+            "Profesyonel SEO analizi web sitesinin birçok farklı alanını inceler."
+        )
+    )
+    body.append(p("Bu analiz genellikle şu konuları kapsar:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO incelemesi",
+                "site hız analizi",
+                "anahtar kelime analizi",
+                "içerik optimizasyonu değerlendirmesi",
+                "backlink profili analizi",
+                "rakip SEO analizi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu kapsamlı inceleme sayesinde web sitesinin güçlü ve zayıf yönleri belirlenir."
+        )
+    )
+
+    body.append(h2("Teknik SEO Analizi"))
+    body.append(
+        p(
+            "Teknik SEO analizi web sitesinin altyapısını inceler."
+        )
+    )
+    body.append(p("Bu analiz sırasında:"))
+    body.append(
+        ul(
+            [
+                "crawl hataları",
+                "indeksleme sorunları",
+                "sayfa hız problemleri",
+                "site mimarisi",
+            ]
+        )
+    )
+    body.append(p("gibi teknik konular değerlendirilir."))
+    body.append(
+        p(
+            "Bu optimizasyonlar web sitesinin arama motorları tarafından daha kolay taranmasını sağlar."
+        )
+    )
+
+    body.append(h2("İçerik ve Anahtar Kelime Analizi"))
+    body.append(
+        p(
+            "SEO analizi yalnızca teknik konularla sınırlı değildir."
+        )
+    )
+    body.append(
+        p(
+            "Aynı zamanda içerik yapısı ve anahtar kelime stratejisi de değerlendirilir."
+        )
+    )
+    body.append(p("Bu analiz sayesinde:"))
+    body.append(
+        ul(
+            [
+                "doğru anahtar kelimeler belirlenir",
+                "içerik boşlukları tespit edilir",
+                "yeni SEO fırsatları keşfedilir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu çalışmalar web sitesinin organik trafik potansiyelini artırır."
+        )
+    )
+
+    body.append(h2("Rakip SEO Analizi"))
+    body.append(
+        p(
+            "Rakip analizi SEO stratejisinin önemli bir parçasıdır."
+        )
+    )
+    body.append(p("Rakip SEO analizi sayesinde:"))
+    body.append(
+        ul(
+            [
+                "rakiplerin hangi anahtar kelimelerde sıralama aldığı",
+                "backlink stratejileri",
+                "içerik stratejileri",
+            ]
+        )
+    )
+    body.append(p("incelenir."))
+    body.append(
+        p(
+            "Bu bilgiler daha rekabetçi bir SEO planı oluşturmayı sağlar."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Analizi Hizmeti"))
+    body.append(
+        p(
+            "Angraweb olarak işletmelere kapsamlı SEO analizi hizmetleri sunuyoruz."
+        )
+    )
+    body.append(p("SEO analiz hizmetlerimiz şunları kapsar:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO audit",
+                "anahtar kelime araştırması",
+                "rakip SEO analizi",
+                "içerik ve sayfa optimizasyonu değerlendirmesi",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Amacımız web sitenizin SEO performansını artırmak için güçlü bir stratejik temel oluşturmaktır."
+        )
+    )
+
+    body.append(h2("SEO Analizi İçin Teklif Alın"))
+    body.append(
+        p(
+            "Web sitenizin SEO performansını artırmak için profesyonel SEO analizi yaptırabilirsiniz."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb ekibi web sitenizi detaylı şekilde inceleyerek SEO geliştirme fırsatlarını belirler."
+        )
+    )
+    body.append(
+        p(
+            f"SEO analizi hizmeti için bizimle iletişime geçebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Analizi Hizmeti | Profesyonel SEO Audit – Angraweb"
+    meta_description = (
+        "Profesyonel SEO analizi ile web sitenizin teknik ve içerik sorunlarını tespit edin. SEO audit, rakip analizi ve fırsat stratejileri ile Google sıralamanızı yükseltin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Analizi",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

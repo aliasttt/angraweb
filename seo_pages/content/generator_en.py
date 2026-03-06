@@ -1726,6 +1726,215 @@ def _cluster_on_page_seo_services_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_seo_audit_en(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Analysis (EN) — audit, technical, content, competitor analysis."""
+    body: List[str] = []
+
+    body.append(h2("What Is SEO Analysis"))
+    body.append(
+        p(
+            "SEO analysis is the process of evaluating a website's performance in search engines."
+        )
+    )
+    body.append(
+        p(
+            "It involves analyzing technical structure, content quality and keyword performance to identify opportunities for improvement."
+        )
+    )
+    body.append(p("Through SEO analysis businesses can understand:"))
+    body.append(
+        ul(
+            [
+                "why their website is not ranking well",
+                "what technical issues affect SEO",
+                "which keyword opportunities exist",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This analysis forms the foundation of an effective SEO strategy."
+        )
+    )
+
+    body.append(h2("Why SEO Analysis Is Important"))
+    body.append(
+        p(
+            "Before implementing SEO improvements, it is essential to understand the current performance of a website."
+        )
+    )
+    body.append(p("SEO analysis helps:"))
+    body.append(
+        ul(
+            [
+                "detect technical issues",
+                "identify content gaps",
+                "analyze competitors",
+                "uncover SEO opportunities",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These insights help build a more effective optimization strategy."
+        )
+    )
+
+    body.append(h2("What SEO Analysis Includes"))
+    body.append(
+        p(
+            "Professional SEO analysis evaluates several aspects of a website."
+        )
+    )
+    body.append(p("Typical SEO audit work includes:"))
+    body.append(
+        ul(
+            [
+                "technical SEO review",
+                "site speed analysis",
+                "keyword research",
+                "content optimization review",
+                "backlink profile analysis",
+                "competitor SEO analysis",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "This comprehensive review highlights both strengths and weaknesses."
+        )
+    )
+
+    body.append(h2("Technical SEO Audit"))
+    body.append(
+        p(
+            "Technical SEO analysis focuses on the infrastructure of a website."
+        )
+    )
+    body.append(p("During this process experts evaluate:"))
+    body.append(
+        ul(
+            [
+                "crawl errors",
+                "indexing problems",
+                "page speed issues",
+                "website architecture",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Improving these factors helps search engines crawl and index the website more efficiently."
+        )
+    )
+
+    body.append(h2("Keyword and Content Analysis"))
+    body.append(
+        p(
+            "SEO analysis also evaluates content quality and keyword targeting."
+        )
+    )
+    body.append(p("This includes:"))
+    body.append(
+        ul(
+            [
+                "identifying valuable keywords",
+                "analyzing search intent",
+                "detecting content gaps",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These insights help increase organic traffic potential."
+        )
+    )
+
+    body.append(h2("Competitor SEO Analysis"))
+    body.append(
+        p(
+            "Competitor analysis helps businesses understand the strategies used by competing websites."
+        )
+    )
+    body.append(p("This analysis evaluates:"))
+    body.append(
+        ul(
+            [
+                "competitor keyword rankings",
+                "backlink strategies",
+                "content strategies",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Understanding competitors helps create a stronger SEO plan."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Analysis Services"))
+    body.append(
+        p(
+            "At Angraweb we provide professional SEO analysis services designed to improve website performance and search visibility."
+        )
+    )
+    body.append(p("Our SEO audit services include:"))
+    body.append(
+        ul(
+            [
+                "technical SEO audits",
+                "keyword research",
+                "competitor analysis",
+                "content optimization evaluation",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Our goal is to provide clear insights and actionable SEO strategies."
+        )
+    )
+
+    body.append(h2("Request an SEO Analysis Quote"))
+    body.append(
+        p(
+            "If you want to improve your website rankings and discover new SEO opportunities, professional SEO analysis can help."
+        )
+    )
+    body.append(
+        p(
+            f"Contact the Angraweb team to request a detailed SEO audit for your website. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Analysis Service | Website SEO Audit – Angraweb"
+    meta_description = (
+        "Improve your rankings with professional SEO analysis. Identify technical issues, keyword opportunities and competitor strategies with a complete SEO audit."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Analysis",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
     """Custom cluster: Hire an SEO Expert (EN) — professional SEO consulting, process, benefits."""
     body: List[str] = []
@@ -7770,6 +7979,9 @@ def generate_en(page: SeoPage) -> Dict:
 
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "on-page-seo-services":
         return _cluster_on_page_seo_services_en(page)
+
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-audit":
+        return _cluster_seo_audit_en(page)
 
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "hire-seo-expert":
         return _cluster_hire_seo_expert_en(page)
