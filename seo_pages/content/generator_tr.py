@@ -7267,6 +7267,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_seo_uzmani_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: İstanbul SEO Ajansı (TR) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "istanbul-seo-ajansi":
+        return _cluster_istanbul_seo_ajansi_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: SEO Ajansı mı Freelancer mı? (TR) — seo-services
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "ajans-mi-freelancer-mi":
@@ -7523,6 +7529,18 @@ def _seo_services_pillar_tr(page: SeoPage) -> Dict:
             ]
         )
     )
+
+    # Konular (İstanbul SEO Ajansı dahil tüm cluster linkleri)
+    body.append(h2("Konular"))
+    body.append(
+        p(
+            "İstanbul’daki işletmeler için yerel SEO stratejileri ve profesyonel SEO hizmetleri. "
+            f"Detaylar: {{{{ link:/tr/seo-hizmetleri/istanbul-seo-ajansi/ }}}}"
+        )
+    )
+    cluster_urls = _cluster_urls_for_service(page)
+    if cluster_urls:
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
 
     # SSS
     body.append(h2("Sık Sorulan Sorular"))
@@ -8576,6 +8594,262 @@ def _cluster_seo_uzmani_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "SEO Uzmanı Kirala",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_istanbul_seo_ajansi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: İstanbul SEO Ajansı (TR) — yerel SEO, süreç, raporlama."""
+    body: List[str] = []
+
+    body.append(h2("İstanbul SEO Ajansı"))
+    body.append(
+        p(
+            "İstanbul'da faaliyet gösteren işletmeler için dijital rekabet her geçen gün artmaktadır. "
+            "Bu nedenle web sitelerinin Google gibi arama motorlarında görünür olması büyük önem taşır."
+        )
+    )
+    body.append(
+        p(
+            "Profesyonel bir İstanbul SEO ajansı ile çalışmak, web sitenizin arama sonuçlarında daha üst sıralarda yer almasına yardımcı olur."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak İstanbul'daki işletmeler için veri odaklı ve sürdürülebilir SEO stratejileri geliştiriyoruz. "
+            "Amacımız yalnızca sıralama yükseltmek değil, aynı zamanda işletmelerin gerçek müşteri kazanmasını sağlamaktır."
+        )
+    )
+
+    body.append(h2("Neden İstanbul'da SEO Hizmeti Önemlidir"))
+    body.append(
+        p(
+            "İstanbul Türkiye'nin en rekabetçi dijital pazarlarından biridir. "
+            "Bu nedenle birçok sektörde yüzlerce web sitesi aynı anahtar kelimeler için yarışmaktadır."
+        )
+    )
+    body.append(p("SEO çalışmaları sayesinde işletmeler:"))
+    body.append(
+        ul(
+            [
+                "Google aramalarında daha görünür olur",
+                "organik trafik elde eder",
+                "potansiyel müşterilere ulaşır",
+                "dijital marka otoritesi oluşturur",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Doğru SEO stratejisi, İstanbul'daki işletmeler için uzun vadeli bir dijital büyüme sağlar."
+        )
+    )
+
+    body.append(h2("İstanbul SEO Ajansı Ne Yapar"))
+    body.append(
+        p(
+            "Bir SEO ajansı web sitenizin arama motorlarında daha iyi performans göstermesi için kapsamlı optimizasyon çalışmaları yapar."
+        )
+    )
+    body.append(p("Bu çalışmalar genellikle şu alanları kapsar:"))
+    body.append(
+        ul(
+            [
+                "SEO site analizi",
+                "anahtar kelime araştırması",
+                "teknik SEO optimizasyonu",
+                "site içi SEO geliştirmeleri",
+                "içerik stratejisi",
+                "backlink çalışmaları",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu süreç web sitesinin arama motorları tarafından daha iyi anlaşılmasını sağlar."
+        )
+    )
+
+    body.append(h2("Yerel SEO Stratejisi"))
+    body.append(
+        p(
+            "İstanbul'da faaliyet gösteren işletmeler için yerel SEO çalışmaları büyük önem taşır."
+        )
+    )
+    body.append(p("Yerel SEO stratejileri şu çalışmaları içerir:"))
+    body.append(
+        ul(
+            [
+                "Google Business Profile optimizasyonu",
+                "yerel anahtar kelime hedefleme",
+                "konum bazlı içerik üretimi",
+                "yerel backlink çalışmaları",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu yöntemler sayesinde işletmeler İstanbul'da yapılan aramalarda daha üst sıralarda görünür."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Süreci"))
+    body.append(
+        p(
+            "Angraweb olarak SEO projelerinde sistemli bir yaklaşım izliyoruz."
+        )
+    )
+    body.append(h3("SEO Analizi"))
+    body.append(
+        p(
+            "İlk aşamada web sitesinin teknik yapısı ve mevcut SEO performansı analiz edilir."
+        )
+    )
+    body.append(p("Bu aşamada:"))
+    body.append(
+        ul(
+            [
+                "teknik hatalar",
+                "sayfa performansı",
+                "anahtar kelime fırsatları",
+            ]
+        )
+    )
+    body.append(p("belirlenir."))
+    body.append(h3("SEO Stratejisi"))
+    body.append(
+        p(
+            "Analiz tamamlandıktan sonra işletmenin hedeflerine uygun bir SEO stratejisi hazırlanır."
+        )
+    )
+    body.append(p("Bu strateji şu alanları kapsar:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO geliştirmeleri",
+                "içerik optimizasyonu",
+                "anahtar kelime hedefleme",
+            ]
+        )
+    )
+    body.append(h3("Uygulama ve Optimizasyon"))
+    body.append(
+        p(
+            "SEO planı uygulamaya alındıktan sonra web sitesinde optimizasyon çalışmaları yapılır."
+        )
+    )
+    body.append(p("Bu çalışmalar:"))
+    body.append(
+        ul(
+            [
+                "sayfa başlıklarını optimize etmek",
+                "içerikleri geliştirmek",
+                "site hızını artırmak",
+            ]
+        )
+    )
+    body.append(p("gibi adımları içerir."))
+    body.append(h3("İzleme ve Raporlama"))
+    body.append(
+        p(
+            "SEO çalışmalarının başarısı düzenli olarak analiz edilir."
+        )
+    )
+    body.append(p("Bu süreçte:"))
+    body.append(
+        ul(
+            [
+                "anahtar kelime sıralamaları",
+                "organik trafik",
+                "kullanıcı davranışları",
+            ]
+        )
+    )
+    body.append(p("takip edilir ve raporlanır."))
+
+    body.append(h2("İstanbul'da SEO Ajansı Nasıl Seçilir"))
+    body.append(
+        p(
+            "Doğru SEO ajansını seçmek dijital başarı için önemlidir."
+        )
+    )
+    body.append(p("Bir SEO ajansı seçerken şu kriterlere dikkat edilmelidir:"))
+    body.append(
+        ul(
+            [
+                "deneyim ve referans projeler",
+                "kullanılan SEO stratejileri",
+                "raporlama sistemi",
+                "uzun vadeli SEO yaklaşımı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Şeffaf ve veri odaklı çalışan bir SEO ajansı uzun vadede daha başarılı sonuçlar sağlar."
+        )
+    )
+
+    body.append(h2("Angraweb İstanbul SEO Hizmetleri"))
+    body.append(
+        p(
+            "Angraweb olarak İstanbul'daki işletmelere profesyonel SEO çözümleri sunuyoruz."
+        )
+    )
+    body.append(p("SEO hizmetlerimiz:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO optimizasyonu",
+                "anahtar kelime stratejisi",
+                "içerik geliştirme",
+                "performans izleme",
+            ]
+        )
+    )
+    body.append(p("gibi alanları kapsar."))
+    body.append(
+        p(
+            "Hedefimiz web sitenizin Google aramalarında daha görünür olmasını sağlamak ve sürdürülebilir organik trafik elde etmektir."
+        )
+    )
+
+    body.append(h2("Projeniz İçin SEO Teklifi Alın"))
+    body.append(
+        p(
+            "Eğer İstanbul'da işletmeniz için profesyonel bir SEO ajansı arıyorsanız Angraweb ekibi size yardımcı olabilir."
+        )
+    )
+    body.append(
+        p(
+            f"Web siteniz için doğru SEO stratejisini oluşturmak ve organik trafiğinizi artırmak için bizimle iletişime geçebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("İlgili sayfalar"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "İstanbul SEO Ajansı | Profesyonel SEO Hizmetleri – Angraweb"
+    meta_description = (
+        "İstanbul SEO ajansı arıyorsanız doğru yerdesiniz. Angraweb ile profesyonel SEO hizmetleri, teknik optimizasyon ve organik trafik artışı sağlayın."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "İstanbul SEO Ajansı",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

@@ -358,6 +358,18 @@ def _seo_services_pillar_en(page: SeoPage) -> Dict:
         )
     )
 
+    # Topics (includes Istanbul SEO Agency and all clusters)
+    body.append(h2("Topics"))
+    body.append(
+        p(
+            "For businesses in Istanbul, we offer local SEO strategies and on-the-ground expertise. "
+            f"See {{{{ link:/en/seo-services/istanbul-seo-agency/ }}}} for details."
+        )
+    )
+    cluster_urls = _cluster_urls_for_service(page)
+    if cluster_urls:
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
+
     # FAQ
     body.append(h2("FAQ"))
 
@@ -1388,6 +1400,169 @@ def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
 
     return {
         "title": "Hire an SEO Expert",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_istanbul_seo_agency_en(page: SeoPage) -> Dict:
+    """Custom cluster: Istanbul SEO Agency (EN) — local SEO, process, reporting."""
+    body: List[str] = []
+
+    body.append(h2("Istanbul SEO Agency"))
+    body.append(
+        p(
+            "Businesses in Istanbul face intense digital competition. To stand out in search engines like Google, a strong SEO strategy is essential."
+        )
+    )
+    body.append(
+        p(
+            "Working with a professional Istanbul SEO agency can significantly improve your website's visibility and help attract potential customers searching for your services."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb, we develop data-driven SEO strategies that help businesses increase their online visibility and grow sustainably."
+        )
+    )
+
+    body.append(h2("Why SEO Is Important for Businesses in Istanbul"))
+    body.append(
+        p(
+            "Istanbul is one of the most competitive markets in Turkey. Many businesses compete for the same keywords in search engines."
+        )
+    )
+    body.append(p("Effective SEO helps businesses:"))
+    body.append(
+        ul(
+            [
+                "appear higher in Google search results",
+                "increase organic traffic",
+                "attract potential customers",
+                "build digital authority",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "With the right SEO strategy, businesses can achieve long-term growth online."
+        )
+    )
+
+    body.append(h2("What an SEO Agency Does"))
+    body.append(
+        p(
+            "An SEO agency improves a website's search engine performance through different optimization techniques."
+        )
+    )
+    body.append(p("Typical SEO services include:"))
+    body.append(
+        ul(
+            [
+                "SEO audits",
+                "keyword research",
+                "technical SEO optimization",
+                "on-page SEO improvements",
+                "content strategy",
+                "backlink development",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These activities help search engines better understand the website and improve rankings."
+        )
+    )
+
+    body.append(h2("Local SEO Strategy"))
+    body.append(
+        p(
+            "Local SEO is especially important for businesses targeting customers in Istanbul."
+        )
+    )
+    body.append(p("Local SEO strategies include:"))
+    body.append(
+        ul(
+            [
+                "Google Business Profile optimization",
+                "location-based keyword targeting",
+                "local content strategy",
+                "local backlink building",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These methods help businesses appear in local search results."
+        )
+    )
+
+    body.append(h2("Angraweb SEO Process"))
+    body.append(
+        p(
+            "Our SEO process focuses on measurable improvements and long-term results."
+        )
+    )
+    body.append(h3("SEO Analysis"))
+    body.append(
+        p(
+            "We begin by analyzing your website's current performance and identifying optimization opportunities."
+        )
+    )
+    body.append(h3("Strategy Development"))
+    body.append(
+        p(
+            "Based on the analysis, we create a tailored SEO strategy."
+        )
+    )
+    body.append(h3("Implementation"))
+    body.append(
+        p(
+            "SEO improvements are implemented across the website."
+        )
+    )
+    body.append(h3("Monitoring"))
+    body.append(
+        p(
+            "Performance is continuously monitored and optimized."
+        )
+    )
+
+    body.append(h2("Request an SEO Quote"))
+    body.append(
+        p(
+            "If you are looking for an Istanbul SEO agency to improve your website rankings, Angraweb can help."
+        )
+    )
+    body.append(
+        p(
+            f"Contact our team to discuss your project and request a tailored SEO proposal. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+    body.append(h2("Related pages"))
+    body.append(
+        ul(
+            [
+                f"{{{{ link:{_pillar_url(page)} }}}}",
+                f"{{{{ link:{_pricing_url(page)} }}}}",
+                f"{{{{ link:{_guide_url(page)} }}}}",
+            ]
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Istanbul SEO Agency | Professional SEO Services – Angraweb"
+    meta_description = (
+        "Looking for an Istanbul SEO agency? Angraweb provides professional SEO services including technical optimization, keyword strategy and organic traffic growth."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Istanbul SEO Agency",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
@@ -7031,6 +7206,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "hire-seo-expert":
         return _cluster_hire_seo_expert_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Istanbul SEO Agency (EN) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "istanbul-seo-agency":
+        return _cluster_istanbul_seo_agency_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: SEO Agency vs Freelancer (EN) — seo-services
