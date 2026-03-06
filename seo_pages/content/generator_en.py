@@ -1514,7 +1514,7 @@ def _cluster_seo_agency_vs_freelancer_en(page: SeoPage) -> Dict:
     )
     body.append(
         p(
-            "Freelancers can offer cost-effective solutions for smaller projects."
+            "Freelancers can offer budget-friendly solutions for smaller projects."
         )
     )
 
