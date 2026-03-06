@@ -6766,6 +6766,8 @@ def generate_tr(page: SeoPage) -> Dict:
             return _ecommerce_pillar_tr(page)
         if page.service.key == "mobile-app-development":
             return _mobile_app_pillar_tr(page)
+        if page.service.key == "seo-services":
+            return _seo_services_pillar_tr(page)
         title = f"{svc}"
         meta = make_meta(
             title=title,
@@ -7330,6 +7332,204 @@ def generate_tr(page: SeoPage) -> Dict:
         "meta_description": meta.meta_description,
         "content_html": content_html,
         "faq_json": faq_json[:8],
+        "published_at": timezone.now(),
+    }
+
+
+def _seo_services_pillar_tr(page: SeoPage) -> Dict:
+    """Custom SEO pillar content for SEO Hizmetleri (TR) — teknik, içerik odaklı, sürdürülebilir."""
+    body: List[str] = []
+
+    # Giriş (H1 şablonda page.title üzerinden gösteriliyor)
+    body.append(
+        p(
+            "Arama Motoru Optimizasyonu (SEO), işletmenizin dijital dünyada büyümesi için en güçlü yöntemlerden biridir. "
+            "Web siteniz Google’da üst sıralarda yer aldığında, hizmetlerinizi veya ürünlerinizi aktif olarak arayan kullanıcıları doğrudan sitenize çekersiniz."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak sunduğumuz profesyonel SEO hizmetleri, kısa vadeli çözümler yerine uzun vadeli ve sürdürülebilir bir büyüme stratejisine odaklanır. "
+            "Teknik optimizasyon, anahtar kelime araştırması, içerik geliştirme ve otorite oluşturma süreçlerini bir araya getirerek sitenizin arama motorlarında daha görünür olmasını sağlıyoruz."
+        )
+    )
+    body.append(
+        p(
+            "Amacımız; web sitenizin sıralamasını yükseltmek, hedefli organik trafik çekmek ve ziyaretçileri gerçek müşterilere dönüştürmektir."
+        )
+    )
+
+    # SEO nedir
+    body.append(h2("What is SEO"))
+    body.append(
+        p(
+            "SEO (Arama Motoru Optimizasyonu), bir web sitesinin Google gibi arama motorlarında daha üst sıralarda görünmesi için yapılan optimizasyon çalışmalarının tamamıdır."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Teknik site optimizasyonu",
+                "İçerik stratejisi",
+                "Anahtar kelime hedefleme",
+                "Backlink oluşturma",
+                "Kullanıcı deneyimi iyileştirme",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu faktörler birlikte çalıştığında arama motorları sitenizi daha iyi anlar ve ilgili aramalarda daha üst sıralara taşır."
+        )
+    )
+
+    # SEO hizmetlerimizin kapsamı
+    body.append(h2("What Do Our SEO Services Include"))
+    body.append(
+        p(
+            "SEO hizmetlerimiz, web sitenizin arama performansını tüm yönleriyle geliştirmek için tasarlanmıştır."
+        )
+    )
+    body.append(
+        p(
+            "SEO sürecimiz şu temel alanları kapsar:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO analizi (SEO audit)",
+                "Anahtar kelime araştırması",
+                "Site içi SEO optimizasyonu",
+                "Teknik SEO çalışmaları",
+                "Backlink ve otorite geliştirme",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu süreçlerin her biri, arama motorlarının sitenizi daha iyi anlamasına ve sıralamanızı yükseltmesine yardımcı olur."
+        )
+    )
+
+    # Teknik SEO
+    body.append(h2("Technical SEO Optimization"))
+    body.append(
+        p(
+            "Teknik SEO, arama motorlarının web sitenizi doğru şekilde taramasını ve indekslemesini sağlar."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Site hız optimizasyonu",
+                "Mobil uyumluluk",
+                "Core Web Vitals iyileştirme",
+                "Yapısal veri (schema) entegrasyonu",
+                "Site mimarisi optimizasyonu",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu çalışmalar arama motorlarının sitenizi daha hızlı anlamasını sağlar ve sıralamaları olumlu yönde etkiler."
+        )
+    )
+
+    # Anahtar kelime stratejisi
+    body.append(h2("Keyword Research and Strategy"))
+    body.append(
+        p(
+            "Anahtar kelime araştırması başarılı bir SEO stratejisinin temelini oluşturur."
+        )
+    )
+    body.append(
+        p(
+            "Analiz ettiğimiz faktörler:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Arama hacmi",
+                "Rekabet seviyesi",
+                "Kullanıcı niyeti",
+                "Sektörel trendler",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu veriler doğrultusunda yüksek değerli anahtar kelimeleri hedefleyen bir SEO stratejisi oluştururuz."
+        )
+    )
+
+    # On Page SEO
+    body.append(h2("On Page SEO Optimization"))
+    body.append(
+        p(
+            "Site içi SEO (On Page SEO), web sitenizin iç yapısının optimize edilmesini kapsar."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Başlık etiketleri (title tag)",
+                "Meta açıklamaları",
+                "Başlık yapısı (H1-H2)",
+                "İç linkleme",
+                "İçerik optimizasyonu",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu optimizasyonlar hem kullanıcı deneyimini hem de arama motoru görünürlüğünü artırır."
+        )
+    )
+
+    # Neden Angraweb
+    body.append(h2("Why Choose Angraweb SEO Services"))
+    body.append(
+        p(
+            "Angraweb olarak SEO çalışmalarımızı veri odaklı ve sürdürülebilir bir büyüme stratejisi üzerine kuruyoruz."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Şeffaf SEO süreçleri",
+                "Veri odaklı strateji",
+                "Sürekli optimizasyon",
+                "Uzun vadeli sıralama artışı",
+            ]
+        )
+    )
+
+    # SSS
+    body.append(h2("FAQ"))
+
+    content_html = "\n".join(body)
+
+    faq_pairs = [
+        ("SEO sonuçları ne kadar sürede görülür?", "SEO çalışmalarının etkisi genellikle 3–6 ay içinde görülmeye başlar."),
+        ("SEO reklamdan daha mı iyi?", "SEO uzun vadeli organik trafik sağlar, reklamlar ise kısa vadeli görünürlük sağlar."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Profesyonel SEO Hizmetleri | Google SEO Optimizasyonu – Angraweb"
+    meta_description = (
+        "Profesyonel SEO hizmetleri ile web sitenizi Google’da üst sıralara taşıyın. Teknik SEO, anahtar kelime stratejisi ve içerik optimizasyonu ile organik trafik artırın."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Profesyonel SEO Hizmetleri",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
         "published_at": timezone.now(),
     }
 

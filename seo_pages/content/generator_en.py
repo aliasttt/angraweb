@@ -188,6 +188,204 @@ def _web_design_pillar_en(page: SeoPage) -> Dict:
     }
 
 
+def _seo_services_pillar_en(page: SeoPage) -> Dict:
+    """Custom SEO pillar content for SEO Services (EN) — professional, technical, content-driven."""
+    body: List[str] = []
+
+    # Intro (H1 handled by page.title)
+    body.append(
+        p(
+            "Search Engine Optimization (SEO) is one of the most powerful ways to grow your business online. "
+            "When your website appears on the first page of Google, you attract highly targeted visitors who are already searching for your services or products."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb, our professional SEO services focus on long-term organic growth. "
+            "Instead of short-term tricks, we build a sustainable strategy that combines technical optimization, keyword research, content development, and authority building."
+        )
+    )
+    body.append(
+        p(
+            "Our goal is simple: help your website rank higher, attract qualified traffic, and convert visitors into real customers."
+        )
+    )
+
+    # What is SEO
+    body.append(h2("What Is SEO"))
+    body.append(
+        p(
+            "Search Engine Optimization (SEO) is the process of improving a website so that it ranks higher in search engines such as Google."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Technical optimization",
+                "Content strategy",
+                "Keyword targeting",
+                "Backlink building",
+                "User experience improvement",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "When these elements work together, search engines understand your website better and rank it higher for relevant searches."
+        )
+    )
+
+    # What do our SEO services include
+    body.append(h2("What Do Our SEO Services Include"))
+    body.append(
+        p(
+            "Our SEO services are designed to improve every aspect of your website’s search performance."
+        )
+    )
+    body.append(
+        p(
+            "We focus on five core areas:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "SEO audit",
+                "Keyword research",
+                "On page optimization",
+                "Technical SEO",
+                "Link building",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Each part of this process helps search engines better understand your website and improve your rankings."
+        )
+    )
+
+    # Technical SEO
+    body.append(h2("Technical SEO Optimization"))
+    body.append(
+        p(
+            "Technical SEO ensures that search engines can properly crawl and index your website."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Website speed optimization",
+                "Mobile responsiveness",
+                "Core Web Vitals improvement",
+                "Structured data implementation",
+                "Site architecture optimization",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These improvements help search engines understand your content faster and improve rankings."
+        )
+    )
+
+    # Keyword research
+    body.append(h2("Keyword Research and Strategy"))
+    body.append(
+        p(
+            "Keyword research is the foundation of any successful SEO strategy."
+        )
+    )
+    body.append(
+        p(
+            "We analyze:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Search volume",
+                "Competition level",
+                "User intent",
+                "Industry trends",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Based on this data, we create a keyword strategy that targets high-value search queries and drives qualified traffic to your website."
+        )
+    )
+
+    # On page SEO
+    body.append(h2("On Page SEO Optimization"))
+    body.append(
+        p(
+            "On page SEO focuses on optimizing the elements within your website."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Title tags",
+                "Meta descriptions",
+                "Header structure",
+                "Internal linking",
+                "Content optimization",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "These optimizations improve both user experience and search engine understanding."
+        )
+    )
+
+    # Why Angraweb
+    body.append(h2("Why Choose Angraweb SEO Services"))
+    body.append(
+        p(
+            "At Angraweb we focus on sustainable SEO growth. Our strategy is based on data, modern search algorithms, and long-term optimization."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "Transparent SEO process",
+                "Data-driven strategy",
+                "Continuous optimization",
+                "Long-term ranking improvement",
+            ]
+        )
+    )
+
+    # FAQ
+    body.append(h2("FAQ"))
+
+    content_html = "\n".join(body)
+
+    faq_pairs = [
+        ("How long does SEO take?", "SEO usually takes 3–6 months to show strong results."),
+        ("Is SEO better than ads?", "SEO provides long-term organic traffic while ads provide short-term visibility."),
+    ]
+    faq_json = faq(faq_pairs)
+
+    meta_title = "Professional SEO Services | Google SEO Optimization – Angraweb"
+    meta_description = (
+        "Boost your rankings with professional SEO services. Improve your visibility on Google with technical SEO, keyword strategy and optimized content."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Professional SEO Services",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _ecommerce_pillar_en(page: SeoPage) -> Dict:
     """Custom SEO pillar for E-Commerce Development (EN) — scalable, SEO-driven, no pricing triggers."""
     body: List[str] = []
@@ -5166,6 +5364,8 @@ def generate_en(page: SeoPage) -> Dict:
             return _ecommerce_pillar_en(page)
         if page.service.key == "mobile-app-development":
             return _mobile_app_pillar_en(page)
+        if page.service.key == "seo-services":
+            return _seo_services_pillar_en(page)
         title = svc
         meta = make_meta(
             title=title,
