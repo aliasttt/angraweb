@@ -7297,6 +7297,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_seo_nasil_yapilir_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: SEO Uyumlu Web Sitesi (TR) — seo-services
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-uyumlu-web-sitesi":
+        return _cluster_seo_uyumlu_web_sitesi_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: SEO Uzmanı Kirala (TR) — seo-services
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "seo-uzmani":
@@ -9678,6 +9684,180 @@ def _cluster_seo_nasil_yapilir_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "SEO Nasıl Yapılır?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_seo_uyumlu_web_sitesi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Uyumlu Web Sitesi (TR) — teknik altyapı, içerik, hız, UX."""
+    body: List[str] = []
+
+    body.append(h2("SEO Uyumlu Web Sitesi Nedir"))
+    body.append(
+        p(
+            "SEO uyumlu web sitesi, arama motorlarının bir web sitesini kolayca tarayıp anlayabileceği şekilde optimize edilmiş bir site yapısını ifade eder."
+        )
+    )
+    body.append(
+        p(
+            "SEO uyumlu bir web sitesi sadece teknik açıdan değil, aynı zamanda içerik yapısı, kullanıcı deneyimi ve performans açısından da optimize edilmelidir."
+        )
+    )
+    body.append(
+        p(
+            "Google ve diğer arama motorları, kullanıcıya en iyi deneyimi sunan siteleri üst sıralarda göstermeyi hedefler. "
+            "Bu nedenle SEO uyumlu web tasarımı günümüzde dijital başarı için kritik bir faktördür."
+        )
+    )
+
+    body.append(h2("SEO Uyumlu Web Sitesinin Temel Özellikleri"))
+    body.append(p("SEO uyumlu bir web sitesinde şu özellikler bulunmalıdır:"))
+    body.append(
+        ul(
+            [
+                "hızlı sayfa yükleme süreleri",
+                "mobil uyumlu tasarım",
+                "doğru URL yapısı",
+                "optimize edilmiş başlık yapısı",
+                "güçlü iç bağlantı yapısı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu özellikler hem arama motorlarının siteyi daha iyi anlamasını sağlar hem de kullanıcı deneyimini geliştirir."
+        )
+    )
+
+    body.append(h2("Teknik SEO ve Site Altyapısı"))
+    body.append(
+        p(
+            "Teknik altyapı, SEO uyumlu web sitesinin en önemli bileşenlerinden biridir."
+        )
+    )
+    body.append(p("Teknik SEO çalışmaları şunları içerir:"))
+    body.append(
+        ul(
+            [
+                "site hız optimizasyonu",
+                "mobil uyumluluk",
+                "crawl ve index optimizasyonu",
+                "Core Web Vitals iyileştirmeleri",
+                "güvenli HTTPS bağlantısı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu optimizasyonlar sayesinde arama motorları sitenizi daha verimli şekilde tarayabilir."
+        )
+    )
+
+    body.append(h2("İçerik Yapısı ve SEO"))
+    body.append(p("SEO uyumlu web sitelerinde içerik yapısı oldukça önemlidir."))
+    body.append(p("Doğru içerik yapısı şu unsurları içerir:"))
+    body.append(
+        ul(
+            [
+                "doğru anahtar kelimelerin kullanılması",
+                "mantıklı başlık hiyerarşisi",
+                "kullanıcı niyetine uygun içerik",
+                "değerli ve bilgilendirici metinler",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Kaliteli içerik hem kullanıcıların hem de arama motorlarının siteyi daha değerli görmesini sağlar."
+        )
+    )
+
+    body.append(h2("Site Hızı ve Performans"))
+    body.append(p("Site hızı SEO açısından önemli bir sıralama faktörüdür."))
+    body.append(p("Yavaş web siteleri kullanıcıların siteyi terk etmesine neden olabilir."))
+    body.append(p("Performans optimizasyonu için:"))
+    body.append(
+        ul(
+            [
+                "görseller optimize edilmelidir",
+                "gereksiz kodlar kaldırılmalıdır",
+                "CDN kullanılabilir",
+                "önbellekleme teknikleri uygulanmalıdır",
+            ]
+        )
+    )
+    body.append(p("Hızlı bir web sitesi kullanıcı deneyimini büyük ölçüde iyileştirir."))
+
+    body.append(h2("Mobil Uyumlu Web Tasarımı"))
+    body.append(p("Günümüzde internet trafiğinin büyük kısmı mobil cihazlardan gelmektedir."))
+    body.append(p("Bu nedenle mobil uyumlu tasarım SEO için zorunludur."))
+    body.append(p("Mobil uyumlu web siteleri:"))
+    body.append(
+        ul(
+            [
+                "farklı ekran boyutlarına uyum sağlar",
+                "kullanıcı deneyimini geliştirir",
+                "Google sıralamalarında avantaj sağlar",
+            ]
+        )
+    )
+    body.append(p("Responsive tasarım modern web siteleri için standart haline gelmiştir."))
+
+    body.append(h2("SEO Uyumlu Web Tasarımı Neden Önemlidir"))
+    body.append(p("SEO uyumlu bir web sitesi şu avantajları sağlar:"))
+    body.append(
+        ul(
+            [
+                "daha yüksek Google sıralamaları",
+                "daha fazla organik trafik",
+                "daha iyi kullanıcı deneyimi",
+                "daha yüksek dönüşüm oranları",
+            ]
+        )
+    )
+    body.append(p("Bu nedenle modern işletmeler için SEO uyumlu web tasarımı büyük önem taşır."))
+
+    body.append(h2("Angraweb SEO Uyumlu Web Tasarım Hizmeti"))
+    body.append(p("Angraweb olarak işletmeler için SEO uyumlu web tasarım ve geliştirme hizmetleri sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları kapsar:"))
+    body.append(
+        ul(
+            [
+                "teknik SEO altyapısı",
+                "hızlı ve optimize edilmiş kod yapısı",
+                "mobil uyumlu tasarım",
+                "SEO uyumlu içerik yapısı",
+            ]
+        )
+    )
+    body.append(p("Amacımız web sitenizin arama motorlarında daha görünür hale gelmesini sağlamaktır."))
+
+    body.append(h2("SEO Uyumlu Web Sitesi İçin Teklif Alın"))
+    body.append(
+        p(
+            "Web sitenizin Google'da daha iyi sıralamalar elde etmesini istiyorsanız SEO uyumlu bir site altyapısı oluşturmak büyük önem taşır."
+        )
+    )
+    body.append(
+        p(
+            f"Projeniz için en doğru çözümü oluşturmak için Angraweb ekibiyle iletişime geçebilirsiniz. {{{{ link:{_quote_url(page)} }}}}"
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Uyumlu Web Sitesi Nedir? SEO Friendly Site Rehberi – Angraweb"
+    meta_description = (
+        "SEO uyumlu web sitesi nasıl yapılır? Site hızı, teknik SEO, içerik yapısı ve kullanıcı deneyimi ile Google'da üst sıralara çıkmanızı sağlayan web tasarım rehberi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Uyumlu Web Sitesi",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

@@ -2088,6 +2088,68 @@ def _cluster_how_to_do_seo_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_seo_friendly_website_en(page: SeoPage) -> Dict:
+    """Custom cluster: SEO Friendly Website (EN) — technical SEO, speed, content, UX."""
+    body: List[str] = []
+
+    body.append(h2("What Is an SEO Friendly Website"))
+    body.append(p("An SEO friendly website is designed and optimized so that search engines can easily crawl, index and understand its content."))
+    body.append(p("A successful SEO friendly site focuses not only on technical optimization but also on content quality, user experience and performance."))
+    body.append(p("Search engines prioritize websites that provide valuable and accessible information to users."))
+
+    body.append(h2("Key Features of an SEO Friendly Website"))
+    body.append(p("An SEO optimized website should include:"))
+    body.append(ul(["fast page loading speed", "mobile responsive design", "optimized URL structure", "clear heading hierarchy", "strong internal linking structure"]))
+    body.append(p("These elements help search engines understand the website more effectively."))
+
+    body.append(h2("Technical SEO and Website Structure"))
+    body.append(p("Technical SEO plays a critical role in website performance."))
+    body.append(p("Technical SEO improvements include:"))
+    body.append(ul(["website speed optimization", "mobile optimization", "crawl and index improvements", "Core Web Vitals optimization", "HTTPS security"]))
+    body.append(p("These factors improve how search engines interact with the website."))
+
+    body.append(h2("Content Structure and SEO"))
+    body.append(p("Content structure is one of the most important factors in SEO."))
+    body.append(p("SEO optimized content should:"))
+    body.append(ul(["target relevant keywords", "use proper heading hierarchy", "match search intent", "provide useful and informative content"]))
+    body.append(p("High-quality content improves both search rankings and user engagement."))
+
+    body.append(h2("Website Speed Optimization"))
+    body.append(p("Website speed is a major ranking factor in search engines."))
+    body.append(p("Slow websites negatively affect user experience and conversion rates."))
+    body.append(p("Performance improvements may include:"))
+    body.append(ul(["image optimization", "code optimization", "CDN usage", "caching techniques"]))
+    body.append(p("These improvements help deliver faster website experiences."))
+
+    body.append(h2("Mobile Friendly Web Design"))
+    body.append(p("Most internet users access websites through mobile devices."))
+    body.append(p("Therefore mobile friendly design is essential for SEO."))
+    body.append(p("Responsive websites:"))
+    body.append(ul(["adapt to different screen sizes", "improve user experience", "perform better in Google rankings"]))
+    body.append(p("Mobile optimization is now a standard for modern websites."))
+
+    body.append(h2("Angraweb SEO Friendly Web Design"))
+    body.append(p("At Angraweb we provide SEO friendly website design and development services for businesses."))
+    body.append(p("Our services include:"))
+    body.append(ul(["technical SEO infrastructure", "fast and optimized code structure", "mobile responsive design", "SEO optimized content architecture"]))
+    body.append(p("Our goal is to help businesses increase their online visibility."))
+
+    content_html = "\n".join(body)
+    meta_title = "SEO Friendly Website: How to Build an SEO Optimized Site – Angraweb"
+    meta_description = "Learn how to build an SEO friendly website. Discover technical SEO, website speed optimization, content structure and UX strategies for better Google rankings."
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SEO Friendly Website",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_hire_seo_expert_en(page: SeoPage) -> Dict:
     """Custom cluster: Hire an SEO Expert (EN) — professional SEO consulting, process, benefits."""
     body: List[str] = []
@@ -8140,6 +8202,8 @@ def generate_en(page: SeoPage) -> Dict:
             return _cluster_what_is_seo_en(page)
         if seo_slug_norm in {"how-seo-works", "how-to-do-seo"}:
             return _cluster_how_to_do_seo_en(page)
+        if seo_slug_norm == "seo-friendly-website":
+            return _cluster_seo_friendly_website_en(page)
         if seo_slug_norm == "hire-seo-expert":
             return _cluster_hire_seo_expert_en(page)
         if seo_slug_norm == "istanbul-seo-agency":
