@@ -7079,6 +7079,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_hosting_hizmeti_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: VPS Hosting (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "vps-hosting":
+        return _cluster_vps_hosting_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -8125,6 +8131,135 @@ def _cluster_hosting_hizmeti_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Hosting Hizmeti",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_vps_hosting_tr(page: SeoPage) -> Dict:
+    """Custom cluster: VPS Hosting Hizmeti (TR) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("VPS Hosting Nedir?"))
+    body.append(p("VPS hosting (Virtual Private Server), fiziksel bir sunucunun sanallaştırılarak birden fazla bağımsız sunucuya bölünmesiyle oluşan hosting altyapısıdır. Her VPS, kendine ait kaynaklara sahip olduğu için performans ve kontrol açısından paylaşımlı hosting çözümlerinden daha güçlüdür."))
+    body.append(p("Bu yapı sayesinde işletmeler ve geliştiriciler web sitelerini daha güvenli, hızlı ve esnek bir ortamda çalıştırabilir."))
+    body.append(p("VPS hosting genellikle şu projeler için tercih edilir:"))
+    body.append(ul([
+        "büyüyen web siteleri",
+        "e-ticaret platformları",
+        "SaaS uygulamaları",
+        "API servisleri",
+        "yüksek trafik alan web projeleri",
+    ]))
+    body.append(p("VPS altyapısı sayesinde projeler ihtiyaç duydukları işlem gücünü ve kaynakları daha verimli kullanabilir."))
+
+    body.append(h2("VPS Hosting Nasıl Çalışır?"))
+    body.append(p("VPS hosting, fiziksel bir sunucunun sanallaştırma teknolojileri kullanılarak birden fazla bağımsız sunucuya ayrılmasıyla çalışır."))
+    body.append(p("Her VPS ortamı:"))
+    body.append(ul([
+        "kendi işletim sistemine sahiptir",
+        "bağımsız RAM ve CPU kullanır",
+        "ayrı disk alanı bulunur",
+        "diğer VPS'lerden izole edilir",
+    ]))
+    body.append(p("Bu sayede kullanıcılar paylaşımlı hosting ortamlarında yaşanan performans problemlerini yaşamaz."))
+    body.append(p("Aynı zamanda VPS sunucular, kullanıcıya daha fazla kontrol ve özelleştirme imkanı sunar."))
+
+    body.append(h2("VPS Hosting Avantajları"))
+    body.append(p("VPS hosting, modern web projeleri için birçok avantaj sağlar."))
+
+    body.append(h3("Daha Yüksek Performans"))
+    body.append(p("VPS hosting ortamında her kullanıcıya belirli miktarda CPU, RAM ve disk kaynağı ayrılır. Bu durum web sitesinin daha hızlı çalışmasını sağlar."))
+    body.append(p("Performans avantajı özellikle şu projelerde önemlidir:"))
+    body.append(ul(["e-ticaret siteleri", "yüksek trafik alan bloglar", "web uygulamaları"]))
+
+    body.append(h3("Daha Güvenli Altyapı"))
+    body.append(p("VPS sunucular izole edilmiş ortamlar olduğu için diğer kullanıcıların aktiviteleri sizin sunucunuzu etkilemez."))
+    body.append(p("Bu sayede:"))
+    body.append(ul(["güvenlik riskleri azalır", "veri izolasyonu sağlanır", "sunucu stabilitesi artar"]))
+
+    body.append(h3("Tam Sunucu Kontrolü"))
+    body.append(p("VPS hosting ile kullanıcılar sunucu üzerinde tam kontrol elde eder."))
+    body.append(p("Bu kontrol sayesinde:"))
+    body.append(ul(["özel yazılımlar kurulabilir", "sunucu yapılandırmaları değiştirilebilir", "farklı teknolojiler kullanılabilir"]))
+    body.append(p("Bu özellik özellikle geliştiriciler için büyük avantaj sağlar."))
+
+    body.append(h3("Ölçeklenebilir Altyapı"))
+    body.append(p("Projeler büyüdükçe sunucu kaynaklarının artırılması gerekir."))
+    body.append(p("VPS hosting altyapısı sayesinde:"))
+    body.append(ul(["RAM artırılabilir", "CPU yükseltilebilir", "depolama kapasitesi genişletilebilir"]))
+    body.append(p("Bu sayede hosting altyapısı proje büyüdükçe kolayca ölçeklenebilir."))
+
+    body.append(h2("VPS Hosting Hangi Projeler İçin Uygundur?"))
+    body.append(p("VPS hosting özellikle aşağıdaki projeler için idealdir:"))
+
+    body.append(h3("Kurumsal Web Siteleri"))
+    body.append(p("Büyük işletmeler için yüksek performanslı hosting altyapısı gereklidir."))
+
+    body.append(h3("E-Ticaret Siteleri"))
+    body.append(p("Online mağazalar için hız ve güvenlik kritik öneme sahiptir. VPS hosting, e-ticaret sitelerinin stabil çalışmasını sağlar."))
+
+    body.append(h3("Web Uygulamaları"))
+    body.append(p("Modern web uygulamaları genellikle yüksek işlem gücü gerektirir. VPS hosting bu uygulamalar için güçlü bir altyapı sunar."))
+
+    body.append(h3("SaaS Platformları"))
+    body.append(p("SaaS ürünleri genellikle ölçeklenebilir hosting altyapısına ihtiyaç duyar. VPS hosting bu tür platformlar için uygun bir çözümdür."))
+
+    body.append(h2("VPS Hosting Kurulumu"))
+    body.append(p("Profesyonel VPS hosting kurulumu yalnızca sunucu oluşturmakla sınırlı değildir."))
+    body.append(p("Kurulum süreci genellikle şu adımları içerir:"))
+
+    body.append(h3("Sunucu Kurulumu"))
+    body.append(p("İlk adım uygun sunucu altyapısının hazırlanmasıdır."))
+    body.append(p("Bu aşamada:"))
+    body.append(ul(["işletim sistemi kurulumu", "sunucu optimizasyonu", "gerekli yazılımların kurulumu yapılır."]))
+
+    body.append(h3("Güvenlik Yapılandırması"))
+    body.append(p("Sunucu güvenliği VPS hosting ortamlarında önemli bir konudur."))
+    body.append(p("Bu aşamada:"))
+    body.append(ul(["firewall ayarları", "SSH güvenliği", "erişim yetkileri", "güvenlik sertleştirme işlemleri uygulanır."]))
+
+    body.append(h3("Performans Optimizasyonu"))
+    body.append(p("Sunucu performansının artırılması için çeşitli optimizasyonlar yapılır."))
+    body.append(p("Bunlar arasında:"))
+    body.append(ul(["caching yapılandırmaları", "web server optimizasyonu", "kaynak yönetimi"]))
+
+    body.append(h3("VPS Hosting İzleme ve Bakım"))
+    body.append(p("VPS hosting altyapısının stabil çalışabilmesi için düzenli bakım ve izleme gerekir."))
+    body.append(p("Bu süreçte:"))
+    body.append(ul(["sunucu performansı izlenir", "hatalar tespit edilir", "sistem güncellemeleri yapılır", "yedekleme işlemleri uygulanır"]))
+    body.append(p("Bu yaklaşım sayesinde sunucu kesintileri ve performans sorunları en aza indirilebilir."))
+
+    body.append(h2("Angraweb VPS Hosting Hizmetleri"))
+    body.append(p("Angraweb olarak işletmelere profesyonel VPS hosting altyapısı kurulumu ve yönetimi konusunda destek veriyoruz."))
+    body.append(p("Hizmetlerimiz şunları kapsar:"))
+    body.append(ul([
+        "VPS sunucu kurulumu",
+        "Linux sunucu yapılandırması",
+        "güvenlik sertleştirme",
+        "performans optimizasyonu",
+        "yedekleme sistemleri",
+        "web uygulaması deployment",
+    ]))
+    body.append(p("Amacımız işletmeler için güvenilir ve sürdürülebilir hosting altyapısı oluşturmaktır."))
+
+    body.append(h2("VPS Hosting İçin Teklif Alın"))
+    body.append(p("Web projeniz için doğru VPS hosting altyapısını planlamak performans ve güvenlik açısından kritik öneme sahiptir."))
+    body.append(p(f"Angraweb ekibi ile iletişime geçerek projeniz için en uygun VPS hosting çözümünü belirleyebilirsiniz. Kısa bir proje brifi paylaşarak hosting altyapısı için detaylı bir teklif alabilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "VPS Hosting Hizmeti | Güvenli ve Ölçeklenebilir Sunucu Çözümleri – Angraweb"
+    meta_description = (
+        "Profesyonel VPS hosting hizmetleri. Güvenli, hızlı ve ölçeklenebilir sanal sunucu altyapısı ile web siteleri ve uygulamalar için güçlü hosting çözümleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "VPS Hosting Hizmeti",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
