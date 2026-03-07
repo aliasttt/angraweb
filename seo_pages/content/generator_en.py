@@ -3688,6 +3688,67 @@ def _cluster_vps_hosting_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_dedicated_server_hosting_en(page: SeoPage) -> Dict:
+    """Custom cluster: Dedicated Server Hosting (EN) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("What Is Dedicated Server Hosting?"))
+    body.append(p("Dedicated server hosting is a hosting solution where an entire physical server is allocated to a single customer. Unlike shared hosting or VPS hosting, all hardware resources are exclusively reserved for one project."))
+    body.append(p("This infrastructure allows businesses to achieve maximum performance, stronger security and greater flexibility."))
+    body.append(p("Dedicated servers are commonly used for:"))
+    body.append(ul(["high-traffic websites", "large e-commerce platforms", "SaaS applications", "enterprise web systems", "data-intensive applications"]))
+    body.append(p("Because of the exclusive hardware resources, dedicated hosting offers one of the most reliable server environments."))
+
+    body.append(h2("Advantages of Dedicated Server Hosting"))
+    body.append(p("Dedicated servers provide several technical advantages compared to other hosting solutions."))
+
+    body.append(h3("Maximum Performance"))
+    body.append(p("Since all server resources belong to a single user, dedicated servers deliver stable and predictable performance."))
+    body.append(p("CPU power, RAM and storage resources are not shared with other customers, which eliminates performance fluctuations caused by neighboring workloads."))
+    body.append(p("This makes dedicated hosting ideal for large-scale digital platforms."))
+
+    body.append(h3("Full Server Control"))
+    body.append(p("Dedicated servers provide complete administrative control over the server environment."))
+    body.append(p("Businesses can:"))
+    body.append(ul(["install custom operating systems", "configure server software", "manage databases and services", "implement custom security policies"]))
+    body.append(p("This level of flexibility is essential for advanced applications and enterprise systems."))
+
+    body.append(h3("Improved Security"))
+    body.append(p("Security is another major advantage of dedicated servers."))
+    body.append(p("Because the server is not shared with other customers, the risk of cross-environment vulnerabilities is significantly reduced."))
+    body.append(p("Additional security measures may include:"))
+    body.append(ul(["firewall configuration", "restricted access management", "server hardening", "security monitoring"]))
+    body.append(p("These measures help protect both system infrastructure and sensitive data."))
+
+    body.append(h2("When Should You Use a Dedicated Server?"))
+    body.append(p("Dedicated hosting is recommended for projects that require high performance, advanced control and strong reliability."))
+    body.append(p("Typical scenarios include:"))
+    body.append(ul(["high-traffic platforms", "large e-commerce stores", "SaaS platforms", "enterprise applications"]))
+    body.append(p("In these cases dedicated server infrastructure provides a stable and scalable foundation."))
+
+    body.append(h2("Start Your Dedicated Server Project"))
+    body.append(p("Choosing the right server infrastructure is essential for long-term digital success."))
+    body.append(p("At Angraweb we help businesses design reliable dedicated server infrastructures tailored to their project requirements."))
+    body.append(p(f"Contact us to receive a customized hosting proposal. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Dedicated Server Hosting | High-Performance Server Solutions – Angraweb"
+    meta_description = (
+        "Professional dedicated server hosting with exclusive hardware resources. Secure, high-performance and fully controlled server infrastructure for demanding applications."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Dedicated Server Hosting",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -8640,6 +8701,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "vps-hosting":
         return _cluster_vps_hosting_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Dedicated Server Hosting (EN) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "dedicated-server-hosting":
+        return _cluster_dedicated_server_hosting_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development

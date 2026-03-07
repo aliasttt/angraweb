@@ -7085,6 +7085,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_vps_hosting_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Özel Sunucu Kiralama (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "ozel-sunucu-kiralama":
+        return _cluster_ozel_sunucu_kiralama_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -8260,6 +8266,115 @@ def _cluster_vps_hosting_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "VPS Hosting Hizmeti",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_ozel_sunucu_kiralama_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Özel Sunucu Kiralama (TR) — hosting-domain, dedicated server."""
+    body: List[str] = []
+
+    body.append(h2("Özel Sunucu Kiralama Nedir?"))
+    body.append(p("Özel sunucu kiralama (Dedicated Server), bir fiziksel sunucunun yalnızca tek bir müşteri tarafından kullanıldığı hosting çözümüdür. Paylaşımlı hosting veya VPS çözümlerinden farklı olarak tüm donanım kaynakları yalnızca sizin projeleriniz için ayrılır."))
+    body.append(p("Bu yapı sayesinde işletmeler daha yüksek performans, daha güçlü güvenlik ve daha fazla kontrol elde eder."))
+    body.append(p("Özel sunucu kiralama genellikle şu tür projeler için tercih edilir:"))
+    body.append(ul([
+        "yüksek trafik alan web siteleri",
+        "e-ticaret platformları",
+        "SaaS uygulamaları",
+        "büyük veri tabanı sistemleri",
+        "kurumsal web uygulamaları",
+    ]))
+    body.append(p("Bu tür projelerde performans ve stabilite kritik olduğu için dedicated server altyapısı önemli bir avantaj sağlar."))
+
+    body.append(h2("Özel Sunucu Kiralamanın Avantajları"))
+    body.append(p("Özel sunucu kiralama işletmelere birçok teknik avantaj sağlar."))
+
+    body.append(h3("Maksimum Performans"))
+    body.append(p("Dedicated server altyapısında sunucu kaynakları yalnızca tek bir kullanıcıya ait olduğu için performans çok daha stabil olur."))
+    body.append(p("Paylaşımlı hosting ortamlarında diğer kullanıcıların tükettiği kaynaklar performansı etkileyebilir. Ancak özel sunucuda CPU, RAM ve disk kaynaklarının tamamı size aittir."))
+    body.append(p("Bu durum özellikle şu projelerde büyük avantaj sağlar:"))
+    body.append(ul(["yüksek trafik alan web siteleri", "büyük e-ticaret mağazaları", "yoğun veri işlemleri yapan uygulamalar"]))
+    body.append(p("Daha hızlı sunucular kullanıcı deneyimini iyileştirir ve arama motoru performansını da olumlu etkileyebilir."))
+
+    body.append(h3("Tam Kontrol ve Özelleştirme"))
+    body.append(p("Özel sunucu kiralama ile işletmeler sunucu ortamı üzerinde tam kontrol sahibi olur."))
+    body.append(p("Kullanıcılar:"))
+    body.append(ul([
+        "istedikleri işletim sistemini kurabilir",
+        "sunucu yapılandırmasını değiştirebilir",
+        "özel yazılımlar yükleyebilir",
+        "güvenlik ayarlarını özelleştirebilir",
+    ]))
+    body.append(p("Bu esneklik özellikle yazılım geliştirme ekipleri için büyük avantaj sağlar."))
+
+    body.append(h3("Daha Yüksek Güvenlik"))
+    body.append(p("Dedicated server altyapısı güvenlik açısından da önemli avantajlar sunar."))
+    body.append(p("Çünkü sunucu yalnızca tek bir müşteri tarafından kullanılır ve başka kullanıcıların aktiviteleri sisteminizi etkilemez."))
+    body.append(p("Güvenlik açısından şu önlemler uygulanabilir:"))
+    body.append(ul(["gelişmiş firewall yapılandırmaları", "erişim kontrol politikaları", "güvenlik sertleştirme işlemleri", "düzenli güvenlik güncellemeleri"]))
+    body.append(p("Bu önlemler veri güvenliğini artırır ve olası saldırı risklerini azaltır."))
+
+    body.append(h2("Özel Sunucu Hangi Durumlarda Gereklidir?"))
+    body.append(p("Her web projesi için dedicated server gerekli değildir. Ancak bazı durumlarda paylaşımlı hosting veya VPS çözümleri yeterli olmayabilir."))
+
+    body.append(h3("Yüksek Trafikli Web Siteleri"))
+    body.append(p("Web siteniz yoğun ziyaretçi alıyorsa paylaşımlı hosting performans sorunları yaratabilir. Özel sunucu altyapısı yüksek trafik altında stabil çalışmayı sağlar."))
+
+    body.append(h3("Büyük E-Ticaret Platformları"))
+    body.append(p("E-ticaret sitelerinde hız ve güvenlik doğrudan satışları etkiler. Dedicated server altyapısı ödeme işlemleri, ürün veritabanı ve kullanıcı işlemleri için güçlü bir altyapı sağlar."))
+
+    body.append(h3("SaaS ve Web Uygulamaları"))
+    body.append(p("Modern SaaS platformları yüksek performanslı sunucu altyapısına ihtiyaç duyar. Dedicated server çözümleri uygulamaların stabil çalışmasını sağlar."))
+
+    body.append(h2("Doğru Sunucu Donanımı Nasıl Seçilir?"))
+    body.append(p("Özel sunucu kiralama sürecinde doğru donanım seçimi oldukça önemlidir."))
+    body.append(p("Donanım seçimi şu faktörlere göre yapılmalıdır:"))
+    body.append(ul(["işlemci gücü (CPU)", "RAM kapasitesi", "disk türü (SSD / NVMe)", "ağ bant genişliği", "veri merkezi altyapısı"]))
+    body.append(p("Doğru planlanan bir sunucu altyapısı uzun vadede performans sorunlarını önler."))
+
+    body.append(h2("Sunucu Yönetimi ve Bakım"))
+    body.append(p("Dedicated server altyapısının sürdürülebilir olması için düzenli bakım ve izleme gereklidir."))
+    body.append(p("Sunucu yönetimi genellikle şu süreçleri içerir:"))
+    body.append(ul(["sistem güncellemeleri", "güvenlik kontrolleri", "performans optimizasyonu", "log ve hata takibi", "veri yedekleme"]))
+    body.append(p("Bu işlemler sunucunun stabil ve güvenli çalışmasını sağlar."))
+
+    body.append(h2("Yedekleme ve Veri Güvenliği"))
+    body.append(p("Veri kaybı her işletme için ciddi bir risk oluşturur. Bu nedenle sunucu altyapısında düzenli yedekleme sistemleri kurulmalıdır."))
+    body.append(p("Yedekleme stratejileri genellikle şu yöntemleri içerir:"))
+    body.append(ul(["otomatik sunucu yedekleri", "veri tabanı yedekleme", "harici yedekleme depolama"]))
+    body.append(p("Doğru bir yedekleme planı olası sistem hatalarında hızlı geri dönüş sağlar."))
+
+    body.append(h2("Angraweb Özel Sunucu Hizmetleri"))
+    body.append(p("Angraweb olarak işletmelere güçlü ve güvenilir dedicated server altyapıları sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları içerir:"))
+    body.append(ul([
+        "özel sunucu kurulumu",
+        "sunucu güvenlik sertleştirme",
+        "performans optimizasyonu",
+        "web uygulaması dağıtımı",
+        "izleme ve bakım hizmetleri",
+    ]))
+    body.append(p("Amacımız işletmelerin dijital projeleri için güçlü ve sürdürülebilir bir sunucu altyapısı oluşturmaktır."))
+
+    body.append(h2("Projeniz İçin Özel Sunucu Teklifi Alın"))
+    body.append(p("Eğer yüksek performanslı bir hosting altyapısı arıyorsanız özel sunucu kiralama en doğru çözümlerden biri olabilir."))
+    body.append(p(f"Projenizin ihtiyaçlarını bizimle paylaşarak size uygun sunucu altyapısı ve planı hakkında teklif alabilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Özel Sunucu Kiralama | Dedicated Server Hosting – Angraweb"
+    meta_description = (
+        "Yüksek performanslı özel sunucu kiralama hizmetleri. Dedicated server altyapısı ile hızlı, güvenli ve ölçeklenebilir hosting çözümleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Özel Sunucu Kiralama",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
