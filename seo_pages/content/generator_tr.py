@@ -6911,6 +6911,8 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_GUIDE:
         if page.service.key == "seo-services":
             return _seo_services_guide_tr(page)
+        if page.service.key == "hosting-domain":
+            return _hosting_domain_guide_tr(page)
         title = f"{svc} Rehberi"
         meta = make_meta(
             title=title,
@@ -7787,6 +7789,118 @@ def _hosting_domain_pricing_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Hosting & Domain Fiyatları",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _hosting_domain_guide_tr(page: SeoPage) -> Dict:
+    """Custom guide: Hosting ve Domain Rehberi (TR) — nasıl çalışır, seçim, altyapı kurulumu."""
+    body: List[str] = []
+
+    body.append(h2("Hosting ve Domain Nedir"))
+    body.append(p("Bir web sitesinin internet üzerinde yayınlanabilmesi için iki temel bileşen gerekir: domain (alan adı) ve hosting (barındırma hizmeti)."))
+    body.append(p("Domain, kullanıcıların web sitenize ulaşmasını sağlayan internet adresidir. Örneğin angraweb.com bir alan adıdır."))
+    body.append(p("Hosting ise web sitenizin dosyalarının saklandığı sunucudur. Bu sunucu sayesinde web sitesi internet üzerinden erişilebilir hale gelir."))
+    body.append(p("Domain ve hosting birlikte çalışarak bir web sitesinin online olmasını sağlar."))
+
+    body.append(h2("Bu Rehber Kimler İçin Hazırlandı"))
+    body.append(p("Bu rehber özellikle şu kişiler için hazırlanmıştır:"))
+    body.append(ul([
+        "yeni bir web sitesi başlatmak isteyen girişimler",
+        "mevcut web altyapısını iyileştirmek isteyen işletmeler",
+        "hosting altyapısını anlamak isteyen proje ekipleri",
+    ]))
+    body.append(p("Rehberde hosting ve domain seçiminden sunucu kurulumuna kadar temel süreçler anlatılmaktadır."))
+
+    body.append(h2("1. Hedef ve Kullanıcıyı Belirlemek"))
+    body.append(p("Bir web projesinin başarılı olması için ilk adım hedef ve kullanıcı kitlesinin net olmasıdır."))
+    body.append(p("Bu aşamada şu sorulara cevap verilmelidir:"))
+    body.append(ul(["web sitesinin amacı nedir", "hedef kullanıcı kimdir", "kullanıcıya sunulan değer nedir"]))
+    body.append(p("Bu sorular netleştiğinde web altyapısı daha doğru planlanabilir."))
+
+    body.append(h2("2. Bilgi Mimarisi ve İçerik Planı"))
+    body.append(p("Bir web sitesinin sayfa yapısı ve içerik hiyerarşisi kullanıcı deneyimini doğrudan etkiler."))
+    body.append(p("Temel içerik yapısı genellikle şu bölümlerden oluşur:"))
+    body.append(ul(["ana sayfa", "hizmet veya ürün sayfaları", "blog veya rehber içerikleri", "iletişim ve dönüşüm sayfaları"]))
+    body.append(p("Doğru bilgi mimarisi aynı zamanda arama motoru optimizasyonu için de önemlidir."))
+
+    body.append(h2("3. Hosting Türünü Seçmek"))
+    body.append(p("Web projeleri için farklı hosting çözümleri bulunmaktadır."))
+    body.append(p("En yaygın hosting türleri şunlardır:"))
+    body.append(ul([
+        "Web Hosting — Küçük ve orta ölçekli web siteleri için uygun paylaşımlı hosting çözümüdür.",
+        "VPS Hosting — Daha yüksek performans ve kontrol gerektiren projeler için tercih edilir.",
+        "Cloud Hosting — Ölçeklenebilir altyapı sağlayan modern hosting çözümüdür.",
+        "Dedicated Server — Yüksek trafikli ve büyük projeler için kullanılan özel sunucu çözümüdür.",
+    ]))
+    body.append(p("Projenin büyüklüğüne göre doğru hosting türünü seçmek önemlidir."))
+
+    body.append(h2("4. Domain Seçimi"))
+    body.append(p("Domain adı bir web sitesinin dijital kimliğidir."))
+    body.append(p("İyi bir domain adı:"))
+    body.append(ul(["kısa olmalıdır", "kolay hatırlanmalıdır", "marka ile uyumlu olmalıdır"]))
+    body.append(p("En yaygın domain uzantıları:"))
+    body.append(ul([".com", ".net", ".org"]))
+    body.append(p("Doğru domain seçimi markanın dijital görünürlüğünü artırır."))
+
+    body.append(h2("5. Güvenlik ve SSL"))
+    body.append(p("Web siteleri için güvenlik önemli bir konudur."))
+    body.append(p("SSL sertifikası sayesinde web sitesi ile kullanıcı arasındaki veri iletişimi şifrelenir."))
+    body.append(p("SSL kullanımının avantajları:"))
+    body.append(ul(["kullanıcı güveni", "veri güvenliği", "SEO avantajı"]))
+    body.append(p("Modern web sitelerinde SSL kullanımı artık standart hale gelmiştir."))
+
+    body.append(h2("6. Yayın Öncesi Kontrol Listesi"))
+    body.append(p("Bir web sitesini yayına almadan önce bazı kontroller yapılmalıdır."))
+    body.append(p("Temel kontrol listesi:"))
+    body.append(ul(["tüm sayfalar çalışıyor mu", "formlar düzgün çalışıyor mu", "site hızı yeterli mi", "kırık bağlantılar var mı"]))
+    body.append(p("Bu kontroller yayın sonrası sorunları büyük ölçüde azaltır."))
+
+    body.append(h2("7. Yayın Sonrası İzleme"))
+    body.append(p("Bir web sitesi yayına alındıktan sonra süreç bitmez."))
+    body.append(p("Yayın sonrası yapılması gerekenler:"))
+    body.append(ul(["performans izleme", "hata takibi", "kullanıcı geri bildirimleri", "düzenli yedekleme"]))
+    body.append(p("Bu süreç web sitesinin sürdürülebilir şekilde çalışmasını sağlar."))
+
+    body.append(h2("Angraweb Hosting Danışmanlığı"))
+    body.append(p("Angraweb olarak işletmelere hosting altyapısı kurulumu ve sunucu yönetimi konusunda destek veriyoruz."))
+    body.append(p("Hizmetlerimiz şunları kapsar:"))
+    body.append(ul([
+        "hosting altyapısı kurulumu",
+        "VPS ve bulut sunucu yapılandırması",
+        "domain yönetimi",
+        "SSL kurulumu",
+        "Linux sunucu yönetimi",
+    ]))
+    body.append(p("Amacımız web projelerinin hızlı ve güvenli bir altyapı üzerinde çalışmasını sağlamaktır."))
+
+    body.append(h2("Hosting Altyapınızı Planlayın"))
+    body.append(p("Web projeniz için doğru hosting altyapısını belirlemek performans ve güvenlik açısından önemlidir."))
+    body.append(p(f"Angraweb ile iletişime geçerek projeniz için en uygun hosting çözümünü planlayabilirsiniz. {{{{ link:{_pillar_url(page)} }}}} ve {{{{ link:{_pricing_url(page)} }}}} sayfalarından detaylı bilgi alabilirsiniz."))
+    body.append(
+        cta_box(
+            "Hosting çözümü için teklif alın",
+            "Projenize uygun altyapıyı birlikte belirleyelim.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Hosting ve Domain Rehberi: Web Hosting Nasıl Çalışır? – Angraweb"
+    meta_description = (
+        "Hosting ve domain nedir? Web hosting nasıl çalışır, nasıl seçilir ve bir web sitesi için doğru hosting altyapısı nasıl kurulur öğrenin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Hosting & Domain Rehberi",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
