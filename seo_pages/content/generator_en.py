@@ -3337,6 +3337,92 @@ def _hosting_domain_guide_en(page: SeoPage) -> Dict:
     }
 
 
+def _hosting_domain_quote_en(page: SeoPage) -> Dict:
+    """Custom quote page: Hosting and Domain Quote (EN) — server setup and hosting services."""
+    body: List[str] = []
+
+    body.append(h2("Request a Hosting Infrastructure Quote"))
+    body.append(p("Choosing the right hosting infrastructure is essential for the performance, security and scalability of a web project."))
+    body.append(p("Since every project has different requirements, hosting solutions should be planned according to project needs."))
+    body.append(p("At Angraweb we provide professional hosting consulting and server setup services."))
+
+    body.append(h2("How the Quote Process Works"))
+    body.append(p("Our hosting quote process is simple and transparent."))
+    body.append(ul([
+        "1. Share a short brief — Provide basic information about your project goals and requirements.",
+        "2. Initial discussion — A short meeting helps clarify technical needs and expectations.",
+        "3. Infrastructure planning — We determine the appropriate hosting architecture and server configuration.",
+        "4. Proposal and timeline — A detailed proposal including scope, timeline and payment plan is prepared.",
+    ]))
+
+    body.append(h2("Information Needed for a Quote"))
+    body.append(p("To prepare a clear hosting proposal it helps to provide:"))
+    body.append(ul([
+        "project goal",
+        "expected traffic or user volume",
+        "required integrations",
+        "preferred technologies",
+        "expected launch timeline",
+    ]))
+    body.append(p("This information helps define the right hosting solution."))
+
+    body.append(h2("Hosting Infrastructure Planning"))
+    body.append(p("Hosting infrastructure planning includes several factors:"))
+    body.append(ul([
+        "project size",
+        "performance requirements",
+        "security needs",
+        "scalability",
+        "maintenance and monitoring",
+    ]))
+    body.append(p("A well planned hosting architecture improves reliability and performance."))
+
+    body.append(h2("Angraweb Hosting Services"))
+    body.append(p("Angraweb provides hosting infrastructure consulting and setup services including:"))
+    body.append(ul([
+        "web hosting setup",
+        "VPS and cloud server configuration",
+        "domain management",
+        "SSL installation",
+        "Linux server setup",
+        "Django application deployment",
+    ]))
+    body.append(p("Our goal is to provide stable and scalable hosting environments."))
+
+    body.append(h2("Start Your Project"))
+    body.append(p("Fill out the quote form and share a short description of your project."))
+    body.append(p("We will help you determine the best hosting solution and prepare a practical plan."))
+    body.append(h2("Related pages"))
+    body.append(ul([f"{{{{ link:{_pillar_url(page)} }}}}", f"{{{{ link:{_guide_url(page)} }}}}", f"{{{{ link:{_pricing_url(page)} }}}}"]))
+
+    body.append(
+        cta_box(
+            "Request a quote",
+            "Share your project details and we will propose the right hosting solution.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Get Hosting and Domain Quote – Server Setup & Hosting Services | Angraweb"
+    meta_description = (
+        "Request a hosting and domain setup quote. Web hosting, VPS, cloud server infrastructure and domain management services."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Hosting & Domain Quote",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -8226,6 +8312,8 @@ def generate_en(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_QUOTE:
         if page.service.key == "seo-services":
             return _seo_services_quote_en(page)
+        if page.service.key == "hosting-domain":
+            return _hosting_domain_quote_en(page)
         title = f"Get a Quote for {svc}"
         meta = make_meta(
             title=title,

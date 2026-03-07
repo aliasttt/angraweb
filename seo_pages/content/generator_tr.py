@@ -7006,6 +7006,8 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_QUOTE:
         if page.service.key == "seo-services":
             return _seo_services_quote_tr(page)
+        if page.service.key == "hosting-domain":
+            return _hosting_domain_quote_tr(page)
         title = f"{svc} Teklif Al"
         meta = make_meta(
             title=title,
@@ -7901,6 +7903,92 @@ def _hosting_domain_guide_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Hosting & Domain Rehberi",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _hosting_domain_quote_tr(page: SeoPage) -> Dict:
+    """Custom quote page: Hosting ve Domain Teklif Al (TR) — sunucu ve hosting kurulum teklifi."""
+    body: List[str] = []
+
+    body.append(h2("Hosting ve Domain Projeniz İçin Teklif Alın"))
+    body.append(p("Web projeniz için doğru hosting altyapısını seçmek performans, güvenlik ve sürdürülebilirlik açısından kritik bir adımdır."))
+    body.append(p("Her proje farklı ihtiyaçlara sahip olduğu için hosting ve sunucu çözümleri de projeye özel planlanmalıdır."))
+    body.append(p("Angraweb olarak web projeleri için hosting altyapısı planlama ve sunucu kurulumu konusunda profesyonel destek sağlıyoruz."))
+
+    body.append(h2("Teklif Süreci Nasıl İşler"))
+    body.append(p("Hosting veya sunucu kurulumu için teklif süreci birkaç basit adımdan oluşur."))
+    body.append(ul([
+        "1. Kısa brif paylaşımı — Projenizin hedefini, ihtiyaçlarını ve önceliklerini kısa bir şekilde paylaşmanız yeterlidir.",
+        "2. Ön görüşme — Proje detaylarını netleştirmek için kısa bir online görüşme yapılır.",
+        "3. Teknik planlama — Hosting altyapısı, sunucu kaynakları ve kurulum planı belirlenir.",
+        "4. Teklif ve zaman planı — Proje kapsamına göre teklif, teslim süresi ve ödeme planı hazırlanır.",
+    ]))
+
+    body.append(h2("Teklif İçin Hangi Bilgiler Gerekli"))
+    body.append(p("Teklif hazırlama sürecini hızlandırmak için şu bilgileri paylaşmanız faydalı olur:"))
+    body.append(ul([
+        "projenin amacı",
+        "tahmini kullanıcı veya trafik hacmi",
+        "gerekli modüller veya entegrasyonlar",
+        "tercih edilen teknoloji veya platform",
+        "hedef yayın tarihi",
+    ]))
+    body.append(p("Bu bilgiler sayesinde proje için en uygun hosting çözümü belirlenebilir."))
+
+    body.append(h2("Hosting Altyapısı Planlama"))
+    body.append(p("Hosting altyapısı planlanırken aşağıdaki faktörler dikkate alınır:"))
+    body.append(ul([
+        "proje büyüklüğü",
+        "performans gereksinimleri",
+        "güvenlik ihtiyaçları",
+        "ölçeklenebilirlik",
+        "bakım ve yönetim ihtiyaçları",
+    ]))
+    body.append(p("Doğru planlanan bir hosting altyapısı uzun vadede verimliliği artırır ve performansı iyileştirir."))
+
+    body.append(h2("Angraweb Hosting Hizmetleri"))
+    body.append(p("Angraweb olarak hosting ve sunucu altyapısı konusunda aşağıdaki hizmetleri sunuyoruz:"))
+    body.append(ul([
+        "web hosting kurulumu",
+        "VPS ve cloud sunucu kurulumu",
+        "domain yönetimi",
+        "SSL kurulumu",
+        "Linux sunucu yapılandırması",
+        "Django ve web uygulaması deployment",
+    ]))
+    body.append(p("Amacımız web projelerinin hızlı, güvenli ve sürdürülebilir şekilde çalışmasını sağlamaktır."))
+
+    body.append(h2("Projenizi Birlikte Planlayalım"))
+    body.append(p("Hosting altyapısını doğru planlamak web projenizin başarısını doğrudan etkiler."))
+    body.append(p("Teklif formunu doldurarak projeniz hakkında kısa bir bilgi paylaşabilir ve sizin için en uygun hosting çözümünü birlikte planlayabiliriz."))
+    body.append(h2("İlgili sayfalar"))
+    body.append(ul([f"{{{{ link:{_pillar_url(page)} }}}}", f"{{{{ link:{_guide_url(page)} }}}}", f"{{{{ link:{_pricing_url(page)} }}}}"]))
+
+    body.append(
+        cta_box(
+            "Teklif formunu doldurun",
+            "Projenizi kısaca anlatın; size uygun hosting çözümünü birlikte planlayalım.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Hosting ve Domain Teklif Al – Sunucu ve Hosting Kurulum Hizmeti | Angraweb"
+    meta_description = (
+        "Hosting ve domain altyapısı için teklif alın. Web hosting, VPS, cloud sunucu kurulumu ve domain yönetimi için hızlı proje teklifi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Hosting & Domain Teklif Al",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
