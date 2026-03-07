@@ -7073,6 +7073,12 @@ def generate_tr(page: SeoPage) -> Dict:
         }
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Hosting Hizmeti (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "hosting-hizmeti":
+        return _cluster_hosting_hizmeti_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -7989,6 +7995,136 @@ def _hosting_domain_quote_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Hosting & Domain Teklif Al",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_hosting_hizmeti_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Hosting Hizmeti (TR) — hosting-domain, web hosting hizmetleri."""
+    body: List[str] = []
+
+    body.append(h2("Profesyonel Web Hosting Hizmetleri"))
+    body.append(p("Güvenilir bir hosting altyapısı, her başarılı web sitesi veya web uygulamasının temelidir. Stabil bir hosting ortamı olmadan, en iyi tasarlanmış site bile yavaş performans, kesinti veya güvenlik riskleri yaşayabilir."))
+    body.append(p("Angraweb olarak modern dijital projeleri destekleyecek profesyonel web hosting hizmetleri sunuyoruz. Amacımız hızlı, güvenli ve ölçeklenebilir hosting ortamları kurmaktır."))
+    body.append(p("Yeni bir web sitesi başlatıyor, mevcut bir platformu taşıyor veya mevcut hosting altyapınızı iyileştiriyor olun; ekibimiz sizin için stabil bir teknik temel oluşturmanıza yardımcı olur."))
+    body.append(p("Hosting çözümlerimiz şunlar için uygundur:"))
+    body.append(ul([
+        "kurumsal web siteleri",
+        "girişim platformları",
+        "SaaS uygulamaları",
+        "e-ticaret siteleri",
+        "yüksek trafikli web uygulamaları",
+    ]))
+    body.append(p("Her hosting mimarisi, projenin teknik ihtiyaçları ve uzun vadeli hedeflerine göre tasarlanır."))
+
+    body.append(h2("Web Hosting Nedir"))
+    body.append(p("Web hosting, web sitelerinin internet üzerinden erişilebilir olmasını sağlayan bir hizmettir. Kod, görseller ve veritabanları dahil tüm site dosyaları, internete bağlı bir sunucuda saklanır."))
+    body.append(p("Kullanıcı angraweb.com gibi bir alan adı girdiğinde, hosting sunucusu web sitesi içeriğini kullanıcının tarayıcısına iletir."))
+    body.append(p("Tipik bir hosting altyapısı şu bileşenleri içerir:"))
+    body.append(ul(["web sunucu yazılımı", "depolama ve veritabanı sistemleri", "ağ bağlantısı", "güvenlik katmanları", "izleme araçları"]))
+    body.append(p("Doğru hosting ortamını seçmek, performans, güvenlik ve güvenilirlik için gereklidir."))
+
+    body.append(h2("Hosting Çözümü Türleri"))
+    body.append(p("Farklı projeler farklı hosting çözümleri gerektirir. Angraweb olarak müşterilerimize teknik ve iş ihtiyaçlarına göre en uygun hosting mimarisini seçmelerinde yardımcı oluyoruz."))
+
+    body.append(h3("Paylaşımlı Web Hosting"))
+    body.append(p("Paylaşımlı hosting, birden fazla web sitesinin aynı sunucu ortamında çalıştığı ekonomik bir çözümdür."))
+    body.append(p("Yaygın kullanım alanları:"))
+    body.append(ul(["küçük web siteleri", "bloglar", "girişim açılış sayfaları"]))
+    body.append(p("Ancak paylaşımlı hosting, daha büyük projeler için performans sınırlamalarına sahip olabilir."))
+
+    body.append(h3("VPS Hosting"))
+    body.append(p("VPS hosting (Sanal Özel Sunucu), fiziksel bir sunucu içinde özel bir sanal ortam sağlar."))
+    body.append(p("Bu çözüm şunları sunar:"))
+    body.append(ul(["daha iyi performans", "sunucu ortamı üzerinde daha fazla kontrol", "ölçeklenebilir kaynaklar"]))
+    body.append(p("VPS hosting, büyüyen web siteleri ve web uygulamaları için uygundur."))
+
+    body.append(h3("Bulut Hosting"))
+    body.append(p("Bulut hosting, trafik ve performans ihtiyaçlarına göre ölçeklenebilen esnek bir altyapı sağlar."))
+    body.append(p("Avantajları:"))
+    body.append(ul(["yüksek erişilebilirlik", "ölçeklenebilir kaynaklar", "gelişmiş güvenilirlik"]))
+    body.append(p("Bulut hosting, modern web platformları ve SaaS ürünleri için yaygın kullanılır."))
+
+    body.append(h3("Özel Sunucular (Dedicated)"))
+    body.append(p("Özel sunucular, tüm fiziksel sunucuya tam erişim sağlar."))
+    body.append(p("Bu hosting çözümü şunlar için idealdir:"))
+    body.append(ul(["yüksek trafikli web siteleri", "kurumsal platformlar", "karmaşık web uygulamaları"]))
+    body.append(p("Özel sunucular maksimum performans ve kontrol sağlar."))
+
+    body.append(h2("Hosting Altyapısı Kurulumu"))
+    body.append(p("Güvenilir bir hosting ortamı kurmak, yalnızca bir sunucu başlatmaktan fazlasını gerektirir."))
+    body.append(p("Angraweb olarak hosting kurulum sürecimiz birkaç teknik adım içerir."))
+
+    body.append(h3("Sunucu Yapılandırması"))
+    body.append(p("Sunucu ortamını projenin teknik gereksinimlerine göre yapılandırıyoruz. Buna şunlar dahildir:"))
+    body.append(ul(["Linux sunucu ortamları", "web sunucu yazılımı", "veritabanı sistemleri", "deployment araçları"]))
+    body.append(p("Doğru yapılandırma kararlılık ve performans sağlar."))
+
+    body.append(h3("Güvenlik Uygulaması"))
+    body.append(p("Güvenlik, hosting altyapısının kritik bir bileşenidir."))
+    body.append(p("Güvenlik uygulamalarımız şunları içerir:"))
+    body.append(ul(["güvenlik duvarı yapılandırması", "SSL sertifikası kurulumu", "erişim kontrol politikaları", "sunucu sertleştirme"]))
+    body.append(p("Bu önlemler web sitelerini yaygın güvenlik tehditlerinden korumaya yardımcı olur."))
+
+    body.append(h3("Performans Optimizasyonu"))
+    body.append(p("Web sitesi performansı doğrudan kullanıcı deneyimini ve arama motoru sıralamalarını etkiler."))
+    body.append(p("Performansı artırmak için şunları uyguluyoruz:"))
+    body.append(ul(["sunucu optimizasyonu", "önbellekleme stratejileri", "kaynak yönetimi", "performans izleme araçları"]))
+    body.append(p("Optimize edilmiş hosting ortamları daha hızlı yükleme ve daha iyi güvenilirlik sağlar."))
+
+    body.append(h3("İzleme ve Bakım"))
+    body.append(p("Hosting altyapısı sürekli izleme ve bakım gerektirir."))
+    body.append(p("Hosting hizmetlerimiz, sunucu performansını takip eden ve sorunları kullanıcıları etkilemeden tespit eden izleme sistemleri içerir."))
+    body.append(p("İzleme genellikle şunları kapsar:"))
+    body.append(ul(["sunucu çalışma süresi izleme", "performans metrikleri", "hata takibi", "kaynak kullanım analizi"]))
+    body.append(p("Düzenli bakım, hosting ortamının stabil ve güvenli kalmasını sağlar."))
+
+    body.append(h3("Yedekleme ve Olağanüstü Durum Kurtarma"))
+    body.append(p("Yedekler, web sitesi verilerini korumak için gereklidir."))
+    body.append(p("Angraweb hosting ortamları, beklenmeyen sorunlarda hızlı kurtarmaya olanak veren otomatik yedekleme stratejileri içerir."))
+    body.append(p("Yedekleme sistemleri genellikle şunları içerir:"))
+    body.append(ul(["zamanlanmış yedekler", "güvenli depolama", "kurtarma prosedürleri"]))
+    body.append(p("Güvenilir bir yedekleme planı iş sürekliliğini sağlar."))
+
+    body.append(h2("Ölçeklenebilir Hosting Altyapısı"))
+    body.append(p("İşletmeler büyüdükçe teknik altyapıları da büyümek zorundadır."))
+    body.append(p("Hosting mimarimiz proje büyümesiyle ölçeklenecek şekilde tasarlanmıştır."))
+    body.append(p("Ölçeklenebilirlik seçenekleri:"))
+    body.append(ul(["sunucu kaynaklarının yükseltilmesi", "yük dengeleme çözümleri", "bulut altyapısı genişletmesi"]))
+    body.append(p("Bu yaklaşım, trafik arttıkça web sitelerinin stabil kalmasını sağlar."))
+
+    body.append(h2("Web Hosting İçin Neden Angraweb"))
+    body.append(p("Doğru hosting sağlayıcısını seçmek uzun vadeli dijital başarı için gereklidir."))
+    body.append(p("Angraweb, performans, güvenlik ve güvenilirliğe odaklanan hosting çözümleri sunar."))
+    body.append(p("Hosting hizmetlerimiz şunları kapsar:"))
+    body.append(ul([
+        "profesyonel sunucu kurulumu",
+        "ölçeklenebilir hosting altyapısı",
+        "güvenlik optimizasyonu",
+        "izleme ve bakım",
+        "web uygulamaları için deployment desteği",
+    ]))
+    body.append(p("Amacımız, iş büyümesini ve teknik istikrarı destekleyen hosting ortamları oluşturmaktır."))
+
+    body.append(h2("Hosting Projenizi Başlatın"))
+    body.append(p("Güçlü bir hosting altyapısı, başarılı bir web sitesinin teknik temelidir."))
+    body.append(p("Yeni bir web sitesi planlıyor veya mevcut platformunuzu iyileştiriyorsanız, doğru hosting çözümünü seçmek önemli bir ilk adımdır."))
+    body.append(p(f"Hosting ihtiyaçlarınızı görüşmek ve projeniz için en uygun altyapıyı planlamak için Angraweb ile iletişime geçin. Detaylı bir öneri ve uygulama takvimi için teklif de talep edebilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Web Hosting Hizmeti | Güvenli, Hızlı ve Ölçeklenebilir Hosting – Angraweb"
+    meta_description = (
+        "Profesyonel web hosting hizmetleri: sunucu kurulumu, güvenlik optimizasyonu, izleme ve ölçeklenebilir hosting altyapısı. Modern web siteleri ve uygulamaları için."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Hosting Hizmeti",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
