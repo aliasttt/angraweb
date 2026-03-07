@@ -3423,6 +3423,136 @@ def _hosting_domain_quote_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
+    """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("Professional Web Hosting Services"))
+    body.append(p("A reliable hosting infrastructure is the foundation of every successful website or web application. Without a stable hosting environment, even the best designed website may suffer from slow performance, downtime or security risks."))
+    body.append(p("At Angraweb, we provide professional web hosting services designed to support modern digital projects. Our goal is to build hosting environments that are fast, secure and scalable."))
+    body.append(p("Whether you are launching a new website, migrating an existing platform or improving your current hosting infrastructure, our team helps you create a stable technical foundation."))
+    body.append(p("Our hosting solutions are suitable for:"))
+    body.append(ul([
+        "corporate websites",
+        "startup platforms",
+        "SaaS applications",
+        "e-commerce websites",
+        "high-traffic web applications",
+    ]))
+    body.append(p("Each hosting architecture is designed based on the technical needs and long-term goals of the project."))
+
+    body.append(h2("What Is Web Hosting"))
+    body.append(p("Web hosting is a service that allows websites to be accessible on the internet. All website files including code, images and databases are stored on a server connected to the internet."))
+    body.append(p("When a user enters a domain name such as angraweb.com, the hosting server delivers the website content to the user's browser."))
+    body.append(p("A typical hosting infrastructure includes several components:"))
+    body.append(ul(["web server software", "storage and database systems", "network connectivity", "security layers", "monitoring tools"]))
+    body.append(p("Choosing the right hosting environment is essential for maintaining performance, security and reliability."))
+
+    body.append(h2("Types of Hosting Solutions"))
+    body.append(p("Different projects require different hosting solutions. At Angraweb we help clients choose the most suitable hosting architecture based on their technical and business needs."))
+
+    body.append(h3("Shared Web Hosting"))
+    body.append(p("Shared hosting is an economical solution where multiple websites run on the same server environment."))
+    body.append(p("It is commonly used for:"))
+    body.append(ul(["small websites", "blogs", "startup landing pages"]))
+    body.append(p("However, shared hosting may have performance limitations for larger projects."))
+
+    body.append(h3("VPS Hosting"))
+    body.append(p("VPS hosting (Virtual Private Server) provides a dedicated virtual environment within a physical server."))
+    body.append(p("This solution offers:"))
+    body.append(ul(["better performance", "more control over the server environment", "scalable resources"]))
+    body.append(p("VPS hosting is suitable for growing websites and web applications."))
+
+    body.append(h3("Cloud Hosting"))
+    body.append(p("Cloud hosting provides flexible infrastructure that can scale depending on traffic and performance requirements."))
+    body.append(p("Advantages include:"))
+    body.append(ul(["high availability", "scalable resources", "improved reliability"]))
+    body.append(p("Cloud hosting is commonly used for modern web platforms and SaaS products."))
+
+    body.append(h3("Dedicated Servers"))
+    body.append(p("Dedicated servers provide full access to an entire physical server."))
+    body.append(p("This hosting solution is ideal for:"))
+    body.append(ul(["high-traffic websites", "enterprise platforms", "complex web applications"]))
+    body.append(p("Dedicated servers provide maximum performance and control."))
+
+    body.append(h2("Hosting Infrastructure Setup"))
+    body.append(p("Setting up a reliable hosting environment requires more than simply launching a server."))
+    body.append(p("At Angraweb our hosting setup process includes several technical steps."))
+
+    body.append(h3("Server Configuration"))
+    body.append(p("We configure the server environment according to the project's technical requirements. This includes installing and optimizing:"))
+    body.append(ul(["Linux server environments", "web server software", "database systems", "deployment tools"]))
+    body.append(p("Proper configuration ensures stability and performance."))
+
+    body.append(h3("Security Implementation"))
+    body.append(p("Security is a critical component of hosting infrastructure."))
+    body.append(p("Our security practices include:"))
+    body.append(ul(["firewall configuration", "SSL certificate installation", "access control policies", "server hardening"]))
+    body.append(p("These measures help protect websites from common security threats."))
+
+    body.append(h3("Performance Optimization"))
+    body.append(p("Website performance directly affects user experience and search engine rankings."))
+    body.append(p("To improve performance we implement:"))
+    body.append(ul(["server optimization", "caching strategies", "resource management", "performance monitoring tools"]))
+    body.append(p("Optimized hosting environments provide faster loading times and better reliability."))
+
+    body.append(h3("Monitoring and Maintenance"))
+    body.append(p("Hosting infrastructure requires continuous monitoring and maintenance."))
+    body.append(p("Our hosting services include monitoring systems that track server performance and detect potential issues before they affect users."))
+    body.append(p("Monitoring typically includes:"))
+    body.append(ul(["server uptime monitoring", "performance metrics", "error tracking", "resource usage analysis"]))
+    body.append(p("Regular maintenance ensures that the hosting environment remains stable and secure."))
+
+    body.append(h3("Backup and Disaster Recovery"))
+    body.append(p("Backups are essential for protecting website data."))
+    body.append(p("Angraweb hosting environments include automated backup strategies that allow quick recovery in case of unexpected problems."))
+    body.append(p("Backup systems typically include:"))
+    body.append(ul(["scheduled backups", "secure storage", "recovery procedures"]))
+    body.append(p("A reliable backup plan ensures business continuity."))
+
+    body.append(h2("Scalable Hosting Infrastructure"))
+    body.append(p("As businesses grow, their technical infrastructure must grow as well."))
+    body.append(p("Our hosting architecture is designed to scale with project growth."))
+    body.append(p("Scalability options include:"))
+    body.append(ul(["upgrading server resources", "load balancing solutions", "cloud infrastructure expansion"]))
+    body.append(p("This approach ensures that websites remain stable even as traffic increases."))
+
+    body.append(h2("Why Choose Angraweb for Web Hosting"))
+    body.append(p("Choosing the right hosting provider is essential for long-term digital success."))
+    body.append(p("Angraweb provides hosting solutions that focus on performance, security and reliability."))
+    body.append(p("Our hosting services include:"))
+    body.append(ul([
+        "professional server setup",
+        "scalable hosting infrastructure",
+        "security optimization",
+        "monitoring and maintenance",
+        "deployment support for web applications",
+    ]))
+    body.append(p("Our goal is to create hosting environments that support business growth and technical stability."))
+
+    body.append(h2("Start Your Hosting Project"))
+    body.append(p("A strong hosting infrastructure is the technical foundation of a successful website."))
+    body.append(p("If you are planning a new website or improving an existing platform, choosing the right hosting solution is an important first step."))
+    body.append(p(f"Contact Angraweb to discuss your hosting requirements and plan the most suitable infrastructure for your project. You can also request a project quote to receive a detailed proposal and implementation timeline. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Web Hosting Services | Secure, Fast & Scalable Hosting Solutions – Angraweb"
+    meta_description = (
+        "Professional web hosting services including server setup, security optimization, monitoring and scalable hosting infrastructure for modern websites and web applications."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Hosting Services",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -8363,6 +8493,12 @@ def generate_en(page: SeoPage) -> Dict:
             "faq_json": faq_json[:8],
             "published_at": timezone.now(),
         }
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Web Hosting Services (EN) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "web-hosting-services":
+        return _cluster_web_hosting_services_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development
