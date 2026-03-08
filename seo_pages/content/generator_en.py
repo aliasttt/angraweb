@@ -3162,6 +3162,131 @@ def _hosting_domain_pillar_en(page: SeoPage) -> Dict:
     }
 
 
+def _ui_ux_pillar_en(page: SeoPage) -> Dict:
+    """Custom pillar: UI/UX Design (EN) — user experience and interface design."""
+    body: List[str] = []
+
+    body.append(h2("UI/UX Design Services"))
+    body.append(p("In modern digital products, user experience (UX) and user interface (UI) design play a crucial role in determining success. Whether it is a website, mobile application, or SaaS platform, the way users interact with a product directly impacts engagement, retention, and conversion rates."))
+    body.append(p("At Angraweb, our UI/UX design services focus on building user-centered digital experiences. By combining strategic planning, user behavior analysis, and modern design principles, we create interfaces that are intuitive, efficient, and visually compelling."))
+    body.append(p("A well-designed interface not only improves usability but also strengthens brand perception and business performance."))
+
+    body.append(h2("What is UI/UX Design?"))
+    body.append(p("UI/UX design refers to the process of designing digital products that provide an intuitive and enjoyable experience for users."))
+    body.append(p("UI (User Interface) focuses on visual elements such as layout, colors, typography, and interactive components. UX (User Experience) focuses on the overall interaction between users and the product."))
+    body.append(p("A professional UI/UX design process typically includes:"))
+    body.append(ul([
+        "user research",
+        "information architecture",
+        "user flow design",
+        "wireframing",
+        "prototyping",
+        "usability testing",
+    ]))
+    body.append(p("When these elements are implemented effectively, digital products become easier to use and more engaging for users."))
+
+    body.append(h2("How the UI/UX Design Process Works"))
+    body.append(p("A structured UI/UX design process ensures that digital products are both functional and user-friendly."))
+
+    body.append(h3("Discovery and Research"))
+    body.append(p("The first step is understanding the product goals and target audience. This stage includes: user research, competitor analysis, project goal definition. The insights gathered here guide the design strategy."))
+
+    body.append(h3("Information Architecture"))
+    body.append(p("Information architecture organizes the structure of the product. This includes: content hierarchy, navigation structure, screen flow planning. A well-structured architecture helps users find information quickly."))
+
+    body.append(h3("Wireframing and Prototyping"))
+    body.append(p("Wireframes define the layout of pages and components. Prototypes simulate the real interaction of the product. These tools help test user flows and improve usability before development begins."))
+
+    body.append(h2("Benefits of Professional UI/UX Design"))
+    body.append(p("Investing in professional UI/UX design provides multiple benefits for digital products."))
+
+    body.append(h3("Higher conversion rates"))
+    body.append(p("User-friendly interfaces encourage visitors to take action."))
+
+    body.append(h3("Improved usability"))
+    body.append(p("Clear navigation and intuitive design enhance the user journey."))
+
+    body.append(h3("Reduced development rework"))
+    body.append(p("Early design validation prevents expensive redesigns during development."))
+
+    body.append(h3("Better SEO performance"))
+    body.append(p("Good user experience leads to better engagement metrics and improved search visibility."))
+
+    body.append(h2("Types of UI/UX Design Projects"))
+    body.append(p("UI/UX design services can apply to many types of digital platforms."))
+
+    body.append(h3("Website UI/UX Design"))
+    body.append(p("Corporate websites, landing pages, and SaaS platforms require optimized interfaces."))
+
+    body.append(h3("Mobile App Interface Design"))
+    body.append(p("Mobile applications require responsive and touch-optimized interfaces."))
+
+    body.append(h3("SaaS Product Design"))
+    body.append(p("Dashboard systems and complex platforms require structured UX planning."))
+
+    body.append(h3("E-commerce UX Design"))
+    body.append(p("Online stores benefit from optimized product discovery and checkout flows."))
+
+    body.append(h2("Factors That Affect UI/UX Design Scope"))
+    body.append(p("The scope of a UI/UX design project depends on multiple variables."))
+    body.append(ul([
+        "project complexity",
+        "number of screens",
+        "research depth",
+        "integration requirements",
+        "testing and prototyping scope",
+    ]))
+    body.append(p("Each project has unique requirements, so scope is usually determined after a discovery phase."))
+
+    body.append(h2("How to Choose the Right UI/UX Design Agency"))
+    body.append(p("Selecting the right design partner is essential for a successful digital product. Important factors include:"))
+    body.append(ul([
+        "strong portfolio",
+        "user-centered design approach",
+        "technical collaboration with developers",
+        "scalable design systems",
+        "data-driven design decisions",
+    ]))
+    body.append(p("At Angraweb, our goal is not only to design visually appealing interfaces but also to create experiences that support business growth."))
+
+    faq_json = faq([
+        ("What is UI/UX design?", "UI/UX design is the process of creating digital interfaces that are visually appealing, easy to use, and optimized for user interaction."),
+        ("Why is UI/UX design important?", "Good UI/UX design improves usability, increases engagement, and enhances conversion rates."),
+        ("How long does UI/UX design take?", "The timeline depends on project complexity but typically ranges from a few weeks to several months."),
+        ("Does UI/UX design affect SEO?", "Yes. A better user experience can improve engagement metrics such as bounce rate and session duration, which supports SEO performance."),
+        ("Which tools are used for UI/UX design?", "Common tools include Figma, Adobe XD, Sketch, and prototyping platforms."),
+    ])
+
+    body.append(h2("Frequently Asked Questions (FAQ)"))
+    for item in faq_json:
+        body.append(h3(item["question"]))
+        body.append(p(item["answer"]))
+
+    cluster_urls = _cluster_urls_for_service(page)
+    if cluster_urls:
+        body.append(h2("Topics"))
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
+
+    body.append(p(f"For more information: {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "UI UX Design Services | Professional User Experience Design – Angraweb"
+    meta_description = (
+        "Professional UI UX design services by Angraweb. Improve user experience, increase conversions, and build modern interfaces for web and mobile platforms."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "UI/UX Design",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _hosting_domain_pricing_en(page: SeoPage) -> Dict:
     """Custom pricing page: Hosting and Domain Pricing (EN)."""
     body: List[str] = []
@@ -4283,126 +4408,6 @@ def _cluster_vps_hosting_cost_en(page: SeoPage) -> Dict:
         "meta_description": meta_description,
         "content_html": content_html,
         "faq_json": [],
-        "published_at": timezone.now(),
-    }
-
-
-def _cluster_ui_ux_design_services_en(page: SeoPage) -> Dict:
-    """Custom cluster: UI/UX Design Services (EN) — ui-ux-design."""
-    body: List[str] = []
-
-    body.append(h2("What is UI/UX Design?"))
-    body.append(p("In modern digital products, user experience (UX) and user interface (UI) design play a crucial role in determining success. Whether it is a website, mobile application, or SaaS platform, the way users interact with a product directly impacts engagement, retention, and conversion rates."))
-    body.append(p("At Angraweb, our UI/UX design services focus on building user-centered digital experiences. By combining strategic planning, user behavior analysis, and modern design principles, we create interfaces that are intuitive, efficient, and visually compelling."))
-    body.append(p("A well-designed interface not only improves usability but also strengthens brand perception and business performance."))
-
-    body.append(h2("Key Elements of UI/UX Design"))
-    body.append(p("UI/UX design refers to the process of designing digital products that provide an intuitive and enjoyable experience for users."))
-    body.append(p("UI (User Interface) focuses on visual elements such as layout, colors, typography, and interactive components. UX (User Experience) focuses on the overall interaction between users and the product."))
-    body.append(p("A professional UI/UX design process typically includes:"))
-    body.append(ul([
-        "user research",
-        "information architecture",
-        "user flow design",
-        "wireframing",
-        "prototyping",
-        "usability testing",
-    ]))
-    body.append(p("When these elements are implemented effectively, digital products become easier to use and more engaging for users."))
-
-    body.append(h2("How the UI/UX Design Process Works"))
-    body.append(p("A structured UI/UX design process ensures that digital products are both functional and user-friendly."))
-
-    body.append(h3("Discovery and Research"))
-    body.append(p("The first step is understanding the product goals and target audience. This stage includes: user research, competitor analysis, project goal definition. The insights gathered here guide the design strategy."))
-
-    body.append(h3("Information Architecture"))
-    body.append(p("Information architecture organizes the structure of the product. This includes: content hierarchy, navigation structure, screen flow planning. A well-structured architecture helps users find information quickly."))
-
-    body.append(h3("Wireframing and Prototyping"))
-    body.append(p("Wireframes define the layout of pages and components. Prototypes simulate the real interaction of the product. These tools help test user flows and improve usability before development begins."))
-
-    body.append(h2("Benefits of Professional UI/UX Design"))
-    body.append(p("Investing in professional UI/UX design provides multiple benefits for digital products."))
-
-    body.append(h3("Higher conversion rates"))
-    body.append(p("User-friendly interfaces encourage visitors to take action."))
-
-    body.append(h3("Improved usability"))
-    body.append(p("Clear navigation and intuitive design enhance the user journey."))
-
-    body.append(h3("Reduced development rework"))
-    body.append(p("Early design validation prevents expensive redesigns during development."))
-
-    body.append(h3("Better SEO performance"))
-    body.append(p("Good user experience leads to better engagement metrics and improved search visibility."))
-
-    body.append(h2("Types of UI/UX Design Projects"))
-    body.append(p("UI/UX design services can apply to many types of digital platforms."))
-
-    body.append(h3("Website UI/UX Design"))
-    body.append(p("Corporate websites, landing pages, and SaaS platforms require optimized interfaces."))
-
-    body.append(h3("Mobile App Interface Design"))
-    body.append(p("Mobile applications require responsive and touch-optimized interfaces."))
-
-    body.append(h3("SaaS Product Design"))
-    body.append(p("Dashboard systems and complex platforms require structured UX planning."))
-
-    body.append(h3("E-commerce UX Design"))
-    body.append(p("Online stores benefit from optimized product discovery and checkout flows."))
-
-    body.append(h2("Factors That Affect UI/UX Design Scope"))
-    body.append(p("The scope of a UI/UX design project depends on multiple variables."))
-    body.append(ul([
-        "project complexity",
-        "number of screens",
-        "research depth",
-        "integration requirements",
-        "testing and prototyping scope",
-    ]))
-    body.append(p("Each project has unique requirements, so scope is usually determined after a discovery phase."))
-
-    body.append(h2("How to Choose the Right UI/UX Design Agency"))
-    body.append(p("Selecting the right design partner is essential for a successful digital product. Important factors include:"))
-    body.append(ul([
-        "strong portfolio",
-        "user-centered design approach",
-        "technical collaboration with developers",
-        "scalable design systems",
-        "data-driven design decisions",
-    ]))
-    body.append(p("At Angraweb, our goal is not only to design visually appealing interfaces but also to create experiences that support business growth."))
-
-    faq_json = faq([
-        ("What is UI/UX design?", "UI/UX design is the process of creating digital interfaces that are visually appealing, easy to use, and optimized for user interaction."),
-        ("Why is UI/UX design important?", "Good UI/UX design improves usability, increases engagement, and enhances conversion rates."),
-        ("How long does UI/UX design take?", "The timeline depends on project complexity but typically ranges from a few weeks to several months."),
-        ("Does UI/UX design affect SEO?", "Yes. A better user experience can improve engagement metrics such as bounce rate and session duration, which supports SEO performance."),
-        ("Which tools are used for UI/UX design?", "Common tools include Figma, Adobe XD, Sketch, and prototyping platforms."),
-    ])
-
-    body.append(h2("Frequently Asked Questions (FAQ)"))
-    for item in faq_json:
-        body.append(h3(item["question"]))
-        body.append(p(item["answer"]))
-
-    body.append(p(f"For more information: {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
-
-    content_html = "\n".join(body)
-    meta_title = "UI UX Design Services | Professional User Experience Design – Angraweb"
-    meta_description = (
-        "Professional UI UX design services by Angraweb. Improve user experience, increase conversions, and build modern interfaces for web and mobile platforms."
-    )
-    meta_title = clamp_text(meta_title, 60)
-    meta_description = clamp_text(meta_description, 160)
-
-    return {
-        "title": "UI/UX Design Services",
-        "meta_title": meta_title,
-        "meta_description": meta_description,
-        "content_html": content_html,
-        "faq_json": faq_json,
         "published_at": timezone.now(),
     }
 
@@ -9088,6 +9093,8 @@ def generate_en(page: SeoPage) -> Dict:
             return _seo_services_pillar_en(page)
         if page.service.key == "hosting-domain":
             return _hosting_domain_pillar_en(page)
+        if page.service.key == "ui-ux-design":
+            return _ui_ux_pillar_en(page)
         title = svc
         meta = make_meta(
             title=title,
@@ -9413,12 +9420,6 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "vps-hosting-cost":
         return _cluster_vps_hosting_cost_en(page)
-
-    # -------------------------------------------------------------------------
-    # Custom cluster: UI/UX Design Services (EN) — ui-ux-design
-    # -------------------------------------------------------------------------
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "ui-ux-design-services":
-        return _cluster_ui_ux_design_services_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development

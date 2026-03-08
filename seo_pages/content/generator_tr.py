@@ -6771,6 +6771,8 @@ def generate_tr(page: SeoPage) -> Dict:
             return _seo_services_pillar_tr(page)
         if page.service.key == "hosting-domain":
             return _hosting_domain_pillar_tr(page)
+        if page.service.key == "ui-ux-design":
+            return _ui_ux_pillar_tr(page)
         title = f"{svc}"
         meta = make_meta(
             title=title,
@@ -7139,12 +7141,6 @@ def generate_tr(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "vps-fiyatlari":
         return _cluster_vps_fiyatlari_tr(page)
-
-    # -------------------------------------------------------------------------
-    # Custom cluster: UI/UX Tasarım Hizmeti (TR) — ui-ux-design
-    # -------------------------------------------------------------------------
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "ui-ux-tasarim-hizmeti":
-        return _cluster_ui_ux_tasarim_hizmeti_tr(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
@@ -7784,6 +7780,148 @@ def _hosting_domain_pillar_tr(page: SeoPage) -> Dict:
         "meta_description": meta_description,
         "content_html": content_html,
         "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _ui_ux_pillar_tr(page: SeoPage) -> Dict:
+    """Custom pillar: UI/UX Tasarım (TR) — kullanıcı deneyimi ve arayüz tasarımı."""
+    body: List[str] = []
+
+    body.append(h2("UI/UX Tasarım Hizmeti"))
+    body.append(p("Dijital ürünlerin başarısında en kritik faktörlerden biri kullanıcı deneyimi (UX) ve kullanıcı arayüzü (UI) tasarımıdır. Kullanıcıların bir web sitesini, mobil uygulamayı veya yazılım platformunu nasıl kullandığı; ürünün başarısını doğrudan etkiler. Bu nedenle modern dijital projelerde UI/UX tasarım süreci, yalnızca görsel bir çalışma değil; stratejik bir planlama ve kullanıcı davranışı analizi sürecidir."))
+    body.append(p("Angraweb olarak sunduğumuz UI/UX tasarım hizmeti, kullanıcı odaklı yaklaşım ile tasarlanmış modern arayüzler üretmeyi amaçlar. Doğru bilgi mimarisi, etkili kullanıcı akışları ve dönüşüm odaklı tasarım prensipleri ile dijital ürünlerin performansını artırıyoruz."))
+    body.append(p("İster bir kurumsal web sitesi, ister bir e-ticaret platformu, ister bir SaaS uygulaması geliştiriyor olun; güçlü bir kullanıcı deneyimi tasarımı, kullanıcı memnuniyetini ve dönüşüm oranlarını önemli ölçüde yükseltir."))
+
+    body.append(h2("UI/UX Tasarım Nedir?"))
+    body.append(p("UI/UX tasarım, dijital ürünlerin kullanıcı tarafından kolay, hızlı ve keyifli bir şekilde kullanılmasını sağlayan tasarım sürecidir."))
+    body.append(p("UI (User Interface), kullanıcıların gördüğü görsel arayüzü ifade eder. UX (User Experience) ise kullanıcıların ürünle etkileşim sırasında yaşadığı genel deneyimi kapsar."))
+    body.append(p("UI/UX tasarım sürecinde aşağıdaki unsurlar önemli rol oynar:"))
+    body.append(ul([
+        "kullanıcı davranışı analizi",
+        "bilgi mimarisi",
+        "kullanıcı akışları",
+        "wireframe ve prototip tasarım",
+        "görsel tasarım",
+        "kullanılabilirlik testleri",
+    ]))
+    body.append(p("Bu süreç doğru yönetildiğinde, kullanıcıların bir platformda daha uzun süre kalması ve daha fazla etkileşim kurması sağlanır."))
+
+    body.append(h2("UI/UX Tasarım Süreci Nasıl Çalışır?"))
+    body.append(p("Profesyonel bir UI/UX tasarım süreci genellikle belirli aşamalardan oluşur. Bu aşamalar, projenin kapsamını netleştirir ve sürdürülebilir bir tasarım üretimini mümkün kılar."))
+
+    body.append(h3("1. Keşif ve Analiz"))
+    body.append(p("İlk aşamada projenin hedefleri ve kullanıcı kitlesi belirlenir."))
+    body.append(ul(["kullanıcı profilleri oluşturulur", "rekabet analizi yapılır", "proje hedefleri netleştirilir"]))
+    body.append(p("Bu aşama, doğru tasarım kararlarının alınmasını sağlar."))
+
+    body.append(h3("2. Bilgi Mimarisi"))
+    body.append(p("Bilgi mimarisi, bir web sitesi veya uygulamadaki içerik yapısını planlama sürecidir."))
+    body.append(ul(["sayfa hiyerarşisi oluşturulur", "kullanıcı navigasyonu planlanır", "içerik haritası hazırlanır"]))
+    body.append(p("Bu aşama kullanıcıların doğru bilgiye hızlı ulaşmasını sağlar."))
+
+    body.append(h3("3. Wireframe ve Prototip"))
+    body.append(p("Wireframe, tasarımın temel iskeletini gösterir. Prototip ise tasarımın interaktif simülasyonudur."))
+    body.append(p("Bu aşamada:"))
+    body.append(ul(["kullanıcı akışları test edilir", "sayfa düzeni optimize edilir", "kullanılabilirlik testleri yapılır"]))
+
+    body.append(h2("UI/UX Tasarımın Avantajları"))
+    body.append(p("Profesyonel bir UI/UX tasarım süreci, işletmeler için önemli avantajlar sağlar."))
+
+    body.append(h3("Daha yüksek dönüşüm oranı"))
+    body.append(p("Kullanıcı dostu bir tasarım, ziyaretçilerin müşteriye dönüşme ihtimalini artırır."))
+
+    body.append(h3("Daha iyi kullanıcı deneyimi"))
+    body.append(p("Kullanıcıların bir web sitesinde rahat gezinmesi, marka algısını güçlendirir."))
+
+    body.append(h3("Daha verimli geliştirme süreci"))
+    body.append(p("Doğru planlanmış bir tasarım süreci, geliştirme aşamasında oluşabilecek hataları azaltır."))
+
+    body.append(h3("SEO performansına katkı"))
+    body.append(p("İyi bir kullanıcı deneyimi, sayfa etkileşimlerini artırarak arama motoru performansını destekler."))
+
+    body.append(h2("UI/UX Tasarım Türleri"))
+    body.append(p("UI/UX tasarım farklı dijital ürünler için uygulanabilir."))
+
+    body.append(h3("Web sitesi tasarımı"))
+    body.append(p("Kurumsal siteler, e-ticaret platformları ve SaaS ürünleri için kullanıcı deneyimi tasarımı yapılır."))
+
+    body.append(h3("Mobil uygulama tasarımı"))
+    body.append(p("iOS ve Android uygulamaları için optimize edilmiş arayüzler geliştirilir."))
+
+    body.append(h3("SaaS platform tasarımı"))
+    body.append(p("Web tabanlı yazılım sistemleri için kullanıcı akışları ve dashboard tasarımları oluşturulur."))
+
+    body.append(h3("E-ticaret arayüz tasarımı"))
+    body.append(p("Ürün keşfi, sepet deneyimi ve ödeme süreçleri optimize edilir."))
+
+    body.append(h2("UI/UX Tasarım Kapsamını Etkileyen Faktörler"))
+    body.append(p("Bir UI/UX tasarım projesinin kapsamı birçok faktöre bağlıdır."))
+    body.append(ul([
+        "proje kapsamı",
+        "ekran veya sayfa sayısı",
+        "kullanıcı araştırması ihtiyacı",
+        "entegrasyon gereksinimleri",
+        "prototip ve test süreci",
+    ]))
+    body.append(p("Her proje farklı ihtiyaçlara sahip olduğu için kapsam ve bütçe genellikle proje ihtiyaçlarına göre belirlenir."))
+
+    body.append(h2("Doğru UI/UX Tasarım Ajansı Nasıl Seçilir?"))
+    body.append(p("Bir UI/UX tasarım ajansı seçerken aşağıdaki kriterlere dikkat etmek önemlidir."))
+    body.append(ul([
+        "güçlü bir portföy",
+        "kullanıcı odaklı tasarım yaklaşımı",
+        "teknik ekip ile iş birliği",
+        "sürdürülebilir tasarım sistemi",
+        "veri odaklı tasarım kararları",
+    ]))
+    body.append(p("Angraweb olarak, tasarım sürecinde yalnızca estetik değil aynı zamanda iş hedeflerine uygun kullanıcı deneyimi oluşturmayı hedefliyoruz."))
+
+    body.append(h2("İç Bağlantılar ve İlgili Konular"))
+    body.append(p("UI/UX tasarım sayfası, aşağıdaki ilgili konular ile bağlantılıdır:"))
+    body.append(ul([
+        "UI/UX Tasarım Rehberi",
+        "Wireframe Tasarımı",
+        "Figma Tasarım Süreci",
+        "UX Araştırması",
+        "Mobil Uygulama Arayüz Tasarımı",
+    ]))
+    body.append(p("Bu konular hakkında detaylı bilgi almak için ilgili rehber ve hizmet sayfalarını inceleyebilirsiniz."))
+
+    faq_json = faq([
+        ("UI/UX tasarım neden önemlidir?", "UI/UX tasarım, kullanıcıların bir dijital ürünü nasıl kullandığını belirler. Kullanıcı dostu bir tasarım, dönüşüm oranlarını ve kullanıcı memnuniyetini artırır."),
+        ("UI ve UX arasındaki fark nedir?", "UI görsel arayüz tasarımını ifade ederken, UX kullanıcıların ürünle etkileşim sırasında yaşadığı genel deneyimi kapsar."),
+        ("UI/UX tasarım süreci ne kadar sürer?", "Proje kapsamına bağlı olarak UI/UX tasarım süreci genellikle birkaç hafta ile birkaç ay arasında değişebilir."),
+        ("UI/UX tasarım SEO'yu etkiler mi?", "Evet. Kullanıcı deneyimi güçlü olan web siteleri daha iyi etkileşim oranlarına sahip olur ve bu durum arama motoru performansını olumlu etkiler."),
+        ("Hangi araçlar UI/UX tasarımında kullanılır?", "En yaygın kullanılan araçlar arasında Figma, Adobe XD ve Sketch gibi tasarım araçları bulunur."),
+    ])
+
+    body.append(h2("Sık Sorulan Sorular (SSS)"))
+    for item in faq_json:
+        body.append(h3(item["question"]))
+        body.append(p(item["answer"]))
+
+    cluster_urls = _cluster_urls_for_service(page)
+    if cluster_urls:
+        body.append(h2("Konular"))
+        body.append(ul([f"{{{{ link:{u} }}}}" for u in cluster_urls]))
+
+    body.append(p(f"Detaylar için: {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "UI/UX Tasarım Hizmeti | Profesyonel Kullanıcı Deneyimi Tasarımı – Angraweb"
+    meta_description = (
+        "Angraweb ile profesyonel UI/UX tasarım hizmeti alın. Kullanıcı deneyimini geliştiren, dönüşüm oranlarını artıran ve modern arayüzlerle optimize edilmiş web ve mobil tasarımlar."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "UI/UX Tasarım",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
         "published_at": timezone.now(),
     }
 
@@ -9235,143 +9373,6 @@ def _cluster_vps_fiyatlari_tr(page: SeoPage) -> Dict:
         "meta_description": meta_description,
         "content_html": content_html,
         "faq_json": [],
-        "published_at": timezone.now(),
-    }
-
-
-def _cluster_ui_ux_tasarim_hizmeti_tr(page: SeoPage) -> Dict:
-    """Custom cluster: UI/UX Tasarım Hizmeti (TR) — ui-ux-design."""
-    body: List[str] = []
-
-    body.append(h2("UI/UX Tasarım Nedir?"))
-    body.append(p("Dijital ürünlerin başarısında en kritik faktörlerden biri kullanıcı deneyimi (UX) ve kullanıcı arayüzü (UI) tasarımıdır. Kullanıcıların bir web sitesini, mobil uygulamayı veya yazılım platformunu nasıl kullandığı; ürünün başarısını doğrudan etkiler. Bu nedenle modern dijital projelerde UI/UX tasarım süreci, yalnızca görsel bir çalışma değil; stratejik bir planlama ve kullanıcı davranışı analizi sürecidir."))
-    body.append(p("Angraweb olarak sunduğumuz UI/UX tasarım hizmeti, kullanıcı odaklı yaklaşım ile tasarlanmış modern arayüzler üretmeyi amaçlar. Doğru bilgi mimarisi, etkili kullanıcı akışları ve dönüşüm odaklı tasarım prensipleri ile dijital ürünlerin performansını artırıyoruz."))
-    body.append(p("İster bir kurumsal web sitesi, ister bir e-ticaret platformu, ister bir SaaS uygulaması geliştiriyor olun; güçlü bir kullanıcı deneyimi tasarımı, kullanıcı memnuniyetini ve dönüşüm oranlarını önemli ölçüde yükseltir."))
-
-    body.append(h2("UI/UX Tasarım Nedir?"))
-    body.append(p("UI/UX tasarım, dijital ürünlerin kullanıcı tarafından kolay, hızlı ve keyifli bir şekilde kullanılmasını sağlayan tasarım sürecidir."))
-    body.append(p("UI (User Interface), kullanıcıların gördüğü görsel arayüzü ifade eder. UX (User Experience) ise kullanıcıların ürünle etkileşim sırasında yaşadığı genel deneyimi kapsar."))
-    body.append(p("UI/UX tasarım sürecinde aşağıdaki unsurlar önemli rol oynar:"))
-    body.append(ul([
-        "kullanıcı davranışı analizi",
-        "bilgi mimarisi",
-        "kullanıcı akışları",
-        "wireframe ve prototip tasarım",
-        "görsel tasarım",
-        "kullanılabilirlik testleri",
-    ]))
-    body.append(p("Bu süreç doğru yönetildiğinde, kullanıcıların bir platformda daha uzun süre kalması ve daha fazla etkileşim kurması sağlanır."))
-
-    body.append(h2("UI/UX Tasarım Süreci Nasıl Çalışır?"))
-    body.append(p("Profesyonel bir UI/UX tasarım süreci genellikle belirli aşamalardan oluşur. Bu aşamalar, projenin kapsamını netleştirir ve sürdürülebilir bir tasarım üretimini mümkün kılar."))
-
-    body.append(h3("1. Keşif ve Analiz"))
-    body.append(p("İlk aşamada projenin hedefleri ve kullanıcı kitlesi belirlenir."))
-    body.append(ul(["kullanıcı profilleri oluşturulur", "rekabet analizi yapılır", "proje hedefleri netleştirilir"]))
-    body.append(p("Bu aşama, doğru tasarım kararlarının alınmasını sağlar."))
-
-    body.append(h3("2. Bilgi Mimarisi"))
-    body.append(p("Bilgi mimarisi, bir web sitesi veya uygulamadaki içerik yapısını planlama sürecidir."))
-    body.append(ul(["sayfa hiyerarşisi oluşturulur", "kullanıcı navigasyonu planlanır", "içerik haritası hazırlanır"]))
-    body.append(p("Bu aşama kullanıcıların doğru bilgiye hızlı ulaşmasını sağlar."))
-
-    body.append(h3("3. Wireframe ve Prototip"))
-    body.append(p("Wireframe, tasarımın temel iskeletini gösterir. Prototip ise tasarımın interaktif simülasyonudur."))
-    body.append(p("Bu aşamada:"))
-    body.append(ul(["kullanıcı akışları test edilir", "sayfa düzeni optimize edilir", "kullanılabilirlik testleri yapılır"]))
-
-    body.append(h2("UI/UX Tasarımın Avantajları"))
-    body.append(p("Profesyonel bir UI/UX tasarım süreci, işletmeler için önemli avantajlar sağlar."))
-
-    body.append(h3("Daha yüksek dönüşüm oranı"))
-    body.append(p("Kullanıcı dostu bir tasarım, ziyaretçilerin müşteriye dönüşme ihtimalini artırır."))
-
-    body.append(h3("Daha iyi kullanıcı deneyimi"))
-    body.append(p("Kullanıcıların bir web sitesinde rahat gezinmesi, marka algısını güçlendirir."))
-
-    body.append(h3("Daha verimli geliştirme süreci"))
-    body.append(p("Doğru planlanmış bir tasarım süreci, geliştirme aşamasında oluşabilecek hataları azaltır."))
-
-    body.append(h3("SEO performansına katkı"))
-    body.append(p("İyi bir kullanıcı deneyimi, sayfa etkileşimlerini artırarak arama motoru performansını destekler."))
-
-    body.append(h2("UI/UX Tasarım Türleri"))
-    body.append(p("UI/UX tasarım farklı dijital ürünler için uygulanabilir."))
-
-    body.append(h3("Web sitesi tasarımı"))
-    body.append(p("Kurumsal siteler, e-ticaret platformları ve SaaS ürünleri için kullanıcı deneyimi tasarımı yapılır."))
-
-    body.append(h3("Mobil uygulama tasarımı"))
-    body.append(p("iOS ve Android uygulamaları için optimize edilmiş arayüzler geliştirilir."))
-
-    body.append(h3("SaaS platform tasarımı"))
-    body.append(p("Web tabanlı yazılım sistemleri için kullanıcı akışları ve dashboard tasarımları oluşturulur."))
-
-    body.append(h3("E-ticaret arayüz tasarımı"))
-    body.append(p("Ürün keşfi, sepet deneyimi ve ödeme süreçleri optimize edilir."))
-
-    body.append(h2("UI/UX Tasarım Kapsamını Etkileyen Faktörler"))
-    body.append(p("Bir UI/UX tasarım projesinin kapsamı birçok faktöre bağlıdır."))
-    body.append(ul([
-        "proje kapsamı",
-        "ekran veya sayfa sayısı",
-        "kullanıcı araştırması ihtiyacı",
-        "entegrasyon gereksinimleri",
-        "prototip ve test süreci",
-    ]))
-    body.append(p("Her proje farklı ihtiyaçlara sahip olduğu için kapsam ve bütçe genellikle proje ihtiyaçlarına göre belirlenir."))
-
-    body.append(h2("Doğru UI/UX Tasarım Ajansı Nasıl Seçilir?"))
-    body.append(p("Bir UI/UX tasarım ajansı seçerken aşağıdaki kriterlere dikkat etmek önemlidir."))
-    body.append(ul([
-        "güçlü bir portföy",
-        "kullanıcı odaklı tasarım yaklaşımı",
-        "teknik ekip ile iş birliği",
-        "sürdürülebilir tasarım sistemi",
-        "veri odaklı tasarım kararları",
-    ]))
-    body.append(p("Angraweb olarak, tasarım sürecinde yalnızca estetik değil aynı zamanda iş hedeflerine uygun kullanıcı deneyimi oluşturmayı hedefliyoruz."))
-
-    body.append(h2("İç Bağlantılar ve İlgili Konular"))
-    body.append(p("UI/UX tasarım sayfası, aşağıdaki ilgili konular ile bağlantılıdır:"))
-    body.append(ul([
-        "UI/UX Tasarım Rehberi",
-        "Wireframe Tasarımı",
-        "Figma Tasarım Süreci",
-        "UX Araştırması",
-        "Mobil Uygulama Arayüz Tasarımı",
-    ]))
-    body.append(p("Bu konular hakkında detaylı bilgi almak için ilgili rehber ve hizmet sayfalarını inceleyebilirsiniz."))
-
-    faq_json = faq([
-        ("UI/UX tasarım neden önemlidir?", "UI/UX tasarım, kullanıcıların bir dijital ürünü nasıl kullandığını belirler. Kullanıcı dostu bir tasarım, dönüşüm oranlarını ve kullanıcı memnuniyetini artırır."),
-        ("UI ve UX arasındaki fark nedir?", "UI görsel arayüz tasarımını ifade ederken, UX kullanıcıların ürünle etkileşim sırasında yaşadığı genel deneyimi kapsar."),
-        ("UI/UX tasarım süreci ne kadar sürer?", "Proje kapsamına bağlı olarak UI/UX tasarım süreci genellikle birkaç hafta ile birkaç ay arasında değişebilir."),
-        ("UI/UX tasarım SEO'yu etkiler mi?", "Evet. Kullanıcı deneyimi güçlü olan web siteleri daha iyi etkileşim oranlarına sahip olur ve bu durum arama motoru performansını olumlu etkiler."),
-        ("Hangi araçlar UI/UX tasarımında kullanılır?", "En yaygın kullanılan araçlar arasında Figma, Adobe XD ve Sketch gibi tasarım araçları bulunur."),
-    ])
-
-    body.append(h2("Sık Sorulan Sorular (SSS)"))
-    for item in faq_json:
-        body.append(h3(item["question"]))
-        body.append(p(item["answer"]))
-
-    body.append(p(f"Detaylar için: {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
-
-    content_html = "\n".join(body)
-    meta_title = "UI/UX Tasarım Hizmeti | Profesyonel Kullanıcı Deneyimi Tasarımı – Angraweb"
-    meta_description = (
-        "Angraweb ile profesyonel UI/UX tasarım hizmeti alın. Kullanıcı deneyimini geliştiren, dönüşüm oranlarını artıran ve modern arayüzlerle optimize edilmiş web ve mobil tasarımlar."
-    )
-    meta_title = clamp_text(meta_title, 60)
-    meta_description = clamp_text(meta_description, 160)
-
-    return {
-        "title": "UI/UX Tasarım Hizmeti",
-        "meta_title": meta_title,
-        "meta_description": meta_description,
-        "content_html": content_html,
-        "faq_json": faq_json,
         "published_at": timezone.now(),
     }
 
