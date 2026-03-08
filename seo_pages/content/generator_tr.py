@@ -7080,6 +7080,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_hosting_hizmeti_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Web Hosting Planları (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "web-hosting-planlari":
+        return _cluster_web_hosting_planlari_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: VPS Hosting (TR) — hosting-domain
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "vps-hosting":
@@ -8169,6 +8175,123 @@ def _cluster_hosting_hizmeti_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Hosting Hizmeti",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_web_hosting_planlari_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Web Hosting Planları (TR) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("Web Hosting Nedir?"))
+    body.append(p("Web hosting, bir web sitesinin internet üzerinde yayınlanmasını sağlayan sunucu hizmetidir. Bir web sitesi oluşturduğunuzda site dosyalarının internet kullanıcıları tarafından erişilebilir olması için bir sunucuda barındırılması gerekir."))
+    body.append(p("Bu sunucular web hosting hizmeti sağlayan şirketler tarafından yönetilir. Hosting hizmeti sayesinde web siteniz 7/24 internet üzerinde erişilebilir hale gelir."))
+    body.append(p("Bir hosting hizmeti genellikle şu bileşenleri içerir:"))
+    body.append(ul([
+        "sunucu altyapısı",
+        "veri depolama alanı",
+        "ağ bağlantısı",
+        "güvenlik sistemleri",
+    ]))
+    body.append(p("Doğru hosting planı seçmek web sitesinin performansı ve güvenliği açısından oldukça önemlidir."))
+
+    body.append(h2("Web Hosting Planları Nedir?"))
+    body.append(p("Web hosting planları, farklı ihtiyaçlara göre sunulan hosting seçenekleridir. Her plan belirli kaynaklara ve özelliklere sahiptir."))
+    body.append(p("Hosting planları genellikle şu kriterlere göre farklılık gösterir:"))
+    body.append(ul([
+        "disk alanı",
+        "trafik kapasitesi",
+        "işlemci ve RAM kaynakları",
+        "teknik destek",
+        "güvenlik özellikleri",
+    ]))
+    body.append(p("Web sitesinin büyüklüğüne ve trafik yoğunluğuna göre uygun hosting planı seçilmelidir."))
+
+    body.append(h2("Hosting Türleri"))
+    body.append(p("Web hosting hizmetleri farklı türlerde sunulabilir."))
+
+    body.append(h3("Paylaşımlı Hosting"))
+    body.append(p("Paylaşımlı hosting en yaygın hosting türlerinden biridir."))
+    body.append(p("Bu sistemde bir sunucu birden fazla web sitesi tarafından paylaşılır. Küçük web siteleri ve yeni projeler için ekonomik bir çözümdür."))
+    body.append(p("Avantajları:"))
+    body.append(ul(["ekonomik", "kolay yönetim", "hızlı kurulum"]))
+
+    body.append(h3("VPS Hosting"))
+    body.append(p("VPS (Virtual Private Server) hosting, daha güçlü ve esnek bir hosting çözümüdür."))
+    body.append(p("VPS hostingde sunucu sanal bölümlere ayrılır ve her kullanıcı kendine ait kaynaklara sahip olur."))
+    body.append(p("Avantajları:"))
+    body.append(ul(["daha yüksek performans", "sunucu kontrolü", "ölçeklenebilir altyapı"]))
+    body.append(p("Bu nedenle birçok web uygulaması VPS hosting kullanır."))
+
+    body.append(h3("Cloud Hosting"))
+    body.append(p("Cloud hosting, birden fazla sunucu üzerinde çalışan modern bir hosting altyapısıdır."))
+    body.append(p("Cloud hosting avantajları:"))
+    body.append(ul(["yüksek erişilebilirlik", "ölçeklenebilir kaynaklar", "güçlü performans"]))
+    body.append(p("Büyük web siteleri ve SaaS projeleri genellikle cloud hosting kullanır."))
+
+    body.append(h2("Hosting Planı Seçerken Nelere Dikkat Edilmeli?"))
+    body.append(p("Hosting planı seçerken bazı önemli faktörler göz önünde bulundurulmalıdır."))
+
+    body.append(h3("Performans"))
+    body.append(p("Web sitenizin hızlı açılması kullanıcı deneyimi ve SEO açısından önemlidir."))
+    body.append(p("Bu nedenle hosting sunucusunun güçlü altyapıya sahip olması gerekir."))
+
+    body.append(h3("Uptime"))
+    body.append(p("Uptime, bir web sitesinin ne kadar süre aktif kaldığını gösterir."))
+    body.append(p("Profesyonel hosting sağlayıcıları genellikle %99 uptime garantisi sunar."))
+
+    body.append(h3("Güvenlik"))
+    body.append(p("Hosting hizmeti güçlü güvenlik önlemleri içermelidir."))
+    body.append(p("Örneğin:"))
+    body.append(ul(["SSL desteği", "güvenlik duvarı", "düzenli yedekleme"]))
+    body.append(p("Bu önlemler web sitesini saldırılara karşı korur."))
+
+    body.append(h2("Hosting ve Domain İlişkisi"))
+    body.append(p("Domain ve hosting birlikte çalışır."))
+    body.append(p("Domain web sitesinin adresidir. Hosting ise web sitesinin dosyalarının bulunduğu sunucudur."))
+    body.append(p("Domain DNS ayarları sayesinde hosting sunucusuna bağlanır ve kullanıcılar web sitesine erişebilir."))
+
+    body.append(h2("Hosting Performans Optimizasyonu"))
+    body.append(p("Hosting performansını artırmak için bazı teknik optimizasyonlar yapılabilir."))
+    body.append(p("Örneğin:"))
+    body.append(ul([
+        "CDN kullanımı",
+        "cache sistemleri",
+        "server optimizasyonu",
+        "veritabanı performans ayarları",
+    ]))
+    body.append(p("Bu optimizasyonlar web sitesinin daha hızlı yüklenmesini sağlar."))
+
+    body.append(h2("Angraweb Web Hosting Hizmetleri"))
+    body.append(p("Angraweb olarak işletmeler için güvenli ve yüksek performanslı web hosting çözümleri sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları içerir:"))
+    body.append(ul([
+        "web hosting kurulumu",
+        "VPS sunucu yapılandırması",
+        "cloud hosting altyapısı",
+        "güvenlik optimizasyonu",
+        "performans ayarları",
+    ]))
+    body.append(p("Amacımız işletmelerin web sitelerini hızlı, güvenli ve kesintisiz şekilde yayınlamalarını sağlamaktır."))
+
+    body.append(h2("Web Siteniz İçin Doğru Hosting Planını Seçin"))
+    body.append(p("Doğru hosting planı, web sitenizin performansı ve güvenliği açısından kritik öneme sahiptir."))
+    body.append(p(f"Angraweb ile iletişime geçerek projeniz için en uygun web hosting planını belirleyebilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Web Hosting Planları | Güvenli ve Hızlı Hosting – Angraweb"
+    meta_description = (
+        "Web hosting planları ile web sitenizi hızlı ve güvenli şekilde yayınlayın. Paylaşımlı hosting, VPS ve cloud hosting çözümleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Hosting Planları",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

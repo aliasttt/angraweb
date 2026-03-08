@@ -176,6 +176,7 @@ SERVICE_SILO_MAP: Dict[str, dict] = {
             "base_path": "hosting-domain",
             "clusters": [
                 "hosting-hizmeti",
+                "web-hosting-planlari",
                 "vps-hosting",
                 "ozel-sunucu-kiralama",
                 "bulut-sunucu",
@@ -192,6 +193,7 @@ SERVICE_SILO_MAP: Dict[str, dict] = {
             "base_path": "hosting-domain",
             "clusters": [
                 "web-hosting-services",
+                "web-hosting-plans",
                 "vps-hosting",
                 "dedicated-server-hosting",
                 "cloud-hosting",

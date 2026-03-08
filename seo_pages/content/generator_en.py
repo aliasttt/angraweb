@@ -3553,6 +3553,71 @@ def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_web_hosting_plans_en(page: SeoPage) -> Dict:
+    """Custom cluster: Web Hosting Plans (EN) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("What Is Web Hosting?"))
+    body.append(p("Web hosting is a service that allows websites to be published and accessible on the internet."))
+    body.append(p("When you create a website, its files must be stored on a server so that users can access them online."))
+    body.append(p("Hosting providers manage these servers and ensure that websites remain available 24/7."))
+    body.append(p("A typical hosting service includes:"))
+    body.append(ul([
+        "server infrastructure",
+        "storage space",
+        "network connectivity",
+        "security systems",
+    ]))
+    body.append(p("Choosing the right hosting plan is essential for website performance and reliability."))
+
+    body.append(h2("Types of Web Hosting"))
+    body.append(p("Different hosting solutions exist depending on the needs of a project."))
+
+    body.append(h3("Shared Hosting"))
+    body.append(p("Shared hosting is one of the most common hosting types. Multiple websites share the same server resources."))
+    body.append(p("It is ideal for small websites and new projects."))
+
+    body.append(h3("VPS Hosting"))
+    body.append(p("VPS (Virtual Private Server) hosting provides dedicated virtual resources within a server."))
+    body.append(p("It offers better performance and more control compared to shared hosting."))
+
+    body.append(h3("Cloud Hosting"))
+    body.append(p("Cloud hosting uses multiple servers working together to provide scalable infrastructure."))
+    body.append(p("It is commonly used for larger websites and web applications."))
+
+    body.append(h2("Choosing the Right Hosting Plan"))
+    body.append(p("When selecting a hosting plan, consider these factors:"))
+    body.append(ul([
+        "performance",
+        "uptime reliability",
+        "security features",
+        "scalability",
+    ]))
+    body.append(p("A reliable hosting provider should guarantee high uptime and strong security."))
+
+    body.append(h2("Start Your Web Hosting Setup"))
+    body.append(p("Choosing the right hosting infrastructure is essential for building a fast and reliable website."))
+    body.append(p("At Angraweb we help businesses choose and deploy secure hosting solutions tailored to their needs."))
+    body.append(p(f"Contact us to learn more about our web hosting services. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Web Hosting Plans | Secure, Fast Hosting – Angraweb"
+    meta_description = (
+        "Web hosting plans to publish your website fast and securely. Shared hosting, VPS and cloud hosting solutions."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Hosting Plans",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_vps_hosting_en(page: SeoPage) -> Dict:
     """Custom cluster: VPS Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -8985,6 +9050,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "web-hosting-services":
         return _cluster_web_hosting_services_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Web Hosting Plans (EN) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "web-hosting-plans":
+        return _cluster_web_hosting_plans_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: VPS Hosting (EN) — hosting-domain
