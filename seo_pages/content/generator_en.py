@@ -3974,6 +3974,71 @@ def _cluster_ssl_certificate_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_linux_server_setup_en(page: SeoPage) -> Dict:
+    """Custom cluster: Linux Server Setup (EN) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("What Is Linux Server Setup?"))
+    body.append(p("Linux server setup is the process of configuring a server environment using the Linux operating system to run websites, applications, or cloud infrastructure."))
+    body.append(p("Linux servers are widely used because they provide strong security, flexibility, and performance."))
+    body.append(p("A typical Linux server setup includes:"))
+    body.append(ul(["operating system installation", "server security configuration", "web server installation", "database setup", "performance optimization"]))
+    body.append(p("Proper configuration ensures that websites and applications run reliably and securely."))
+
+    body.append(h2("Why Use Linux Servers?"))
+    body.append(p("Linux servers offer several advantages for modern web infrastructure."))
+
+    body.append(h3("Performance"))
+    body.append(p("Linux efficiently uses system resources, which makes it ideal for VPS and cloud servers."))
+
+    body.append(h3("Security"))
+    body.append(p("Linux provides strong access control and security mechanisms that help protect servers from attacks."))
+
+    body.append(h3("Flexibility"))
+    body.append(p("Because Linux is open source, it can be customized and integrated with many technologies."))
+
+    body.append(h2("Linux Server Installation Process"))
+    body.append(p("A professional Linux server setup typically includes several steps."))
+
+    body.append(h3("Operating System Installation"))
+    body.append(p("Common Linux distributions used for servers include:"))
+    body.append(ul(["Ubuntu Server", "Debian", "CentOS", "AlmaLinux"]))
+    body.append(p("These systems are optimized for server environments."))
+
+    body.append(h3("Server Security"))
+    body.append(p("Security hardening is one of the most important steps of server configuration."))
+    body.append(p("Common security practices include:"))
+    body.append(ul(["SSH protection", "firewall configuration", "disabling root login", "system updates"]))
+
+    body.append(h3("Web Server Installation"))
+    body.append(p("To host websites, a web server must be installed. Popular web servers include: Nginx, Apache. These servers allow websites to be accessible over the internet."))
+
+    body.append(h3("Database Setup"))
+    body.append(p("Most modern applications require a database. Common Linux database systems include: MySQL, PostgreSQL, MariaDB. Proper database setup improves overall system performance."))
+
+    body.append(h2("Start Your Linux Server Setup"))
+    body.append(p("A properly configured Linux server provides a secure and reliable foundation for websites and applications."))
+    body.append(p("At Angraweb we help businesses deploy and manage secure Linux server infrastructure for their digital projects."))
+    body.append(p(f"Contact us to learn more about Linux server setup services. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Linux Server Setup | Secure Linux Server Configuration – Angraweb"
+    meta_description = (
+        "Professional Linux server setup and secure configuration. Ubuntu, Debian, VPS and cloud servers. Web server, database and security optimization."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Linux Server Setup",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -8956,6 +9021,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "ssl-certificate":
         return _cluster_ssl_certificate_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Linux Server Setup (EN) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "linux-server-setup":
+        return _cluster_linux_server_setup_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development

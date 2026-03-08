@@ -7117,6 +7117,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_ssl_sertifikasi_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Linux Sunucu Kurulumu (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "linux-sunucu-kurulumu":
+        return _cluster_linux_sunucu_kurulumu_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -8800,6 +8806,78 @@ def _cluster_ssl_sertifikasi_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "SSL Sertifikası",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_linux_sunucu_kurulumu_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Linux Sunucu Kurulumu (TR) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("Linux Sunucu Kurulumu Nedir?"))
+    body.append(p("Linux sunucu kurulumu, bir web sitesi veya uygulamanın çalışabilmesi için gerekli olan sunucu altyapısının Linux işletim sistemi üzerinde yapılandırılması sürecidir."))
+    body.append(p("Linux sunucular günümüzde web hosting, cloud sistemleri ve uygulama altyapıları için en çok tercih edilen platformlardan biridir. Bunun nedeni Linux sistemlerinin yüksek performans, güvenlik ve esneklik sunmasıdır."))
+    body.append(p("Bir Linux server kurulumu genellikle aşağıdaki işlemleri içerir:"))
+    body.append(ul(["işletim sistemi kurulumu", "güvenlik yapılandırması", "web sunucusu kurulumu", "veritabanı kurulumu", "performans optimizasyonu"]))
+    body.append(p("Doğru yapılandırılmış bir Linux sunucusu, web sitelerinin daha hızlı ve güvenli çalışmasını sağlar."))
+
+    body.append(h2("Linux Sunucular Neden Tercih Edilir?"))
+    body.append(p("Linux sunucular özellikle modern web projeleri için birçok avantaj sunar."))
+    body.append(h3("Yüksek Performans"))
+    body.append(p("Linux sistemleri kaynakları verimli kullanır. Bu nedenle VPS ve cloud sunucularda yüksek performans sağlar."))
+    body.append(h3("Güvenlik"))
+    body.append(p("Linux, güçlü kullanıcı yönetimi ve güvenlik araçları sayesinde sunucu güvenliği açısından oldukça güçlüdür."))
+    body.append(h3("Esneklik"))
+    body.append(p("Linux sunucular açık kaynaklıdır ve farklı yazılımlar ile kolayca entegre edilebilir."))
+
+    body.append(h2("Linux Sunucu Kurulum Süreci"))
+    body.append(p("Profesyonel bir Linux server kurulumu belirli adımlarla gerçekleştirilir."))
+
+    body.append(h3("İşletim Sistemi Kurulumu"))
+    body.append(p("Sunucu kurulumu genellikle şu Linux dağıtımları ile yapılır: Ubuntu Server, Debian, CentOS, AlmaLinux. Bu sistemler sunucu yönetimi için optimize edilmiştir."))
+
+    body.append(h3("Sunucu Güvenliği (Server Hardening)"))
+    body.append(p("Sunucu güvenliği, Linux kurulumunun en kritik adımlarından biridir. Bu aşamada genellikle şu işlemler yapılır:"))
+    body.append(ul(["SSH güvenliği", "firewall yapılandırması", "root erişim kısıtlaması", "güvenlik güncellemeleri"]))
+    body.append(p("Bu işlemler sunucuyu saldırılara karşı korur."))
+
+    body.append(h3("Web Server Kurulumu"))
+    body.append(p("Linux sunucular üzerinde web siteleri çalıştırmak için web server kurulumu yapılır. En yaygın kullanılan web sunucuları: Nginx, Apache. Bu sunucular web sitelerinin internet üzerinden erişilebilir olmasını sağlar."))
+
+    body.append(h3("Veritabanı Kurulumu"))
+    body.append(p("Web uygulamalarının büyük çoğunluğu veritabanı kullanır. Linux sunucularda en çok kullanılan veritabanları: MySQL, PostgreSQL, MariaDB. Veritabanı kurulumu ve optimizasyonu sunucu performansı açısından önemlidir."))
+
+    body.append(h2("Linux Sunucu Performans Optimizasyonu"))
+    body.append(p("Sunucu kurulumu tamamlandıktan sonra performans optimizasyonu yapılmalıdır. Bu işlemler şunları içerir: cache yapılandırması, server tuning, database optimizasyonu, kaynak yönetimi. Doğru optimizasyon sayesinde web siteleri daha hızlı yüklenir."))
+
+    body.append(h2("VPS Linux Sunucu Kurulumu"))
+    body.append(p("VPS sunucular Linux altyapısı ile en sık kullanılan hosting çözümlerinden biridir. VPS Linux kurulumu genellikle şu işlemleri içerir: temel sunucu yapılandırması, SSH erişimi, web server kurulumu, SSL yapılandırması, deployment ortamı. Bu yapı özellikle web uygulamaları için ideal bir ortam sağlar."))
+
+    body.append(h2("Linux Sunucu Güvenliği"))
+    body.append(p("Linux sunucuların güvenli olması için bazı ek önlemler alınmalıdır. Örneğin: fail2ban kurulumu, firewall yapılandırması, güvenli SSH ayarları, düzenli sistem güncellemeleri. Bu güvenlik önlemleri sunucunun saldırılara karşı korunmasına yardımcı olur."))
+
+    body.append(h2("Angraweb Linux Server Hizmetleri"))
+    body.append(p("Angraweb olarak Linux sunucu kurulumu ve yönetimi konusunda profesyonel hizmetler sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları içerir: Linux server kurulumu, VPS yapılandırması, web server kurulumu, güvenlik optimizasyonu, performans ayarları. Amacımız işletmeler için güvenli ve yüksek performanslı sunucu altyapıları oluşturmaktır."))
+
+    body.append(h2("Projeniz İçin Linux Sunucu Kurulumu"))
+    body.append(p("Doğru yapılandırılmış bir Linux sunucusu, web sitenizin hızlı, güvenli ve stabil çalışmasını sağlar."))
+    body.append(p(f"Angraweb ile iletişime geçerek projeniz için en uygun Linux server altyapısı hakkında bilgi alabilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Linux Sunucu Kurulumu | Güvenli Linux Server Setup – Angraweb"
+    meta_description = (
+        "Linux sunucu kurulumu ve güvenli server yapılandırması. Ubuntu, Debian ve VPS sunucular için profesyonel Linux server setup ve optimizasyon hizmetleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Linux Sunucu Kurulumu",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
