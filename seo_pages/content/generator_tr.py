@@ -7015,6 +7015,8 @@ def generate_tr(page: SeoPage) -> Dict:
             return _seo_services_quote_tr(page)
         if page.service.key == "hosting-domain":
             return _hosting_domain_quote_tr(page)
+        if page.service.key == "ui-ux-design":
+            return _ui_ux_quote_tr(page)
         title = f"{svc} Teklif Al"
         meta = make_meta(
             title=title,
@@ -8600,6 +8602,226 @@ def _hosting_domain_guide_tr(page: SeoPage) -> Dict:
         "meta_description": meta_description,
         "content_html": content_html,
         "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _ui_ux_quote_tr(page: SeoPage) -> Dict:
+    """Custom quote page: UI/UX Tasarım Teklif Al (TR) — teklif süreci, brif, fiyat aralıkları."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Bir dijital ürün geliştirmek için doğru UI/UX tasarım planı oluşturmak, projenin başarısını doğrudan etkiler. "
+            "Web sitesi, mobil uygulama veya SaaS platformu geliştiren işletmeler için kullanıcı deneyimi tasarımı; kullanıcı memnuniyetini artıran ve dönüşüm oranlarını yükselten kritik bir adımdır."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak UI/UX tasarım projelerinde, her işletmenin ihtiyaçlarını ayrı değerlendiriyoruz. "
+            "Projenizin hedeflerine, kullanıcı kitlesine ve teknik gereksinimlerine göre özel bir tasarım planı oluşturuyoruz."
+        )
+    )
+    body.append(
+        p(
+            "Bu sayfada UI/UX tasarım teklif sürecinin nasıl ilerlediğini ve teklif almak için hangi bilgilerin gerekli olduğunu öğrenebilirsiniz."
+        )
+    )
+
+    body.append(h2("UI/UX Tasarım Teklif Süreci Nasıl İşler?"))
+    body.append(
+        p(
+            "Bir UI/UX tasarım projesi için teklif süreci genellikle birkaç temel aşamadan oluşur."
+        )
+    )
+
+    body.append(h3("1. Kısa Proje Brifi"))
+    body.append(p("İlk aşamada projenizin temel bilgilerini öğreniriz."))
+    body.append(p("Bu aşamada genellikle şu bilgiler paylaşılır:"))
+    body.append(
+        ul(
+            [
+                "proje hedefi",
+                "hedef kullanıcı kitlesi",
+                "tasarlanacak sayfalar veya ekranlar",
+                "proje kapsamı",
+            ]
+        )
+    )
+    body.append(p("Bu bilgiler tasarım sürecinin doğru planlanmasını sağlar."))
+
+    body.append(h3("2. Ön Görüşme"))
+    body.append(p("Projenin detaylarını netleştirmek için kısa bir görüşme yapılır."))
+    body.append(p("Bu görüşmede:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı akışları",
+                "teknik gereksinimler",
+                "tasarım beklentileri",
+                "proje zaman planı",
+            ]
+        )
+    )
+    body.append(p("gibi konular değerlendirilir."))
+
+    body.append(h3("3. Proje Planı"))
+    body.append(p("Görüşme sonrası proje için bir tasarım planı hazırlanır."))
+    body.append(p("Plan genellikle şu bilgileri içerir:"))
+    body.append(
+        ul(
+            [
+                "proje kapsamı",
+                "tasarım aşamaları",
+                "teslim süreleri",
+                "proje kilometre taşları",
+            ]
+        )
+    )
+
+    body.append(h3("4. Teklif ve Başlangıç"))
+    body.append(p("Son aşamada proje için detaylı teklif hazırlanır."))
+    body.append(p("Teklif içerisinde genellikle şu bilgiler bulunur:"))
+    body.append(
+        ul(
+            [
+                "proje kapsamı",
+                "tasarım aşamaları",
+                "fiyatlandırma",
+                "ödeme planı",
+            ]
+        )
+    )
+    body.append(p("Teklif onaylandıktan sonra UI/UX tasarım süreci başlatılır."))
+
+    body.append(h2("Teklif İçin Hangi Bilgileri Paylaşmalısınız?"))
+    body.append(
+        p(
+            "Hızlı ve doğru bir teklif hazırlayabilmemiz için bazı temel bilgilerin paylaşılması önemlidir."
+        )
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "projenin ana hedefi (satış, lead, marka vb.)",
+                "tasarlanacak sayfa veya ekran sayısı",
+                "referans alınan web siteleri",
+                "proje zaman planı",
+            ]
+        )
+    )
+    body.append(p("Bu bilgiler teklif sürecinin daha hızlı ilerlemesini sağlar."))
+
+    body.append(h2("UI/UX Tasarım Projelerinde Güven ve Şeffaflık"))
+    body.append(
+        p(
+            "Başarılı bir proje yalnızca tasarım kalitesi ile değil; aynı zamanda doğru süreç yönetimi ile mümkündür."
+        )
+    )
+    body.append(p("Angraweb projelerinde şu prensiplere önem verir:"))
+    body.append(
+        ul(
+            [
+                "net proje kapsamı",
+                "açık iletişim",
+                "yazılı teslim kriterleri",
+                "düzenli proje raporları",
+            ]
+        )
+    )
+    body.append(p("Bu yaklaşım projelerin daha hızlı ve sorunsuz ilerlemesini sağlar."))
+
+    body.append(h2("Tipik UI/UX Tasarım Fiyat Aralıkları"))
+    body.append(
+        p(
+            "UI/UX tasarım projeleri kapsamına göre farklı bütçelerde planlanabilir."
+        )
+    )
+    body.append(p("Ortalama fiyat aralıkları:"))
+    body.append(
+        ul(
+            [
+                "<strong>Kurumsal web sitesi:</strong> 8.000 – 25.000 TL",
+                "<strong>E-ticaret UI/UX tasarımı:</strong> 25.000 – 120.000 TL",
+                "<strong>Mobil uygulama tasarımı:</strong> 60.000 – 350.000 TL",
+                "<strong>Özel yazılım / SaaS platformu:</strong> 80.000 TL ve üzeri",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Kesin fiyatlandırma proje kapsamı, entegrasyon ihtiyaçları ve tasarım detaylarına göre belirlenir."
+        )
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("UI/UX tasarım teklif sayfası aşağıdaki konularla bağlantılıdır:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/fiyatlar/ }}}}",
+                f"{{{{ link:/tr/{base}/rehber/ }}}}",
+                f"{{{{ link:/tr/{base}/ux-arastirmasi/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+            ]
+        )
+    )
+    body.append(p("Bu sayfaları inceleyerek UI/UX tasarım süreci hakkında daha detaylı bilgi alabilirsiniz."))
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve fiyat teklifi almak için teklif formunu doldurun.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "UI/UX Tasarım Teklif Al | Profesyonel UI UX Tasarım Hizmeti – Angraweb"
+    meta_description = (
+        "UI/UX tasarım projeniz için hızlı teklif alın. Web sitesi, mobil uygulama ve SaaS projeleri için kullanıcı deneyimi tasarım planı ve fiyat teklifi."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "UI/UX tasarım teklifi ne kadar sürede hazırlanır?",
+                "Proje brifi net ise genellikle kısa bir ön görüşmeden sonra teklif hızlı şekilde hazırlanabilir.",
+            ),
+            (
+                "Görüşme online yapılabilir mi?",
+                "Evet. Çoğu proje için görüşmeler online olarak yapılabilir.",
+            ),
+            (
+                "Proje kapsamı değişirse ne olur?",
+                "Kapsam değişiklikleri proje planına göre yeniden değerlendirilir ve güncellenmiş teklif hazırlanabilir.",
+            ),
+            (
+                "UI/UX tasarım sonrası geliştirme hizmeti de sunuyor musunuz?",
+                "Evet. UI/UX tasarımın yanı sıra web geliştirme ve yazılım geliştirme hizmetleri de sunuyoruz.",
+            ),
+            (
+                "Tasarım teslimleri hangi formatta yapılır?",
+                "Tasarım dosyaları genellikle Figma veya benzeri tasarım araçları üzerinden paylaşılır.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "UI/UX Tasarım Teklif Al",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
         "published_at": timezone.now(),
     }
 

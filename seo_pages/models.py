@@ -203,6 +203,7 @@ class SeoPage(models.Model):
         )
         if (
             self.page_type != self.TYPE_PRICING
+            and self.page_type != self.TYPE_QUOTE
             and html
             and service_key != "ecommerce-development"
             and not is_pricing_cluster

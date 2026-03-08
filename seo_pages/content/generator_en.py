@@ -3950,6 +3950,162 @@ def _hosting_domain_quote_en(page: SeoPage) -> Dict:
     }
 
 
+def _ui_ux_quote_en(page: SeoPage) -> Dict:
+    """Custom quote page: UI/UX Design Quote (EN) — proposal process, brief, pricing."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Creating a successful digital product requires a well-planned UI/UX design strategy. "
+            "Whether you are developing a website, mobile application, or SaaS platform, user experience design plays a crucial role in usability, engagement, and conversion rates."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb, we provide tailored UI/UX design solutions based on the needs of each project. "
+            "Our design process focuses on understanding your users, defining clear user flows, and creating intuitive interfaces."
+        )
+    )
+    body.append(
+        p(
+            "This page explains how our UI/UX design proposal process works and what information is needed to prepare an accurate quote."
+        )
+    )
+
+    body.append(h2("How the UI/UX Design Proposal Process Works"))
+    body.append(
+        p(
+            "A typical UI/UX design project starts with understanding the project requirements."
+        )
+    )
+
+    body.append(h3("Project Brief"))
+    body.append(p("The first step is collecting basic project information such as:"))
+    body.append(
+        ul(
+            [
+                "project goals",
+                "target audience",
+                "number of pages or screens",
+                "main features",
+            ]
+        )
+    )
+    body.append(p("This information helps define the project scope."))
+
+    body.append(h3("Discovery Call"))
+    body.append(
+        p(
+            "A short discovery meeting helps clarify the design requirements and project expectations."
+        )
+    )
+    body.append(p("During this stage we discuss:"))
+    body.append(
+        ul(
+            [
+                "user flows",
+                "design references",
+                "technical requirements",
+                "project timeline",
+            ]
+        )
+    )
+
+    body.append(h3("Project Plan"))
+    body.append(p("After the discovery stage, we prepare a project plan that includes:"))
+    body.append(
+        ul(
+            [
+                "design stages",
+                "timeline",
+                "deliverables",
+                "milestones",
+            ]
+        )
+    )
+
+    body.append(h3("Proposal and Project Start"))
+    body.append(p("Finally, we prepare a detailed design proposal including:"))
+    body.append(
+        ul(
+            [
+                "project scope",
+                "UI/UX design stages",
+                "pricing",
+                "payment plan",
+            ]
+        )
+    )
+    body.append(p("Once approved, the design process begins."))
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p(
+            "The UI/UX design quote page is linked to the following topics:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/pricing/ }}}}",
+                f"{{{{ link:/en/{base}/guide/ }}}}",
+                f"{{{{ link:/en/{base}/ux-research/ }}}}",
+                f"{{{{ link:/en/{base}/wireframe-design/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Fill out the quote form to get a scope and pricing proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "UI UX Design Quote | Get a Professional UI UX Design Proposal – Angraweb"
+    meta_description = (
+        "Request a UI UX design quote for your website, mobile app, or SaaS platform. Learn how the UI UX design proposal process works."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "How long does it take to prepare a UI/UX design quote?",
+                "If the project brief is clear, a proposal can usually be prepared shortly after a discovery call.",
+            ),
+            (
+                "Can the meeting be held online?",
+                "Yes. Most project discussions can be done through online meetings.",
+            ),
+            (
+                "What happens if the project scope changes?",
+                "Scope changes are reviewed and the proposal can be updated accordingly.",
+            ),
+            (
+                "Do you provide development services after UI/UX design?",
+                "Yes. We also provide web development and software development services.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Get a UI/UX Design Quote",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -9711,6 +9867,8 @@ def generate_en(page: SeoPage) -> Dict:
             return _seo_services_quote_en(page)
         if page.service.key == "hosting-domain":
             return _hosting_domain_quote_en(page)
+        if page.service.key == "ui-ux-design":
+            return _ui_ux_quote_en(page)
         title = f"Get a Quote for {svc}"
         meta = make_meta(
             title=title,

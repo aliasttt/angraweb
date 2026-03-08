@@ -496,15 +496,20 @@ systemctl restart angraweb
 
 
 
+# اگر روی سرور خطای «unmerged files» یا «local changes would be overwritten» گرفتید، یک‌بار این را اجرا کنید:
+#   sudo -u angraweb bash -lc "cd /srv/angraweb && git merge --abort 2>/dev/null; git fetch origin && git reset --hard origin/main"
+# بعد دوباره همین بلوک دیپلوی را اجرا کنید.
+
 sudo -u angraweb bash -lc "
 cd /srv/angraweb || exit 1
 
-# Git: fix safe directory
+# Git: fix safe directory + pull latest
 git config --global --add safe.directory /srv/angraweb
-# If pull fails with 'local changes to db.sqlite3 would be overwritten', stash first (keeps server DB), then pull, then pop
-git stash push -m 'deploy stash' -- db.sqlite3 2>/dev/null || true
+# If unmerged files (conflict): abort merge and reset to remote so pull can run
+git merge --abort 2>/dev/null || true
+git fetch origin
+git reset --hard origin/main
 git pull --ff-only || exit 1
-git stash pop 2>/dev/null || true
 
 # Load env + activate venv
 set -a
@@ -517,8 +522,8 @@ python manage.py migrate --noinput || exit 1
 python manage.py collectstatic --noinput || exit 1
 
 
-python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=pricing --force
-python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=pricing --force
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=guide --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=guide --force
 "
 
 # Restart services
