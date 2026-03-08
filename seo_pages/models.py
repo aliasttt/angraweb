@@ -193,11 +193,19 @@ class SeoPage(models.Model):
 
         # Pricing intent: non-pricing pages should not contain pricing-heavy language.
         # E-commerce development pages often mention packages/pricing in a service context; skip this check for them.
+        # Cluster pages that are explicitly about pricing (e.g. web-hosting-fiyatlari, web-hosting-pricing) are allowed.
         service_key = getattr(self.service, "key", None) if self.service_id else None
+        slug_lower = (self.slug or "").strip().lower()
+        is_pricing_cluster = (
+            self.page_type == self.TYPE_CLUSTER
+            and slug_lower
+            and any(x in slug_lower for x in ("fiyatlari", "pricing", "-cost"))
+        )
         if (
             self.page_type != self.TYPE_PRICING
             and html
             and service_key != "ecommerce-development"
+            and not is_pricing_cluster
         ):
             # Ignore text inside <a>...</a> (anchor text) to avoid flagging link text like "fiyatlar"
             body_only = re.sub(r"<a\b[^>]*>.*?</a>", " ", html, flags=re.DOTALL | re.IGNORECASE)
