@@ -499,9 +499,12 @@ systemctl restart angraweb
 sudo -u angraweb bash -lc "
 cd /srv/angraweb || exit 1
 
-# Git: fix safe directory + pull latest
+# Git: fix safe directory
 git config --global --add safe.directory /srv/angraweb
+# If pull fails with 'local changes to db.sqlite3 would be overwritten', stash first (keeps server DB), then pull, then pop
+git stash push -m 'deploy stash' -- db.sqlite3 2>/dev/null || true
 git pull --ff-only || exit 1
+git stash pop 2>/dev/null || true
 
 # Load env + activate venv
 set -a
@@ -513,8 +516,9 @@ source /srv/angraweb/venv/bin/activate
 python manage.py migrate --noinput || exit 1
 python manage.py collectstatic --noinput || exit 1
 
-python manage.py generate_seo_content --language=tr --service=hosting-domain --page-type=pillar --force
-python manage.py generate_seo_content --language=en --service=hosting-domain --page-type=pillar --force
+
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=pricing --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=pricing --force
 "
 
 # Restart services
