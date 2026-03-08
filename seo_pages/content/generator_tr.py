@@ -7105,6 +7105,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_django_deployment_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Domain Satın Alma (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and _slug in ("domain-satin-al", "domain-satin-alma"):
+        return _cluster_domain_satin_al_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -8616,6 +8622,96 @@ def _cluster_django_deployment_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Django Yayınlama",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_domain_satin_al_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Domain Satın Alma (TR) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("Domain Satın Alma Nedir?"))
+    body.append(p("Domain satın alma, bir web sitesinin internet üzerindeki adresini kayıt altına alma işlemidir. Alan adı olarak da bilinen domain, kullanıcıların web sitenize ulaşmasını sağlayan benzersiz bir adres görevi görür."))
+    body.append(p("Örneğin:"))
+    body.append(ul(["angraweb.com", "example.com", "şirketadi.com"]))
+    body.append(p("gibi adresler birer domain adıdır."))
+    body.append(p("Bir web sitesi oluşturmak isteyen işletmeler için doğru domain seçimi oldukça önemlidir. Çünkü alan adı, markanın dijital kimliğini temsil eder."))
+
+    body.append(h2("Doğru Domain Nasıl Seçilir?"))
+    body.append(p("Alan adı seçerken birkaç önemli faktör göz önünde bulundurulmalıdır."))
+
+    body.append(h3("Kısa ve Akılda Kalıcı Olmalı"))
+    body.append(p("İyi bir domain kısa ve kolay hatırlanabilir olmalıdır. Uzun ve karmaşık alan adları kullanıcılar için zor olabilir."))
+    body.append(p("Örneğin: ✔ example.com — ✖ best-super-professional-company-example.com"))
+    body.append(p("Kısa domainler hem kullanıcı deneyimi hem de marka bilinirliği açısından avantaj sağlar."))
+
+    body.append(h3("Marka ile Uyumlu Olmalı"))
+    body.append(p("Domain adı markanızla uyumlu olmalıdır. Kullanıcılar alan adını gördüklerinde markayı kolayca tanıyabilmelidir. Bu nedenle çoğu işletme marka adını domain olarak kullanmayı tercih eder."))
+
+    body.append(h3("Doğru Domain Uzantısı"))
+    body.append(p("Alan adı uzantısı da önemli bir faktördür. En yaygın domain uzantıları şunlardır:"))
+    body.append(ul([".com – en popüler ve global uzantı", ".net – teknoloji ve internet projeleri", ".org – organizasyonlar", ".com.tr – Türkiye odaklı projeler"]))
+    body.append(p("Doğru uzantı seçimi hedef kitlenize göre yapılmalıdır."))
+
+    body.append(h2("Domain Satın Alma Süreci"))
+    body.append(p("Domain satın alma işlemi genellikle birkaç basit adımdan oluşur."))
+
+    body.append(h3("Domain Uygunluk Kontrolü"))
+    body.append(p("İlk adım seçilen domain adının daha önce kayıt edilip edilmediğini kontrol etmektir. Eğer domain boşta ise kayıt işlemi yapılabilir."))
+
+    body.append(h3("Domain Kaydı"))
+    body.append(p("Alan adı uygun ise domain kayıt işlemi gerçekleştirilir. Domain genellikle şu süreler için satın alınabilir: 1 yıl, 2 yıl, 5 yıl, 10 yıl. Kayıt süresi sona erdiğinde domain yenilenmesi gerekir."))
+
+    body.append(h3("DNS Yapılandırması"))
+    body.append(p("Domain satın alındıktan sonra DNS ayarları yapılmalıdır. DNS ayarları sayesinde domain: web sitesine yönlendirilir, e-posta servislerine bağlanır, sunucu altyapısına bağlanır. Doğru DNS yapılandırması web sitenizin düzgün çalışması için önemlidir."))
+
+    body.append(h2("Domain Yönetimi"))
+    body.append(p("Domain satın almak sürecin yalnızca ilk adımıdır. Alan adlarının doğru şekilde yönetilmesi gerekir."))
+    body.append(p("Domain yönetimi genellikle şu işlemleri içerir:"))
+    body.append(ul(["DNS yönetimi", "domain yenileme", "alan adı yönlendirme", "alt domain oluşturma"]))
+    body.append(p("Bu işlemler web sitenizin sorunsuz çalışmasını sağlar."))
+
+    body.append(h2("Domain ve Hosting İlişkisi"))
+    body.append(p("Domain ve hosting genellikle birlikte kullanılır. Domain, web sitenizin adresidir. Hosting ise web sitenizin dosyalarının saklandığı sunucu altyapısıdır."))
+    body.append(p("Bir web sitesi yayınlamak için genellikle şu iki bileşen gerekir:"))
+    body.append(ul(["Domain (alan adı)", "Hosting (sunucu altyapısı)"]))
+    body.append(p("Domain DNS ayarları ile hosting sunucusuna bağlanır."))
+
+    body.append(h2("Domain Güvenliği"))
+    body.append(p("Alan adlarının güvenliği oldukça önemlidir. Domain güvenliği için şu önlemler alınmalıdır:"))
+    body.append(ul(["güçlü hesap şifreleri", "domain kilitleme (domain lock)", "iki faktörlü doğrulama", "düzenli yenileme"]))
+    body.append(p("Bu önlemler domain hırsızlığı gibi riskleri azaltır."))
+
+    body.append(h2("Angraweb Domain Hizmetleri"))
+    body.append(p("Angraweb olarak işletmeler için domain kayıt ve yönetim hizmetleri sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları içerir:"))
+    body.append(ul([
+        "domain danışmanlığı",
+        "alan adı kayıt işlemleri",
+        "DNS yapılandırması",
+        "domain yönlendirme",
+        "hosting entegrasyonu",
+    ]))
+    body.append(p("Amacımız işletmelerin dijital projeleri için doğru domain altyapısını kurmalarına yardımcı olmaktır."))
+
+    body.append(h2("Projeniz İçin Domain Satın Alın"))
+    body.append(p("Bir web projesinin ilk adımı doğru alan adını seçmektir. Doğru domain, markanızın dijital dünyadaki görünürlüğünü artırır."))
+    body.append(p(f"Angraweb ile iletişime geçerek projeniz için en uygun domain adı ve hosting çözümleri hakkında bilgi alabilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Domain Satın Alma | Alan Adı Kaydı ve Domain Yönetimi – Angraweb"
+    meta_description = (
+        "Alan adı satın alma ve domain yönetimi hizmetleri. Markanıza uygun domain seçimi, kayıt işlemleri ve güvenli DNS yapılandırması."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Domain Satın Alma",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

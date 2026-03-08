@@ -3861,6 +3861,61 @@ def _cluster_django_hosting_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_domain_registration_en(page: SeoPage) -> Dict:
+    """Custom cluster: Domain Registration (EN) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("What Is Domain Registration?"))
+    body.append(p("Domain registration is the process of reserving a unique name that identifies a website on the internet. A domain name acts as the address that users type into their browser to access a website."))
+    body.append(p("Examples of domain names include:"))
+    body.append(ul(["example.com", "angraweb.com", "companyname.com"]))
+    body.append(p("Choosing the right domain name is an important step for building a strong online presence."))
+
+    body.append(h2("Choosing the Right Domain Name"))
+    body.append(p("A good domain name should be:"))
+    body.append(ul(["short and memorable", "easy to spell", "relevant to the brand", "simple for users to remember"]))
+    body.append(p("Short domain names are generally more effective for branding and marketing."))
+
+    body.append(h2("Domain Extensions"))
+    body.append(p("Domain extensions, also known as TLDs (Top Level Domains), define the ending of a domain name."))
+    body.append(p("Popular domain extensions include:"))
+    body.append(ul([".com – the most widely used global extension", ".net – often used by technology platforms", ".org – used by organizations", ".com.tr – Turkey-focused businesses"]))
+    body.append(p("Selecting the right extension depends on the target audience and geographic focus."))
+
+    body.append(h2("Domain Management"))
+    body.append(p("After registering a domain, proper management is required to maintain its functionality."))
+    body.append(p("Domain management includes:"))
+    body.append(ul(["DNS configuration", "domain renewal", "subdomain creation", "domain redirection"]))
+    body.append(p("Proper domain management ensures that websites remain accessible and secure."))
+
+    body.append(h2("Domain and Hosting"))
+    body.append(p("A domain name works together with web hosting."))
+    body.append(p("The domain acts as the address, while hosting provides the server where website files are stored."))
+    body.append(p("DNS settings connect the domain name to the hosting server so users can access the website."))
+
+    body.append(h2("Start Your Domain Registration"))
+    body.append(p("Choosing the right domain name is the first step in building a successful digital presence."))
+    body.append(p("At Angraweb we help businesses register and manage domain names while connecting them with reliable hosting infrastructure."))
+    body.append(p(f"Contact us to find the right domain solution for your project. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Domain Registration | Domain Name & DNS Management – Angraweb"
+    meta_description = (
+        "Professional domain registration and management. Choose the right domain, configure DNS and connect with reliable hosting infrastructure."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Domain Registration",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -8831,6 +8886,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "django-hosting":
         return _cluster_django_hosting_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Domain Registration (EN) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "domain-registration":
+        return _cluster_domain_registration_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development
