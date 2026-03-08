@@ -7097,6 +7097,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_bulut_sunucu_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Django Yayınlama (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "django-deployment":
+        return _cluster_django_deployment_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -8499,6 +8505,115 @@ def _cluster_bulut_sunucu_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Bulut Sunucu",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_django_deployment_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Django Yayınlama (TR) — hosting-domain, django-deployment."""
+    body: List[str] = []
+
+    body.append(h2("Django Yayınlama Nedir?"))
+    body.append(p("Django yayınlama (Django Deployment), Django framework kullanılarak geliştirilen web uygulamalarının internet üzerinde erişilebilir hale getirilmesi sürecidir. Bu süreç yalnızca kodu bir sunucuya yüklemekten ibaret değildir."))
+    body.append(p("Profesyonel bir Django deployment süreci genellikle şu bileşenleri içerir:"))
+    body.append(ul([
+        "web sunucusu yapılandırması",
+        "uygulama sunucusu kurulumu",
+        "veritabanı yapılandırması",
+        "güvenlik ayarları",
+        "performans optimizasyonu",
+    ]))
+    body.append(p("Doğru yapılandırılmış bir Django hosting ortamı, uygulamanın hızlı, güvenli ve stabil çalışmasını sağlar."))
+
+    body.append(h2("Django Deployment Nasıl Yapılır?"))
+    body.append(p("Django uygulamalarının production ortamına alınması birkaç teknik adımdan oluşur."))
+
+    body.append(h3("Sunucu Ortamı Kurulumu"))
+    body.append(p("İlk adım, uygulamanın çalışacağı sunucu ortamının hazırlanmasıdır."))
+    body.append(p("Genellikle Django projeleri Linux tabanlı sunucularda çalıştırılır. Bu ortamda şu bileşenler kurulur:"))
+    body.append(ul(["Python ortamı", "virtual environment", "gerekli Python paketleri", "veritabanı sistemi"]))
+    body.append(p("Bu yapı uygulamanın stabil çalışmasını sağlar."))
+
+    body.append(h3("Gunicorn veya uWSGI Kurulumu"))
+    body.append(p("Django uygulamaları genellikle WSGI sunucuları üzerinden çalıştırılır."))
+    body.append(p("En yaygın kullanılan WSGI çözümleri:"))
+    body.append(ul(["Gunicorn", "uWSGI"]))
+    body.append(p("Bu sunucular Django uygulamasının HTTP isteklerini işlemesini sağlar."))
+
+    body.append(h3("Nginx Reverse Proxy Yapılandırması"))
+    body.append(p("Production ortamında Django uygulamaları genellikle Nginx arkasında çalıştırılır."))
+    body.append(p("Nginx şu görevleri yerine getirir:"))
+    body.append(ul(["HTTP isteklerini yönlendirmek", "statik dosyaları sunmak", "SSL bağlantılarını yönetmek", "güvenlik katmanı oluşturmak"]))
+    body.append(p("Bu yapı Django uygulamasının daha güvenli ve hızlı çalışmasını sağlar."))
+
+    body.append(h2("Django Deployment İçin En İyi Hosting Seçenekleri"))
+    body.append(p("Django projeleri için farklı hosting seçenekleri vardır."))
+
+    body.append(h3("VPS Hosting"))
+    body.append(p("VPS hosting, Django projeleri için en yaygın kullanılan çözümlerden biridir."))
+    body.append(p("Avantajları:"))
+    body.append(ul(["verimli kaynak kullanımı", "esnek yapılandırma", "tam sunucu kontrolü"]))
+    body.append(p("Birçok startup ve web uygulaması VPS üzerinde çalıştırılır."))
+
+    body.append(h3("Cloud Hosting"))
+    body.append(p("Bulut sunucu altyapısı, ölçeklenebilir Django uygulamaları için idealdir."))
+    body.append(p("Cloud hosting avantajları:"))
+    body.append(ul(["yüksek erişilebilirlik", "otomatik ölçeklenebilirlik", "güçlü performans"]))
+    body.append(p("SaaS projeleri genellikle cloud server altyapısını tercih eder."))
+
+    body.append(h3("Dedicated Server"))
+    body.append(p("Büyük ve yüksek trafik alan uygulamalar için dedicated server çözümleri tercih edilir. Bu tür altyapılar maksimum performans sağlar."))
+
+    body.append(h3("CI/CD ile Otomatik Deployment"))
+    body.append(p("Modern yazılım projelerinde deployment süreci otomatik hale getirilebilir."))
+    body.append(p("CI/CD sistemleri sayesinde:"))
+    body.append(ul(["kod güncellemeleri otomatik deploy edilir", "test süreçleri otomatik çalışır", "sistem daha stabil hale gelir"]))
+    body.append(p("Django projelerinde sık kullanılan CI/CD araçları:"))
+    body.append(ul(["GitHub Actions", "GitLab CI", "Jenkins"]))
+    body.append(p("Bu sistemler geliştirme sürecini hızlandırır."))
+
+    body.append(h2("Django Deployment Güvenliği"))
+    body.append(p("Production ortamında çalışan Django uygulamalarının güvenliği büyük önem taşır."))
+    body.append(p("Güvenli bir Django deployment için şu önlemler alınmalıdır:"))
+    body.append(ul(["DEBUG modunun kapatılması", "güvenli SECRET_KEY kullanımı", "HTTPS zorunlu bağlantı", "güvenlik header yapılandırmaları"]))
+    body.append(p("Bu önlemler web uygulamasını olası saldırılara karşı korur."))
+
+    body.append(h3("Performans Optimizasyonu"))
+    body.append(p("Django uygulamalarında performans optimizasyonu kullanıcı deneyimini doğrudan etkiler."))
+    body.append(p("Performansı artırmak için:"))
+    body.append(ul(["caching sistemleri", "database optimizasyonu", "statik dosya yönetimi", "CDN kullanımı"]))
+    body.append(p("gibi yöntemler uygulanabilir. Bu optimizasyonlar web uygulamasının daha hızlı çalışmasını sağlar."))
+
+    body.append(h2("Angraweb Django Deployment Hizmetleri"))
+    body.append(p("Angraweb olarak Django projeleri için profesyonel deployment çözümleri sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları içerir:"))
+    body.append(ul([
+        "Django production kurulumu",
+        "Nginx ve Gunicorn yapılandırması",
+        "CI/CD kurulumu",
+        "güvenlik sertleştirme",
+        "performans optimizasyonu",
+    ]))
+    body.append(p("Amacımız Django projelerinin güvenli ve ölçeklenebilir bir altyapı üzerinde çalışmasını sağlamaktır."))
+
+    body.append(h2("Django Projenizi Yayınlayın"))
+    body.append(p("Eğer bir Django web uygulaması geliştirdiyseniz, doğru deployment altyapısını kurmak projenizin başarısı için kritik öneme sahiptir."))
+    body.append(p(f"Angraweb ekibi ile iletişime geçerek Django projeniz için profesyonel deployment ve hosting çözümleri hakkında bilgi alabilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Django Yayınlama | Django Deployment ve Hosting Çözümleri – Angraweb"
+    meta_description = (
+        "Django uygulamalarını güvenli ve ölçeklenebilir şekilde yayınlayın. Nginx, Gunicorn ve CI/CD ile profesyonel Django deployment hizmetleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Django Yayınlama",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

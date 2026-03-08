@@ -3809,6 +3809,58 @@ def _cluster_cloud_hosting_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_django_hosting_en(page: SeoPage) -> Dict:
+    """Custom cluster: Django Deployment (EN) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("What Is Django Deployment?"))
+    body.append(p("Django deployment is the process of publishing a Django web application to a production server so it can be accessed by users over the internet."))
+    body.append(p("A professional Django deployment environment typically includes:"))
+    body.append(ul(["application server setup", "web server configuration", "database management", "security configuration", "performance optimization"]))
+    body.append(p("Proper deployment ensures that a Django application runs reliably and securely in production."))
+
+    body.append(h2("Django Deployment Architecture"))
+    body.append(p("A typical Django production environment includes several components working together."))
+
+    body.append(h3("Application Server"))
+    body.append(p("Django applications usually run behind WSGI servers such as:"))
+    body.append(ul(["Gunicorn", "uWSGI"]))
+    body.append(p("These servers handle incoming requests and communicate with the Django application."))
+
+    body.append(h3("Web Server"))
+    body.append(p("A reverse proxy such as Nginx is commonly used to manage HTTP traffic."))
+    body.append(p("Nginx handles:"))
+    body.append(ul(["request routing", "static file serving", "SSL termination", "security layers"]))
+
+    body.append(h3("CI/CD for Django Projects"))
+    body.append(p("Modern Django applications often use CI/CD pipelines to automate deployment."))
+    body.append(p("CI/CD tools allow developers to:"))
+    body.append(ul(["deploy updates automatically", "run automated tests", "maintain stable releases"]))
+    body.append(p("Popular tools include GitHub Actions and GitLab CI."))
+
+    body.append(h2("Start Your Django Deployment"))
+    body.append(p("Choosing the right deployment infrastructure is essential for building reliable web applications."))
+    body.append(p("At Angraweb we provide professional Django deployment services designed for scalable and secure web platforms."))
+    body.append(p(f"Contact our team to plan the best deployment architecture for your Django project. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Django Deployment | Django Hosting & Production Setup – Angraweb"
+    meta_description = (
+        "Professional Django deployment and hosting. Nginx, Gunicorn, CI/CD and secure production setup for Django web applications."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Django Deployment",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -8773,6 +8825,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "cloud-hosting":
         return _cluster_cloud_hosting_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Django Hosting (EN) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "django-hosting":
+        return _cluster_django_hosting_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development
