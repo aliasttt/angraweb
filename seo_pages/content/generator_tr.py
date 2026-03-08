@@ -8536,7 +8536,7 @@ def _cluster_django_deployment_tr(page: SeoPage) -> Dict:
     body.append(h3("Sunucu Ortamı Kurulumu"))
     body.append(p("İlk adım, uygulamanın çalışacağı sunucu ortamının hazırlanmasıdır."))
     body.append(p("Genellikle Django projeleri Linux tabanlı sunucularda çalıştırılır. Bu ortamda şu bileşenler kurulur:"))
-    body.append(ul(["Python ortamı", "virtual environment", "gerekli Python paketleri", "veritabanı sistemi"]))
+    body.append(ul(["Python ortamı", "virtual environment", "gerekli Python kütüphaneleri", "veritabanı sistemi"]))
     body.append(p("Bu yapı uygulamanın stabil çalışmasını sağlar."))
 
     body.append(h3("Gunicorn veya uWSGI Kurulumu"))
