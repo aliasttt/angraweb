@@ -7111,6 +7111,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_domain_satin_al_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: SSL Sertifikası (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "ssl-sertifikasi":
+        return _cluster_ssl_sertifikasi_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -8712,6 +8718,88 @@ def _cluster_domain_satin_al_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Domain Satın Alma",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_ssl_sertifikasi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: SSL Sertifikası (TR) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("SSL Sertifikası Nedir?"))
+    body.append(p("SSL sertifikası, bir web sitesi ile ziyaretçi arasında gerçekleşen veri iletişimini şifreleyen bir güvenlik teknolojisidir. SSL sayesinde kullanıcı ile web sunucusu arasındaki veri transferi güvenli hale gelir."))
+    body.append(p("SSL sertifikası aktif olan web siteleri tarayıcıda HTTPS protokolü ile çalışır ve adres çubuğunda kilit simgesi görünür."))
+    body.append(p("Bu teknoloji özellikle aşağıdaki işlemler için kritik öneme sahiptir:"))
+    body.append(ul(["kullanıcı girişleri", "ödeme işlemleri", "kişisel veri aktarımı", "e-ticaret işlemleri"]))
+    body.append(p("SSL sertifikası olmayan web siteleri günümüzde hem güvenlik hem de SEO açısından dezavantajlıdır."))
+
+    body.append(h2("SSL ve HTTPS Arasındaki Fark"))
+    body.append(p("SSL sertifikası, web sitelerinin HTTPS protokolü ile çalışmasını sağlar. HTTP bağlantılarında veri açık şekilde iletilir. Bu durum kötü niyetli kişiler tarafından verilerin ele geçirilmesine neden olabilir."))
+    body.append(p("HTTPS ise şu avantajları sağlar:"))
+    body.append(ul(["veri şifreleme", "güvenli bağlantı", "kullanıcı güveni", "tarayıcı uyumluluğu"]))
+    body.append(p("Bu nedenle modern web sitelerinin büyük çoğunluğu HTTPS kullanmaktadır."))
+
+    body.append(h2("SSL Sertifikası Türleri"))
+    body.append(p("Farklı ihtiyaçlara göre çeşitli SSL sertifikası türleri bulunmaktadır."))
+
+    body.append(h3("Domain Validation (DV)"))
+    body.append(p("En temel SSL sertifikası türüdür. Domain sahipliği doğrulanarak hızlı şekilde aktif hale getirilebilir. Genellikle: blog siteleri, kişisel web siteleri, küçük projeler için tercih edilir."))
+
+    body.append(h3("Organization Validation (OV)"))
+    body.append(p("Bu sertifika türünde domainin yanı sıra şirket bilgileri de doğrulanır. OV SSL sertifikaları genellikle kurumsal web sitelerinde kullanılır. Avantajları: daha yüksek güven, şirket doğrulaması, kurumsal güvenilirlik."))
+
+    body.append(h3("Extended Validation (EV)"))
+    body.append(p("EV SSL sertifikaları en yüksek güven seviyesini sunar. Bu sertifikalar özellikle bankalar, büyük e-ticaret siteleri, finans platformları gibi sitelerde kullanılır. Tarayıcıda şirket adı gösterilerek kullanıcı güveni artırılır."))
+
+    body.append(h2("SSL Sertifikası SEO İçin Neden Önemlidir?"))
+    body.append(p("Google, HTTPS kullanan web sitelerini sıralamalarda avantajlı hale getirmektedir."))
+    body.append(p("SSL sertifikası kullanmanın SEO açısından avantajları:"))
+    body.append(ul(["arama motoru güveni", "kullanıcı güveni", "daha düşük hemen çıkma oranı", "daha iyi sıralama potansiyeli"]))
+    body.append(p("Bu nedenle modern web siteleri için SSL artık bir seçenek değil, zorunluluktur."))
+
+    body.append(h2("SSL Kurulumu Nasıl Yapılır?"))
+    body.append(p("SSL kurulumu genellikle hosting sunucusunda yapılır. Kurulum süreci şu adımlardan oluşur:"))
+    body.append(ul(["SSL sertifikası satın alma veya oluşturma", "sunucuya sertifika yükleme", "HTTPS yapılandırması", "HTTP → HTTPS yönlendirmesi"]))
+    body.append(p("Doğru yapılandırma web sitenizin güvenli şekilde çalışmasını sağlar."))
+
+    body.append(h2("SSL Sertifikası Yenileme"))
+    body.append(p("SSL sertifikalarının belirli bir geçerlilik süresi vardır. Bu süre genellikle 90 gün veya 1 yıl olabilir. Sertifika süresi dolmadan yenilenmesi gerekir. Aksi halde tarayıcılar web sitesini güvenli olmayan site olarak gösterebilir."))
+
+    body.append(h2("SSL Güvenliği İçin Ek Önlemler"))
+    body.append(p("SSL sertifikasının yanı sıra bazı ek güvenlik önlemleri de uygulanmalıdır. Örneğin:"))
+    body.append(ul(["HSTS kullanımı", "güvenli cookie ayarları", "güçlü TLS protokolleri", "düzenli güvenlik güncellemeleri"]))
+    body.append(p("Bu önlemler web sitenizin güvenliğini daha da artırır."))
+
+    body.append(h2("Angraweb SSL Hizmetleri"))
+    body.append(p("Angraweb olarak web siteleri için profesyonel SSL kurulumu ve güvenlik çözümleri sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları içerir:"))
+    body.append(ul([
+        "SSL sertifikası kurulumu",
+        "HTTPS yapılandırması",
+        "sunucu güvenlik ayarları",
+        "sertifika yenileme yönetimi",
+        "performans optimizasyonu",
+    ]))
+    body.append(p("Amacımız web sitelerinin güvenli ve sorunsuz şekilde çalışmasını sağlamaktır."))
+
+    body.append(h2("Web Sitenizi SSL ile Güvence Altına Alın"))
+    body.append(p("SSL sertifikası, modern web siteleri için en temel güvenlik gereksinimlerinden biridir."))
+    body.append(p(f"Angraweb ile iletişime geçerek web siteniz için en uygun SSL sertifikası ve güvenlik çözümleri hakkında bilgi alabilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "SSL Sertifikası | HTTPS Güvenliği ve SSL Kurulumu – Angraweb"
+    meta_description = (
+        "SSL sertifikası ile web sitenizi HTTPS güvenliği ile koruyun. Profesyonel SSL kurulumu, sertifika yönetimi ve güvenli web altyapısı çözümleri."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SSL Sertifikası",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

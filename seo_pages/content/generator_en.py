@@ -3916,6 +3916,64 @@ def _cluster_domain_registration_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ssl_certificate_en(page: SeoPage) -> Dict:
+    """Custom cluster: SSL Certificate (EN) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("What Is an SSL Certificate?"))
+    body.append(p("An SSL certificate is a digital security technology that encrypts the connection between a website and its visitors."))
+    body.append(p("When a website uses SSL, it runs on the HTTPS protocol, which ensures that data transmitted between users and servers is encrypted and protected."))
+    body.append(p("SSL is especially important for:"))
+    body.append(ul(["login forms", "payment systems", "personal data transmission", "e-commerce websites"]))
+    body.append(p("Websites without SSL certificates may appear insecure to users and search engines."))
+
+    body.append(h2("HTTP vs HTTPS"))
+    body.append(p("HTTP connections transfer data without encryption."))
+    body.append(p("HTTPS, powered by SSL certificates, provides:"))
+    body.append(ul(["encrypted data transfer", "secure connections", "improved user trust", "browser compatibility"]))
+    body.append(p("Today most modern websites use HTTPS as a standard security requirement."))
+
+    body.append(h2("Types of SSL Certificates"))
+    body.append(p("Different SSL certificates exist depending on security needs."))
+
+    body.append(h3("Domain Validation (DV)"))
+    body.append(p("The most basic SSL certificate. It verifies domain ownership and can be issued quickly."))
+
+    body.append(h3("Organization Validation (OV)"))
+    body.append(p("This certificate verifies both the domain and the organization behind the website."))
+
+    body.append(h3("Extended Validation (EV)"))
+    body.append(p("EV certificates provide the highest level of trust and display company information in the browser."))
+
+    body.append(h2("SSL and SEO"))
+    body.append(p("Search engines such as Google consider HTTPS as a ranking factor."))
+    body.append(p("Benefits of SSL for SEO include:"))
+    body.append(ul(["improved trust signals", "better user experience", "lower bounce rates", "potential ranking improvements"]))
+    body.append(p("Because of these benefits, SSL is now considered a standard requirement for modern websites."))
+
+    body.append(h2("Start Securing Your Website"))
+    body.append(p("SSL certificates are essential for protecting websites and building user trust."))
+    body.append(p("At Angraweb we provide professional SSL setup and security solutions to help businesses build safe and reliable web platforms."))
+    body.append(p(f"Contact us to learn more about SSL implementation for your website. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "SSL Certificate | HTTPS Security & SSL Setup – Angraweb"
+    meta_description = (
+        "SSL certificate and HTTPS security for your website. Professional SSL setup, certificate management and secure web infrastructure."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "SSL Certificate",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -8892,6 +8950,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "domain-registration":
         return _cluster_domain_registration_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: SSL Certificate (EN) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "ssl-certificate":
+        return _cluster_ssl_certificate_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development
