@@ -7091,6 +7091,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_ozel_sunucu_kiralama_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Bulut Sunucu (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "bulut-sunucu":
+        return _cluster_bulut_sunucu_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -8375,6 +8381,124 @@ def _cluster_ozel_sunucu_kiralama_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Özel Sunucu Kiralama",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_bulut_sunucu_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Bulut Sunucu (TR) — hosting-domain, cloud hosting."""
+    body: List[str] = []
+
+    body.append(h2("Bulut Sunucu Nedir?"))
+    body.append(p("Bulut sunucu (Cloud Server), fiziksel sunucuların oluşturduğu bir altyapı üzerinde çalışan sanal sunucu sistemidir. Geleneksel hosting çözümlerinden farklı olarak cloud hosting altyapısında birden fazla sunucu birlikte çalışır ve kaynaklar dinamik olarak dağıtılır."))
+    body.append(p("Bu yapı sayesinde web siteleri ve uygulamalar daha yüksek performans, daha iyi ölçeklenebilirlik ve daha yüksek erişilebilirlik elde eder."))
+    body.append(p("Bulut sunucular özellikle şu projeler için idealdir:"))
+    body.append(ul([
+        "büyüyen web siteleri",
+        "e-ticaret platformları",
+        "SaaS uygulamaları",
+        "yüksek trafik alan platformlar",
+        "web tabanlı uygulamalar",
+    ]))
+    body.append(p("Bulut altyapısının en önemli avantajı, sistemin ihtiyaç duyulan kaynakları otomatik olarak artırabilmesidir."))
+
+    body.append(h2("Bulut Sunucu Nasıl Çalışır?"))
+    body.append(p("Cloud server altyapısı, birden fazla fiziksel sunucunun birleşmesiyle oluşan dağıtık bir sistemdir."))
+    body.append(p("Bu sistemde:"))
+    body.append(ul(["işlem gücü", "RAM", "depolama alanı", "ağ kaynakları"]))
+    body.append(p("birden fazla sunucu arasında paylaştırılır."))
+    body.append(p("Eğer bir sunucu arızalanırsa, sistem otomatik olarak diğer sunucular üzerinden çalışmaya devam eder. Bu durum bulut altyapısını klasik hosting sistemlerine göre çok daha güvenilir hale getirir."))
+
+    body.append(h2("Bulut Sunucunun Avantajları"))
+    body.append(p("Bulut sunucu çözümleri modern web projeleri için birçok avantaj sunar."))
+
+    body.append(h3("Ölçeklenebilir Altyapı"))
+    body.append(p("Cloud hosting sistemlerinin en büyük avantajı ölçeklenebilir olmasıdır."))
+    body.append(p("Web sitenizin trafik miktarı arttığında sunucu kaynakları kolayca artırılabilir. Bu sayede performans sorunları yaşanmaz."))
+    body.append(p("Örneğin:"))
+    body.append(ul(["daha fazla RAM eklenebilir", "işlemci gücü artırılabilir", "depolama kapasitesi genişletilebilir"]))
+    body.append(p("Bu esneklik özellikle büyüyen işletmeler için büyük avantaj sağlar."))
+
+    body.append(h3("Yüksek Erişilebilirlik"))
+    body.append(p("Bulut altyapısında sistem birden fazla sunucu üzerinde çalıştığı için tek bir sunucunun arızalanması tüm sistemi etkilemez."))
+    body.append(p("Bu yapı sayesinde:"))
+    body.append(ul(["kesinti süreleri azalır", "sistem daha stabil çalışır", "kullanıcı deneyimi iyileşir"]))
+    body.append(p("Yüksek erişilebilirlik özellikle e-ticaret siteleri ve SaaS platformları için kritik bir faktördür."))
+
+    body.append(h3("Daha Güçlü Performans"))
+    body.append(p("Bulut sunucu altyapısında kaynaklar dinamik olarak dağıtıldığı için performans genellikle daha stabil olur."))
+    body.append(p("Özellikle yüksek trafik dönemlerinde cloud server altyapısı performans düşüşlerini önleyebilir."))
+    body.append(p("Bu da:"))
+    body.append(ul(["daha hızlı web siteleri", "daha iyi kullanıcı deneyimi", "daha düşük sayfa yüklenme süreleri"]))
+    body.append(p("anlamına gelir."))
+
+    body.append(h3("Güvenli Altyapı"))
+    body.append(p("Bulut hosting altyapısı güvenlik açısından da avantajlıdır."))
+    body.append(p("Cloud sistemleri genellikle şu güvenlik önlemlerini içerir:"))
+    body.append(ul(["gelişmiş firewall sistemleri", "veri şifreleme yöntemleri", "erişim kontrol politikaları", "güvenlik izleme sistemleri"]))
+    body.append(p("Bu önlemler verilerin korunmasına yardımcı olur."))
+
+    body.append(h2("Bulut Sunucu Hangi Durumlarda Kullanılmalı?"))
+    body.append(p("Her proje için cloud server gerekli değildir. Ancak bazı durumlarda bulut altyapısı en doğru çözüm olabilir."))
+
+    body.append(h3("Hızla Büyüyen Web Siteleri"))
+    body.append(p("Trafiği sürekli artan web siteleri için cloud hosting en uygun çözümlerden biridir. Bulut altyapısı artan ziyaretçi sayısına kolayca uyum sağlayabilir."))
+
+    body.append(h3("E-Ticaret Platformları"))
+    body.append(p("E-ticaret sitelerinde sistemin kesintisiz çalışması büyük önem taşır. Bulut sunucu altyapısı yüksek trafik dönemlerinde bile stabil çalışabilir."))
+
+    body.append(h3("Web Uygulamaları"))
+    body.append(p("Modern web uygulamaları genellikle yüksek işlem gücü gerektirir. Cloud server altyapısı bu tür uygulamalar için güçlü bir hosting çözümü sunar."))
+
+    body.append(h2("Bulut Sunucu Kurulumu"))
+    body.append(p("Bir cloud server altyapısının kurulması birkaç önemli adımdan oluşur."))
+
+    body.append(h3("Altyapı Planlama"))
+    body.append(p("İlk adım sunucu mimarisinin planlanmasıdır."))
+    body.append(p("Bu süreçte şu faktörler değerlendirilir:"))
+    body.append(ul(["trafik tahmini", "uygulama gereksinimleri", "veri depolama ihtiyaçları"]))
+
+    body.append(h3("Otomasyon ve Yönetim"))
+    body.append(p("Cloud sistemleri genellikle otomasyon araçları ile yönetilir."))
+    body.append(p("Otomasyon sayesinde:"))
+    body.append(ul(["kaynaklar otomatik ölçeklenebilir", "sistem performansı izlenebilir", "sunucu yönetimi kolaylaşır"]))
+
+    body.append(h3("Yedeklilik ve Veri Güvenliği"))
+    body.append(p("Bulut altyapısında veri güvenliği için yedekleme sistemleri kurulmalıdır."))
+    body.append(p("Bu sistemler genellikle şunları içerir:"))
+    body.append(ul(["otomatik veri yedekleme", "felaket kurtarma planı", "veri çoğaltma sistemleri"]))
+    body.append(p("Bu yöntemler veri kaybı riskini azaltır."))
+
+    body.append(h2("Angraweb Bulut Sunucu Hizmetleri"))
+    body.append(p("Angraweb olarak işletmeler için güçlü cloud hosting altyapıları oluşturuyoruz."))
+    body.append(p("Hizmetlerimiz şunları içerir:"))
+    body.append(ul([
+        "bulut sunucu kurulumu",
+        "cloud altyapı planlama",
+        "performans optimizasyonu",
+        "güvenlik yapılandırması",
+        "otomatik yedekleme çözümleri",
+    ]))
+    body.append(p("Amacımız işletmelerin dijital projeleri için güvenilir ve ölçeklenebilir bir sunucu altyapısı sağlamaktır."))
+
+    body.append(h2("Projeniz İçin Bulut Sunucu Teklifi Alın"))
+    body.append(p("Eğer projeniz için ölçeklenebilir ve güçlü bir hosting altyapısı arıyorsanız bulut sunucu çözümleri doğru seçenek olabilir."))
+    body.append(p(f"Angraweb ekibi ile iletişime geçerek projeniz için en uygun cloud hosting altyapısını planlayabilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Bulut Sunucu | Cloud Hosting ve Ölçeklenebilir Server Çözümleri – Angraweb"
+    meta_description = (
+        "Bulut sunucu hizmetleri ile hızlı, güvenli ve ölçeklenebilir hosting altyapısı oluşturun. Cloud server çözümleri ile yüksek performanslı web projeleri kurun."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Bulut Sunucu",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

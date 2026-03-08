@@ -3749,6 +3749,66 @@ def _cluster_dedicated_server_hosting_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_cloud_hosting_en(page: SeoPage) -> Dict:
+    """Custom cluster: Cloud Server Hosting (EN) — hosting-domain."""
+    body: List[str] = []
+
+    body.append(h2("What Is a Cloud Server?"))
+    body.append(p("A cloud server is a virtual server running on a network of interconnected physical servers. Unlike traditional hosting environments, cloud infrastructure distributes resources across multiple machines."))
+    body.append(p("This architecture provides higher reliability, better scalability and improved performance for modern web applications."))
+    body.append(p("Cloud servers are commonly used for:"))
+    body.append(ul(["growing websites", "e-commerce platforms", "SaaS products", "web applications", "high-traffic digital platforms"]))
+
+    body.append(h2("How Cloud Hosting Works"))
+    body.append(p("Cloud hosting uses a cluster of physical servers that share computing resources."))
+    body.append(p("These resources include:"))
+    body.append(ul(["CPU power", "memory", "storage", "network bandwidth"]))
+    body.append(p("Because resources are distributed across multiple servers, cloud systems are more resilient and flexible than traditional hosting environments."))
+
+    body.append(h2("Benefits of Cloud Hosting"))
+    body.append(p("Cloud hosting provides several advantages for businesses and developers."))
+
+    body.append(h3("Scalability"))
+    body.append(p("Cloud infrastructure allows server resources to scale based on demand."))
+    body.append(p("Businesses can increase:"))
+    body.append(ul(["CPU capacity", "RAM", "storage space"]))
+    body.append(p("without migrating to a new server."))
+
+    body.append(h3("High Availability"))
+    body.append(p("Cloud systems run across multiple servers, which improves uptime and system reliability."))
+    body.append(p("If one server fails, another server in the cluster continues to run the application."))
+
+    body.append(h3("Better Performance"))
+    body.append(p("Because resources can be dynamically allocated, cloud hosting environments often deliver stable performance even during traffic spikes."))
+
+    body.append(h3("Strong Security"))
+    body.append(p("Cloud infrastructures often include advanced security systems such as:"))
+    body.append(ul(["firewall protection", "encrypted data storage", "access control systems", "monitoring tools"]))
+    body.append(p("These measures help protect critical data and systems."))
+
+    body.append(h2("Start Your Cloud Hosting Project"))
+    body.append(p("Choosing the right hosting infrastructure is essential for building scalable digital platforms."))
+    body.append(p("At Angraweb we help businesses design reliable cloud server environments tailored to their technical requirements."))
+    body.append(p(f"Contact our team to receive a customized cloud hosting proposal. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Cloud Server Hosting | Scalable Cloud Infrastructure – Angraweb"
+    meta_description = (
+        "Professional cloud hosting with scalable, secure and high-availability server infrastructure for websites, applications and growing businesses."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Cloud Server Hosting",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -8707,6 +8767,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "dedicated-server-hosting":
         return _cluster_dedicated_server_hosting_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Cloud Hosting (EN) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "cloud-hosting":
+        return _cluster_cloud_hosting_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development
