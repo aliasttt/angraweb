@@ -3357,6 +3357,207 @@ def _hosting_domain_pricing_en(page: SeoPage) -> Dict:
     }
 
 
+def _ui_ux_pricing_en(page: SeoPage) -> Dict:
+    """Custom pricing page: UI/UX Design Pricing (EN) — pricing factors, average ranges, FAQ."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "One of the most common questions businesses ask when planning a digital product is how much UI/UX design costs. "
+            "Whether it is a website, a mobile application, or a SaaS platform, the cost of user interface and user experience design depends on multiple factors."
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb, UI/UX design pricing is based on more than just visual design. "
+            "We consider user research, information architecture, interaction design, and prototyping to ensure the final product provides an excellent user experience."
+        )
+    )
+    body.append(
+        p(
+            "This guide explains the main factors that affect UI/UX design pricing and how to plan your design budget effectively."
+        )
+    )
+
+    body.append(h2("What Determines UI/UX Design Pricing?"))
+    body.append(
+        p(
+            "UI/UX design pricing varies depending on project complexity and design requirements."
+        )
+    )
+    body.append(p("Key factors include:"))
+    body.append(
+        ul(
+            [
+                "number of pages or screens",
+                "depth of user research",
+                "wireframing and prototyping",
+                "number of design revisions",
+                "system integrations",
+            ]
+        )
+    )
+    body.append(
+        p("A simple corporate website requires much less design work compared to a complex SaaS dashboard.")
+    )
+
+    body.append(h2("Average UI/UX Design Cost"))
+    body.append(
+        p(
+            "UI/UX design projects are usually priced based on project scope."
+        )
+    )
+
+    body.append(h3("Website UI/UX Design"))
+    body.append(p("Corporate websites or landing pages."))
+    body.append(p("<strong>Typical price range:</strong> $500 – $1500"))
+
+    body.append(h3("E-commerce UX Design"))
+    body.append(p("Includes product pages, category navigation, and checkout flow."))
+    body.append(p("<strong>Typical price range:</strong> $1500 – $4000"))
+
+    body.append(h3("SaaS Product UI/UX Design"))
+    body.append(p("Includes dashboards and complex user flows."))
+    body.append(p("<strong>Typical price range:</strong> $3000 – $8000"))
+
+    body.append(h3("Mobile App UI/UX Design"))
+    body.append(p("Mobile apps are usually priced per screen."))
+    body.append(p("<strong>Typical price:</strong> $50 – $150 per screen"))
+
+    body.append(h2("Factors That Affect UI/UX Design Cost"))
+    body.append(
+        p("Several elements influence the final design budget.")
+    )
+    body.append(
+        ul(
+            [
+                "<strong>Project scope:</strong> More pages and features require more design work.",
+                "<strong>Design complexity:</strong> Custom design systems require more time than template-based design.",
+                "<strong>User research:</strong> UX research improves design quality but increases project time.",
+                "<strong>Prototyping and testing:</strong> Interactive prototypes and usability testing improve user experience but may add to the budget.",
+            ]
+        )
+    )
+
+    body.append(h2("How to Plan a UI/UX Design Project"))
+    body.append(
+        p(
+            "The best strategy for planning a UI/UX design project is the MVP approach. "
+            "MVP stands for Minimum Viable Product and focuses on building the core features first."
+        )
+    )
+    body.append(p("Benefits include:"))
+    body.append(ul(["controlled budget", "faster launch", "user feedback collection", "reduced development risk"]))
+    body.append(p("Typical stages of a design project include:"))
+    body.append(
+        ul(
+            [
+                "1 discovery and research",
+                "2 user flow design",
+                "3 wireframes",
+                "4 visual interface design",
+                "5 prototyping and testing",
+            ]
+        )
+    )
+
+    body.append(h2("Choosing a UI/UX Design Agency"))
+    body.append(
+        p(
+            "When evaluating UI/UX design pricing, consider not only cost but also design quality and agency experience."
+        )
+    )
+    body.append(p("Look for:"))
+    body.append(
+        ul(
+            [
+                "strong design portfolio",
+                "user-centred approach",
+                "modern design tools (Figma, etc.)",
+                "alignment with development team",
+                "data-driven design decisions",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "At Angraweb we aim to optimise not only aesthetics but also user behaviour and conversion rates in our design process."
+        )
+    )
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p(
+            "The UI/UX design pricing page is linked to the following topics:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/ux-research/ }}}}",
+                f"{{{{ link:/en/{base}/wireframe-design/ }}}}",
+                f"{{{{ link:/en/{base}/prototype-design/ }}}}",
+                f"{{{{ link:/en/{base}/figma-design/ }}}}",
+            ]
+        )
+    )
+    body.append(p("You can read the related pages to learn more about these topics."))
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Contact us to get a tailored scope and pricing proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "UI UX Design Pricing | UI UX Design Cost Guide – Angraweb"
+    meta_description = (
+        "Learn how much UI UX design costs. Discover pricing factors for websites, SaaS platforms, and mobile apps in this complete UI UX design pricing guide."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "How much does UI/UX design cost?",
+                "The cost varies depending on the project scope, number of screens, and complexity of the design.",
+            ),
+            (
+                "How long does UI/UX design take?",
+                "Small projects may take a few weeks, while complex SaaS platforms may take several months.",
+            ),
+            (
+                "Should UI/UX design be done before development?",
+                "Yes. Designing before development reduces errors and speeds up the development process.",
+            ),
+            (
+                "Does UI/UX design affect SEO?",
+                "Yes. Better user experience improves engagement metrics, which can positively impact SEO.",
+            ),
+            (
+                "Which tools are used in UI/UX design?",
+                "Popular tools include Figma, Adobe XD, Sketch, and prototyping platforms.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "UI/UX Design Pricing",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _hosting_domain_guide_en(page: SeoPage) -> Dict:
     """Custom guide: Hosting and Domain Guide (EN) — how web hosting works, selection, infrastructure setup."""
     body: List[str] = []
@@ -9171,6 +9372,8 @@ def generate_en(page: SeoPage) -> Dict:
             return _seo_services_pricing_en(page)
         if page.service.key == "hosting-domain":
             return _hosting_domain_pricing_en(page)
+        if page.service.key == "ui-ux-design":
+            return _ui_ux_pricing_en(page)
         title = f"{svc} Pricing"
         meta = make_meta(
             title=title,

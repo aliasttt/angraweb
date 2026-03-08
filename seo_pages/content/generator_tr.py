@@ -6828,6 +6828,8 @@ def generate_tr(page: SeoPage) -> Dict:
             return _seo_services_pricing_tr(page)
         if page.service.key == "hosting-domain":
             return _hosting_domain_pricing_tr(page)
+        if page.service.key == "ui-ux-design":
+            return _ui_ux_pricing_tr(page)
         title = f"{svc} Fiyatları"
         meta = make_meta(
             title=title,
@@ -8007,6 +8009,210 @@ def _hosting_domain_pricing_tr(page: SeoPage) -> Dict:
         "meta_description": meta_description,
         "content_html": content_html,
         "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _ui_ux_pricing_tr(page: SeoPage) -> Dict:
+    """Custom pricing page: UI/UX Tasarım Fiyatları (TR) — fiyat faktörleri, ortalama aralıklar, SSS."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Bir dijital ürün geliştirilirken en çok merak edilen konulardan biri UI/UX tasarım fiyatlarıdır. "
+            "Bir web sitesi, mobil uygulama veya SaaS platformunun kullanıcı deneyimi tasarımı; proje kapsamına, ekran sayısına ve tasarım detayına göre farklı bütçelerde planlanabilir."
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak UI/UX tasarım projelerinde fiyatlandırmayı belirlerken yalnızca görsel tasarımı değil; "
+            "kullanıcı deneyimi, bilgi mimarisi, kullanıcı akışları ve prototip süreçlerini de dikkate alıyoruz. "
+            "Bu nedenle UI/UX tasarım maliyeti genellikle projenin kapsamı ve hedefleri ile doğrudan ilişkilidir."
+        )
+    )
+    body.append(
+        p(
+            "Bu rehberde UI/UX tasarım fiyatlarını etkileyen faktörleri, ortalama bütçe aralıklarını ve proje planlaması için en doğru yaklaşımı inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("UI/UX Tasarım Fiyatları Neye Göre Belirlenir?"))
+    body.append(
+        p(
+            "UI/UX tasarım fiyatları birçok farklı faktöre bağlı olarak değişebilir. Projenin karmaşıklığı arttıkça tasarım süreci de daha detaylı hale gelir."
+        )
+    )
+    body.append(p("Başlıca fiyat belirleyen faktörler şunlardır:"))
+    body.append(
+        ul(
+            [
+                "tasarlanacak sayfa veya ekran sayısı",
+                "kullanıcı araştırması gereksinimi",
+                "wireframe ve prototip süreci",
+                "tasarım revizyon sayısı",
+                "entegrasyon ve sistem karmaşıklığı",
+            ]
+        )
+    )
+    body.append(
+        p("Örneğin basit bir kurumsal web sitesi ile kompleks bir SaaS platformunun tasarım süreci tamamen farklıdır.")
+    )
+
+    body.append(h2("Ortalama UI/UX Tasarım Fiyat Aralıkları"))
+    body.append(
+        p(
+            "UI/UX tasarım projeleri genellikle proje kapsamına göre fiyatlandırılır. Aşağıdaki aralıklar genel piyasa ortalamalarını temsil eder."
+        )
+    )
+
+    body.append(h3("Kurumsal Web Sitesi UI/UX Tasarımı"))
+    body.append(ul(["5 – 10 sayfa tasarım", "temel kullanıcı akışı", "responsive tasarım"]))
+    body.append(p("<strong>Ortalama fiyat aralığı:</strong> 500 – 1500 USD"))
+
+    body.append(h3("E-Ticaret UI/UX Tasarımı"))
+    body.append(ul(["ürün sayfaları", "kategori yapısı", "ödeme akışı"]))
+    body.append(p("<strong>Ortalama fiyat aralığı:</strong> 1500 – 4000 USD"))
+
+    body.append(h3("SaaS Platform UI/UX Tasarımı"))
+    body.append(ul(["dashboard tasarımı", "kompleks kullanıcı akışları", "veri görselleştirme"]))
+    body.append(p("<strong>Ortalama fiyat aralığı:</strong> 3000 – 8000 USD"))
+
+    body.append(h3("Mobil Uygulama UI/UX Tasarımı"))
+    body.append(
+        p("Mobil uygulama tasarımı genellikle ekran sayısına göre fiyatlandırılır.")
+    )
+    body.append(p("<strong>Ortalama fiyat:</strong> 50 – 150 USD / ekran"))
+
+    body.append(h2("UI/UX Tasarım Maliyetini Etkileyen Faktörler"))
+    body.append(
+        p("UI/UX tasarım projelerinde maliyeti belirleyen bazı kritik faktörler vardır.")
+    )
+    body.append(
+        ul(
+            [
+                "<strong>Proje kapsamı:</strong> Sayfa veya ekran sayısı arttıkça tasarım süresi ve maliyeti artar.",
+                "<strong>Tasarım derinliği:</strong> Hazır bir tasarım sisteminin kullanılması ile tamamen özel bir tasarım yapılması arasında büyük fiyat farkı olabilir.",
+                "<strong>Kullanıcı araştırması:</strong> UX research süreci eklenirse proje süresi uzar ancak kullanıcı deneyimi daha güçlü olur.",
+                "<strong>Prototip ve test:</strong> Etkileşimli prototipler ve kullanıcı testleri maliyeti artırabilir ancak hataları erken aşamada tespit etmeyi sağlar.",
+            ]
+        )
+    )
+
+    body.append(h2("UI/UX Tasarım Projesi Nasıl Planlanmalı?"))
+    body.append(
+        p(
+            "UI/UX tasarım projelerinde en sağlıklı yöntem MVP yaklaşımıdır. "
+            "MVP (Minimum Viable Product), ürünün temel özelliklerini içeren ilk versiyonudur."
+        )
+    )
+    body.append(p("Bu yaklaşım şu avantajları sağlar:"))
+    body.append(ul(["maliyet kontrolü", "hızlı geliştirme", "kullanıcı geri bildirimi", "riskin azaltılması"]))
+    body.append(p("Projeler genellikle şu aşamalarla planlanır:"))
+    body.append(
+        ul(
+            [
+                "keşif ve analiz",
+                "kullanıcı akışları",
+                "wireframe tasarımı",
+                "görsel tasarım",
+                "prototip ve test",
+            ]
+        )
+    )
+
+    body.append(h2("Doğru UI/UX Tasarım Ajansı Nasıl Seçilir?"))
+    body.append(
+        p(
+            "UI/UX tasarım fiyatlarını değerlendirirken yalnızca maliyete değil; tasarım kalitesine ve ajansın deneyimine de dikkat etmek gerekir."
+        )
+    )
+    body.append(p("Bir UI/UX ajansı seçerken şu kriterlere bakılmalıdır:"))
+    body.append(
+        ul(
+            [
+                "güçlü tasarım portföyü",
+                "kullanıcı odaklı yaklaşım",
+                "modern tasarım araçları (Figma vb.)",
+                "geliştirici ekip ile uyum",
+                "veri odaklı tasarım kararları",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Angraweb olarak tasarım süreçlerimizde yalnızca estetik değil; kullanıcı davranışlarını ve dönüşüm oranlarını da optimize etmeyi hedefliyoruz."
+        )
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p(
+            "UI/UX tasarım fiyatları sayfası aşağıdaki konularla bağlantılıdır:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/ux-arastirmasi/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/prototype-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/figma-tasarim/ }}}}",
+            ]
+        )
+    )
+    body.append(p("Bu konular hakkında daha fazla bilgi almak için ilgili sayfaları inceleyebilirsiniz."))
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için uygun kapsam ve fiyat teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "UI/UX Tasarım Fiyatları 2026 | UI UX Tasarım Hizmeti Fiyat Rehberi – Angraweb"
+    meta_description = (
+        "UI/UX tasarım fiyatları neye göre belirlenir? Web sitesi, mobil uygulama ve SaaS projeleri için UI UX tasarım maliyetlerini ve fiyatlandırma faktörlerini detaylı inceleyin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "UI/UX tasarım fiyatları neden değişir?",
+                "UI/UX tasarım maliyeti proje kapsamına, ekran sayısına ve tasarım detayına göre değişir.",
+            ),
+            (
+                "UI/UX tasarım projesi ne kadar sürer?",
+                "Basit projeler birkaç hafta sürebilirken, kompleks SaaS projeleri birkaç ay sürebilir.",
+            ),
+            (
+                "UI/UX tasarım geliştirmeden önce yapılmalı mı?",
+                "Evet. Tasarım sürecinin geliştirme öncesinde yapılması hataları azaltır ve geliştirme sürecini hızlandırır.",
+            ),
+            (
+                "UI/UX tasarım SEO'yu etkiler mi?",
+                "Evet. Kullanıcı deneyimi güçlü olan siteler daha iyi kullanıcı etkileşimi sağlar ve bu durum SEO performansını olumlu etkiler.",
+            ),
+            (
+                "UI/UX tasarımda hangi araçlar kullanılır?",
+                "En yaygın araçlar arasında Figma, Adobe XD, Sketch ve prototipleme araçları bulunur.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "UI/UX Tasarım Fiyatları",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
         "published_at": timezone.now(),
     }
 
