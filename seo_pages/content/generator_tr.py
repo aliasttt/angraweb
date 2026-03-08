@@ -7129,6 +7129,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_linux_sunucu_kurulumu_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: Web Hosting Fiyatları (TR) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "web-hosting-fiyatlari":
+        return _cluster_web_hosting_fiyatlari_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -9001,6 +9007,108 @@ def _cluster_linux_sunucu_kurulumu_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Linux Sunucu Kurulumu",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_web_hosting_fiyatlari_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Web Hosting Fiyatları (TR) — hosting-domain, pricing page."""
+    body: List[str] = []
+
+    body.append(h2("Web Hosting Fiyatları Neye Göre Belirlenir?"))
+    body.append(p("Web hosting fiyatları, sunucu kaynakları ve hizmet özelliklerine göre değişiklik gösterir. Her web sitesinin ihtiyacı farklı olduğu için hosting planları da farklı fiyat seviyelerinde sunulur."))
+    body.append(p("Bir hosting hizmetinin fiyatını belirleyen temel faktörler şunlardır:"))
+    body.append(ul([
+        "sunucu kaynakları (RAM ve CPU)",
+        "disk depolama alanı",
+        "trafik kapasitesi",
+        "güvenlik özellikleri",
+        "teknik destek hizmeti",
+    ]))
+    body.append(p("Bu faktörler hosting paketinin performansını ve maliyetini doğrudan etkiler."))
+
+    body.append(h2("Hosting Paket Türleri ve Fiyatları"))
+    body.append(p("Hosting fiyatları genellikle hosting türüne göre değişir."))
+
+    body.append(h3("Paylaşımlı Hosting Fiyatları"))
+    body.append(p("Paylaşımlı hosting, en uygun maliyetli hosting çözümlerinden biridir."))
+    body.append(p("Bu sistemde bir sunucu birden fazla web sitesi tarafından paylaşılır."))
+    body.append(p("Genellikle şu tür projeler için uygundur:"))
+    body.append(ul(["kişisel web siteleri", "küçük işletme siteleri", "blog siteleri"]))
+    body.append(p("Paylaşımlı hosting planları genellikle düşük maliyetli ve hızlı kuruluma sahiptir."))
+
+    body.append(h3("VPS Hosting Fiyatları"))
+    body.append(p("VPS (Virtual Private Server) hosting, paylaşımlı hostingden daha güçlü bir altyapı sunar."))
+    body.append(p("VPS hosting fiyatlarını etkileyen faktörler:"))
+    body.append(ul(["CPU çekirdek sayısı", "RAM miktarı", "depolama kapasitesi"]))
+    body.append(p("Bu hosting türü genellikle şu projeler için tercih edilir:"))
+    body.append(ul(["yüksek trafik alan web siteleri", "web uygulamaları", "e-ticaret siteleri"]))
+
+    body.append(h3("Cloud Hosting Fiyatları"))
+    body.append(p("Cloud hosting modern web projeleri için en esnek hosting çözümlerinden biridir."))
+    body.append(p("Cloud hosting fiyatları genellikle kullanılan kaynaklara göre değişir."))
+    body.append(p("Avantajları:"))
+    body.append(ul(["ölçeklenebilir altyapı", "yüksek performans", "yüksek erişilebilirlik"]))
+    body.append(p("Bu nedenle SaaS platformları ve büyük projeler cloud hosting tercih eder."))
+
+    body.append(h2("Hosting Planı Seçerken Nelere Dikkat Edilmeli?"))
+    body.append(p("Hosting fiyatına bakmak tek başına yeterli değildir. Doğru hosting planını seçerken bazı teknik faktörler de değerlendirilmelidir."))
+
+    body.append(h3("Performans"))
+    body.append(p("Web sitenizin hızlı açılması kullanıcı deneyimi ve SEO açısından önemlidir."))
+    body.append(p("Güçlü sunucu altyapısı olan hosting hizmetleri daha iyi performans sunar."))
+
+    body.append(h3("Uptime Garantisi"))
+    body.append(p("Uptime, web sitenizin kesintisiz çalışmasını ifade eder."))
+    body.append(p("Profesyonel hosting sağlayıcıları genellikle %99.9 uptime garantisi sunar."))
+
+    body.append(h3("Güvenlik"))
+    body.append(p("Hosting hizmeti güçlü güvenlik sistemleri içermelidir."))
+    body.append(p("Örneğin:"))
+    body.append(ul(["SSL desteği", "güvenlik duvarı", "düzenli yedekleme", "DDoS koruması"]))
+    body.append(p("Bu güvenlik önlemleri web sitenizin korunmasına yardımcı olur."))
+
+    body.append(h2("Hosting Maliyetini Etkileyen Faktörler"))
+    body.append(p("Hosting maliyetleri bazı teknik özelliklere göre değişebilir."))
+    body.append(p("Örneğin:"))
+    body.append(ul([
+        "sunucu donanımı",
+        "veri merkezi altyapısı",
+        "yönetim hizmetleri",
+        "teknik destek seviyesi",
+    ]))
+    body.append(p("Yüksek performanslı hosting hizmetleri genellikle daha güçlü altyapıya sahiptir."))
+
+    body.append(h2("Angraweb Web Hosting Çözümleri"))
+    body.append(p("Angraweb olarak işletmeler için farklı ihtiyaçlara uygun web hosting planları sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları içerir:"))
+    body.append(ul([
+        "paylaşımlı hosting çözümleri",
+        "VPS hosting altyapısı",
+        "cloud hosting sistemleri",
+        "sunucu güvenliği",
+        "performans optimizasyonu",
+    ]))
+    body.append(p("Amacımız web sitelerinin hızlı, güvenli ve kesintisiz şekilde çalışmasını sağlamaktır."))
+
+    body.append(h2("Web Siteniz İçin Doğru Hosting Planını Seçin"))
+    body.append(p("Her web sitesinin ihtiyaçları farklıdır. Bu nedenle doğru hosting planını seçmek web sitenizin performansı açısından kritik öneme sahiptir."))
+    body.append(p(f"Angraweb ile iletişime geçerek projeniz için en uygun web hosting planı ve fiyat seçenekleri hakkında bilgi alabilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Web Hosting Fiyatları | Uygun Hosting Paketleri – Angraweb"
+    meta_description = (
+        "Web hosting fiyatları ve paket karşılaştırması. Paylaşımlı hosting, VPS ve cloud hosting çözümleri ile uygun hosting planını seçin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Hosting Fiyatları",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

@@ -4104,6 +4104,76 @@ def _cluster_linux_server_setup_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_web_hosting_pricing_en(page: SeoPage) -> Dict:
+    """Custom cluster: Web Hosting Pricing (EN) — hosting-domain, pricing page."""
+    body: List[str] = []
+
+    body.append(h2("What Determines Web Hosting Prices?"))
+    body.append(p("Web hosting prices vary depending on server resources and service features. Different websites require different levels of performance, which is why hosting providers offer multiple pricing plans."))
+    body.append(p("The main factors that influence hosting prices include:"))
+    body.append(ul([
+        "server resources such as CPU and RAM",
+        "storage capacity",
+        "bandwidth limits",
+        "security features",
+        "technical support",
+    ]))
+    body.append(p("These factors directly affect the cost and performance of a hosting plan."))
+
+    body.append(h2("Types of Hosting and Pricing"))
+    body.append(p("Hosting prices vary depending on the type of hosting service."))
+
+    body.append(h3("Shared Hosting"))
+    body.append(p("Shared hosting is one of the most affordable hosting solutions. Multiple websites share the same server resources."))
+    body.append(p("It is ideal for:"))
+    body.append(ul(["small websites", "personal blogs", "small business websites"]))
+
+    body.append(h3("VPS Hosting"))
+    body.append(p("VPS hosting provides dedicated virtual resources on a server."))
+    body.append(p("Pricing depends on:"))
+    body.append(ul(["CPU cores", "RAM size", "storage capacity"]))
+    body.append(p("VPS hosting is suitable for growing websites and web applications."))
+
+    body.append(h3("Cloud Hosting"))
+    body.append(p("Cloud hosting provides scalable infrastructure powered by multiple servers."))
+    body.append(p("It offers:"))
+    body.append(ul(["high performance", "scalability", "reliability"]))
+    body.append(p("This makes it suitable for larger websites and SaaS platforms."))
+
+    body.append(h2("Choosing the Right Hosting Plan"))
+    body.append(p("When selecting a hosting plan, consider more than just the price."))
+    body.append(p("Important factors include:"))
+    body.append(ul([
+        "performance",
+        "uptime reliability",
+        "security features",
+        "scalability",
+    ]))
+    body.append(p("A reliable hosting provider should guarantee strong uptime and infrastructure."))
+
+    body.append(h2("Start Your Hosting Setup"))
+    body.append(p("Choosing the right hosting plan ensures your website runs fast and reliably."))
+    body.append(p("At Angraweb we provide secure and scalable hosting solutions designed for modern websites and web applications."))
+    body.append(p(f"Contact us to learn more about our hosting pricing and services. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "Web Hosting Pricing | Affordable Hosting Plans – Angraweb"
+    meta_description = (
+        "Web hosting prices and plan comparison. Shared hosting, VPS and cloud hosting solutions. Choose the right hosting plan for your project."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "Web Hosting Pricing",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_android_app_development_en(page: SeoPage) -> Dict:
     """Custom cluster: Android App Development — device diversity, performance, security. No pricing triggers."""
     body: List[str] = []
@@ -8579,7 +8649,7 @@ def _topic_for_cluster_slug(service_key: str, slug: str) -> Tuple[str, List[str]
         "domain-registration": ("Domain Registration", ["Right domain choice", "DNS management"], ["Registration steps", "DNS checklist"]),
         "ssl-certificate": ("SSL Certificate", ["Browser trust", "TLS configuration"], ["Setup steps", "Renewal plan"]),
         "linux-server-setup": ("Linux Server Setup", ["Hardening", "Performance"], ["Setup checklist", "Security baseline"]),
-        "web-hosting-pricing": ("Web Hosting Plans", ["Plan comparison", "Hidden limits"], ["Selection factors", "Selection guide"]),
+        "web-hosting-pricing": ("Web Hosting Pricing", ["Plan comparison", "Hidden limits"], ["Selection factors", "Selection guide"]),
         "vps-hosting-cost": ("VPS Hosting Plans", ["Sizing accuracy", "Budget planning"], ["Scope drivers", "Example tiers"]),
         "ui-ux-design-services": ("UI/UX Design Services", ["User clarity", "Design consistency"], ["Design system", "Prototype"]),
         "user-experience-design": ("User Experience Design", ["Research", "Journey clarity"], ["User flows", "Testing plan"]),
@@ -9098,6 +9168,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "linux-server-setup":
         return _cluster_linux_server_setup_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Web Hosting Pricing (EN) — hosting-domain
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "web-hosting-pricing":
+        return _cluster_web_hosting_pricing_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development
