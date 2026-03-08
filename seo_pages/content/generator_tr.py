@@ -7135,6 +7135,12 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_web_hosting_fiyatlari_tr(page)
 
     # -------------------------------------------------------------------------
+    # Custom cluster: VPS Planları (TR) — hosting-domain (slug: vps-fiyatlari)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "vps-fiyatlari":
+        return _cluster_vps_fiyatlari_tr(page)
+
+    # -------------------------------------------------------------------------
     # Custom cluster: React Native Uygulama (TR) — mobile-app-development
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "mobile-app-development" and page.slug == "react-native":
@@ -9109,6 +9115,116 @@ def _cluster_web_hosting_fiyatlari_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Web Hosting Fiyatları",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": [],
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_vps_fiyatlari_tr(page: SeoPage) -> Dict:
+    """Custom cluster: VPS Planları (TR) — hosting-domain, slug vps-fiyatlari."""
+    body: List[str] = []
+
+    body.append(h2("VPS Nedir?"))
+    body.append(p("VPS (Virtual Private Server), fiziksel bir sunucunun sanallaştırma teknolojisi kullanılarak birden fazla bağımsız sunucuya bölünmesiyle oluşan bir hosting çözümüdür."))
+    body.append(p("Her VPS kendi işletim sistemine, RAM kaynaklarına, CPU gücüne ve depolama alanına sahiptir. Bu nedenle VPS hosting, paylaşımlı hostingden çok daha güçlü ve esnek bir altyapı sunar."))
+    body.append(p("Bir VPS sunucusu sayesinde kullanıcılar kendi sunucularını yönetebilir, yazılım kurabilir ve ihtiyaçlarına göre sistem yapılandırması yapabilir."))
+    body.append(p("Bu özellikler VPS hosting'i özellikle büyüyen web projeleri için ideal hale getirir."))
+
+    body.append(h2("VPS Hosting Ne İçin Kullanılır?"))
+    body.append(p("VPS hosting farklı türde projeler için kullanılabilir."))
+    body.append(p("En yaygın kullanım alanları şunlardır:"))
+    body.append(ul([
+        "yüksek trafik alan web siteleri",
+        "web uygulamaları",
+        "e-ticaret siteleri",
+        "SaaS platformları",
+        "API servisleri",
+        "oyun sunucuları",
+    ]))
+    body.append(p("Bu tür projeler genellikle daha fazla performans ve kaynak gerektirdiği için VPS hosting tercih edilir."))
+
+    body.append(h2("VPS Planları Nasıl Çalışır?"))
+    body.append(p("VPS planları, bir fiziksel sunucunun sanallaştırma teknolojileri kullanılarak bölünmesiyle oluşturulur."))
+    body.append(p("Her VPS kullanıcısı aşağıdaki kaynaklara sahip olur:"))
+    body.append(ul(["CPU çekirdekleri", "RAM kapasitesi", "SSD depolama alanı", "ağ bant genişliği"]))
+    body.append(p("Bu kaynaklar kullanıcıya özel olarak tahsis edilir ve diğer kullanıcılarla paylaşılmaz."))
+    body.append(p("Bu sayede VPS hosting performansı paylaşımlı hostingden çok daha stabil olur."))
+
+    body.append(h2("VPS Hosting Avantajları"))
+    body.append(p("VPS hosting birçok avantaj sunar."))
+
+    body.append(h3("Daha Yüksek Performans"))
+    body.append(p("VPS sunucuları özel kaynaklara sahip olduğu için web siteleri daha hızlı çalışır."))
+    body.append(p("Bu özellikle yüksek trafik alan web siteleri için büyük bir avantajdır."))
+
+    body.append(h3("Tam Sunucu Kontrolü"))
+    body.append(p("VPS hosting kullanıcıya root erişimi sağlar."))
+    body.append(p("Bu sayede kullanıcılar:"))
+    body.append(ul(["sunucu yapılandırması yapabilir", "özel yazılımlar kurabilir", "güvenlik ayarlarını değiştirebilir"]))
+
+    body.append(h3("Ölçeklenebilir Kaynaklar"))
+    body.append(p("VPS hosting planları ihtiyaçlara göre kolayca yükseltilebilir."))
+    body.append(p("Bu sayede büyüyen projeler için altyapı değiştirmeden daha güçlü kaynaklara geçilebilir."))
+
+    body.append(h3("Daha Güçlü Güvenlik"))
+    body.append(p("VPS sunucuları paylaşımlı hosting'e göre daha izole bir ortam sunar."))
+    body.append(p("Bu nedenle güvenlik açısından daha güvenilir bir altyapı sağlar."))
+
+    body.append(h2("VPS Planı Seçerken Nelere Dikkat Edilmeli?"))
+    body.append(p("Doğru VPS planını seçmek web sitesinin performansı açısından çok önemlidir."))
+
+    body.append(h3("RAM ve CPU"))
+    body.append(p("Web uygulamaları için yeterli RAM ve CPU kaynaklarına sahip bir VPS seçilmelidir."))
+    body.append(p("Daha fazla trafik alan siteler daha güçlü sunucu kaynaklarına ihtiyaç duyar."))
+
+    body.append(h3("SSD Depolama"))
+    body.append(p("SSD diskler geleneksel HDD disklerden çok daha hızlıdır."))
+    body.append(p("Bu nedenle modern VPS planları genellikle SSD depolama kullanır."))
+
+    body.append(h3("Veri Merkezi"))
+    body.append(p("Sunucunun bulunduğu veri merkezi web sitesi performansını etkileyebilir."))
+    body.append(p("Hedef kullanıcı kitlesine yakın veri merkezleri daha düşük gecikme süresi sağlar."))
+
+    body.append(h3("Güvenlik Özellikleri"))
+    body.append(p("Profesyonel VPS hosting sağlayıcıları güçlü güvenlik özellikleri sunar."))
+    body.append(p("Örneğin:"))
+    body.append(ul(["DDoS koruması", "firewall sistemleri", "düzenli yedekleme"]))
+
+    body.append(h2("VPS Hosting ve Web Performansı"))
+    body.append(p("VPS hosting web sitesi performansını önemli ölçüde artırabilir."))
+    body.append(p("Özellikle aşağıdaki durumlarda VPS hosting büyük avantaj sağlar:"))
+    body.append(ul(["yüksek trafik", "ağır web uygulamaları", "büyük veri tabanları"]))
+    body.append(p("Bu nedenle birçok modern web uygulaması VPS altyapısını kullanır."))
+
+    body.append(h2("Angraweb VPS Çözümleri"))
+    body.append(p("Angraweb olarak işletmeler için güçlü ve güvenilir VPS hosting çözümleri sunuyoruz."))
+    body.append(p("Hizmetlerimiz şunları içerir:"))
+    body.append(ul([
+        "VPS sunucu kurulumu",
+        "sunucu güvenliği",
+        "performans optimizasyonu",
+        "yazılım kurulumu",
+        "sunucu yönetimi",
+    ]))
+    body.append(p("Amacımız işletmelerin web projelerini güçlü ve güvenilir bir altyapı üzerinde çalıştırmasını sağlamaktır."))
+
+    body.append(h2("Doğru VPS Planını Seçin"))
+    body.append(p("Her web projesinin ihtiyaçları farklıdır. Bu nedenle doğru VPS planını seçmek performans ve güvenlik açısından büyük önem taşır."))
+    body.append(p(f"Angraweb ile iletişime geçerek projeniz için en uygun VPS planını belirleyebilirsiniz. {{{{ link:{_pillar_url(page)} }}}}, {{{{ link:{_guide_url(page)} }}}}, {{{{ link:{_pricing_url(page)} }}}}, {{{{ link:{_quote_url(page)} }}}}."))
+
+    content_html = "\n".join(body)
+    meta_title = "VPS Planları | Güçlü ve Ölçeklenebilir VPS Hosting – Angraweb"
+    meta_description = (
+        "VPS planları ile web siteniz için güçlü ve güvenilir sunucu altyapısı kurun. Yüksek performanslı VPS hosting çözümleri ve ölçeklenebilir sunucu kaynakları."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    return {
+        "title": "VPS Planları",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
