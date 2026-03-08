@@ -179,7 +179,7 @@ SERVICE_SILO_MAP: Dict[str, dict] = {
                 "vps-hosting",
                 "ozel-sunucu-kiralama",
                 "bulut-sunucu",
-                "django-deployment",
+                "django-yayinlama",
                 "domain-satin-al",
                 "ssl-sertifikasi",
                 "linux-sunucu-kurulumu",
