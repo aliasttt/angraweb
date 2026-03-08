@@ -6918,6 +6918,8 @@ def generate_tr(page: SeoPage) -> Dict:
             return _seo_services_guide_tr(page)
         if page.service.key == "hosting-domain":
             return _hosting_domain_guide_tr(page)
+        if page.service.key == "ui-ux-design":
+            return _ui_ux_guide_tr(page)
         title = f"{svc} Rehberi"
         meta = make_meta(
             title=title,
@@ -8209,6 +8211,279 @@ def _ui_ux_pricing_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "UI/UX Tasarım Fiyatları",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _ui_ux_guide_tr(page: SeoPage) -> Dict:
+    """Custom guide: UI/UX Tasarım Rehberi (TR) — adım adım süreç, UX araştırması, wireframe, prototip."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "UI/UX tasarım, dijital ürünlerin kullanıcı tarafından kolay anlaşılmasını ve etkili kullanılmasını sağlayan kritik bir süreçtir. "
+            "Bir web sitesi, mobil uygulama veya SaaS platformunun başarısı büyük ölçüde kullanıcı deneyimi tasarımına bağlıdır."
+        )
+    )
+    body.append(
+        p(
+            "Bu UI/UX tasarım rehberi; yeni bir proje başlatan ekipler, mevcut ürününü geliştirmek isteyen markalar ve tasarım sürecini daha sistematik hale getirmek isteyen işletmeler için hazırlanmıştır."
+        )
+    )
+    body.append(
+        p(
+            "Doğru bir UI/UX süreci yalnızca görsel tasarım üretmek değildir. Aynı zamanda kullanıcı ihtiyaçlarını anlamak, bilgi mimarisini doğru kurmak ve kullanıcı akışlarını optimize etmektir."
+        )
+    )
+    body.append(p("Bu rehberde UI/UX tasarım sürecini adım adım inceleyebilirsiniz."))
+
+    body.append(h2("UI/UX Tasarım Süreci Nedir?"))
+    body.append(
+        p(
+            "UI/UX tasarım süreci, kullanıcı odaklı dijital ürün geliştirme yaklaşımıdır. Bu süreçte tasarım kararları kullanıcı davranışları ve iş hedefleri doğrultusunda alınır."
+        )
+    )
+    body.append(p("Tipik bir UI/UX süreci şu aşamalardan oluşur:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı araştırması",
+                "hedef ve kullanıcı tanımı",
+                "bilgi mimarisi",
+                "kullanıcı akışları",
+                "wireframe tasarımı",
+                "görsel arayüz tasarımı",
+                "prototip ve test",
+            ]
+        )
+    )
+    body.append(
+        p("Bu aşamalar doğru şekilde uygulandığında hem kullanıcı memnuniyeti hem de dönüşüm oranları artar.")
+    )
+
+    body.append(h2("1. Hedef ve Kullanıcıyı Tanımlamak"))
+    body.append(
+        p(
+            "Başarılı bir UI/UX tasarım süreci, projenin hedeflerini ve kullanıcı kitlesini anlamakla başlar."
+        )
+    )
+    body.append(p("Bu aşamada aşağıdaki sorular cevaplanmalıdır:"))
+    body.append(
+        ul(
+            [
+                "ürün hangi problemi çözüyor",
+                "hedef kullanıcı kimdir",
+                "kullanıcı hangi ihtiyaçlara sahiptir",
+            ]
+        )
+    )
+    body.append(p("Genellikle bu aşamada persona çalışmaları yapılır."))
+    body.append(
+        p("Persona, ürünün hedef kitlesini temsil eden kullanıcı profilleridir.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "küçük işletme sahibi",
+                "e-ticaret yöneticisi",
+                "mobil uygulama kullanıcısı",
+            ]
+        )
+    )
+    body.append(p("Bu analiz tasarım kararlarının temelini oluşturur."))
+
+    body.append(h2("2. Bilgi Mimarisi ve İçerik Planı"))
+    body.append(
+        p(
+            "Bilgi mimarisi, bir web sitesi veya uygulamadaki içerik yapısının planlanmasıdır."
+        )
+    )
+    body.append(
+        p("Doğru bilgi mimarisi sayesinde kullanıcılar aradıkları bilgilere hızlı şekilde ulaşabilir.")
+    )
+    body.append(p("Bu aşamada aşağıdaki çalışmalar yapılır:"))
+    body.append(
+        ul(
+            [
+                "sayfa yapısı oluşturma",
+                "içerik hiyerarşisi planlama",
+                "navigasyon tasarımı",
+                "kullanıcı akışları oluşturma",
+            ]
+        )
+    )
+    body.append(p("İyi planlanmış bir içerik yapısı aynı zamanda SEO performansını da destekler."))
+
+    body.append(h2("3. Wireframe Tasarımı"))
+    body.append(
+        p(
+            "Wireframe, tasarımın temel iskeletidir. Görsel detaylar olmadan sayfa yapısını ve kullanıcı akışını gösterir."
+        )
+    )
+    body.append(p("Wireframe tasarımında amaç:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı akışlarını test etmek",
+                "sayfa düzenini planlamak",
+                "içerik yerleşimini belirlemek",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Wireframe aşaması genellikle Figma gibi tasarım araçları kullanılarak hazırlanır. "
+            f"Detaylı bilgi için {{{{ link:/tr/{base}/wireframe-tasarimi/ }}}} sayfasını inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("4. UI Tasarımı (Kullanıcı Arayüzü)"))
+    body.append(
+        p("Wireframe aşamasından sonra görsel tasarım süreci başlar.")
+    )
+    body.append(p("UI tasarımı şu unsurları içerir:"))
+    body.append(
+        ul(
+            [
+                "renk paleti",
+                "tipografi",
+                "ikonlar",
+                "buton ve bileşen tasarımı",
+                "tasarım sistemi",
+            ]
+        )
+    )
+    body.append(
+        p("Bu aşamada tasarımın hem estetik hem de kullanılabilir olması hedeflenir.")
+    )
+
+    body.append(h2("5. Prototip ve Kullanılabilirlik Testi"))
+    body.append(
+        p(
+            "Prototip, tasarımın interaktif bir simülasyonudur. Kullanıcıların ürünü gerçek ortamda kullanıyormuş gibi test etmesini sağlar."
+        )
+    )
+    body.append(p("Prototip sürecinin avantajları:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı davranışlarını test etmek",
+                "kullanılabilirlik sorunlarını erken tespit etmek",
+                "geliştirme sürecini hızlandırmak",
+            ]
+        )
+    )
+    body.append(
+        p("Prototip tasarımlar genellikle Figma veya prototipleme araçları ile hazırlanır.")
+    )
+
+    body.append(h2("UI/UX Tasarımda En Sık Yapılan Hatalar"))
+    body.append(
+        p(
+            "Birçok projede kullanıcı deneyimi sorunlarının temel nedeni yanlış tasarım kararlarıdır."
+        )
+    )
+    body.append(p("En sık yapılan hatalar şunlardır:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı araştırması yapılmaması",
+                "karmaşık navigasyon yapısı",
+                "mobil uyumluluğun göz ardı edilmesi",
+                "yavaş sayfa yüklenmesi",
+                "kullanıcı akışlarının test edilmemesi",
+            ]
+        )
+    )
+    body.append(p("Bu hatalar kullanıcı deneyimini olumsuz etkileyebilir."))
+
+    body.append(h2("UI/UX Tasarımda En İyi Uygulamalar"))
+    body.append(
+        p(
+            "Başarılı bir kullanıcı deneyimi tasarımı için bazı temel prensiplere dikkat edilmelidir."
+        )
+    )
+    body.append(
+        ul(
+            [
+                "mobil öncelikli tasarım yaklaşımı",
+                "hızlı yüklenen sayfalar",
+                "sade ve anlaşılır navigasyon",
+                "tutarlı tasarım sistemi",
+                "veri odaklı tasarım kararları",
+            ]
+        )
+    )
+    body.append(p("Bu prensipler kullanıcı memnuniyetini artırır."))
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("UI/UX tasarım rehberi aşağıdaki konularla bağlantılıdır:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/fiyatlar/ }}}}",
+                f"{{{{ link:/tr/{base}/ux-arastirmasi/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/prototype-tasarimi/ }}}}",
+            ]
+        )
+    )
+    body.append(p("Bu sayfaları inceleyerek tasarım süreci hakkında daha detaylı bilgi alabilirsiniz."))
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve süreç teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "UI/UX Tasarım Rehberi 2026 | Adım Adım Kullanıcı Deneyimi Tasarım Süreci – Angraweb"
+    meta_description = (
+        "UI/UX tasarım rehberi ile kullanıcı deneyimi sürecini adım adım öğrenin. UX araştırması, bilgi mimarisi, wireframe ve prototip tasarım hakkında detaylı bilgiler."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "UI/UX tasarım nedir?",
+                "UI/UX tasarım, dijital ürünlerin kullanıcı dostu ve etkili şekilde kullanılmasını sağlayan tasarım sürecidir.",
+            ),
+            (
+                "UI ve UX arasındaki fark nedir?",
+                "UI kullanıcı arayüzünü ifade ederken, UX kullanıcıların ürünle yaşadığı deneyimi ifade eder.",
+            ),
+            (
+                "UI/UX tasarım süreci ne kadar sürer?",
+                "Proje kapsamına bağlı olarak birkaç hafta ile birkaç ay arasında sürebilir.",
+            ),
+            (
+                "UI/UX tasarım neden önemlidir?",
+                "İyi bir kullanıcı deneyimi kullanıcı memnuniyetini artırır ve dönüşüm oranlarını yükseltir.",
+            ),
+            (
+                "UI/UX tasarım SEO'yu etkiler mi?",
+                "Evet. Kullanıcı deneyimi güçlü olan web siteleri daha iyi etkileşim oranlarına sahip olur ve bu durum SEO performansını destekler.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "UI/UX Tasarım Rehberi",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
