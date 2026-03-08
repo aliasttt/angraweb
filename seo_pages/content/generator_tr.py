@@ -7097,9 +7097,10 @@ def generate_tr(page: SeoPage) -> Dict:
         return _cluster_bulut_sunucu_tr(page)
 
     # -------------------------------------------------------------------------
-    # Custom cluster: Django Yayınlama (TR) — hosting-domain
+    # Custom cluster: Django Yayınlama (TR) — hosting-domain (slug: django-deployment or django-yayinlama)
     # -------------------------------------------------------------------------
-    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "django-deployment":
+    _slug = (page.slug or "").strip().lower()
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and _slug in ("django-deployment", "django-yayinlama"):
         return _cluster_django_deployment_tr(page)
 
     # -------------------------------------------------------------------------
