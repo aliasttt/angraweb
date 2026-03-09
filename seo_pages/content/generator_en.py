@@ -4350,6 +4350,151 @@ def _cluster_user_experience_design_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_user_interface_design_en(page: SeoPage) -> Dict:
+    """Custom cluster: User Interface Design (EN) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "User Interface Design (UI Design) refers to the process of designing the visual and interactive elements of a digital product. "
+            "Websites, mobile apps, and software platforms rely on UI design to create interfaces that users can easily understand and interact with."
+        )
+    )
+    body.append(
+        p(
+            "Whenever a user opens a website or application, the elements they see—such as buttons, icons, navigation menus, and layout—are part of the user interface design."
+        )
+    )
+    body.append(
+        p(
+            "A well-designed interface allows users to interact with digital systems naturally and efficiently. "
+            "In modern digital product development, UI design works closely with UX design to create both functional and visually appealing experiences."
+        )
+    )
+
+    body.append(h2("What is User Interface Design?"))
+    body.append(
+        p(
+            "User interface design focuses on the visual layer of digital products. It defines how a product looks and how users interact with it."
+        )
+    )
+    body.append(p("UI design includes elements such as:"))
+    body.append(
+        ul(
+            [
+                "color systems",
+                "typography",
+                "icons and graphics",
+                "layout structures",
+                "buttons and UI components",
+            ]
+        )
+    )
+    body.append(
+        p("The goal of UI design is to make digital products visually clear, attractive, and easy to use.")
+    )
+
+    body.append(h2("Why UI Design is Important"))
+    body.append(
+        p(
+            "The interface of a digital product strongly influences the first impression users have. "
+            "Users typically decide within seconds whether a platform feels trustworthy and easy to use."
+        )
+    )
+    body.append(p("Good UI design helps:"))
+    body.append(
+        ul(
+            [
+                "improve usability",
+                "increase user engagement",
+                "create a strong brand identity",
+                "improve conversion rates",
+            ]
+        )
+    )
+    body.append(
+        p("Poor interface design, on the other hand, often leads to confusion and high bounce rates.")
+    )
+
+    body.append(h2("UI Design Process"))
+    body.append(
+        p("Professional UI design projects typically follow several stages.")
+    )
+    body.append(p("<strong>Research</strong> — The process starts with understanding project goals, target users, and design trends."))
+    body.append(p("<strong>Wireframing</strong> — Wireframes define the structure and layout of pages before visual design begins."))
+    body.append(p("<strong>Visual Design</strong> — At this stage designers define:"))
+    body.append(ul(["colors", "typography", "visual components"]))
+    body.append(
+        p(
+            "<strong>Design System</strong> — Modern digital products often rely on design systems to ensure consistency across all screens."
+        )
+    )
+    body.append(
+        p("<strong>Prototyping and Testing</strong> — Design prototypes allow teams to test the interface before development begins.")
+    )
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p("For more on UI and UI/UX design, see:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/user-experience-design/ }}}}",
+                f"{{{{ link:/en/{base}/what-is-ui-ux/ }}}}",
+                f"{{{{ link:/en/{base}/wireframe-design/ }}}}",
+                f"{{{{ link:/en/{base}/ux-research/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Contact us for a scope and process proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "User Interface Design (UI Design) Guide – Principles, Process and Best Practices"
+    meta_description = (
+        "Learn what user interface design is, how UI design works, and the key principles behind modern UI design for websites and apps."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "What does UI design mean?",
+                "UI design refers to designing the visual interface through which users interact with digital products.",
+            ),
+            (
+                "What does a UI designer do?",
+                "A UI designer focuses on visual elements such as layout, typography, and interface components.",
+            ),
+            (
+                "What tools are used for UI design?",
+                "Popular UI design tools include Figma, Adobe XD, and Sketch.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "User Interface Design (UI Design)",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -10240,6 +10385,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "user-experience-design":
         return _cluster_user_experience_design_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: User Interface Design (EN) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "user-interface-design":
+        return _cluster_user_interface_design_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development

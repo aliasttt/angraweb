@@ -7416,6 +7416,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "kullanici-deneyimi-tasarimi":
         return _cluster_kullanici_deneyimi_tasarimi_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: Kullanıcı Arayüzü Tasarımı (TR) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "kullanici-arayuzu-tasarimi":
+        return _cluster_kullanici_arayuzu_tasarimi_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -9293,6 +9299,268 @@ def _cluster_kullanici_deneyimi_tasarimi_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Kullanıcı Deneyimi Tasarımı (UX Design) Nedir?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_kullanici_arayuzu_tasarimi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Kullanıcı Arayüzü Tasarımı (UI Design) (TR) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Kullanıcı arayüzü tasarımı (UI Design), bir dijital ürünün görsel ve etkileşimsel arayüzünü tasarlama sürecidir. "
+            "Web siteleri, mobil uygulamalar ve yazılım platformlarında kullanıcıların gördüğü tüm görsel bileşenler UI tasarımının parçasıdır."
+        )
+    )
+    body.append(
+        p(
+            "Bir kullanıcı bir web sitesine girdiğinde gördüğü butonlar, renkler, ikonlar, menüler ve sayfa düzeni kullanıcı arayüzü tasarımı tarafından belirlenir. "
+            "İyi bir UI tasarımı kullanıcıların sistemi hızlı anlamasını ve rahat kullanmasını sağlar."
+        )
+    )
+    body.append(
+        p(
+            "Günümüzde başarılı dijital ürünler yalnızca teknik olarak güçlü olmakla kalmaz; aynı zamanda estetik, modern ve kullanıcı dostu arayüzlere sahiptir. "
+            "Bu nedenle UI tasarımı, UX tasarım süreci ile birlikte dijital ürün geliştirme süreçlerinin önemli bir parçası haline gelmiştir."
+        )
+    )
+    body.append(
+        p(
+            "UI/UX hakkında daha genel bilgi için "
+            f"{{{{ link:{_pillar_url(page)} }}}}"
+            " sayfamızı inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("Kullanıcı Arayüzü Tasarımı Nedir?"))
+    body.append(
+        p(
+            "Kullanıcı arayüzü tasarımı, kullanıcı ile dijital sistem arasındaki görsel iletişimi oluşturur. "
+            "Bir uygulamanın görünümü ve etkileşim biçimi UI tasarımının sonucudur."
+        )
+    )
+    body.append(p("UI tasarımının temel amacı:"))
+    body.append(
+        ul(
+            [
+                "kullanıcıların arayüzü kolay anlamasını sağlamak",
+                "görsel olarak dengeli ve estetik bir tasarım oluşturmak",
+                "kullanıcı etkileşimlerini basitleştirmek",
+            ]
+        )
+    )
+    body.append(p("UI tasarımında kullanılan temel unsurlar şunlardır:"))
+    body.append(
+        ul(
+            [
+                "renk paleti",
+                "tipografi",
+                "ikonlar",
+                "buton tasarımları",
+                "grid sistemi",
+                "sayfa düzeni",
+            ]
+        )
+    )
+    body.append(
+        p("Bu bileşenler birlikte çalışarak modern ve kullanıcı dostu bir arayüz oluşturur.")
+    )
+
+    body.append(h2("UI Tasarım Neden Önemlidir?"))
+    body.append(
+        p(
+            "Kullanıcı arayüzü tasarımı, bir dijital ürünün ilk izlenimini belirler. "
+            "Kullanıcılar bir web sitesini veya uygulamayı genellikle ilk birkaç saniyede değerlendirir."
+        )
+    )
+    body.append(p("İyi bir UI tasarımının avantajları:"))
+    body.append(
+        ul(
+            [
+                "kullanıcıların platformu daha hızlı anlamasını sağlar",
+                "kullanıcı güvenini artırır",
+                "kullanıcıların platformda daha uzun kalmasını sağlar",
+                "dönüşüm oranlarını yükseltir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Karmaşık veya eski tasarıma sahip bir arayüz ise kullanıcıların platformu terk etmesine neden olabilir."
+        )
+    )
+
+    body.append(h2("UI Tasarım Süreci Nasıl Çalışır?"))
+    body.append(
+        p("Profesyonel UI tasarım projeleri belirli aşamalardan oluşur.")
+    )
+    body.append(h3("1. Tasarım Araştırması"))
+    body.append(
+        p(
+            "İlk aşamada proje hedefleri ve kullanıcı ihtiyaçları analiz edilir. "
+            "Rakip platformlar incelenir ve tasarım trendleri değerlendirilir."
+        )
+    )
+    body.append(h3("2. Wireframe Tasarımı"))
+    body.append(
+        p(
+            "Wireframe aşamasında sayfaların temel düzeni oluşturulur. "
+            "Bu aşamada görsel detaylardan çok sayfa yapısı ve içerik yerleşimi planlanır."
+        )
+    )
+    body.append(h3("3. Görsel Arayüz Tasarımı"))
+    body.append(p("Wireframe tamamlandıktan sonra görsel tasarım aşamasına geçilir. Bu aşamada:"))
+    body.append(
+        ul(
+            [
+                "renk sistemi",
+                "tipografi",
+                "UI bileşenleri",
+            ]
+        )
+    )
+    body.append(p("tasarlanır."))
+    body.append(h3("4. Tasarım Sistemi Oluşturma"))
+    body.append(
+        p(
+            "Modern projelerde UI tasarım yalnızca tek bir sayfadan oluşmaz. "
+            "Tasarım sistemi oluşturularak tüm arayüz bileşenlerinin tutarlı olması sağlanır."
+        )
+    )
+    body.append(h3("5. Prototip ve Test"))
+    body.append(
+        p("Son aşamada tasarım prototip haline getirilir ve kullanıcı testleri yapılır.")
+    )
+
+    body.append(h2("Modern UI Tasarım Trendleri"))
+    body.append(
+        p("Dijital tasarım sürekli gelişen bir alandır. Modern UI tasarımında sık kullanılan bazı trendler şunlardır:")
+    )
+    body.append(
+        ul(
+            [
+                "minimal tasarım yaklaşımı",
+                "sade navigasyon",
+                "mikro etkileşimler",
+                "modern tipografi",
+                "karanlık mod tasarımı",
+            ]
+        )
+    )
+    body.append(p("Bu trendler kullanıcı deneyimini daha etkili hale getirir."))
+
+    body.append(h2("UI Tasarım Nerelerde Kullanılır?"))
+    body.append(
+        p("Kullanıcı arayüzü tasarımı birçok dijital platformda kullanılır.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "web siteleri",
+                "mobil uygulamalar",
+                "e-ticaret platformları",
+                "SaaS yazılımları",
+                "yönetim panelleri",
+            ]
+        )
+    )
+    body.append(
+        p("Bu platformların hepsinde kullanıcı arayüzü tasarımı kullanıcı deneyimini doğrudan etkiler.")
+    )
+
+    body.append(h2("İyi Bir UI Tasarımının Özellikleri"))
+    body.append(
+        p("Başarılı bir kullanıcı arayüzü tasarımı bazı temel prensiplere dayanır.")
+    )
+    body.append(
+        ul(
+            [
+                "sade ve anlaşılır tasarım",
+                "tutarlı tasarım sistemi",
+                "mobil uyumluluk",
+                "hızlı yüklenen sayfalar",
+                "okunabilir tipografi",
+            ]
+        )
+    )
+    body.append(p("Bu prensipler kullanıcı deneyimini ve etkileşimi artırır."))
+
+    body.append(h2("UI Tasarım ve UX Tasarım Arasındaki Fark"))
+    body.append(
+        p("UI ve UX genellikle birlikte kullanılır ancak farklı kavramlardır.")
+    )
+    body.append(p("<strong>UI tasarım:</strong>"))
+    body.append(ul(["görsel arayüz", "renkler ve tipografi", "bileşen tasarımları"]))
+    body.append(p("<strong>UX tasarım:</strong>"))
+    body.append(ul(["kullanıcı akışları", "ürün deneyimi", "kullanılabilirlik"]))
+    body.append(
+        p("Başarılı bir dijital ürün için hem güçlü UI hem de güçlü UX gereklidir.")
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("Kullanıcı arayüzü tasarımı hakkında daha fazla bilgi için şu sayfaları inceleyebilirsiniz:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/kullanici-deneyimi-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/ui-ux-nedir/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/ux-arastirmasi/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve süreç teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Kullanıcı Arayüzü Tasarımı (UI Design) Nedir? Modern UI Tasarım Rehberi – Angraweb"
+    meta_description = (
+        "Kullanıcı arayüzü tasarımı nedir? UI design süreci, tasarım sistemi, modern arayüz prensipleri ve iyi bir UI tasarımının özelliklerini detaylı öğrenin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "Kullanıcı arayüzü tasarımı nedir?",
+                "Kullanıcı arayüzü tasarımı, bir dijital ürünün görsel ve etkileşimsel arayüzünü tasarlama sürecidir.",
+            ),
+            (
+                "UI designer ne yapar?",
+                "UI designer arayüz tasarımı, tasarım sistemi oluşturma ve görsel bileşenleri tasarlama görevlerini yürütür.",
+            ),
+            (
+                "UI tasarım SEO'yu etkiler mi?",
+                "Dolaylı olarak evet. İyi bir arayüz kullanıcıların sitede daha uzun kalmasını sağlar ve bu durum SEO performansını olumlu etkiler.",
+            ),
+            (
+                "UI tasarım hangi araçlarla yapılır?",
+                "Figma, Adobe XD ve Sketch gibi araçlar UI tasarım için yaygın olarak kullanılır.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Kullanıcı Arayüzü Tasarımı (UI Design)",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
