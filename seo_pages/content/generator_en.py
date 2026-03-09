@@ -4792,6 +4792,147 @@ def _cluster_ux_research_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_figma_design_en(page: SeoPage) -> Dict:
+    """Custom cluster: Figma Design (EN) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Figma design has become one of the most widely used tools for modern UI and UX design. "
+            "Designers use Figma to create user interfaces for websites, mobile applications, and digital products."
+        )
+    )
+    body.append(
+        p(
+            "One of Figma's biggest advantages is that it is a cloud-based design platform. "
+            "This allows designers, developers, and product teams to collaborate in real time on the same project."
+        )
+    )
+    body.append(
+        p(
+            "In modern product development workflows, Figma is not only used for interface design but also for managing design systems and improving collaboration between teams."
+        )
+    )
+    body.append(
+        p(
+            "Because of these capabilities, many companies rely on Figma for their product design workflows."
+        )
+    )
+
+    body.append(h2("What is Figma Design?"))
+    body.append(
+        p(
+            "Figma design refers to creating digital product interfaces using the Figma platform."
+        )
+    )
+    body.append(p("With Figma designers can:"))
+    body.append(
+        ul(
+            [
+                "design user interfaces",
+                "create interactive prototypes",
+                "build design systems",
+                "collaborate with team members",
+                "hand off designs to developers",
+            ]
+        )
+    )
+    body.append(
+        p("These features make Figma one of the most powerful tools for modern design teams.")
+    )
+
+    body.append(h2("Why Figma is Popular"))
+    body.append(
+        p("Figma has become extremely popular in recent years due to several advantages.")
+    )
+    body.append(p("These include:"))
+    body.append(
+        ul(
+            [
+                "cloud-based design environment",
+                "real-time collaboration",
+                "powerful prototyping tools",
+                "scalable design systems",
+                "seamless developer handoff",
+            ]
+        )
+    )
+    body.append(
+        p("These features allow teams to work faster and more efficiently.")
+    )
+
+    body.append(h2("Figma Design Process"))
+    body.append(
+        p("A professional Figma design project typically follows several steps.")
+    )
+    body.append(p("<strong>Research</strong> — The design process begins with understanding project goals and user needs."))
+    body.append(p("<strong>Wireframing</strong> — Wireframes define the layout and structure of the interface."))
+    body.append(p("<strong>UI Design</strong> — At this stage designers create the visual interface including typography, colors, and components."))
+    body.append(p("<strong>Prototyping</strong> — Figma allows designers to create interactive prototypes that simulate real user interactions."))
+    body.append(p("<strong>Developer Handoff</strong> — Finally, the design files are shared with developers to begin implementation."))
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p("For more on Figma and UI/UX design, see:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/user-interface-design/ }}}}",
+                f"{{{{ link:/en/{base}/mobile-app-ui-design/ }}}}",
+                f"{{{{ link:/en/{base}/ux-research/ }}}}",
+                f"{{{{ link:/en/{base}/wireframe-design/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Contact us for a scope and process proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Figma Design – UI/UX Design Process Using Figma"
+    meta_description = (
+        "Learn how Figma is used for UI/UX design, prototyping, and design systems in modern digital product development."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "What is Figma used for?",
+                "Figma is used for UI design, prototyping, and design system management.",
+            ),
+            (
+                "Is Figma good for UI/UX design?",
+                "Yes, Figma is one of the most widely used tools for UI and UX design.",
+            ),
+            (
+                "Why do teams use Figma?",
+                "Teams use Figma because it allows real-time collaboration and efficient design workflows.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Figma Design",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -10700,6 +10841,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "ux-research":
         return _cluster_ux_research_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Figma Design (EN) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "figma-design":
+        return _cluster_figma_design_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development

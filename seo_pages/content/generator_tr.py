@@ -7434,6 +7434,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "ux-arastirmasi":
         return _cluster_ux_arastirmasi_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: Figma Tasarım (TR) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "figma-tasarim":
+        return _cluster_figma_tasarim_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -10061,6 +10067,240 @@ def _cluster_ux_arastirmasi_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "UX Araştırması",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_figma_tasarim_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Figma Tasarım (TR) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Figma tasarım, modern UI/UX tasarım süreçlerinde kullanılan en popüler tasarım araçlarından biridir. "
+            "Web siteleri, mobil uygulamalar ve dijital ürünlerin arayüz tasarımında Figma yaygın olarak kullanılmaktadır."
+        )
+    )
+    body.append(
+        p(
+            "Figma'nın en önemli avantajlarından biri tamamen bulut tabanlı bir tasarım platformu olmasıdır. "
+            "Bu sayede tasarımcılar, geliştiriciler ve ürün ekipleri aynı proje üzerinde eş zamanlı olarak çalışabilir."
+        )
+    )
+    body.append(
+        p(
+            "Modern ürün geliştirme süreçlerinde Figma yalnızca bir tasarım aracı değil, aynı zamanda ekip içi işbirliği ve tasarım sistemi yönetimi için önemli bir platform haline gelmiştir."
+        )
+    )
+    body.append(
+        p(
+            "Birçok şirket UI/UX tasarım süreçlerini Figma üzerinden yürütmektedir. "
+            "Bu sayede tasarım dosyaları merkezi olarak yönetilebilir ve geliştirme ekipleri ile daha kolay paylaşılabilir."
+        )
+    )
+    body.append(
+        p(
+            "UI/UX tasarım süreci hakkında daha fazla bilgi için "
+            f"{{{{ link:{_pillar_url(page)} }}}}"
+            " sayfamızı inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("Figma Tasarım Nedir?"))
+    body.append(
+        p(
+            "Figma tasarım, dijital ürünlerin arayüz tasarımını oluşturmak için kullanılan bir tasarım yöntemidir. "
+            "Figma platformu üzerinden tasarımcılar web ve mobil uygulama arayüzlerini planlayabilir ve prototipler oluşturabilir."
+        )
+    )
+    body.append(p("Figma sayesinde şu işlemler yapılabilir:"))
+    body.append(
+        ul(
+            [
+                "UI tasarımı oluşturma",
+                "prototip hazırlama",
+                "tasarım sistemi oluşturma",
+                "ekip ile ortak çalışma",
+                "geliştiricilere tasarım teslimi",
+            ]
+        )
+    )
+    body.append(
+        p("Bu özellikler Figma'yı modern ürün tasarım süreçlerinde güçlü bir araç haline getirmiştir.")
+    )
+
+    body.append(h2("Figma Neden Popüler Bir Tasarım Aracıdır?"))
+    body.append(
+        p("Son yıllarda Figma, UI/UX tasarım dünyasında hızla popüler hale gelmiştir.")
+    )
+    body.append(p("Bunun birkaç önemli nedeni vardır:"))
+    body.append(
+        ul(
+            [
+                "bulut tabanlı çalışma sistemi",
+                "ekip içi gerçek zamanlı işbirliği",
+                "güçlü prototipleme özellikleri",
+                "tasarım sistemi oluşturma imkanı",
+                "geliştiriciler için kolay tasarım teslimi",
+            ]
+        )
+    )
+    body.append(p("Bu özellikler sayesinde tasarım süreçleri daha hızlı ve verimli hale gelir."))
+
+    body.append(h2("Figma Tasarım Süreci"))
+    body.append(
+        p("Profesyonel bir Figma tasarım projesi genellikle birkaç aşamadan oluşur.")
+    )
+    body.append(h3("Proje Analizi"))
+    body.append(
+        p("İlk aşamada proje hedefleri ve kullanıcı ihtiyaçları analiz edilir.")
+    )
+    body.append(h3("Wireframe Tasarımı"))
+    body.append(
+        p("Wireframe aşamasında sayfa yapısı ve kullanıcı akışları planlanır.")
+    )
+    body.append(h3("UI Tasarım"))
+    body.append(p("Bu aşamada arayüz tasarımının görsel detayları oluşturulur. Örneğin:"))
+    body.append(ul(["renk sistemi", "tipografi", "ikonlar", "bileşenler"]))
+    body.append(p("tasarlanır."))
+    body.append(h3("Prototip Oluşturma"))
+    body.append(
+        p("Figma prototipleme özelliği sayesinde tasarımlar etkileşimli hale getirilebilir.")
+    )
+    body.append(h3("Geliştirme Teslimi"))
+    body.append(
+        p("Son aşamada tasarım dosyaları geliştirme ekibine teslim edilir.")
+    )
+
+    body.append(h2("Figma ile Tasarım Sistemi Oluşturma"))
+    body.append(
+        p("Figma'nın en güçlü özelliklerinden biri tasarım sistemi oluşturma imkanıdır.")
+    )
+    body.append(p("Tasarım sistemi şu bileşenlerden oluşur:"))
+    body.append(
+        ul(
+            [
+                "UI bileşenleri",
+                "tipografi kuralları",
+                "renk paleti",
+                "ikon kütüphanesi",
+                "grid sistemi",
+            ]
+        )
+    )
+    body.append(p("Bu sistem sayesinde projede tutarlılık sağlanır."))
+
+    body.append(h2("Figma ve UI/UX Tasarım"))
+    body.append(
+        p("Figma genellikle UI ve UX tasarım süreçleri ile birlikte kullanılır.")
+    )
+    body.append(p("<strong>UX tasarım:</strong> kullanıcı akışlarını oluşturur"))
+    body.append(p("<strong>UI tasarım:</strong> görsel arayüzü oluşturur"))
+    body.append(
+        p("Figma ise bu tasarımların hazırlanmasını ve paylaşılmasını sağlar.")
+    )
+
+    body.append(h2("Figma Tasarımın Avantajları"))
+    body.append(
+        p("Figma ile yapılan tasarım çalışmalarının birçok avantajı vardır.")
+    )
+    body.append(
+        ul(
+            [
+                "hızlı tasarım süreci",
+                "ekip içi işbirliği",
+                "kolay prototipleme",
+                "tasarım sistemi yönetimi",
+                "geliştiriciler için kolay handoff",
+            ]
+        )
+    )
+    body.append(
+        p("Bu avantajlar Figma'yı modern tasarım ekipleri için vazgeçilmez bir araç haline getirmiştir.")
+    )
+
+    body.append(h2("Figma Nerelerde Kullanılır?"))
+    body.append(
+        p("Figma birçok dijital projede kullanılmaktadır.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "web sitesi tasarımı",
+                "mobil uygulama tasarımı",
+                "SaaS platformları",
+                "dashboard tasarımları",
+                "e-ticaret arayüzleri",
+            ]
+        )
+    )
+    body.append(
+        p("Bu projelerde Figma tasarım süreci geliştirme ekipleri ile daha iyi işbirliği sağlar.")
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("Figma tasarım hakkında daha fazla bilgi için şu sayfaları inceleyebilirsiniz:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/kullanici-arayuzu-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/mobil-uygulama-arayuz-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/ux-arastirmasi/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve süreç teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Figma Tasarım Nedir? Modern UI/UX Tasarım Süreci ve Figma Kullanımı – Angraweb"
+    meta_description = (
+        "Figma tasarım nedir? Figma ile UI/UX tasarım süreci, prototipleme, tasarım sistemleri ve ekip çalışması hakkında kapsamlı rehber."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "Figma tasarım nedir?",
+                "Figma tasarım, web ve mobil uygulama arayüzlerinin oluşturulması için kullanılan modern bir tasarım sürecidir.",
+            ),
+            (
+                "Figma hangi amaçla kullanılır?",
+                "Figma UI tasarımı, prototip oluşturma ve tasarım sistemi yönetimi için kullanılır.",
+            ),
+            (
+                "Figma neden popülerdir?",
+                "Bulut tabanlı yapısı ve ekip içi gerçek zamanlı çalışma imkanı sayesinde Figma çok popüler hale gelmiştir.",
+            ),
+            (
+                "Figma tasarım süresi neye bağlıdır?",
+                "Projenin kapsamı, ekran sayısı ve kullanıcı akışlarının karmaşıklığı tasarım süresini belirler.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Figma Tasarım",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

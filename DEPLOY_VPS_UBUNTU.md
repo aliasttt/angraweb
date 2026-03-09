@@ -499,6 +499,9 @@ systemctl restart angraweb
 # اگر روی سرور خطای «unmerged files» یا «local changes would be overwritten» گرفتید، یک‌بار این را اجرا کنید:
 #   sudo -u angraweb bash -lc "cd /srv/angraweb && git merge --abort 2>/dev/null; git fetch origin && git reset --hard origin/main"
 # بعد دوباره همین بلوک دیپلوی را اجرا کنید.
+#
+# اگر صفحهٔ Figma (یا بقیهٔ کلاسترهای UI/UX) بعد از دیپلوی عوض نشد: اول از لوکال همهٔ تغییرات را push کنید (تا کد generator شامل
+# _cluster_figma_tasarim_tr و بقیه روی origin/main باشد)، بعد روی سرور همین بلوک را دوباره اجرا کنید تا pull کد جدید را بگیرد و generate دوباره اجرا شود.
 
 sudo -u angraweb bash -lc "
 cd /srv/angraweb || exit 1
@@ -521,9 +524,19 @@ source /srv/angraweb/venv/bin/activate
 python manage.py migrate --noinput || exit 1
 python manage.py collectstatic --noinput || exit 1
 
-
-python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=quote --force
-python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=quote --force
+# UI/UX design custom clusters (ensure latest code is pushed so these use custom content, not default)
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=ui-ux-nedir --force
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=kullanici-deneyimi-tasarimi --force
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=kullanici-arayuzu-tasarimi --force
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=mobil-uygulama-arayuz-tasarimi --force
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=ux-arastirmasi --force
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=figma-tasarim --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=what-is-ui-ux --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=user-experience-design --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=user-interface-design --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=mobile-app-ui-design --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=ux-research --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=figma-design --force
 "
 
 # Restart services
