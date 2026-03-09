@@ -7410,6 +7410,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "ui-ux-nedir":
         return _cluster_ui_ux_nedir_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: Kullanıcı Deneyimi Tasarımı (TR) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "kullanici-deneyimi-tasarimi":
+        return _cluster_kullanici_deneyimi_tasarimi_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -9038,6 +9044,255 @@ def _cluster_ui_ux_nedir_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "UI/UX Nedir?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_kullanici_deneyimi_tasarimi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Kullanıcı Deneyimi Tasarımı (UX Design) (TR) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Kullanıcı deneyimi tasarımı (UX Design), bir dijital ürünün kullanıcılar tarafından kolay, hızlı ve anlaşılır şekilde kullanılmasını sağlayan tasarım sürecidir."
+        )
+    )
+    body.append(
+        p(
+            "Bir web sitesi, mobil uygulama veya yazılım platformu geliştirilirken kullanıcıların platformu nasıl kullandığı analiz edilir. "
+            "Kullanıcıların hedeflerine daha hızlı ulaşmasını sağlayan yapı UX tasarımının temel amacıdır."
+        )
+    )
+    body.append(p("Başarılı bir kullanıcı deneyimi tasarımı şu sorulara cevap verir:"))
+    body.append(
+        ul(
+            [
+                "Kullanıcı bu ürünü neden kullanıyor?",
+                "Kullanıcı platformda hangi adımları takip ediyor?",
+                "Kullanıcı nerede zorlanıyor?",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu soruların cevapları doğrultusunda ürün deneyimi optimize edilir. "
+            f"UI/UX tasarım hakkında genel bilgi için " + f"{{{{ link:{_pillar_url(page)} }}}}" + " sayfamızı da inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("Kullanıcı Deneyimi Tasarımının Amacı"))
+    body.append(
+        p(
+            "UX tasarımın temel amacı kullanıcıların bir ürünü kullanırken yaşadığı deneyimi iyileştirmektir."
+        )
+    )
+    body.append(p("İyi bir UX tasarımı sayesinde:"))
+    body.append(
+        ul(
+            [
+                "kullanıcılar siteyi daha kolay kullanır",
+                "kullanıcılar platformda daha uzun süre kalır",
+                "dönüşüm oranları artar",
+                "kullanıcı memnuniyeti yükselir",
+            ]
+        )
+    )
+    body.append(
+        p("Kötü bir kullanıcı deneyimi ise kullanıcıların siteyi hızlı şekilde terk etmesine neden olabilir.")
+    )
+
+    body.append(h2("UX Tasarım Süreci Nasıl Çalışır?"))
+    body.append(
+        p(
+            "Profesyonel UX tasarım projeleri genellikle birkaç aşamadan oluşur."
+        )
+    )
+    body.append(h3("1. Kullanıcı Araştırması"))
+    body.append(p("İlk aşamada hedef kullanıcı kitlesi analiz edilir."))
+    body.append(p("Bu aşamada:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı ihtiyaçları",
+                "kullanıcı davranışları",
+                "rakip analizleri",
+            ]
+        )
+    )
+    body.append(p("incelenir."))
+
+    body.append(h3("2. Bilgi Mimarisi"))
+    body.append(
+        p(
+            "Bilgi mimarisi, web sitesi veya uygulamanın sayfa yapısını planlama sürecidir."
+        )
+    )
+    body.append(p("Bu aşamada:"))
+    body.append(
+        ul(
+            [
+                "sayfa hiyerarşisi",
+                "navigasyon yapısı",
+                "kullanıcı akışları",
+            ]
+        )
+    )
+    body.append(p("planlanır."))
+
+    body.append(h3("3. Wireframe Tasarımı"))
+    body.append(
+        p(
+            "Wireframe tasarımı, sayfaların temel yapısını gösteren taslak ekranlardır."
+        )
+    )
+    body.append(p("Bu aşamada:"))
+    body.append(
+        ul(
+            [
+                "içerik yerleşimi",
+                "sayfa düzeni",
+                "kullanıcı etkileşim noktaları",
+            ]
+        )
+    )
+    body.append(p("belirlenir."))
+
+    body.append(h3("4. Prototip ve Kullanılabilirlik Testi"))
+    body.append(p("Prototip aşamasında tasarım kullanıcılarla test edilir."))
+    body.append(p("Bu testler sayesinde:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı hataları",
+                "karmaşık akışlar",
+                "kullanılabilirlik problemleri",
+            ]
+        )
+    )
+    body.append(p("tespit edilir."))
+
+    body.append(h2("UX Tasarım Nerelerde Kullanılır?"))
+    body.append(
+        p("Kullanıcı deneyimi tasarımı birçok dijital ürün için kullanılır.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "web siteleri",
+                "e-ticaret platformları",
+                "mobil uygulamalar",
+                "SaaS yazılımları",
+                "dashboard sistemleri",
+            ]
+        )
+    )
+    body.append(
+        p("Bu platformlarda UX tasarım kullanıcı memnuniyetini artırır.")
+    )
+
+    body.append(h2("İyi Bir UX Tasarımının Özellikleri"))
+    body.append(
+        p(
+            "Başarılı bir kullanıcı deneyimi tasarımında şu özellikler bulunur:"
+        )
+    )
+    body.append(
+        ul(
+            [
+                "kullanıcı odaklı tasarım",
+                "basit navigasyon",
+                "hızlı yüklenen sayfalar",
+                "mobil uyumluluk",
+                "tutarlı tasarım bileşenleri",
+            ]
+        )
+    )
+    body.append(p("Bu faktörler kullanıcı deneyimini doğrudan etkiler."))
+
+    body.append(h2("UX Tasarım Neden İşletmeler İçin Önemlidir?"))
+    body.append(
+        p("İyi bir UX tasarımı işletmeler için büyük avantaj sağlar.")
+    )
+    body.append(p("Avantajları:"))
+    body.append(
+        ul(
+            [
+                "daha yüksek dönüşüm oranı",
+                "müşteri memnuniyeti",
+                "marka güveni",
+                "daha düşük kullanıcı terk oranı",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle UX tasarım günümüzde dijital ürün geliştirme süreçlerinin önemli bir parçasıdır."
+        )
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("Kullanıcı deneyimi tasarımı hakkında daha fazla bilgi için şu sayfaları inceleyebilirsiniz:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/ui-ux-nedir/ }}}}",
+                f"{{{{ link:/tr/{base}/kullanici-arayuzu-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/prototype-tasarimi/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve süreç teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Kullanıcı Deneyimi Tasarımı (UX Design) Nedir? Süreç ve Önemi – Angraweb"
+    meta_description = (
+        "Kullanıcı deneyimi tasarımı (UX design) nedir? UX tasarım süreci, kullanıcı araştırması, wireframe ve test aşamalarını detaylı şekilde öğrenin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "Kullanıcı deneyimi tasarımı nedir?",
+                "Kullanıcı deneyimi tasarımı, dijital ürünlerin kullanıcılar için daha kolay ve verimli kullanılmasını sağlayan tasarım sürecidir.",
+            ),
+            (
+                "UX designer ne yapar?",
+                "UX designer kullanıcı araştırması yapar, kullanıcı akışlarını planlar ve ürün deneyimini optimize eder.",
+            ),
+            (
+                "UX tasarım SEO'yu etkiler mi?",
+                "Evet. İyi bir kullanıcı deneyimi kullanıcıların sitede daha uzun kalmasını sağlar ve SEO performansını olumlu etkiler.",
+            ),
+            (
+                "UX tasarım sadece mobil uygulamalar için mi kullanılır?",
+                "Hayır. Web siteleri, SaaS platformları ve birçok dijital ürün UX tasarım kullanır.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Kullanıcı Deneyimi Tasarımı (UX Design) Nedir?",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

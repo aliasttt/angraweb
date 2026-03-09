@@ -4240,6 +4240,116 @@ def _cluster_what_is_ui_ux_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_user_experience_design_en(page: SeoPage) -> Dict:
+    """Custom cluster: User Experience Design (EN) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "User Experience Design (UX Design) is the process of designing digital products that are easy to use, intuitive, and efficient for users."
+        )
+    )
+    body.append(
+        p(
+            "Websites, mobile apps, and SaaS platforms rely heavily on good UX design to ensure that users can complete their goals quickly and without confusion."
+        )
+    )
+    body.append(
+        p(
+            "UX design focuses on understanding user behavior and improving the interaction between users and digital products."
+        )
+    )
+
+    body.append(h2("The Goal of UX Design"))
+    body.append(
+        p("The main goal of UX design is to improve how users interact with a product.")
+    )
+    body.append(p("Good UX design helps:"))
+    body.append(
+        ul(
+            [
+                "users navigate easily",
+                "reduce confusion",
+                "improve user satisfaction",
+                "increase conversion rates",
+            ]
+        )
+    )
+    body.append(
+        p("A poor user experience often leads to high bounce rates and low engagement.")
+    )
+
+    body.append(h2("UX Design Process"))
+    body.append(
+        p("UX design usually follows several structured stages.")
+    )
+    body.append(p("<strong>User Research</strong> — Understanding the target audience and their needs."))
+    body.append(p("<strong>Information Architecture</strong> — Planning the structure of the product and its navigation."))
+    body.append(p("<strong>Wireframing</strong> — Creating layout structures for pages or screens."))
+    body.append(p("<strong>Prototyping and Testing</strong> — Testing the design with users to identify usability issues."))
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p("For more on UX and UI/UX design, see:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/what-is-ui-ux/ }}}}",
+                f"{{{{ link:/en/{base}/user-interface-design/ }}}}",
+                f"{{{{ link:/en/{base}/wireframe-design/ }}}}",
+                f"{{{{ link:/en/{base}/prototype-design/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Contact us for a scope and process proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "User Experience Design (UX Design) Explained – Process and Benefits"
+    meta_description = (
+        "Learn what user experience design is, how UX design works, and why UX design is important for websites, apps, and digital products."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "What does UX design mean?",
+                "UX design focuses on improving the overall experience users have when interacting with a digital product.",
+            ),
+            (
+                "Why is UX design important?",
+                "It improves usability, engagement, and user satisfaction.",
+            ),
+            (
+                "What tools are used in UX design?",
+                "Popular tools include Figma, Adobe XD, and Sketch.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "What is User Experience Design?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -10124,6 +10234,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "what-is-ui-ux":
         return _cluster_what_is_ui_ux_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: User Experience Design (EN) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "user-experience-design":
+        return _cluster_user_experience_design_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development
