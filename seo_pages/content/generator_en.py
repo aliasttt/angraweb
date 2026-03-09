@@ -4495,6 +4495,150 @@ def _cluster_user_interface_design_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_mobile_app_ui_design_en(page: SeoPage) -> Dict:
+    """Custom cluster: Mobile App UI Design (EN) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Mobile app UI design is the process of designing the visual interface through which users interact with a mobile application. "
+            "In today's competitive digital landscape, the success of a mobile application often depends on how intuitive and visually appealing its interface is."
+        )
+    )
+    body.append(
+        p(
+            "When users open a mobile app, they immediately interact with its interface elements such as buttons, menus, icons, and navigation structures. "
+            "These elements form the user interface and determine how easy it is for users to perform actions inside the application."
+        )
+    )
+    body.append(
+        p(
+            "A well-designed mobile interface helps users complete tasks quickly and comfortably. "
+            "Modern mobile UI design focuses not only on aesthetics but also on usability and accessibility."
+        )
+    )
+    body.append(
+        p(
+            "Mobile design projects typically involve several stages, including user research, wireframing, UI design, prototyping, and usability testing."
+        )
+    )
+
+    body.append(h2("What is Mobile UI Design?"))
+    body.append(
+        p(
+            "Mobile UI design refers to the design of visual components and interactive elements that appear in mobile applications."
+        )
+    )
+    body.append(p("These components include:"))
+    body.append(
+        ul(
+            [
+                "navigation menus",
+                "buttons",
+                "icons",
+                "typography",
+                "layout structures",
+            ]
+        )
+    )
+    body.append(
+        p("The goal is to create an interface that feels natural and intuitive on smaller screens.")
+    )
+
+    body.append(h2("Why Mobile UI Design is Important"))
+    body.append(
+        p(
+            "A mobile app's interface strongly influences how users perceive the product. "
+            "Users often decide whether they like an app within the first few seconds of using it."
+        )
+    )
+    body.append(p("Good mobile UI design helps:"))
+    body.append(
+        ul(
+            [
+                "improve usability",
+                "increase user engagement",
+                "enhance brand perception",
+                "increase user retention",
+            ]
+        )
+    )
+    body.append(
+        p("Poor design, on the other hand, can cause users to uninstall the application quickly.")
+    )
+
+    body.append(h2("Mobile UI Design Process"))
+    body.append(
+        p("Professional mobile UI design projects usually follow a structured process.")
+    )
+    body.append(p("<strong>Research</strong> — The process begins with understanding the target users and analyzing competitor applications."))
+    body.append(p("<strong>Wireframing</strong> — Wireframes define the structure of screens before visual design begins."))
+    body.append(p("<strong>Visual Design</strong> — At this stage designers create the visual style, including colors, typography, and interface components."))
+    body.append(p("<strong>Prototyping</strong> — Interactive prototypes simulate how the application will behave when users interact with it."))
+    body.append(p("<strong>User Testing</strong> — Testing helps identify usability issues before development starts."))
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p("For more on mobile UI and UI/UX design, see:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/user-interface-design/ }}}}",
+                f"{{{{ link:/en/{base}/ux-research/ }}}}",
+                f"{{{{ link:/en/{base}/wireframe-design/ }}}}",
+                f"{{{{ link:/en/{base}/prototype-design/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Contact us for a scope and process proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Mobile App UI Design – Principles, Process and Best Practices"
+    meta_description = (
+        "Learn what mobile app UI design is, how the design process works, and the key principles behind successful mobile interfaces."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "What is mobile UI design?",
+                "Mobile UI design refers to designing the visual interface that users interact with inside mobile applications.",
+            ),
+            (
+                "What tools are used for mobile UI design?",
+                "Design tools such as Figma, Adobe XD, and Sketch are widely used for mobile UI design.",
+            ),
+            (
+                "What makes a good mobile UI design?",
+                "A good mobile interface is simple, consistent, responsive, and easy to navigate.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Mobile App UI Design",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -10391,6 +10535,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "user-interface-design":
         return _cluster_user_interface_design_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Mobile App UI Design (EN) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "mobile-app-ui-design":
+        return _cluster_mobile_app_ui_design_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development

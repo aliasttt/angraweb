@@ -7422,6 +7422,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "kullanici-arayuzu-tasarimi":
         return _cluster_kullanici_arayuzu_tasarimi_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: Mobil Uygulama Arayüz Tasarımı (TR) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "mobil-uygulama-arayuz-tasarimi":
+        return _cluster_mobil_uygulama_arayuz_tasarimi_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -9561,6 +9567,265 @@ def _cluster_kullanici_arayuzu_tasarimi_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Kullanıcı Arayüzü Tasarımı (UI Design)",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_mobil_uygulama_arayuz_tasarimi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Mobil Uygulama Arayüz Tasarımı (TR) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Mobil uygulama arayüz tasarımı, kullanıcıların bir mobil uygulama ile nasıl etkileşim kurduğunu belirleyen görsel ve etkileşimsel tasarım sürecidir. "
+            "Günümüzde milyonlarca mobil uygulama bulunmasına rağmen yalnızca kullanıcı dostu ve iyi tasarlanmış uygulamalar başarılı olabilmektedir."
+        )
+    )
+    body.append(
+        p(
+            "Bir mobil uygulamanın başarısı yalnızca teknik altyapıya bağlı değildir. "
+            "Kullanıcıların uygulamayı kolay anlaması, hızlı kullanması ve görsel olarak güven duyması gerekir. İşte bu noktada mobil UI tasarımı kritik rol oynar."
+        )
+    )
+    body.append(
+        p(
+            "Mobil arayüz tasarımı; butonlar, navigasyon yapısı, ikonlar, tipografi, renk paleti ve sayfa düzeni gibi birçok bileşeni kapsar. "
+            "Bu unsurlar doğru şekilde bir araya geldiğinde kullanıcı deneyimi güçlü ve akıcı hale gelir."
+        )
+    )
+    body.append(
+        p(
+            "Mobil tasarım süreci genellikle UX araştırması, wireframe tasarımı, UI tasarımı ve prototip testleri gibi aşamalardan oluşur. "
+            "Bu süreç sayesinde uygulamanın hem estetik hem de kullanışlı olması sağlanır."
+        )
+    )
+    body.append(
+        p(
+            "UI/UX hakkında daha geniş bilgi için "
+            f"{{{{ link:{_pillar_url(page)} }}}}"
+            " sayfamızı inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("Mobil UI Tasarım Nedir?"))
+    body.append(
+        p(
+            "Mobil UI tasarım, mobil cihazlar için geliştirilen uygulamaların görsel arayüzünü oluşturma sürecidir. "
+            "Bu süreçte tasarımcılar kullanıcıların ekran üzerinde nasıl hareket edeceğini ve uygulamayla nasıl etkileşim kuracağını planlar."
+        )
+    )
+    body.append(p("Mobil arayüz tasarımında kullanılan temel bileşenler şunlardır:"))
+    body.append(
+        ul(
+            [
+                "navigasyon menüleri",
+                "buton tasarımları",
+                "ikon setleri",
+                "renk sistemi",
+                "tipografi",
+                "grid ve layout sistemi",
+            ]
+        )
+    )
+    body.append(
+        p("Bu bileşenler birlikte çalışarak mobil uygulamanın anlaşılır ve kullanışlı olmasını sağlar.")
+    )
+
+    body.append(h2("Mobil Uygulama Arayüz Tasarımının Önemi"))
+    body.append(
+        p(
+            "Mobil uygulamalar günümüzde insanların günlük hayatının bir parçası haline gelmiştir. "
+            "Bir kullanıcı bir uygulamayı açtığında birkaç saniye içinde uygulama hakkında fikir sahibi olur."
+        )
+    )
+    body.append(p("İyi tasarlanmış bir mobil arayüz şu avantajları sağlar:"))
+    body.append(
+        ul(
+            [
+                "kullanıcıların uygulamayı daha hızlı öğrenmesini sağlar",
+                "kullanıcı memnuniyetini artırır",
+                "uygulamada geçirilen süreyi artırır",
+                "dönüşüm oranlarını yükseltir",
+                "marka güvenini artırır",
+            ]
+        )
+    )
+    body.append(
+        p("Kötü tasarlanmış bir arayüz ise kullanıcıların uygulamayı kısa sürede terk etmesine neden olabilir.")
+    )
+
+    body.append(h2("Mobil UI Tasarım Süreci"))
+    body.append(
+        p("Profesyonel mobil uygulama tasarım projeleri belirli aşamalardan oluşur.")
+    )
+    body.append(h3("Araştırma ve Analiz"))
+    body.append(
+        p(
+            "İlk aşamada hedef kullanıcı kitlesi, rakip uygulamalar ve proje hedefleri analiz edilir. "
+            "Bu aşama doğru tasarım kararları için kritik öneme sahiptir."
+        )
+    )
+    body.append(h3("Wireframe Tasarımı"))
+    body.append(
+        p(
+            "Wireframe aşamasında uygulamanın ekran yapısı planlanır. "
+            "Bu aşamada görsel detaylardan çok kullanıcı akışları ve sayfa yapısı belirlenir."
+        )
+    )
+    body.append(h3("Görsel Arayüz Tasarımı"))
+    body.append(p("Wireframe tamamlandıktan sonra görsel tasarım süreci başlar. Bu aşamada:"))
+    body.append(ul(["renk sistemi", "tipografi", "UI bileşenleri"]))
+    body.append(p("tasarlanır."))
+    body.append(h3("Prototip Oluşturma"))
+    body.append(
+        p(
+            "Tasarım tamamlandıktan sonra etkileşimli prototip hazırlanır. "
+            "Bu sayede uygulama gerçek geliştirme sürecine geçmeden önce test edilebilir."
+        )
+    )
+    body.append(h3("Kullanıcı Testleri"))
+    body.append(
+        p(
+            "Prototip üzerinde yapılan testler sayesinde kullanıcı davranışları analiz edilir ve gerekli iyileştirmeler yapılır."
+        )
+    )
+
+    body.append(h2("Mobil Tasarımda Platform Kuralları"))
+    body.append(
+        p(
+            "Mobil uygulama tasarımında iOS ve Android platformlarının tasarım kuralları dikkate alınmalıdır."
+        )
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "iOS platformu Apple Human Interface Guidelines kullanır.",
+                "Android platformu ise Google Material Design prensiplerini kullanır.",
+            ]
+        )
+    )
+    body.append(
+        p("Bu kurallara uygun tasarım yapmak kullanıcı deneyimini daha tutarlı hale getirir.")
+    )
+
+    body.append(h2("İyi Bir Mobil Arayüz Tasarımının Özellikleri"))
+    body.append(
+        p("Başarılı mobil UI tasarımları bazı temel prensiplere dayanır.")
+    )
+    body.append(
+        ul(
+            [
+                "sade ve minimal tasarım",
+                "büyük ve erişilebilir butonlar",
+                "hızlı navigasyon",
+                "okunabilir tipografi",
+                "tutarlı tasarım sistemi",
+            ]
+        )
+    )
+    body.append(p("Bu prensipler mobil uygulamanın daha kolay kullanılmasını sağlar."))
+
+    body.append(h2("Mobil UI Tasarım Trendleri"))
+    body.append(
+        p("Son yıllarda mobil tasarım alanında birçok yeni trend ortaya çıkmıştır.")
+    )
+    body.append(p("Bunlardan bazıları:"))
+    body.append(
+        ul(
+            [
+                "minimalist tasarım",
+                "karanlık mod",
+                "mikro animasyonlar",
+                "kart tabanlı tasarım",
+                "modern tipografi",
+            ]
+        )
+    )
+    body.append(p("Bu trendler kullanıcı deneyimini daha akıcı ve modern hale getirir."))
+
+    body.append(h2("Mobil Uygulama Arayüz Tasarımı Nerelerde Kullanılır?"))
+    body.append(
+        p("Mobil UI tasarımı birçok farklı uygulama türünde kullanılır.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "e-ticaret uygulamaları",
+                "finans uygulamaları",
+                "sağlık uygulamaları",
+                "sosyal medya platformları",
+                "SaaS mobil uygulamaları",
+            ]
+        )
+    )
+    body.append(
+        p("Her uygulama türü farklı kullanıcı ihtiyaçlarına sahip olduğu için tasarım yaklaşımı da değişebilir.")
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("Mobil arayüz tasarımı hakkında daha fazla bilgi için şu sayfaları inceleyebilirsiniz:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/kullanici-arayuzu-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/ux-arastirmasi/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/prototype-tasarimi/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve süreç teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Mobil Uygulama Arayüz Tasarımı Nedir? Modern Mobil UI Tasarım Rehberi – Angraweb"
+    meta_description = (
+        "Mobil uygulama arayüz tasarımı nedir? Modern mobil UI tasarım prensipleri, tasarım süreci, kullanıcı deneyimi ve başarılı mobil uygulama arayüzleri hakkında detaylı rehber."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "Mobil uygulama arayüz tasarımı nedir?",
+                "Mobil uygulama arayüz tasarımı, mobil uygulamaların görsel ve etkileşimsel arayüzünü oluşturma sürecidir.",
+            ),
+            (
+                "Mobil UI tasarım neden önemlidir?",
+                "İyi bir mobil arayüz kullanıcı deneyimini artırır ve uygulamanın daha başarılı olmasını sağlar.",
+            ),
+            (
+                "Mobil UI tasarım hangi araçlarla yapılır?",
+                "Figma, Adobe XD ve Sketch gibi araçlar mobil UI tasarımı için yaygın olarak kullanılır.",
+            ),
+            (
+                "Mobil UI tasarım süresi neye bağlıdır?",
+                "Projenin kapsamı, ekran sayısı ve kullanıcı akışlarının karmaşıklığı tasarım süresini belirler.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Mobil Uygulama Arayüz Tasarımı",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
