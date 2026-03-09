@@ -4933,6 +4933,151 @@ def _cluster_figma_design_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_wireframe_design_en(page: SeoPage) -> Dict:
+    """Custom cluster: Wireframe Design (EN) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Wireframe design is one of the most important stages in the UI/UX design process. "
+            "It represents the structural layout of a digital product before visual design begins."
+        )
+    )
+    body.append(
+        p(
+            "Wireframes are often described as the blueprint of a website or mobile application. "
+            "They define where elements such as navigation menus, content sections, buttons, and forms will appear on the screen."
+        )
+    )
+    body.append(
+        p(
+            "Instead of focusing on colors or visual details, wireframes focus on structure and usability. "
+            "This allows design teams to test ideas quickly and refine the user experience early in the product development process."
+        )
+    )
+    body.append(
+        p(
+            "In modern product development workflows, wireframes help designers, developers, and stakeholders align on the product structure before moving into detailed UI design."
+        )
+    )
+
+    body.append(h2("What is a Wireframe?"))
+    body.append(
+        p(
+            "A wireframe is a simplified visual representation of a digital interface."
+        )
+    )
+    body.append(p("Wireframes typically include:"))
+    body.append(
+        ul(
+            [
+                "page layout structures",
+                "content placement",
+                "navigation elements",
+                "functional components",
+            ]
+        )
+    )
+    body.append(
+        p("The purpose of a wireframe is to focus on structure rather than design aesthetics.")
+    )
+    body.append(
+        p(
+            "By creating wireframes, teams can evaluate how users will navigate through a product and interact with different features."
+        )
+    )
+
+    body.append(h2("Why Wireframes Are Important"))
+    body.append(
+        p("Wireframes provide several important advantages during the design process.")
+    )
+    body.append(p("They help:"))
+    body.append(
+        ul(
+            [
+                "visualize product structure",
+                "identify usability problems early",
+                "improve communication between teams",
+                "reduce design revisions",
+                "speed up development planning",
+            ]
+        )
+    )
+    body.append(
+        p("Without wireframes, many design problems may appear later in the development process.")
+    )
+
+    body.append(h2("Wireframe Design Process"))
+    body.append(
+        p("Professional wireframe design usually follows several steps.")
+    )
+    body.append(p("<strong>Product Analysis</strong> — The first step involves understanding product goals and user needs."))
+    body.append(p("<strong>Defining User Flows</strong> — Designers define how users will move through the product."))
+    body.append(p("<strong>Layout Creation</strong> — The interface layout is designed using simple structural elements."))
+    body.append(p("<strong>Testing and Validation</strong> — Wireframes can be tested with stakeholders and users before moving to visual design."))
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p("For more on wireframes and UI/UX design, see:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/user-interface-design/ }}}}",
+                f"{{{{ link:/en/{base}/mobile-app-ui-design/ }}}}",
+                f"{{{{ link:/en/{base}/ux-research/ }}}}",
+                f"{{{{ link:/en/{base}/figma-design/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Contact us for a scope and process proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Wireframe Design – UI/UX Wireframing Process Explained"
+    meta_description = (
+        "Learn what wireframe design is and how wireframes help plan user interfaces and user flows before visual design."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "What is wireframe design?",
+                "Wireframe design is the process of creating structural layouts of digital interfaces before visual design begins.",
+            ),
+            (
+                "Why are wireframes important?",
+                "Wireframes help plan user flows and detect usability problems early.",
+            ),
+            (
+                "What tools are used for wireframing?",
+                "Popular tools include Figma, Adobe XD, Sketch, and Balsamiq.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Wireframe Design",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -10847,6 +10992,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "figma-design":
         return _cluster_figma_design_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Wireframe Design (EN) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "wireframe-design":
+        return _cluster_wireframe_design_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development

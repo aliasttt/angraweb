@@ -7440,6 +7440,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "figma-tasarim":
         return _cluster_figma_tasarim_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: Wireframe Tasarımı (TR) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "wireframe-tasarimi":
+        return _cluster_wireframe_tasarimi_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -10301,6 +10307,230 @@ def _cluster_figma_tasarim_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Figma Tasarım",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_wireframe_tasarimi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Wireframe Tasarımı (TR) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Wireframe tasarımı, bir web sitesi veya mobil uygulamanın arayüz yapısını planlamak için kullanılan temel tasarım aşamasıdır. "
+            "UI/UX tasarım sürecinde wireframe, ürünün görsel tasarımından önce oluşturulan yapısal bir taslak olarak düşünülebilir."
+        )
+    )
+    body.append(
+        p(
+            "Wireframe'ler kullanıcı arayüzünün temel iskeletini oluşturur. "
+            "Sayfaların nasıl düzenleneceğini, kullanıcıların hangi akışları takip edeceğini ve içeriklerin nerede konumlanacağını gösterir."
+        )
+    )
+    body.append(
+        p(
+            "Bir dijital ürün tasarlanırken doğrudan görsel tasarıma geçmek çoğu zaman hatalara yol açabilir. "
+            "Wireframe tasarımı sayesinde proje daha erken aşamada test edilebilir ve kullanıcı deneyimi daha doğru şekilde planlanabilir."
+        )
+    )
+    body.append(
+        p(
+            "Modern UI/UX projelerinde wireframe aşaması ürün geliştirme sürecinin önemli bir parçasıdır. "
+            "Bu aşama, tasarım ve geliştirme ekiplerinin aynı plan üzerinde çalışmasını sağlar."
+        )
+    )
+    body.append(
+        p(
+            "UI/UX tasarım süreçleri hakkında daha geniş bilgi için "
+            f"{{{{ link:{_pillar_url(page)} }}}}"
+            " sayfamızı inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("Wireframe Nedir?"))
+    body.append(
+        p(
+            "Wireframe, bir dijital ürünün temel arayüz yapısını gösteren basit tasarım şemasıdır."
+        )
+    )
+    body.append(p("Wireframe tasarımlar genellikle:"))
+    body.append(ul(["renk içermez", "görsel detay içermez", "basit şekillerden oluşur"]))
+    body.append(p("Amaç görsellik değil yapıyı ve kullanıcı akışını planlamaktır."))
+    body.append(p("Wireframe sayesinde tasarımcılar şu sorulara cevap bulabilir:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı hangi sayfaya nasıl ulaşacak",
+                "navigasyon nasıl çalışacak",
+                "içerikler nasıl yerleşecek",
+                "hangi butonlar kullanılacak",
+            ]
+        )
+    )
+    body.append(
+        p("Bu nedenle wireframe tasarımı UX tasarım sürecinin temel adımlarından biridir.")
+    )
+
+    body.append(h2("Wireframe Tasarımı Neden Önemlidir?"))
+    body.append(
+        p("Wireframe tasarımı projelerin daha planlı ilerlemesini sağlar.")
+    )
+    body.append(p("Başlıca avantajları şunlardır:"))
+    body.append(
+        ul(
+            [
+                "tasarım sürecini hızlandırır",
+                "erken aşamada hataları ortaya çıkarır",
+                "ekipler arası iletişimi kolaylaştırır",
+                "kullanıcı deneyimini daha iyi planlamayı sağlar",
+                "geliştirme sürecini verimli kılar",
+            ]
+        )
+    )
+    body.append(
+        p("Wireframe olmadan yapılan projelerde tasarım değişiklikleri genellikle daha zor ve zaman alıcı olur.")
+    )
+
+    body.append(h2("Wireframe Tasarım Süreci"))
+    body.append(
+        p("Profesyonel bir wireframe tasarım süreci genellikle birkaç aşamadan oluşur.")
+    )
+    body.append(h3("Proje Analizi"))
+    body.append(
+        p("İlk aşamada ürünün hedefleri, kullanıcı kitlesi ve proje gereksinimleri belirlenir.")
+    )
+    body.append(h3("Kullanıcı Akışlarının Belirlenmesi"))
+    body.append(
+        p("Kullanıcıların ürün içinde nasıl hareket edeceği planlanır.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(ul(["giriş akışı", "ürün arama akışı", "satın alma akışı"]))
+    body.append(h3("Sayfa Yapısının Oluşturulması"))
+    body.append(
+        p("Wireframe aşamasında sayfaların iskeleti oluşturulur.")
+    )
+    body.append(p("Bu aşamada:"))
+    body.append(ul(["navigasyon", "içerik blokları", "form alanları", "butonlar"]))
+    body.append(p("planlanır."))
+    body.append(h3("Wireframe Testleri"))
+    body.append(
+        p(
+            "Oluşturulan wireframe tasarımlar kullanıcı akışlarını test etmek için kullanılabilir. "
+            "Bu sayede arayüz yapısı geliştirme aşamasına geçmeden önce optimize edilir."
+        )
+    )
+
+    body.append(h2("Wireframe Türleri"))
+    body.append(
+        p("Wireframe tasarımları farklı detay seviyelerinde hazırlanabilir.")
+    )
+    body.append(p("<strong>Low-Fidelity Wireframe</strong> — Basit ve hızlı hazırlanan wireframe tasarımlardır. Genellikle yalnızca sayfa yapısını gösterir."))
+    body.append(p("<strong>Mid-Fidelity Wireframe</strong> — Bu seviyede wireframe tasarımlar daha fazla detay içerir. Kullanıcı akışları daha net gösterilir."))
+    body.append(p("<strong>High-Fidelity Wireframe</strong> — High-fidelity wireframe tasarımlar neredeyse gerçek arayüz tasarımına yakın görünür. Bu aşamada tasarım prototip hazırlamaya yaklaşır."))
+
+    body.append(h2("Wireframe Hangi Araçlarla Hazırlanır?"))
+    body.append(
+        p("Wireframe tasarımı için birçok farklı tasarım aracı kullanılabilir.")
+    )
+    body.append(p("En yaygın kullanılan araçlar:"))
+    body.append(ul(["Figma", "Adobe XD", "Sketch", "Balsamiq"]))
+    body.append(
+        p("Bu araçlar sayesinde tasarım ekipleri wireframe tasarımlarını hızlı şekilde hazırlayabilir.")
+    )
+
+    body.append(h2("Wireframe ve UI/UX Tasarım İlişkisi"))
+    body.append(
+        p("Wireframe tasarımı UI ve UX tasarım süreçleri ile yakından ilişkilidir.")
+    )
+    body.append(p("<strong>UX tasarım:</strong> kullanıcı akışlarını belirler"))
+    body.append(p("<strong>Wireframe:</strong> sayfa yapısını oluşturur"))
+    body.append(p("<strong>UI tasarım:</strong> görsel arayüzü tasarlar"))
+    body.append(
+        p("Bu üç aşama birlikte çalıştığında başarılı dijital ürünler ortaya çıkar.")
+    )
+
+    body.append(h2("Wireframe Nerelerde Kullanılır?"))
+    body.append(
+        p("Wireframe tasarımları birçok farklı dijital projede kullanılmaktadır.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "web sitesi tasarımları",
+                "mobil uygulamalar",
+                "SaaS platformları",
+                "e-ticaret siteleri",
+                "yönetim panelleri",
+            ]
+        )
+    )
+    body.append(
+        p("Bu projelerde wireframe tasarımı kullanıcı deneyimini planlamak için önemli bir araçtır.")
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("Wireframe tasarımı hakkında daha fazla bilgi için şu sayfaları inceleyebilirsiniz:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/kullanici-arayuzu-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/mobil-uygulama-arayuz-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/ux-arastirmasi/ }}}}",
+                f"{{{{ link:/tr/{base}/figma-tasarim/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve süreç teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Wireframe Tasarımı Nedir? UI/UX Tasarım Sürecinde Wireframe Rehberi – Angraweb"
+    meta_description = (
+        "Wireframe tasarımı nedir? UI/UX tasarım sürecinde wireframe hazırlama, kullanıcı akışları ve prototip öncesi tasarım planlama hakkında detaylı rehber."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "Wireframe tasarımı nedir?",
+                "Wireframe tasarımı, bir dijital ürünün arayüz yapısını planlamak için oluşturulan temel tasarım taslağıdır.",
+            ),
+            (
+                "Wireframe neden önemlidir?",
+                "Wireframe tasarımı kullanıcı akışlarını planlamaya ve tasarım hatalarını erken aşamada tespit etmeye yardımcı olur.",
+            ),
+            (
+                "Wireframe hangi araçlarla yapılır?",
+                "Figma, Adobe XD ve Sketch gibi araçlar wireframe tasarımı için yaygın olarak kullanılır.",
+            ),
+            (
+                "Wireframe ile prototip arasındaki fark nedir?",
+                "Wireframe yapıyı gösterir. Prototip ise etkileşimli tasarım simülasyonudur.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Wireframe Tasarımı",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
