@@ -532,6 +532,7 @@ python manage.py generate_seo_content --language=tr --service=ui-ux-design --pag
 python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=ux-arastirmasi --force
 python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=figma-tasarim --force
 python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=wireframe-tasarimi --force
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=cluster --slug=prototype-tasarimi --force
 python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=what-is-ui-ux --force
 python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=user-experience-design --force
 python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=user-interface-design --force
@@ -539,6 +540,7 @@ python manage.py generate_seo_content --language=en --service=ui-ux-design --pag
 python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=ux-research --force
 python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=figma-design --force
 python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=wireframe-design --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=cluster --slug=prototype-design --force
 "
 
 # Restart services

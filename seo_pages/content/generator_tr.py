@@ -7446,6 +7446,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "wireframe-tasarimi":
         return _cluster_wireframe_tasarimi_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: Prototip Tasarımı (TR) — ui-ux-design (slug: prototype-tasarimi)
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "prototype-tasarimi":
+        return _cluster_prototype_tasarimi_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -10531,6 +10537,215 @@ def _cluster_wireframe_tasarimi_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Wireframe Tasarımı",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_prototype_tasarimi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: Prototip Tasarımı (TR) — ui-ux-design (slug: prototype-tasarimi)."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Prototip tasarımı, bir dijital ürünün geliştirilmeden önce test edilebilmesini sağlayan etkileşimli tasarım modelidir. "
+            "UI/UX tasarım sürecinde prototipler, kullanıcıların bir web sitesi veya uygulamayla nasıl etkileşim kuracağını göstermek için oluşturulur."
+        )
+    )
+    body.append(
+        p(
+            "Wireframe aşamasında yalnızca sayfa yapısı belirlenirken, prototip aşamasında arayüz etkileşimleri de simüle edilir. "
+            "Kullanıcı bir butona tıkladığında hangi sayfaya gideceğini, menülerin nasıl açılacağını veya bir işlemin nasıl tamamlanacağını prototip üzerinden deneyimleyebilir."
+        )
+    )
+    body.append(
+        p(
+            "Bu nedenle prototip tasarımı, ürün geliştirme sürecinde riskleri azaltan ve kullanıcı deneyimini doğrulayan önemli bir adımdır."
+        )
+    )
+
+    body.append(h2("Prototip Tasarımı Nedir?"))
+    body.append(
+        p(
+            "Prototip tasarımı, bir web sitesi veya mobil uygulamanın gerçek kullanım deneyimini simüle eden tasarım modelidir."
+        )
+    )
+    body.append(p("Prototipler sayesinde:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı akışları test edilir",
+                "arayüz etkileşimleri kontrol edilir",
+                "tasarım hataları erken aşamada tespit edilir",
+                "ürün geliştirme süreci daha verimli hale gelir",
+            ]
+        )
+    )
+    body.append(
+        p("Prototip tasarımlar genellikle tasarım araçlarında hazırlanır ve kullanıcı testlerinde kullanılır.")
+    )
+
+    body.append(h2("Prototip Tasarımı Neden Önemlidir?"))
+    body.append(
+        p("Modern ürün geliştirme süreçlerinde prototipleme çok önemli bir rol oynar.")
+    )
+    body.append(p("Başlıca avantajları şunlardır:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı deneyimini gerçekçi şekilde test etmek",
+                "tasarım hatalarını erken aşamada görmek",
+                "ekipler arası iletişimi kolaylaştırmak",
+                "geliştirme sürecini verimli kılmak",
+                "yatırımcı veya müşterilere ürünü gösterebilmek",
+            ]
+        )
+    )
+    body.append(
+        p("Bu sayede geliştirme başlamadan önce ürünün nasıl çalışacağı netleşir.")
+    )
+
+    body.append(h2("Prototip Tasarım Süreci"))
+    body.append(
+        p("Profesyonel bir prototip tasarım süreci birkaç aşamadan oluşur.")
+    )
+    body.append(h3("Kullanıcı Akışlarının Belirlenmesi"))
+    body.append(
+        p("İlk aşamada kullanıcıların ürün içinde izleyeceği adımlar belirlenir.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(ul(["giriş ve kayıt akışı", "ürün arama akışı", "ödeme süreci"]))
+    body.append(h3("Wireframe Tasarım"))
+    body.append(
+        p(
+            "Prototip tasarımından önce genellikle wireframe oluşturulur. Wireframe sayfa yapısını belirler."
+        )
+    )
+    body.append(h3("Etkileşim Tasarımı"))
+    body.append(
+        p("Bu aşamada butonlar, menüler ve sayfa geçişleri gibi etkileşimler tasarlanır.")
+    )
+    body.append(h3("Prototip Testleri"))
+    body.append(
+        p("Oluşturulan prototip tasarımlar kullanıcılarla test edilir ve geri bildirimler alınır.")
+    )
+
+    body.append(h2("Prototip Türleri"))
+    body.append(
+        p("Prototip tasarımlar farklı seviyelerde hazırlanabilir.")
+    )
+    body.append(p("<strong>Low-Fidelity Prototip</strong> — Basit ve hızlı oluşturulan prototiplerdir."))
+    body.append(p("<strong>Mid-Fidelity Prototip</strong> — Orta seviyede detay içeren prototip tasarımlardır."))
+    body.append(
+        p(
+            "<strong>High-Fidelity Prototip</strong> — Gerçek uygulamaya çok yakın olan detaylı prototip tasarımlardır. "
+            "Bu tür prototipler genellikle yatırımcı sunumları veya kullanıcı testleri için kullanılır."
+        )
+    )
+
+    body.append(h2("Prototip Tasarımı Hangi Araçlarla Yapılır?"))
+    body.append(
+        p("Prototip tasarımı için birçok profesyonel tasarım aracı bulunmaktadır.")
+    )
+    body.append(p("En yaygın kullanılan araçlar şunlardır:"))
+    body.append(ul(["Figma", "Adobe XD", "Sketch", "InVision"]))
+    body.append(
+        p("Bu araçlar sayesinde tasarım ekipleri etkileşimli prototipler oluşturabilir.")
+    )
+
+    body.append(h2("Prototip ve Wireframe Arasındaki Fark"))
+    body.append(
+        p("Wireframe ve prototip tasarım süreçleri birbirine benzese de farklı amaçlara sahiptir.")
+    )
+    body.append(p("<strong>Wireframe:</strong>"))
+    body.append(ul(["sayfa yapısını gösterir", "görsel detay içermez"]))
+    body.append(p("<strong>Prototip:</strong>"))
+    body.append(ul(["kullanıcı etkileşimlerini simüle eder", "gerçek kullanım deneyimine daha yakındır"]))
+    body.append(
+        p("Bu iki aşama birlikte kullanıldığında ürün tasarımı daha sağlam hale gelir.")
+    )
+
+    body.append(h2("Prototip Nerelerde Kullanılır?"))
+    body.append(
+        p("Prototip tasarımlar birçok dijital projede kullanılmaktadır.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "web sitesi tasarımları",
+                "mobil uygulamalar",
+                "SaaS platformları",
+                "e-ticaret siteleri",
+                "dashboard sistemleri",
+            ]
+        )
+    )
+    body.append(
+        p("Bu projelerde prototip tasarımı ürün geliştirme sürecini daha verimli hale getirir.")
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("Prototip tasarımı hakkında daha fazla bilgi için aşağıdaki sayfaları inceleyebilirsiniz:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/figma-tasarim/ }}}}",
+                f"{{{{ link:/tr/{base}/kullanici-deneyimi-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/kullanici-arayuzu-tasarimi/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve süreç teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Prototip Tasarımı Nedir? UI/UX Prototipleme Rehberi – Angraweb"
+    meta_description = (
+        "Prototip tasarımı nedir? UI/UX tasarım sürecinde etkileşimli prototip hazırlama, kullanıcı testleri ve ürün doğrulama hakkında detaylı rehber."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "Prototip tasarımı nedir?",
+                "Prototip tasarımı, bir dijital ürünün kullanıcı etkileşimlerini simüle eden test edilebilir tasarım modelidir.",
+            ),
+            (
+                "Prototip neden önemlidir?",
+                "Prototipler kullanıcı deneyimini test etmeye ve tasarım hatalarını erken aşamada tespit etmeye yardımcı olur.",
+            ),
+            (
+                "Prototip hangi araçlarla hazırlanır?",
+                "Figma, Adobe XD ve Sketch prototip tasarımı için en yaygın kullanılan araçlardır.",
+            ),
+            (
+                "Prototip ile gerçek uygulama arasındaki fark nedir?",
+                "Prototip yalnızca tasarımın test edilmesini sağlar, gerçek uygulama ise yazılım geliştirme aşamasında oluşturulur.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Prototip Tasarımı",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

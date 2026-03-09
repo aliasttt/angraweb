@@ -5078,6 +5078,126 @@ def _cluster_wireframe_design_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_prototype_design_en(page: SeoPage) -> Dict:
+    """Custom cluster: Prototype Design (EN) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "Prototype design is an important stage in the UI/UX design process. "
+            "It allows designers to simulate how a digital product will work before development begins."
+        )
+    )
+    body.append(
+        p(
+            "A prototype represents an interactive version of a website or mobile application. "
+            "Users can click buttons, navigate through pages, and experience the interface flow as if they were using the final product."
+        )
+    )
+    body.append(
+        p(
+            "This makes prototypes extremely useful for validating design ideas and testing user experience before development."
+        )
+    )
+
+    body.append(h2("What is a Prototype?"))
+    body.append(
+        p(
+            "A prototype is a simulated version of a digital product interface."
+        )
+    )
+    body.append(p("Prototypes allow teams to test:"))
+    body.append(
+        ul(
+            [
+                "navigation structure",
+                "user interactions",
+                "usability issues",
+                "product workflows",
+            ]
+        )
+    )
+    body.append(
+        p("This helps teams refine the design before moving into development.")
+    )
+
+    body.append(h2("Why Prototyping is Important"))
+    body.append(
+        p("Prototyping provides several benefits during the product design process.")
+    )
+    body.append(p("It helps teams:"))
+    body.append(
+        ul(
+            [
+                "validate product ideas",
+                "test user experience",
+                "identify design problems early",
+                "communicate product concepts clearly",
+            ]
+        )
+    )
+    body.append(
+        p("As a result, development becomes faster and more efficient.")
+    )
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p("For more on prototyping and UI/UX design, see:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/wireframe-design/ }}}}",
+                f"{{{{ link:/en/{base}/figma-design/ }}}}",
+                f"{{{{ link:/en/{base}/user-experience-design/ }}}}",
+                f"{{{{ link:/en/{base}/user-interface-design/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Contact us for a scope and process proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "Prototype Design – UI/UX Prototyping Process Explained"
+    meta_description = (
+        "Learn what prototype design is and how interactive prototypes help test user experience before development."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "What is prototype design?",
+                "Prototype design is the process of creating an interactive model of a digital interface before development.",
+            ),
+            (
+                "Why are prototypes important?",
+                "They help test usability and identify design problems early.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "Prototype Design",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -10998,6 +11118,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "wireframe-design":
         return _cluster_wireframe_design_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: Prototype Design (EN) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "prototype-design":
+        return _cluster_prototype_design_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development
