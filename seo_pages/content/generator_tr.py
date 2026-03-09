@@ -7404,6 +7404,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "seo-services" and page.slug == "ajans-mi-freelancer-mi":
         return _cluster_seo_ajans_freelancer_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: UI/UX Nedir? (TR) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "ui-ux-nedir":
+        return _cluster_ui_ux_nedir_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -8818,6 +8824,220 @@ def _ui_ux_quote_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "UI/UX Tasarım Teklif Al",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_ui_ux_nedir_tr(page: SeoPage) -> Dict:
+    """Custom cluster: UI/UX Nedir? (TR) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "UI/UX tasarım, dijital ürünlerin kullanıcılar tarafından kolay anlaşılmasını ve rahat kullanılmasını sağlayan tasarım yaklaşımıdır. "
+            "Modern web siteleri, mobil uygulamalar ve yazılım platformlarının başarısı büyük ölçüde kullanıcı deneyimine bağlıdır."
+        )
+    )
+    body.append(
+        p(
+            "Bir kullanıcı bir web sitesine girdiğinde hızlı şekilde istediği bilgiye ulaşabiliyorsa, arayüzü kolayca anlayabiliyorsa ve sistemle rahat etkileşim kurabiliyorsa bu iyi bir UI/UX tasarımının sonucudur."
+        )
+    )
+    body.append(
+        p(
+            "UI ve UX kavramları genellikle birlikte kullanılır ancak aslında farklı anlamlara sahiptir. "
+            "UI daha çok görsel arayüzü ifade ederken, UX kullanıcıların sistemle yaşadığı genel deneyimi kapsar."
+        )
+    )
+
+    body.append(h2("UI (User Interface) Nedir?"))
+    body.append(
+        p("UI yani User Interface, kullanıcıların gördüğü görsel arayüzdür.")
+    )
+    body.append(p("Bir web sitesi veya mobil uygulamadaki şu unsurlar UI tasarımına girer:"))
+    body.append(
+        ul(
+            [
+                "renk paleti",
+                "tipografi",
+                "butonlar",
+                "ikonlar",
+                "menüler",
+                "sayfa düzeni",
+            ]
+        )
+    )
+    body.append(p("UI tasarımının amacı kullanıcıların arayüzü kolay anlamasını sağlamaktır."))
+    body.append(p("İyi bir kullanıcı arayüzü tasarımı şu özelliklere sahiptir:"))
+    body.append(
+        ul(
+            [
+                "sade tasarım",
+                "okunabilir içerik",
+                "tutarlı bileşenler",
+                "mobil uyumluluk",
+            ]
+        )
+    )
+
+    body.append(h2("UX (User Experience) Nedir?"))
+    body.append(
+        p(
+            "UX yani User Experience, kullanıcıların bir dijital ürünü kullanırken yaşadığı genel deneyimi ifade eder."
+        )
+    )
+    body.append(p("UX tasarımının odak noktası şudur: Kullanıcı bu ürünü kullanırken ne kadar rahat ediyor?"))
+    body.append(p("UX tasarımı şu unsurları içerir:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı araştırması",
+                "kullanıcı akışları",
+                "bilgi mimarisi",
+                "kullanılabilirlik testleri",
+                "ürün deneyimi optimizasyonu",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "UX tasarımının amacı kullanıcıların ürünle en hızlı ve en kolay şekilde hedeflerine ulaşmasını sağlamaktır."
+        )
+    )
+
+    body.append(h2("UI ve UX Arasındaki Fark"))
+    body.append(
+        p("UI ve UX genellikle birlikte çalışır ancak farklı rollere sahiptir.")
+    )
+    body.append(ul(["UI → görsel tasarım", "UX → kullanıcı deneyimi"]))
+    body.append(p("Basit bir örnek: Bir mobil uygulama düşünelim."))
+    body.append(p("<strong>UI:</strong>"))
+    body.append(ul(["butonların rengi", "ikonların tasarımı", "sayfa düzeni"]))
+    body.append(p("<strong>UX:</strong>"))
+    body.append(ul(["kullanıcı akışı", "menü yapısı", "işlem adımlarının kolaylığı"]))
+    body.append(
+        p("İyi bir dijital ürün için hem güçlü UI hem de iyi bir UX gereklidir.")
+    )
+
+    body.append(h2("UI/UX Tasarım Neden Önemlidir?"))
+    body.append(
+        p(
+            "Günümüzde kullanıcı deneyimi dijital ürünlerin başarısını belirleyen en önemli faktörlerden biridir."
+        )
+    )
+    body.append(p("İyi bir UI/UX tasarım şu avantajları sağlar:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı memnuniyetini artırır",
+                "dönüşüm oranlarını yükseltir",
+                "kullanıcıların platformda daha uzun kalmasını sağlar",
+                "marka güvenini artırır",
+            ]
+        )
+    )
+    body.append(
+        p("Kötü bir kullanıcı deneyimi ise kullanıcıların siteyi hızlıca terk etmesine neden olabilir.")
+    )
+
+    body.append(h2("UI/UX Tasarım Süreci Nasıl Çalışır?"))
+    body.append(
+        p(
+            "Profesyonel UI/UX tasarım projeleri genellikle belirli aşamalardan oluşur."
+        )
+    )
+    body.append(p("<strong>1. Kullanıcı Araştırması</strong> — İlk aşamada kullanıcı ihtiyaçları analiz edilir."))
+    body.append(p("<strong>2. Bilgi Mimarisi</strong> — Web sitesi veya uygulamanın sayfa yapısı planlanır."))
+    body.append(p("<strong>3. Wireframe Tasarımı</strong> — Sayfaların temel düzeni oluşturulur."))
+    body.append(p("<strong>4. UI Tasarımı</strong> — Görsel arayüz tasarlanır."))
+    body.append(p("<strong>5. Prototip ve Test</strong> — Kullanıcı deneyimi test edilerek iyileştirilir."))
+
+    body.append(h2("UI/UX Tasarım Nerelerde Kullanılır?"))
+    body.append(
+        p("UI/UX tasarım birçok dijital ürün için uygulanır.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "web sitesi tasarımı",
+                "e-ticaret platformları",
+                "mobil uygulamalar",
+                "SaaS yazılım platformları",
+                "dashboard sistemleri",
+            ]
+        )
+    )
+    body.append(
+        p("Bu platformların hepsinde kullanıcı deneyimi tasarımı kritik rol oynar.")
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("UI/UX hakkında daha fazla bilgi almak için şu sayfaları inceleyebilirsiniz:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/rehber/ }}}}",
+                f"{{{{ link:/tr/{base}/fiyatlar/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/prototype-tasarimi/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve süreç teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "UI/UX Nedir? Kullanıcı Deneyimi ve Arayüz Tasarımı Rehberi – Angraweb"
+    meta_description = (
+        "UI ve UX nedir? Kullanıcı arayüzü ve kullanıcı deneyimi tasarımı arasındaki farkı, nasıl çalıştığını ve neden önemli olduğunu detaylı öğrenin."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "UI/UX ne demek?",
+                "UI kullanıcı arayüzünü, UX ise kullanıcı deneyimini ifade eder.",
+            ),
+            (
+                "UI ve UX aynı şey mi?",
+                "Hayır. UI görsel arayüz tasarımıdır, UX ise kullanıcı deneyimi tasarımıdır.",
+            ),
+            (
+                "UI/UX tasarım neden önemlidir?",
+                "İyi bir kullanıcı deneyimi kullanıcı memnuniyetini artırır ve dijital ürünlerin başarısını destekler.",
+            ),
+            (
+                "UI/UX tasarım SEO'yu etkiler mi?",
+                "Evet. Kullanıcı deneyimi güçlü olan web siteleri daha iyi etkileşim oranlarına sahip olur ve SEO performansını destekler.",
+            ),
+            (
+                "UI/UX tasarım hangi araçlarla yapılır?",
+                "Figma, Adobe XD, Sketch ve benzeri tasarım araçları yaygın olarak kullanılır.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "UI/UX Nedir?",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,

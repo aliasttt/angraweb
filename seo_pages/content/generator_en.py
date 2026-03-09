@@ -4106,6 +4106,140 @@ def _ui_ux_quote_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_what_is_ui_ux_en(page: SeoPage) -> Dict:
+    """Custom cluster: What is UI/UX? (EN) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "UI/UX design is a process focused on creating digital products that are easy to use and visually appealing. "
+            "Websites, mobile apps, and SaaS platforms rely heavily on good user experience to keep users engaged and satisfied."
+        )
+    )
+    body.append(
+        p(
+            "When users can navigate a platform easily and complete tasks without confusion, it is usually the result of well-designed UI and UX."
+        )
+    )
+    body.append(
+        p(
+            "Although UI and UX are often mentioned together, they represent different aspects of product design."
+        )
+    )
+
+    body.append(h2("What is UI (User Interface)?"))
+    body.append(
+        p("User Interface refers to the visual elements of a digital product.")
+    )
+    body.append(p("Examples include:"))
+    body.append(
+        ul(
+            [
+                "colors",
+                "typography",
+                "buttons",
+                "icons",
+                "layout",
+            ]
+        )
+    )
+    body.append(
+        p("The goal of UI design is to make the interface visually clear and intuitive.")
+    )
+
+    body.append(h2("What is UX (User Experience)?"))
+    body.append(
+        p("User Experience focuses on how users interact with a product.")
+    )
+    body.append(p("UX design includes:"))
+    body.append(
+        ul(
+            [
+                "user research",
+                "user flows",
+                "information architecture",
+                "usability testing",
+            ]
+        )
+    )
+    body.append(
+        p("The main goal is to help users achieve their goals easily.")
+    )
+
+    body.append(h2("Difference Between UI and UX"))
+    body.append(
+        p("UI focuses on visual design while UX focuses on user experience.")
+    )
+    body.append(p("<strong>UI example:</strong>"))
+    body.append(ul(["button design", "page layout"]))
+    body.append(p("<strong>UX example:</strong>"))
+    body.append(ul(["navigation flow", "user journey"]))
+    body.append(
+        p("Both must work together to create effective digital products.")
+    )
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p("For more on UI/UX design, see:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/guide/ }}}}",
+                f"{{{{ link:/en/{base}/pricing/ }}}}",
+                f"{{{{ link:/en/{base}/wireframe-design/ }}}}",
+                f"{{{{ link:/en/{base}/prototype-design/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Contact us for a scope and process proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "What is UI/UX? User Interface and User Experience Explained – Angraweb"
+    meta_description = (
+        "Learn what UI/UX design is, how user interface and user experience differ, and why UI UX design is essential for websites and digital products."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "What does UI/UX mean?",
+                "UI stands for User Interface and UX stands for User Experience.",
+            ),
+            (
+                "Why is UI/UX important?",
+                "Good UI/UX improves usability, engagement, and conversion rates.",
+            ),
+            (
+                "Is UI/UX design important for websites?",
+                "Yes. Websites with good user experience perform better and keep users longer.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "What is UI/UX?",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -9984,6 +10118,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "hosting-domain" and (page.slug or "").strip().lower() == "vps-hosting-cost":
         return _cluster_vps_hosting_cost_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: What is UI/UX? (EN) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "what-is-ui-ux":
+        return _cluster_what_is_ui_ux_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development

@@ -522,8 +522,8 @@ python manage.py migrate --noinput || exit 1
 python manage.py collectstatic --noinput || exit 1
 
 
-python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=guide --force
-python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=guide --force
+python manage.py generate_seo_content --language=tr --service=ui-ux-design --page-type=quote --force
+python manage.py generate_seo_content --language=en --service=ui-ux-design --page-type=quote --force
 "
 
 # Restart services
