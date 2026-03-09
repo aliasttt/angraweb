@@ -4639,6 +4639,159 @@ def _cluster_mobile_app_ui_design_en(page: SeoPage) -> Dict:
     }
 
 
+def _cluster_ux_research_en(page: SeoPage) -> Dict:
+    """Custom cluster: UX Research (EN) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "UX research (User Experience Research) is the process of studying user behavior in order to understand how people interact with digital products. "
+            "In modern product development, UX research plays a crucial role in creating effective and user-centered designs."
+        )
+    )
+    body.append(
+        p(
+            "Designing a digital product based only on assumptions can lead to poor usability and low user satisfaction. "
+            "UX research helps teams gather real insights about users, allowing them to make better design decisions."
+        )
+    )
+    body.append(
+        p(
+            "Through UX research, teams can understand how users navigate a product, what challenges they face, and what improvements can enhance the overall experience."
+        )
+    )
+    body.append(
+        p(
+            "UX research often forms the foundation for UI design, UX design, and product strategy."
+        )
+    )
+
+    body.append(h2("What is UX Research?"))
+    body.append(
+        p(
+            "UX research is a systematic process used to understand user behavior, motivations, and needs."
+        )
+    )
+    body.append(p("It aims to answer important questions such as:"))
+    body.append(
+        ul(
+            [
+                "how users interact with a product",
+                "what problems users encounter",
+                "which features users value most",
+                "what expectations users have",
+            ]
+        )
+    )
+    body.append(
+        p("These insights help designers and product teams create solutions that truly meet user needs.")
+    )
+
+    body.append(h2("Why UX Research is Important"))
+    body.append(
+        p("UX research plays a critical role in the success of digital products.")
+    )
+    body.append(p("Key benefits include:"))
+    body.append(
+        ul(
+            [
+                "better understanding of user needs",
+                "early detection of usability issues",
+                "improved design decisions",
+                "more efficient development",
+                "higher user satisfaction",
+            ]
+        )
+    )
+    body.append(
+        p("Companies that invest in UX research often create more successful products.")
+    )
+
+    body.append(h2("UX Research Methods"))
+    body.append(
+        p("There are several methods used in UX research depending on project goals.")
+    )
+    body.append(p("<strong>User Interviews</strong> — User interviews involve direct conversations with users to understand their experiences and expectations."))
+    body.append(p("<strong>Usability Testing</strong> — In usability testing, users are observed while interacting with a product. This helps identify usability issues."))
+    body.append(p("<strong>Surveys</strong> — Surveys help gather insights from a larger audience."))
+    body.append(p("<strong>Analytics Analysis</strong> — Product analytics can reveal how users behave within digital platforms."))
+
+    body.append(h2("UX Research Process"))
+    body.append(
+        p("UX research typically follows several steps.")
+    )
+    body.append(p("<strong>Define Research Goals</strong> — First, teams define what questions they want to answer."))
+    body.append(p("<strong>Identify User Segments</strong> — Target user groups are identified and user personas are created."))
+    body.append(p("<strong>Choose Research Methods</strong> — The most appropriate research methods are selected."))
+    body.append(p("<strong>Collect Data</strong> — User data is gathered through research activities."))
+    body.append(p("<strong>Analyze Insights</strong> — Collected data is analyzed to uncover patterns and insights."))
+
+    body.append(h2("Related Topics"))
+    body.append(
+        p("For more on UX research and UI/UX design, see:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/en/{base}/ui-ux-design-services/ }}}}",
+                f"{{{{ link:/en/{base}/user-interface-design/ }}}}",
+                f"{{{{ link:/en/{base}/mobile-app-ui-design/ }}}}",
+                f"{{{{ link:/en/{base}/wireframe-design/ }}}}",
+                f"{{{{ link:/en/{base}/prototype-design/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "Request a UI/UX Design Quote",
+            "Contact us for a scope and process proposal for your project.",
+            _quote_url(page),
+            "Open the quote request page.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "UX Research – Methods, Process and Best Practices"
+    meta_description = (
+        "Learn what UX research is, why it matters, and how user research methods help create better digital products and user experiences."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "What is UX research?",
+                "UX research is the process of studying user behavior to understand how people interact with digital products.",
+            ),
+            (
+                "Why is UX research important?",
+                "UX research helps create better user experiences and more effective digital products.",
+            ),
+            (
+                "What are common UX research methods?",
+                "User interviews, usability testing, surveys, and analytics analysis are common UX research methods.",
+            ),
+            (
+                "How long does UX research take?",
+                "The duration depends on the project scope and the methods used.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "UX Research",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
 def _cluster_web_hosting_services_en(page: SeoPage) -> Dict:
     """Custom cluster: Web Hosting Services (EN) — hosting-domain."""
     body: List[str] = []
@@ -10541,6 +10694,12 @@ def generate_en(page: SeoPage) -> Dict:
     # -------------------------------------------------------------------------
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "mobile-app-ui-design":
         return _cluster_mobile_app_ui_design_en(page)
+
+    # -------------------------------------------------------------------------
+    # Custom cluster: UX Research (EN) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "ux-research":
+        return _cluster_ux_research_en(page)
 
     # -------------------------------------------------------------------------
     # Custom cluster: React Native App Development (EN) — mobile-app-development

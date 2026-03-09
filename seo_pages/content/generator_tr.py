@@ -7428,6 +7428,12 @@ def generate_tr(page: SeoPage) -> Dict:
     if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "mobil-uygulama-arayuz-tasarimi":
         return _cluster_mobil_uygulama_arayuz_tasarimi_tr(page)
 
+    # -------------------------------------------------------------------------
+    # Custom cluster: UX Araştırması (TR) — ui-ux-design
+    # -------------------------------------------------------------------------
+    if page.page_type == SeoPage.TYPE_CLUSTER and page.service.key == "ui-ux-design" and (page.slug or "").strip().lower() == "ux-arastirmasi":
+        return _cluster_ux_arastirmasi_tr(page)
+
     # CLUSTER
     topic_title, pain_points, deliverables = _topic_for_cluster_slug(page.service.key, page.slug)
     title = f"{topic_title}"
@@ -9826,6 +9832,235 @@ def _cluster_mobil_uygulama_arayuz_tasarimi_tr(page: SeoPage) -> Dict:
 
     return {
         "title": "Mobil Uygulama Arayüz Tasarımı",
+        "meta_title": meta_title,
+        "meta_description": meta_description,
+        "content_html": content_html,
+        "faq_json": faq_json,
+        "published_at": timezone.now(),
+    }
+
+
+def _cluster_ux_arastirmasi_tr(page: SeoPage) -> Dict:
+    """Custom cluster: UX Araştırması (TR) — ui-ux-design."""
+    body: List[str] = []
+    base = _service_base(page)
+
+    body.append(
+        p(
+            "UX araştırması (User Experience Research), kullanıcıların bir ürün veya hizmet ile nasıl etkileşim kurduğunu anlamak için yapılan sistematik araştırma sürecidir. "
+            "Dijital ürün tasarımında başarılı sonuçlar elde etmek için kullanıcı davranışlarını anlamak kritik önem taşır."
+        )
+    )
+    body.append(
+        p(
+            "Bir web sitesi veya mobil uygulama tasarlanırken yalnızca tasarım ekibinin varsayımlarına göre hareket etmek yeterli değildir. "
+            "Gerçek kullanıcıların ihtiyaçlarını, beklentilerini ve davranışlarını anlamak gerekir. UX araştırması bu noktada devreye girer."
+        )
+    )
+    body.append(
+        p(
+            "UX research sayesinde kullanıcıların hangi özellikleri gerçekten kullandığı, hangi noktada zorlandığı ve hangi deneyimlerin daha başarılı olduğu ortaya çıkar. "
+            "Bu veriler tasarım kararlarının daha doğru alınmasını sağlar."
+        )
+    )
+    body.append(
+        p(
+            "Modern ürün geliştirme süreçlerinde UX araştırması genellikle UX tasarım, UI tasarım ve ürün geliştirme süreçlerinin temelini oluşturur."
+        )
+    )
+    body.append(
+        p(
+            "UX ve UI tasarım hakkında daha fazla bilgi için "
+            f"{{{{ link:{_pillar_url(page)} }}}}"
+            " sayfamızı inceleyebilirsiniz."
+        )
+    )
+
+    body.append(h2("UX Araştırması Nedir?"))
+    body.append(
+        p(
+            "UX araştırması, kullanıcıların bir dijital ürünle nasıl etkileşim kurduğunu anlamak için yapılan araştırma çalışmalarını ifade eder."
+        )
+    )
+    body.append(p("UX research çalışmaları şu sorulara cevap arar:"))
+    body.append(
+        ul(
+            [
+                "kullanıcılar ürünü nasıl kullanıyor",
+                "kullanıcılar hangi noktada zorlanıyor",
+                "kullanıcılar hangi özellikleri daha çok kullanıyor",
+                "kullanıcıların beklentileri nelerdir",
+            ]
+        )
+    )
+    body.append(
+        p(
+            "Bu soruların cevapları ürün tasarımının kullanıcı odaklı olmasını sağlar. UX araştırması sayesinde ürün geliştirme süreci daha verimli hale gelir."
+        )
+    )
+
+    body.append(h2("UX Araştırması Neden Önemlidir?"))
+    body.append(
+        p("UX araştırması yapılmadan geliştirilen ürünler genellikle kullanıcı ihtiyaçlarını tam olarak karşılayamaz.")
+    )
+    body.append(p("UX research çalışmaları şu avantajları sağlar:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı ihtiyaçlarını anlamayı sağlar",
+                "tasarım hatalarını erken aşamada tespit eder",
+                "geliştirme süresini ve kaynak kullanımını verimli kılar",
+                "kullanıcı memnuniyetini artırır",
+                "dönüşüm oranlarını yükseltir",
+            ]
+        )
+    )
+    body.append(p("Birçok başarılı dijital ürün UX araştırmasına büyük yatırım yapmaktadır."))
+
+    body.append(h2("UX Araştırma Yöntemleri"))
+    body.append(
+        p(
+            "UX research sürecinde birçok farklı yöntem kullanılabilir. Hangi yöntemin kullanılacağı projenin hedeflerine bağlıdır."
+        )
+    )
+    body.append(h3("Kullanıcı Görüşmeleri"))
+    body.append(
+        p(
+            "Kullanıcılarla birebir yapılan görüşmeler, kullanıcıların düşüncelerini ve ihtiyaçlarını anlamak için etkili bir yöntemdir."
+        )
+    )
+    body.append(h3("Kullanıcı Testleri"))
+    body.append(
+        p("Kullanıcı testlerinde kullanıcıların bir ürünü nasıl kullandığı gözlemlenir. Bu testler sayesinde kullanıcıların zorlandığı noktalar kolayca tespit edilir.")
+    )
+    body.append(h3("Anketler"))
+    body.append(
+        p("Anketler daha geniş kullanıcı kitlesinden veri toplamak için kullanılır.")
+    )
+    body.append(h3("Analitik Veri Analizi"))
+    body.append(
+        p("Web sitesi veya uygulama verileri analiz edilerek kullanıcı davranışları incelenir.")
+    )
+
+    body.append(h2("UX Araştırma Süreci"))
+    body.append(
+        p("UX araştırması genellikle birkaç aşamadan oluşur.")
+    )
+    body.append(p("<strong>Araştırma Hedeflerinin Belirlenmesi</strong> — İlk aşamada araştırmanın amacı belirlenir. Hangi sorulara cevap aranacağı netleştirilir."))
+    body.append(p("<strong>Kullanıcı Segmentlerinin Belirlenmesi</strong> — Hedef kullanıcı kitlesi analiz edilir ve kullanıcı profilleri oluşturulur."))
+    body.append(p("<strong>Araştırma Yöntemlerinin Seçilmesi</strong> — Projeye uygun UX research yöntemleri belirlenir."))
+    body.append(p("<strong>Veri Toplama</strong> — Araştırma sürecinde kullanıcı verileri toplanır."))
+    body.append(p("<strong>Analiz ve İçgörü</strong> — Toplanan veriler analiz edilerek kullanıcı içgörüleri elde edilir."))
+
+    body.append(h2("UX Araştırmasının Tasarım Sürecine Katkısı"))
+    body.append(
+        p(
+            "UX araştırması yalnızca veri toplamak için yapılmaz. Asıl amaç bu verileri tasarım kararlarına dönüştürmektir."
+        )
+    )
+    body.append(p("UX research sayesinde:"))
+    body.append(
+        ul(
+            [
+                "kullanıcı akışları optimize edilir",
+                "arayüz tasarımı iyileştirilir",
+                "kullanıcı deneyimi geliştirilir",
+                "ürün stratejisi daha doğru belirlenir",
+            ]
+        )
+    )
+    body.append(
+        p("Bu nedenle UX research, ürün geliştirme sürecinin önemli bir parçasıdır.")
+    )
+
+    body.append(h2("UX Araştırması Hangi Projelerde Kullanılır?"))
+    body.append(
+        p("UX araştırması birçok farklı dijital projede kullanılır.")
+    )
+    body.append(p("Örneğin:"))
+    body.append(
+        ul(
+            [
+                "web sitesi tasarımı",
+                "mobil uygulama geliştirme",
+                "e-ticaret platformları",
+                "SaaS ürünleri",
+                "kurumsal yazılım sistemleri",
+            ]
+        )
+    )
+    body.append(
+        p("Bu projelerde UX research kullanıcı deneyimini geliştirmek için kritik rol oynar.")
+    )
+
+    body.append(h2("UX Araştırması ve UI/UX Tasarım"))
+    body.append(
+        p("UX research genellikle UI ve UX tasarım süreçleri ile birlikte yürütülür.")
+    )
+    body.append(p("<strong>UX araştırması:</strong> kullanıcı ihtiyaçlarını belirler"))
+    body.append(p("<strong>UX tasarım:</strong> kullanıcı akışlarını oluşturur"))
+    body.append(p("<strong>UI tasarım:</strong> görsel arayüzü oluşturur"))
+    body.append(
+        p("Bu üç süreç birlikte çalıştığında başarılı dijital ürünler ortaya çıkar.")
+    )
+
+    body.append(h2("İlgili Konular"))
+    body.append(
+        p("UX araştırması hakkında daha fazla bilgi için şu sayfaları inceleyebilirsiniz:")
+    )
+    body.append(
+        ul(
+            [
+                f"{{{{ link:/tr/{base}/ui-ux-tasarim-hizmeti/ }}}}",
+                f"{{{{ link:/tr/{base}/kullanici-arayuzu-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/mobil-uygulama-arayuz-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/wireframe-tasarimi/ }}}}",
+                f"{{{{ link:/tr/{base}/prototype-tasarimi/ }}}}",
+            ]
+        )
+    )
+
+    body.append(
+        cta_box(
+            "UI/UX Tasarım Teklifi Alın",
+            "Projeniz için kapsam ve süreç teklifi almak için bizimle iletişime geçin.",
+            _quote_url(page),
+            "Teklif sayfasına gidin.",
+            strong=True,
+        )
+    )
+
+    content_html = "\n".join(body)
+    meta_title = "UX Araştırması Nedir? Kullanıcı Deneyimi Araştırma Süreci – Angraweb"
+    meta_description = (
+        "UX araştırması nedir? Kullanıcı deneyimi araştırma yöntemleri, kullanıcı içgörüsü, test süreçleri ve UX research teknikleri hakkında detaylı rehber."
+    )
+    meta_title = clamp_text(meta_title, 60)
+    meta_description = clamp_text(meta_description, 160)
+
+    faq_json = faq(
+        [
+            (
+                "UX araştırması nedir?",
+                "UX araştırması kullanıcıların bir ürün veya hizmet ile nasıl etkileşim kurduğunu anlamak için yapılan araştırma sürecidir.",
+            ),
+            (
+                "UX research neden önemlidir?",
+                "UX research kullanıcı ihtiyaçlarını anlamayı sağlar ve daha iyi ürün tasarımı yapılmasına yardımcı olur.",
+            ),
+            (
+                "UX araştırması hangi yöntemlerle yapılır?",
+                "Kullanıcı görüşmeleri, kullanıcı testleri, anketler ve analitik veri analizi gibi yöntemler UX research için kullanılabilir.",
+            ),
+            (
+                "UX research süresi neye bağlıdır?",
+                "Araştırmanın kapsamı, kullanıcı sayısı ve kullanılan araştırma yöntemleri UX research süresini belirler.",
+            ),
+        ]
+    )
+
+    return {
+        "title": "UX Araştırması",
         "meta_title": meta_title,
         "meta_description": meta_description,
         "content_html": content_html,
