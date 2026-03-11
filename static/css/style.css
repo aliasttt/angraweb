@@ -923,10 +923,17 @@ body[dir="rtl"] .benefit-item {
     animation: float 6s ease-in-out infinite;
 }
 
-/* Sections */
+/* Sections – dark background so white/light text is always readable */
 .section {
     padding: 40px 0;
     position: relative;
+    background: rgba(10, 14, 39, 0.75);
+    color: #e8ecf1;
+}
+
+.section.bg-gradient {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(15, 52, 96, 0.85));
+    color: #e8ecf1;
 }
 
 /* Reduce work for below-the-fold sections */
@@ -947,16 +954,41 @@ body[dir="rtl"] .benefit-item {
     color: #ffffff !important;
 }
 
-/* Ensure paragraph text in key homepage sections stays white on dark background */
+/* Homepage section text – explicit contrast so text is never invisible */
+.section p,
 #services p,
 #services a,
 #packages p,
 #packages a,
 #projects p,
 #projects a,
+#about p,
+#about a,
+#value-proposition p,
+#value-proposition a,
 #homepage-faq p,
-#free-website-audit p {
-    color: #ffffff;
+#free-website-audit p,
+.services-cta p,
+.section .text-center p {
+    color: #e2e8f0 !important;
+}
+
+.section a:not(.btn) {
+    color: #74b9ff !important;
+}
+
+.section a:not(.btn):hover {
+    color: #a8d8ff !important;
+}
+
+.section > .container > .row h2,
+.section > .container > .row h3,
+.section > .container > .row h4,
+.section-title,
+.section .about-content h3,
+.section .about-content h4,
+.section .services-cta h3 {
+    color: #ffffff !important;
 }
 
 /* Home tech logo strip */

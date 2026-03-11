@@ -36,6 +36,64 @@
 .about-why-card .icon-wrap { width: 52px; height: 52px; border-radius: 50%; margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; color: #fff; }
 .about-animate { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .about-animate.visible { opacity: 1; transform: translateY(0); }
+/* Şirket Bilgileri - Company Information card */
+.about-company-info {
+  background: linear-gradient(145deg, rgba(116,185,255,0.12) 0%, rgba(99,102,241,0.08) 50%, rgba(116,185,255,0.06) 100%);
+  border: 1px solid rgba(116,185,255,0.35);
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25), 0 0 40px rgba(116,185,255,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.about-company-info:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.3), 0 0 50px rgba(116,185,255,0.1);
+  border-color: rgba(116,185,255,0.45);
+}
+.about-company-info .company-info-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.75rem;
+  border-bottom: 1px solid rgba(116,185,255,0.12);
+  transition: background 0.2s ease;
+}
+.about-company-info .company-info-row:last-child { border-bottom: none; }
+.about-company-info .company-info-row:hover { background: rgba(116,185,255,0.06); }
+.about-company-info .company-info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(116,185,255,0.25), rgba(99,102,241,0.2));
+  border: 1px solid rgba(116,185,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #74b9ff;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.about-company-info .company-info-label {
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  min-width: 140px;
+  font-size: 0.95rem;
+}
+.about-company-info .company-info-value {
+  color: #fff;
+  font-weight: 500;
+}
+.about-company-info .company-info-value a {
+  color: #74b9ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+.about-company-info .company-info-value a:hover {
+  color: #a8d8ff;
+  text-shadow: 0 0 12px rgba(116,185,255,0.4);
+}
 </style>
 {% endblock %}
 
@@ -83,16 +141,32 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
                 <h2 class="section-title text-center about-animate mb-4">{% if current_lang == 'tr' %}Şirket Bilgileri{% else %}Company Information{% endif %}</h2>
-                <div class="about-company-info about-animate" style="background: rgba(116,185,255,0.08); border: 1px solid rgba(116,185,255,0.25); border-radius: 16px; padding: 1.5rem 2rem;">
-                    <table class="table table-borderless mb-0" style="color: rgba(255,255,255,0.95);">
-                        <tbody>
-                            <tr><td class="border-0 py-2" style="width: 38%; font-weight: 600;">{% if current_lang == 'tr' %}Şirket Adı:{% else %}Company Name:{% endif %}</td><td class="border-0 py-2">Angraweb</td></tr>
-                            <tr><td class="border-0 py-2" style="font-weight: 600;">{% if current_lang == 'tr' %}Kurucu:{% else %}Founder:{% endif %}</td><td class="border-0 py-2">Ali Asadi</td></tr>
-                            <tr><td class="border-0 py-2" style="font-weight: 600;">{% if current_lang == 'tr' %}Kuruluş Yeri:{% else %}Location:{% endif %}</td><td class="border-0 py-2">{% if current_lang == 'tr' %}İstanbul, Türkiye{% else %}Istanbul, Turkey{% endif %}</td></tr>
-                            <tr><td class="border-0 py-2" style="font-weight: 600;">{% if current_lang == 'tr' %}Hizmet Alanı:{% else %}Service Area:{% endif %}</td><td class="border-0 py-2">{% if current_lang == 'tr' %}Global{% else %}Global{% endif %}</td></tr>
-                            <tr><td class="border-0 py-2" style="font-weight: 600;">{% if current_lang == 'tr' %}Web Sitesi:{% else %}Website:{% endif %}</td><td class="border-0 py-2"><a href="https://angraweb.com" style="color: #74b9ff;">https://angraweb.com</a></td></tr>
-                        </tbody>
-                    </table>
+                <div class="about-company-info about-animate">
+                    <div class="company-info-row">
+                        <span class="company-info-icon"><i class="fas fa-building"></i></span>
+                        <span class="company-info-label">{% if current_lang == 'tr' %}Şirket Adı{% else %}Company Name{% endif %}</span>
+                        <span class="company-info-value">Angraweb</span>
+                    </div>
+                    <div class="company-info-row">
+                        <span class="company-info-icon"><i class="fas fa-user-tie"></i></span>
+                        <span class="company-info-label">{% if current_lang == 'tr' %}Kurucu{% else %}Founder{% endif %}</span>
+                        <span class="company-info-value">Ali Asadi</span>
+                    </div>
+                    <div class="company-info-row">
+                        <span class="company-info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="company-info-label">{% if current_lang == 'tr' %}Kuruluş Yeri{% else %}Location{% endif %}</span>
+                        <span class="company-info-value">{% if current_lang == 'tr' %}İstanbul, Türkiye{% else %}Istanbul, Turkey{% endif %}</span>
+                    </div>
+                    <div class="company-info-row">
+                        <span class="company-info-icon"><i class="fas fa-globe"></i></span>
+                        <span class="company-info-label">{% if current_lang == 'tr' %}Hizmet Alanı{% else %}Service Area{% endif %}</span>
+                        <span class="company-info-value">Global</span>
+                    </div>
+                    <div class="company-info-row">
+                        <span class="company-info-icon"><i class="fas fa-link"></i></span>
+                        <span class="company-info-label">{% if current_lang == 'tr' %}Web Sitesi{% else %}Website{% endif %}</span>
+                        <span class="company-info-value"><a href="https://angraweb.com">https://angraweb.com</a></span>
+                    </div>
                 </div>
             </div>
         </div>
