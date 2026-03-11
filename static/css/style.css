@@ -4787,6 +4787,18 @@ img.lazy-loaded {
     }
 }
 
+.testimonials-controls {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.testimonials-controls .testimonial-prev,
+.testimonials-controls .testimonial-next {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
 .testimonials-controls .testimonial-dots {
     margin: 0 1rem;
 }

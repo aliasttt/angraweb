@@ -1235,10 +1235,10 @@ document.addEventListener('DOMContentLoaded', function() {
     setupIdleTasks();
     initCleanURLs(); // Initialize clean URL handling for links
     try { initTestimonialsSlider(); } catch (e) {}
-    
+
     // Force all content to be visible - Anti-disappearing fix
     forceContentVisibility();
-    
+
 });
 
 // Initialize clean URLs for all internal links
@@ -1778,13 +1778,17 @@ function initTestimonialsSlider() {
         updateSlider(currentIndex - 1);
     }
 
-    prevBtn.addEventListener('click', function() {
+    prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         prevSlide();
         restartAuto();
     });
     prevBtn.setAttribute('aria-label', 'Previous testimonial');
 
-    nextBtn.addEventListener('click', function() {
+    nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         nextSlide();
         restartAuto();
     });
