@@ -1748,14 +1748,25 @@ function initTestimonialsSlider() {
     var dots = dotsContainer.querySelectorAll('.testimonial-dot');
 
     function setActiveSlide(idx) {
+        var perView = getSlidesPerView();
         for (var j = 0; j < slides.length; j++) {
-            slides[j].classList.toggle('active', j === idx);
+            slides[j].classList.toggle('active', j >= idx && j < idx + perView);
         }
     }
 
+    function getSlidesPerView() {
+        var w = window.innerWidth;
+        if (w >= 1200) return 3;
+        if (w >= 992) return 2;
+        return 1;
+    }
+
     function updateSlider(idx) {
-        currentIndex = (idx + slides.length) % slides.length;
-        var offset = -currentIndex * 100;
+        var perView = getSlidesPerView();
+        var maxIndex = Math.max(0, slides.length - perView);
+        currentIndex = Math.max(0, Math.min(idx, maxIndex));
+        var offsetPercent = perView === 1 ? 100 : (perView === 2 ? 50 : 33.333);
+        var offset = -currentIndex * offsetPercent;
         track.style.transform = 'translateX(' + offset + '%)';
         for (var k = 0; k < dots.length; k++) {
             dots[k].classList.toggle('active', k === currentIndex);
