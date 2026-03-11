@@ -890,7 +890,7 @@
         <div class="testimonials-slider">
             <div class="testimonials-track">
                 {% for testimonial in testimonials %}
-                <div class="testimonial-slide">
+                <div class="testimonial-slide{% if forloop.first %} active{% endif %}">
                     <div class="testimonial-card">
                         <div class="testimonial-rating">
                             {% for i in "12345"|make_list %}
@@ -927,12 +927,12 @@
                 {% endfor %}
             </div>
             <div class="testimonials-controls text-center mt-4">
-                <button class="testimonial-prev btn btn-outline-light btn-sm me-2" type="button">
-                    <i class="fas fa-chevron-left"></i>
+                <button class="testimonial-prev btn btn-outline-light btn-sm me-2" type="button" aria-label="{% trans 'Previous' %}">
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
                 </button>
-                <div class="testimonial-dots d-inline-block"></div>
-                <button class="testimonial-next btn btn-outline-light btn-sm ms-2" type="button">
-                    <i class="fas fa-chevron-right"></i>
+                <div class="testimonial-dots d-inline-block" role="tablist"></div>
+                <button class="testimonial-next btn btn-outline-light btn-sm ms-2" type="button" aria-label="{% trans 'Next' %}">
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
                 </button>
             </div>
         </div>

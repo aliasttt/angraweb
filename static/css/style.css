@@ -4756,25 +4756,34 @@ img.lazy-loaded {
 
 #testimonials .testimonials-track {
     display: flex;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
+}
+
+#testimonials .testimonial-slide.active {
+    animation: testimonial-shake 0.5s ease;
+}
+
+@keyframes testimonial-shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-3px); }
+    40% { transform: translateX(3px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
 }
 
 #testimonials .testimonial-slide {
     min-width: 100%;
+    flex-shrink: 0;
     padding: 0 0.5rem;
     box-sizing: border-box;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
+/* همیشه یک یوروم در هر فریم تا پجینیشن خالی نشه و دکمه‌ها درست کار کنن */
 @media (min-width: 992px) {
     #testimonials .testimonial-slide {
-        min-width: 50%;
-    }
-}
-
-@media (min-width: 1200px) {
-    #testimonials .testimonial-slide {
-        min-width: 33.3333%;
+        min-width: 100%;
     }
 }
 

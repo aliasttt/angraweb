@@ -1723,7 +1723,7 @@ function changeLanguage(lang) {
     updatePageMeta(lang);
 }
 
-// Testimonials horizontal slider
+// Testimonials horizontal slider – یک یوروم در هر فریم، دکمه قبل/بعد، اتو-ادوانس، انیمیشن تکون
 function initTestimonialsSlider() {
     const section = document.querySelector('#testimonials');
     if (!section) return;
@@ -1734,30 +1734,40 @@ function initTestimonialsSlider() {
     const nextBtn = section.querySelector('.testimonial-next');
     const dotsContainer = section.querySelector('.testimonial-dots');
 
-    if (!track || slides.length === 0 || !prevBtn || !nextBtn || !dotsContainer) return;
+    if (!track || !slides.length || !prevBtn || !nextBtn || !dotsContainer) return;
 
     let currentIndex = 0;
     let autoTimer = null;
+    const AUTO_INTERVAL_MS = 4000;
 
-    // Create dots (one per slide group)
+    // فقط به تعداد واقعی اسلایدها نقطه (بدون پجینیشن اضافی)
+    dotsContainer.innerHTML = '';
     slides.forEach((_, index) => {
         const dot = document.createElement('span');
         dot.className = 'testimonial-dot' + (index === 0 ? ' active' : '');
-        dot.dataset.index = index;
+        dot.setAttribute('data-index', String(index));
+        dot.setAttribute('role', 'button');
+        dot.setAttribute('aria-label', 'Slide ' + (index + 1));
         dotsContainer.appendChild(dot);
     });
 
     const dots = dotsContainer.querySelectorAll('.testimonial-dot');
 
+    function setActiveSlide(index) {
+        slides.forEach((el, i) => {
+            el.classList.toggle('active', i === index);
+        });
+    }
+
     function updateSlider(index) {
         currentIndex = (index + slides.length) % slides.length;
         const offset = -currentIndex * 100;
-        track.style.transform = `translateX(${offset}%)`;
+        track.style.transform = 'translateX(' + offset + '%)';
 
-        dots.forEach(dot => dot.classList.remove('active'));
-        if (dots[currentIndex]) {
-            dots[currentIndex].classList.add('active');
-        }
+        dots.forEach(function(dot, i) {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+        setActiveSlide(currentIndex);
     }
 
     function nextSlide() {
@@ -1768,27 +1778,29 @@ function initTestimonialsSlider() {
         updateSlider(currentIndex - 1);
     }
 
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        restartAuto();
-    });
-
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener('click', function() {
         prevSlide();
         restartAuto();
     });
+    prevBtn.setAttribute('aria-label', 'Previous testimonial');
 
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const index = parseInt(dot.dataset.index || '0', 10);
+    nextBtn.addEventListener('click', function() {
+        nextSlide();
+        restartAuto();
+    });
+    nextBtn.setAttribute('aria-label', 'Next testimonial');
+
+    dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+            var index = parseInt(dot.getAttribute('data-index') || '0', 10);
             updateSlider(index);
             restartAuto();
         });
     });
 
     function startAuto() {
-        if (autoTimer) return;
-        autoTimer = setInterval(nextSlide, 12000);
+        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = setInterval(nextSlide, AUTO_INTERVAL_MS);
     }
 
     function restartAuto() {
@@ -1799,7 +1811,6 @@ function initTestimonialsSlider() {
         startAuto();
     }
 
-    // Start slider
     updateSlider(0);
     startAuto();
 }
