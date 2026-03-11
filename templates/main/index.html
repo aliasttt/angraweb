@@ -767,37 +767,39 @@
         <div class="row">
             {% for post in blog_posts %}
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="blog-card">
+                <article class="blog-card" itemscope itemtype="https://schema.org/Article">
                     {% if post.image %}
                     <div class="blog-image">
-                        <a href="{% url 'blog_detail' post.slug %}">
-                            <img src="{{ post.image.url }}" alt="{% localized post 'title' current_lang %}">
+                        <a href="{% url 'blog_detail' post|slug_for_lang:current_lang %}">
+                            <img src="{{ post.image.url }}" alt="{% localized post 'title' current_lang %}" loading="lazy">
                         </a>
                     </div>
                     {% endif %}
                     <div class="blog-content">
                         <div class="blog-meta">
+                            {% if post.category %}
+                            <span class="blog-category badge bg-primary me-2">{{ post.category }}</span>
+                            {% endif %}
                             <span class="blog-date">
-                                <i class="far fa-calendar"></i> 
-                                {{ post.published_at|date:"d M Y" }}
+                                <i class="far fa-calendar"></i> {{ post.published_at|date:"d M Y" }}
                             </span>
                             <span class="blog-views">
                                 <i class="far fa-eye"></i> {{ post.views }}
                             </span>
                         </div>
-                        <h3 class="blog-title">
-                            <a href="{% url 'blog_detail' post.slug %}">
+                        <h2 class="blog-title h5">
+                            <a href="{% url 'blog_detail' post|slug_for_lang:current_lang %}">
                                 {% localized post 'title' current_lang %}
                             </a>
-                        </h3>
+                        </h2>
                         <p class="blog-excerpt">
                             {% localized_truncate post 'excerpt' current_lang 20 %}
                         </p>
-                        <a href="{% url 'blog_detail' post.slug %}" class="btn btn-sm btn-outline-primary">
+                        <a href="{% url 'blog_detail' post|slug_for_lang:current_lang %}" class="btn btn-sm btn-outline-primary">
                             {% trans "Read More" %} <i class="fas fa-arrow-left ms-1"></i>
                         </a>
                     </div>
-                </div>
+                </article>
             </div>
             {% endfor %}
         </div>

@@ -1,0 +1,46 @@
+{% load i18n %}
+{% load main_extras %}
+{# Blog card: title, short description, read more button, category tag, tags. SEO: Article schema. #}
+<article class="blog-card" itemscope itemtype="https://schema.org/Article">
+    {% if post.image %}
+    <div class="blog-image">
+        <a href="{% url 'blog_detail' post|slug_for_lang:current_lang %}" aria-label="{% localized post 'title' current_lang %}">
+            <img src="{{ post.image.url }}" alt="{% localized post 'title' current_lang %}" loading="lazy" itemprop="image">
+        </a>
+    </div>
+    {% endif %}
+    <div class="blog-content">
+        <div class="blog-meta">
+            {% if post.category %}
+            <span class="blog-category badge bg-primary me-2" itemprop="articleSection">{{ post.category }}</span>
+            {% endif %}
+            <span class="blog-date">
+                <i class="far fa-calendar" aria-hidden="true"></i>
+                <time datetime="{{ post.published_at|date:'c' }}" itemprop="datePublished">{{ post.published_at|date:"d M Y" }}</time>
+            </span>
+            {% if post.views %}
+            <span class="blog-views">
+                <i class="far fa-eye" aria-hidden="true"></i> {{ post.views }}
+            </span>
+            {% endif %}
+        </div>
+        <h2 class="blog-title h5">
+            <a href="{% url 'blog_detail' post|slug_for_lang:current_lang %}" itemprop="url">
+                <span itemprop="headline">{% localized post 'title' current_lang %}</span>
+            </a>
+        </h2>
+        <p class="blog-excerpt" itemprop="description">
+            {% localized_truncate post 'excerpt' current_lang 20 %}
+        </p>
+        {% if post.tags %}
+        <div class="blog-tags mt-2 mb-2">
+            {% for tag in post.tags|split_comma|slice:":4" %}
+            <span class="badge bg-light text-dark border me-1">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <a href="{% url 'blog_detail' post|slug_for_lang:current_lang %}" class="btn btn-sm btn-outline-primary">
+            {% trans "Read More" %} <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
+        </a>
+    </div>
+</article>

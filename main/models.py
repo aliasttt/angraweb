@@ -372,6 +372,10 @@ class BlogPost(models.Model):
     title_ar = models.CharField(max_length=200, blank=True, verbose_name='عنوان عربی')
     
     slug = models.SlugField(max_length=200, unique=True, blank=True, verbose_name='اسلاگ')
+    slug_en = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='اسلاگ انگلیسی')
+    
+    category = models.CharField(max_length=100, blank=True, verbose_name='دسته‌بندی')
+    tags = models.CharField(max_length=255, blank=True, verbose_name='برچسب‌ها (با کاما)')
     
     excerpt = models.TextField(max_length=500, verbose_name='خلاصه')
     excerpt_en = models.TextField(max_length=500, blank=True, verbose_name='خلاصه انگلیسی')
@@ -412,8 +416,15 @@ class BlogPost(models.Model):
             self.published_at = timezone.now()
         super().save(*args, **kwargs)
     
-    def get_absolute_url(self):
-        return reverse('blog_detail', kwargs={'slug': self.slug})
+    def get_slug_for_lang(self, lang):
+        """Return slug for the given language (en → slug_en, else slug)."""
+        if lang == 'en' and self.slug_en:
+            return self.slug_en
+        return self.slug or ''
+
+    def get_absolute_url(self, lang=None):
+        slug = self.get_slug_for_lang(lang) if lang else self.slug
+        return reverse('blog_detail', kwargs={'slug': slug})
 
 
 class Testimonial(models.Model):

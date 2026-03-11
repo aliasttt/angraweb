@@ -49,37 +49,7 @@
         <div class="row">
             {% for post in posts %}
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="blog-card">
-                    {% if post.image %}
-                    <div class="blog-image">
-                        <a href="{% url 'blog_detail' post.slug %}">
-                            <img src="{{ post.image.url }}" alt="{% localized post 'title' current_lang %}">
-                        </a>
-                    </div>
-                    {% endif %}
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">
-                                <i class="far fa-calendar"></i> 
-                                {{ post.published_at|date:"d M Y" }}
-                            </span>
-                            <span class="blog-views">
-                                <i class="far fa-eye"></i> {{ post.views }}
-                            </span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="{% url 'blog_detail' post.slug %}">
-                                {% localized post 'title' current_lang %}
-                            </a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            {% localized_truncate post 'excerpt' current_lang 20 %}
-                        </p>
-                        <a href="{% url 'blog_detail' post.slug %}" class="btn btn-sm btn-outline-primary">
-                            {% trans "Read More" %} <i class="fas fa-arrow-left ms-1"></i>
-                        </a>
-                    </div>
-                </div>
+                {% include 'main/includes/blog_card.html' with post=post current_lang=current_lang %}
             </div>
             {% empty %}
             <div class="col-12">

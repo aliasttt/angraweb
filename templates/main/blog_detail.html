@@ -61,10 +61,13 @@
             <div class="col-12 col-lg-8 mx-auto">
                 <!-- Post Header -->
                 <header class="blog-post-header mb-4">
+                    {% if post.category %}
+                    <p class="mb-2"><span class="badge bg-primary">{{ post.category }}</span></p>
+                    {% endif %}
                     <h1 class="blog-post-title">{% localized post 'title' current_lang %}</h1>
                     <div class="blog-post-meta">
                         <span class="meta-item">
-                            <i class="far fa-calendar"></i> 
+                            <i class="far fa-calendar"></i>
                             {{ post.published_at|date:"d F Y" }}
                         </span>
                         <span class="meta-item">
@@ -87,9 +90,9 @@
                 </div>
                 {% endif %}
 
-                <!-- Post Content -->
+                <!-- Post Content (HTML allowed for headings/lists) -->
                 <div class="blog-post-content">
-                    {% localized post 'content' current_lang|linebreaks %}
+                    {% localized post 'content' current_lang|safe %}
                 </div>
 
                 <!-- Share Buttons -->
@@ -127,28 +130,7 @@
             </div>
             {% for related_post in related_posts %}
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="blog-card">
-                    {% if related_post.image %}
-                    <div class="blog-image">
-                        <a href="{% url 'blog_detail' related_post.slug %}">
-                            <img src="{{ related_post.image.url }}" alt="{% localized related_post 'title' current_lang %}">
-                        </a>
-                    </div>
-                    {% endif %}
-                    <div class="blog-content">
-                        <h4 class="blog-title">
-                            <a href="{% url 'blog_detail' related_post.slug %}">
-                                {% localized related_post 'title' current_lang %}
-                            </a>
-                        </h4>
-                        <p class="blog-excerpt">
-                            {% localized_truncate related_post 'excerpt' current_lang 15 %}
-                        </p>
-                        <a href="{% url 'blog_detail' related_post.slug %}" class="btn btn-sm btn-outline-primary">
-                            {% trans "Read More" %}
-                        </a>
-                    </div>
-                </div>
+                {% include 'main/includes/blog_card.html' with post=related_post current_lang=current_lang %}
             </div>
             {% endfor %}
         </div>

@@ -527,8 +527,11 @@ def blog_list(request):
 
 
 def blog_detail(request, slug):
-    """جزئیات پست وبلاگ"""
-    post = get_object_or_404(BlogPost, slug=slug, published=True)
+    """جزئیات پست وبلاگ — resolve by slug or slug_en."""
+    post = BlogPost.objects.filter(published=True).filter(Q(slug=slug) | Q(slug_en=slug)).first()
+    if not post:
+        from django.http import Http404
+        raise Http404("Blog post not found")
     
     # Increase views
     post.views += 1

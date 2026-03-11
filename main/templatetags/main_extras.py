@@ -28,5 +28,19 @@ def get_item(dictionary, key):
     if dictionary is None:
         return None
     return dictionary.get(key)
-    text = localized(obj, attr, lang)
-    return truncatewords(text, num_words)
+
+
+@register.filter
+def slug_for_lang(post, lang):
+    """Return blog post slug for the given language (for TR/EN URL variants)."""
+    if not post or not hasattr(post, 'get_slug_for_lang'):
+        return getattr(post, 'slug', '') or ''
+    return post.get_slug_for_lang(lang) or post.slug or ''
+
+
+@register.filter
+def split_comma(value):
+    """Split a string by comma and return list of stripped items."""
+    if not value:
+        return []
+    return [s.strip() for s in str(value).split(',') if s.strip()]
