@@ -83,20 +83,36 @@
                     </div>
                 </header>
 
-                <!-- Post Image -->
+                <!-- Post Image or Default Hero with static illustration -->
                 {% if post.image %}
-                <div class="blog-post-image mb-4">
-                    <img src="{{ post.image.url }}" alt="{% localized post 'title' current_lang %}" class="img-fluid rounded">
+                <div class="blog-post-image mb-4 blog-post-animate">
+                    <img src="{{ post.image.url }}" alt="{% localized post 'title' current_lang %}" class="img-fluid rounded blog-post-img-cover" loading="eager">
+                </div>
+                {% else %}
+                <div class="blog-post-hero blog-post-animate">
+                    <div class="blog-post-hero-bg"></div>
+                    <div class="blog-post-hero-inner">
+                        <div class="blog-post-hero-visual" aria-hidden="true">
+                            <svg class="blog-hero-svg" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="blog-hero-path" d="M40 100 L80 60 L120 80 L160 40 L200 70 L240 50 L260 65" stroke="url(#blogGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle class="blog-hero-dot" cx="40" cy="100" r="6" fill="rgba(116,185,255,0.9)"/>
+                                <circle class="blog-hero-dot" cx="260" cy="65" r="6" fill="rgba(116,185,255,0.9)"/>
+                                <defs><linearGradient id="blogGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="rgba(116,185,255,0.5)"/><stop offset="100%" stop-color="rgba(116,185,255,0.95)"/></linearGradient></defs>
+                            </svg>
+                        </div>
+                        <i class="fas fa-rocket blog-post-hero-icon" aria-hidden="true"></i>
+                        <span class="blog-post-hero-text">{% trans "Performance & SEO" %}</span>
+                    </div>
                 </div>
                 {% endif %}
 
                 <!-- Post Content (HTML allowed for headings/lists) -->
-                <div class="blog-post-content">
+                <div class="blog-post-content blog-post-content-animated blog-post-content-stagger">
                     {% localized post 'content' current_lang|safe %}
                 </div>
 
                 <!-- Share Buttons -->
-                <div class="blog-share mt-5 mb-5">
+                <div class="blog-share mt-5 mb-5 blog-share-animate">
                     <h5 class="mb-3">{% trans "Share this article" %}</h5>
                     <div class="share-buttons">
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 

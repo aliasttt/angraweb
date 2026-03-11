@@ -44,7 +44,7 @@
     <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}{% endblock %}">
     {% endblock %}
     
-    <!-- Schema.org JSON-LD - برند Angraweb برای جستجو -->
+    <!-- Schema.org JSON-LD - Brand Entity SEO: Angraweb, founder, location -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -54,8 +54,13 @@
       "url": "{{ request.scheme }}://{{ request.get_host }}",
       "logo": "{{ request.scheme }}://{{ request.get_host }}{% static 'angraweb.jpg' %}",
       "description": "{% trans 'Professional web design and development services. Grow your business in the digital world!' %}",
+      "founder": {
+        "@type": "Person",
+        "name": "Ali Asadi"
+      },
       "address": {
         "@type": "PostalAddress",
+        "addressLocality": "Istanbul",
         "addressCountry": "TR"
       },
       "contactPoint": {
