@@ -1756,8 +1756,8 @@ function initTestimonialsSlider() {
 
     function getSlidesPerView() {
         var w = window.innerWidth;
-        if (w >= 1200) return 3;
-        if (w >= 992) return 2;
+        if (w >= 992) return 3;
+        if (w >= 768) return 2;
         return 1;
     }
 
@@ -1765,7 +1765,8 @@ function initTestimonialsSlider() {
         var perView = getSlidesPerView();
         var maxIndex = Math.max(0, slides.length - perView);
         currentIndex = Math.max(0, Math.min(idx, maxIndex));
-        var offsetPercent = perView === 1 ? 100 : (perView === 2 ? 50 : 33.333);
+        /* حرکت به اندازهٔ یک اسلاید: عرض track = N اسلاید، پس یک اسلاید = 100/N درصد از track */
+        var offsetPercent = slides.length > 0 ? 100 / slides.length : 0;
         var offset = -currentIndex * offsetPercent;
         track.style.transform = 'translateX(' + offset + '%)';
         for (var k = 0; k < dots.length; k++) {

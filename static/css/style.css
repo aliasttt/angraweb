@@ -4748,35 +4748,44 @@ img.lazy-loaded {
     border-color: rgba(116, 185, 255, 0.5);
 }
 
-/* Home page testimonials - horizontal slider */
+/* Home page testimonials - horizontal slider (فقط این بخش؛ بقیهٔ سایت دست نخورده) */
 #testimonials .testimonials-slider {
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 #testimonials .testimonials-track {
     display: flex;
-    transition: transform 0.5s ease;
+    flex-wrap: nowrap;
+    transition: transform 0.4s ease;
     will-change: transform;
 }
 
 #testimonials .testimonial-slide {
-    min-width: 100%;
-    flex-shrink: 0;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
     padding: 0 0.5rem;
     box-sizing: border-box;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     #testimonials .testimonial-slide {
-        min-width: 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
     #testimonials .testimonial-slide {
-        min-width: 33.3333%;
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
     }
+}
+
+#testimonials .testimonial-card {
+    min-height: 280px;
 }
 
 .testimonials-controls {
