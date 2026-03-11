@@ -108,7 +108,8 @@
 
                 <!-- Post Content (HTML allowed for headings/lists) -->
                 <div class="blog-post-content blog-post-content-animated blog-post-content-stagger">
-                    {% localized post 'content' current_lang|safe %}
+                    {% localized post 'content' current_lang as post_content %}
+                    {{ post_content|safe }}
                 </div>
 
                 <!-- Share Buttons -->
