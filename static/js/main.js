@@ -1723,50 +1723,43 @@ function changeLanguage(lang) {
     updatePageMeta(lang);
 }
 
-// Testimonials horizontal slider – یک یوروم در هر فریم، دکمه قبل/بعد، اتو-ادوانس، انیمیشن تکون
+// Testimonials horizontal slider – دکمه قبل/بعد با event delegation
 function initTestimonialsSlider() {
-    const section = document.querySelector('#testimonials');
+    var section = document.getElementById('testimonials');
     if (!section) return;
 
-    const track = section.querySelector('.testimonials-track');
-    const slides = section.querySelectorAll('.testimonial-slide');
-    const prevBtn = section.querySelector('.testimonial-prev');
-    const nextBtn = section.querySelector('.testimonial-next');
-    const dotsContainer = section.querySelector('.testimonial-dots');
+    var track = section.querySelector('.testimonials-track');
+    var slides = section.querySelectorAll('.testimonial-slide');
+    var dotsContainer = section.querySelector('.testimonial-dots');
+    if (!track || !slides.length || !dotsContainer) return;
 
-    if (!track || !slides.length || !prevBtn || !nextBtn || !dotsContainer) return;
+    var currentIndex = 0;
+    var autoTimer = null;
+    var AUTO_INTERVAL_MS = 4000;
 
-    let currentIndex = 0;
-    let autoTimer = null;
-    const AUTO_INTERVAL_MS = 4000;
-
-    // فقط به تعداد واقعی اسلایدها نقطه (بدون پجینیشن اضافی)
     dotsContainer.innerHTML = '';
-    slides.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.className = 'testimonial-dot' + (index === 0 ? ' active' : '');
-        dot.setAttribute('data-index', String(index));
+    for (var i = 0; i < slides.length; i++) {
+        var dot = document.createElement('span');
+        dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('data-index', String(i));
         dot.setAttribute('role', 'button');
-        dot.setAttribute('aria-label', 'Slide ' + (index + 1));
         dotsContainer.appendChild(dot);
-    });
+    }
+    var dots = dotsContainer.querySelectorAll('.testimonial-dot');
 
-    const dots = dotsContainer.querySelectorAll('.testimonial-dot');
-
-    function setActiveSlide(index) {
-        slides.forEach((el, i) => {
-            el.classList.toggle('active', i === index);
-        });
+    function setActiveSlide(idx) {
+        for (var j = 0; j < slides.length; j++) {
+            slides[j].classList.toggle('active', j === idx);
+        }
     }
 
-    function updateSlider(index) {
-        currentIndex = (index + slides.length) % slides.length;
-        const offset = -currentIndex * 100;
+    function updateSlider(idx) {
+        currentIndex = (idx + slides.length) % slides.length;
+        var offset = -currentIndex * 100;
         track.style.transform = 'translateX(' + offset + '%)';
-
-        dots.forEach(function(dot, i) {
-            dot.classList.toggle('active', i === currentIndex);
-        });
+        for (var k = 0; k < dots.length; k++) {
+            dots[k].classList.toggle('active', k === currentIndex);
+        }
         setActiveSlide(currentIndex);
     }
 
@@ -1778,45 +1771,45 @@ function initTestimonialsSlider() {
         updateSlider(currentIndex - 1);
     }
 
-    prevBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        prevSlide();
-        restartAuto();
-    });
-    prevBtn.setAttribute('aria-label', 'Previous testimonial');
-
-    nextBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        nextSlide();
-        restartAuto();
-    });
-    nextBtn.setAttribute('aria-label', 'Next testimonial');
-
-    dots.forEach(function(dot) {
-        dot.addEventListener('click', function() {
-            var index = parseInt(dot.getAttribute('data-index') || '0', 10);
-            updateSlider(index);
-            restartAuto();
-        });
-    });
-
-    function startAuto() {
-        if (autoTimer) clearInterval(autoTimer);
-        autoTimer = setInterval(nextSlide, AUTO_INTERVAL_MS);
-    }
-
     function restartAuto() {
         if (autoTimer) {
             clearInterval(autoTimer);
             autoTimer = null;
         }
-        startAuto();
+        autoTimer = setInterval(nextSlide, AUTO_INTERVAL_MS);
     }
 
+    // Event delegation: هر کلیک روی بخش testimonials
+    section.addEventListener('click', function(e) {
+        var target = e.target;
+        while (target && target !== section) {
+            if (target.classList && target.classList.contains('testimonial-prev')) {
+                e.preventDefault();
+                e.stopPropagation();
+                prevSlide();
+                restartAuto();
+                return;
+            }
+            if (target.classList && target.classList.contains('testimonial-next')) {
+                e.preventDefault();
+                e.stopPropagation();
+                nextSlide();
+                restartAuto();
+                return;
+            }
+            if (target.classList && target.classList.contains('testimonial-dot')) {
+                e.preventDefault();
+                var idx = parseInt(target.getAttribute('data-index') || '0', 10);
+                updateSlider(idx);
+                restartAuto();
+                return;
+            }
+            target = target.parentNode;
+        }
+    });
+
     updateSlider(0);
-    startAuto();
+    restartAuto();
 }
 
 // Update page meta information
