@@ -195,6 +195,9 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'blog_list' or request.resolver_match.url_name == 'blog_detail' %}active{% endif %}" href="{% url 'blog_list' %}">{% trans "Blog" %}</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'team' or request.resolver_match.url_name == 'resume' %}active{% endif %}" href="{% url 'team' %}">{% get_current_language as CURRENT_LANGUAGE %}{% if CURRENT_LANGUAGE == 'tr' %}Takım{% else %}Team{% endif %}</a>
                     </li>
                     <li class="nav-item dropdown">
