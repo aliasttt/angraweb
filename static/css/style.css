@@ -4748,7 +4748,13 @@ img.lazy-loaded {
     border-color: rgba(116, 185, 255, 0.5);
 }
 
-/* Home page testimonials - horizontal slider (فقط این بخش؛ بقیهٔ سایت دست نخورده) */
+/* ========== فقط بخش یوروم هوم (#testimonials) – تغییر ندهید که بقیهٔ سایت نشکند ========== */
+#testimonials .section-title,
+#testimonials .section-title .text-gradient,
+#testimonials h2 {
+    color: #ffffff !important;
+}
+
 #testimonials .testimonials-slider {
     position: relative;
     overflow: hidden;
@@ -4788,16 +4794,17 @@ img.lazy-loaded {
     min-height: 280px;
 }
 
-.testimonials-controls {
+/* فقط اسلایدر هوم: کنترل و نقطه‌ها داخل #testimonials تا بقیهٔ سایت تحت تأثیر نگیرد */
+#testimonials .testimonials-controls {
     position: relative;
     z-index: 2;
 }
 
-.testimonials-controls .testimonial-dots {
+#testimonials .testimonials-controls .testimonial-dots {
     margin: 0 1rem;
 }
 
-.testimonial-dot {
+#testimonials .testimonial-dot {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -4808,11 +4815,120 @@ img.lazy-loaded {
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.testimonial-dot.active {
+#testimonials .testimonial-dot.active {
     background: #74b9ff;
     transform: scale(1.2);
 }
 
+/* متن و کارت یوروم داخل #testimonials با !important تا رنگ سیاه نشود و ساختار نشکند */
+#testimonials .testimonial-rating {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+#testimonials .testimonial-rating i {
+    margin-right: 0.2rem;
+}
+
+#testimonials .testimonial-content {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+#testimonials .testimonial-content p {
+    color: #ffffff !important;
+    line-height: 1.8;
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+}
+
+#testimonials .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(116, 185, 255, 0.2);
+}
+
+#testimonials .testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(116, 185, 255, 0.3);
+}
+
+#testimonials .testimonial-avatar-placeholder {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(116, 185, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #74b9ff !important;
+    font-size: 1.5rem;
+    border: 2px solid rgba(116, 185, 255, 0.3);
+}
+
+#testimonials .testimonial-info {
+    flex: 1;
+}
+
+#testimonials .testimonial-info h5 {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+#testimonials .testimonial-company {
+    color: #74b9ff !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+#testimonials .testimonial-position {
+    color: #b2bec3 !important;
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+}
+
+#testimonials .testimonial-project {
+    color: #b2bec3 !important;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+#testimonials .testimonial-project a {
+    color: #74b9ff !important;
+    text-decoration: none;
+}
+
+#testimonials .testimonial-project a:hover {
+    text-decoration: underline;
+}
+
+#testimonials .testimonial-project i {
+    margin-right: 0.3rem;
+}
+
+@media (max-width: 768px) {
+    #testimonials .testimonial-card {
+        padding: 1.5rem;
+    }
+    #testimonials .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+    }
+    #testimonials .testimonial-info {
+        text-align: center;
+    }
+}
+
+/* قوانین گلوبال برای صفحات about و testimonials list (بدون #testimonials) */
 .testimonial-rating {
     margin-bottom: 1rem;
     font-size: 1.2rem;
@@ -4907,17 +5023,14 @@ img.lazy-loaded {
     margin-right: 0.3rem;
 }
 
-/* Responsive Testimonial Styles */
 @media (max-width: 768px) {
     .testimonial-card {
         padding: 1.5rem;
     }
-    
     .testimonial-author {
         flex-direction: column;
         text-align: center;
     }
-    
     .testimonial-info {
         text-align: center;
     }
