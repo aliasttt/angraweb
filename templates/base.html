@@ -419,41 +419,12 @@
     {% block extra_js %}{% endblock %}
     
     <script>
-      (function() {
-        function initAOS() {
-          if (typeof AOS === 'undefined') return;
-          AOS.init({
-            duration: 500,
-            once: true,
-            offset: 5,
-            delay: 0,
-            anchorPlacement: 'top-bottom',
-            startEvent: 'load',
-            disable: false
-          });
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof AOS !== 'undefined') {
+          AOS.init({ duration: 600, once: true, offset: 10 });
           AOS.refresh();
         }
-        function refreshAOS() {
-          if (typeof AOS !== 'undefined') AOS.refresh();
-        }
-        function onPageReady() {
-          initAOS();
-          setTimeout(refreshAOS, 150);
-          setTimeout(refreshAOS, 600);
-          var scrollRefreshDone = false;
-          window.addEventListener('scroll', function scrollRefresh() {
-            if (scrollRefreshDone) return;
-            scrollRefreshDone = true;
-            refreshAOS();
-            window.removeEventListener('scroll', scrollRefresh);
-          }, { passive: true });
-        }
-        if (document.readyState === 'loading') {
-          window.addEventListener('load', onPageReady);
-        } else {
-          onPageReady();
-        }
-      })();
+      });
     </script>
     <script>
       (function(){
