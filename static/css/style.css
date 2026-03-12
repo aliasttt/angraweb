@@ -659,13 +659,14 @@ body[dir="rtl"] .language-switcher {
     opacity: 1;
 }
 
-/* Hero Section – margin-top so title stays below navbar; background image + overlay */
+/* Hero Section – زیاد padding-top تا "Angraweb" زیر نوار ناوبری نره؛ بک‌گراند ایمیج واضح */
 .hero-section {
     position: relative;
-    padding: 140px 0 100px; /* top padding so "Angraweb" and content stay below fixed navbar */
+    padding: 200px 0 100px; /* فاصله زیاد از بالا تا تایتل زیر منو باشد */
     min-height: 100vh;
     display: flex;
     align-items: center;
+    background-color: #0a0e27;
     background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80");
     background-size: cover;
     background-position: center;
@@ -673,7 +674,7 @@ body[dir="rtl"] .language-switcher {
     overflow: hidden;
 }
 
-/* Dark overlay so text stays readable and hero looks polished */
+/* Overlay ملایم تا هم تصویر دیده شود هم متن خوانا بماند */
 .hero-section::before {
     content: "";
     position: absolute;
@@ -681,7 +682,7 @@ body[dir="rtl"] .language-switcher {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(10, 14, 39, 0.92) 0%, rgba(26, 26, 46, 0.88) 50%, rgba(15, 52, 96, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.78) 0%, rgba(26, 26, 46, 0.72) 50%, rgba(15, 52, 96, 0.8) 100%);
     z-index: 0;
     pointer-events: none;
 }
@@ -691,20 +692,9 @@ body[dir="rtl"] .language-switcher {
     z-index: 1;
 }
 
-/* Subtle entrance animation for hero content */
+/* انیمیشن ورود با AOS انجام می‌شود؛ این فقط fallback */
 .hero-section .hero-content {
-    animation: hero-content-in 1s ease-out;
-}
-
-@keyframes hero-content-in {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    /* animation توسط AOS کنترل می‌شود */
 }
 
 .hero-section .hero-title,
@@ -1218,7 +1208,7 @@ body[dir="rtl"] .benefit-item {
 @media (max-width: 768px) {
     #home.hero-section {
         min-height: auto;
-        padding: 110px 0 20px 0; /* keep Angraweb title below navbar */
+        padding: 150px 0 24px 0; /* موبایل: تایتل انگراوب زیر منو ناوبری */
     }
 
     .section {
@@ -2621,7 +2611,7 @@ img.lazy-loaded {
     .hero-section {
         min-height: 100vh;
         min-height: 100dvh;
-        padding: 110px 0 40px 0; /* keep title below navbar on mobile */
+        padding: 150px 0 40px 0; /* موبایل: تایتل زیر ناوبری */
     }
     
     .hero-content {
@@ -2707,7 +2697,7 @@ img.lazy-loaded {
 
 @media (max-width: 576px) {
     .hero-section {
-        padding: 100px 0 30px 0; /* keep title below navbar on small screens */
+        padding: 140px 0 30px 0; /* صفحات کوچک: تایتل زیر ناوبری */
     }
     
     .hero-title {
