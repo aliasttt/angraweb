@@ -421,8 +421,19 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         if (typeof AOS !== 'undefined') {
-          AOS.init({ duration: 600, once: true, offset: 10 });
+          AOS.init({ duration: 500, once: true, offset: 0, easing: 'ease-out-cubic' });
           AOS.refresh();
+        }
+      });
+      window.addEventListener('load', function() {
+        if (typeof AOS !== 'undefined') {
+          setTimeout(function() {
+            if (typeof AOS.refreshHard === 'function') {
+              AOS.refreshHard();
+            } else {
+              AOS.refresh();
+            }
+          }, 120);
         }
       });
     </script>

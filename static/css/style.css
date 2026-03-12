@@ -687,6 +687,31 @@ body[dir="rtl"] .language-switcher {
     pointer-events: none;
 }
 
+.hero-section::after {
+    content: "";
+    position: absolute;
+    right: 4%;
+    top: 18%;
+    width: min(42vw, 520px);
+    height: min(42vw, 520px);
+    background-image:
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.9) 0%, rgba(168, 216, 255, 0.7) 10%, rgba(116, 185, 255, 0.35) 26%, rgba(24, 53, 106, 0.92) 58%, rgba(7, 18, 43, 0) 72%),
+        url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=80");
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    opacity: 0.34;
+    filter: saturate(1.15) drop-shadow(0 0 48px rgba(116, 185, 255, 0.18));
+    animation: hero-earth-float 12s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes hero-earth-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-14px) scale(1.03); }
+}
+
 .hero-section .container {
     position: relative;
     z-index: 1;
@@ -987,8 +1012,8 @@ body[dir="rtl"] .benefit-item {
 
 /* Reduce work for below-the-fold sections */
 .section:not(.hero-section) {
-    content-visibility: auto;
-    contain-intrinsic-size: 800px;
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
 }
 
 .section-title {
@@ -1054,6 +1079,8 @@ body[dir="rtl"] .benefit-item {
 .home-logo-track {
     display: flex;
     gap: 2rem;
+    width: max-content;
+    align-items: center;
     animation: home-logo-scroll 24s linear infinite;
     will-change: transform;
 }
@@ -1086,12 +1113,44 @@ body[dir="rtl"] .benefit-item {
     font-size: 0.9rem;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    animation: home-logo-pill-float 3.8s ease-in-out infinite;
+}
+
+.home-logo-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(116, 185, 255, 0.85), rgba(162, 155, 254, 0.65), rgba(116, 185, 255, 0.2));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.home-logo-item:nth-child(2n) {
+    animation-delay: -1.2s;
+}
+
+.home-logo-item:nth-child(3n) {
+    animation-delay: -2.1s;
 }
 
 .home-logo-item i {
     font-size: 1.4rem;
     margin-bottom: 0.25rem;
     color: #74b9ff;
+}
+
+@keyframes home-logo-pill-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
 }
 
 @keyframes home-logo-scroll {
@@ -1105,6 +1164,15 @@ body[dir="rtl"] .benefit-item {
         padding: 0.5rem 0.75rem;
         font-size: 0.8rem;
     }
+
+    .hero-section::after {
+        width: min(60vw, 300px);
+        height: min(60vw, 300px);
+        right: 50%;
+        top: 10%;
+        transform: translateX(50%);
+        opacity: 0.28;
+    }
 }
 
 /* Visual feature gallery */
@@ -1117,12 +1185,49 @@ body[dir="rtl"] .benefit-item {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+    animation: visual-card-float 5.2s ease-in-out infinite;
+}
+
+.home-visual-gallery .visual-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(116, 185, 255, 0.7), rgba(162, 155, 254, 0.55), rgba(255, 255, 255, 0.15));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.75;
+}
+
+.home-visual-gallery .col-12:nth-child(2) .visual-card,
+.home-visual-gallery .col-12:nth-child(2) .visual-card::before,
+.home-visual-gallery .col-12.col-md-4:nth-child(2) .visual-card,
+.home-visual-gallery .col-12.col-md-4:nth-child(2) .visual-card::before {
+    animation-delay: -1.7s;
+}
+
+.home-visual-gallery .col-12:nth-child(3) .visual-card,
+.home-visual-gallery .col-12:nth-child(3) .visual-card::before,
+.home-visual-gallery .col-12.col-md-4:nth-child(3) .visual-card,
+.home-visual-gallery .col-12.col-md-4:nth-child(3) .visual-card::before {
+    animation-delay: -3.1s;
 }
 
 .home-visual-gallery .visual-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 60px rgba(116, 185, 255, 0.35);
     border-color: rgba(116, 185, 255, 0.7);
+}
+
+@keyframes visual-card-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 .home-visual-gallery .visual-illustration {
@@ -4464,8 +4569,6 @@ img.lazy-loaded {
         font-size: 0.9rem;
         margin-left: 0.3rem;
     }
-}
-
 [dir="rtl"] .portfolio-badge {
         left: 5px;
     }
@@ -4906,67 +5009,54 @@ img.lazy-loaded {
 
 #testimonials .testimonials-slider {
     position: relative;
-    overflow: hidden;
     width: 100%;
 }
 
 #testimonials .testimonials-track {
-    display: flex;
-    flex-wrap: nowrap;
-    transition: transform 0.4s ease;
-    will-change: transform;
+    width: 100%;
+    transform: none !important;
 }
 
 #testimonials .testimonial-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
-    padding: 0 0.5rem;
+    padding: 0;
     box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
-    #testimonials .testimonial-slide {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-}
-
-@media (min-width: 992px) {
-    #testimonials .testimonial-slide {
-        flex: 0 0 33.3333%;
-        max-width: 33.3333%;
-    }
-}
-
 #testimonials .testimonial-card {
-    min-height: 280px;
-}
-
-/* فقط اسلایدر هوم: کنترل و نقطه‌ها داخل #testimonials تا بقیهٔ سایت تحت تأثیر نگیرد */
-#testimonials .testimonials-controls {
+    min-height: 100%;
     position: relative;
-    z-index: 2;
+    background: linear-gradient(180deg, rgba(13, 20, 43, 0.92), rgba(20, 33, 71, 0.9));
+    border: 1px solid rgba(116, 185, 255, 0.26);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    animation: testimonial-card-float 5.5s ease-in-out infinite;
 }
 
-#testimonials .testimonials-controls .testimonial-dots {
-    margin: 0 1rem;
+#testimonials .testimonial-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(116, 185, 255, 0.85), rgba(162, 155, 254, 0.55), rgba(85, 239, 196, 0.4));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.85;
+    pointer-events: none;
 }
 
-#testimonials .testimonial-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    margin: 0 4px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+#testimonials .testimonial-slide:nth-child(2n) .testimonial-card {
+    animation-delay: -1.8s;
 }
 
-#testimonials .testimonial-dot.active {
-    background: #74b9ff;
-    transform: scale(1.2);
+#testimonials .testimonial-slide:nth-child(3n) .testimonial-card {
+    animation-delay: -3.2s;
+}
+
+@keyframes testimonial-card-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 /* متن و کارت یوروم داخل #testimonials با !important تا رنگ سیاه نشود و ساختار نشکند */
@@ -5074,6 +5164,10 @@ img.lazy-loaded {
     }
     #testimonials .testimonial-info {
         text-align: center;
+    }
+
+    #testimonials .testimonial-card {
+        animation-duration: 4s;
     }
 }
 

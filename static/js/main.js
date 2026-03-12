@@ -1223,6 +1223,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Language: server-side i18n via /lang/xx/ — do NOT override with JS (was causing "stuck on English")
     document.body.style.visibility = 'visible';
     document.body.style.opacity = '1';
+    document.body.classList.add('animations-on');
     
     // Initialize all functions (initLanguageSwitcher removed; nav uses /lang/xx/)
     initNavbar();
@@ -1994,12 +1995,6 @@ function optimizeForMobile() {
     if (window.innerWidth <= 768) {
         // Reduce animation complexity on mobile
         document.documentElement.style.setProperty('--animation-duration', '0.3s');
-        
-        // Disable heavy animations on mobile
-        const heavyAnimations = document.querySelectorAll('.planet, .stars');
-        heavyAnimations.forEach(el => {
-            el.style.animation = 'none';
-        });
     }
 }
 
