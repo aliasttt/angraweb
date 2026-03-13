@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
@@ -16,6 +17,8 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django_ratelimit.decorators import ratelimit
 from django_ratelimit.exceptions import Ratelimited
+
+logger = logging.getLogger(__name__)
 from .models import (
     Service, Package, Project, ProjectVideo, Certificate,
     ContactMessage, QuoteRequest, BlogPost, Testimonial, SiteSetting, TeamMember, UserProfile, FAQ, NewsletterSubscriber,
@@ -30,20 +33,28 @@ def _get_lang_code(request):
 
 
 def _send_ops_notification(subject, body):
-    recipients = getattr(settings, 'CONTACT_NOTIFICATION_EMAILS', []) or [getattr(settings, 'CONTACT_PRIMARY_EMAIL', '')]
-    recipients = [r for r in recipients if r]
-    if not recipients:
-        return
-    send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, recipients, fail_silently=True)
+    """Send notification to business inbox (info@angraweb.com). Never raises."""
+    try:
+        recipients = getattr(settings, 'CONTACT_NOTIFICATION_EMAILS', []) or [getattr(settings, 'CONTACT_PRIMARY_EMAIL', '')]
+        recipients = [r for r in recipients if r]
+        if not recipients:
+            return
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, recipients, fail_silently=True)
+    except Exception as e:
+        logger.exception("Failed to send ops notification email: %s", e)
 
 
 def _send_user_activity_email(to_email, request, tr_subject, tr_body, en_subject, en_body):
+    """Send confirmation email to customer. Language from request.LANGUAGE_CODE. Never raises."""
     if not to_email:
         return
-    lang = _get_lang_code(request)
-    subject = tr_subject if lang == 'tr' else en_subject
-    body = tr_body if lang == 'tr' else en_body
-    send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [to_email], fail_silently=True)
+    try:
+        lang = _get_lang_code(request)
+        subject = tr_subject if lang == 'tr' else en_subject
+        body = tr_body if lang == 'tr' else en_body
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [to_email], fail_silently=True)
+    except Exception as e:
+        logger.exception("Failed to send confirmation email to %s: %s", to_email, e)
 
 
 def redirect_to_default_language(request):
@@ -360,14 +371,34 @@ def resume(request):
     return render(request, 'main/resume.html', context)
 
 
+# Confirmation email texts (TR/EN) for contact form — language from request.LANGUAGE_CODE
+CONTACT_CONFIRM_TR = {
+    'subject': 'Talebiniz Alındı',
+    'body': (
+        'Merhaba,\n\n'
+        'Mesajınız başarıyla alınmıştır.\n'
+        'Ekibimiz en kısa sürede sizinle iletişime geçecektir.\n\n'
+        'Angraweb'
+    ),
+}
+CONTACT_CONFIRM_EN = {
+    'subject': 'Your request has been received',
+    'body': (
+        'Hello,\n\n'
+        'Your message has been successfully received.\n'
+        'Our team will contact you shortly.\n\n'
+        'Angraweb'
+    ),
+}
+
+
 @ratelimit(key='ip', rate='5/m', method='POST', block=True)
 def contact(request):
-    """صفحه تماس"""
+    """صفحه تماس — form saved first; emails sent in try/except so submission never 500s."""
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             contact_message = form.save(commit=False)
-            # Get IP address and user agent
             x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
             if x_forwarded_for:
                 contact_message.ip_address = x_forwarded_for.split(',')[0]
@@ -375,32 +406,30 @@ def contact(request):
                 contact_message.ip_address = request.META.get('REMOTE_ADDR')
             contact_message.user_agent = request.META.get('HTTP_USER_AGENT', '')
             contact_message.save()
-            _send_ops_notification(
-                f"[Contact] {contact_message.subject}",
-                (
-                    f"Name: {contact_message.name}\n"
-                    f"Email: {contact_message.email}\n"
-                    f"Phone: {contact_message.phone or '-'}\n"
-                    f"Subject: {contact_message.subject}\n"
-                    f"Message:\n{contact_message.message}\n"
-                ),
-            )
-            _send_user_activity_email(
-                contact_message.email,
-                request,
-                tr_subject="Mesajiniz alindi - Angraweb",
-                tr_body=(
-                    "Merhaba,\n\nMesajiniz bize ulasti. "
-                    "Ekibimiz en kisa surede sizinle iletisime gececektir.\n\n"
-                    "Tesekkurler,\nAngraweb"
-                ),
-                en_subject="We received your message - Angraweb",
-                en_body=(
-                    "Hello,\n\nYour message has been received. "
-                    "Our team will get back to you shortly.\n\n"
-                    "Thank you,\nAngraweb"
-                ),
-            )
+
+            try:
+                _send_ops_notification(
+                    f"[Contact] {contact_message.subject}",
+                    (
+                        f"Name: {contact_message.name}\n"
+                        f"Email: {contact_message.email}\n"
+                        f"Phone: {contact_message.phone or '-'}\n"
+                        f"Subject: {contact_message.subject}\n"
+                        f"Message:\n{contact_message.message}\n"
+                        f"Submission time: {contact_message.created_at}\n"
+                    ),
+                )
+                _send_user_activity_email(
+                    contact_message.email,
+                    request,
+                    tr_subject=CONTACT_CONFIRM_TR['subject'],
+                    tr_body=CONTACT_CONFIRM_TR['body'],
+                    en_subject=CONTACT_CONFIRM_EN['subject'],
+                    en_body=CONTACT_CONFIRM_EN['body'],
+                )
+            except Exception as e:
+                logger.exception("Contact form: email sending failed (submission saved): %s", e)
+
             messages.success(request, _('Your message has been sent successfully. We will contact you soon.'))
             return redirect('contact')
     else:
@@ -456,36 +485,32 @@ def quote_request(request):
         form = QuoteRequestForm(request.POST)
         if form.is_valid():
             quote = form.save()
-            _send_ops_notification(
-                f"[Quote] {quote.service_type} - {quote.name}",
-                (
-                    f"Name: {quote.name}\n"
-                    f"Email: {quote.email}\n"
-                    f"Phone: {quote.phone}\n"
-                    f"Company: {quote.company or '-'}\n"
-                    f"Service: {quote.service_type}\n"
-                    f"Package: {quote.package_type or '-'}\n"
-                    f"Budget: {quote.budget or '-'}\n"
-                    f"Deadline: {quote.deadline or '-'}\n"
-                    f"Description:\n{quote.description}\n"
-                ),
-            )
-            _send_user_activity_email(
-                quote.email,
-                request,
-                tr_subject="Teklif talebiniz alindi - Angraweb",
-                tr_body=(
-                    "Merhaba,\n\nTeklif talebiniz bize ulasti. "
-                    "Projenizi inceleyip en kisa surede size donus yapacagiz.\n\n"
-                    "Tesekkurler,\nAngraweb"
-                ),
-                en_subject="Your quote request has been received - Angraweb",
-                en_body=(
-                    "Hello,\n\nYour quote request has been received. "
-                    "We will review your project and get back to you shortly.\n\n"
-                    "Thank you,\nAngraweb"
-                ),
-            )
+            try:
+                _send_ops_notification(
+                    f"[Quote] {quote.service_type} - {quote.name}",
+                    (
+                        f"Name: {quote.name}\n"
+                        f"Email: {quote.email}\n"
+                        f"Phone: {quote.phone}\n"
+                        f"Company: {quote.company or '-'}\n"
+                        f"Service: {quote.service_type}\n"
+                        f"Package: {quote.package_type or '-'}\n"
+                        f"Budget: {quote.budget or '-'}\n"
+                        f"Deadline: {quote.deadline or '-'}\n"
+                        f"Description:\n{quote.description}\n"
+                        f"Submission time: {quote.created_at}\n"
+                    ),
+                )
+                _send_user_activity_email(
+                    quote.email,
+                    request,
+                    tr_subject=CONTACT_CONFIRM_TR['subject'],
+                    tr_body=CONTACT_CONFIRM_TR['body'],
+                    en_subject=CONTACT_CONFIRM_EN['subject'],
+                    en_body=CONTACT_CONFIRM_EN['body'],
+                )
+            except Exception as e:
+                logger.exception("Quote form: email sending failed (submission saved): %s", e)
             messages.success(request, _('Your request has been submitted successfully. We will contact you soon.'))
             return redirect('quote_request')
     else:

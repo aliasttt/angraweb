@@ -203,27 +203,30 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
-# Email (ProMail SMTP)
-# Keep credentials in environment variables for security.
+# Email (SMTP) — business inbox info@angraweb.com
+# Credentials from environment variables; use EMAIL_HOST_PASSWORD in production.
 EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'mega.promail.com.tr')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', '587'))
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'info@angraweb.com')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
 EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', 'False') == 'True'
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
-SERVER_EMAIL = os.environ.get('SERVER_EMAIL', EMAIL_HOST_USER)
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'info@angraweb.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+# Display name for outgoing mail
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'Angraweb <info@angraweb.com>')
+SERVER_EMAIL = os.environ.get('SERVER_EMAIL', EMAIL_HOST_USER or 'info@angraweb.com')
 
-# Business contact emails
+# Business contact: notifications go to this inbox
 CONTACT_PRIMARY_EMAIL = os.environ.get('CONTACT_PRIMARY_EMAIL', 'info@angraweb.com')
-CONTACT_SECONDARY_EMAIL = os.environ.get('CONTACT_SECONDARY_EMAIL', 'aliasadi3853@gmail.com')
+CONTACT_SECONDARY_EMAIL = os.environ.get('CONTACT_SECONDARY_EMAIL', '')
 CONTACT_NOTIFICATION_EMAILS = [
     e.strip() for e in os.environ.get(
         'CONTACT_NOTIFICATION_EMAILS',
-        f'{CONTACT_PRIMARY_EMAIL},{CONTACT_SECONDARY_EMAIL}'
+        CONTACT_PRIMARY_EMAIL or ''
     ).split(',') if e.strip()
 ]
+if not CONTACT_NOTIFICATION_EMAILS and CONTACT_PRIMARY_EMAIL:
+    CONTACT_NOTIFICATION_EMAILS = [CONTACT_PRIMARY_EMAIL]
 
 # Security Settings for Production
 if not DEBUG:
@@ -267,6 +270,11 @@ LOGGING = {
     },
     'loggers': {
         'django': {
+            'handlers': ['console', 'file'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'propagate': False,
+        },
+        'main': {
             'handlers': ['console', 'file'],
             'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
             'propagate': False,
