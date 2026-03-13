@@ -111,6 +111,7 @@ DEBUG=False
 SECRET_KEY=یک-رشته-تصادفی-طولانی-و-امن-اینجا-بگذارید
 ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com,IP_SERVER
 CANONICAL_DOMAIN=https://yourdomain.com
+STATIC_VERSION=1
 USE_POSTGRES=True
 POSTGRES_DB=angraweb_db
 POSTGRES_USER=angraweb_user
@@ -196,6 +197,7 @@ After=network.target postgresql.service
 User=root
 Group=www-data
 WorkingDirectory=/var/www/angraweb
+EnvironmentFile=-/etc/angraweb/angraweb.env
 Environment="PATH=/var/www/angraweb/venv/bin"
 Environment="DEBUG=False"
 Environment="SECRET_KEY=your-secret-key-here"
@@ -522,12 +524,60 @@ python manage.py collectstatic --noinput || exit 1
 
 "
 
+# به‌روزرسانی STATIC_VERSION تا بعد از دپلوی کش مرورگر/Nginx فایل‌های جدید CSS/JS را بگیرد (جلوگیری از استایل/انیمیشن خراب)
+ENVFILE=/etc/angraweb/angraweb.env
+if [ -f "$ENVFILE" ]; then
+  NEW_VER=$(date +%s)
+  if grep -q '^STATIC_VERSION=' "$ENVFILE" 2>/dev/null; then
+    sudo sed -i "s/^STATIC_VERSION=.*/STATIC_VERSION=$NEW_VER/" "$ENVFILE"
+  else
+    echo "STATIC_VERSION=$NEW_VER" | sudo tee -a "$ENVFILE" >/dev/null
+  fi
+fi
+
 # Restart services
 sudo systemctl restart angraweb
 sudo systemctl restart nginx
 
 # Quick health check
 curl -I https://angraweb.com | head -n 20
+```
+
+---
+
+## جلوگیری از کش قدیمی CSS/JS بعد از دپلوی
+
+اگر بعد از هر دپلوی استایل‌ها یا انیمیشن‌های صفحهٔ هوم درست لود نمی‌شوند (یا CSS/JS اورراید می‌شود)، علت معمولاً **کش مرورگر یا Nginx** است که فایل قدیمی را نگه می‌دارد.
+
+**راه‌حل:** پروژه از متغیر محیطی `STATIC_VERSION` استفاده می‌کند. با هر بار عوض شدن این مقدار، آدرس فایل‌های CSS/JS در HTML عوض می‌شود (`?v=...`) و مرورگر فایل جدید را می‌گیرد.
+
+- در **فایل env** (مثلاً `/etc/angraweb/angraweb.env`) یک خط اضافه کنید:
+  ```env
+  STATIC_VERSION=1
+  ```
+- در اسکریپت دپلوی (بالا) قبل از `systemctl restart angraweb` مقدار `STATIC_VERSION` با تایم‌استامپ به‌روز می‌شود تا هر دپلوی نسخهٔ جدید استاتیک اعمال شود.
+- اگر از systemd استفاده می‌کنید، مطمئن شوید سرویس با `EnvironmentFile=/etc/angraweb/angraweb.env` این فایل را می‌خواند تا `STATIC_VERSION` به اپ پاس شود.
+
+---
+
+## چاپ لاگ برای دیباگ خطای ۵۰۰ (کپی در ترمینال VPS)
+
+این بلوک را روی سرور اجرا کنید و **خروجی کامل** را کپی کرده اینجا بفرستید تا علت خطا مشخص شود:
+
+```bash
+echo "========== 1) آخرین لاگ سرویس angraweb (journalctl) =========="
+sudo journalctl -u angraweb -n 200 --no-pager
+
+echo ""
+echo "========== 2) فایل لاگ Django (در صورت وجود) =========="
+for dir in /srv/angraweb /var/www/angraweb; do
+  if [ -f "$dir/logs/django.log" ]; then
+    echo "--- $dir/logs/django.log (آخرین 150 خط) ---"
+    sudo tail -n 150 "$dir/logs/django.log"
+    break
+  fi
+done
+```
 
 
 

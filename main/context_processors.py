@@ -1,8 +1,12 @@
 """
-Context processor: canonical URL and hreflang alternates for SEO.
-Canonical and hreflang use CANONICAL_DOMAIN (prefer https).
+Context processor: canonical URL, hreflang alternates, and static version for cache busting.
 """
 from django.conf import settings
+
+
+def static_version(request):
+    """برای جلوگیری از کش قدیمی CSS/JS بعد از دپلوی؛ در قالب ?v={{ static_version }} استفاده شود."""
+    return {'static_version': getattr(settings, 'STATIC_VERSION', '1')}
 
 
 def canonical_url(request):

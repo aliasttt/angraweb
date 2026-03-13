@@ -29,6 +29,9 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
+# django-ratelimit: پشت Nginx/پروکسی REMOTE_ADDR خالی است؛ IP را از هدر فورواردشده بگیر
+RATELIMIT_IP_META_KEY = 'HTTP_X_FORWARDED_FOR'
+
 # دامنهٔ canonical برای ایندکس و sitemap (بدون www، با https)
 # در production حتماً تنظیم کن: CANONICAL_DOMAIN=https://angraweb.com
 CANONICAL_DOMAIN = (os.environ.get('CANONICAL_DOMAIN') or os.environ.get('SITE_URL') or 'https://angraweb.com').strip().rstrip('/')
@@ -89,6 +92,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
                 'insights.context_processors.insights_settings',
+                'main.context_processors.static_version',
                 'main.context_processors.canonical_url',
             ],
         },
@@ -181,6 +185,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# Cache busting: بعد از هر دپلوی این مقدار را عوض کنید تا مرورگر و Nginx فایل‌های جدید CSS/JS را بگیرند
+# در اسکریپت دپلوی: export STATIC_VERSION=$(date +%s) یا از git rev-parse --short HEAD استفاده کنید
+STATIC_VERSION = os.environ.get('STATIC_VERSION', '1')
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
     # Keep original asset folders addressable via {% static 'certificates/...' %} etc.
