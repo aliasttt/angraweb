@@ -1029,6 +1029,7 @@ body[dir="rtl"] .language-switcher {
 @media (max-width: 768px) {
     .home-logo-track {
         gap: 1rem;
+        animation-duration: 35s;
     }
 }
 
@@ -1096,6 +1097,7 @@ body[dir="rtl"] .language-switcher {
         min-width: 100px;
         padding: 0.5rem 0.75rem;
         font-size: 0.8rem;
+        animation-duration: 5.5s;
     }
 }
 
@@ -1251,6 +1253,11 @@ body[dir="rtl"] .language-switcher {
 
     .hero-visual-carousel .carousel-item img {
         height: 260px;
+    }
+
+    /* Slower, smoother animations on mobile (same linear/smooth feel as desktop) */
+    .home-visual-gallery .visual-card {
+        animation-duration: 7s;
     }
 
     #projects .col-lg-4.col-md-6.col-sm-6.mb-4 {
@@ -2581,19 +2588,14 @@ img.lazy-loaded {
     will-change: transform;
 }
 
-/* Reduce animation on mobile for better performance */
+/* Mobile: keep background/planet durations; continuous UI animations use their own durations (see home-logo, visual-card, testimonial) */
 @media (max-width: 768px) {
-    * {
-        animation-duration: 0.2s !important;
-        transition-duration: 0.2s !important;
-    }
-    
     .space-background {
-        animation-duration: 20s !important;
+        animation-duration: 20s;
     }
     
     .planet {
-        animation-duration: 15s !important;
+        animation-duration: 15s;
     }
     
     /* Disable heavy animations on low-end devices */
@@ -4986,7 +4988,7 @@ img.lazy-loaded {
     }
 
     #testimonials .testimonial-card {
-        animation-duration: 4s;
+        animation-duration: 7s;
     }
 }
 
