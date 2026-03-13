@@ -286,11 +286,11 @@ iframe[src*="translate.googleapis.com"] {
     border: none !important;
 }
 
+/* فقط خنثی کردن استایل گوگل ترنسلیت روی body؛ padding-top را دست نزن تا مقدار اصلی (۹۰px برای ناوبری) بماند */
 body {
     top: 0 !important;
     position: static !important;
     margin-top: 0 !important;
-    padding-top: 0 !important;
 }
 
 html {

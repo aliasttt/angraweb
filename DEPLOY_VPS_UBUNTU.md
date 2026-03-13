@@ -302,6 +302,8 @@ nano /etc/nginx/sites-available/angraweb
 محتوا (دامنه و مسیرها را عوض کنید):
 
 ```nginx
+# مهم: مسیرها باید همان مسیری باشد که اسکریپت دپلوی استفاده می‌کند (مثلاً /srv/angraweb).
+# اگر پروژه در /srv/angraweb است، حتماً همین مسیر را اینجا هم بگذارید وگرنه بعد از هر دپلوی استاتیک قدیمی سرو می‌شود.
 server {
     listen 80;
     server_name yourdomain.com www.yourdomain.com;
@@ -309,12 +311,14 @@ server {
 
     location = /favicon.ico { access_log off; log_not_found off; }
 
+    # استاتیک: بدون کش طولانی تا بعد از هر دپلوی CSS/JS جدید لود شود (جلوگیری از استایل/انیمیشن قدیمی)
     location /static/ {
-        alias /var/www/angraweb/staticfiles/;
+        alias /srv/angraweb/staticfiles/;
+        add_header Cache-Control "public, max-age=0, must-revalidate";
     }
 
     location /media/ {
-        alias /var/www/angraweb/media/;
+        alias /srv/angraweb/media/;
     }
 
     location / {
@@ -323,7 +327,7 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_pass http://unix:/var/www/angraweb/angraweb.sock;
+        proxy_pass http://unix:/srv/angraweb/angraweb.sock;
     }
 }
 ```
@@ -524,7 +528,7 @@ python manage.py collectstatic --noinput || exit 1
 
 "
 
-# به‌روزرسانی STATIC_VERSION تا بعد از دپلوی کش مرورگر/Nginx فایل‌های جدید CSS/JS را بگیرد (جلوگیری از استایل/انیمیشن خراب)
+# به‌روزرسانی STATIC_VERSION تا بعد از دپلوی کش مرورگر/Nginx فایل‌های جدید CSS/JS را بگیرد
 ENVFILE=/etc/angraweb/angraweb.env
 if [ -f "$ENVFILE" ]; then
   NEW_VER=$(date +%s)
@@ -533,6 +537,15 @@ if [ -f "$ENVFILE" ]; then
   else
     echo "STATIC_VERSION=$NEW_VER" | sudo tee -a "$ENVFILE" >/dev/null
   fi
+fi
+
+# اگر Nginx از مسیر دیگری استاتیک سرو می‌کند (مثلاً /var/www/angraweb)، بعد از collectstatic کپی کن
+# وگرنه همین که Nginx همان مسیر پروژه را ببیند (مثلاً /srv/angraweb/staticfiles/) کافی است.
+PROJECT_ROOT=/srv/angraweb
+NGINX_STATIC=/var/www/angraweb/staticfiles
+if [ -d "$NGINX_STATIC" ] && [ "$(readlink -f "$PROJECT_ROOT/staticfiles" 2>/dev/null)" != "$(readlink -f "$NGINX_STATIC" 2>/dev/null)" ]; then
+  echo "Syncing staticfiles to Nginx path..."
+  sudo rsync -a --delete "$PROJECT_ROOT/staticfiles/" "$NGINX_STATIC/"
 fi
 
 # Restart services
@@ -545,9 +558,19 @@ curl -I https://angraweb.com | head -n 20
 
 ---
 
+## چرا بعد از هر دپلوی استایل/انیمیشن خراب می‌شود؟
+
+**علت اصلی:** مسیر پروژه در اسکریپت دپلوی با مسیر استاتیک در Nginx یکی نیست. اسکریپت در `/srv/angraweb` اجرا می‌شود و `collectstatic` فایل‌های جدید را در `/srv/angraweb/staticfiles/` می‌ریزد؛ اگر در Nginx از `alias /var/www/angraweb/staticfiles/` استفاده شده باشد، Nginx همان فایل‌های **قدیمی** را سرو می‌کند و هر بار دپلوی انگار استاتیک به‌روز نمی‌شود.
+
+**راه‌حل (یکی از این دو):**
+1. **توصیه:** در Nginx مسیر استاتیک و سوکت را به همان مسیر پروژه تغییر بده: `alias /srv/angraweb/staticfiles/` و `proxy_pass ... unix:/srv/angraweb/angraweb.sock` (نمونهٔ به‌روز در همین سند هست).
+2. یا اسکریپت دپلوی را همان‌طور که الان هست نگه دار؛ بلوک **rsync** قبل از restart استاتیک را از `/srv/angraweb/staticfiles/` به `/var/www/angraweb/staticfiles/` کپی می‌کند تا اگر Nginx هنوز از مسیر دوم استفاده می‌کند، فایل‌های جدید آنجا هم بروند.
+
+---
+
 ## جلوگیری از کش قدیمی CSS/JS بعد از دپلوی
 
-اگر بعد از هر دپلوی استایل‌ها یا انیمیشن‌های صفحهٔ هوم درست لود نمی‌شوند (یا CSS/JS اورراید می‌شود)، علت معمولاً **کش مرورگر یا Nginx** است که فایل قدیمی را نگه می‌دارد.
+اگر بعد از هر دپلوی استایل‌ها یا انیمیشن‌های صفحهٔ هوم درست لود نمی‌شوند (یا CSS/JS اورراید می‌شود)، علت می‌تواند **مسیر Nginx** (بالا) یا **کش مرورگر/Nginx** باشد.
 
 **راه‌حل:** پروژه از متغیر محیطی `STATIC_VERSION` استفاده می‌کند. با هر بار عوض شدن این مقدار، آدرس فایل‌های CSS/JS در HTML عوض می‌شود (`?v=...`) و مرورگر فایل جدید را می‌گیرد.
 
@@ -557,6 +580,25 @@ curl -I https://angraweb.com | head -n 20
   ```
 - در اسکریپت دپلوی (بالا) قبل از `systemctl restart angraweb` مقدار `STATIC_VERSION` با تایم‌استامپ به‌روز می‌شود تا هر دپلوی نسخهٔ جدید استاتیک اعمال شود.
 - اگر از systemd استفاده می‌کنید، مطمئن شوید سرویس با `EnvironmentFile=/etc/angraweb/angraweb.env` این فایل را می‌خواند تا `STATIC_VERSION` به اپ پاس شود.
+
+**اگر هنوز استایل/انیمیشن قدیمی لود می‌شود (یا Bootstrap اورراید می‌کند):**
+
+1. **Nginx:** در `location /static/` حتماً این هدر را داشته باشید تا کش طولانی نشود:
+   ```nginx
+   add_header Cache-Control "public, max-age=0, must-revalidate";
+   ```
+   بعد: `sudo nginx -t && sudo systemctl reload nginx`
+
+2. **مسیر استاتیک:** در همان کانفیگ Nginx باید `alias` به همان پوشه‌ای باشد که `collectstatic` پر می‌کند، مثلاً:
+   `alias /srv/angraweb/staticfiles/;`
+
+3. **بررسی روی سرور:** مطمئن شوی فایل واقعاً به‌روز است:
+   ```bash
+   head -n 25 /srv/angraweb/staticfiles/css/style.css
+   ```
+   باید خطوطی مثل `hero-section__` یا `whatsapp-cta` در فایل باشد؛ اگر نیست، دوباره از همان پوشهٔ پروژه `collectstatic` بزن و سرویس را ریستارت کن.
+
+4. **مرورگر:** یک بار Hard Refresh (Ctrl+Shift+R یا Cmd+Shift+R) یا کش مرورگر را برای دامنه پاک کن.
 
 ---
 
@@ -591,3 +633,144 @@ done
 
 
 141.98.51.168
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You are an SEO content editor and web content designer.
+
+Improve and expand the following blog article.
+
+Do NOT completely rewrite the article.
+Keep the main ideas but improve the structure, readability, design and SEO.
+
+GOALS
+
+• Expand the article to around 1200–1400 words  
+• Improve clarity and readability  
+• Improve SEO structure  
+• Improve user experience while reading  
+• Keep the article natural and informative  
+
+SEO IMPROVEMENTS
+
+• Add proper heading hierarchy (H1, H2, H3)  
+• Improve keyword usage naturally  
+• Add internal links to relevant pillar and cluster pages  
+• Make sure internal links are contextually relevant to the section topic  
+
+Example internal linking strategy:
+If the section talks about corporate websites → link to /kurumsal-web-sitesi  
+If the section talks about web design → link to /profesyonel-web-tasarim  
+If the section talks about SEO → link to /seo-consulting  
+If the section talks about hosting → link to /vps-hosting  
+If the section talks about backend or development → link to /django-web-gelistirme  
+
+CONTENT STRUCTURE
+
+Use correct semantic structure:
+
+H1 → Article title  
+H2 → Main sections  
+H3 → Subsections  
+
+Include these sections if missing:
+
+• Dark Mode Design  
+• 3D Web Elements  
+• Bento Grid Layout  
+• AI Driven Web Experience  
+
+READABILITY IMPROVEMENTS
+
+Do not produce a wall of text.
+
+Improve reading experience by using:
+
+• short paragraphs  
+• bullet lists  
+• highlighted key points  
+• section summaries  
+
+Add visually structured sections such as:
+
+• Key benefits lists  
+• Tips boxes  
+• Important notes  
+
+Make the article comfortable and engaging for readers.
+
+INTERNAL LINKS
+
+Use these internal links naturally where relevant:
+
+/kurumsal-web-sitesi  
+/profesyonel-web-tasarim  
+/seo-consulting  
+/vps-hosting  
+/django-web-gelistirme  
+
+INTRODUCTION
+
+Improve the introduction to 150–200 words.
+
+The introduction should:
+
+• explain the topic clearly  
+• include important keywords  
+• attract reader attention  
+
+CONCLUSION
+
+Improve the conclusion and add a strong call-to-action encouraging readers to explore services or contact the company.
+
+FAQ SECTION
+
+Add an SEO optimized FAQ section with 4 questions.
+
+Use proper structure:
+
+H2 → Sıkça Sorulan Sorular  
+H3 → Question  
+
+LANGUAGE
+
+Keep the article in Turkish language.
+
+OUTPUT FORMAT
+
+Return the article as clean structured HTML content ready for publishing.
+
+Use structured sections such as:
+
+<section>
+<div>
+<ul>
+<strong>
+<h1>
+<h2>
+<h3>
+
+Make sure the article is visually structured and not just plain text.
