@@ -117,16 +117,11 @@ body[dir="rtl"] {
 }
 
 [dir="rtl"] .hero-benefits {
-    flex-direction: row-reverse;
+    direction: rtl;
 }
 
 [dir="rtl"] .hero-benefits .benefit-item {
-    margin-left: 0;
-    margin-right: 1rem;
-}
-
-[dir="rtl"] .hero-benefits .benefit-item:last-child {
-    margin-right: 0;
+    margin: 0;
 }
 
 [dir="rtl"] .floating-astronaut {
@@ -165,12 +160,11 @@ body[dir="rtl"] {
     }
     
     [dir="rtl"] .hero-benefits {
-        flex-direction: column;
-        align-items: flex-end;
+        direction: rtl;
     }
     
     [dir="rtl"] .hero-benefits .benefit-item {
-        margin: 0.25rem 0;
+        margin: 0;
     }
     
     [dir="rtl"] .navbar-nav {
@@ -862,11 +856,11 @@ body[dir="rtl"] .language-switcher {
     transform: translateY(-3px);
 }
 
-/* Hero Benefits */
+/* Hero Benefits – گرید دو ستونه در دسکتاپ و موبایل */
 .hero-benefits {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     margin-top: 2rem;
 }
 
@@ -2749,15 +2743,14 @@ img.lazy-loaded {
         padding-right: 15px;
     }
     
-    /* Fix benefit items layout */
+    /* Hero benefits: همان گرید دو ستونه در موبایل */
     .hero-benefits {
-        justify-content: center;
-        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
     }
     
     .benefit-item {
-        flex-shrink: 0;
-        min-width: 120px;
+        min-width: 0;
     }
     
     /* Fix value cards layout */
@@ -2841,15 +2834,18 @@ img.lazy-loaded {
     }
     
     .hero-benefits {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
     }
     
     .benefit-item {
-        width: 100%;
-        max-width: 200px;
-        justify-content: center;
+        min-width: 0;
+        padding: 0.6rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .benefit-item i {
+        font-size: 1rem;
     }
     
     .value-card {
