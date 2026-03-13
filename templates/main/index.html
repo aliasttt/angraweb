@@ -61,7 +61,7 @@
                     <li>{% if CURRENT_LANGUAGE == 'tr' %}SEO Uyumlu Mimari{% else %}SEO Optimized Architecture{% endif %}</li>
                 </ul>
                 <div class="hero-section__cta">
-                    <a href="https://wa.me/905340382335" class="hero-whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Start your project on WhatsApp">
+                    <a href="https://wa.me/905340382335" class="whatsapp-cta hero-whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Start your project on WhatsApp">
                         <i class="fab fa-whatsapp" aria-hidden="true"></i>
                         {% if CURRENT_LANGUAGE == 'tr' %}Projenizi WhatsApp ile Başlatın{% else %}Start Your Project on WhatsApp{% endif %}
                     </a>
@@ -147,51 +147,8 @@
 </section>
 <!-- End Hero - all hero styles scoped under .hero-section in style.css -->
 
-<!-- Animated Web Development Highlight Section / Trusted Digital Development -->
-<section class="section bg-gradient" data-aos="fade-up">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                <div class="hero-image">
-                    <div class="floating-astronaut">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="about-content">
-                    {% if CURRENT_LANGUAGE == 'tr' %}
-                    <h3>Trusted Digital Development</h3>
-                    <h4 class="mb-3">Build Powerful Web Siteleri ve Dijital Platformlar</h4>
-                    <p>Modern web development, e-commerce development ve SEO optimization odaklı dijital çözümler ile işletmenizin online dünyada güvenilir bir şekilde büyümesine yardımcı oluyoruz.</p>
-                    <ul>
-                        <li>Hızlı ve yüksek performanslı web design</li>
-                        <li>SEO optimized mimari ve profesyonel website altyapısı</li>
-                        <li>Güvenli, ölçeklenebilir yazılım ve sunucu altyapısı</li>
-                        <li>Mobil cihazlara tam uyumlu, kullanıcı dostu arayüzler</li>
-                    </ul>
-                    {% else %}
-                    <h3>Trusted Digital Development</h3>
-                    <h4 class="mb-3">Build Powerful Websites & Digital Platforms</h4>
-                    <p>We help businesses grow online with modern web development, e-commerce development and SEO optimization focused digital solutions.</p>
-                    <ul>
-                        <li>Fast performance web design and web development</li>
-                        <li>SEO optimized architecture for every professional website</li>
-                        <li>Secure and scalable software development and infrastructure</li>
-                        <li>Mobile friendly, user-centric interfaces for all devices</li>
-                    </ul>
-                    {% endif %}
-                    <a href="{% url 'quote_request' %}" class="btn btn-primary btn-lg mt-3">
-                        {% if CURRENT_LANGUAGE == 'tr' %}Projenizi Başlatın{% else %}Start Your Project{% endif %}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Tech & Industry Logo Strip (visual, no new copy) -->
-<section class="section home-logo-strip" data-aos="fade-up">
+<!-- Tech & Industry Logo Strip – horizontal animated service badges -->
+<section class="section home-logo-strip">
     <div class="container">
         <div class="home-logo-marquee">
             <div class="home-logo-track">
@@ -250,7 +207,7 @@
 </section>
 
 <!-- Services Section -->
-<section id="services" class="section" data-aos="fade-up">
+<section id="services" class="section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -344,7 +301,7 @@
 </section>
 
 <!-- Value Proposition Section -->
-<section id="value-proposition" class="section bg-gradient" data-aos="fade-up">
+<section id="value-proposition" class="section bg-gradient">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -419,7 +376,7 @@
 </section>
 
 <!-- Visual Feature Gallery (static image-like tiles) -->
-<section class="section home-visual-gallery" data-aos="fade-up">
+<section class="section home-visual-gallery">
     <div class="container">
         <div class="row g-4">
             <div class="col-12 col-md-4">
@@ -454,7 +411,7 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="section" data-aos="fade-up">
+<section id="about" class="section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -505,7 +462,7 @@
 </section>
 
 <!-- Packages Section -->
-<section id="packages" class="section" style="padding-top: 120px;" data-aos="fade-up">
+<section id="packages" class="section" style="padding-top: 120px;">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -574,7 +531,7 @@
 </section>
 
 <!-- Projects Section -->
-<section id="projects" class="section" data-aos="fade-up">
+<section id="projects" class="section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -634,7 +591,7 @@
 </section>
 
 <!-- Trust / Statistics Section -->
-<section class="section bg-gradient" data-aos="fade-up">
+<section class="section bg-gradient">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -687,7 +644,7 @@
 
 <!-- Latest Blog Posts Section -->
 {% if blog_posts %}
-<section class="section" data-aos="fade-up">
+<section class="section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -747,7 +704,7 @@
 {% endif %}
 
 <!-- FAQ Section -->
-<section id="homepage-faq" class="section" data-aos="fade-up">
+<section id="homepage-faq" class="section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -799,7 +756,7 @@
 </section>
 
 <!-- Free Website Audit Section -->
-<section id="free-website-audit" class="section bg-gradient" data-aos="fade-up">
+<section id="free-website-audit" class="section bg-gradient">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -825,7 +782,7 @@
 
 <!-- Testimonials Section -->
 {% if testimonials %}
-<section id="testimonials" class="section bg-gradient" data-aos="fade-up">
+<section id="testimonials" class="section bg-gradient">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -886,7 +843,7 @@
 {% endif %}
 
 <!-- How It Works / Lead Capture CTA -->
-<section class="section" data-aos="fade-up" data-aos-offset="0">
+<section class="section">
     <div class="container">
         <div class="row">
             <div class="col-12">

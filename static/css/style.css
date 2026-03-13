@@ -117,10 +117,6 @@ body[dir="rtl"] {
     margin-right: 0.5rem;
 }
 
-[dir="rtl"] .floating-astronaut {
-    transform: scaleX(-1);
-}
-
 [dir="rtl"] .planet {
     animation-direction: reverse;
 }
@@ -485,7 +481,6 @@ body[dir="rtl"] .language-switcher {
 /* Pause heavy animations until we explicitly enable them for better LCP */
 .space-background,
 .text-gradient,
-.floating-astronaut,
 .planet,
 .stars {
     animation-play-state: paused;
@@ -493,7 +488,6 @@ body[dir="rtl"] .language-switcher {
 
 .animations-on .space-background,
 .animations-on .text-gradient,
-.animations-on .floating-astronaut,
 .animations-on .planet,
 .animations-on .stars {
     animation-play-state: running;
@@ -664,6 +658,15 @@ body[dir="rtl"] .language-switcher {
 .hero-section__row {
     min-height: 0;
 }
+/* Mobile: carousel first, then headline, description, list, buttons */
+@media (max-width: 768px) {
+    .hero-section__row {
+        flex-direction: column-reverse;
+    }
+    .hero-section__visual {
+        margin-bottom: 1.5rem;
+    }
+}
 .hero-section__content {
     animation: hero-fade-in 0.7s ease-out;
 }
@@ -711,28 +714,31 @@ body[dir="rtl"] .language-switcher {
     gap: 0.75rem;
 }
 
-/* WhatsApp primary CTA – green, icon, rounded, hover */
+/* WhatsApp CTA – real button style: green, icon, rounded, hover */
+.whatsapp-cta,
 .hero-whatsapp-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 30px;
     font-weight: 600;
     font-size: 1rem;
     color: #fff;
     background: #25d366;
     border: none;
     text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    transition: all 0.3s ease;
 }
+.whatsapp-cta:hover,
 .hero-whatsapp-btn:hover {
     color: #fff;
     background: #20bd5a;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
+.whatsapp-cta i,
 .hero-whatsapp-btn i {
     font-size: 1.25rem;
 }
@@ -767,8 +773,9 @@ body[dir="rtl"] .language-switcher {
     .hero-section {
         padding: 120px 0 60px;
     }
-    .hero-section__content { order: 1; }
-    .hero-section__visual { order: 2; margin-top: 2rem; }
+    .hero-section__visual {
+        margin-top: 1.5rem;
+    }
 }
 @media (max-width: 576px) {
     .hero-section {
@@ -777,6 +784,7 @@ body[dir="rtl"] .language-switcher {
     .hero-section__title { font-size: 1.6rem; }
     .hero-section__subtext { font-size: 1rem; }
     .hero-section__cta { flex-direction: column; }
+    .whatsapp-cta,
     .hero-whatsapp-btn,
     .hero-section__btn { width: 100%; justify-content: center; }
 }
@@ -930,13 +938,6 @@ body[dir="rtl"] .language-switcher {
     font-size: 0.95rem;
 }
 
-.floating-astronaut {
-    font-size: 15rem;
-    color: #74b9ff;
-    text-align: center;
-    animation: float 6s ease-in-out infinite;
-}
-
 /* Sections – dark background so white/light text is always readable */
 .section {
     padding: 40px 0;
@@ -1021,21 +1022,13 @@ body[dir="rtl"] .language-switcher {
     gap: 2rem;
     width: max-content;
     align-items: center;
-    animation: home-logo-scroll 24s linear infinite;
+    animation: home-logo-scroll 18s linear infinite;
     will-change: transform;
 }
 
-/* موبایل: سرعت انیمیشن را با پراپرتی کامل override می‌کنیم تا حتماً اعمال شود */
 @media (max-width: 768px) {
-    .home-logo-strip .home-logo-marquee .home-logo-track {
+    .home-logo-track {
         gap: 1rem;
-        animation: home-logo-scroll 5s linear infinite !important;
-    }
-}
-
-@media (max-width: 576px) {
-    .home-logo-strip .home-logo-marquee .home-logo-track {
-        animation: home-logo-scroll 5s linear infinite !important;
     }
 }
 
@@ -2456,10 +2449,6 @@ label {
         font-size: 1.2rem;
     }
     
-    .floating-astronaut {
-        font-size: 8rem;
-    }
-    
     .section-title {
         font-size: 2rem;
     }
@@ -2494,7 +2483,7 @@ label {
     }
     
     .section {
-        padding: 60px 0;
+        padding: 40px 0;
     }
     
     .contact-form {
@@ -2603,10 +2592,6 @@ img.lazy-loaded {
         animation-duration: 20s !important;
     }
     
-    .floating-astronaut {
-        animation-duration: 4s !important;
-    }
-    
     .planet {
         animation-duration: 15s !important;
     }
@@ -2623,29 +2608,8 @@ img.lazy-loaded {
     }
 }
 
-.floating-astronaut {
-    font-size: 15rem;
-    color: #74b9ff;
-    text-align: center;
-    animation: float 6s ease-in-out infinite;
-    /* Prevent layout shift */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
 /* Fix mobile layout shifts */
 @media (max-width: 768px) {
-    .floating-astronaut {
-        font-size: 8rem;
-        position: relative;
-        top: 0;
-        left: 0;
-        transform: none;
-    }
-    
     /* Prevent container shifts */
     .container {
         padding-left: 15px;
@@ -2699,16 +2663,12 @@ img.lazy-loaded {
 
 @media (max-width: 576px) {
     .section {
-        padding: 50px 0;
+        padding: 40px 0;
     }
     
     .section-title {
         font-size: 1.8rem;
         margin-bottom: 2rem;
-    }
-    
-    .floating-astronaut {
-        font-size: 6rem;
     }
     
     .value-card {
