@@ -33,93 +33,43 @@
 {% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section id="home" class="hero-section">
-    <div class="container">
-        <div class="row align-items-center min-vh-100">
-            <div class="col-12 col-lg-6">
-                <div class="hero-content">
-                    {% get_current_language as CURRENT_LANGUAGE %}
-                    <h1 class="hero-title">
-                        <span class="text-gradient">Angraweb</span>
-                    </h1>
+<!-- Hero Section - Single source of truth: .hero-section scoped styles only -->
+<section id="home" class="hero-section" aria-label="Hero">
+    <div class="hero-section__container container">
+        <div class="hero-section__row row align-items-center">
+            <div class="hero-section__content col-12 col-lg-6 order-2 order-lg-1">
+                {% get_current_language as CURRENT_LANGUAGE %}
+                <h1 class="hero-section__title">
                     {% if CURRENT_LANGUAGE == 'tr' %}
-                    <p class="hero-subtitle">Profesyonel Web Tasarım, E-Ticaret ve Yazılım Çözümleri</p>
-                    <p class="hero-tagline">
-                        İşletmenizi dijital dünyada büyütmek mi istiyorsunuz?
-                    </p>
-                    <p class="hero-description">
-                        Angraweb olarak modern web tasarım, e-ticaret geliştirme, SEO optimizasyonu ve özel yazılım çözümleri sunuyoruz. Hızlı, güvenli ve ölçeklenebilir web siteleri geliştirerek işletmelerin online dünyada daha fazla müşteriye ulaşmasını sağlıyoruz.
-                    </p>
-                    <p class="hero-description">
-                        Kurumsal web sitelerinden gelişmiş e-ticaret platformlarına kadar her projede performans, kullanıcı deneyimi ve arama motoru görünürlüğünü ön planda tutuyoruz.
-                    </p>
-                    <ul class="hero-benefit-list">
-                        <li>Modern ve hızlı web siteleri ile güçlü web design</li>
-                        <li>Google SEO optimization uyumlu, profesyonel website altyapısı</li>
-                        <li>Mobil uyumlu, responsive web development ve e-commerce development</li>
-                        <li>Güvenli ve ölçeklenebilir software development ve dijital çözümler</li>
-                    </ul>
+                    Profesyonel Web Tasarım &amp; Yazılım Geliştirme
                     {% else %}
-                    <p class="hero-subtitle">Professional Web Design, E-Commerce & Software Development</p>
-                    <p class="hero-tagline">Do you want to grow your business in the digital world?</p>
-                    <p class="hero-description">
-                        At Angraweb, we provide modern web design, e-commerce development, SEO optimization and custom software development for businesses that want to scale online. We build fast, secure and scalable professional websites that help companies attract more customers.
-                    </p>
-                    <p class="hero-description">
-                        From corporate websites to advanced e-commerce platforms, every digital solution is designed with performance, user experience and search engine visibility in mind.
-                    </p>
-                    <ul class="hero-benefit-list">
-                        <li>Modern web design and professional website experiences</li>
-                        <li>SEO-optimized architecture and high-performance web development</li>
-                        <li>Secure and scalable e-commerce development platforms</li>
-                        <li>Custom software development and digital solutions tailored to your business</li>
-                    </ul>
+                    Professional Web Design &amp; Software Development
                     {% endif %}
-                    <div class="hero-buttons">
-                        <a href="{% url 'team' %}" class="btn btn-primary btn-lg me-3">
-                            <i class="fas fa-certificate"></i> {% trans "View Certificates" %}
-                        </a>
-                        <a href="https://wa.me/905340382335" class="btn btn-outline-light btn-lg" target="_blank" onclick="return gtag_report_conversion('https://wa.me/905340382335')">
-                            <i class="fab fa-whatsapp"></i> {% trans "Write on WhatsApp" %}
-                        </a>
-                    </div>
-                    
-                    <div class="hero-contact-info mt-4">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope text-primary"></i>
-                            <span>aliasadi3853@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <a href="tel:+905340382335" class="contact-phone-link">
-                                <i class="fas fa-phone text-primary"></i>
-                                <span>+90 534 038 23 35</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-benefits mt-4">
-                        <div class="benefit-item">
-                            <i class="fas fa-rocket text-primary"></i>
-                            <span>{% if CURRENT_LANGUAGE == 'tr' %}Hızlı teslimat{% else %}Fast delivery{% endif %}</span>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-mobile-alt text-primary"></i>
-                            <span>{% if CURRENT_LANGUAGE == 'tr' %}Mobil uyumlu tasarım{% else %}Mobile-first design{% endif %}</span>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-shield-alt text-primary"></i>
-                            <span>{% if CURRENT_LANGUAGE == 'tr' %}Güvenli altyapı{% else %}Secure infrastructure{% endif %}</span>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-headset text-primary"></i>
-                            <span>{% if CURRENT_LANGUAGE == 'tr' %}7/24 teknik destek{% else %}24/7 technical support{% endif %}</span>
-                        </div>
-                    </div>
+                </h1>
+                <p class="hero-section__subtext">
+                    {% if CURRENT_LANGUAGE == 'tr' %}
+                    Ölçeklenebilir web siteleri, web uygulamaları ve dijital platformlar ile işletmelerin online büyümesine yardımcı oluyoruz.
+                    {% else %}
+                    Build scalable websites, web applications and digital platforms that help businesses grow online.
+                    {% endif %}
+                </p>
+                <ul class="hero-section__bullets">
+                    <li>{% if CURRENT_LANGUAGE == 'tr' %}Modern Web Tasarımı{% else %}Modern Web Design{% endif %}</li>
+                    <li>{% if CURRENT_LANGUAGE == 'tr' %}SEO Uyumlu Mimari{% else %}SEO Optimized Architecture{% endif %}</li>
+                    <li>{% if CURRENT_LANGUAGE == 'tr' %}Güvenli E-Ticaret Çözümleri{% else %}Secure E-Commerce Solutions{% endif %}</li>
+                    <li>{% if CURRENT_LANGUAGE == 'tr' %}Özel Web Uygulamaları{% else %}Custom Web Applications{% endif %}</li>
+                </ul>
+                <div class="hero-section__cta">
+                    <a href="{% url 'quote_request' %}" class="btn btn-primary hero-section__btn hero-section__btn--primary">
+                        {% if CURRENT_LANGUAGE == 'tr' %}Projenizi Başlatın{% else %}Start Your Project{% endif %}
+                    </a>
+                    <a href="{% url 'projects_list' %}" class="btn btn-outline-light hero-section__btn hero-section__btn--secondary">
+                        {% trans "View Our Work" %}
+                    </a>
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
-                <div class="hero-image hero-visual-wrap">
+            <div class="hero-section__visual col-12 col-lg-6 order-1 order-lg-2">
+                <div class="hero-section__image-wrap hero-visual-wrap">
                     <div id="heroVisualCarousel" class="carousel slide hero-visual-carousel" data-bs-ride="carousel" data-bs-interval="9000">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#heroVisualCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -193,6 +143,7 @@
         </div>
     </div>
 </section>
+<!-- End Hero - all hero styles scoped under .hero-section in style.css -->
 
 <!-- Animated Web Development Highlight Section / Trusted Digital Development -->
 <section class="section bg-gradient" data-aos="fade-up">
