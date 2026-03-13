@@ -55,7 +55,8 @@ body[dir="rtl"] {
     margin-right: 1rem;
 }
 
-[dir="rtl"] .hero-section__cta .btn {
+[dir="rtl"] .hero-section__cta .btn,
+[dir="rtl"] .hero-section__cta .hero-whatsapp-btn {
     margin-left: 0.5rem;
     margin-right: 0;
 }
@@ -142,7 +143,8 @@ body[dir="rtl"] {
         max-width: none !important;
     }
     
-    [dir="rtl"] .hero-section__cta .btn {
+    [dir="rtl"] .hero-section__cta .btn,
+    [dir="rtl"] .hero-section__cta .hero-whatsapp-btn {
         margin: 0.25rem 0;
     }
     
@@ -705,23 +707,41 @@ body[dir="rtl"] .language-switcher {
 .hero-section__cta {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.75rem;
 }
+
+/* WhatsApp primary CTA – green, icon, rounded, hover */
+.hero-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    background: #25d366;
+    border: none;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.hero-whatsapp-btn:hover {
+    color: #fff;
+    background: #20bd5a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+.hero-whatsapp-btn i {
+    font-size: 1.25rem;
+}
+
 .hero-section__btn {
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.hero-section__btn--primary {
-    background: linear-gradient(135deg, #74b9ff, #0984e3);
-    border: none;
-    color: #fff;
-}
-.hero-section__btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(116, 185, 255, 0.35);
-    color: #fff;
 }
 .hero-section__btn--secondary {
     border: 2px solid rgba(255, 255, 255, 0.6);
@@ -747,8 +767,8 @@ body[dir="rtl"] .language-switcher {
     .hero-section {
         padding: 120px 0 60px;
     }
-    .hero-section__content { order: 2; }
-    .hero-section__visual { order: 1; margin-bottom: 2rem; }
+    .hero-section__content { order: 1; }
+    .hero-section__visual { order: 2; margin-top: 2rem; }
 }
 @media (max-width: 576px) {
     .hero-section {
@@ -757,6 +777,7 @@ body[dir="rtl"] .language-switcher {
     .hero-section__title { font-size: 1.6rem; }
     .hero-section__subtext { font-size: 1rem; }
     .hero-section__cta { flex-direction: column; }
+    .hero-whatsapp-btn,
     .hero-section__btn { width: 100%; justify-content: center; }
 }
 

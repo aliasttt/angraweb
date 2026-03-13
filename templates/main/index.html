@@ -37,38 +37,40 @@
 <section id="home" class="hero-section" aria-label="Hero">
     <div class="hero-section__container container">
         <div class="hero-section__row row align-items-center">
-            <div class="hero-section__content col-12 col-lg-6 order-2 order-lg-1">
+            <div class="hero-section__content col-12 col-lg-6 order-1 order-lg-1">
                 {% get_current_language as CURRENT_LANGUAGE %}
                 <h1 class="hero-section__title">
                     {% if CURRENT_LANGUAGE == 'tr' %}
-                    Profesyonel Web Tasarım &amp; Yazılım Geliştirme
+                    Profesyonel Web, Web Uygulaması &amp; Mobil Uygulama Geliştirme
                     {% else %}
-                    Professional Web Design &amp; Software Development
+                    Professional Web, Web App &amp; Mobile App Development
                     {% endif %}
                 </h1>
                 <p class="hero-section__subtext">
                     {% if CURRENT_LANGUAGE == 'tr' %}
-                    Ölçeklenebilir web siteleri, web uygulamaları ve dijital platformlar ile işletmelerin online büyümesine yardımcı oluyoruz.
+                    Modern web siteleri, güçlü web uygulamaları ve mobil uygulamalar tasarlayıp geliştiriyoruz; işletmelerin dijital dünyada büyümesine yardımcı oluyoruz.
                     {% else %}
-                    Build scalable websites, web applications and digital platforms that help businesses grow online.
+                    We design and build modern websites, powerful web applications and mobile apps that help businesses grow in the digital world.
                     {% endif %}
                 </p>
                 <ul class="hero-section__bullets">
-                    <li>{% if CURRENT_LANGUAGE == 'tr' %}Modern Web Tasarımı{% else %}Modern Web Design{% endif %}</li>
+                    <li>{% if CURRENT_LANGUAGE == 'tr' %}Web Sitesi Tasarımı{% else %}Website Design{% endif %}</li>
+                    <li>{% if CURRENT_LANGUAGE == 'tr' %}Web Uygulaması Geliştirme{% else %}Web Application Development{% endif %}</li>
+                    <li>{% if CURRENT_LANGUAGE == 'tr' %}Mobil Uygulama Geliştirme{% else %}Mobile App Development{% endif %}</li>
+                    <li>{% if CURRENT_LANGUAGE == 'tr' %}E-Ticaret Platformları{% else %}E-commerce Platforms{% endif %}</li>
                     <li>{% if CURRENT_LANGUAGE == 'tr' %}SEO Uyumlu Mimari{% else %}SEO Optimized Architecture{% endif %}</li>
-                    <li>{% if CURRENT_LANGUAGE == 'tr' %}Güvenli E-Ticaret Çözümleri{% else %}Secure E-Commerce Solutions{% endif %}</li>
-                    <li>{% if CURRENT_LANGUAGE == 'tr' %}Özel Web Uygulamaları{% else %}Custom Web Applications{% endif %}</li>
                 </ul>
                 <div class="hero-section__cta">
-                    <a href="{% url 'quote_request' %}" class="btn btn-primary hero-section__btn hero-section__btn--primary">
-                        {% if CURRENT_LANGUAGE == 'tr' %}Projenizi Başlatın{% else %}Start Your Project{% endif %}
+                    <a href="https://wa.me/905340382335" class="hero-whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Start your project on WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        {% if CURRENT_LANGUAGE == 'tr' %}Projenizi WhatsApp ile Başlatın{% else %}Start Your Project on WhatsApp{% endif %}
                     </a>
-                    <a href="{% url 'projects_list' %}" class="btn btn-outline-light hero-section__btn hero-section__btn--secondary">
+                    <a href="/projects" class="btn btn-outline-light hero-section__btn hero-section__btn--secondary">
                         {% trans "View Our Work" %}
                     </a>
                 </div>
             </div>
-            <div class="hero-section__visual col-12 col-lg-6 order-1 order-lg-2">
+            <div class="hero-section__visual col-12 col-lg-6 order-2 order-lg-2">
                 <div class="hero-section__image-wrap hero-visual-wrap">
                     <div id="heroVisualCarousel" class="carousel slide hero-visual-carousel" data-bs-ride="carousel" data-bs-interval="9000">
                         <div class="carousel-indicators">
