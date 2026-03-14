@@ -1102,3 +1102,96 @@ def set_language(request, lang_code):
     cookie_name = getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language')
     response.set_cookie(cookie_name, lang_code, max_age=365 * 24 * 60 * 60, path='/', samesite='Lax')
     return response
+
+
+def debug_static(request):
+    """
+    صفحهٔ دیباگ استاتیک: نسخهٔ کش، مسیرها، وجود فایل CSS.
+    آدرس: /debug-static/ (یا با ?key=static برای پروداکشن)
+    """
+    import os
+    from pathlib import Path
+    from django.template import RequestContext
+    from main.context_processors import static_version
+
+    # در پروداکشن فقط با ?key=static نشان بده (یا DEBUG=True)
+    if not settings.DEBUG and request.GET.get('key') != 'static':
+        return HttpResponse('Add ?key=static to view debug.', status=404)
+
+    ctx = static_version(request)
+    version = ctx.get('static_version', '?')
+
+    base_dir = Path(settings.BASE_DIR)
+    version_file = base_dir / 'static_version.txt'
+    version_from_file = None
+    version_file_exists = version_file.is_file()
+    if version_file_exists:
+        try:
+            version_from_file = version_file.read_text(encoding='utf-8').strip()
+        except Exception as e:
+            version_from_file = str(e)
+
+    static_root = getattr(settings, 'STATIC_ROOT', None)
+    style_path = None
+    style_path_display = '-'
+    style_exists = False
+    style_size = None
+    style_contains_hero = None
+    style_mtime = None
+    mtime_str = '-'
+    if static_root:
+        static_root_path = Path(static_root) if isinstance(static_root, (str, Path)) else Path(static_root)
+        style_path = static_root_path / 'css' / 'style.css'
+        style_path_display = str(style_path)
+        if style_path.is_file():
+            style_exists = True
+            style_size = style_path.stat().st_size
+            style_mtime = style_path.stat().st_mtime
+            try:
+                content = style_path.read_text(encoding='utf-8', errors='replace')[:8000]
+                style_contains_hero = 'hero-section' in content and 'animations-on' in content
+            except Exception:
+                style_contains_hero = None
+
+    from django.utils import timezone
+    from datetime import datetime
+    now = timezone.now()
+    if style_mtime is not None:
+        mtime_str = datetime.fromtimestamp(style_mtime).isoformat()
+
+    style_url = f"{request.scheme}://{request.get_host()}{settings.STATIC_URL}css/style.css?v={version}"
+    env_version = os.environ.get('STATIC_VERSION', '(not set)')
+
+    html = f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Static Debug</title>
+<style>
+body {{ font-family: monospace; background: #1a1a2e; color: #e2e8f0; padding: 20px; line-height: 1.6; }}
+h1 {{ color: #74b9ff; }}
+table {{ border-collapse: collapse; margin: 10px 0; }}
+th, td {{ border: 1px solid #334155; padding: 8px 12px; text-align: left; }}
+th {{ color: #74b9ff; }}
+.ok {{ color: #22c55e; }}
+.err {{ color: #ef4444; }}
+.warn {{ color: #eab308; }}
+a {{ color: #74b9ff; }}
+</style></head><body>
+<h1>Static / cache-bust debug</h1>
+<p>Server time: {now}</p>
+<table>
+<tr><th>Item</th><th>Value</th></tr>
+<tr><td>static_version (template)</td><td class="ok">{version}</td></tr>
+<tr><td>STATIC_VERSION (env)</td><td>{env_version}</td></tr>
+<tr><td>static_version.txt exists</td><td class="{'ok' if version_file_exists else 'err'}">{version_file_exists}</td></tr>
+<tr><td>static_version.txt content</td><td>{version_from_file or '(empty or error)'}</td></tr>
+<tr><td>STATIC_ROOT</td><td>{static_root}</td></tr>
+<tr><td>style.css path</td><td>{style_path_display}</td></tr>
+<tr><td>style.css exists</td><td class="{'ok' if style_exists else 'err'}">{style_exists}</td></tr>
+<tr><td>style.css size</td><td>{style_size if style_size is not None else '-'} bytes</td></tr>
+<tr><td>style.css mtime</td><td>{mtime_str}</td></tr>
+<tr><td>style.css has hero-section + animations-on</td><td class="{'ok' if style_contains_hero else 'warn'}">{style_contains_hero if style_contains_hero is not None else '?'}</td></tr>
+<tr><td>Expected style URL</td><td><a href="{style_url}" target="_blank">{style_url}</a></td></tr>
+</table>
+<p class="warn">If style.css exists but animations are broken: 1) Hard refresh (Ctrl+Shift+R) or open in incognito. 2) Check Nginx serves /static/ from the same path as STATIC_ROOT. 3) After deploy, run collectstatic and write static_version.txt.</p>
+<p>Remove or restrict /debug-static/ in production.</p>
+</body></html>"""
+    return HttpResponse(html)

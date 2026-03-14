@@ -558,6 +558,12 @@ sudo systemctl restart nginx
 curl -I https://angraweb.com | head -n 20
 ```
 
+**صفحهٔ دیباگ استاتیک:** بعد از دپلوی در مرورگر باز کن:
+- آدرس: `https://angraweb.com/debug-static/?key=static`
+- در حالت DEBUG روی سرور می‌توانی بدون `?key=static` هم باز کنی.
+
+این صفحه نشان می‌دهد: نسخهٔ فعلی (`static_version`) که در قالب استفاده می‌شود، وجود و محتوای `static_version.txt`، مسیر STATIC_ROOT، وجود و حجم و زمان تغییر `style.css`، و اینکه آیا داخل CSS عبارت‌های `hero-section` و `animations-on` هست یا نه. اگر «style.css has hero-section + animations-on» قرمز بود یعنی فایل CSS روی دیسک قدیمی یا اشتباه است. اگر سبز بود ولی در سایت استایل خراب است، یعنی Nginx از مسیر دیگری فایل را سرو می‌کند یا مرورگر کش قدیمی دارد (Hard Refresh یا پنجره ناشناس).
+
 **بررسی بعد از دپلوی (استایل/انیمیشن درست لود می‌شود؟):**
 ```bash
 # باید در خروجی یک آدرس با ?v= عدد ببینی (مثلاً style.css?v=1710345678)

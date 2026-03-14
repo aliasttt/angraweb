@@ -10,7 +10,7 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib.sitemaps import views as sitemap_views
-from main.views import set_language, redirect_to_default_language, robots_txt, yandex_verification
+from main.views import set_language, redirect_to_default_language, robots_txt, yandex_verification, debug_static
 from insights.views_admin import admin_dashboard as admin_dashboard_view
 from insights.views_admin import seo_health_dashboard as seo_health_dashboard_view
 from seo_pages.sitemap import sitemaps as seo_sitemaps
@@ -31,6 +31,7 @@ urlpatterns = [
     path('sitemap-<section>.xml', sitemap_views.sitemap, {"sitemaps": seo_sitemaps}, name="sitemap-section"),
     path('robots.txt', robots_txt),
     path('yandex_cdb21588d18ce4cc.html', yandex_verification),
+    path('debug-static/', debug_static),
     path('', redirect_to_default_language),
 ]
 
