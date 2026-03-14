@@ -2589,14 +2589,9 @@ img.lazy-loaded {
     100% { background-position: 200% 0; }
 }
 
-/* Performance Optimizations */
-* {
-    will-change: auto;
-}
-
+/* Performance: avoid will-change on too many elements (hurts compositor); only on key animated nodes */
 .hero-section,
-.section,
-.navbar {
+.home-logo-track {
     will-change: transform;
 }
 
