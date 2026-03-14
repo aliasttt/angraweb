@@ -458,7 +458,7 @@ body[dir="rtl"] .language-switcher {
     border-radius: 2px;
 }
 
-/* Space Background Animation — pointer-events: none تا کلیک را نگرفته و سوئیچ زبان کار کند */
+/* Space Background Animation — compositor-friendly (transform only, no background-position) */
 .space-background {
     position: fixed;
     top: 0;
@@ -467,15 +467,21 @@ body[dir="rtl"] .language-switcher {
     height: 100%;
     z-index: -1;
     pointer-events: none;
+    background: #0a0a0a;
+    overflow: hidden;
+}
+
+.space-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
     background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    /* Performance optimization */
-    will-change: background-position;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    background-size: 25% 100%;
+    animation: gradientShiftSlide 15s ease infinite;
+    will-change: transform;
 }
 
 /* Pause heavy animations until we explicitly enable them for better LCP */
@@ -491,6 +497,12 @@ body[dir="rtl"] .language-switcher {
 .animations-on .planet,
 .animations-on .stars {
     animation-play-state: running;
+}
+
+/* Composited alternative to background-position animation */
+@keyframes gradientShiftSlide {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-25%); }
 }
 
 @keyframes gradientShift {
@@ -1242,6 +1254,12 @@ body[dir="rtl"] .language-switcher {
     font-size: 0.9rem;
 }
 
+.carousel-caption-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
 .hero-visual-carousel .carousel-caption .btn {
     font-weight: 600;
     color: #1a1a2e;
@@ -1487,9 +1505,10 @@ body[dir="rtl"] .language-switcher {
     }
 }
 
+/* Composited pulse (opacity) — avoids non-composited box-shadow animation */
 @keyframes audit-btn-pulse {
-    0%, 100% { box-shadow: 0 8px 24px rgba(116, 185, 255, 0.35); }
-    50% { box-shadow: 0 8px 32px rgba(116, 185, 255, 0.5); }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.92; }
 }
 
 #free-website-audit .btn-primary:hover {
@@ -2767,11 +2786,10 @@ img.lazy-loaded {
     cursor: pointer;
 }
 
-/* Video loading state - show gradient background until video loads */
+/* Video loading state — static gradient (no background-position animation for compositor) */
 .project-video:not([src]) {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #533483 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite;
+    background-size: 100% 100%;
 }
 
 /* Ensure video is visible and ready to play */
@@ -4943,7 +4961,8 @@ img.lazy-loaded {
     flex: 1;
 }
 
-#testimonials .testimonial-info h5 {
+#testimonials .testimonial-info h5,
+#testimonials .testimonial-author-name {
     color: #ffffff !important;
     font-size: 1.1rem;
     font-weight: 600;
@@ -5055,7 +5074,8 @@ img.lazy-loaded {
     flex: 1;
 }
 
-.testimonial-info h5 {
+.testimonial-info h5,
+.testimonial-author-name {
     color: #ffffff;
     font-size: 1.1rem;
     font-weight: 600;
@@ -6965,4 +6985,44 @@ img.lazy-loaded {
     .sitemap-list {
         grid-template-columns: 1fr;
     }
+}
+
+/* ——— Lighthouse / a11y: touch targets (min 44×44), contrast ——— */
+.carousel-indicators button,
+.hero-visual-carousel .carousel-indicators button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.5rem;
+}
+.hero-section .carousel-caption .btn,
+.hero-visual-carousel .carousel-caption .btn {
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-success,
+a.btn-success {
+    background-color: #15803d !important;
+    color: #fff !important;
+    border-color: #15803d;
+}
+.btn-success:hover,
+a.btn-success:hover {
+    background-color: #166534 !important;
+    color: #fff !important;
+}
+.btn-outline-primary {
+    color: #93c5fd !important;
+    border-color: #60a5fa;
+}
+.btn-outline-primary:hover {
+    color: #fff !important;
+    background-color: rgba(96, 165, 250, 0.25);
+    border-color: #93c5fd;
+}
+.insights-consent-banner .insights-consent-accept {
+    background: #16a34a !important;
+    color: #fff !important;
 }
