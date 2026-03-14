@@ -6,6 +6,11 @@
 
 {% block title %}Angraweb | {% trans "Professional Web Design and Software Development" %}{% endblock %}
 
+{% block preload_lcp %}
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preload" href="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" as="image">
+{% endblock %}
+
 {% block meta_description %}Angraweb - {% trans "Professional web design, web development, e-commerce development and SEO services. Modern, fast and mobile-friendly professional websites for growing businesses." %}{% endblock %}
 
 {% block meta_keywords %}Angraweb, انگرا وب, web design, web development, e-commerce development, SEO services, professional website, software development, hosting, UI/UX, Turkey{% endblock %}
@@ -83,7 +88,7 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="Web design">
+                                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="Web design" fetchpriority="high" width="1200" height="630">
                                 <div class="carousel-caption">
                                     <h5>{% if CURRENT_LANGUAGE == 'tr' %}Web Tasarımı{% else %}{% trans "Web Design" %}{% endif %}</h5>
                                     <p>{% if CURRENT_LANGUAGE == 'tr' %}Büyüyen markalar için modern arayüzler{% else %}{% trans "Modern interfaces for growing brands" %}{% endif %}</p>
@@ -91,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="Mobile app design">
+                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="Mobile app design" loading="lazy" width="1200" height="630">
                                 <div class="carousel-caption">
                                     <h5>{% if CURRENT_LANGUAGE == 'tr' %}Mobil Uygulama Tasarımı{% else %}{% trans "Mobile App Design" %}{% endif %}</h5>
                                     <p>{% if CURRENT_LANGUAGE == 'tr' %}Yerel ve çapraz platform mobil uygulamalar{% else %}{% trans "Native and cross-platform mobile applications" %}{% endif %}</p>
@@ -99,7 +104,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="E-commerce">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="E-commerce" loading="lazy" width="1200" height="630">
                                 <div class="carousel-caption">
                                     <h5>{% if CURRENT_LANGUAGE == 'tr' %}E-ticaret{% else %}{% trans "E-commerce" %}{% endif %}</h5>
                                     <p>{% if CURRENT_LANGUAGE == 'tr' %}Güvenli online satış ve ödeme akışı{% else %}{% trans "Secure online sales and payment flow" %}{% endif %}</p>
@@ -107,7 +112,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="SEO services">
+                                <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="SEO services" loading="lazy" width="1200" height="630">
                                 <div class="carousel-caption">
                                     <h5>{% if CURRENT_LANGUAGE == 'tr' %}SEO Hizmetleri{% else %}{% trans "SEO Services" %}{% endif %}</h5>
                                     <p>{% if CURRENT_LANGUAGE == 'tr' %}Performans ve görünürlük odaklı{% else %}{% trans "Performance and visibility focused" %}{% endif %}</p>
@@ -115,7 +120,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="Hosting">
+                                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="Hosting" loading="lazy" width="1200" height="630">
                                 <div class="carousel-caption">
                                     <h5>{% if CURRENT_LANGUAGE == 'tr' %}Hosting Hizmetleri{% else %}{% trans "Hosting Services" %}{% endif %}</h5>
                                     <p>{% if CURRENT_LANGUAGE == 'tr' %}Güvenli ve hızlı hosting altyapısı{% else %}{% trans "Secure and fast hosting infrastructure" %}{% endif %}</p>
@@ -123,7 +128,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1551431009-a802eeec77b1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="UI/UX design">
+                                <img src="https://images.unsplash.com/photo-1551431009-a802eeec77b1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" class="d-block w-100" alt="UI/UX design" loading="lazy" width="1200" height="630">
                                 <div class="carousel-caption">
                                     <h5>{% if CURRENT_LANGUAGE == 'tr' %}Arayüz Tasarımı (UI/UX){% else %}{% trans "UI/UX Design" %}{% endif %}</h5>
                                     <p>{% if CURRENT_LANGUAGE == 'tr' %}Kullanıcı dostu arayüzler ve deneyim tasarımı{% else %}{% trans "User-friendly interfaces and experience design" %}{% endif %}</p>
