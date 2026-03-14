@@ -525,6 +525,8 @@ source /srv/angraweb/venv/bin/activate
 python manage.py migrate --noinput || exit 1
 python manage.py collectstatic --noinput || exit 1
 
+# نسخهٔ استاتیک را در فایل بنویس تا حتی بدون env، قالب ?v= جدید بگیرد (جلوگیری از کش قدیمی)
+echo $(date +%s) > static_version.txt
 
 "
 
@@ -556,9 +558,23 @@ sudo systemctl restart nginx
 curl -I https://angraweb.com | head -n 20
 ```
 
+**بررسی بعد از دپلوی (استایل/انیمیشن درست لود می‌شود؟):**
+```bash
+# باید در خروجی یک آدرس با ?v= عدد ببینی (مثلاً style.css?v=1710345678)
+curl -sI https://angraweb.com/tr/ | head -5
+curl -s https://angraweb.com/tr/ | grep -o 'style.css?v=[^"]*' | head -1
+
+# اگر فایل CSS با همان ?v= برنگشت ۲۰۰، مسیر Nginx اشتباه است
+VER=$(curl -s https://angraweb.com/tr/ | grep -o 'style.css?v=[^"]*' | head -1 | sed 's/.*?v=//')
+curl -sI "https://angraweb.com/static/css/style.css?v=$VER"
+# باید HTTP/2 200 ببینی؛ اگر ۴۰۴ بود، location /static/ در Nginx را به مسیر پروژه (مثلاً /srv/angraweb/staticfiles/) تغییر بده.
+```
+
 ---
 
 ## چرا بعد از هر دپلوی استایل/انیمیشن خراب می‌شود؟
+
+**مهم:** بعد از هر `git push` باید **همان اسکریپت دپلوی کامل** روی سرور اجرا شود (pull + migrate + collectstatic + نوشتن static_version.txt + restart). اگر فقط `git pull` و `restart` بزنی و collectstatic یا به‌روز کردن نسخه را نزنی، استایل/انیمیشن خراب می‌ماند.
 
 **علت اصلی:** مسیر پروژه در اسکریپت دپلوی با مسیر استاتیک در Nginx یکی نیست. اسکریپت در `/srv/angraweb` اجرا می‌شود و `collectstatic` فایل‌های جدید را در `/srv/angraweb/staticfiles/` می‌ریزد؛ اگر در Nginx از `alias /var/www/angraweb/staticfiles/` استفاده شده باشد، Nginx همان فایل‌های **قدیمی** را سرو می‌کند و هر بار دپلوی انگار استاتیک به‌روز نمی‌شود.
 
@@ -572,9 +588,9 @@ curl -I https://angraweb.com | head -n 20
 
 اگر بعد از هر دپلوی استایل‌ها یا انیمیشن‌های صفحهٔ هوم درست لود نمی‌شوند (یا CSS/JS اورراید می‌شود)، علت می‌تواند **مسیر Nginx** (بالا) یا **کش مرورگر/Nginx** باشد.
 
-**راه‌حل:** پروژه از متغیر محیطی `STATIC_VERSION` استفاده می‌کند. با هر بار عوض شدن این مقدار، آدرس فایل‌های CSS/JS در HTML عوض می‌شود (`?v=...`) و مرورگر فایل جدید را می‌گیرد.
+**راه‌حل:** پروژه برای `?v=...` اول از env متغیر `STATIC_VERSION` را می‌خواند؛ اگر نبود از فایل **`static_version.txt`** در ریشهٔ پروژه (همان پوشهٔ `manage.py`). اسکریپت دپلوی در بلوک `sudo -u angraweb bash -lc "..."` بعد از `collectstatic` این خط را اجرا می‌کند: `echo $(date +%s) > static_version.txt` تا هر بار دپلوی نسخه عوض شود و استایل/انیمیشن به‌روز لود شود.
 
-- در **فایل env** (مثلاً `/etc/angraweb/angraweb.env`) یک خط اضافه کنید:
+- در **فایل env** (مثلاً `/etc/angraweb/angraweb.env`) می‌توانی یک خط بگذاری (اختیاری؛ در صورت نبودن، از فایل خوانده می‌شود):
   ```env
   STATIC_VERSION=1
   ```

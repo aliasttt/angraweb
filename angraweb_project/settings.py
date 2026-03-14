@@ -185,9 +185,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# Cache busting: بعد از هر دپلوی این مقدار را عوض کنید تا مرورگر و Nginx فایل‌های جدید CSS/JS را بگیرند
-# در اسکریپت دپلوی: export STATIC_VERSION=$(date +%s) یا از git rev-parse --short HEAD استفاده کنید
-STATIC_VERSION = os.environ.get('STATIC_VERSION', '1')
+# Cache busting: env یا فایل static_version.txt (اسکریپت دپلوی آن را با date +%s پر می‌کند)
+def _static_version():
+    v = os.environ.get('STATIC_VERSION')
+    if v:
+        return v
+    try:
+        p = BASE_DIR / 'static_version.txt'
+        if p.is_file():
+            return p.read_text(encoding='utf-8').strip() or '1'
+    except Exception:
+        pass
+    return '1'
+STATIC_VERSION = _static_version()
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',

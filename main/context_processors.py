@@ -1,12 +1,31 @@
 """
 Context processor: canonical URL, hreflang alternates, and static version for cache busting.
 """
+import os
 from django.conf import settings
 
 
+def _read_static_version_from_file():
+    """Fallback وقتی env بارگذاری نشده؛ اسکریپت دپلوی باید static_version.txt را با date +%s پر کند."""
+    try:
+        path = os.path.join(settings.BASE_DIR, 'static_version.txt')
+        if os.path.isfile(path):
+            with open(path, encoding='utf-8') as f:
+                ver = f.read().strip()
+                if ver:
+                    return ver
+    except Exception:
+        pass
+    return None
+
+
 def static_version(request):
-    """برای جلوگیری از کش قدیمی CSS/JS بعد از دپلوی؛ در قالب ?v={{ static_version }} استفاده شود."""
-    return {'static_version': getattr(settings, 'STATIC_VERSION', '1')}
+    """برای جلوگیری از کش قدیمی CSS/JS بعد از دپلوی؛ در قالب ?v={{ static_version }} استفاده شود.
+    اول env، بعد فایل static_version.txt، در نهایت '1'."""
+    version = os.environ.get('STATIC_VERSION') or getattr(settings, 'STATIC_VERSION', None)
+    if not version:
+        version = _read_static_version_from_file()
+    return {'static_version': version or '1'}
 
 
 def canonical_url(request):

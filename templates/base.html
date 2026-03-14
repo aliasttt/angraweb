@@ -128,7 +128,7 @@
     <!-- Full styles last so hero, WhatsApp, animations are never overridden -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ static_version }}">
 </head>
-<body class="animations-on">
+<body class="animations-on" data-static-version="{{ static_version }}">
     <script>
       // Provide STATIC_URL to JS for dynamic asset URLs (certificates/photos)
       window.STATIC_URL = "{% get_static_prefix %}";
