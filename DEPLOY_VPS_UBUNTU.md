@@ -504,12 +504,14 @@ systemctl restart angraweb
 
 
 
+# اسکریپت دپلوی — در ترمینال سرور (با root یا sudo) اجرا کن. انتهای اسکریپت read دارد تا پنجره بسته نشود و خروجی را ببینی.
+# برای اجرا: کل بلوک زیر را کپی کن و در ترمینال بچسبان، یا در فایل ذخیره کن و با: bash deploy.sh اجرا کن.
+
 sudo -u angraweb bash -lc "
 cd /srv/angraweb || exit 1
 
 # Git: fix safe directory + pull latest
 git config --global --add safe.directory /srv/angraweb
-# If unmerged files (conflict): abort merge and reset to remote so pull can run
 git merge --abort 2>/dev/null || true
 git fetch origin
 git reset --hard origin/main
@@ -517,27 +519,26 @@ git pull --ff-only || exit 1
 
 # بررسی: اگر static/css/style.css بعد از pull هنوز hero-section نداشته باشد، ریپوی سرور به‌روز نیست
 if ! grep -q 'hero-section' /srv/angraweb/static/css/style.css 2>/dev/null; then
-  echo "ERROR: static/css/style.css on server has no 'hero-section' — git pull did not get latest code (check branch, origin, or run pull manually)."
+  echo "ERROR: static/css/style.css on server has no hero-section — git pull did not get latest code."
   exit 1
 fi
 
-# Load env + activate venv
 set -a
 source /etc/angraweb/angraweb.env
 set +a
 source /srv/angraweb/venv/bin/activate
 
-# Django tasks
 python manage.py migrate --noinput || exit 1
-# --clear تا اگر Django فایل‌ها را «unmodified» دید، باز هم از نو کپی شود (جلوگیری از CSS قدیمی در staticfiles)
+
+# هر بار کش استاتیک خالی می‌شود و از نو جمع می‌شود (جلوگیری از CSS/JS قدیمی)
+echo \"[Deploy] Clearing static cache and re-collecting...\"
 python manage.py collectstatic --noinput --clear || exit 1
 
-# نسخهٔ استاتیک را در فایل بنویس تا حتی بدون env، قالب ?v= جدید بگیرد (جلوگیری از کش قدیمی)
-echo $(date +%s) > static_version.txt
-
+echo \$(date +%s) > static_version.txt
+echo \"[Deploy] static_version.txt updated.\"
 "
 
-# به‌روزرسانی STATIC_VERSION تا بعد از دپلوی کش مرورگر/Nginx فایل‌های جدید CSS/JS را بگیرد
+# به‌روزرسانی STATIC_VERSION در env
 ENVFILE=/etc/angraweb/angraweb.env
 if [ -f "$ENVFILE" ]; then
   NEW_VER=$(date +%s)
@@ -548,8 +549,7 @@ if [ -f "$ENVFILE" ]; then
   fi
 fi
 
-# اگر Nginx از مسیر دیگری استاتیک سرو می‌کند (مثلاً /var/www/angraweb)، بعد از collectstatic کپی کن
-# وگرنه همین که Nginx همان مسیر پروژه را ببیند (مثلاً /srv/angraweb/staticfiles/) کافی است.
+# در صورت نیاز: کپی استاتیک به مسیر Nginx
 PROJECT_ROOT=/srv/angraweb
 NGINX_STATIC=/var/www/angraweb/staticfiles
 if [ -d "$NGINX_STATIC" ] && [ "$(readlink -f "$PROJECT_ROOT/staticfiles" 2>/dev/null)" != "$(readlink -f "$NGINX_STATIC" 2>/dev/null)" ]; then
@@ -557,12 +557,21 @@ if [ -d "$NGINX_STATIC" ] && [ "$(readlink -f "$PROJECT_ROOT/staticfiles" 2>/dev
   sudo rsync -a --delete "$PROJECT_ROOT/staticfiles/" "$NGINX_STATIC/"
 fi
 
-# Restart services
+# پاک کردن کش Nginx (اگر proxy_cache برای استاتیک داری)
+if [ -d /var/cache/nginx ] 2>/dev/null; then
+  echo "Purging Nginx cache..."
+  sudo rm -rf /var/cache/nginx/* 2>/dev/null || true
+fi
+
 sudo systemctl restart angraweb
 sudo systemctl restart nginx
 
-# Quick health check
-curl -I https://angraweb.com | head -n 20
+echo ""
+echo "=== Deploy done. Health check ==="
+curl -sI https://angraweb.com | head -n 5
+echo ""
+echo "To close this window without losing output, press Enter."
+read -p "Press Enter to finish..."
 ```
 
 **صفحهٔ دیباگ استاتیک:** بعد از دپلوی در مرورگر باز کن:
@@ -617,6 +626,29 @@ curl -sI "https://angraweb.com/static/css/style.css?v=$VER"
 - در اسکریپت دپلوی (بالا) قبل از `systemctl restart angraweb` مقدار `STATIC_VERSION` با تایم‌استامپ به‌روز می‌شود تا هر دپلوی نسخهٔ جدید استاتیک اعمال شود.
 - اگر از systemd استفاده می‌کنید، مطمئن شوید سرویس با `EnvironmentFile=/etc/angraweb/angraweb.env` این فایل را می‌خواند تا `STATIC_VERSION` به اپ پاس شود.
 
+**اسکریپت سریع: فقط استاتیک را دوباره لود کن (هر وقت کاروسل/متن/استایل خراب شد روی سرور بزن):**
+
+هر وقت استاتیک درست لود نشد (کاروسل، متن، مربع‌ها یا استایل خراب است)، این بلوک را **روی سرور** اجرا کن. کش استاتیک خالی می‌شود، فایل‌ها دوباره جمع می‌شوند، نسخه عوض می‌شود و سرویس ریستارت می‌شود.
+
+```bash
+# فقط استاتیک — بدون git pull
+cd /srv/angraweb || exit 1
+sudo -u angraweb bash -lc "
+  source /srv/angraweb/venv/bin/activate
+  cd /srv/angraweb
+  python manage.py collectstatic --noinput --clear
+  echo \$(date +%s) > static_version.txt
+"
+NEW_VER=$(date +%s)
+ENVFILE=/etc/angraweb/angraweb.env
+[ -f "$ENVFILE" ] && ( grep -q '^STATIC_VERSION=' "$ENVFILE" && sudo sed -i "s/^STATIC_VERSION=.*/STATIC_VERSION=$NEW_VER/" "$ENVFILE" || echo "STATIC_VERSION=$NEW_VER" | sudo tee -a "$ENVFILE" >/dev/null )
+[ -d /var/cache/nginx ] && sudo rm -rf /var/cache/nginx/* 2>/dev/null
+sudo systemctl restart angraweb
+sudo systemctl reload nginx
+echo "Static reloaded. Version: $NEW_VER — Hard refresh the site (Ctrl+Shift+R)."
+read -p "Press Enter to close..."
+```
+
 **اگر هنوز استایل/انیمیشن قدیمی لود می‌شود (یا Bootstrap اورراید می‌کند):**
 
 1. **Nginx:** در `location /static/` حتماً این هدر را داشته باشید تا کش طولانی نشود:
@@ -658,7 +690,6 @@ for dir in /srv/angraweb /var/www/angraweb; do
   fi
 done
 ```
-
 
 
 
