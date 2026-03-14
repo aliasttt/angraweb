@@ -6987,21 +6987,61 @@ img.lazy-loaded {
     }
 }
 
-/* ——— Lighthouse / a11y: touch targets (min 44×44), contrast ——— */
-.carousel-indicators button,
-.hero-visual-carousel .carousel-indicators button {
-    min-width: 44px;
-    min-height: 44px;
-    padding: 0.5rem;
+/* ——— Hero carousel: اندیکاتورها به‌صورت نقطهٔ کوچک، دکمهٔ ادامه با استایل تمیز ——— */
+.hero-visual-carousel .carousel-indicators {
+    margin-bottom: 0.5rem;
+    gap: 0.5rem;
 }
-.hero-section .carousel-caption .btn,
+.hero-visual-carousel .carousel-indicators button {
+    width: 8px;
+    height: 8px;
+    padding: 6px;
+    margin: 0 2px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: background-color 0.25s ease, transform 0.2s ease;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+.hero-visual-carousel .carousel-indicators button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.hero-visual-carousel .carousel-indicators button.active {
+    background-color: #74b9ff;
+    transform: scale(1.2);
+}
+.hero-visual-carousel .carousel-caption {
+    background: linear-gradient(180deg, rgba(10, 14, 39, 0.2), rgba(10, 14, 39, 0.88));
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    bottom: 1.25rem;
+    left: 0.75rem;
+    right: 0.75rem;
+}
 .hero-visual-carousel .carousel-caption .btn {
-    min-height: 44px;
-    padding: 0.5rem 1rem;
+    min-height: 40px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a2e;
+    border: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.hero-visual-carousel .carousel-caption .btn:hover {
+    background: #fff;
+    color: #0a0e27;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
 .btn-success,
 a.btn-success {
     background-color: #15803d !important;

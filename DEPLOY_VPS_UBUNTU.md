@@ -515,6 +515,12 @@ git fetch origin
 git reset --hard origin/main
 git pull --ff-only || exit 1
 
+# بررسی: اگر static/css/style.css بعد از pull هنوز hero-section نداشته باشد، ریپوی سرور به‌روز نیست
+if ! grep -q 'hero-section' /srv/angraweb/static/css/style.css 2>/dev/null; then
+  echo "ERROR: static/css/style.css on server has no 'hero-section' — git pull did not get latest code (check branch, origin, or run pull manually)."
+  exit 1
+fi
+
 # Load env + activate venv
 set -a
 source /etc/angraweb/angraweb.env
@@ -523,7 +529,8 @@ source /srv/angraweb/venv/bin/activate
 
 # Django tasks
 python manage.py migrate --noinput || exit 1
-python manage.py collectstatic --noinput || exit 1
+# --clear تا اگر Django فایل‌ها را «unmodified» دید، باز هم از نو کپی شود (جلوگیری از CSS قدیمی در staticfiles)
+python manage.py collectstatic --noinput --clear || exit 1
 
 # نسخهٔ استاتیک را در فایل بنویس تا حتی بدون env، قالب ?v= جدید بگیرد (جلوگیری از کش قدیمی)
 echo $(date +%s) > static_version.txt
@@ -562,7 +569,14 @@ curl -I https://angraweb.com | head -n 20
 - آدرس: `https://angraweb.com/debug-static/?key=static`
 - در حالت DEBUG روی سرور می‌توانی بدون `?key=static` هم باز کنی.
 
-این صفحه نشان می‌دهد: نسخهٔ فعلی (`static_version`) که در قالب استفاده می‌شود، وجود و محتوای `static_version.txt`، مسیر STATIC_ROOT، وجود و حجم و زمان تغییر `style.css`، و اینکه آیا داخل CSS عبارت‌های `hero-section` و `animations-on` هست یا نه. اگر «style.css has hero-section + animations-on» قرمز بود یعنی فایل CSS روی دیسک قدیمی یا اشتباه است. اگر سبز بود ولی در سایت استایل خراب است، یعنی Nginx از مسیر دیگری فایل را سرو می‌کند یا مرورگر کش قدیمی دارد (Hard Refresh یا پنجره ناشناس).
+این صفحه نشان می‌دهد: نسخهٔ فعلی (`static_version`) که در قالب استفاده می‌شود، وجود و محتوای `static_version.txt`، مسیر STATIC_ROOT، وجود و حجم و زمان تغییر `style.css`، و اینکه آیا داخل CSS عبارت‌های `hero-section` و `animations-on` هست یا نه.
+
+**اگر «style.css has hero-section + animations-on» = False (قرمز):** یعنی فایل داخل `staticfiles` از **منبع قدیمی** جمع شده. روی سرور باید `static/css/style.css` (قبل از collectstatic) به‌روز باشد. کارهای لازم:
+1. مطمئن شو روی سرور واقعاً بعد از هر دپلوی `git pull` (یا `git fetch` + `reset --hard origin/main`) از همان برنچی که رویش پوش می‌زنی اجرا می‌شود.
+2. دستی چک کن: `grep hero-section /srv/angraweb/static/css/style.css` — اگر خروجی نداد، ریپوی سرور به‌روز نیست؛ یک بار دستی `cd /srv/angraweb && git fetch origin && git status && git log -1` بزن و برنچ و آخرین کامیت را ببین.
+3. در اسکریپت دپلوی (پایین) بعد از `git pull` یک چک اضافه شده: اگر `static/css/style.css` روی سرور hero-section نداشته باشد، اسکریپت با خطا متوقف می‌شود تا دپلوی ناقص نرود.
+
+اگر آن مورد سبز بود ولی در سایت استایل خراب است، یعنی Nginx از مسیر دیگری فایل را سرو می‌کند یا مرورگر کش قدیمی دارد (Hard Refresh یا پنجره ناشناس).
 
 **بررسی بعد از دپلوی (استایل/انیمیشن درست لود می‌شود؟):**
 ```bash
