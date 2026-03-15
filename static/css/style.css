@@ -4171,7 +4171,7 @@ img.lazy-loaded {
 /* WhatsApp Fixed Button with Quote - Combined */
 .whatsapp-fixed-container {
     position: fixed;
-    bottom: 20px;
+    bottom: 90px; /* above cookie consent banner (~60px) + gap */
     right: 20px;
     z-index: 1000;
     display: flex;
@@ -4375,7 +4375,7 @@ img.lazy-loaded {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .whatsapp-fixed-container {
-        bottom: 15px;
+        bottom: 85px; /* above cookie banner on mobile too */
         right: 15px;
         padding: 0.6rem 1.2rem;
     }

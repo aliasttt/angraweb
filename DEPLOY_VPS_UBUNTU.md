@@ -505,7 +505,11 @@ systemctl restart angraweb
 
 
 # اسکریپت دپلوی — در ترمینال سرور (با root یا sudo) اجرا کن. انتهای اسکریپت read دارد تا پنجره بسته نشود و خروجی را ببینی.
-# برای اجرا: کل بلوک زیر را کپی کن و در ترمینال بچسبان، یا در فایل ذخیره کن و با: bash deploy.sh اجرا کن.
+#
+# **توصیه:** از اسکریپت آماده در ریپو استفاده کن (بدون مشکل quote و syntax error):
+#   cd /srv/angraweb && git pull && sudo bash scripts/deploy-vps.sh
+#
+# یا کل بلوک زیر را کپی کن و در ترمینال بچسبان (داخل echo باید \" باشد).
 
 sudo -u angraweb bash -lc "
 cd /srv/angraweb || exit 1
@@ -519,7 +523,7 @@ git pull --ff-only || exit 1
 
 # بررسی: اگر static/css/style.css بعد از pull هنوز hero-section نداشته باشد، ریپوی سرور به‌روز نیست
 if ! grep -q 'hero-section' /srv/angraweb/static/css/style.css 2>/dev/null; then
-  echo "ERROR: static/css/style.css on server has no hero-section — git pull did not get latest code."
+  echo \"ERROR: static/css/style.css on server has no hero-section — git pull did not get latest code.\"
   exit 1
 fi
 
