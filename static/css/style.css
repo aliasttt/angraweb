@@ -4372,10 +4372,10 @@ img.lazy-loaded {
     transform: translateY(-2px);
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive - keep WhatsApp above cookie banner when it wraps on narrow screens */
 @media (max-width: 768px) {
     .whatsapp-fixed-container {
-        bottom: 85px !important; /* above cookie banner on mobile too */
+        bottom: 100px !important; /* above cookie banner (taller when text wraps) */
         right: 15px;
         padding: 0.6rem 1.2rem;
     }
@@ -4388,7 +4388,16 @@ img.lazy-loaded {
     .whatsapp-quote-text {
         font-size: 0.85rem;
     }
-    
+}
+
+/* Extra small: cookie banner can be 2–3 lines, keep WhatsApp well above */
+@media (max-width: 576px) {
+    .whatsapp-fixed-container {
+        bottom: 110px !important;
+    }
+}
+
+@media (max-width: 768px) {
     .discount-notification {
         top: 60px;
         padding: 0.4rem 0.8rem;
