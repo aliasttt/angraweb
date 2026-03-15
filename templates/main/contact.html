@@ -43,6 +43,11 @@
             <span class="text-gradient">{% if current_lang == 'tr' %}Projenizi Konusalim{% else %}Let's Discuss Your Project{% endif %}</span>
         </h1>
         <p class="hero-subtitle mt-3 contact-animate visible">{% if current_lang == 'tr' %}Yeni bir web sitesi, mobil uygulama veya ozel yazilim projesi mi planliyorsunuz?{% else %}Planning a new website, mobile application, or custom software platform?{% endif %}</p>
+        <div class="mt-4 contact-animate visible">
+            <a href="https://wa.me/905340382335?text={% if current_lang == 'tr' %}Merhaba%2C%20projem%20hakkinda%20konusmak%20istiyorum.{% else %}Hi%2C%20I%27d%20like%20to%20discuss%20my%20project.{% endif %}" class="btn btn-success btn-lg shadow-sm" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp me-2"></i>{% if current_lang == 'tr' %}WhatsApp ile Yazın{% else %}Message on WhatsApp{% endif %}
+            </a>
+        </div>
     </div>
 </section>
 
